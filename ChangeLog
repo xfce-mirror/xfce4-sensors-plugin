@@ -1,0 +1,19 @@
+2004-12-24 13:49  benny
+
+	* Makefile.am, README, TODO, autogen.sh, configure.ac,
+	  config.guess, config.sub, ltmain.sh, aclocal.m4, config.h.in,
+	  install-sh, missing, compile, configure, depcomp, AUTHORS,
+	  COPYING, INSTALL, Makefile.in, m4/debug.m4, m4/depends.m4,
+	  m4/i18n.m4, m4/pkg.m4, panel-plugin/Makefile.am,
+	  panel-plugin/Makefile.in, panel-plugin/sensors.c: Initial import.
+
+2004-12-24 13:49  benny
+
+	* Makefile.am, README, TODO, autogen.sh, configure.ac,
+	  config.guess, config.sub, ltmain.sh, aclocal.m4, config.h.in,
+	  install-sh, missing, compile, configure, depcomp, AUTHORS,
+	  COPYING, INSTALL, Makefile.in, m4/debug.m4, m4/depends.m4,
+	  m4/i18n.m4, m4/pkg.m4, panel-plugin/Makefile.am,
+	  panel-plugin/Makefile.in, panel-plugin/sensors.c: Initial
+	  revision
+

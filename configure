@@ -1814,7 +1814,7 @@ fi
 
 
 # Define the identity of the package.
- PACKAGE=xfce4-wavelan-plugin
+ PACKAGE=xfce4-sensors-plugin
  VERSION=0.3.0
 
 
@@ -20767,7 +20767,7 @@ echo "${ECHO_T}yes" >&6
   fi
 
 
-                    ac_config_files="$ac_config_files Makefile panel-plugin/Makefile"
+                              ac_config_files="$ac_config_files Makefile xfce4-sensors-plugin.spec panel-plugin/Makefile"
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
 # tests run on this system so they can be shared between configure
@@ -21339,6 +21339,7 @@ do
   case "$ac_config_target" in
   # Handling of arguments.
   "Makefile" ) CONFIG_FILES="$CONFIG_FILES Makefile" ;;
+  "xfce4-sensors-plugin.spec" ) CONFIG_FILES="$CONFIG_FILES xfce4-sensors-plugin.spec" ;;
   "panel-plugin/Makefile" ) CONFIG_FILES="$CONFIG_FILES panel-plugin/Makefile" ;;
   "depfiles" ) CONFIG_COMMANDS="$CONFIG_COMMANDS depfiles" ;;
   "config.h" ) CONFIG_HEADERS="$CONFIG_HEADERS config.h" ;;

@@ -9,7 +9,7 @@ AC_INIT([panel-plugin/sensors.c])
 
 AM_CONFIG_HEADER([config.h])
 
-AM_INIT_AUTOMAKE([xfce4-wavelan-plugin], [0.3.0])
+AM_INIT_AUTOMAKE([xfce4-sensors-plugin], [0.3.0])
 
 AM_MAINTAINER_MODE
 
@@ -34,5 +34,6 @@ BM_DEBUG_SUPPORT
 
 AC_OUTPUT([
 Makefile
+xfce4-sensors-plugin.spec
 panel-plugin/Makefile
 ])
