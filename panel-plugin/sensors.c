@@ -1,4 +1,4 @@
-/*  Copyright 2004 Fabian Nowak (timys@gmx.de)
+/*  Copyright 2004 Fabian Nowak (timystery@arcor.de)
  *  
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -26,6 +26,8 @@
 #include <panel/controls.h>
 #include <panel/icons.h>
 #include <panel/plugins.h>
+
+#include <glib/gprintf.h>
 
 #define BORDER 6
 
@@ -65,7 +67,7 @@ typedef struct {
     gint sensorsCount[10];
     
     /* contains structure from libsensors */
-    sensors_chip_name *chipName[10];
+    const sensors_chip_name *chipName[10];
     
     /* formatted sensor chip names, e.g. 'asb-100-45' */
     gchar *sensorId[10];
@@ -125,7 +127,7 @@ sensors_show_panel (gpointer data)
 
     /* g_printf(" sensors_show_panel\n"); */
 
-    g_return_if_fail (data != NULL);
+    g_return_val_if_fail (data != NULL, FALSE);
 
     t_sensors *st = (t_sensors *) data;
     
@@ -234,7 +236,6 @@ sensors_show_panel (gpointer data)
         while (chipFeature < 256) {
         
             if (st->sensorCheckBoxes[chipNumber][chipFeature] == TRUE) {
-                GtkWidget *myValueLabel = gtk_label_new("text");
                    
                 /* g_snprintf(myLabelText, 1024, 
                     "%s<span foreground=\"%s\" size=\"%s\">%s</span>", 
@@ -277,7 +278,7 @@ sensors_date_tooltip (gpointer data)
 {
     /* g_printf(" sensors_date_tooltip \n");  */
 
-    g_return_if_fail (data != NULL);
+    g_return_val_if_fail (data != NULL, FALSE);
 
     t_sensors *st = (t_sensors *) data;
     
@@ -341,9 +342,8 @@ sensors_date_tooltip (gpointer data)
                 
                 gchar *help = g_strdup_printf("%+5.2f", sensorFeature);
 
-                /* FIX ME: '\' is interpreted with '\040' and warning is put
-                 out */
-                myToolTipText = g_strconcat (myToolTipText, "\n \ \ ", 
+                /* FIXED: '\ ' ain't necessary for spaces. ' ' works. */
+                myToolTipText = g_strconcat (myToolTipText, "\n  ", 
                     st->sensorNames[i][nr1], ": ", help, NULL);
                 
                 st->sensorValues[i][nr1] = g_strdup(help);
@@ -688,8 +688,8 @@ sensors_read_config (Control * control, xmlNodePtr node)
         if (!xmlStrEqual (chipNode->name, "Chip"))
     	   return;
     	
-    	gchar* sensorName;
-    	gint sensorNumber;
+    	gchar* sensorName=" ";
+    	gint sensorNumber=0;
     	
     	if ((value = xmlGetProp (chipNode, (const xmlChar *) "Name"))) {
             /* g_printf(" value: %s \n", value); */
@@ -721,7 +721,7 @@ sensors_read_config (Control * control, xmlNodePtr node)
                 if (!xmlStrEqual (featureNode->name, "Feature"))
             	   return;
         	
-            	gint id, address;
+            	gint id=0, address=0;
         	
             	if ((value = 
             	   xmlGetProp (featureNode, (const xmlChar *) "Id"))) {
