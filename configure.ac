@@ -30,7 +30,7 @@ dnl configure the panel plugin
 XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.0.0])
 
 dnl I18n support
-BM_I18N([xfce4-sensors-plugin], [de])
+BM_I18N([xfce4-sensors-plugin], [de ko])
 
 dnl Check for debugging support
 BM_DEBUG_SUPPORT
