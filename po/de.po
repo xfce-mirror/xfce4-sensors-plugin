@@ -1,18 +1,28 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# German translation for the xfce4-sensors-plugin.
+# Copyright (C) 2004 Fabian Nowak
+# This file is distributed under the same license as the xfce4-sensors-plugin package.
+# Fabian Nowak <timystery@arcor.de>, 2004.
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.3.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-12-28 20:39+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2004-12-29 21:20+0100\n"
 "Last-Translator: Benedikt Meurer <benny@xfce.org>\n"
 "Language-Team: de <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: panel-plugin/sensors.c:151
+#, c-format
+msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span> \n"
+msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensoren</b></span> \n"
+
+#: panel-plugin/sensors.c:214
+#, c-format
+msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
+msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensoren</b></span>"
 
 #. +--------------------+
 #. I asb-1-100          I
@@ -28,7 +38,7 @@ msgstr ""
 #. circumvent empty char pointer
 #: panel-plugin/sensors.c:301
 msgid "No sensors selected!"
-msgstr ""
+msgstr "Keine Sensoren ausgewählt!"
 
 #: panel-plugin/sensors.c:337
 msgid ""
@@ -47,44 +57,49 @@ msgid ""
 "feature value. \n"
 "Proper proceeding cannot be                         guaranteed.\n"
 msgstr ""
+" \n"
+"Xfce Hardware Sensors Plugin:                         \n"
+"Anscheinend gab es ein Problem beim Auslesen                            "
+"eines Wertes. \n"
+"Sauberes Weiterlaufen kann nicht gewährleistet werden.\n"
 
 #: panel-plugin/sensors.c:1056
 msgid "Show title"
-msgstr ""
+msgstr "Titel anzeigen"
 
 #: panel-plugin/sensors.c:1081
 msgid "Sensors type:"
-msgstr ""
+msgstr "Sensortyp"
 
 #. g_printf(" add_font_size_box\n");
 #: panel-plugin/sensors.c:1193
 msgid "Font size:"
-msgstr ""
+msgstr "Schriftgröße"
 
 #: panel-plugin/sensors.c:1197
 msgid "x-small"
-msgstr ""
+msgstr "extra-klein"
 
 #: panel-plugin/sensors.c:1198
 msgid "small"
-msgstr ""
+msgstr "klein"
 
 #: panel-plugin/sensors.c:1199
 msgid "medium"
-msgstr ""
+msgstr "medium"
 
 #: panel-plugin/sensors.c:1200
 msgid "large"
-msgstr ""
+msgstr "groß"
 
 #: panel-plugin/sensors.c:1201
 msgid "x-large"
-msgstr ""
+msgstr "extra-groß"
 
 #: panel-plugin/sensors.c:1234
 msgid "Update interval (seconds):"
-msgstr ""
+msgstr "auffrischungsintervall (Sekunden)"
 
 #: panel-plugin/sensors.c:1327
 msgid "Hardware Sensors"
-msgstr ""
+msgstr "Hardware Sensoren"
