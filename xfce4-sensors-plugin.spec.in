@@ -9,6 +9,8 @@ Group: 		User Interface/Desktops
 BuildRoot: 	%{_tmppath}/%{name}-root
 Requires:	xfce4-panel >= @XFCE4_PANEL_REQUIRED_VERSION@
 BuildRequires:	xfce4-panel >= @XFCE4_PANEL_REQUIRED_VERSION@
+Requires:	lm_sensors >= 2.8
+BuildRequires:	lm_sensors-devel >= 2.8
 
 %description
 This plugin displays various hardware sensor values in the Xfce panel.
