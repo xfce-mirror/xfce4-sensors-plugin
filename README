@@ -1,0 +1,22 @@
+Xfce4-Sensors-Plugin
+====================
+
+Version 0.3
+
+Copyright (c) 2004 by Fabian Nowak (timystery@arcor.de)
+
+Licence: GPL version 2 (or later at your option)
+
+Description: Reads your hardware sensor values and displays them in your panel
+
+Dependencies: libxfcegui4-1, libxfce4util-1, libgtk2.0-0, libsensors3, 
+                xfce4-panel
+              libxfcegui4-dev, libxfce4util-dev, libgtk2.0-dev, libsensors-dev, 
+                xfce4-panel-dev
+
+Installation: make && [sudo] make install
+
+Bugs: Refer to TODO file
+
+Thanks to: Xfce Team
+
