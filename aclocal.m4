@@ -7009,4 +7009,6 @@ AC_SUBST([am__untar])
 
 m4_include([m4/debug.m4])
 m4_include([m4/depends.m4])
+m4_include([m4/glib-gettext.m4])
+m4_include([m4/i18n.m4])
 m4_include([m4/pkg.m4])

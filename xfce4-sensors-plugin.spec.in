@@ -33,3 +33,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %doc AUTHORS COPYING ChangeLog INSTALL README TODO
 %{_libdir}/xfce4/panel-plugins/
+%{_datadir}/
