@@ -4,9 +4,9 @@
 # Fabian Nowak <timystery@arcor.de>, 2004.
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-sensors-plugin 0.3.1\n"
+"Project-Id-Version: xfce4-sensors-plugin 0.3.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-28 20:39+0100\n"
+"POT-Creation-Date: 2004-12-31 11:38+0100\n"
 "PO-Revision-Date: 2004-12-29 21:20+0100\n"
 "Last-Translator: Benedikt Meurer <benny@xfce.org>\n"
 "Language-Team: de <LL@li.org>\n"
@@ -48,6 +48,27 @@ msgid ""
 "feature                         value. \n"
 "Proper proceeding cannot be guaranteed. \n"
 msgstr ""
+" \n"
+"Xfce Hardware Sensors Plugin:                         \n"
+"Anscheinend gab es ein Problem beim Auslesen                            "
+"eines Wertes. \n"
+"Sauberes Weiterlaufen kann nicht gewährleistet werden.\n"
+
+#: panel-plugin/sensors.c:468
+#, fuzzy
+msgid "No sensors found!"
+msgstr "Keine Sensoren ausgewählt!"
+
+#: panel-plugin/sensors.c:515
+#, c-format
+msgid ""
+"A problem occured while trying to close the config file.                     "
+"Restart your computer ... err ...                      restart the sensor "
+"daemon only :-) \n"
+msgstr ""
+"Ein Problem trat beim Schließen der Konfigurationsdatei auf.                 "
+"Starten Sie Ihren Rechner neu ...ähm...                starten Sie einfach "
+"den Sensor-Dämon neu :-) \n"
 
 #: panel-plugin/sensors.c:1002
 msgid ""

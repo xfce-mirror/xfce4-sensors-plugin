@@ -8,13 +8,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-28 20:39+0100\n"
+"POT-Creation-Date: 2004-12-31 11:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: panel-plugin/sensors.c:151
+#, c-format
+msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span> \n"
+msgstr ""
+
+#: panel-plugin/sensors.c:214
+#, c-format
+msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
+msgstr ""
 
 #. +--------------------+
 #. I asb-1-100          I
@@ -39,6 +49,18 @@ msgid ""
 "                       Seems like there was a problem reading a sensor "
 "feature                         value. \n"
 "Proper proceeding cannot be guaranteed. \n"
+msgstr ""
+
+#: panel-plugin/sensors.c:468
+msgid "No sensors found!"
+msgstr ""
+
+#: panel-plugin/sensors.c:515
+#, c-format
+msgid ""
+"A problem occured while trying to close the config file.                     "
+"Restart your computer ... err ...                      restart the sensor "
+"daemon only :-) \n"
 msgstr ""
 
 #: panel-plugin/sensors.c:1002
