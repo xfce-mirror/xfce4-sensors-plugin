@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-31 11:38+0100\n"
+"POT-Creation-Date: 2004-12-31 11:45+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,12 +16,12 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/sensors.c:151
+#: panel-plugin/sensors.c:173
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span> \n"
 msgstr ""
 
-#: panel-plugin/sensors.c:214
+#: panel-plugin/sensors.c:236
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 msgstr ""
@@ -38,11 +38,11 @@ msgstr ""
 #. FIX ME!
 #. = (gchar *) g_malloc(1024);
 #. circumvent empty char pointer
-#: panel-plugin/sensors.c:301
+#: panel-plugin/sensors.c:323
 msgid "No sensors selected!"
 msgstr ""
 
-#: panel-plugin/sensors.c:337
+#: panel-plugin/sensors.c:359
 msgid ""
 " \n"
 "Xfce Hardware Sensors Plugin: \n"
@@ -51,11 +51,11 @@ msgid ""
 "Proper proceeding cannot be guaranteed. \n"
 msgstr ""
 
-#: panel-plugin/sensors.c:468
+#: panel-plugin/sensors.c:490
 msgid "No sensors found!"
 msgstr ""
 
-#: panel-plugin/sensors.c:515
+#: panel-plugin/sensors.c:537
 #, c-format
 msgid ""
 "A problem occured while trying to close the config file.                     "
@@ -63,7 +63,7 @@ msgid ""
 "daemon only :-) \n"
 msgstr ""
 
-#: panel-plugin/sensors.c:1002
+#: panel-plugin/sensors.c:1024
 msgid ""
 " \n"
 "Xfce Hardware Sensors Plugin:                         \n"
@@ -72,43 +72,43 @@ msgid ""
 "Proper proceeding cannot be                         guaranteed.\n"
 msgstr ""
 
-#: panel-plugin/sensors.c:1056
+#: panel-plugin/sensors.c:1078
 msgid "Show title"
 msgstr ""
 
-#: panel-plugin/sensors.c:1081
+#: panel-plugin/sensors.c:1103
 msgid "Sensors type:"
 msgstr ""
 
 #. g_printf(" add_font_size_box\n");
-#: panel-plugin/sensors.c:1193
+#: panel-plugin/sensors.c:1215
 msgid "Font size:"
 msgstr ""
 
-#: panel-plugin/sensors.c:1197
+#: panel-plugin/sensors.c:1219
 msgid "x-small"
 msgstr ""
 
-#: panel-plugin/sensors.c:1198
+#: panel-plugin/sensors.c:1220
 msgid "small"
 msgstr ""
 
-#: panel-plugin/sensors.c:1199
+#: panel-plugin/sensors.c:1221
 msgid "medium"
 msgstr ""
 
-#: panel-plugin/sensors.c:1200
+#: panel-plugin/sensors.c:1222
 msgid "large"
 msgstr ""
 
-#: panel-plugin/sensors.c:1201
+#: panel-plugin/sensors.c:1223
 msgid "x-large"
 msgstr ""
 
-#: panel-plugin/sensors.c:1234
+#: panel-plugin/sensors.c:1256
 msgid "Update interval (seconds):"
 msgstr ""
 
-#: panel-plugin/sensors.c:1327
+#: panel-plugin/sensors.c:1349
 msgid "Hardware Sensors"
 msgstr ""
