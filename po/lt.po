@@ -1,0 +1,129 @@
+# Lithuanian translation of xfce4-sensors-plugin.
+# Copyright (C) 2005 THE xfce4-sensors-plugin'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce4-sensors-plugin package.
+# Rimas Kudelis <rq@akl.lt>, 2005.
+# 
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-sensors-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-12-31 11:45+0100\n"
+"PO-Revision-Date: 2005-02-04 21:07+0200\n"
+"Last-Translator: Rimas Kudelis <rq@akl.lt>\n"
+"Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit"
+
+#: panel-plugin/sensors.c:173
+#, c-format
+msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span> \n"
+msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensoriai</b></span> \n"
+
+#: panel-plugin/sensors.c:236
+#, c-format
+msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
+msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensoriai</b></span>"
+
+#. +--------------------+
+#. I asb-1-100          I
+#. I   CPU: 42.00       I
+#. I   MB: 24.50        I
+#. I eeprom-80          I
+#. I   id: 42           I
+#. +--------------------+
+#. we will duplicate the string everywhere,
+#. so don't allocate a fixed portion.
+#. FIX ME!
+#. = (gchar *) g_malloc(1024);
+#. circumvent empty char pointer
+#: panel-plugin/sensors.c:323
+msgid "No sensors selected!"
+msgstr "Nepasirinkti jokie sensoriai!"
+
+#: panel-plugin/sensors.c:359
+msgid ""
+" \n"
+"Xfce Hardware Sensors Plugin: \n"
+"                       Seems like there was a problem reading a sensor "
+"feature                         value. \n"
+"Proper proceeding cannot be guaranteed. \n"
+msgstr ""
+" \n"
+"Xfce aparatinių sensorių įskiepis: \n"
+"                       Atrodo, jog buvo problemų nuskaitant sensoriaus "
+"savybės                         reikšmę. \n"
+"Tvarkingas tolesnis darbas negali būti užtikrinamas. \n"
+
+#: panel-plugin/sensors.c:490
+msgid "No sensors found!"
+msgstr "Jokių sensorių nerasta!"
+
+#: panel-plugin/sensors.c:537
+#, c-format
+msgid ""
+"A problem occured while trying to close the config file.                     "
+"Restart your computer ... err ...                      restart the sensor "
+"daemon only :-) \n"
+msgstr ""
+"Bandant užverti konfigūracijos bylą, įvyko klaida.·····················"
+"Perleiskite savo kompiuterį … hmm …······················ tiksliau, perleiskite "
+"tik sensorių tarnybą. :-) \n"
+
+#: panel-plugin/sensors.c:1024
+msgid ""
+" \n"
+"Xfce Hardware Sensors Plugin:                         \n"
+"Seems like there was a problem reading a sensor                         "
+"feature value. \n"
+"Proper proceeding cannot be                         guaranteed.\n"
+msgstr ""
+" \n"
+"Xfce aparatinių sensorių įskiepis:                         \n"
+"Panašu, jog buvo problemų nuskaitant sensoriaus                         "
+"savybės reikšmę. \n"
+"Tvarkingas tolesnis                         darbas negali būti užtikrinamas. \n"
+""
+
+#: panel-plugin/sensors.c:1078
+msgid "Show title"
+msgstr "Rodyti pavadinimą"
+
+#: panel-plugin/sensors.c:1103
+msgid "Sensors type:"
+msgstr "Sensorių tipas:"
+
+#. g_printf(" add_font_size_box\n");
+#: panel-plugin/sensors.c:1215
+msgid "Font size:"
+msgstr "Šrifto dydis:"
+
+#: panel-plugin/sensors.c:1219
+msgid "x-small"
+msgstr "labai mažas"
+
+#: panel-plugin/sensors.c:1220
+msgid "small"
+msgstr "mažas"
+
+#: panel-plugin/sensors.c:1221
+msgid "medium"
+msgstr "vidutinis"
+
+#: panel-plugin/sensors.c:1222
+msgid "large"
+msgstr "didelis"
+
+#: panel-plugin/sensors.c:1223
+msgid "x-large"
+msgstr "labai didelis"
+
+#: panel-plugin/sensors.c:1256
+msgid "Update interval (seconds):"
+msgstr "Atnaujinimo dažnumas (sek.):"
+
+#: panel-plugin/sensors.c:1349
+msgid "Hardware Sensors"
+msgstr "Aparatiniai sensoriai"
+
