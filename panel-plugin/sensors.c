@@ -147,8 +147,8 @@ sensors_show_panel (gpointer data)
         /* g_snprintf(myLabelText, 1024, 
           "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span> \n",
           st->fontSize); */
-        myLabelText = g_strdup_printf(
-          "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span> \n", 
+        myLabelText = g_strdup_printf(_(
+          "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span> \n"), 
           st->fontSize);
     }
     else /* nul-terminate the string for further concatenating */
@@ -210,8 +210,8 @@ sensors_show_panel (gpointer data)
             /* g_sprintf(myLabelText, 1024,
               "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>",
               st->fontSize); */
-            myLabelText = g_strdup_printf(
-              "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>",
+            myLabelText = g_strdup_printf(_(
+              "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"),
               st->fontSize);
     }
     
@@ -465,7 +465,7 @@ sensors_new (void)
     /* error handling for no sensors */
     if (st->sensorNumber == 0) {
         st->sensorAddress    [0] [0] = 0;
-        st->sensorId             [0] =  g_strdup("No sensors found!");
+        st->sensorId             [0] =  g_strdup(_("No sensors found!"));
         st->sensorsCount         [0] = 1;
         st->sensorColors     [0] [0] = "#000000";
         st->sensorNames      [0] [0] = "No sensor";
@@ -512,9 +512,9 @@ sensors_free (Control *control)
       {
         int closeResult = fclose(filename);
         if (closeResult!=0) 
-           printf("A problem occured while trying to close the config file. \
+           printf(_("A problem occured while trying to close the config file. \
                     Restart your computer ... err ... \
-                     restart the sensor daemon only :-) \n");
+                     restart the sensor daemon only :-) \n"));
       }
 
     g_return_if_fail (st != NULL);

@@ -1,7 +1,19 @@
+2004-12-31 11:23  timystery
+
+	* panel-plugin/sensors.c: added i18n macros to some strings
+
+2004-12-28 20:42  benny
+
+	* ChangeLog, Makefile.am, Makefile.in, aclocal.m4, autogen.sh,
+	config.h.in, configure, configure.ac, mkinstalldirs,
+	xfce4-sensors-plugin.spec.in, m4/glib-gettext.m4,
+	panel-plugin/Makefile.in: Added i18n support. Added dist-bz2 and
+	distcheck-bz2 targets. Updated spec file.
+
 2004-12-27 11:39  timystery
 
 	* ChangeLog, README, configure, panel-plugin/sensors.c: removed
-	  warnings, changed everything to version 0.3.1
+	warnings, changed everything to version 0.3.1
 
 2004-12-27 10:46  benny
 
@@ -10,25 +22,24 @@
 2004-12-24 14:15  benny
 
 	* ChangeLog, Makefile.am, Makefile.in, NEWS, configure,
-	  configure.ac, xfce4-sensors-plugin.spec.in: Added missing files.
-	  Fixes.
+	configure.ac, xfce4-sensors-plugin.spec.in: Added missing files.
+	Fixes.
 
 2004-12-24 13:49  benny
 
 	* Makefile.am, README, TODO, autogen.sh, configure.ac,
-	  config.guess, config.sub, ltmain.sh, aclocal.m4, config.h.in,
-	  install-sh, missing, compile, configure, depcomp, AUTHORS,
-	  COPYING, INSTALL, Makefile.in, m4/debug.m4, m4/depends.m4,
-	  m4/i18n.m4, m4/pkg.m4, panel-plugin/Makefile.am,
-	  panel-plugin/Makefile.in, panel-plugin/sensors.c: Initial import.
+	config.guess, config.sub, ltmain.sh, aclocal.m4, config.h.in,
+	install-sh, missing, compile, configure, depcomp, AUTHORS, COPYING,
+	INSTALL, Makefile.in, m4/debug.m4, m4/depends.m4, m4/i18n.m4,
+	m4/pkg.m4, panel-plugin/Makefile.am, panel-plugin/Makefile.in,
+	panel-plugin/sensors.c: Initial import.
 
 2004-12-24 13:49  benny
 
 	* Makefile.am, README, TODO, autogen.sh, configure.ac,
-	  config.guess, config.sub, ltmain.sh, aclocal.m4, config.h.in,
-	  install-sh, missing, compile, configure, depcomp, AUTHORS,
-	  COPYING, INSTALL, Makefile.in, m4/debug.m4, m4/depends.m4,
-	  m4/i18n.m4, m4/pkg.m4, panel-plugin/Makefile.am,
-	  panel-plugin/Makefile.in, panel-plugin/sensors.c: Initial
-	  revision
+	config.guess, config.sub, ltmain.sh, aclocal.m4, config.h.in,
+	install-sh, missing, compile, configure, depcomp, AUTHORS, COPYING,
+	INSTALL, Makefile.in, m4/debug.m4, m4/depends.m4, m4/i18n.m4,
+	m4/pkg.m4, panel-plugin/Makefile.am, panel-plugin/Makefile.in,
+	panel-plugin/sensors.c: Initial revision
 
