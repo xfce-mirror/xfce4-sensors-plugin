@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.3.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-31 13:13+0100\n"
+"POT-Creation-Date: 2005-06-15 20:14+0200\n"
 "PO-Revision-Date: 2004-12-31 10:52+0100\n"
 "Last-Translator: Benedikt Meurer <benny@xfce.org>\n"
 "Language-Team: de <LL@li.org>\n"
@@ -14,12 +14,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/sensors.c:152
+#: panel-plugin/sensors.c:174
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span> \n"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensoren</b></span> \n"
 
-#: panel-plugin/sensors.c:215
+#: panel-plugin/sensors.c:237
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensoren</b></span>"
@@ -36,91 +36,109 @@ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensoren</b></span>"
 #. FIX ME!
 #. = (gchar *) g_malloc(1024);
 #. circumvent empty char pointer
-#: panel-plugin/sensors.c:302
+#: panel-plugin/sensors.c:324
 msgid "No sensors selected!"
 msgstr "Keine Sensoren ausgewählt!"
 
-#: panel-plugin/sensors.c:338
+#: panel-plugin/sensors.c:360
+#, fuzzy
 msgid ""
 " \n"
 "Xfce Hardware Sensors Plugin: \n"
-"                       Seems like there was a problem reading a sensor "
-"feature                         value. \n"
+" Seems like there was a problem reading a sensor feature value. \n"
 "Proper proceeding cannot be guaranteed. \n"
 msgstr ""
 " \n"
-"Xfce Hardware Sensors Plugin:                         \n"
-"Anscheinend gab es ein Problem beim Auslesen                            "
-"eines Wertes. \n"
-"Sauberes Weiterlaufen kann nicht gewährleistet werden.\n"
+"Xfce Hardware Sensors Plugin: \n"
+"Anscheinend gab es ein Problem beim Auslesen eines Wertes. \n"
+"Sauberes Weiterlaufen kann nicht gewährleistet werden. \n"
 
-#: panel-plugin/sensors.c:469
+#: panel-plugin/sensors.c:456
+msgid "/usr/bin/xsensors"
+msgstr "/usr/bin/xsensors"
+
+#: panel-plugin/sensors.c:526
 #, fuzzy
 msgid "No sensors found!"
-msgstr "Keine Sensoren ausgewählt!"
+msgstr "Keine Sensoren gefunden!"
 
-#: panel-plugin/sensors.c:516
-#, c-format
+#: panel-plugin/sensors.c:588
+#, fuzzy, c-format
 msgid ""
-"A problem occured while trying to close the config file.                     "
-"Restart your computer ... err ...                      restart the sensor "
-"daemon only :-) \n"
+"A problem occured while trying to close the config file. Restart your "
+"computer ... err ... restart the sensor daemon only :-) \n"
 msgstr ""
-"Ein Problem trat beim Schließen der Konfigurationsdatei auf.                 "
-"Starten Sie Ihren Rechner neu ...ähm...                starten Sie einfach "
+"Ein Problem trat beim Schließen der Konfigurationsdatei auf. "
+"Starten Sie Ihren Rechner neu ...ähm... starten Sie einfach "
 "den Sensor-Dämon neu :-) \n"
 
-#: panel-plugin/sensors.c:1003
+#: panel-plugin/sensors.c:1111
+#, fuzzy
 msgid ""
 " \n"
-"Xfce Hardware Sensors Plugin:                         \n"
-"Seems like there was a problem reading a sensor                         "
-"feature value. \n"
-"Proper proceeding cannot be                         guaranteed.\n"
+"Xfce Hardware Sensors Plugin: \n"
+"Seems like there was a problem reading a sensor feature value. \n"
+"Proper proceeding cannot be guaranteed.\n"
 msgstr ""
 " \n"
-"Xfce Hardware Sensors Plugin:                         \n"
-"Anscheinend gab es ein Problem beim Auslesen                            "
-"eines Wertes. \n"
+"Xfce Hardware Sensors Plugin: \n"
+"Anscheinend gab es ein Problem beim Auslesen eines Wertes. \n"
 "Sauberes Weiterlaufen kann nicht gewährleistet werden.\n"
 
-#: panel-plugin/sensors.c:1057
+#: panel-plugin/sensors.c:1165
 msgid "Show title"
 msgstr "Titel anzeigen"
 
-#: panel-plugin/sensors.c:1082
+#: panel-plugin/sensors.c:1190
 msgid "Sensors type:"
 msgstr "Sensortyp"
 
 #. g_printf(" add_font_size_box\n");
-#: panel-plugin/sensors.c:1194
+#: panel-plugin/sensors.c:1302
 msgid "Font size:"
 msgstr "Schriftgröße"
 
-#: panel-plugin/sensors.c:1198
+#: panel-plugin/sensors.c:1306
 msgid "x-small"
 msgstr "extra-klein"
 
-#: panel-plugin/sensors.c:1199
+#: panel-plugin/sensors.c:1307
 msgid "small"
 msgstr "klein"
 
-#: panel-plugin/sensors.c:1200
+#: panel-plugin/sensors.c:1308
 msgid "medium"
 msgstr "medium"
 
-#: panel-plugin/sensors.c:1201
+#: panel-plugin/sensors.c:1309
 msgid "large"
 msgstr "groß"
 
-#: panel-plugin/sensors.c:1202
+#: panel-plugin/sensors.c:1310
 msgid "x-large"
 msgstr "extra-groß"
 
-#: panel-plugin/sensors.c:1235
+#: panel-plugin/sensors.c:1343
 msgid "Update interval (seconds):"
-msgstr "auffrischungsintervall (Sekunden)"
+msgstr "Auffrischungsintervall (Sekunden)"
 
-#: panel-plugin/sensors.c:1328
+#: panel-plugin/sensors.c:1367
+msgid "Execute on double click: "
+msgstr "Bei Doppel-Klick ausführen:"
+
+#: panel-plugin/sensors.c:1473
 msgid "Hardware Sensors"
 msgstr "Hardware Sensoren"
+
+#~ msgid ""
+#~ " \n"
+#~ "Xfce Hardware Sensors Plugin:                         \n"
+#~ "Seems like there was a problem reading a sensor                         "
+#~ "feature value. \n"
+#~ "Proper proceeding cannot be                         guaranteed.\n"
+#~ msgstr ""
+#~ " \n"
+#~ "Xfce Hardware Sensors Plugin:                         \n"
+#~ "Anscheinend gab es ein Problem beim Auslesen                            "
+#~ "eines Wertes. \n"
+#~ "Sauberes Weiterlaufen kann nicht gewährleistet werden.\n"

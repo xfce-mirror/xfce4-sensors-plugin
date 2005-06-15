@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-31 11:45+0100\n"
+"POT-Creation-Date: 2005-06-15 20:14+0200\n"
 "PO-Revision-Date: 2005-01-19 16:24+0900\n"
 "Last-Translator: ByungHyun Choi<byunghyun.choi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,12 +16,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/sensors.c:173
+#: panel-plugin/sensors.c:174
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span> \n"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>센서</b></span> \n"
 
-#: panel-plugin/sensors.c:236
+#: panel-plugin/sensors.c:237
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>센서</b></span>"
@@ -38,16 +38,16 @@ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>센서</b></span>"
 #. FIX ME!
 #. = (gchar *) g_malloc(1024);
 #. circumvent empty char pointer
-#: panel-plugin/sensors.c:323
+#: panel-plugin/sensors.c:324
 msgid "No sensors selected!"
 msgstr "센서를 선택하지 않았습니다!"
 
-#: panel-plugin/sensors.c:359
+#: panel-plugin/sensors.c:360
+#, fuzzy
 msgid ""
 " \n"
 "Xfce Hardware Sensors Plugin: \n"
-"                       Seems like there was a problem reading a sensor "
-"feature                         value. \n"
+" Seems like there was a problem reading a sensor feature value. \n"
 "Proper proceeding cannot be guaranteed. \n"
 msgstr ""
 " \n"
@@ -55,70 +55,89 @@ msgstr ""
 "센서의 기능과 측정치를 읽는 도중 문제가 생긴 것 같습니다.\n"
 "따라서 정상적인 동작을 보장할 수 없습니다.\n"
 
-#: panel-plugin/sensors.c:490
+#: panel-plugin/sensors.c:456
+msgid "/usr/bin/xsensors"
+msgstr ""
+
+#: panel-plugin/sensors.c:526
 msgid "No sensors found!"
 msgstr "센서를 못 찾았습니다!"
 
-#: panel-plugin/sensors.c:537
-#, c-format
+#: panel-plugin/sensors.c:588
+#, fuzzy, c-format
 msgid ""
-"A problem occured while trying to close the config file.                     "
-"Restart your computer ... err ...                      restart the sensor "
-"daemon only :-) \n"
+"A problem occured while trying to close the config file. Restart your "
+"computer ... err ... restart the sensor daemon only :-) \n"
 msgstr ""
-"설정 화일을 닫는 도중에 문제가 발생했습니다.                          "
-"컴퓨터를 재시작하십시오 ... 아! 실수 ...               센서 데몬만 "
-"다시 시작 시키십시오. :-) \n"
+"설정 화일을 닫는 도중에 문제가 발생했습니다.                          컴퓨터"
+"를 재시작하십시오 ... 아! 실수 ...               센서 데몬만 다시 시작 시키십"
+"시오. :-) \n"
 
-#: panel-plugin/sensors.c:1024
+#: panel-plugin/sensors.c:1111
+#, fuzzy
 msgid ""
 " \n"
-"Xfce Hardware Sensors Plugin:                         \n"
-"Seems like there was a problem reading a sensor                         "
-"feature value. \n"
-"Proper proceeding cannot be                         guaranteed.\n"
+"Xfce Hardware Sensors Plugin: \n"
+"Seems like there was a problem reading a sensor feature value. \n"
+"Proper proceeding cannot be guaranteed.\n"
 msgstr ""
+" \n"
 "Xfce 하드웨어 센서 플러그인: \n"
 "센서의 기능과 측정치를 읽는 도중 문제가 생긴 것 같습니다.\n"
 "따라서 정상적인 동작을 보장할 수 없습니다.\n"
 
-#: panel-plugin/sensors.c:1078
+#: panel-plugin/sensors.c:1165
 msgid "Show title"
 msgstr "이름 보여주기"
 
-#: panel-plugin/sensors.c:1103
+#: panel-plugin/sensors.c:1190
 msgid "Sensors type:"
 msgstr "센서 종류:"
 
 #. g_printf(" add_font_size_box\n");
-#: panel-plugin/sensors.c:1215
+#: panel-plugin/sensors.c:1302
 msgid "Font size:"
 msgstr "글꼴 크기:"
 
-#: panel-plugin/sensors.c:1219
+#: panel-plugin/sensors.c:1306
 msgid "x-small"
 msgstr "아주 작게"
 
-#: panel-plugin/sensors.c:1220
+#: panel-plugin/sensors.c:1307
 msgid "small"
 msgstr "작게"
 
-#: panel-plugin/sensors.c:1221
+#: panel-plugin/sensors.c:1308
 msgid "medium"
 msgstr "중간"
 
-#: panel-plugin/sensors.c:1222
+#: panel-plugin/sensors.c:1309
 msgid "large"
 msgstr "크게"
 
-#: panel-plugin/sensors.c:1223
+#: panel-plugin/sensors.c:1310
 msgid "x-large"
 msgstr "아주 크게"
 
-#: panel-plugin/sensors.c:1256
+#: panel-plugin/sensors.c:1343
 msgid "Update interval (seconds):"
 msgstr "검사 간격 (초):"
 
-#: panel-plugin/sensors.c:1349
+#: panel-plugin/sensors.c:1367
+msgid "Execute on double click: "
+msgstr ""
+
+#: panel-plugin/sensors.c:1473
 msgid "Hardware Sensors"
 msgstr "하드웨어 센서"
+
+#~ msgid ""
+#~ " \n"
+#~ "Xfce Hardware Sensors Plugin:                         \n"
+#~ "Seems like there was a problem reading a sensor                         "
+#~ "feature value. \n"
+#~ "Proper proceeding cannot be                         guaranteed.\n"
+#~ msgstr ""
+#~ "Xfce 하드웨어 센서 플러그인: \n"
+#~ "센서의 기능과 측정치를 읽는 도중 문제가 생긴 것 같습니다.\n"
+#~ "따라서 정상적인 동작을 보장할 수 없습니다.\n"

@@ -586,8 +586,8 @@ sensors_free (Control *control)
         int closeResult = fclose(filename);
         if (closeResult!=0) 
            printf(_("A problem occured while trying to close the config file. \
-                    Restart your computer ... err ... \
-                     restart the sensor daemon only :-) \n"));
+Restart your computer ... err ... \
+restart the sensor daemon only :-) \n"));
       }
 
     g_return_if_fail (st != NULL);
