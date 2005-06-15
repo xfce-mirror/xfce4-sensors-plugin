@@ -9,7 +9,7 @@ AC_INIT([panel-plugin/sensors.c])
 
 AM_CONFIG_HEADER([config.h])
 
-AM_INIT_AUTOMAKE([xfce4-sensors-plugin], [0.3.2])
+AM_INIT_AUTOMAKE([xfce4-sensors-plugin], [0.4.0])
 
 AM_MAINTAINER_MODE
 

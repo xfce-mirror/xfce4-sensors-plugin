@@ -7,7 +7,6 @@ plugin_LTLIBRARIES =							\
 
 libsensors_la_LDFLAGS =							\
 	-avoid-version							\
-	-export-dynamic							\
 	-module
 
 libsensors_la_SOURCES =							\
