@@ -4,22 +4,22 @@
 # Fabian Nowak <timystery@arcor.de>, 2004.
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-sensors-plugin 0.3.2\n"
+"Project-Id-Version: xfce4-sensors-plugin 0.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-06-15 20:14+0200\n"
+"POT-Creation-Date: 2005-06-15 22:08+0200\n"
 "PO-Revision-Date: 2004-12-31 10:52+0100\n"
-"Last-Translator: Benedikt Meurer <benny@xfce.org>\n"
+"Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: de <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/sensors.c:174
+#: panel-plugin/sensors.c:187
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span> \n"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensoren</b></span> \n"
 
-#: panel-plugin/sensors.c:237
+#: panel-plugin/sensors.c:250
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensoren</b></span>"
@@ -36,11 +36,11 @@ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensoren</b></span>"
 #. FIX ME!
 #. = (gchar *) g_malloc(1024);
 #. circumvent empty char pointer
-#: panel-plugin/sensors.c:324
+#: panel-plugin/sensors.c:337
 msgid "No sensors selected!"
 msgstr "Keine Sensoren ausgewählt!"
 
-#: panel-plugin/sensors.c:360
+#: panel-plugin/sensors.c:373
 #, fuzzy
 msgid ""
 " \n"
@@ -53,26 +53,30 @@ msgstr ""
 "Anscheinend gab es ein Problem beim Auslesen eines Wertes. \n"
 "Sauberes Weiterlaufen kann nicht gewährleistet werden. \n"
 
-#: panel-plugin/sensors.c:456
+#: panel-plugin/sensors.c:388
+#, c-format
+msgid "%5.0f rpm"
+msgstr "%5.0f U/min"
+
+#: panel-plugin/sensors.c:483
 msgid "/usr/bin/xsensors"
 msgstr "/usr/bin/xsensors"
 
-#: panel-plugin/sensors.c:526
+#: panel-plugin/sensors.c:571
 #, fuzzy
 msgid "No sensors found!"
 msgstr "Keine Sensoren gefunden!"
 
-#: panel-plugin/sensors.c:588
+#: panel-plugin/sensors.c:633
 #, fuzzy, c-format
 msgid ""
 "A problem occured while trying to close the config file. Restart your "
 "computer ... err ... restart the sensor daemon only :-) \n"
 msgstr ""
-"Ein Problem trat beim Schließen der Konfigurationsdatei auf. "
-"Starten Sie Ihren Rechner neu ...ähm... starten Sie einfach "
-"den Sensor-Dämon neu :-) \n"
+"Ein Problem trat beim Schließen der Konfigurationsdatei auf. Starten Sie "
+"Ihren Rechner neu ...ähm... starten Sie einfach den Sensor-Dämon neu :-) \n"
 
-#: panel-plugin/sensors.c:1111
+#: panel-plugin/sensors.c:1156
 #, fuzzy
 msgid ""
 " \n"
@@ -85,48 +89,48 @@ msgstr ""
 "Anscheinend gab es ein Problem beim Auslesen eines Wertes. \n"
 "Sauberes Weiterlaufen kann nicht gewährleistet werden.\n"
 
-#: panel-plugin/sensors.c:1165
+#: panel-plugin/sensors.c:1210
 msgid "Show title"
 msgstr "Titel anzeigen"
 
-#: panel-plugin/sensors.c:1190
+#: panel-plugin/sensors.c:1235
 msgid "Sensors type:"
 msgstr "Sensortyp"
 
 #. g_printf(" add_font_size_box\n");
-#: panel-plugin/sensors.c:1302
+#: panel-plugin/sensors.c:1347
 msgid "Font size:"
 msgstr "Schriftgröße"
 
-#: panel-plugin/sensors.c:1306
+#: panel-plugin/sensors.c:1351
 msgid "x-small"
 msgstr "extra-klein"
 
-#: panel-plugin/sensors.c:1307
+#: panel-plugin/sensors.c:1352
 msgid "small"
 msgstr "klein"
 
-#: panel-plugin/sensors.c:1308
+#: panel-plugin/sensors.c:1353
 msgid "medium"
 msgstr "medium"
 
-#: panel-plugin/sensors.c:1309
+#: panel-plugin/sensors.c:1354
 msgid "large"
 msgstr "groß"
 
-#: panel-plugin/sensors.c:1310
+#: panel-plugin/sensors.c:1355
 msgid "x-large"
 msgstr "extra-groß"
 
-#: panel-plugin/sensors.c:1343
+#: panel-plugin/sensors.c:1388
 msgid "Update interval (seconds):"
 msgstr "Auffrischungsintervall (Sekunden)"
 
-#: panel-plugin/sensors.c:1367
+#: panel-plugin/sensors.c:1412
 msgid "Execute on double click: "
 msgstr "Bei Doppel-Klick ausführen:"
 
-#: panel-plugin/sensors.c:1473
+#: panel-plugin/sensors.c:1518
 msgid "Hardware Sensors"
 msgstr "Hardware Sensoren"
 

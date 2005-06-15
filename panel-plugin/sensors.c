@@ -39,6 +39,16 @@
 
 #define BORDER 6
 
+
+typedef enum {
+
+   TEMPERATURE,
+   VOLTAGE,
+   SPEED,
+   OTHER
+} sensor_type;
+
+
 /*  Sensors module
  *  ------------
  */
@@ -91,6 +101,9 @@ typedef struct {
     
     /* show sensor in panel */
     gboolean sensorCheckBoxes[10][256];
+    
+    /* sensor types to display values in appropriate format */
+    sensor_type sensor_types[10][256];
     
     /* sensor colors in panel */
     gchar *sensorColors[10][256];
@@ -363,7 +376,21 @@ value. \nProper proceeding cannot be guaranteed. \n"));
                     break;
                 }
                 
-                gchar *help = g_strdup_printf("%+5.2f", sensorFeature);
+                gchar *help;
+                switch (st->sensor_types[i][nr1]) {
+                  case TEMPERATURE: 
+                           help = g_strdup_printf("%5.1f °C", sensorFeature);
+                           break;
+                  case VOLTAGE: 
+                           help = g_strdup_printf("%+5.2f V", sensorFeature);
+                           break;
+                  case SPEED: 
+                           help = g_strdup_printf(_("%5.0f rpm"), sensorFeature);
+                           break;
+                  default: help = g_strdup_printf("%+5.2f", sensorFeature);
+                           break;
+                }
+                
 
                 /* FIXED: '\ ' ain't necessary for spaces. ' ' works. */
                 myToolTipText = g_strconcat (myToolTipText, "\n  ", 
@@ -495,6 +522,24 @@ sensors_new (void)
                     st->sensorValid [currentIndex] [nr1] = TRUE;
                     st->sensorValues [currentIndex] [nr1] = 
                         g_strdup_printf("%+5.2f", sensorFeature);
+                        
+   /* categorize sensor type */
+   if ( strstr(st->sensorNames[currentIndex][nr1], "Temp")!=NULL 
+      || strstr(st->sensorNames[currentIndex][nr1], "temp")!=NULL )
+         st->sensor_types[currentIndex][nr1] = TEMPERATURE;
+      
+   else if ( strstr(st->sensorNames[currentIndex][nr1], "VCore")!=NULL 
+      || strstr(st->sensorNames[currentIndex][nr1], "3V")!=NULL 
+      || strstr(st->sensorNames[currentIndex][nr1], "5V")!=NULL 
+      || strstr(st->sensorNames[currentIndex][nr1], "12V")!=NULL )
+         st->sensor_types[currentIndex][nr1] = VOLTAGE;
+      
+   else if ( strstr(st->sensorNames[currentIndex][nr1], "Fan")!=NULL 
+      || strstr(st->sensorNames[currentIndex][nr1], "fan")!=NULL )
+         st->sensor_types[currentIndex][nr1] = SPEED;
+      
+   else
+         st->sensor_types[currentIndex][nr1] = OTHER;
                     
                 }  /* end if sensorFeature */
                 else {
