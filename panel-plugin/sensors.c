@@ -100,13 +100,13 @@ typedef struct {
     
     /* double-click improvement as suggested on xfce4-goodies@berlios.de */
     /* whether to execute command on double click */
-    /* gboolean execCommand; */
+     gboolean execCommand; 
     
     /* command to excute */
-    /* gchar* commandName; */
+     gchar* commandName; 
     
     /* callback_id for doubleclicks */
-    /* gint doubleClick_id; */
+     gint doubleClick_id; 
     
 }
 t_sensors;
@@ -133,9 +133,8 @@ typedef struct {
     GtkTreeStore *myListStore[10];
 
     /* double-click improvement */  
-    /* GtkWidget *myButton;
     GtkWidget *myExecCommandCheckBox;
-    GtkWidget *myCommandNameEntry; */
+    GtkWidget *myCommandNameEntry; 
 }
 SensorsDialog;
 
@@ -359,8 +358,8 @@ sensors_date_tooltip (gpointer data)
 
                 if ( res!=0 ) {
                     g_printf( _(" \nXfce Hardware Sensors Plugin: \n \
-                      Seems like there was a problem reading a sensor feature \
-                        value. \nProper proceeding cannot be guaranteed. \n"));
+Seems like there was a problem reading a sensor feature \
+value. \nProper proceeding cannot be guaranteed. \n"));
                     break;
                 }
                 
@@ -402,8 +401,6 @@ create_panel_widget (t_sensors * st) {
     sensors_show_panel(st);
     
     /* add newly created label to box */
-    /* st->myButton = gtk_wdget_new (st->panelValuesLabel);
-    gtk_widget_show (st->myButton); */
     gtk_box_pack_start(GTK_BOX (st->sensors), st->panelValuesLabel, FALSE, 
       FALSE, 0);
 }
@@ -411,22 +408,32 @@ create_panel_widget (t_sensors * st) {
 
 
 /* double-click improvement */
-/* static void
-execute_command (GtkWidget *widget, gpointer data) 
+static gboolean
+execute_command (GtkWidget *widget, GdkEventButton *event, gpointer data) 
 {
-    g_return_if_fail (data != NULL);
 
-    t_sensors *st = (t_sensors *) data;
+   /* g_printf(" execute_command: event: %i \n", event->type); */
    
-    g_return_if_fail ( st->execCommand);
-    
-    char* arguments[1];
-    arguments[0] = st->commandName;
-    
-    pid_t mypid = vfork();
-    if (mypid==0) execv (st->commandName, arguments);
+   g_return_val_if_fail (data != NULL, FALSE);
+   
+   if (event->type == GDK_2BUTTON_PRESS) {
 
-} */
+       t_sensors *st = (t_sensors *) data;
+      
+       g_return_if_fail ( st->execCommand);
+       
+       char* arguments[1];
+       arguments[0] = st->commandName;
+       
+       pid_t mypid = vfork();
+       if (mypid==0) execv (st->commandName, arguments);
+       
+       return TRUE;
+    }
+    else
+      return FALSE;
+
+}
 
 
 static t_sensors *
@@ -445,9 +452,9 @@ sensors_new (void)
     st->sensorUpdateTime = 60;
     
     /* double-click improvement */
-    /* st->execCommand = TRUE;
+     st->execCommand = TRUE;
     st->commandName = _("/usr/bin/xsensors");
-    st->doubleClick_id = 0; */
+    st->doubleClick_id = 0; 
 
     /* init libsensors stuff */
     FILE *filename = fopen("/etc/sensors.conf", "r");
@@ -547,12 +554,20 @@ sensors_new (void)
                 (GtkFunction) sensors_show_panel, (gpointer) st);
 
     /* double-click improvement */
-    /* st->doubleClick_id = g_signal_connect( (gpointer) st->eventbox, 
-         "double-clicked", G_CALLBACK (execute_command), (gpointer) st);
+     st->doubleClick_id = g_signal_connect( G_OBJECT(st->eventbox), 
+         "button-press-event", G_CALLBACK (execute_command), (gpointer) st);
 
     if (!st->execCommand) {
         g_signal_handler_block ( (gpointer) st->eventbox, st->doubleClick_id );
-    } */
+    } 
+    
+/*     g_signal_connect(G_OBJECT(datetime->eventbox), "button-press-event",
+	    	     G_CALLBACK(on_button_press_event_cb), datetime);
+	    	     
+	  static gboolean
+on_button_press_event_cb(GtkWidget *widget,
+			 GdkEventButton *event,
+			 DatetimePlugin *datetime) */
 
     return st;
 }
@@ -583,6 +598,9 @@ sensors_free (Control *control)
 	
 	if (st->timeout_id2)
         g_source_remove (st->timeout_id2);
+        
+    /* double-click improvement */
+    g_source_remove (st->doubleClick_id);
 
     /* free structure */
     g_free (st);
@@ -653,11 +671,11 @@ sensors_write_config (Control * control, xmlNodePtr parent)
     xmlSetProp (root, "Update_Interval", value);
     
     /* double-click improvement */  
-    /* g_snprintf (value, 4, "%i", st->execCommand);
+     g_snprintf (value, 4, "%i", st->execCommand);
     xmlSetProp (root, "Exec_Command", value);
     
     g_snprintf (value, 64, "%s", st->commandName);
-    xmlSetProp (root, "Command_Name", value); */
+    xmlSetProp (root, "Command_Name", value); 
     
     int i;
     for (i=0; i<st->sensorNumber; i++) {
@@ -744,14 +762,14 @@ sensors_read_config (Control * control, xmlNodePtr node)
     
     
     /* double-click improvement */  
-    /* if ((value = xmlGetProp (node, (const xmlChar *) "Exec_Command"))) {
+    if ((value = xmlGetProp (node, (const xmlChar *) "Exec_Command"))) {
         st->execCommand = atoi (value);
         g_free (value);
     }
     if ((value = xmlGetProp (node, (const xmlChar *) "Command_Name"))) {
         st->commandName = g_strdup (value);
         g_free (value);
-    } */
+    }
     
     
     if (!node)
@@ -932,7 +950,7 @@ adjustment_value_changed ( GtkWidget *widget, SensorsDialog* sd)
 }
 
 /* double-click improvement */
-/* static void
+ static void
 execCommand_toggled ( GtkWidget *widget, SensorsDialog* sd )
 {
    sd->sensors->execCommand = 
@@ -944,7 +962,7 @@ execCommand_toggled ( GtkWidget *widget, SensorsDialog* sd )
    else 
       g_signal_handler_block ( sd->sensors->eventbox, 
             sd->sensors->doubleClick_id );
-} */
+}
 
 static void
 gtk_cell_color_edited (GtkCellRendererText *cellrenderertext, gchar *path_str, 
@@ -1091,9 +1109,9 @@ init_widgets (SensorsDialog *sd)
 
                 if ( res!=0) {
                     g_printf( _(" \nXfce Hardware Sensors Plugin: \
-                        \nSeems like there was a problem reading a sensor \
-                        feature value. \nProper proceeding cannot be \
-                        guaranteed.\n") );
+\nSeems like there was a problem reading a sensor \
+feature value. \nProper proceeding cannot be \
+guaranteed.\n") );
                     break;
                 }
                 sd->sensors->sensorValues[i][nr1] = 
@@ -1338,7 +1356,7 @@ add_update_time_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
 }
 
 /* double-click improvement */  
-/* static void
+ static void
 add_command_box (GtkWidget * vbox,  SensorsDialog * sd)
 {
 
@@ -1351,7 +1369,11 @@ add_command_box (GtkWidget * vbox,  SensorsDialog * sd)
          ( GTK_TOGGLE_BUTTON (sd->myExecCommandCheckBox), sd->sensors->execCommand );
     
      sd->myCommandNameEntry = gtk_entry_new ();
-     gtk_entry_set_test(sd->myCommandNameEntry, sd->sensors->commandName); 
+     gtk_widget_set_size_request (sd->myCommandNameEntry, 160, 25);
+     
+     
+     gtk_entry_set_text(GTK_ENTRY(sd->myCommandNameEntry), 
+         sd->sensors->commandName); 
          // _("/usr/bin/xsensors")
 
      gtk_box_pack_start(GTK_BOX (myBox), sd->myExecCommandCheckBox, FALSE, FALSE, 2);
@@ -1365,7 +1387,7 @@ add_command_box (GtkWidget * vbox,  SensorsDialog * sd)
      g_signal_connect  (G_OBJECT (sd->myExecCommandCheckBox), "toggled",
                         G_CALLBACK (execCommand_toggled), sd );
     
-} */
+} 
 
 
 /* create sensor options box */
@@ -1410,9 +1432,9 @@ sensors_create_options (Control *control, GtkContainer *container,
     add_update_time_box(vbox, sg, sd);
     
     /* double-click improvement */
-    /* add_command_box(vbox, sd); */
+     add_command_box(vbox, sd); 
     
-    gtk_widget_set_size_request (vbox, 315, 250);
+    gtk_widget_set_size_request (vbox, 340, 310);
 
     gtk_container_add (container, vbox);
 }
