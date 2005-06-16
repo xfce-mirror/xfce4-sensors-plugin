@@ -1,7 +1,7 @@
 Xfce4-Sensors-Plugin
 ====================
 
-Version 0.4.0
+Version 0.5.0
 
 Copyright (c) 2004,2005 by Fabian Nowak (timystery@arcor.de)
 
@@ -18,5 +18,8 @@ Installation: make && [sudo] make install
 
 Bugs: Refer to TODO file
 
-Thanks to: Xfce Team
+Thanks to: Xfce Team, especially Benedikt Meurer
 
+Screenshots: http://mitglied.lycos.de/timshome/download/panel050.png
+             http://mitglied.lycos.de/timshome/download/options050.png
+             
