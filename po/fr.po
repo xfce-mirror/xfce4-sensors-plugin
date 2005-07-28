@@ -1,0 +1,130 @@
+# French translation for the xfce4-sensors-plugin.
+# Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Stephane Roy <sroy@j2n.net>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-sensors-plugin 0.5.0\n" 
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-07-27 12:04+0200\n"
+"PO-Revision-Date: 2005-07-27 16:28+0100\n"
+"Last-Translator: Stephane Roy <sroy@j2n.net>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: panel-plugin/sensors.c:187
+#, c-format
+msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span> \n"
+msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Senseurs</b></span> \n"
+
+#: panel-plugin/sensors.c:250
+#, c-format
+msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
+msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Senseurs</b></span>"
+
+#. +--------------------+
+#. I asb-1-100          I
+#. I   CPU: 42.00       I
+#. I   MB: 24.50        I
+#. I eeprom-80          I
+#. I   id: 42           I
+#. +--------------------+
+#. we will duplicate the string everywhere,
+#. so don't allocate a fixed portion.
+#. FIX ME!
+#. = (gchar *) g_malloc(1024);
+#. circumvent empty char pointer
+#: panel-plugin/sensors.c:337
+msgid "No sensors selected!"
+msgstr "Aucun senseur sélectionné !"
+
+#: panel-plugin/sensors.c:373
+msgid ""
+" \n"
+"Xfce Hardware Sensors Plugin: \n"
+" Seems like there was a problem reading a sensor feature value. \n"
+"Proper proceeding cannot be guaranteed. \n"
+msgstr ""
+" \n"
+"Xfce Greffon de Senseur Matériel : \n"
+" Il semblerait qu'il y ait un problème de lecture de valeur sur un senseur. \n"
+"L'exécution normale ne peut être garantie.\n"
+
+#: panel-plugin/sensors.c:388
+#, c-format
+msgid "%5.0f rpm"
+msgstr "%5.0f rpm"
+
+#: panel-plugin/sensors.c:483
+msgid "/usr/bin/xsensors"
+msgstr ""
+
+#: panel-plugin/sensors.c:571
+msgid "No sensors found!"
+msgstr "Aucun senseur trouvé !"
+
+#: panel-plugin/sensors.c:633
+#, c-format
+msgid "A problem occured while trying to close the config file. Restart your computer ... err ... restart the sensor daemon only :-) \n"
+msgstr "Un problème est apparu lorsque le fichier de configuration a été fermé. Redémarrer votre ordinateur... hmm... redémarrer seulement le démon senseur :-> \n"
+
+#: panel-plugin/sensors.c:1156
+msgid ""
+" \n"
+"Xfce Hardware Sensors Plugin: \n"
+"Seems like there was a problem reading a sensor feature value. \n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr ""
+" \n"
+"Xfce Greffon de Senseur Matériel : \n"
+"Il semblerait qu'il y ait un problème de lecture de valeur sur un senseur. \n"
+"L'exécution normale ne peut être garantie.\n"
+
+#: panel-plugin/sensors.c:1210
+msgid "Show title"
+msgstr "Montrer le titre"
+
+#: panel-plugin/sensors.c:1235
+msgid "Sensors type:"
+msgstr "Type de senseur :"
+
+#. g_printf(" add_font_size_box\n");
+#: panel-plugin/sensors.c:1347
+msgid "Font size:"
+msgstr "Taille de la police :"
+
+#: panel-plugin/sensors.c:1351
+msgid "x-small"
+msgstr ""
+
+#: panel-plugin/sensors.c:1352
+msgid "small"
+msgstr ""
+
+#: panel-plugin/sensors.c:1353
+msgid "medium"
+msgstr ""
+
+#: panel-plugin/sensors.c:1354
+msgid "large"
+msgstr ""
+
+#: panel-plugin/sensors.c:1355
+msgid "x-large"
+msgstr ""
+
+#: panel-plugin/sensors.c:1388
+msgid "Update interval (seconds):"
+msgstr "Intervalle de mise-à-jour (secondes) :"
+
+#: panel-plugin/sensors.c:1412
+msgid "Execute on double click: "
+msgstr "Exécute après un double clic !"
+
+#: panel-plugin/sensors.c:1518
+msgid "Hardware Sensors"
+msgstr "Senseur Matériel"
+

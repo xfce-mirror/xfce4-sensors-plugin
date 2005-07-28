@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-sensors-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-07-27 12:04+0200\n"
+"PO-Revision-Date: 2005-07-27 18:50+0200\n"
+"Last-Translator: Stavros Giannouris <stavrosg2002@freemail.gr>\n"
+"Language-Team: Greek <el@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Greek\n"
+"X-Poedit-Country: GREECE\n"
+
+#: panel-plugin/sensors.c:187
+#, c-format
+msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span> \n"
+msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Αισθητήρες</b></span> \n"
+
+#: panel-plugin/sensors.c:250
+#, c-format
+msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
+msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Αισθητήρες</b></span>"
+
+#. +--------------------+
+#. I asb-1-100          I
+#. I   CPU: 42.00       I
+#. I   MB: 24.50        I
+#. I eeprom-80          I
+#. I   id: 42           I
+#. +--------------------+
+#. we will duplicate the string everywhere,
+#. so don't allocate a fixed portion.
+#. FIX ME!
+#. = (gchar *) g_malloc(1024);
+#. circumvent empty char pointer
+#: panel-plugin/sensors.c:337
+msgid "No sensors selected!"
+msgstr "Δεν επιλέχθηκαν αισθητήρες!"
+
+#: panel-plugin/sensors.c:373
+msgid ""
+" \n"
+"Xfce Hardware Sensors Plugin: \n"
+" Seems like there was a problem reading a sensor feature value. \n"
+"Proper proceeding cannot be guaranteed. \n"
+msgstr ""
+" \n"
+"Xfce Hardware Sensors Plugin: \n"
+"Από οτι φαίνεται υπήρξε πρόβλημα κατά την ανάγνωση κάποιου αισθητήρα. \n"
+"Δεν είναι εγγυημένη η κανονική συνέχεια.\n"
+
+#: panel-plugin/sensors.c:388
+#, c-format
+msgid "%5.0f rpm"
+msgstr "%5.0f rpm"
+
+#: panel-plugin/sensors.c:483
+msgid "/usr/bin/xsensors"
+msgstr "/usr/bin/xsensors"
+
+#: panel-plugin/sensors.c:571
+msgid "No sensors found!"
+msgstr "Δε βρέθηκαν αισθητήρες!"
+
+#: panel-plugin/sensors.c:633
+#, c-format
+msgid "A problem occured while trying to close the config file. Restart your computer ... err ... restart the sensor daemon only :-) \n"
+msgstr "Εμφανίστηκε ένα πρόβλημα κατά το κλείσιμο του αρχείου ρυθμήσεων. Επανεκκινείστε τον υπολογιστή σας... εμμ... επανεκκινείστε τον sensor daemon μόνο :-) \n"
+
+#: panel-plugin/sensors.c:1156
+msgid ""
+" \n"
+"Xfce Hardware Sensors Plugin: \n"
+"Seems like there was a problem reading a sensor feature value. \n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr ""
+" \n"
+"Xfce Hardware Sensors Plugin: \n"
+"Από οτι φαίνεται υπήρξε πρόβλημα κατά την ανάγνωση κάποιου αισθητήρα. \n"
+"Δεν είναι εγγυημένη η κανονική συνέχεια.\n"
+
+#: panel-plugin/sensors.c:1210
+msgid "Show title"
+msgstr "Εμφάνιση τίτλου"
+
+#: panel-plugin/sensors.c:1235
+msgid "Sensors type:"
+msgstr "Τύπος Αισθητήρα:"
+
+#. g_printf(" add_font_size_box\n");
+#: panel-plugin/sensors.c:1347
+msgid "Font size:"
+msgstr "Μέγεθος γραμματοσειράς:"
+
+#: panel-plugin/sensors.c:1351
+msgid "x-small"
+msgstr "πολύ μικρό"
+
+#: panel-plugin/sensors.c:1352
+msgid "small"
+msgstr "Μικρό"
+
+#: panel-plugin/sensors.c:1353
+msgid "medium"
+msgstr "μεσαίο"
+
+#: panel-plugin/sensors.c:1354
+msgid "large"
+msgstr "μεγάλο"
+
+#: panel-plugin/sensors.c:1355
+msgid "x-large"
+msgstr "πολύ μεγάλο"
+
+#: panel-plugin/sensors.c:1388
+msgid "Update interval (seconds):"
+msgstr "Μεσοδιάστημα ανανέωσης (δευτερόλεπτα):"
+
+#: panel-plugin/sensors.c:1412
+msgid "Execute on double click: "
+msgstr "Εκτέλεση στο διπλό κλικ:"
+
+#: panel-plugin/sensors.c:1518
+msgid "Hardware Sensors"
+msgstr "Αισθητήρες Υλικού"
+
