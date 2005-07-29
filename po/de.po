@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-06-15 22:08+0200\n"
+"POT-Creation-Date: 2005-07-27 12:04+0200\n"
 "PO-Revision-Date: 2004-12-31 10:52+0100\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: de <LL@li.org>\n"
@@ -133,6 +133,14 @@ msgstr "Bei Doppel-Klick ausführen:"
 #: panel-plugin/sensors.c:1518
 msgid "Hardware Sensors"
 msgstr "Hardware Sensoren"
+
+#: panel-plugin/sensors.c:1634
+msgid "Use graphical UI"
+msgstr "Graphische Benutzerschnittstelle verwenden"
+
+#: panel-plugin/sensors.c:1658
+msgid "Show labels in graphical UI"
+msgstr "Text im graphischen Modus anzeigen"
 
 #~ msgid ""
 #~ " \n"
