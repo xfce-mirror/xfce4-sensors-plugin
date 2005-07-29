@@ -17,9 +17,9 @@
 
 /* This plugin requires libsensors-1 and its headers !*/
 
-/* #ifdef HAVE_CONFIG_H
+#ifdef HAVE_CONFIG_H
 #include <config.h>
-#endif */
+#endif
 
 #include <glib/gprintf.h>
 
@@ -39,6 +39,10 @@
 
 #define BORDER 6
 
+#define COLOR_ERROR	"#f00000"
+#define COLOR_WARN	"#f0f000"
+#define COLOR_NORMAL	"#00C000"
+
 
 typedef enum {
 
@@ -47,6 +51,17 @@ typedef enum {
    SPEED,
    OTHER
 } sensor_type;
+
+typedef struct {
+	/* the progress bar */
+	GtkWidget *progressbar;
+
+	/* the label */
+	GtkWidget *label;
+
+	/* the surrounding box */
+	GtkWidget *databox;
+} t_barpanel;
 
 
 /*  Sensors module
@@ -71,10 +86,22 @@ typedef struct {
     
     /* panel size to compute number of cols/columns */
     gint panelSize;
+
+    /* panel orientation */
+    gint orientation;
+
+    /* if the bars have been initialized */
+    gboolean barsCreated;
     
     /* show title in panel */
     gboolean showTitle;
+
+    /* show labels in panel (GUI mode only) */
+    gboolean showLabels;
     
+    /* use the new UI */
+    gboolean useNewUI;
+
     /* sensor update time */
     gint sensorUpdateTime;
                 
@@ -84,6 +111,9 @@ typedef struct {
     gint sensorNumber;
     gint sensorsCount[10];
     
+    /* contains the progress bar panels */
+    GtkWidget* panels[10][256];
+    
     /* contains structure from libsensors */
     const sensors_chip_name *chipName[10];
     
@@ -92,7 +122,14 @@ typedef struct {
     
     /* unformatted sensor feature names, e.g. 'Vendor' */
     gchar *sensorNames[10][256];
+
+    /* minimum and maximum values (GUI mode only) */
+    glong sensorMinValues[10][256];
+    glong sensorMaxValues[10][256];
     
+    /* unformatted sensor feature values */
+    double sensorRawValues[10][256];
+
     /* formatted (%f5.2) sensor feature values */
     gchar *sensorValues[10][256];
 
@@ -151,10 +188,221 @@ typedef struct {
 }
 SensorsDialog;
 
+gboolean
+sensors_show_panel (gpointer data)
+{
+	g_return_val_if_fail (data != NULL, FALSE);
+
+	t_sensors *st = (t_sensors *) data;
+
+	if (st->useNewUI == FALSE) {
+		return sensors_show_text_panel(st);
+	} else {
+		return sensors_show_graphical_panel(st);
+	}
+}
+
+
+void
+sensors_set_bar_size (GtkWidget *bar, int size, int orientation)
+{
+	// check arguments
+	g_return_if_fail(G_IS_OBJECT(bar));
+
+	int icon = icon_size[size];
+
+	if (orientation == VERTICAL) {
+		gtk_widget_set_size_request(bar, icon - 4, 6 + 2 * size);
+	} else {
+		gtk_widget_set_size_request(bar, 6 + 2 * size, icon - 4);
+	}
+}
+
+
+void
+sensors_set_bar_color (GtkWidget *bar, double fraction)
+{
+	// check arguments
+	g_return_if_fail(G_IS_OBJECT(bar));
+
+	GtkRcStyle *rc = gtk_widget_get_modifier_style(GTK_WIDGET(bar));
+	if (!rc) {
+		rc = gtk_rc_style_new();
+	}
+	GdkColor color;
+	if (fraction >= 1) {
+		gdk_color_parse(COLOR_ERROR, &color);
+	} else if ((fraction < .2) || (fraction > .8)) {
+		gdk_color_parse(COLOR_WARN, &color);
+	} else {
+		gdk_color_parse(COLOR_NORMAL, &color);
+	}
+	rc->color_flags[GTK_STATE_PRELIGHT] |= GTK_RC_BG;
+	rc->bg[GTK_STATE_PRELIGHT] = color;
+	gtk_widget_modify_bg(bar, GTK_STATE_PRELIGHT, &color);
+}
+
+double
+sensors_get_percentage (gint chipNum, gint feature, t_sensors *st)
+{
+	int value = st->sensorRawValues[chipNum][feature];
+	int min = st->sensorMinValues[chipNum][feature];
+	int max = st->sensorMaxValues[chipNum][feature];
+	double percentage = (double) (value - min) / (max - min);
+	if ((percentage > 1) || (percentage <= 0)) {
+		return 1;
+	}
+	return percentage;
+}
+
+
+void
+sensors_remove_graphical_panel (t_sensors *st)
+{
+	int chip, feature;
+	for (chip=0; chip < st->sensorNumber; chip++) {
+		for (feature=0; feature < 256; feature++) {
+			if (st->sensorCheckBoxes[chip][feature] == TRUE) {
+				t_barpanel *panel = st->panels[chip][feature];
+
+				gtk_widget_destroy(panel->progressbar);
+				gtk_widget_destroy(panel->label);
+				gtk_widget_destroy(panel->databox);
+				g_free(panel);
+			}
+		}
+	}
+	st->barsCreated = FALSE;
+	gtk_widget_hide(st->panelValuesLabel);
+}
+
+
+void
+sensors_update_graphical_panel (t_sensors *st)
+{
+	//g_printf("sensors_update_graphical_panel\n");
+	int chip, feature;
+	for (chip=0; chip < st->sensorNumber; chip++) {
+		for (feature=0; feature < 256; feature++) {
+			if (st->sensorCheckBoxes[chip][feature] == TRUE) {
+				t_barpanel *panel = st->panels[chip][feature];
+
+				GtkWidget *bar = panel->progressbar;
+				g_return_if_fail(G_IS_OBJECT(bar));
+
+				sensors_set_bar_size(bar, (int) st->panelSize,
+							st->orientation);
+				double fraction = sensors_get_percentage(
+							chip, feature, st);
+				sensors_set_bar_color(bar, fraction);
+				gtk_progress_bar_set_fraction(
+					GTK_PROGRESS_BAR(bar), fraction);
+			}
+		}
+	}
+}
+
+
+void
+sensors_add_graphical_panel (t_sensors *st)
+{
+	//g_printf("sensors_add_graphical_panel\n");
+    	gtk_label_set_markup(GTK_LABEL(st->panelValuesLabel), "<b>Sensors</b>");
+
+	gboolean has_bars = FALSE;
+
+	int chip, feature;
+	for (chip=0; chip < st->sensorNumber; chip++) {
+		for (feature=0; feature < 256; feature++) {
+			if (st->sensorCheckBoxes[chip][feature] == TRUE) {
+				has_bars = TRUE;
+
+				/* prepare the progress bar */
+				GtkWidget *progbar = gtk_progress_bar_new();
+
+				if (st->orientation == VERTICAL) {
+					gtk_progress_bar_set_orientation(
+						GTK_PROGRESS_BAR(progbar),
+						GTK_PROGRESS_LEFT_TO_RIGHT);
+				} else {
+					gtk_progress_bar_set_orientation(
+						GTK_PROGRESS_BAR(progbar),
+						GTK_PROGRESS_BOTTOM_TO_TOP);
+				}
+				sensors_set_bar_size(progbar,
+						(int) st->panelSize,
+						st->orientation);
+				gtk_widget_show(progbar);
+
+				/* create the label */
+				gchar caption[128];
+				g_snprintf(caption, sizeof(caption), _("%s"),
+					st->sensorNames[chip][feature]);
+				GtkWidget *label = gtk_label_new(caption);
+				if (st->showLabels == TRUE) {
+					gtk_widget_show(label);
+				}
+
+				/* put it all in the box */
+				GtkWidget *databox;
+				if (st->orientation == VERTICAL) {
+					databox = gtk_vbox_new(FALSE, 0);
+				} else {
+					databox = gtk_hbox_new(FALSE, 0);
+				}
+				gtk_widget_show(databox);
+				gtk_box_pack_start(GTK_BOX(databox), label,
+							FALSE, FALSE, 0);
+				gtk_box_pack_start(GTK_BOX(databox), progbar,
+							FALSE, FALSE, 0);
+				gtk_container_set_border_width(
+					GTK_CONTAINER(databox), border_width);
+				
+				/* save the panel elements */
+				t_barpanel *panel = g_new(t_barpanel, 1);
+				panel->progressbar = progbar;
+				panel->label = label;
+				panel->databox = databox;
+				st->panels[chip][feature] = panel;
+
+				/* and add it to the outer box */
+				gtk_box_pack_start(st->sensors,
+						databox, FALSE, FALSE, 0);
+			}
+		}
+	}
+	if (has_bars && !st->showTitle) {
+		gtk_widget_hide(st->panelValuesLabel);
+	} else {
+		gtk_widget_show(st->panelValuesLabel);
+	}
+	st->barsCreated = TRUE;
+	sensors_update_graphical_panel(st);
+}
+
+
+static void
+sensors_set_orientation (Control *control, int orientation)
+{
+	//g_printf("sensors_set_orientation\n");
+}
+
+
+gboolean
+sensors_show_graphical_panel (t_sensors *st)
+{
+	if (st->barsCreated == TRUE) {
+		sensors_update_graphical_panel(st);
+	} else {
+		sensors_add_graphical_panel(st);
+	}
+	return TRUE;
+}
+
 
 /* draw label with sensor values into panel's vbox */
 gboolean
-sensors_show_panel (gpointer data) 
+sensors_show_text_panel (t_sensors *st) 
 {
 /* REMARK:
     Since sensors_show_panel is called with the same period as
@@ -163,10 +411,8 @@ sensors_show_panel (gpointer data)
 
     /* g_printf(" sensors_show_panel\n"); */
 
-    g_return_val_if_fail (data != NULL, FALSE);
+    gtk_widget_show(st->panelValuesLabel);
 
-    t_sensors *st = (t_sensors *) data;
-    
     /* add labels */
     gint chipNumber = 0;
     gint itemsToDisplay=0;
@@ -397,6 +643,7 @@ value. \nProper proceeding cannot be guaranteed. \n"));
                     st->sensorNames[i][nr1], ": ", help, NULL);
                 
                 st->sensorValues[i][nr1] = g_strdup(help);
+		st->sensorRawValues[i][nr1] = sensorFeature;
                 
                 g_free(help);
             }
@@ -473,9 +720,13 @@ sensors_new (void)
     /* init xfce sensors stuff */    
     /* this is to be moved to read/write functions! */
     st->showTitle = TRUE;
+    st->showLabels = TRUE;
+    st->useNewUI = FALSE;
+    st->barsCreated = FALSE;
     st->fontSize = "medium";
     st->fontSizeNumerical = 2;
     st->panelSize=0;
+    st->orientation = VERTICAL;
     st->sensorUpdateTime = 60;
     
     /* double-click improvement */
@@ -522,25 +773,31 @@ sensors_new (void)
                     st->sensorValid [currentIndex] [nr1] = TRUE;
                     st->sensorValues [currentIndex] [nr1] = 
                         g_strdup_printf("%+5.2f", sensorFeature);
+                    st->sensorRawValues [currentIndex] [nr1] = sensorFeature;
                         
    /* categorize sensor type */
    if ( strstr(st->sensorNames[currentIndex][nr1], "Temp")!=NULL 
-      || strstr(st->sensorNames[currentIndex][nr1], "temp")!=NULL )
+      || strstr(st->sensorNames[currentIndex][nr1], "temp")!=NULL ) {
          st->sensor_types[currentIndex][nr1] = TEMPERATURE;
-      
-   else if ( strstr(st->sensorNames[currentIndex][nr1], "VCore")!=NULL 
+	 st->sensorMinValues[currentIndex][nr1] = 0;
+	 st->sensorMaxValues[currentIndex][nr1] = 80;
+   } else if ( strstr(st->sensorNames[currentIndex][nr1], "VCore")!=NULL 
       || strstr(st->sensorNames[currentIndex][nr1], "3V")!=NULL 
       || strstr(st->sensorNames[currentIndex][nr1], "5V")!=NULL 
-      || strstr(st->sensorNames[currentIndex][nr1], "12V")!=NULL )
+      || strstr(st->sensorNames[currentIndex][nr1], "12V")!=NULL ) {
          st->sensor_types[currentIndex][nr1] = VOLTAGE;
-      
-   else if ( strstr(st->sensorNames[currentIndex][nr1], "Fan")!=NULL 
-      || strstr(st->sensorNames[currentIndex][nr1], "fan")!=NULL )
+	 st->sensorMinValues[currentIndex][nr1] = 2.8;
+	 st->sensorMaxValues[currentIndex][nr1] = 12.2;
+   } else if ( strstr(st->sensorNames[currentIndex][nr1], "Fan")!=NULL 
+      || strstr(st->sensorNames[currentIndex][nr1], "fan")!=NULL ) {
          st->sensor_types[currentIndex][nr1] = SPEED;
-      
-   else
+	 st->sensorMinValues[currentIndex][nr1] = 1000;
+	 st->sensorMaxValues[currentIndex][nr1] = 3500;
+   } else {
          st->sensor_types[currentIndex][nr1] = OTHER;
-                    
+	 st->sensorMinValues[currentIndex][nr1] = 0;
+	 st->sensorMaxValues[currentIndex][nr1] = 7000;
+   }                
                 }  /* end if sensorFeature */
                 else {
                     st->sensorValid [currentIndex] [nr1] = FALSE;
@@ -574,6 +831,9 @@ sensors_new (void)
         st->sensorNames      [0] [0] = "No sensor";
         st->sensorValid      [0] [0] = TRUE;
         st->sensorValues     [0] [0] = g_strdup_printf("%+5.2f", 0.0);
+        st->sensorRawValues  [0] [0] = 0.0;
+        st->sensorMinValues  [0] [0] = 0;
+        st->sensorMaxValues  [0] [0] = 7000;
         st->sensorCheckBoxes [0] [0] = FALSE;
     }
 
@@ -592,12 +852,13 @@ sensors_new (void)
     gtk_container_add (GTK_CONTAINER (st->eventbox), st->sensors);
 
     /* update tooltip and widget data */
+    /*
     st->timeout_id = g_timeout_add (st->sensorUpdateTime * 1000, 
                 (GtkFunction) sensors_date_tooltip, (gpointer) st);
     
     st->timeout_id2 =g_timeout_add (st->sensorUpdateTime * 1000, 
                 (GtkFunction) sensors_show_panel, (gpointer) st);
-
+*/
     /* double-click improvement */
      st->doubleClick_id = g_signal_connect( G_OBJECT(st->eventbox), 
          "button-press-event", G_CALLBACK (execute_command), (gpointer) st);
@@ -706,6 +967,12 @@ sensors_write_config (Control * control, xmlNodePtr parent)
     g_snprintf (value, 2, "%i", st->showTitle);
     xmlSetProp (root, "Show_Title", value);
     
+    g_snprintf (value, 2, "%i", st->showLabels);
+    xmlSetProp (root, "Show_Labels", value);
+    
+    g_snprintf (value, 2, "%i", st->useNewUI);
+    xmlSetProp (root, "Use_New_UI", value);
+
     g_snprintf (value, 8, "%s", st->fontSize);
     xmlSetProp (root, "Font_Size", value);
     
@@ -755,6 +1022,12 @@ sensors_write_config (Control * control, xmlNodePtr parent)
                 
                 g_snprintf (value, 2, "%i", st->sensorCheckBoxes[i][j]);
                 xmlSetProp (featureNode, "Show", value);
+
+		g_snprintf (value, 5, "%i", st->sensorMinValues[i][j]);
+		xmlSetProp (featureNode, "Min", value);
+
+		g_snprintf (value, 5, "%i", st->sensorMaxValues[i][j]);
+		xmlSetProp (featureNode, "Max", value);
             }
             
         } /* end for j */
@@ -784,6 +1057,18 @@ sensors_read_config (Control * control, xmlNodePtr node)
     if ((value = xmlGetProp (node, (const xmlChar *) "Show_Title"))) {
         /* g_printf(" value: %s \n", value); */
         st->showTitle = atoi (value);
+        g_free (value);
+    }
+
+    if ((value = xmlGetProp (node, (const xmlChar *) "Show_Labels"))) {
+        /* g_printf(" value: %s \n", value); */
+        st->showLabels = atoi (value);
+        g_free (value);
+    }
+
+    if ((value = xmlGetProp (node, (const xmlChar *) "Use_New_UI"))) {
+        /* g_printf(" value: %s \n", value); */
+        st->useNewUI = atoi (value);
         g_free (value);
     }
 
@@ -901,7 +1186,21 @@ sensors_read_config (Control * control, xmlNodePtr node)
                     st->sensorCheckBoxes[sensorNumber][address] = atoi (value);
                     g_free (value);
                 }
-                    
+
+                if ((value = 
+                    xmlGetProp (featureNode, (const xmlChar *) "Min"))) {
+                    /* g_printf(" value: %s \n", value); */
+                    st->sensorMinValues[sensorNumber][address] = atoi (value);
+                    g_free (value);
+                }
+
+		if ((value = 
+                    xmlGetProp (featureNode, (const xmlChar *) "Max"))) {
+                    /* g_printf(" value: %s \n", value); */
+                    st->sensorMaxValues[sensorNumber][address] = atoi (value);
+                    g_free (value);
+                }
+
                 featureNode = featureNode->next;
             }
         }
@@ -912,6 +1211,11 @@ sensors_read_config (Control * control, xmlNodePtr node)
 	
 	}
 
+    st->timeout_id = g_timeout_add (st->sensorUpdateTime * 1000, 
+                (GtkFunction) sensors_date_tooltip, (gpointer) st);
+    
+    st->timeout_id2 =g_timeout_add (st->sensorUpdateTime * 1000, 
+                (GtkFunction) sensors_show_panel, (gpointer) st);
     /* Try to resize the sensors to fit the user settings.
        Maybe calling sensors_show_panel() would suffice. */
     sensors_set_size (control, settings.size);
@@ -926,8 +1230,37 @@ show_title_toggled (  GtkWidget *widget, SensorsDialog *sd )
 {
     sd->sensors->showTitle = gtk_toggle_button_get_active
         ( GTK_TOGGLE_BUTTON(widget) );
+    if (sd->sensors->useNewUI == TRUE) {
+	    sensors_remove_graphical_panel(sd->sensors);
+    }
     sensors_show_panel((gpointer) sd->sensors);
     /* g_printf(" show_title_toggled: %i \n", sd->sensors->showTitle); */
+}
+
+
+static void
+show_labels_toggled (  GtkWidget *widget, SensorsDialog *sd )
+{
+    sd->sensors->showLabels = gtk_toggle_button_get_active
+        ( GTK_TOGGLE_BUTTON(widget) );
+    if (sd->sensors->useNewUI == TRUE) {
+	    sensors_remove_graphical_panel(sd->sensors);
+    }
+    sensors_show_panel((gpointer) sd->sensors);
+    /* g_printf(" show_labels_toggled: %i \n", sd->sensors->showLabels); */
+}
+
+
+static void
+new_ui_toggled (  GtkWidget *widget, SensorsDialog *sd )
+{
+    if (sd->sensors->useNewUI == TRUE) {
+	    sensors_remove_graphical_panel(sd->sensors);
+    }
+    sd->sensors->useNewUI = gtk_toggle_button_get_active
+        ( GTK_TOGGLE_BUTTON(widget) );
+    sensors_show_panel((gpointer) sd->sensors);
+    /* g_printf(" new_ui_toggled: %i \n", sd->sensors->useNewUI); */
 }
 
 
@@ -1009,6 +1342,79 @@ execCommand_toggled ( GtkWidget *widget, SensorsDialog* sd )
             sd->sensors->doubleClick_id );
 }
 
+
+static void
+minimum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
+			gchar *new_value, SensorsDialog *sd)
+{
+	gint value = atol(new_value);
+
+	gint gtk_combo_box_active = 
+		gtk_combo_box_get_active(GTK_COMBO_BOX (sd->myComboBox));
+
+	/* get model and path */
+	GtkTreeModel *model = (GtkTreeModel *) sd->myListStore
+		[gtk_combo_box_active];
+	GtkTreePath *path = gtk_tree_path_new_from_string (path_str);
+        
+	/* get model iterator */
+	GtkTreeIter iter;
+	gtk_tree_model_get_iter (model, &iter, path);
+
+	/* set new value */
+	gtk_tree_store_set (GTK_TREE_STORE (model), &iter, 4, value, -1);
+	int help = sd->sensors->sensorAddress  [gtk_combo_box_active]
+		[atoi(path_str)];
+	sd->sensors->sensorMinValues[gtk_combo_box_active][help] = value;
+        
+	/* clean up */
+	gtk_tree_path_free (path);
+
+	if (sd->sensors->useNewUI == TRUE) {
+		sensors_remove_graphical_panel(sd->sensors);
+	}
+
+	/* update panel */
+	sensors_show_panel((gpointer) sd->sensors);
+}
+
+
+static void
+maximum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
+			gchar *new_value, SensorsDialog *sd)
+{
+	gint value = atol(new_value);
+
+	gint gtk_combo_box_active = 
+		gtk_combo_box_get_active(GTK_COMBO_BOX (sd->myComboBox));
+
+	/* get model and path */
+	GtkTreeModel *model = (GtkTreeModel *) sd->myListStore
+		[gtk_combo_box_active];
+	GtkTreePath *path = gtk_tree_path_new_from_string (path_str);
+        
+	/* get model iterator */
+	GtkTreeIter iter;
+	gtk_tree_model_get_iter (model, &iter, path);
+
+	/* set new value */
+	gtk_tree_store_set (GTK_TREE_STORE (model), &iter, 5, value, -1);
+	int help = sd->sensors->sensorAddress  [gtk_combo_box_active]
+		[atoi(path_str)];
+	sd->sensors->sensorMaxValues[gtk_combo_box_active][help] = value;
+        
+	/* clean up */
+	gtk_tree_path_free (path);
+
+	if (sd->sensors->useNewUI == TRUE) {
+		sensors_remove_graphical_panel(sd->sensors);
+	}
+
+	/* update panel */
+	sensors_show_panel((gpointer) sd->sensors);
+}
+
+
 static void
 gtk_cell_color_edited (GtkCellRendererText *cellrenderertext, gchar *path_str, 
                        gchar *new_color, SensorsDialog *sd)
@@ -1060,6 +1466,9 @@ gtk_cell_text_edited (GtkCellRendererText *cellrenderertext,
 {
 /*    g_printf(" gtk_cell_text_edited \n"); */
 
+    if (sd->sensors->useNewUI == TRUE) {
+	    sensors_remove_graphical_panel(sd->sensors);
+    }
     gint gtk_combo_box_active = 
         gtk_combo_box_get_active(GTK_COMBO_BOX (sd->myComboBox));
 
@@ -1082,6 +1491,9 @@ gtk_cell_text_edited (GtkCellRendererText *cellrenderertext,
     gtk_tree_path_free (path);
     
     sensors_date_tooltip ((gpointer) sd->sensors);
+
+    /* update panel */
+    sensors_show_panel((gpointer) sd->sensors);
 }
 
 
@@ -1091,6 +1503,9 @@ gtk_cell_toggle ( GtkCellRendererToggle *cell, gchar *path_str,
 {
 /*    g_printf(" gtk_cell_toggle \n"); */
 
+    if (sd->sensors->useNewUI == TRUE) {
+	    sensors_remove_graphical_panel(sd->sensors);
+    }
     gint gtk_combo_box_active = 
         gtk_combo_box_get_active(GTK_COMBO_BOX (sd->myComboBox));
 
@@ -1131,8 +1546,9 @@ init_widgets (SensorsDialog *sd)
     
     int i=0;
     while( i < sd->sensors->sensorNumber ) {
-        sd->myListStore[i] = gtk_tree_store_new (4, G_TYPE_STRING, 
-                        G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_STRING);
+        sd->myListStore[i] = gtk_tree_store_new (6, G_TYPE_STRING, 
+          			G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_STRING,
+				G_TYPE_INT, G_TYPE_INT);
         i++;
     }
     
@@ -1161,6 +1577,7 @@ guaranteed.\n") );
                 }
                 sd->sensors->sensorValues[i][nr1] = 
                     g_strdup_printf("%+5.2f", sensorFeature);
+		sd->sensors->sensorRawValues[i][nr1] = sensorFeature;
                 gtk_tree_store_append ( GTK_TREE_STORE (sd->myListStore[i]), 
                                         &iter, NULL);
                 gtk_tree_store_set ( GTK_TREE_STORE (sd->myListStore[i]),
@@ -1168,7 +1585,10 @@ guaranteed.\n") );
                                      0, sd->sensors->sensorNames[i][nr1] ,
                                      1, sd->sensors->sensorValues[i][nr1] ,
                                      2, sd->sensors->sensorCheckBoxes[i][nr1],
-                                     3, sd->sensors->sensorColors[i][nr1], -1);
+                                     3, sd->sensors->sensorColors[i][nr1],
+				     4, sd->sensors->sensorMinValues[i][nr1],
+				     5, sd->sensors->sensorMaxValues[i][nr1],
+				     -1);
             } /* end if sensors-valid */
 
             nr1++;
@@ -1180,10 +1600,11 @@ guaranteed.\n") );
     if(sd->sensors->sensorNumber == 0) {
         gtk_combo_box_append_text ( GTK_COMBO_BOX(sd->myComboBox), 
                                 sd->sensors->sensorId[0] );
-        sd->myListStore[0] = gtk_tree_store_new (4, G_TYPE_STRING, 
+        sd->myListStore[0] = gtk_tree_store_new (6, G_TYPE_STRING, 
                             G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_STRING);
         sd->sensors->sensorValues[0][0] = 
                             g_strdup_printf("%+5.2f", 0.0);
+	sd->sensors->sensorRawValues[0][0] = 0.0;
         gtk_tree_store_append ( GTK_TREE_STORE (sd->myListStore[0]), 
                             &iter, NULL);
         gtk_tree_store_set ( GTK_TREE_STORE (sd->myListStore[0]),
@@ -1191,12 +1612,63 @@ guaranteed.\n") );
                             0, sd->sensors->sensorNames[0][0] ,
                             1, sd->sensors->sensorValues[0][0] ,
                             2, sd->sensors->sensorCheckBoxes[0][0],
-                            3, sd->sensors->sensorColors[0][0], -1);
+                            3, sd->sensors->sensorColors[0][0],
+			    4, sd->sensors->sensorMinValues[0][0],
+			    5, sd->sensors->sensorMaxValues[0][0],
+			    -1);
     }
     
 }
 
 
+static void
+add_ui_style_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
+{
+    /* g_printf(" add_ui_style_box \n"); */
+
+    GtkWidget *hbox, *checkButton;
+
+    hbox = gtk_hbox_new (FALSE, BORDER);
+    gtk_widget_show (hbox);
+
+    checkButton = gtk_check_button_new_with_label (_("Use graphical UI"));
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(checkButton), 
+                                  sd->sensors->useNewUI);
+    gtk_widget_show (checkButton);
+    gtk_size_group_add_widget (sg, checkButton);
+    
+    gtk_box_pack_start (GTK_BOX (hbox), checkButton, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, TRUE, 0);
+        
+    g_signal_connect (G_OBJECT (checkButton), "toggled", 
+                      G_CALLBACK (new_ui_toggled), sd );
+}
+
+
+static void
+add_labels_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
+{
+    /* g_printf(" add_labels_box \n"); */
+
+    GtkWidget *hbox, *checkButton;
+
+    hbox = gtk_hbox_new (FALSE, BORDER);
+    gtk_widget_show (hbox);
+
+    checkButton = gtk_check_button_new_with_label (_("Show labels in graphical UI"));
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(checkButton), 
+                                  sd->sensors->showLabels);
+    gtk_widget_show (checkButton);
+    gtk_size_group_add_widget (sg, checkButton);
+    
+    gtk_box_pack_start (GTK_BOX (hbox), checkButton, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, TRUE, 0);
+        
+    g_signal_connect (G_OBJECT (checkButton), "toggled", 
+                      G_CALLBACK (show_labels_toggled), sd );
+}
+
+	
 static void
 add_title_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
 {
@@ -1309,6 +1781,24 @@ add_sensor_settings_box ( GtkWidget * vbox, GtkSizeGroup * sg,
     gtk_tree_view_append_column (GTK_TREE_VIEW (sd->myTreeView), 
                         GTK_TREE_VIEW_COLUMN (aTreeViewColumn));
 
+    myCellRendererText = gtk_cell_renderer_text_new ();
+    g_object_set ( (gpointer*) myCellRendererText, "editable", TRUE, NULL );
+    aTreeViewColumn = gtk_tree_view_column_new_with_attributes
+		    		("Min", myCellRendererText, "text", 4, NULL);
+    g_signal_connect(G_OBJECT(myCellRendererText), "edited",
+		    			G_CALLBACK(minimum_changed), sd);
+    gtk_tree_view_append_column(GTK_TREE_VIEW(sd->myTreeView),
+		    			GTK_TREE_VIEW_COLUMN(aTreeViewColumn));
+
+    myCellRendererText = gtk_cell_renderer_text_new ();
+    g_object_set ( (gpointer*) myCellRendererText, "editable", TRUE, NULL );
+    aTreeViewColumn = gtk_tree_view_column_new_with_attributes
+		    		("Max", myCellRendererText, "text", 5, NULL);
+    g_signal_connect(G_OBJECT(myCellRendererText), "edited",
+		    			G_CALLBACK(maximum_changed), sd);
+    gtk_tree_view_append_column(GTK_TREE_VIEW(sd->myTreeView),
+		    			GTK_TREE_VIEW_COLUMN(aTreeViewColumn));
+
     /*    
      * Gtk Widget stuff 
      *                       */
@@ -1379,7 +1869,9 @@ add_update_time_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
     GtkAdjustment *spinner_adj;
 
     spinner_adj = (GtkAdjustment *) gtk_adjustment_new (
-        sd->sensors->sensorUpdateTime, 10.0, 990.0, 10.0, 60.0, 60.0);
+// TODO: restore original
+//        sd->sensors->sensorUpdateTime, 10.0, 990.0, 10.0, 60.0, 60.0);
+        sd->sensors->sensorUpdateTime, 1.0, 990.0, 1.0, 60.0, 60.0);
    
    
     /* creates the spinner, with no decimal places */
@@ -1446,7 +1938,7 @@ sensors_create_options (Control *control, GtkContainer *container,
     GtkSizeGroup *sg = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
     SensorsDialog *sd;
 
-    xfce_textdomain (GETTEXT_PACKAGE, LOCALEDIR, "UTF-8");
+    /* xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8"); */
 
     sd = g_new0 (SensorsDialog, 1);
 
@@ -1468,6 +1960,10 @@ sensors_create_options (Control *control, GtkContainer *container,
 
     add_title_box (vbox, sg, sd);
 
+    add_ui_style_box (vbox, sg, sd);
+
+    add_labels_box (vbox, sg, sd);
+
     add_type_box (vbox, sg, sd);
 
     add_sensor_settings_box (vbox, sg, sd);
@@ -1479,7 +1975,7 @@ sensors_create_options (Control *control, GtkContainer *container,
     /* double-click improvement */
      add_command_box(vbox, sd); 
     
-    gtk_widget_set_size_request (vbox, 340, 310);
+    gtk_widget_set_size_request (vbox, 450, 350);
 
     gtk_container_add (container, vbox);
 }
@@ -1512,7 +2008,7 @@ xfce_control_class_init (ControlClass * cc)
 {
 /*    g_printf(" xfce_control_class_init\n"); */
 
-    xfce_textdomain (GETTEXT_PACKAGE, LOCALEDIR, "UTF-8");
+    xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
     cc->name = "sensors";
     cc->caption = _("Hardware Sensors");
@@ -1528,6 +2024,8 @@ xfce_control_class_init (ControlClass * cc)
     cc->create_options = sensors_create_options;
 
     cc->set_size = sensors_set_size;
+
+    cc->set_orientation = sensors_set_orientation;
 
     control_class_set_unique (cc, TRUE);
 }
