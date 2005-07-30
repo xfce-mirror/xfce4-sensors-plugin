@@ -390,6 +390,34 @@ static void
 sensors_set_orientation (Control *control, int orientation)
 {
 	//g_printf("sensors_set_orientation\n");
+	t_sensors *st = control->data;
+
+	if (orientation == st->orientation) return;
+	
+	st->orientation = orientation;
+	GtkWidget *newBox;
+
+	if (orientation == VERTICAL) {
+		newBox = gtk_vbox_new(FALSE, 0);
+	} else {
+		newBox = gtk_hbox_new(FALSE, 0);
+	}
+	gtk_widget_show(newBox);
+	gtk_widget_reparent(st->panelValuesLabel, newBox);
+	int chip, feature;
+	for (chip=0; chip < st->sensorNumber; chip++) {
+		for (feature=0; feature < FEATURES_PER_SENSOR; feature++) {
+			if (st->sensorCheckBoxes[chip][feature] == TRUE) {
+				t_barpanel *panel = st->panels[chip][feature];
+				gtk_widget_reparent(panel->databox, newBox);
+			}
+		}
+	}
+	gtk_widget_destroy(st->sensors);
+	st->sensors = newBox;
+	gtk_container_add (GTK_CONTAINER (st->eventbox), st->sensors);
+	sensors_remove_graphical_panel(st);
+    	sensors_show_panel(st);
 }
 
 
