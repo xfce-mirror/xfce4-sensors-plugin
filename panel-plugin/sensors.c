@@ -38,6 +38,9 @@
 
 
 #define BORDER 6
+#define SENSORS 10
+#define FEATURES_PER_SENSOR 256
+
 
 #define COLOR_ERROR	"#f00000"
 #define COLOR_WARN	"#f0f000"
@@ -109,44 +112,44 @@ typedef struct {
     /* no problem if less than 11 sensors, else will have to enlarge the 
         following arrays. NYI!! */
     gint sensorNumber;
-    gint sensorsCount[10];
+    gint sensorsCount[SENSORS];
     
     /* contains the progress bar panels */
-    GtkWidget* panels[10][256];
+    GtkWidget* panels[SENSORS][FEATURES_PER_SENSOR];
     
     /* contains structure from libsensors */
-    const sensors_chip_name *chipName[10];
+    const sensors_chip_name *chipName[SENSORS];
     
     /* formatted sensor chip names, e.g. 'asb-100-45' */
-    gchar *sensorId[10];
+    gchar *sensorId[SENSORS];
     
     /* unformatted sensor feature names, e.g. 'Vendor' */
-    gchar *sensorNames[10][256];
+    gchar *sensorNames[SENSORS][FEATURES_PER_SENSOR];
 
     /* minimum and maximum values (GUI mode only) */
-    glong sensorMinValues[10][256];
-    glong sensorMaxValues[10][256];
+    glong sensorMinValues[SENSORS][FEATURES_PER_SENSOR];
+    glong sensorMaxValues[SENSORS][FEATURES_PER_SENSOR];
     
     /* unformatted sensor feature values */
-    double sensorRawValues[10][256];
+    double sensorRawValues[SENSORS][FEATURES_PER_SENSOR];
 
     /* formatted (%f5.2) sensor feature values */
-    gchar *sensorValues[10][256];
+    gchar *sensorValues[SENSORS][FEATURES_PER_SENSOR];
 
     /* TRUE if sensorNames are set */
-    gboolean sensorValid[10][256];
+    gboolean sensorValid[SENSORS][FEATURES_PER_SENSOR];
     
     /* show sensor in panel */
-    gboolean sensorCheckBoxes[10][256];
+    gboolean sensorCheckBoxes[SENSORS][FEATURES_PER_SENSOR];
     
     /* sensor types to display values in appropriate format */
-    sensor_type sensor_types[10][256];
+    sensor_type sensor_types[SENSORS][FEATURES_PER_SENSOR];
     
     /* sensor colors in panel */
-    gchar *sensorColors[10][256];
+    gchar *sensorColors[SENSORS][FEATURES_PER_SENSOR];
     
     /* number in list <--> number in array */
-    gint sensorAddress[10][256];
+    gint sensorAddress[SENSORS][FEATURES_PER_SENSOR];
     
     /* double-click improvement as suggested on xfce4-goodies@berlios.de */
     /* whether to execute command on double click */
@@ -180,7 +183,7 @@ typedef struct {
     GtkWidget *myFrame;
     GtkWidget *mySensorLabel;
     GtkWidget *myTreeView;
-    GtkTreeStore *myListStore[10];
+    GtkTreeStore *myListStore[SENSORS];
     GtkWidget *fontBox;
     GtkWidget *labelsBox;
 
@@ -263,7 +266,7 @@ sensors_remove_graphical_panel (t_sensors *st)
 {
 	int chip, feature;
 	for (chip=0; chip < st->sensorNumber; chip++) {
-		for (feature=0; feature < 256; feature++) {
+		for (feature=0; feature < FEATURES_PER_SENSOR; feature++) {
 			if (st->sensorCheckBoxes[chip][feature] == TRUE) {
 				t_barpanel *panel = st->panels[chip][feature];
 
@@ -285,7 +288,7 @@ sensors_update_graphical_panel (t_sensors *st)
 	//g_printf("sensors_update_graphical_panel\n");
 	int chip, feature;
 	for (chip=0; chip < st->sensorNumber; chip++) {
-		for (feature=0; feature < 256; feature++) {
+		for (feature=0; feature < FEATURES_PER_SENSOR; feature++) {
 			if (st->sensorCheckBoxes[chip][feature] == TRUE) {
 				t_barpanel *panel = st->panels[chip][feature];
 
@@ -315,7 +318,7 @@ sensors_add_graphical_panel (t_sensors *st)
 
 	int chip, feature;
 	for (chip=0; chip < st->sensorNumber; chip++) {
-		for (feature=0; feature < 256; feature++) {
+		for (feature=0; feature < FEATURES_PER_SENSOR; feature++) {
 			if (st->sensorCheckBoxes[chip][feature] == TRUE) {
 				has_bars = TRUE;
 
@@ -446,7 +449,7 @@ sensors_show_text_panel (t_sensors *st)
     
         gint chipFeature = 0;
     
-        while (chipFeature < 256) {
+        while (chipFeature < FEATURES_PER_SENSOR) {
         
             if (st->sensorCheckBoxes[chipNumber][chipFeature] == TRUE)
                 itemsToDisplay++;
@@ -517,7 +520,7 @@ sensors_show_text_panel (t_sensors *st)
     
         gint chipFeature = 0;
     
-        while (chipFeature < 256) {
+        while (chipFeature < FEATURES_PER_SENSOR) {
         
             if (st->sensorCheckBoxes[chipNumber][chipFeature] == TRUE) {
                    
@@ -586,7 +589,7 @@ sensors_date_tooltip (gpointer data)
     
     int i=0;
     
-    if (st->sensorNumber > 10) return FALSE;
+    if (st->sensorNumber > SENSORS) return FALSE;
     
     gboolean first = TRUE;
     
@@ -595,7 +598,7 @@ sensors_date_tooltip (gpointer data)
         gboolean prependedChipName = FALSE;
     
         int nr1 = 0;
-        while ( nr1 < 256 ) {
+        while ( nr1 < FEATURES_PER_SENSOR ) {
             
             if ( st->sensorValid[i][nr1] == TRUE &&
                  st->sensorCheckBoxes[i][nr1] == TRUE ) {
@@ -759,7 +762,7 @@ sensors_new (void)
         st->sensorsCount[currentIndex]=0;
 
         /* iterate over chip features, i.e. id, cpu temp, mb temp... */
-        while(nr1<256) {
+        while(nr1<FEATURES_PER_SENSOR) {
             int res = sensors_get_label(*st->chipName[currentIndex], nr1, 
                                         &st->sensorNames[currentIndex][nr1] );
             if (res==0) {
@@ -812,8 +815,8 @@ sensors_new (void)
             nr1++;
         } /* end while nr1 */
 
-        /* static problem if more than 10 sensors ! */
-        if (currentIndex>=9) break;
+        /* static problem if more sensors than supported! */
+        if (currentIndex>=(SENSORS - 1)) break;
 
         st->chipName[++currentIndex] = 
             sensors_get_detected_chips(&st->sensorNumber);
@@ -997,14 +1000,14 @@ sensors_write_config (Control * control, xmlNodePtr parent)
         g_sprintf (value, "%s", st->sensorId[i]);
         xmlSetProp (chipNode, "Name", value);
         
-        /* still limited to 10 sensors totally! */
+        /* number of sensors is still limited */
         g_snprintf (value, 2, "%i", i);
         xmlSetProp (chipNode, "Number", value);
         
         /* only save what was displayed to save time */
         int j;
         
-        for (j=0; j<256; j++) {
+        for (j=0; j<FEATURES_PER_SENSOR; j++) {
         
             if (st->sensorCheckBoxes[i][j] == TRUE) {
                 featureNode = xmlNewTextChild (chipNode, NULL, "Feature", 
@@ -1566,7 +1569,7 @@ init_widgets (SensorsDialog *sd)
         
         int nr1=0;
 
-        while( nr1 < 256 ) {
+        while( nr1 < FEATURES_PER_SENSOR ) {
             if ( sd->sensors->sensorValid[i][nr1] == TRUE ) {
                 double sensorFeature;
                 int res = sensors_get_feature
