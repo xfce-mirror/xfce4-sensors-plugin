@@ -181,6 +181,8 @@ typedef struct {
     GtkWidget *mySensorLabel;
     GtkWidget *myTreeView;
     GtkTreeStore *myListStore[10];
+    GtkWidget *fontBox;
+    GtkWidget *labelsBox;
 
     /* double-click improvement */  
     GtkWidget *myExecCommandCheckBox;
@@ -1259,6 +1261,8 @@ new_ui_toggled (  GtkWidget *widget, SensorsDialog *sd )
     }
     sd->sensors->useNewUI = gtk_toggle_button_get_active
         ( GTK_TOGGLE_BUTTON(widget) );
+    gtk_widget_set_sensitive(sd->labelsBox, sd->sensors->useNewUI);
+    gtk_widget_set_sensitive(sd->fontBox, !sd->sensors->useNewUI);
     sensors_show_panel((gpointer) sd->sensors);
     /* g_printf(" new_ui_toggled: %i \n", sd->sensors->useNewUI); */
 }
@@ -1654,6 +1658,8 @@ add_labels_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
 
     hbox = gtk_hbox_new (FALSE, BORDER);
     gtk_widget_show (hbox);
+    sd->labelsBox = hbox;
+    gtk_widget_set_sensitive(hbox, sd->sensors->useNewUI);
 
     checkButton = gtk_check_button_new_with_label (_("Show labels in graphical UI"));
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(checkButton), 
@@ -1837,6 +1843,9 @@ add_font_size_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
     GtkWidget *myFontLabel = gtk_label_new (_("Font size:"));
     GtkWidget *myFontBox = gtk_hbox_new(FALSE, 0);
     GtkWidget *myFontSizeComboBox = gtk_combo_box_new_text();
+
+    sd->fontBox = myFontBox;
+    gtk_widget_set_sensitive(myFontBox, !sd->sensors->useNewUI);
 
     gtk_combo_box_append_text(GTK_COMBO_BOX(myFontSizeComboBox), _("x-small"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(myFontSizeComboBox), _("small")  );
