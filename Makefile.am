@@ -30,3 +30,5 @@ EXTRA_DIST =								\
 	xfce4-sensors-plugin.spec
 
 ACLOCAL_AMFLAGS = -I m4
+
+localedir = ${prefix}/share/locale

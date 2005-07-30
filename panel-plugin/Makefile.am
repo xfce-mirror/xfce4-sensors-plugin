@@ -1,5 +1,6 @@
 INCLUDES =								\
-	-DG_LOG_DOMAIN=\"xfce4-sensors-plugin\"
+	-DG_LOG_DOMAIN=\"xfce4-sensors-plugin\"  \
+	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
 
 plugindir = $(libdir)/xfce4/panel-plugins
 plugin_LTLIBRARIES =							\

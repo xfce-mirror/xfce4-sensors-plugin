@@ -214,7 +214,8 @@ libsensors_la_SOURCES = \
 	sensors.c
 
 libsensors_la_CFLAGS = \
-	@XFCE4_PANEL_CFLAGS@
+	@XFCE4_PANEL_CFLAGS@   \
+	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
 
 libsensors_la_LIBADD = \
 	@XFCE4_PANEL_LIBS@						\
