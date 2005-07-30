@@ -26,6 +26,12 @@ AC_PROG_LIBTOOL
 dnl Check for standard header files
 AC_HEADER_STDC
 
+dnl Check for libsensors
+AC_CHECK_LIB([sensors], [sensors_get_detected_chips], [], [
+        echo "Error! You need to have libsensors around."
+	exit -1
+])
+
 dnl configure the panel plugin
 XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.0.0])
 
