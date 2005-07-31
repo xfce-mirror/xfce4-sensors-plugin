@@ -2,14 +2,15 @@
 # Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Stephane Roy <sroy@j2n.net>, 2005.
+# Fabian Nowak <timystery@arcor.de>, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.5.0\n" 
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-07-27 12:04+0200\n"
-"PO-Revision-Date: 2005-07-27 16:28+0100\n"
-"Last-Translator: Stephane Roy <sroy@j2n.net>\n"
+"PO-Revision-Date: 2005-07-31 13:31+0200\n"
+"Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -60,11 +61,11 @@ msgstr "%5.0f rpm"
 
 #: panel-plugin/sensors.c:483
 msgid "/usr/bin/xsensors"
-msgstr ""
+msgstr "/usr/bin/xsensors"
 
 #: panel-plugin/sensors.c:571
 msgid "No sensors found!"
-msgstr "Aucun senseur trouvé !"
+msgstr "Aucun senseur trouvé!"
 
 #: panel-plugin/sensors.c:633
 #, c-format
@@ -81,7 +82,7 @@ msgstr ""
 " \n"
 "Xfce Greffon de Senseur Matériel : \n"
 "Il semblerait qu'il y ait un problème de lecture de valeur sur un senseur. \n"
-"L'exécution normale ne peut être garantie.\n"
+"L'exécution normale ne peut pas être garantie.\n"
 
 #: panel-plugin/sensors.c:1210
 msgid "Show title"
@@ -89,40 +90,40 @@ msgstr "Montrer le titre"
 
 #: panel-plugin/sensors.c:1235
 msgid "Sensors type:"
-msgstr "Type de senseur :"
+msgstr "Type de senseur:"
 
 #. g_printf(" add_font_size_box\n");
 #: panel-plugin/sensors.c:1347
 msgid "Font size:"
-msgstr "Taille de la police :"
+msgstr "Taille de la police:"
 
 #: panel-plugin/sensors.c:1351
 msgid "x-small"
-msgstr ""
+msgstr "très pétite"
 
 #: panel-plugin/sensors.c:1352
 msgid "small"
-msgstr ""
+msgstr "pétite"
 
 #: panel-plugin/sensors.c:1353
 msgid "medium"
-msgstr ""
+msgstr "normale"
 
 #: panel-plugin/sensors.c:1354
 msgid "large"
-msgstr ""
+msgstr "grande"
 
 #: panel-plugin/sensors.c:1355
 msgid "x-large"
-msgstr ""
+msgstr "très grande"
 
 #: panel-plugin/sensors.c:1388
 msgid "Update interval (seconds):"
-msgstr "Intervalle de mise-à-jour (secondes) :"
+msgstr "Intervalle de mise-à-jour (secondes):"
 
 #: panel-plugin/sensors.c:1412
 msgid "Execute on double click: "
-msgstr "Exécute après un double clic !"
+msgstr "Exécute après un double clic!"
 
 #: panel-plugin/sensors.c:1518
 msgid "Hardware Sensors"

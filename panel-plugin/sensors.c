@@ -17,181 +17,8 @@
 
 /* This plugin requires libsensors-1 and its headers !*/
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
 
-#include <glib/gprintf.h>
-
-#include <libxfce4util/i18n.h>
-#include <libxfce4util/libxfce4util.h>
-#include <libxfcegui4/xfce_clock.h>
-
-#include <panel/controls.h>
-#include <panel/global.h>
-/* #include <panel/icons.h> */
-#include <panel/plugins.h>
-
-#include <sensors/sensors.h>
-
-#include <unistd.h>
-
-
-#define BORDER 6
-#define SENSORS 10
-#define FEATURES_PER_SENSOR 256
-
-
-#define COLOR_ERROR	"#f00000"
-#define COLOR_WARN	"#f0f000"
-#define COLOR_NORMAL	"#00C000"
-
-
-typedef enum {
-
-   TEMPERATURE,
-   VOLTAGE,
-   SPEED,
-   OTHER
-} sensor_type;
-
-typedef struct {
-	/* the progress bar */
-	GtkWidget *progressbar;
-
-	/* the label */
-	GtkWidget *label;
-
-	/* the surrounding box */
-	GtkWidget *databox;
-} t_barpanel;
-
-
-/*  Sensors module
- *  ------------
- */
-typedef struct {
-    /* eventbox to catch events */
-    GtkWidget *eventbox;
-    
-    /* our XfceSensors widget */
-    GtkWidget *sensors;
-    
-    /* panel value display */
-    GtkWidget *panelValuesLabel;
-
-    /* update the tooltip */
-    gint timeout_id, timeout_id2;
-
-    /* font size for display in panel */
-    gchar* fontSize;
-    gint fontSizeNumerical;
-    
-    /* panel size to compute number of cols/columns */
-    gint panelSize;
-
-    /* panel orientation */
-    gint orientation;
-
-    /* if the bars have been initialized */
-    gboolean barsCreated;
-    
-    /* show title in panel */
-    gboolean showTitle;
-
-    /* show labels in panel (GUI mode only) */
-    gboolean showLabels;
-    
-    /* use the new UI */
-    gboolean useNewUI;
-
-    /* sensor update time */
-    gint sensorUpdateTime;
-                
-    /* sensor relevant stuff */
-    /* no problem if less than 11 sensors, else will have to enlarge the 
-        following arrays. NYI!! */
-    gint sensorNumber;
-    gint sensorsCount[SENSORS];
-    
-    /* contains the progress bar panels */
-    GtkWidget* panels[SENSORS][FEATURES_PER_SENSOR];
-    
-    /* contains structure from libsensors */
-    const sensors_chip_name *chipName[SENSORS];
-    
-    /* formatted sensor chip names, e.g. 'asb-100-45' */
-    gchar *sensorId[SENSORS];
-    
-    /* unformatted sensor feature names, e.g. 'Vendor' */
-    gchar *sensorNames[SENSORS][FEATURES_PER_SENSOR];
-
-    /* minimum and maximum values (GUI mode only) */
-    glong sensorMinValues[SENSORS][FEATURES_PER_SENSOR];
-    glong sensorMaxValues[SENSORS][FEATURES_PER_SENSOR];
-    
-    /* unformatted sensor feature values */
-    double sensorRawValues[SENSORS][FEATURES_PER_SENSOR];
-
-    /* formatted (%f5.2) sensor feature values */
-    gchar *sensorValues[SENSORS][FEATURES_PER_SENSOR];
-
-    /* TRUE if sensorNames are set */
-    gboolean sensorValid[SENSORS][FEATURES_PER_SENSOR];
-    
-    /* show sensor in panel */
-    gboolean sensorCheckBoxes[SENSORS][FEATURES_PER_SENSOR];
-    
-    /* sensor types to display values in appropriate format */
-    sensor_type sensor_types[SENSORS][FEATURES_PER_SENSOR];
-    
-    /* sensor colors in panel */
-    gchar *sensorColors[SENSORS][FEATURES_PER_SENSOR];
-    
-    /* number in list <--> number in array */
-    gint sensorAddress[SENSORS][FEATURES_PER_SENSOR];
-    
-    /* double-click improvement as suggested on xfce4-goodies@berlios.de */
-    /* whether to execute command on double click */
-     gboolean execCommand; 
-    
-    /* command to excute */
-     gchar* commandName; 
-    
-    /* callback_id for doubleclicks */
-     gint doubleClick_id; 
-    
-}
-t_sensors;
-
-
-/* sensor panel widget
- * -------------------
- */
-typedef struct {
-    /* the sensors structure */
-    t_sensors *sensors;
-
-    /* controls dialog */
-    GtkWidget *dialog;
-
-    /* sensors options */
-    GtkWidget *type_menu;
-
-    /* Gtk stuff */
-    GtkWidget *myComboBox;
-    GtkWidget *myFrame;
-    GtkWidget *mySensorLabel;
-    GtkWidget *myTreeView;
-    GtkTreeStore *myListStore[SENSORS];
-    GtkWidget *fontBox;
-    GtkWidget *labelsBox;
-
-    /* double-click improvement */  
-    GtkWidget *myExecCommandCheckBox;
-    GtkWidget *myCommandNameEntry; 
-}
-SensorsDialog;
+#include "sensors.h"
 
 gboolean
 sensors_show_panel (gpointer data)
@@ -312,7 +139,7 @@ void
 sensors_add_graphical_panel (t_sensors *st)
 {
 	//g_printf("sensors_add_graphical_panel\n");
-    	gtk_label_set_markup(GTK_LABEL(st->panelValuesLabel), "<b>Sensors</b>");
+    	gtk_label_set_markup(GTK_LABEL(st->panelValuesLabel), _("<b>Sensors</b>"));
 
 	gboolean has_bars = FALSE;
 
@@ -460,10 +287,10 @@ sensors_show_text_panel (t_sensors *st)
     
     if (st->showTitle == TRUE) {
         /* g_snprintf(myLabelText, 1024, 
-          "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span> \n",
+          "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n",
           st->fontSize); */
         myLabelText = g_strdup_printf(_(
-          "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span> \n"), 
+          "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"), 
           st->fontSize);
     }
     else /* nul-terminate the string for further concatenating */
@@ -727,12 +554,46 @@ execute_command (GtkWidget *widget, GdkEventButton *event, gpointer data)
 
        t_sensors *st = (t_sensors *) data;
       
-       g_return_if_fail ( st->execCommand);
+       g_return_val_if_fail ( st->execCommand, FALSE);
        
-       char* arguments[1];
-       arguments[0] = st->commandName;
+       /* FIXME: any given parameters in myCommandNameEntry should be regarded 
+          as arguments! */
+          
+       /* trim trailing spaces! */
+       while (st->commandName[strlen(st->commandName)-1]==' ') {
+          st->commandName[strlen(st->commandName)-1]='\0';
+       }
+          
+       int num_args=2;
+       char *tmp;
+
+       /* tmp = strchr(st->commandName, ' ');
+       printf(" here tmp=%s\n", tmp);
+       while (tmp!=NULL) {
+          printf(" tmp: %s \n", tmp);
+          num_args++;
+          tmp = strchr(tmp+1, ' ');
+       }
+       g_free(tmp); */ 
        
-       pid_t mypid = vfork();
+       char* arguments[num_args];
+
+       tmp = g_strdup( st->commandName );
+       /* printf( " num_args: %i, tmp2: %s \n", num_args, tmp); */
+       arguments[0] = strtok( tmp, " " );
+       /* printf( " command: %s \n", arguments[0]);
+       
+       if (num_args>2) {
+          int i=1;
+          while (i<num_args-1) {
+            arguments[i] = strtok(NULL, " ");
+            printf(" argument i: %s \n", arguments[i]);
+            i++;
+          }
+       } */
+       arguments[num_args-1] = NULL;
+       
+       pid_t mypid = fork();
        if (mypid==0) execv (st->commandName, arguments);
        
        return TRUE;
@@ -741,6 +602,19 @@ execute_command (GtkWidget *widget, GdkEventButton *event, gpointer data)
       return FALSE;
 
 }
+
+
+/* static gboolean
+execCommandName_activate (GtkWidget *widget, GdkEventButton *event, gpointer data) 
+{
+   printf( "entry_text: %s \n", gtk_entry_get_text(GTK_ENTRY(widget)) );
+   t_sensors *st = (t_sensors *) data;
+
+   st->commandName = g_strdup(gtk_entry_get_text(GTK_ENTRY(widget)));
+   printf(" commandName: %s\n", st->commandName);
+   
+   return FALSE;
+} */
 
 
 static t_sensors *
@@ -764,16 +638,16 @@ sensors_new (void)
     
     /* double-click improvement */
      st->execCommand = TRUE;
-    st->commandName = _("/usr/bin/xsensors");
+    st->commandName = "/usr/bin/xsensors";
     st->doubleClick_id = 0; 
 
     /* init libsensors stuff */
     FILE *filename = fopen("/etc/sensors.conf", "r");
     int sensorsInit = sensors_init(filename);
     if (sensorsInit != 0)
-        g_printf("trouble!");
+        g_printf(_("Error: Could not connect to sensors!"));
         
-    st->sensorNumber=0;
+    st->sensorNumber = 0;
     st->chipName[st->sensorNumber] = 
         sensors_get_detected_chips(&st->sensorNumber);
 
@@ -895,10 +769,6 @@ sensors_new (void)
     /* double-click improvement */
      st->doubleClick_id = g_signal_connect( G_OBJECT(st->eventbox), 
          "button-press-event", G_CALLBACK (execute_command), (gpointer) st);
-
-    if (!st->execCommand) {
-        g_signal_handler_block ( (gpointer) st->eventbox, st->doubleClick_id );
-    } 
     
 /*     g_signal_connect(G_OBJECT(datetime->eventbox), "button-press-event",
 	    	     G_CALLBACK(on_button_press_event_cb), datetime);
@@ -1016,10 +886,10 @@ sensors_write_config (Control * control, xmlNodePtr parent)
     xmlSetProp (root, "Update_Interval", value);
     
     /* double-click improvement */  
-     g_snprintf (value, 4, "%i", st->execCommand);
+     g_snprintf (value, 2, "%i", st->execCommand);
     xmlSetProp (root, "Exec_Command", value);
     
-    g_snprintf (value, 64, "%s", st->commandName);
+    g_snprintf (value, 256, "%s", st->commandName);
     xmlSetProp (root, "Command_Name", value); 
     
     int i;
@@ -1249,6 +1119,11 @@ sensors_read_config (Control * control, xmlNodePtr node)
     
     st->timeout_id2 =g_timeout_add (st->sensorUpdateTime * 1000, 
                 (GtkFunction) sensors_show_panel, (gpointer) st);
+
+    if (!st->execCommand) {
+        g_signal_handler_block ( G_OBJECT(st->eventbox), st->doubleClick_id );
+    } 
+                
     /* Try to resize the sensors to fit the user settings.
        Maybe calling sensors_show_panel() would suffice. */
     sensors_set_size (control, settings.size);
@@ -1949,9 +1824,8 @@ add_command_box (GtkWidget * vbox,  SensorsDialog * sd)
      gtk_widget_set_size_request (sd->myCommandNameEntry, 160, 25);
      
      
-     gtk_entry_set_text(GTK_ENTRY(sd->myCommandNameEntry), 
-         sd->sensors->commandName); 
-         // _("/usr/bin/xsensors")
+     gtk_entry_set_text( GTK_ENTRY(sd->myCommandNameEntry), 
+         sd->sensors->commandName ); 
 
      gtk_box_pack_start(GTK_BOX (myBox), sd->myExecCommandCheckBox, FALSE, FALSE, 2);
      gtk_box_pack_start (GTK_BOX (myBox), sd->myCommandNameEntry, FALSE, FALSE, 2);
@@ -1963,8 +1837,25 @@ add_command_box (GtkWidget * vbox,  SensorsDialog * sd)
     
      g_signal_connect  (G_OBJECT (sd->myExecCommandCheckBox), "toggled",
                         G_CALLBACK (execCommand_toggled), sd );
+                        
+     /* g_signal_connect  (G_OBJECT (sd->myCommandNameEntry), "focus-out-event",
+                        G_CALLBACK (execCommandName_activate), sd ); */
     
 } 
+
+
+static void 
+apply_options_callback (GtkWidget* widget, gpointer user_data)
+{
+    SensorsDialog* sd = (SensorsDialog *) user_data;
+    t_sensors* st = sd->sensors;
+
+    
+    st->commandName = 
+            g_strdup(gtk_entry_get_text(GTK_ENTRY(sd->myCommandNameEntry)));
+
+   /* g_free(sd); */
+}
 
 
 /* create sensor options box */
@@ -2018,6 +1909,9 @@ sensors_create_options (Control *control, GtkContainer *container,
     gtk_widget_set_size_request (vbox, 450, 350);
 
     gtk_container_add (container, vbox);
+    
+    g_signal_connect(done, "clicked",
+            G_CALLBACK(apply_options_callback), sd);
 }
 
 

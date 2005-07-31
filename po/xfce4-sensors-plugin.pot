@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-06-15 22:08+0200\n"
+"POT-Creation-Date: 2005-07-31 10:42+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,12 +16,22 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/sensors.c:187
-#, c-format
-msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span> \n"
+#. g_printf("sensors_add_graphical_panel\n");
+#: panel-plugin/sensors.c:315
+msgid "<b>Sensors</b>"
 msgstr ""
 
-#: panel-plugin/sensors.c:250
+#: panel-plugin/sensors.c:344
+#, c-format
+msgid "%s"
+msgstr ""
+
+#: panel-plugin/sensors.c:466
+#, c-format
+msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
+msgstr ""
+
+#: panel-plugin/sensors.c:529
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 msgstr ""
@@ -38,11 +48,11 @@ msgstr ""
 #. FIX ME!
 #. = (gchar *) g_malloc(1024);
 #. circumvent empty char pointer
-#: panel-plugin/sensors.c:337
+#: panel-plugin/sensors.c:616
 msgid "No sensors selected!"
 msgstr ""
 
-#: panel-plugin/sensors.c:373
+#: panel-plugin/sensors.c:652
 msgid ""
 " \n"
 "Xfce Hardware Sensors Plugin: \n"
@@ -50,27 +60,27 @@ msgid ""
 "Proper proceeding cannot be guaranteed. \n"
 msgstr ""
 
-#: panel-plugin/sensors.c:388
+#: panel-plugin/sensors.c:667
 #, c-format
 msgid "%5.0f rpm"
 msgstr ""
 
-#: panel-plugin/sensors.c:483
-msgid "/usr/bin/xsensors"
+#: panel-plugin/sensors.c:776
+msgid "Error: Could not connect to sensors!"
 msgstr ""
 
-#: panel-plugin/sensors.c:571
+#: panel-plugin/sensors.c:863
 msgid "No sensors found!"
 msgstr ""
 
-#: panel-plugin/sensors.c:633
+#: panel-plugin/sensors.c:929
 #, c-format
 msgid ""
 "A problem occured while trying to close the config file. Restart your "
 "computer ... err ... restart the sensor daemon only :-) \n"
 msgstr ""
 
-#: panel-plugin/sensors.c:1156
+#: panel-plugin/sensors.c:1609
 msgid ""
 " \n"
 "Xfce Hardware Sensors Plugin: \n"
@@ -78,47 +88,55 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
 
-#: panel-plugin/sensors.c:1210
+#: panel-plugin/sensors.c:1671
+msgid "Use graphical UI"
+msgstr ""
+
+#: panel-plugin/sensors.c:1697
+msgid "Show labels in graphical UI"
+msgstr ""
+
+#: panel-plugin/sensors.c:1721
 msgid "Show title"
 msgstr ""
 
-#: panel-plugin/sensors.c:1235
+#: panel-plugin/sensors.c:1746
 msgid "Sensors type:"
 msgstr ""
 
 #. g_printf(" add_font_size_box\n");
-#: panel-plugin/sensors.c:1347
+#: panel-plugin/sensors.c:1876
 msgid "Font size:"
 msgstr ""
 
-#: panel-plugin/sensors.c:1351
+#: panel-plugin/sensors.c:1883
 msgid "x-small"
 msgstr ""
 
-#: panel-plugin/sensors.c:1352
+#: panel-plugin/sensors.c:1884
 msgid "small"
 msgstr ""
 
-#: panel-plugin/sensors.c:1353
+#: panel-plugin/sensors.c:1885
 msgid "medium"
 msgstr ""
 
-#: panel-plugin/sensors.c:1354
+#: panel-plugin/sensors.c:1886
 msgid "large"
 msgstr ""
 
-#: panel-plugin/sensors.c:1355
+#: panel-plugin/sensors.c:1887
 msgid "x-large"
 msgstr ""
 
-#: panel-plugin/sensors.c:1388
+#: panel-plugin/sensors.c:1922
 msgid "Update interval (seconds):"
 msgstr ""
 
-#: panel-plugin/sensors.c:1412
+#: panel-plugin/sensors.c:1946
 msgid "Execute on double click: "
 msgstr ""
 
-#: panel-plugin/sensors.c:1518
+#: panel-plugin/sensors.c:2056
 msgid "Hardware Sensors"
 msgstr ""
