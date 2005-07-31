@@ -11,6 +11,7 @@ libsensors_la_LDFLAGS =							\
 	-module
 
 libsensors_la_SOURCES =							\
+	sensors.h							\
 	sensors.c
 
 libsensors_la_CFLAGS =							\

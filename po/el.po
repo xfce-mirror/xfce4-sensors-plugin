@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-27 12:04+0200\n"
+"POT-Creation-Date: 2005-07-31 15:04+0200\n"
 "PO-Revision-Date: 2005-07-27 18:50+0200\n"
 "Last-Translator: Stavros Giannouris <stavrosg2002@freemail.gr>\n"
 "Language-Team: Greek <el@li.org>\n"
@@ -17,12 +17,22 @@ msgstr ""
 "X-Poedit-Language: Greek\n"
 "X-Poedit-Country: GREECE\n"
 
-#: panel-plugin/sensors.c:187
+#. g_printf("sensors_add_graphical_panel\n");
+#: panel-plugin/sensors.c:142
+msgid "<b>Sensors</b>"
+msgstr ""
+
+#: panel-plugin/sensors.c:171
 #, c-format
-msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span> \n"
+msgid "%s"
+msgstr ""
+
+#: panel-plugin/sensors.c:293
+#, fuzzy, c-format
+msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Αισθητήρες</b></span> \n"
 
-#: panel-plugin/sensors.c:250
+#: panel-plugin/sensors.c:356
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Αισθητήρες</b></span>"
@@ -39,11 +49,11 @@ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Αισθητήρες</b></sp
 #. FIX ME!
 #. = (gchar *) g_malloc(1024);
 #. circumvent empty char pointer
-#: panel-plugin/sensors.c:337
+#: panel-plugin/sensors.c:443
 msgid "No sensors selected!"
 msgstr "Δεν επιλέχθηκαν αισθητήρες!"
 
-#: panel-plugin/sensors.c:373
+#: panel-plugin/sensors.c:479
 msgid ""
 " \n"
 "Xfce Hardware Sensors Plugin: \n"
@@ -55,25 +65,30 @@ msgstr ""
 "Από οτι φαίνεται υπήρξε πρόβλημα κατά την ανάγνωση κάποιου αισθητήρα. \n"
 "Δεν είναι εγγυημένη η κανονική συνέχεια.\n"
 
-#: panel-plugin/sensors.c:388
+#: panel-plugin/sensors.c:494
 #, c-format
 msgid "%5.0f rpm"
 msgstr "%5.0f rpm"
 
-#: panel-plugin/sensors.c:483
-msgid "/usr/bin/xsensors"
-msgstr "/usr/bin/xsensors"
+#: panel-plugin/sensors.c:648
+msgid "Error: Could not connect to sensors!"
+msgstr ""
 
-#: panel-plugin/sensors.c:571
+#: panel-plugin/sensors.c:735
 msgid "No sensors found!"
 msgstr "Δε βρέθηκαν αισθητήρες!"
 
-#: panel-plugin/sensors.c:633
+#: panel-plugin/sensors.c:797
 #, c-format
-msgid "A problem occured while trying to close the config file. Restart your computer ... err ... restart the sensor daemon only :-) \n"
-msgstr "Εμφανίστηκε ένα πρόβλημα κατά το κλείσιμο του αρχείου ρυθμήσεων. Επανεκκινείστε τον υπολογιστή σας... εμμ... επανεκκινείστε τον sensor daemon μόνο :-) \n"
+msgid ""
+"A problem occured while trying to close the config file. Restart your "
+"computer ... err ... restart the sensor daemon only :-) \n"
+msgstr ""
+"Εμφανίστηκε ένα πρόβλημα κατά το κλείσιμο του αρχείου ρυθμήσεων. "
+"Επανεκκινείστε τον υπολογιστή σας... εμμ... επανεκκινείστε τον sensor daemon "
+"μόνο :-) \n"
 
-#: panel-plugin/sensors.c:1156
+#: panel-plugin/sensors.c:1482
 msgid ""
 " \n"
 "Xfce Hardware Sensors Plugin: \n"
@@ -85,48 +100,58 @@ msgstr ""
 "Από οτι φαίνεται υπήρξε πρόβλημα κατά την ανάγνωση κάποιου αισθητήρα. \n"
 "Δεν είναι εγγυημένη η κανονική συνέχεια.\n"
 
-#: panel-plugin/sensors.c:1210
+#: panel-plugin/sensors.c:1544
+msgid "Use graphical UI"
+msgstr ""
+
+#: panel-plugin/sensors.c:1570
+msgid "Show labels in graphical UI"
+msgstr ""
+
+#: panel-plugin/sensors.c:1594
 msgid "Show title"
 msgstr "Εμφάνιση τίτλου"
 
-#: panel-plugin/sensors.c:1235
+#: panel-plugin/sensors.c:1619
 msgid "Sensors type:"
 msgstr "Τύπος Αισθητήρα:"
 
 #. g_printf(" add_font_size_box\n");
-#: panel-plugin/sensors.c:1347
+#: panel-plugin/sensors.c:1749
 msgid "Font size:"
 msgstr "Μέγεθος γραμματοσειράς:"
 
-#: panel-plugin/sensors.c:1351
+#: panel-plugin/sensors.c:1756
 msgid "x-small"
 msgstr "πολύ μικρό"
 
-#: panel-plugin/sensors.c:1352
+#: panel-plugin/sensors.c:1757
 msgid "small"
 msgstr "Μικρό"
 
-#: panel-plugin/sensors.c:1353
+#: panel-plugin/sensors.c:1758
 msgid "medium"
 msgstr "μεσαίο"
 
-#: panel-plugin/sensors.c:1354
+#: panel-plugin/sensors.c:1759
 msgid "large"
 msgstr "μεγάλο"
 
-#: panel-plugin/sensors.c:1355
+#: panel-plugin/sensors.c:1760
 msgid "x-large"
 msgstr "πολύ μεγάλο"
 
-#: panel-plugin/sensors.c:1388
+#: panel-plugin/sensors.c:1795
 msgid "Update interval (seconds):"
 msgstr "Μεσοδιάστημα ανανέωσης (δευτερόλεπτα):"
 
-#: panel-plugin/sensors.c:1412
+#: panel-plugin/sensors.c:1819
 msgid "Execute on double click: "
 msgstr "Εκτέλεση στο διπλό κλικ:"
 
-#: panel-plugin/sensors.c:1518
+#: panel-plugin/sensors.c:1948
 msgid "Hardware Sensors"
 msgstr "Αισθητήρες Υλικού"
 
+#~ msgid "/usr/bin/xsensors"
+#~ msgstr "/usr/bin/xsensors"
