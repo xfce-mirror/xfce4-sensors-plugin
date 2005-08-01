@@ -1,5 +1,5 @@
 # French translation for the xfce4-sensors-plugin.
-# Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER
+# Copyright (C) 2005 Fabian Nowak
 # This file is distributed under the same license as the PACKAGE package.
 # Stephane Roy <sroy@j2n.net>, 2005.
 # Fabian Nowak <timystery@arcor.de>, 2005.
@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-31 15:04+0200\n"
-"PO-Revision-Date: 2005-07-31 13:31+0200\n"
+"POT-Creation-Date: 2005-08-01 09:26+0200\n"
+"PO-Revision-Date: 2005-08-01 09:31+0200\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -19,12 +19,12 @@ msgstr ""
 #. g_printf("sensors_add_graphical_panel\n");
 #: panel-plugin/sensors.c:142
 msgid "<b>Sensors</b>"
-msgstr ""
+msgstr "<b>Senseurs</b>"
 
 #: panel-plugin/sensors.c:171
 #, c-format
 msgid "%s"
-msgstr ""
+msgstr "%s"
 
 #: panel-plugin/sensors.c:293
 #, fuzzy, c-format
@@ -72,7 +72,7 @@ msgstr "%5.0f rpm"
 
 #: panel-plugin/sensors.c:648
 msgid "Error: Could not connect to sensors!"
-msgstr ""
+msgstr "Erreur: Ne peut pas connecter aux senseurs!"
 
 #: panel-plugin/sensors.c:735
 msgid "No sensors found!"
@@ -102,11 +102,11 @@ msgstr ""
 
 #: panel-plugin/sensors.c:1544
 msgid "Use graphical UI"
-msgstr ""
+msgstr "Mode graphique"
 
 #: panel-plugin/sensors.c:1570
 msgid "Show labels in graphical UI"
-msgstr ""
+msgstr "Montrer du text"
 
 #: panel-plugin/sensors.c:1594
 msgid "Show title"
@@ -115,6 +115,30 @@ msgstr "Montrer le titre"
 #: panel-plugin/sensors.c:1619
 msgid "Sensors type:"
 msgstr "Type de senseur:"
+
+#: panel-plugin/sensors.c:1665
+msgid "Name"
+msgstr "Nom"
+
+#: panel-plugin/sensors.c:1674
+msgid "Value"
+msgstr "Valeur"
+
+#: panel-plugin/sensors.c:1680
+msgid "Show"
+msgstr "Montrer"
+
+#: panel-plugin/sensors.c:1689
+msgid "Color"
+msgstr "Couleur"
+
+#: panel-plugin/sensors.c:1699
+msgid "Min"
+msgstr "Min"
+
+#: panel-plugin/sensors.c:1708
+msgid "Max"
+msgstr "Max"
 
 #. g_printf(" add_font_size_box\n");
 #: panel-plugin/sensors.c:1749

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-31 15:04+0200\n"
+"POT-Creation-Date: 2005-08-01 09:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -102,6 +102,30 @@ msgstr ""
 
 #: panel-plugin/sensors.c:1619
 msgid "Sensors type:"
+msgstr ""
+
+#: panel-plugin/sensors.c:1665
+msgid "Name"
+msgstr ""
+
+#: panel-plugin/sensors.c:1674
+msgid "Value"
+msgstr ""
+
+#: panel-plugin/sensors.c:1680
+msgid "Show"
+msgstr ""
+
+#: panel-plugin/sensors.c:1689
+msgid "Color"
+msgstr ""
+
+#: panel-plugin/sensors.c:1699
+msgid "Min"
+msgstr ""
+
+#: panel-plugin/sensors.c:1708
+msgid "Max"
 msgstr ""
 
 #. g_printf(" add_font_size_box\n");

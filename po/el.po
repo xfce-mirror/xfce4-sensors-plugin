@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-31 15:04+0200\n"
+"POT-Creation-Date: 2005-08-01 09:26+0200\n"
 "PO-Revision-Date: 2005-07-27 18:50+0200\n"
 "Last-Translator: Stavros Giannouris <stavrosg2002@freemail.gr>\n"
 "Language-Team: Greek <el@li.org>\n"
@@ -115,6 +115,30 @@ msgstr "Εμφάνιση τίτλου"
 #: panel-plugin/sensors.c:1619
 msgid "Sensors type:"
 msgstr "Τύπος Αισθητήρα:"
+
+#: panel-plugin/sensors.c:1665
+msgid "Name"
+msgstr ""
+
+#: panel-plugin/sensors.c:1674
+msgid "Value"
+msgstr ""
+
+#: panel-plugin/sensors.c:1680
+msgid "Show"
+msgstr ""
+
+#: panel-plugin/sensors.c:1689
+msgid "Color"
+msgstr ""
+
+#: panel-plugin/sensors.c:1699
+msgid "Min"
+msgstr ""
+
+#: panel-plugin/sensors.c:1708
+msgid "Max"
+msgstr ""
 
 #. g_printf(" add_font_size_box\n");
 #: panel-plugin/sensors.c:1749

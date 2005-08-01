@@ -1662,7 +1662,7 @@ add_sensor_settings_box ( GtkWidget * vbox, GtkSizeGroup * sg,
     myCellRendererText = gtk_cell_renderer_text_new ();
     g_object_set ( (gpointer*) myCellRendererText, "editable", TRUE, NULL );
 
-    aTreeViewColumn = gtk_tree_view_column_new_with_attributes ("Name", 
+    aTreeViewColumn = gtk_tree_view_column_new_with_attributes (_("Name"), 
                         myCellRendererText, "text", 0, NULL);
     g_signal_connect    (G_OBJECT (myCellRendererText), "edited", 
                         G_CALLBACK (gtk_cell_text_edited), sd);
@@ -1671,13 +1671,13 @@ add_sensor_settings_box ( GtkWidget * vbox, GtkSizeGroup * sg,
                         GTK_TREE_VIEW_COLUMN (aTreeViewColumn));
     
     myCellRendererText = gtk_cell_renderer_text_new ();
-    aTreeViewColumn = gtk_tree_view_column_new_with_attributes ("Value", 
+    aTreeViewColumn = gtk_tree_view_column_new_with_attributes (_("Value"), 
                         myCellRendererText, "text", 1, NULL);
     gtk_tree_view_append_column (GTK_TREE_VIEW (sd->myTreeView), 
                         GTK_TREE_VIEW_COLUMN (aTreeViewColumn));
     
     GtkCellRenderer *myCellRendererToggle = gtk_cell_renderer_toggle_new();
-    aTreeViewColumn = gtk_tree_view_column_new_with_attributes ("Show", 
+    aTreeViewColumn = gtk_tree_view_column_new_with_attributes (_("Show"), 
                         myCellRendererToggle, "active", 2, NULL);
     g_signal_connect    (G_OBJECT (myCellRendererToggle), "toggled", 
                         G_CALLBACK (gtk_cell_toggle), sd );
@@ -1686,7 +1686,7 @@ add_sensor_settings_box ( GtkWidget * vbox, GtkSizeGroup * sg,
     
     myCellRendererText = gtk_cell_renderer_text_new ();
     g_object_set ( (gpointer*) myCellRendererText, "editable", TRUE, NULL );
-    aTreeViewColumn = gtk_tree_view_column_new_with_attributes ("Color", 
+    aTreeViewColumn = gtk_tree_view_column_new_with_attributes (_("Color"), 
                         myCellRendererText, "text", 3, NULL);
     g_signal_connect    (G_OBJECT (myCellRendererText), "edited", 
                         G_CALLBACK (gtk_cell_color_edited), sd);
@@ -1696,7 +1696,7 @@ add_sensor_settings_box ( GtkWidget * vbox, GtkSizeGroup * sg,
     myCellRendererText = gtk_cell_renderer_text_new ();
     g_object_set ( (gpointer*) myCellRendererText, "editable", TRUE, NULL );
     aTreeViewColumn = gtk_tree_view_column_new_with_attributes
-		    		("Min", myCellRendererText, "text", 4, NULL);
+		    		(_("Min"), myCellRendererText, "text", 4, NULL);
     g_signal_connect(G_OBJECT(myCellRendererText), "edited",
 		    			G_CALLBACK(minimum_changed), sd);
     gtk_tree_view_append_column(GTK_TREE_VIEW(sd->myTreeView),
@@ -1705,7 +1705,7 @@ add_sensor_settings_box ( GtkWidget * vbox, GtkSizeGroup * sg,
     myCellRendererText = gtk_cell_renderer_text_new ();
     g_object_set ( (gpointer*) myCellRendererText, "editable", TRUE, NULL );
     aTreeViewColumn = gtk_tree_view_column_new_with_attributes
-		    		("Max", myCellRendererText, "text", 5, NULL);
+		    		(_("Max"), myCellRendererText, "text", 5, NULL);
     g_signal_connect(G_OBJECT(myCellRendererText), "edited",
 		    			G_CALLBACK(maximum_changed), sd);
     gtk_tree_view_append_column(GTK_TREE_VIEW(sd->myTreeView),

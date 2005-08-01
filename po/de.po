@@ -1,13 +1,13 @@
 # German translation for the xfce4-sensors-plugin.
-# Copyright (C) 2004 Fabian Nowak
+# Copyright (C) 2004, 2005 Fabian Nowak
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
-# Fabian Nowak <timystery@arcor.de>, 2004.
+# Fabian Nowak <timystery@arcor.de>, 2004, 2005.
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-31 15:04+0200\n"
-"PO-Revision-Date: 2004-12-31 10:52+0100\n"
+"POT-Creation-Date: 2005-08-01 09:26+0200\n"
+"PO-Revision-Date: 2005-08-01 09:52+0200\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: de <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -114,6 +114,30 @@ msgstr "Titel anzeigen"
 #: panel-plugin/sensors.c:1619
 msgid "Sensors type:"
 msgstr "Sensortyp"
+
+#: panel-plugin/sensors.c:1665
+msgid "Name"
+msgstr "Name"
+
+#: panel-plugin/sensors.c:1674
+msgid "Value"
+msgstr "Wert"
+
+#: panel-plugin/sensors.c:1680
+msgid "Show"
+msgstr "Anzeigen"
+
+#: panel-plugin/sensors.c:1689
+msgid "Color"
+msgstr "Farbe"
+
+#: panel-plugin/sensors.c:1699
+msgid "Min"
+msgstr "Min"
+
+#: panel-plugin/sensors.c:1708
+msgid "Max"
+msgstr "Max"
 
 #. g_printf(" add_font_size_box\n");
 #: panel-plugin/sensors.c:1749
