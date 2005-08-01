@@ -476,9 +476,10 @@ sensors_date_tooltip (gpointer data)
                             &sensorFeature);
 
                 if ( res!=0 ) {
-                    g_printf( _(" \nXfce Hardware Sensors Plugin: \n \
-Seems like there was a problem reading a sensor feature \
-value. \nProper proceeding cannot be guaranteed. \n"));
+                    g_printf( _(" \nXfce Hardware Sensors Plugin: \
+\nSeems like there was a problem reading a sensor \
+feature value. \nProper proceeding cannot be \
+guaranteed.\n"));
                     break;
                 }
                 
