@@ -107,8 +107,8 @@ typedef struct {
     /* show labels in panel (GUI mode only) */
     gboolean showLabels;
     
-    /* use the new UI */
-    gboolean useNewUI;
+    /* use the progress-bar UI */
+    gboolean useBarUI;
 
     /* sensor update time */
     gint sensorUpdateTime;

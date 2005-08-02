@@ -27,7 +27,7 @@ sensors_show_panel (gpointer data)
 
 	t_sensors *st = (t_sensors *) data;
 
-	if (st->useNewUI == FALSE) {
+	if (st->useBarUI == FALSE) {
 		sensors_date_tooltip(st);
 		return sensors_show_text_panel(st);
 	} else {
@@ -630,7 +630,7 @@ sensors_new (void)
     /* this is to be moved to read/write functions! */
     st->showTitle = TRUE;
     st->showLabels = TRUE;
-    st->useNewUI = FALSE;
+    st->useBarUI = FALSE;
     st->barsCreated = FALSE;
     st->fontSize = "medium";
     st->fontSizeNumerical = 2;
@@ -875,8 +875,8 @@ sensors_write_config (Control * control, xmlNodePtr parent)
     g_snprintf (value, 2, "%i", st->showLabels);
     xmlSetProp (root, "Show_Labels", value);
     
-    g_snprintf (value, 2, "%i", st->useNewUI);
-    xmlSetProp (root, "Use_New_UI", value);
+    g_snprintf (value, 2, "%i", st->useBarUI);
+    xmlSetProp (root, "Use_Bar_UI", value);
 
     g_snprintf (value, 8, "%s", st->fontSize);
     xmlSetProp (root, "Font_Size", value);
@@ -971,9 +971,9 @@ sensors_read_config (Control * control, xmlNodePtr node)
         g_free (value);
     }
 
-    if ((value = xmlGetProp (node, (const xmlChar *) "Use_New_UI"))) {
+    if ((value = xmlGetProp (node, (const xmlChar *) "Use_Bar_UI"))) {
         /* g_printf(" value: %s \n", value); */
-        st->useNewUI = atoi (value);
+        st->useBarUI = atoi (value);
         g_free (value);
     }
 
@@ -1140,7 +1140,7 @@ show_title_toggled (  GtkWidget *widget, SensorsDialog *sd )
 {
     sd->sensors->showTitle = gtk_toggle_button_get_active
         ( GTK_TOGGLE_BUTTON(widget) );
-    if (sd->sensors->useNewUI == TRUE) {
+    if (sd->sensors->useBarUI == TRUE) {
 	    sensors_remove_graphical_panel(sd->sensors);
     }
     sensors_show_panel((gpointer) sd->sensors);
@@ -1153,7 +1153,7 @@ show_labels_toggled (  GtkWidget *widget, SensorsDialog *sd )
 {
     sd->sensors->showLabels = gtk_toggle_button_get_active
         ( GTK_TOGGLE_BUTTON(widget) );
-    if (sd->sensors->useNewUI == TRUE) {
+    if (sd->sensors->useBarUI == TRUE) {
 	    sensors_remove_graphical_panel(sd->sensors);
     }
     sensors_show_panel((gpointer) sd->sensors);
@@ -1164,15 +1164,15 @@ show_labels_toggled (  GtkWidget *widget, SensorsDialog *sd )
 static void
 new_ui_toggled (  GtkWidget *widget, SensorsDialog *sd )
 {
-    if (sd->sensors->useNewUI == TRUE) {
+    if (sd->sensors->useBarUI == TRUE) {
 	    sensors_remove_graphical_panel(sd->sensors);
     }
-    sd->sensors->useNewUI = gtk_toggle_button_get_active
+    sd->sensors->useBarUI = gtk_toggle_button_get_active
         ( GTK_TOGGLE_BUTTON(widget) );
-    gtk_widget_set_sensitive(sd->labelsBox, sd->sensors->useNewUI);
-    gtk_widget_set_sensitive(sd->fontBox, !sd->sensors->useNewUI);
+    gtk_widget_set_sensitive(sd->labelsBox, sd->sensors->useBarUI);
+    gtk_widget_set_sensitive(sd->fontBox, !sd->sensors->useBarUI);
     sensors_show_panel((gpointer) sd->sensors);
-    /* g_printf(" new_ui_toggled: %i \n", sd->sensors->useNewUI); */
+    /* g_printf(" new_ui_toggled: %i \n", sd->sensors->useBarUI); */
 }
 
 
@@ -1282,7 +1282,7 @@ minimum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
 	/* clean up */
 	gtk_tree_path_free (path);
 
-	if (sd->sensors->useNewUI == TRUE) {
+	if (sd->sensors->useBarUI == TRUE) {
 		sensors_remove_graphical_panel(sd->sensors);
 	}
 
@@ -1318,7 +1318,7 @@ maximum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
 	/* clean up */
 	gtk_tree_path_free (path);
 
-	if (sd->sensors->useNewUI == TRUE) {
+	if (sd->sensors->useBarUI == TRUE) {
 		sensors_remove_graphical_panel(sd->sensors);
 	}
 
@@ -1378,7 +1378,7 @@ gtk_cell_text_edited (GtkCellRendererText *cellrenderertext,
 {
 /*    g_printf(" gtk_cell_text_edited \n"); */
 
-    if (sd->sensors->useNewUI == TRUE) {
+    if (sd->sensors->useBarUI == TRUE) {
 	    sensors_remove_graphical_panel(sd->sensors);
     }
     gint gtk_combo_box_active = 
@@ -1415,7 +1415,7 @@ gtk_cell_toggle ( GtkCellRendererToggle *cell, gchar *path_str,
 {
 /*    g_printf(" gtk_cell_toggle \n"); */
 
-    if (sd->sensors->useNewUI == TRUE) {
+    if (sd->sensors->useBarUI == TRUE) {
 	    sensors_remove_graphical_panel(sd->sensors);
     }
     gint gtk_combo_box_active = 
@@ -1545,7 +1545,7 @@ add_ui_style_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
 
     checkButton = gtk_check_button_new_with_label (_("Use graphical UI"));
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(checkButton), 
-                                  sd->sensors->useNewUI);
+                                  sd->sensors->useBarUI);
     gtk_widget_show (checkButton);
     gtk_size_group_add_widget (sg, checkButton);
     
@@ -1567,7 +1567,7 @@ add_labels_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
     hbox = gtk_hbox_new (FALSE, BORDER);
     gtk_widget_show (hbox);
     sd->labelsBox = hbox;
-    gtk_widget_set_sensitive(hbox, sd->sensors->useNewUI);
+    gtk_widget_set_sensitive(hbox, sd->sensors->useBarUI);
 
     checkButton = gtk_check_button_new_with_label (_("Show labels in graphical UI"));
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(checkButton), 
@@ -1753,7 +1753,7 @@ add_font_size_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
     GtkWidget *myFontSizeComboBox = gtk_combo_box_new_text();
 
     sd->fontBox = myFontBox;
-    gtk_widget_set_sensitive(myFontBox, !sd->sensors->useNewUI);
+    gtk_widget_set_sensitive(myFontBox, !sd->sensors->useBarUI);
 
     gtk_combo_box_append_text(GTK_COMBO_BOX(myFontSizeComboBox), _("x-small"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(myFontSizeComboBox), _("small")  );
