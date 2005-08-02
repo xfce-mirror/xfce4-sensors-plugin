@@ -28,6 +28,7 @@ sensors_show_panel (gpointer data)
 	t_sensors *st = (t_sensors *) data;
 
 	if (st->useNewUI == FALSE) {
+		sensors_date_tooltip(st);
 		return sensors_show_text_panel(st);
 	} else {
 		return sensors_show_graphical_panel(st);
