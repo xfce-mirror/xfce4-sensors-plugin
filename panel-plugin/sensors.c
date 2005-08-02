@@ -1162,7 +1162,7 @@ show_labels_toggled (  GtkWidget *widget, SensorsDialog *sd )
 
 
 static void
-new_ui_toggled (  GtkWidget *widget, SensorsDialog *sd )
+ui_style_changed (  GtkWidget *widget, SensorsDialog *sd )
 {
     if (sd->sensors->useBarUI == TRUE) {
 	    sensors_remove_graphical_panel(sd->sensors);
@@ -1172,7 +1172,7 @@ new_ui_toggled (  GtkWidget *widget, SensorsDialog *sd )
     gtk_widget_set_sensitive(sd->labelsBox, sd->sensors->useBarUI);
     gtk_widget_set_sensitive(sd->fontBox, !sd->sensors->useBarUI);
     sensors_show_panel((gpointer) sd->sensors);
-    /* g_printf(" new_ui_toggled: %i \n", sd->sensors->useBarUI); */
+    /* g_printf(" ui_style_changed: %i \n", sd->sensors->useBarUI); */
 }
 
 
@@ -1543,17 +1543,28 @@ add_ui_style_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
     hbox = gtk_hbox_new (FALSE, BORDER);
     gtk_widget_show (hbox);
 
-    checkButton = gtk_check_button_new_with_label (_("Use graphical UI"));
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(checkButton), 
-                                  sd->sensors->useBarUI);
-    gtk_widget_show (checkButton);
-    gtk_size_group_add_widget (sg, checkButton);
+    GtkWidget *label = gtk_label_new(_("UI style:"));
+    GtkWidget *radioText = gtk_radio_button_new_with_label(NULL, _("text"));
+    GtkWidget *radioBars = gtk_radio_button_new_with_label(
+	gtk_radio_button_group(GTK_RADIO_BUTTON(radioText)), _("graphical"));
     
-    gtk_box_pack_start (GTK_BOX (hbox), checkButton, FALSE, FALSE, 0);
+    gtk_widget_show(radioText);
+    gtk_widget_show(radioBars);
+    gtk_widget_show(label);
+
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(radioText),
+					sd->sensors->useBarUI == FALSE);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(radioBars),
+					sd->sensors->useBarUI == TRUE);
+
+    gtk_box_pack_start(GTK_BOX (hbox), label, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX (hbox), radioText, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX (hbox), radioBars, FALSE, FALSE, 0);
+
     gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, TRUE, 0);
-        
-    g_signal_connect (G_OBJECT (checkButton), "toggled", 
-                      G_CALLBACK (new_ui_toggled), sd );
+
+    g_signal_connect (G_OBJECT (radioBars), "toggled", 
+                      G_CALLBACK (ui_style_changed), sd );
 }
 
 
