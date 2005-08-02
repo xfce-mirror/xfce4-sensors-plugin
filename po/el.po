@@ -88,8 +88,14 @@ msgstr ""
 "Επανεκκινείστε τον υπολογιστή σας... εμμ... επανεκκινείστε τον sensor daemon "
 "μόνο :-) \n"
 
-#: panel-plugin/sensors.c:1545
-msgid "Use graphical UI"
+#: panel-plugin/sensors.c:1560
+msgid "UI style:"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "graphical"
 msgstr ""
 
 #: panel-plugin/sensors.c:1571

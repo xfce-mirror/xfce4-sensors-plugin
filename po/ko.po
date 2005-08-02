@@ -88,8 +88,14 @@ msgstr ""
 "를 재시작하십시오 ... 아! 실수 ...               센서 데몬만 다시 시작 시키십"
 "시오. :-) \n"
 
-#: panel-plugin/sensors.c:1545
-msgid "Use graphical UI"
+#: panel-plugin/sensors.c:1560
+msgid "UI style:"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "graphical"
 msgstr ""
 
 #: panel-plugin/sensors.c:1571

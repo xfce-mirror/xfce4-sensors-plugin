@@ -89,8 +89,14 @@ msgstr ""
 "·····················Perleiskite savo kompiuterį … hmm …"
 "······················ tiksliau, perleiskite tik sensorių tarnybą. :-) \n"
 
-#: panel-plugin/sensors.c:1545
-msgid "Use graphical UI"
+#: panel-plugin/sensors.c:1560
+msgid "UI style:"
+msgstr ""
+
+msgid "text"
+msgstr ""
+
+msgid "graphical"
 msgstr ""
 
 #: panel-plugin/sensors.c:1571

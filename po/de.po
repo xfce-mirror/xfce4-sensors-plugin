@@ -85,9 +85,16 @@ msgstr ""
 "Ein Problem trat beim Schließen der Konfigurationsdatei auf. Starten Sie "
 "Ihren Rechner neu ...ähm... starten Sie einfach den Sensor-Dämon neu :-) \n"
 
-#: panel-plugin/sensors.c:1545
-msgid "Use graphical UI"
-msgstr "Graphische Benutzerschnittstelle verwenden"
+#: panel-plugin/sensors.c:1560
+
+msgid "UI style:"
+msgstr "Benutzerschnittstelle:"
+
+msgid "text"
+msgstr "text-basiert"
+
+msgid "graphical"
+msgstr "graphisch"
 
 #: panel-plugin/sensors.c:1571
 msgid "Show labels in graphical UI"

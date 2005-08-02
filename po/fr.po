@@ -87,13 +87,19 @@ msgstr ""
 "Redémarrer votre ordinateur... hmm... redémarrer seulement le démon "
 "senseur :-> \n"
 
-#: panel-plugin/sensors.c:1545
-msgid "Use graphical UI"
-msgstr "Mode graphique"
+#: panel-plugin/sensors.c:1560
+msgid "UI style:"
+msgstr "Mode"
+
+msgid "text"
+msgstr "texte"
+
+msgid "graphical"
+msgstr "graphique"
 
 #: panel-plugin/sensors.c:1571
 msgid "Show labels in graphical UI"
-msgstr "Montrer du text"
+msgstr "Montrer du texte"
 
 #: panel-plugin/sensors.c:1595
 msgid "Show title"
