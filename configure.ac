@@ -33,7 +33,7 @@ AC_CHECK_LIB([sensors], [sensors_get_detected_chips], [], [
 ])
 
 dnl configure the panel plugin
-XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.0.0])
+XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.2.0])
 
 dnl I18n support
 BM_I18N([xfce4-sensors-plugin], [de el fr ko lt])
