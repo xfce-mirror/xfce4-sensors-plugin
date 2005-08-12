@@ -1513,7 +1513,8 @@ guaranteed.\n") );
         gtk_combo_box_append_text ( GTK_COMBO_BOX(sd->myComboBox), 
                                 sd->sensors->sensorId[0] );
         sd->myListStore[0] = gtk_tree_store_new (6, G_TYPE_STRING, 
-                            G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_STRING);
+                            G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_STRING,
+			    G_TYPE_INT, G_TYPE_INT);
         sd->sensors->sensorValues[0][0] = 
                             g_strdup_printf("%+5.2f", 0.0);
 	sd->sensors->sensorRawValues[0][0] = 0.0;
