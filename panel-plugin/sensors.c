@@ -884,7 +884,7 @@ sensors_write_config (Control * control, xmlNodePtr parent)
     xmlSetProp (root, "Use_Bar_UI", value);
 
     g_snprintf (value, 2, "%i", st->scale);
-    xmlSetProp (root, "Temp_Unit", value);
+    xmlSetProp (root, "Scale", value);
 
     g_snprintf (value, 8, "%s", st->fontSize);
     xmlSetProp (root, "Font_Size", value);
@@ -985,7 +985,7 @@ sensors_read_config (Control * control, xmlNodePtr node)
         g_free (value);
     }
 
-    if ((value = xmlGetProp (node, (const xmlChar *) "Temp_Unit"))) {
+    if ((value = xmlGetProp (node, (const xmlChar *) "Scale"))) {
         /* g_printf(" value: %s \n", value); */
         st->scale = atoi (value);
         g_free (value);
@@ -1971,11 +1971,11 @@ sensors_create_options (Control *control, GtkContainer *container,
     add_update_time_box(vbox, sg, sd);
     
     /* double-click improvement */
-     add_command_box(vbox, sd); 
+    add_command_box(vbox, sd); 
 
-    add_temperature_unit_box( vbox, sg, sd);
+    add_temperature_unit_box(vbox, sg, sd);
     
-    gtk_widget_set_size_request (vbox, 450, 350);
+    gtk_widget_set_size_request(vbox, 450, 450);
 
     gtk_container_add (container, vbox);
     
