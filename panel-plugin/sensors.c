@@ -487,7 +487,7 @@ guaranteed.\n"));
                 gchar *help;
                 switch (st->sensor_types[i][nr1]) {
                   case TEMPERATURE:
-                           if( st->tempUnit == 1 ) { /* Fahrenheit */
+                           if( st->scale == 1 ) { /* Fahrenheit */
                                help = g_strdup_printf("%5.1f °F", ((float)sensorFeature)*9/5+32);
 			   } else { /* Celsius */
                                help = g_strdup_printf("%5.1f °C", sensorFeature);
@@ -641,7 +641,7 @@ sensors_new (void)
     st->panelSize=0;
     st->orientation = VERTICAL;
     st->sensorUpdateTime = 60;
-    st->tempUnit = 0;
+    st->scale = 0;
     
     /* double-click improvement */
      st->execCommand = TRUE;
@@ -883,7 +883,7 @@ sensors_write_config (Control * control, xmlNodePtr parent)
     g_snprintf (value, 2, "%i", st->useBarUI);
     xmlSetProp (root, "Use_Bar_UI", value);
 
-    g_snprintf (value, 2, "%i", st->tempUnit);
+    g_snprintf (value, 2, "%i", st->scale);
     xmlSetProp (root, "Temp_Unit", value);
 
     g_snprintf (value, 8, "%s", st->fontSize);
@@ -987,7 +987,7 @@ sensors_read_config (Control * control, xmlNodePtr node)
 
     if ((value = xmlGetProp (node, (const xmlChar *) "Temp_Unit"))) {
         /* g_printf(" value: %s \n", value); */
-        st->tempUnit = atoi (value);
+        st->scale = atoi (value);
         g_free (value);
     }
 
@@ -1238,7 +1238,7 @@ gtk_temperature_unit_change  ( GtkWidget *widget, SensorsDialog *sd )
 {
 /*    g_printf(" gtk_temperature_unit_change \n"); */
 
-    sd->sensors->tempUnit = gtk_combo_box_get_active(GTK_COMBO_BOX(widget));
+    sd->sensors->scale = gtk_combo_box_get_active(GTK_COMBO_BOX(widget));
 
     /* refresh the panel content */
     sensors_show_panel((gpointer) sd->sensors);
@@ -1817,7 +1817,7 @@ add_font_size_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
 static void
 add_temperature_unit_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
 {
-    GtkWidget *myTempUnitLabel = gtk_label_new (_("Temperature unit:"));
+    GtkWidget *myTempUnitLabel = gtk_label_new (_("Temperature scale:"));
     GtkWidget *myTempUnitBox = gtk_hbox_new(FALSE, 0);
     GtkWidget *myTempUnitComboBox = gtk_combo_box_new_text();
 
@@ -1826,7 +1826,7 @@ add_temperature_unit_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * s
     gtk_combo_box_append_text(GTK_COMBO_BOX(myTempUnitComboBox), _("Celsius"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(myTempUnitComboBox), _("Fahrenheit"));
     gtk_combo_box_set_active (GTK_COMBO_BOX(myTempUnitComboBox),
-        sd->sensors->tempUnit);
+        sd->sensors->scale);
  
     gtk_box_pack_start (GTK_BOX (myTempUnitBox), myTempUnitLabel, FALSE, FALSE, 2);
     gtk_box_pack_start (GTK_BOX (myTempUnitBox), myTempUnitComboBox, FALSE, FALSE,

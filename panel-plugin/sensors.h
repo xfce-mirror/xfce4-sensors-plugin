@@ -53,7 +53,6 @@
 
 
 typedef enum {
-
    TEMPERATURE,
    VOLTAGE,
    SPEED,
@@ -92,8 +91,8 @@ typedef struct {
     gchar* fontSize;
     gint fontSizeNumerical;
 
-    /* temperature unit for display in panel */
-    gint tempUnit;
+    /* temperature scale for display in panel */
+    gint scale;
     
     /* panel size to compute number of cols/columns */
     gint panelSize;
