@@ -53,11 +53,16 @@
 
 
 typedef enum {
-   TEMPERATURE,
-   VOLTAGE,
-   SPEED,
-   OTHER
+    TEMPERATURE,
+    VOLTAGE,
+    SPEED,
+    OTHER
 } sensor_type;
+
+typedef enum {
+    CELSIUS,
+    FAHRENHEIT
+} temp_scale;
 
 typedef struct {
 	/* the progress bar */
@@ -92,7 +97,7 @@ typedef struct {
     gint fontSizeNumerical;
 
     /* temperature scale for display in panel */
-    gint scale;
+    temp_scale scale;
     
     /* panel size to compute number of cols/columns */
     gint panelSize;

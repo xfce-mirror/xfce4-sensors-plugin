@@ -27,8 +27,8 @@ sensors_show_panel (gpointer data)
 
 	t_sensors *st = (t_sensors *) data;
 
+	sensors_date_tooltip(st);
 	if (st->useBarUI == FALSE) {
-		sensors_date_tooltip(st);
 		return sensors_show_text_panel(st);
 	} else {
 		return sensors_show_graphical_panel(st);
@@ -419,7 +419,7 @@ sensors_show_text_panel (t_sensors *st)
 gboolean
 sensors_date_tooltip (gpointer data)
 {
-    /* g_printf(" sensors_date_tooltip \n");  */
+    /* g_printf(" sensors_date_tooltip \n"); */
 
     g_return_val_if_fail (data != NULL, FALSE);
 
@@ -487,7 +487,7 @@ guaranteed.\n"));
                 gchar *help;
                 switch (st->sensor_types[i][nr1]) {
                   case TEMPERATURE:
-                           if( st->scale == 1 ) { /* Fahrenheit */
+                           if( st->scale == FAHRENHEIT ) {
                                help = g_strdup_printf("%5.1f °F", ((float)sensorFeature)*9/5+32);
 			   } else { /* Celsius */
                                help = g_strdup_printf("%5.1f °C", sensorFeature);
@@ -641,7 +641,7 @@ sensors_new (void)
     st->panelSize=0;
     st->orientation = VERTICAL;
     st->sensorUpdateTime = 60;
-    st->scale = 0;
+    st->scale = CELSIUS;
     
     /* double-click improvement */
      st->execCommand = TRUE;
@@ -1822,15 +1822,13 @@ add_temperature_unit_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * s
     GtkWidget *myTempUnitComboBox = gtk_combo_box_new_text();
 
     sd->tempUnitBox = myTempUnitBox;
-    gtk_widget_set_sensitive(myTempUnitBox, !sd->sensors->useBarUI);
     gtk_combo_box_append_text(GTK_COMBO_BOX(myTempUnitComboBox), _("Celsius"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(myTempUnitComboBox), _("Fahrenheit"));
     gtk_combo_box_set_active (GTK_COMBO_BOX(myTempUnitComboBox),
         sd->sensors->scale);
  
-    gtk_box_pack_start (GTK_BOX (myTempUnitBox), myTempUnitLabel, FALSE, FALSE, 2);
-    gtk_box_pack_start (GTK_BOX (myTempUnitBox), myTempUnitComboBox, FALSE, FALSE,
-        2);
+    gtk_box_pack_start(GTK_BOX(myTempUnitBox),myTempUnitLabel,FALSE,FALSE,2);
+    gtk_box_pack_start(GTK_BOX(myTempUnitBox),myTempUnitComboBox,FALSE,FALSE,2);
     gtk_box_pack_start (GTK_BOX (vbox), myTempUnitBox, FALSE, FALSE, 0);
 
     gtk_widget_show (myTempUnitLabel);
