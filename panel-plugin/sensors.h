@@ -91,6 +91,9 @@ typedef struct {
     /* font size for display in panel */
     gchar* fontSize;
     gint fontSizeNumerical;
+
+    /* temperature unit for display in panel */
+    gint tempUnit;
     
     /* panel size to compute number of cols/columns */
     gint panelSize;
@@ -191,6 +194,7 @@ typedef struct {
     GtkTreeStore *myListStore[SENSORS];
     GtkWidget *fontBox;
     GtkWidget *labelsBox;
+    GtkWidget *tempUnitBox;
 
     /* double-click improvement */  
     GtkWidget *myExecCommandCheckBox;
