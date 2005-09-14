@@ -1600,7 +1600,7 @@ add_ui_style_box (GtkWidget * vbox, SensorsDialog * sd)
 
 
 static void
-add_labels_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
+add_labels_box (GtkWidget * vbox, /* GtkSizeGroup * sg, */ SensorsDialog * sd)
 {
     /* g_printf(" add_labels_box \n"); */
 
@@ -1616,7 +1616,7 @@ add_labels_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(checkButton), 
                                   sd->sensors->showLabels);
     gtk_widget_show (checkButton);
-    gtk_size_group_add_widget (sg, checkButton);
+    /* gtk_size_group_add_widget (sg, checkButton); */
     
     gtk_box_pack_start (GTK_BOX (hbox), checkButton, FALSE, FALSE, 0);
     gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, TRUE, 0);
@@ -1627,7 +1627,7 @@ add_labels_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
 
 	
 static void
-add_title_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
+add_title_box (GtkWidget * vbox, /* GtkSizeGroup * sg,*/ SensorsDialog * sd)
 {
     /* g_printf(" add_title_box \n"); */
 
@@ -1640,7 +1640,7 @@ add_title_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(checkButton), 
                                   sd->sensors->showTitle);
     gtk_widget_show (checkButton);
-    gtk_size_group_add_widget (sg, checkButton);
+    /* gtk_size_group_add_widget (sg, checkButton); */
     
     gtk_box_pack_start (GTK_BOX (hbox), checkButton, FALSE, FALSE, 0);
     gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, TRUE, 0);
@@ -1651,7 +1651,7 @@ add_title_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
 
 
 static void
-add_type_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
+add_type_box (GtkWidget * vbox, /* GtkSizeGroup * sg,*/ SensorsDialog * sd)
 {
     /* g_printf(" add_type_box \n"); */
 
@@ -1691,7 +1691,7 @@ add_type_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
 
 
 static void
-add_sensor_settings_box ( GtkWidget * vbox, GtkSizeGroup * sg, 
+add_sensor_settings_box ( GtkWidget * vbox, /* GtkSizeGroup * sg,  */
                           SensorsDialog * sd)
 {
    /* g_printf(" add_sensor_settings_box\n"); */
@@ -1919,7 +1919,7 @@ add_command_box (GtkWidget * vbox,  SensorsDialog * sd)
 } 
 
 
-static void add_view_frame (GtkWidget * vbox, GtkSizeGroup * sg, 
+static void add_view_frame (GtkWidget * vbox, /* GtkSizeGroup * sg, */
                             SensorsDialog * sd)
 {
     GtkWidget *_vbox = gtk_vbox_new (FALSE, 4);
@@ -1936,17 +1936,17 @@ static void add_view_frame (GtkWidget * vbox, GtkSizeGroup * sg,
     gtk_container_add (GTK_CONTAINER (_frame), _vbox);
     gtk_box_pack_start (GTK_BOX (vbox), _frame, FALSE, FALSE, 0);
 
-    add_title_box (_vbox, sg, sd);
+    add_title_box (_vbox, sd);
 
     add_ui_style_box (_vbox, sd);
 
-    add_labels_box (_vbox, sg, sd);
+    add_labels_box (_vbox, sd);
 
     add_font_size_box (_vbox, sd);
 }
 
 
-static void add_sensors_frame (GtkWidget * vbox, GtkSizeGroup * sg,  
+static void add_sensors_frame (GtkWidget * vbox, /* GtkSizeGroup * sg, */
                                SensorsDialog * sd)
 {
     GtkWidget *_vbox = gtk_vbox_new (FALSE, 4);
@@ -1963,15 +1963,15 @@ static void add_sensors_frame (GtkWidget * vbox, GtkSizeGroup * sg,
     gtk_container_add (GTK_CONTAINER (_frame), _vbox);
     gtk_box_pack_start (GTK_BOX (vbox), _frame, TRUE, TRUE, 0);
     
-    add_type_box (_vbox, sg, sd);
+    add_type_box (_vbox, sd);
 
-    add_sensor_settings_box (_vbox, sg, sd);
+    add_sensor_settings_box (_vbox, sd);
     
     add_temperature_unit_box (_vbox, sd);
 }
 
 
-static void add_miscellaneous_frame (GtkWidget * vbox, GtkSizeGroup * sg,
+static void add_miscellaneous_frame (GtkWidget * vbox, /* GtkSizeGroup * sg, */
                                      SensorsDialog * sd)
 {
     GtkWidget *_vbox = gtk_vbox_new (FALSE, 4);
@@ -2016,7 +2016,7 @@ sensors_create_options (Control *control, GtkContainer *container,
 /*    g_printf(" sensors_create_options\n"); */
 
     GtkWidget *vbox;
-    GtkSizeGroup *sg = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
+    /* GtkSizeGroup *sg = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL); */
     SensorsDialog *sd;
 
     /* xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8"); */
@@ -2058,9 +2058,9 @@ sensors_create_options (Control *control, GtkContainer *container,
 
     add_temperature_unit_box(vbox, sg, sd); */
     
-    add_view_frame (vbox, sg, sd);
-    add_sensors_frame (vbox, sg, sd);
-    add_miscellaneous_frame (vbox, sg, sd);
+    add_view_frame (vbox, sd);
+    add_sensors_frame (vbox, sd);
+    add_miscellaneous_frame (vbox, sd);
     
     gtk_widget_set_size_request(vbox, 450, 450);
 
