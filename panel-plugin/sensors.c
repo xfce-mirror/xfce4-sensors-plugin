@@ -96,7 +96,7 @@ sensors_remove_graphical_panel (t_sensors *st)
 	for (chip=0; chip < st->sensorNumber; chip++) {
 		for (feature=0; feature < FEATURES_PER_SENSOR; feature++) {
 			if (st->sensorCheckBoxes[chip][feature] == TRUE) {
-				t_barpanel *panel = st->panels[chip][feature];
+				t_barpanel *panel = (t_barpanel*) st->panels[chip][feature];
 
 				gtk_widget_destroy(panel->progressbar);
 				gtk_widget_destroy(panel->label);
@@ -118,7 +118,7 @@ sensors_update_graphical_panel (t_sensors *st)
 	for (chip=0; chip < st->sensorNumber; chip++) {
 		for (feature=0; feature < FEATURES_PER_SENSOR; feature++) {
 			if (st->sensorCheckBoxes[chip][feature] == TRUE) {
-				t_barpanel *panel = st->panels[chip][feature];
+				t_barpanel *panel = (t_barpanel*) st->panels[chip][feature];
 
 				GtkWidget *bar = panel->progressbar;
 				g_return_if_fail(G_IS_OBJECT(bar));
@@ -167,11 +167,13 @@ sensors_add_graphical_panel (t_sensors *st)
 						st->orientation);
 				gtk_widget_show(progbar);
 
+				
 				/* create the label */
 				gchar caption[128];
 				g_snprintf(caption, sizeof(caption), _("%s"),
-					st->sensorNames[chip][feature]);
+   					st->sensorNames[chip][feature]);
 				GtkWidget *label = gtk_label_new(caption);
+				gtk_misc_set_padding( GTK_MISC(label), 3, 0);
 				if (st->showLabels == TRUE) {
 					gtk_widget_show(label);
 				}
@@ -196,10 +198,10 @@ sensors_add_graphical_panel (t_sensors *st)
 				panel->progressbar = progbar;
 				panel->label = label;
 				panel->databox = databox;
-				st->panels[chip][feature] = panel;
+				st->panels[chip][feature] = (GtkWidget*) panel;
 
 				/* and add it to the outer box */
-				gtk_box_pack_start(st->sensors,
+				gtk_box_pack_start(GTK_BOX (st->sensors),
 						databox, FALSE, FALSE, 0);
 			}
 		}
@@ -236,7 +238,7 @@ sensors_set_orientation (Control *control, int orientation)
 	for (chip=0; chip < st->sensorNumber; chip++) {
 		for (feature=0; feature < FEATURES_PER_SENSOR; feature++) {
 			if (st->sensorCheckBoxes[chip][feature] == TRUE) {
-				t_barpanel *panel = st->panels[chip][feature];
+				t_barpanel *panel = (t_barpanel*) st->panels[chip][feature];
 				gtk_widget_reparent(panel->databox, newBox);
 			}
 		}
@@ -410,6 +412,7 @@ sensors_show_text_panel (t_sensors *st)
     }
 
     gtk_label_set_markup(GTK_LABEL(st->panelValuesLabel), myLabelText);
+    gtk_misc_set_padding( GTK_MISC(st->panelValuesLabel), 2, 0);
     
     return TRUE;
 }
@@ -644,7 +647,7 @@ sensors_new (void)
     st->scale = CELSIUS;
     
     /* double-click improvement */
-     st->execCommand = TRUE;
+    st->execCommand = TRUE;
     st->commandName = "/usr/bin/xsensors";
     st->doubleClick_id = 0; 
 
@@ -1202,8 +1205,6 @@ sensor_entry_changed (  GtkWidget *widget, SensorsDialog *sd )
     gtk_label_set_label (GTK_LABEL(sd->mySensorLabel), 
             (const gchar*) sensors_get_adapter_name
                 (sd->sensors->chipName[gtk_combo_box_active]->bus) );
-    gtk_frame_set_label( GTK_FRAME (sd->myFrame), 
-            sd->sensors->sensorId [ gtk_combo_box_active ] );
     
     gtk_tree_view_set_model ( 
         GTK_TREE_VIEW (sd->myTreeView), 
@@ -1238,7 +1239,10 @@ gtk_temperature_unit_change  ( GtkWidget *widget, SensorsDialog *sd )
 {
 /*    g_printf(" gtk_temperature_unit_change \n"); */
 
-    sd->sensors->scale = gtk_combo_box_get_active(GTK_COMBO_BOX(widget));
+    /* sd->sensors->scale = gtk_combo_box_get_active(GTK_COMBO_BOX(widget)); */
+    
+    /* toggle celsius-fahrenheit by use of mathematics ;) */
+    sd->sensors->scale = 1 - sd->sensors->scale;
 
     /* refresh the panel content */
     sensors_show_panel((gpointer) sd->sensors);
@@ -1561,7 +1565,7 @@ guaranteed.\n") );
 
 
 static void
-add_ui_style_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
+add_ui_style_box (GtkWidget * vbox, SensorsDialog * sd)
 {
     /* g_printf(" add_ui_style_box \n"); */
 
@@ -1573,7 +1577,7 @@ add_ui_style_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
     GtkWidget *label = gtk_label_new(_("UI style:"));
     GtkWidget *radioText = gtk_radio_button_new_with_label(NULL, _("text"));
     GtkWidget *radioBars = gtk_radio_button_new_with_label(
-	gtk_radio_button_group(GTK_RADIO_BUTTON(radioText)), _("graphical"));
+	        gtk_radio_button_group(GTK_RADIO_BUTTON(radioText)), _("graphical"));
     
     gtk_widget_show(radioText);
     gtk_widget_show(radioBars);
@@ -1607,7 +1611,8 @@ add_labels_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
     sd->labelsBox = hbox;
     gtk_widget_set_sensitive(hbox, sd->sensors->useBarUI);
 
-    checkButton = gtk_check_button_new_with_label (_("Show labels in graphical UI"));
+    checkButton = gtk_check_button_new_with_label (
+         _("Show labels in graphical UI"));
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(checkButton), 
                                   sd->sensors->showLabels);
     gtk_widget_show (checkButton);
@@ -1654,16 +1659,31 @@ add_type_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
 
     hbox = gtk_hbox_new (FALSE, BORDER);
     gtk_widget_show (hbox);
-    gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
 
     label = gtk_label_new (_("Sensors type:"));
     gtk_widget_show (label);
-    gtk_size_group_add_widget (sg, label);
+    /* gtk_size_group_add_widget (sg, label); */
     gtk_misc_set_alignment (GTK_MISC (label), 0, 0.5);
     gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 0);
     
     gtk_widget_show (sd->myComboBox);
     gtk_box_pack_start (GTK_BOX (hbox), sd->myComboBox, FALSE, FALSE, 0);
+    
+    
+    gint gtk_combo_box_active = 
+        gtk_combo_box_get_active(GTK_COMBO_BOX(sd->myComboBox));
+    
+    if (sd->sensors->sensorNumber >0)
+        sd->mySensorLabel = gtk_label_new 
+            ( sensors_get_adapter_name
+                ( sd->sensors->chipName[gtk_combo_box_active ]->bus) );
+    else
+        sd->mySensorLabel = 
+            gtk_label_new ( sd->sensors->sensorId [gtk_combo_box_active ] );
+    
+    gtk_widget_show (sd->mySensorLabel);
+    gtk_box_pack_start (GTK_BOX (hbox), sd->mySensorLabel, FALSE, FALSE, 0);
     
     g_signal_connect (G_OBJECT (sd->myComboBox), "changed", 
                       G_CALLBACK (sensor_entry_changed), sd );
@@ -1679,22 +1699,10 @@ add_sensor_settings_box ( GtkWidget * vbox, GtkSizeGroup * sg,
      * Tree View & Model stuff
      *                               */
     GtkTreeViewColumn *aTreeViewColumn;
-    GtkWidget *myVboxFrame;
     GtkCellRenderer *myCellRendererText;
     
     gint gtk_combo_box_active = 
         gtk_combo_box_get_active(GTK_COMBO_BOX(sd->myComboBox));
-    
-    sd->myFrame = gtk_frame_new
-        ( sd->sensors->sensorId [gtk_combo_box_active ] );
-    
-    if (sd->sensors->sensorNumber >0)
-        sd->mySensorLabel = gtk_label_new 
-            ( sensors_get_adapter_name
-                ( sd->sensors->chipName[gtk_combo_box_active ]->bus) );
-    else
-        sd->mySensorLabel = 
-            gtk_label_new ( sd->sensors->sensorId [gtk_combo_box_active ] );
         
     sd->myTreeView = gtk_tree_view_new_with_model
         ( GTK_TREE_MODEL ( sd->myListStore[ gtk_combo_box_active ] ) );
@@ -1758,36 +1766,28 @@ add_sensor_settings_box ( GtkWidget * vbox, GtkSizeGroup * sg,
         gtk_scrolled_window_set_policy (
             GTK_SCROLLED_WINDOW (myScrolledWindow), GTK_POLICY_AUTOMATIC, 
             GTK_POLICY_AUTOMATIC);
-        gtk_container_set_border_width (GTK_CONTAINER (myScrolledWindow), 4);
+        gtk_container_set_border_width (GTK_CONTAINER (myScrolledWindow), 0);
         gtk_scrolled_window_add_with_viewport (
             GTK_SCROLLED_WINDOW (myScrolledWindow), sd->myTreeView);
 
-    myVboxFrame = gtk_vbox_new(FALSE, 4);
 
-    gtk_box_pack_start (GTK_BOX (myVboxFrame), sd->mySensorLabel, FALSE, FALSE,
-        4);
-    gtk_box_pack_start (GTK_BOX (myVboxFrame), myScrolledWindow, TRUE, TRUE, 
+    /* gtk_box_pack_start (GTK_BOX (vbox), sd->mySensorLabel, FALSE, FALSE,
+        0); */
+    gtk_box_pack_start (GTK_BOX (vbox), myScrolledWindow, TRUE, TRUE, 
         0);
 
-    gtk_container_add (GTK_CONTAINER (sd->myFrame), myVboxFrame);
-
-    gtk_box_pack_start (GTK_BOX (vbox), sd->myFrame, TRUE, TRUE, 0);
-
     gtk_widget_show (sd->myTreeView);
-    gtk_widget_show (myVboxFrame);
-    gtk_widget_show (sd->myFrame);
     gtk_widget_show (myScrolledWindow);
-    gtk_widget_show (sd->mySensorLabel);
 }
 
 
 static void
-add_font_size_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
+add_font_size_box (GtkWidget * vbox, SensorsDialog * sd)
 {
     /* g_printf(" add_font_size_box\n"); */
 
     GtkWidget *myFontLabel = gtk_label_new (_("Font size:"));
-    GtkWidget *myFontBox = gtk_hbox_new(FALSE, 0);
+    GtkWidget *myFontBox = gtk_hbox_new(FALSE, BORDER);
     GtkWidget *myFontSizeComboBox = gtk_combo_box_new_text();
 
     sd->fontBox = myFontBox;
@@ -1801,9 +1801,9 @@ add_font_size_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
     gtk_combo_box_set_active (GTK_COMBO_BOX(myFontSizeComboBox), 
         sd->sensors->fontSizeNumerical);
 
-    gtk_box_pack_start (GTK_BOX (myFontBox), myFontLabel, FALSE, FALSE, 2);
+    gtk_box_pack_start (GTK_BOX (myFontBox), myFontLabel, FALSE, FALSE, 0);
     gtk_box_pack_start (GTK_BOX (myFontBox), myFontSizeComboBox, FALSE, FALSE,
-        2);    
+        0);    
     gtk_box_pack_start (GTK_BOX (vbox), myFontBox, FALSE, FALSE, 0);
     
     gtk_widget_show (myFontLabel);
@@ -1815,33 +1815,42 @@ add_font_size_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
 }
 
 static void
-add_temperature_unit_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
-{
-    GtkWidget *myTempUnitLabel = gtk_label_new (_("Temperature scale:"));
-    GtkWidget *myTempUnitBox = gtk_hbox_new(FALSE, 0);
-    GtkWidget *myTempUnitComboBox = gtk_combo_box_new_text();
+add_temperature_unit_box (GtkWidget *vbox, SensorsDialog *sd)
+{    
+    GtkWidget *hbox;
 
-    sd->tempUnitBox = myTempUnitBox;
-    gtk_combo_box_append_text(GTK_COMBO_BOX(myTempUnitComboBox), _("Celsius"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(myTempUnitComboBox), _("Fahrenheit"));
-    gtk_combo_box_set_active (GTK_COMBO_BOX(myTempUnitComboBox),
-        sd->sensors->scale);
- 
-    gtk_box_pack_start(GTK_BOX(myTempUnitBox),myTempUnitLabel,FALSE,FALSE,2);
-    gtk_box_pack_start(GTK_BOX(myTempUnitBox),myTempUnitComboBox,FALSE,FALSE,2);
-    gtk_box_pack_start (GTK_BOX (vbox), myTempUnitBox, FALSE, FALSE, 0);
+    hbox = gtk_hbox_new (FALSE, BORDER);
+    gtk_widget_show (hbox);
 
-    gtk_widget_show (myTempUnitLabel);
-    gtk_widget_show (myTempUnitComboBox);
-    gtk_widget_show (myTempUnitBox);
+    GtkWidget *label = gtk_label_new(_("Temperature scale:"));
+    GtkWidget *radioCelsius = gtk_radio_button_new_with_label (NULL, 
+                                                              _("Celsius"));
+    GtkWidget *radioFahrenheit = gtk_radio_button_new_with_label(
+      gtk_radio_button_get_group(GTK_RADIO_BUTTON(radioCelsius)), _("Fahrenheit"));
+    
+    gtk_widget_show(radioCelsius);
+    gtk_widget_show(radioFahrenheit);
+    gtk_widget_show(label);
 
-    g_signal_connect   (G_OBJECT (myTempUnitComboBox), "changed",
-                        G_CALLBACK (gtk_temperature_unit_change), sd );
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(radioCelsius),
+					sd->sensors->scale == CELSIUS);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(radioFahrenheit),
+					sd->sensors->scale == FAHRENHEIT);
+
+    gtk_box_pack_start(GTK_BOX (hbox), label, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX (hbox), radioCelsius, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX (hbox), radioFahrenheit, FALSE, FALSE, 0);
+
+    gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, TRUE, 0);
+
+    g_signal_connect (G_OBJECT (radioCelsius), "toggled", 
+                      G_CALLBACK (gtk_temperature_unit_change), sd );
+    
 }
 
 
 static void
-add_update_time_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
+add_update_time_box (GtkWidget * vbox, SensorsDialog * sd)
 {
     /* g_printf(" add_update_time_box\n"); */
     
@@ -1849,19 +1858,17 @@ add_update_time_box (GtkWidget * vbox, GtkSizeGroup * sg, SensorsDialog * sd)
     GtkAdjustment *spinner_adj;
 
     spinner_adj = (GtkAdjustment *) gtk_adjustment_new (
-// TODO: restore original
-//        sd->sensors->sensorUpdateTime, 10.0, 990.0, 10.0, 60.0, 60.0);
+/* TODO: restore original */
         sd->sensors->sensorUpdateTime, 1.0, 990.0, 1.0, 60.0, 60.0);
-   
    
     /* creates the spinner, with no decimal places */
     spinner = gtk_spin_button_new (spinner_adj, 10.0, 0);
 
     myLabel = gtk_label_new (_("Update interval (seconds):"));
-    myBox = gtk_hbox_new(FALSE, 0);
+    myBox = gtk_hbox_new(FALSE, BORDER);
 
-    gtk_box_pack_start (GTK_BOX (myBox), myLabel, FALSE, FALSE, 2);
-    gtk_box_pack_start (GTK_BOX (myBox), spinner, FALSE, FALSE, 2);    
+    gtk_box_pack_start (GTK_BOX (myBox), myLabel, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (myBox), spinner, FALSE, FALSE, 0);    
     gtk_box_pack_start (GTK_BOX (vbox), myBox, FALSE, FALSE, 0);
     
     gtk_widget_show (myLabel);
@@ -1878,12 +1885,13 @@ add_command_box (GtkWidget * vbox,  SensorsDialog * sd)
 {
 
      GtkWidget *myBox;
-     myBox = gtk_hbox_new(FALSE, 0);
+     myBox = gtk_hbox_new(FALSE, BORDER);
    
      sd->myExecCommandCheckBox = gtk_check_button_new_with_label 
-         (_("Execute on double click: "));
+         (_("Execute on double click:"));
      gtk_toggle_button_set_active 
-         ( GTK_TOGGLE_BUTTON (sd->myExecCommandCheckBox), sd->sensors->execCommand );
+         ( GTK_TOGGLE_BUTTON (sd->myExecCommandCheckBox), 
+           sd->sensors->execCommand );
     
      sd->myCommandNameEntry = gtk_entry_new ();
      gtk_widget_set_size_request (sd->myCommandNameEntry, 160, 25);
@@ -1892,8 +1900,10 @@ add_command_box (GtkWidget * vbox,  SensorsDialog * sd)
      gtk_entry_set_text( GTK_ENTRY(sd->myCommandNameEntry), 
          sd->sensors->commandName ); 
 
-     gtk_box_pack_start(GTK_BOX (myBox), sd->myExecCommandCheckBox, FALSE, FALSE, 2);
-     gtk_box_pack_start (GTK_BOX (myBox), sd->myCommandNameEntry, FALSE, FALSE, 2);
+     gtk_box_pack_start (GTK_BOX (myBox), sd->myExecCommandCheckBox, FALSE,
+                         FALSE, 0);
+     gtk_box_pack_start (GTK_BOX (myBox), sd->myCommandNameEntry, FALSE, 
+                         FALSE, 0);
      gtk_box_pack_start (GTK_BOX (vbox), myBox, FALSE, FALSE, 0);
     
      gtk_widget_show (sd->myExecCommandCheckBox);
@@ -1907,6 +1917,81 @@ add_command_box (GtkWidget * vbox,  SensorsDialog * sd)
                         G_CALLBACK (execCommandName_activate), sd ); */
     
 } 
+
+
+static void add_view_frame (GtkWidget * vbox, GtkSizeGroup * sg, 
+                            SensorsDialog * sd)
+{
+    GtkWidget *_vbox = gtk_vbox_new (FALSE, 4);
+    gtk_container_set_border_width (GTK_CONTAINER(_vbox), 4);
+    gtk_widget_show (_vbox);
+    
+    GtkWidget *_label = gtk_label_new("");
+    gtk_label_set_markup(GTK_LABEL(_label),  _("<b>View</b>"));
+    gtk_widget_show (_label);
+    
+    GtkWidget *_frame = gtk_frame_new ("");
+    gtk_frame_set_label_widget (GTK_FRAME(_frame), _label);
+    gtk_widget_show (_frame);
+    gtk_container_add (GTK_CONTAINER (_frame), _vbox);
+    gtk_box_pack_start (GTK_BOX (vbox), _frame, FALSE, FALSE, 0);
+
+    add_title_box (_vbox, sg, sd);
+
+    add_ui_style_box (_vbox, sd);
+
+    add_labels_box (_vbox, sg, sd);
+
+    add_font_size_box (_vbox, sd);
+}
+
+
+static void add_sensors_frame (GtkWidget * vbox, GtkSizeGroup * sg,  
+                               SensorsDialog * sd)
+{
+    GtkWidget *_vbox = gtk_vbox_new (FALSE, 4);
+    gtk_container_set_border_width (GTK_CONTAINER(_vbox), 4);
+    gtk_widget_show (_vbox);
+    
+    GtkWidget *_label = gtk_label_new("");
+    gtk_label_set_markup(GTK_LABEL(_label),  _("<b>Sensors</b>"));
+    gtk_widget_show (_label);
+    
+    GtkWidget *_frame = gtk_frame_new ("");
+    gtk_frame_set_label_widget (GTK_FRAME(_frame), _label);
+    gtk_widget_show (_frame);
+    gtk_container_add (GTK_CONTAINER (_frame), _vbox);
+    gtk_box_pack_start (GTK_BOX (vbox), _frame, TRUE, TRUE, 0);
+    
+    add_type_box (_vbox, sg, sd);
+
+    add_sensor_settings_box (_vbox, sg, sd);
+    
+    add_temperature_unit_box (_vbox, sd);
+}
+
+
+static void add_miscellaneous_frame (GtkWidget * vbox, GtkSizeGroup * sg,
+                                     SensorsDialog * sd)
+{
+    GtkWidget *_vbox = gtk_vbox_new (FALSE, 4);
+    gtk_container_set_border_width (GTK_CONTAINER(_vbox), 4);
+    gtk_widget_show (_vbox);
+    
+    GtkWidget *_label = gtk_label_new("");
+    gtk_label_set_markup(GTK_LABEL(_label),  _("<b>Miscellaneous</b>"));
+    gtk_widget_show (_label);
+    
+    GtkWidget *_frame = gtk_frame_new ("");
+    gtk_frame_set_label_widget (GTK_FRAME(_frame), _label);
+    gtk_widget_show (_frame);
+    gtk_container_add (GTK_CONTAINER (_frame), _vbox);
+    gtk_box_pack_start (GTK_BOX (vbox), _frame, FALSE, FALSE, 0);
+   
+    add_update_time_box (_vbox, sd);
+   
+    add_command_box (_vbox, sd);
+}
 
 
 static void 
@@ -1945,7 +2030,7 @@ sensors_create_options (Control *control, GtkContainer *container,
                               G_CALLBACK (g_free), sd);
 
     /* the options box */
-    vbox = gtk_vbox_new (FALSE, BORDER);
+    vbox = gtk_vbox_new (FALSE, 8);
     gtk_widget_show (vbox);
     
     sd->myComboBox = gtk_combo_box_new_text();
@@ -1954,7 +2039,7 @@ sensors_create_options (Control *control, GtkContainer *container,
     
     gtk_combo_box_set_active(GTK_COMBO_BOX(sd->myComboBox), 0);
 
-    add_title_box (vbox, sg, sd);
+    /* add_title_box (vbox, sg, sd);
 
     add_ui_style_box (vbox, sg, sd);
 
@@ -1966,12 +2051,16 @@ sensors_create_options (Control *control, GtkContainer *container,
 
     add_font_size_box (vbox, sg, sd);
     
-    add_update_time_box(vbox, sg, sd);
+    add_update_time_box(vbox, sg, sd); */
     
     /* double-click improvement */
-    add_command_box(vbox, sd); 
+    /* add_command_box(vbox, sd); 
 
-    add_temperature_unit_box(vbox, sg, sd);
+    add_temperature_unit_box(vbox, sg, sd); */
+    
+    add_view_frame (vbox, sg, sd);
+    add_sensors_frame (vbox, sg, sd);
+    add_miscellaneous_frame (vbox, sg, sd);
     
     gtk_widget_set_size_request(vbox, 450, 450);
 

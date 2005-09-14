@@ -4,10 +4,10 @@
 # Fabian Nowak <timystery@arcor.de>, 2004, 2005.
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-sensors-plugin 0.5.0\n"
+"Project-Id-Version: xfce4-sensors-plugin 0.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-01 09:45+0200\n"
-"PO-Revision-Date: 2005-08-01 09:52+0200\n"
+"POT-Creation-Date: 2005-09-14 22:23+0200\n"
+"PO-Revision-Date: 2005-09-14 22:28+0200\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: de <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -15,21 +15,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #. g_printf("sensors_add_graphical_panel\n");
-#: panel-plugin/sensors.c:142
+#: panel-plugin/sensors.c:143 panel-plugin/sensors.c:1954
 msgid "<b>Sensors</b>"
 msgstr "<b>Sensoren</b>"
 
-#: panel-plugin/sensors.c:171
+#: panel-plugin/sensors.c:173
 #, c-format
 msgid "%s"
 msgstr "%s"
 
-#: panel-plugin/sensors.c:293
+#: panel-plugin/sensors.c:296
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensoren</b></span>\n"
 
-#: panel-plugin/sensors.c:356
+#: panel-plugin/sensors.c:359
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensoren</b></span>"
@@ -46,11 +46,11 @@ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensoren</b></span>"
 #. FIX ME!
 #. = (gchar *) g_malloc(1024);
 #. circumvent empty char pointer
-#: panel-plugin/sensors.c:443
+#: panel-plugin/sensors.c:447
 msgid "No sensors selected!"
 msgstr "Keine Sensoren ausgewählt!"
 
-#: panel-plugin/sensors.c:479 panel-plugin/sensors.c:1483
+#: panel-plugin/sensors.c:483 panel-plugin/sensors.c:1514
 #, fuzzy
 msgid ""
 " \n"
@@ -63,20 +63,20 @@ msgstr ""
 "Anscheinend gab es ein Problem beim Auslesen eines Wertes. \n"
 "Sauberes Weiterlaufen kann nicht gewährleistet werden.\n"
 
-#: panel-plugin/sensors.c:495
+#: panel-plugin/sensors.c:503
 #, c-format
 msgid "%5.0f rpm"
 msgstr "%5.0f U/min"
 
-#: panel-plugin/sensors.c:649
+#: panel-plugin/sensors.c:658
 msgid "Error: Could not connect to sensors!"
 msgstr "Fehler: Konnte nicht mit Sensoren verbinden!"
 
-#: panel-plugin/sensors.c:736
+#: panel-plugin/sensors.c:745
 msgid "No sensors found!"
 msgstr "Keine Sensoren gefunden!"
 
-#: panel-plugin/sensors.c:798
+#: panel-plugin/sensors.c:807
 #, c-format
 msgid ""
 "A problem occured while trying to close the config file. Restart your "
@@ -85,87 +85,108 @@ msgstr ""
 "Ein Problem trat beim Schließen der Konfigurationsdatei auf. Starten Sie "
 "Ihren Rechner neu ...ähm... starten Sie einfach den Sensor-Dämon neu :-) \n"
 
-#: panel-plugin/sensors.c:1560
-
+#: panel-plugin/sensors.c:1577
 msgid "UI style:"
-msgstr "Benutzerschnittstelle:"
+msgstr "Darstellung:"
 
+#: panel-plugin/sensors.c:1578
 msgid "text"
-msgstr "text-basiert"
+msgstr "textuell"
 
+#: panel-plugin/sensors.c:1580
 msgid "graphical"
 msgstr "graphisch"
 
-#: panel-plugin/sensors.c:1571
+#: panel-plugin/sensors.c:1615
 msgid "Show labels in graphical UI"
-msgstr "Text im graphischen Modus anzeigen"
+msgstr "Beschriftungen im graphischen Modus anzeigen"
 
-#: panel-plugin/sensors.c:1595
+#: panel-plugin/sensors.c:1639
 msgid "Show title"
 msgstr "Titel anzeigen"
 
-#: panel-plugin/sensors.c:1620
+#: panel-plugin/sensors.c:1664
 msgid "Sensors type:"
-msgstr "Sensortyp"
+msgstr "Sensortyp:"
 
-#: panel-plugin/sensors.c:1666
+#: panel-plugin/sensors.c:1713
 msgid "Name"
 msgstr "Name"
 
-#: panel-plugin/sensors.c:1675
+#: panel-plugin/sensors.c:1722
 msgid "Value"
 msgstr "Wert"
 
-#: panel-plugin/sensors.c:1681
+#: panel-plugin/sensors.c:1728
 msgid "Show"
 msgstr "Anzeigen"
 
-#: panel-plugin/sensors.c:1690
+#: panel-plugin/sensors.c:1737
 msgid "Color"
 msgstr "Farbe"
 
-#: panel-plugin/sensors.c:1700
+#: panel-plugin/sensors.c:1747
 msgid "Min"
 msgstr "Min"
 
-#: panel-plugin/sensors.c:1709
+#: panel-plugin/sensors.c:1756
 msgid "Max"
 msgstr "Max"
 
 #. g_printf(" add_font_size_box\n");
-#: panel-plugin/sensors.c:1750
+#: panel-plugin/sensors.c:1789
 msgid "Font size:"
-msgstr "Schriftgröße"
+msgstr "Schriftgröße:"
 
-#: panel-plugin/sensors.c:1757
+#: panel-plugin/sensors.c:1796
 msgid "x-small"
 msgstr "extra-klein"
 
-#: panel-plugin/sensors.c:1758
+#: panel-plugin/sensors.c:1797
 msgid "small"
 msgstr "klein"
 
-#: panel-plugin/sensors.c:1759
+#: panel-plugin/sensors.c:1798
 msgid "medium"
-msgstr "medium"
+msgstr "normal"
 
-#: panel-plugin/sensors.c:1760
+#: panel-plugin/sensors.c:1799
 msgid "large"
 msgstr "groß"
 
-#: panel-plugin/sensors.c:1761
+#: panel-plugin/sensors.c:1800
 msgid "x-large"
 msgstr "extra-groß"
 
-#: panel-plugin/sensors.c:1796
-msgid "Update interval (seconds):"
-msgstr "Auffrischungsintervall (Sekunden)"
+#: panel-plugin/sensors.c:1825
+msgid "Temperature scale:"
+msgstr "Temperaturskala"
 
-#: panel-plugin/sensors.c:1820
-msgid "Execute on double click: "
+#: panel-plugin/sensors.c:1827
+msgid "Celsius"
+msgstr "Celsius"
+
+#: panel-plugin/sensors.c:1829
+msgid "Fahrenheit"
+msgstr "Fahrenheit"
+
+#: panel-plugin/sensors.c:1867
+msgid "Update interval (seconds):"
+msgstr "Auffrischungsintervall (Sekunden):"
+
+#: panel-plugin/sensors.c:1891
+msgid "Execute on double click:"
 msgstr "Bei Doppel-Klick ausführen:"
 
-#: panel-plugin/sensors.c:1949
+#: panel-plugin/sensors.c:1927
+msgid "<b>View</b>"
+msgstr "<b>Ansicht</b>"
+
+#: panel-plugin/sensors.c:1979
+msgid "<b>Miscellaneous</b>"
+msgstr "<b>Sonstige Einstellungen</b>"
+
+#: panel-plugin/sensors.c:2101
 msgid "Hardware Sensors"
 msgstr "Hardware Sensoren"
 

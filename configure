@@ -1816,7 +1816,7 @@ fi
 
 # Define the identity of the package.
  PACKAGE=xfce4-sensors-plugin
- VERSION=0.6.2
+ VERSION=0.7.0
 
 
 cat >>confdefs.h <<_ACEOF

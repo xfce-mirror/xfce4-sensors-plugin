@@ -187,18 +187,18 @@ typedef struct {
     /* controls dialog */
     GtkWidget *dialog;
 
-    /* sensors options */
-    GtkWidget *type_menu;
+    /* sensors options  - What was this crap for??? */
+    /* GtkWidget *type_menu; */
 
     /* Gtk stuff */
     GtkWidget *myComboBox;
-    GtkWidget *myFrame;
+    /* GtkWidget *myFrame; */
     GtkWidget *mySensorLabel;
     GtkWidget *myTreeView;
     GtkTreeStore *myListStore[SENSORS];
-    GtkWidget *fontBox;
-    GtkWidget *labelsBox;
-    GtkWidget *tempUnitBox;
+    GtkWidget *fontBox; /* used to disable font size option when using graphical view */
+    GtkWidget *labelsBox; /* used to enable 'show labels' option when using graphical view */
+    GtkWidget *temperature_radio_group;
 
     /* double-click improvement */  
     GtkWidget *myExecCommandCheckBox;
