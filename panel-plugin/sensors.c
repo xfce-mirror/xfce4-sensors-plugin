@@ -1600,7 +1600,7 @@ add_ui_style_box (GtkWidget * vbox, SensorsDialog * sd)
 
 
 static void
-add_labels_box (GtkWidget * vbox, /* GtkSizeGroup * sg, */ SensorsDialog * sd)
+add_labels_box (GtkWidget * vbox, SensorsDialog * sd)
 {
     /* g_printf(" add_labels_box \n"); */
 
@@ -1627,7 +1627,7 @@ add_labels_box (GtkWidget * vbox, /* GtkSizeGroup * sg, */ SensorsDialog * sd)
 
 	
 static void
-add_title_box (GtkWidget * vbox, /* GtkSizeGroup * sg,*/ SensorsDialog * sd)
+add_title_box (GtkWidget * vbox, SensorsDialog * sd)
 {
     /* g_printf(" add_title_box \n"); */
 
@@ -1651,7 +1651,7 @@ add_title_box (GtkWidget * vbox, /* GtkSizeGroup * sg,*/ SensorsDialog * sd)
 
 
 static void
-add_type_box (GtkWidget * vbox, /* GtkSizeGroup * sg,*/ SensorsDialog * sd)
+add_type_box (GtkWidget * vbox, SensorsDialog * sd)
 {
     /* g_printf(" add_type_box \n"); */
 
@@ -1691,8 +1691,7 @@ add_type_box (GtkWidget * vbox, /* GtkSizeGroup * sg,*/ SensorsDialog * sd)
 
 
 static void
-add_sensor_settings_box ( GtkWidget * vbox, /* GtkSizeGroup * sg,  */
-                          SensorsDialog * sd)
+add_sensor_settings_box ( GtkWidget * vbox, SensorsDialog * sd)
 {
    /* g_printf(" add_sensor_settings_box\n"); */
     /*
@@ -1919,8 +1918,7 @@ add_command_box (GtkWidget * vbox,  SensorsDialog * sd)
 } 
 
 
-static void add_view_frame (GtkWidget * vbox, /* GtkSizeGroup * sg, */
-                            SensorsDialog * sd)
+static void add_view_frame (GtkWidget * vbox, SensorsDialog * sd)
 {
     GtkWidget *_vbox = gtk_vbox_new (FALSE, 4);
     gtk_container_set_border_width (GTK_CONTAINER(_vbox), 4);
@@ -1946,8 +1944,7 @@ static void add_view_frame (GtkWidget * vbox, /* GtkSizeGroup * sg, */
 }
 
 
-static void add_sensors_frame (GtkWidget * vbox, /* GtkSizeGroup * sg, */
-                               SensorsDialog * sd)
+static void add_sensors_frame (GtkWidget * vbox, SensorsDialog * sd)
 {
     GtkWidget *_vbox = gtk_vbox_new (FALSE, 4);
     gtk_container_set_border_width (GTK_CONTAINER(_vbox), 4);
@@ -1971,8 +1968,7 @@ static void add_sensors_frame (GtkWidget * vbox, /* GtkSizeGroup * sg, */
 }
 
 
-static void add_miscellaneous_frame (GtkWidget * vbox, /* GtkSizeGroup * sg, */
-                                     SensorsDialog * sd)
+static void add_miscellaneous_frame (GtkWidget * vbox, SensorsDialog * sd)
 {
     GtkWidget *_vbox = gtk_vbox_new (FALSE, 4);
     gtk_container_set_border_width (GTK_CONTAINER(_vbox), 4);
@@ -2016,7 +2012,6 @@ sensors_create_options (Control *control, GtkContainer *container,
 /*    g_printf(" sensors_create_options\n"); */
 
     GtkWidget *vbox;
-    /* GtkSizeGroup *sg = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL); */
     SensorsDialog *sd;
 
     /* xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8"); */
