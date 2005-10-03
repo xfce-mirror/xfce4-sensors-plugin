@@ -1,7 +1,8 @@
 @SET_MAKE@
 
 SUBDIRS = panel-plugin					\
-	  po
+	  po						\
+	  icons
 
 distclean-local:
 	rm -rf *.cache *~
@@ -29,8 +30,7 @@ EXTRA_DIST =							\
         xfce4-sensors-plugin.spec			\
         intltool-extract.in                 \
         intltool-merge.in                   \
-        intltool-update.in            	    \
-        xfce-sensors.png
+        intltool-update.in            	    
 
 DISTCLEANFILES =						\
 	intltool-extract					\

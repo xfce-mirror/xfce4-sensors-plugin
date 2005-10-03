@@ -76,6 +76,7 @@ AC_OUTPUT([
 Makefile
 xfce4-sensors-plugin.spec
 panel-plugin/Makefile
+icons/Makefile
 po/Makefile.in
 ])
 

@@ -25515,7 +25515,7 @@ echo "${ECHO_T}no" >&6
   fi
 
 
-                                        ac_config_files="$ac_config_files Makefile xfce4-sensors-plugin.spec panel-plugin/Makefile po/Makefile.in"
+                                                  ac_config_files="$ac_config_files Makefile xfce4-sensors-plugin.spec panel-plugin/Makefile icons/Makefile po/Makefile.in"
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
 # tests run on this system so they can be shared between configure
@@ -26099,6 +26099,7 @@ do
   "Makefile" ) CONFIG_FILES="$CONFIG_FILES Makefile" ;;
   "xfce4-sensors-plugin.spec" ) CONFIG_FILES="$CONFIG_FILES xfce4-sensors-plugin.spec" ;;
   "panel-plugin/Makefile" ) CONFIG_FILES="$CONFIG_FILES panel-plugin/Makefile" ;;
+  "icons/Makefile" ) CONFIG_FILES="$CONFIG_FILES icons/Makefile" ;;
   "po/Makefile.in" ) CONFIG_FILES="$CONFIG_FILES po/Makefile.in" ;;
   "depfiles" ) CONFIG_COMMANDS="$CONFIG_COMMANDS depfiles" ;;
   "intltool" ) CONFIG_COMMANDS="$CONFIG_COMMANDS intltool" ;;
