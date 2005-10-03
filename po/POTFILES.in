@@ -1,2 +1,3 @@
 panel-plugin/sensors.c
 panel-plugin/sensors.h
+panel-plugin/xfce4-sensors-plugin.desktop.in.in

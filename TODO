@@ -25,6 +25,6 @@ TODO
 - replace g_strdup_printf calls by g_snprintf and g_sprintf and make it WORK!
     current solution is to NOT use g_malloc(1024) but g_strdup and g_strconcat.
     
-- create translations, at least for French and German.
+- create translations, at least for French and German. DONE.
 
 - fix crash when no sensors were found - DONE in version 0.23

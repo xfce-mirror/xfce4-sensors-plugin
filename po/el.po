@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-03 12:02+0200\n"
+"POT-Creation-Date: 2005-10-03 16:25+0200\n"
 "PO-Revision-Date: 2005-07-27 18:50+0200\n"
 "Last-Translator: Stavros Giannouris <stavrosg2002@freemail.gr>\n"
 "Language-Team: Greek <el@li.org>\n"
@@ -17,31 +17,26 @@ msgstr ""
 "X-Poedit-Language: Greek\n"
 "X-Poedit-Country: GREECE\n"
 
-#: ../panel-plugin/sensors.c:151 ../panel-plugin/sensors.c:1969
+#: ../panel-plugin/sensors.c:153 ../panel-plugin/sensors.c:1937
 msgid "<b>Sensors</b>"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:181
-#, c-format
-msgid "%s"
-msgstr ""
-
-#: ../panel-plugin/sensors.c:271
+#: ../panel-plugin/sensors.c:272
 #, fuzzy, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Αισθητήρες</b></span> \n"
 
-#: ../panel-plugin/sensors.c:330
+#: ../panel-plugin/sensors.c:329
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Αισθητήρες</b></span>"
 
 #. circumvent empty char pointer
-#: ../panel-plugin/sensors.c:408
+#: ../panel-plugin/sensors.c:402
 msgid "No sensors selected!"
 msgstr "Δεν επιλέχθηκαν αισθητήρες!"
 
-#: ../panel-plugin/sensors.c:444 ../panel-plugin/sensors.c:1514
+#: ../panel-plugin/sensors.c:438 ../panel-plugin/sensors.c:1482
 msgid ""
 " \n"
 "Xfce Hardware Sensors Plugin: \n"
@@ -53,127 +48,132 @@ msgstr ""
 "Από οτι φαίνεται υπήρξε πρόβλημα κατά την ανάγνωση κάποιου αισθητήρα. \n"
 "Δεν είναι εγγυημένη η κανονική συνέχεια.\n"
 
-#: ../panel-plugin/sensors.c:464
+#: ../panel-plugin/sensors.c:458
 #, c-format
 msgid "%5.0f rpm"
 msgstr "%5.0f rpm"
 
-#: ../panel-plugin/sensors.c:662
+#: ../panel-plugin/sensors.c:669
 msgid "Error: Could not connect to sensors!"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:749
+#: ../panel-plugin/sensors.c:756
 msgid "No sensors found!"
 msgstr "Δε βρέθηκαν αισθητήρες!"
 
-#: ../panel-plugin/sensors.c:1579
+#: ../panel-plugin/sensors.c:1547
 msgid "UI style:"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1580
+#: ../panel-plugin/sensors.c:1548
 msgid "text"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1582
+#: ../panel-plugin/sensors.c:1550
 msgid "graphical"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1619
+#: ../panel-plugin/sensors.c:1587
 msgid "Show labels in graphical UI"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1644
+#: ../panel-plugin/sensors.c:1612
 msgid "Show title"
 msgstr "Εμφάνιση τίτλου"
 
-#: ../panel-plugin/sensors.c:1670
+#: ../panel-plugin/sensors.c:1638
 msgid "Sensors type:"
 msgstr "Τύπος Αισθητήρα:"
 
-#: ../panel-plugin/sensors.c:1717
+#: ../panel-plugin/sensors.c:1685
 msgid "Name"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1726
+#: ../panel-plugin/sensors.c:1694
 msgid "Value"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1732
+#: ../panel-plugin/sensors.c:1700
 msgid "Show"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1741
+#: ../panel-plugin/sensors.c:1709
 msgid "Color"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1751
+#: ../panel-plugin/sensors.c:1719
 msgid "Min"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1760
+#: ../panel-plugin/sensors.c:1728
 msgid "Max"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1788
+#: ../panel-plugin/sensors.c:1756
 msgid "Font size:"
 msgstr "Μέγεθος γραμματοσειράς:"
 
-#: ../panel-plugin/sensors.c:1795
+#: ../panel-plugin/sensors.c:1763
 msgid "x-small"
 msgstr "πολύ μικρό"
 
-#: ../panel-plugin/sensors.c:1796
+#: ../panel-plugin/sensors.c:1764
 msgid "small"
 msgstr "Μικρό"
 
-#: ../panel-plugin/sensors.c:1797
+#: ../panel-plugin/sensors.c:1765
 msgid "medium"
 msgstr "μεσαίο"
 
-#: ../panel-plugin/sensors.c:1798
+#: ../panel-plugin/sensors.c:1766
 msgid "large"
 msgstr "μεγάλο"
 
-#: ../panel-plugin/sensors.c:1799
+#: ../panel-plugin/sensors.c:1767
 msgid "x-large"
 msgstr "πολύ μεγάλο"
 
-#: ../panel-plugin/sensors.c:1827
+#: ../panel-plugin/sensors.c:1795
 msgid "Temperature scale:"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1829
+#: ../panel-plugin/sensors.c:1797
 msgid "Celsius"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1831
+#: ../panel-plugin/sensors.c:1799
 msgid "Fahrenheit"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1870
+#: ../panel-plugin/sensors.c:1838
 msgid "Update interval (seconds):"
 msgstr "Μεσοδιάστημα ανανέωσης (δευτερόλεπτα):"
 
-#: ../panel-plugin/sensors.c:1897
+#: ../panel-plugin/sensors.c:1865
 #, fuzzy
 msgid "Execute on double click:"
 msgstr "Εκτέλεση στο διπλό κλικ:"
 
-#: ../panel-plugin/sensors.c:1939
+#: ../panel-plugin/sensors.c:1907
 msgid "<b>View</b>"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1997
+#: ../panel-plugin/sensors.c:1965
 msgid "<b>Miscellaneous</b>"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2044
+#: ../panel-plugin/sensors.c:2012
 msgid "Edit Properties"
 msgstr ""
 
 #. #include <unistd.h>
-#: ../panel-plugin/sensors.c:2051 ../panel-plugin/sensors.h:48
+#: ../panel-plugin/sensors.c:2019 ../panel-plugin/sensors.h:48
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensors Plugin"
+msgstr ""
+
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
+msgid "Show sensor values."
 msgstr ""
 
 #~ msgid ""
