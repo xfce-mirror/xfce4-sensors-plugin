@@ -14,6 +14,7 @@
 
 @SET_MAKE@
 
+
 srcdir = @srcdir@
 top_srcdir = @top_srcdir@
 VPATH = @srcdir@
@@ -36,30 +37,23 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
+plugin_PROGRAMS = xfce4-sensors-plugin$(EXEEXT)
 subdir = panel-plugin
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/m4/debug.m4 \
-	$(top_srcdir)/m4/depends.m4 $(top_srcdir)/m4/glib-gettext.m4 \
-	$(top_srcdir)/m4/i18n.m4 $(top_srcdir)/m4/pkg.m4 \
-	$(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
-am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
-am__vpath_adj = case $$p in \
-    $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
-    *) f=$$p;; \
-  esac;
-am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
-am__installdirs = "$(DESTDIR)$(plugindir)"
-pluginLTLIBRARIES_INSTALL = $(INSTALL)
-LTLIBRARIES = $(plugin_LTLIBRARIES)
-libsensors_la_DEPENDENCIES =
-am_libsensors_la_OBJECTS = libsensors_la-sensors.lo
-libsensors_la_OBJECTS = $(am_libsensors_la_OBJECTS)
+am__installdirs = "$(DESTDIR)$(plugindir)" "$(DESTDIR)$(desktopdir)"
+pluginPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
+PROGRAMS = $(plugin_PROGRAMS)
+am_xfce4_sensors_plugin_OBJECTS =  \
+	xfce4_sensors_plugin-sensors.$(OBJEXT)
+xfce4_sensors_plugin_OBJECTS = $(am_xfce4_sensors_plugin_OBJECTS)
+xfce4_sensors_plugin_LDADD = $(LDADD)
 DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -71,8 +65,16 @@ LTCOMPILE = $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) \
 CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(libsensors_la_SOURCES)
-DIST_SOURCES = $(libsensors_la_SOURCES)
+SOURCES = $(xfce4_sensors_plugin_SOURCES)
+DIST_SOURCES = $(xfce4_sensors_plugin_SOURCES)
+am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
+am__vpath_adj = case $$p in \
+    $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
+    *) f=$$p;; \
+  esac;
+am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
+desktopDATA_INSTALL = $(INSTALL_DATA)
+DATA = $(desktop_DATA)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -117,10 +119,39 @@ INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
 INSTOBJEXT = @INSTOBJEXT@
 INTLLIBS = @INTLLIBS@
+INTLTOOL_CAVES_RULE = @INTLTOOL_CAVES_RULE@
+INTLTOOL_DESKTOP_RULE = @INTLTOOL_DESKTOP_RULE@
+INTLTOOL_DIRECTORY_RULE = @INTLTOOL_DIRECTORY_RULE@
+INTLTOOL_EXTRACT = @INTLTOOL_EXTRACT@
+INTLTOOL_ICONV = @INTLTOOL_ICONV@
+INTLTOOL_KBD_RULE = @INTLTOOL_KBD_RULE@
+INTLTOOL_KEYS_RULE = @INTLTOOL_KEYS_RULE@
+INTLTOOL_MERGE = @INTLTOOL_MERGE@
+INTLTOOL_MSGFMT = @INTLTOOL_MSGFMT@
+INTLTOOL_MSGMERGE = @INTLTOOL_MSGMERGE@
+INTLTOOL_OAF_RULE = @INTLTOOL_OAF_RULE@
+INTLTOOL_PERL = @INTLTOOL_PERL@
+INTLTOOL_PONG_RULE = @INTLTOOL_PONG_RULE@
+INTLTOOL_PROP_RULE = @INTLTOOL_PROP_RULE@
+INTLTOOL_SCHEMAS_RULE = @INTLTOOL_SCHEMAS_RULE@
+INTLTOOL_SERVER_RULE = @INTLTOOL_SERVER_RULE@
+INTLTOOL_SHEET_RULE = @INTLTOOL_SHEET_RULE@
+INTLTOOL_SOUNDLIST_RULE = @INTLTOOL_SOUNDLIST_RULE@
+INTLTOOL_THEME_RULE = @INTLTOOL_THEME_RULE@
+INTLTOOL_UI_RULE = @INTLTOOL_UI_RULE@
+INTLTOOL_UPDATE = @INTLTOOL_UPDATE@
+INTLTOOL_XAM_RULE = @INTLTOOL_XAM_RULE@
+INTLTOOL_XGETTEXT = @INTLTOOL_XGETTEXT@
+INTLTOOL_XML_NOMERGE_RULE = @INTLTOOL_XML_NOMERGE_RULE@
+INTLTOOL_XML_RULE = @INTLTOOL_XML_RULE@
 LDFLAGS = @LDFLAGS@
 LIBOBJS = @LIBOBJS@
-LIBS = @LIBS@
+LIBS = @LIBS@ @SOLLIBS@
 LIBTOOL = @LIBTOOL@
+LIBXFCE4PANEL_CFLAGS = @LIBXFCE4PANEL_CFLAGS@
+LIBXFCE4PANEL_LIBS = @LIBXFCE4PANEL_LIBS@
+LIBXFCE4PANEL_REQUIRED_VERSION = @LIBXFCE4PANEL_REQUIRED_VERSION@
+LIBXFCE4PANEL_VERSION = @LIBXFCE4PANEL_VERSION@
 LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
@@ -130,6 +161,7 @@ MAKEINFO = @MAKEINFO@
 MKINSTALLDIRS = @MKINSTALLDIRS@
 MSGFMT = @MSGFMT@
 OBJEXT = @OBJEXT@
+OS = @OS@
 PACKAGE = @PACKAGE@
 PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
 PACKAGE_NAME = @PACKAGE_NAME@
@@ -145,14 +177,12 @@ PO_IN_DATADIR_TRUE = @PO_IN_DATADIR_TRUE@
 RANLIB = @RANLIB@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
+SOLLIBS = @SOLLIBS@
 STRIP = @STRIP@
 USE_NLS = @USE_NLS@
 VERSION = @VERSION@
-XFCE4_PANEL_CFLAGS = @XFCE4_PANEL_CFLAGS@
-XFCE4_PANEL_LIBS = @XFCE4_PANEL_LIBS@
-XFCE4_PANEL_PLUGINSDIR = @XFCE4_PANEL_PLUGINSDIR@
-XFCE4_PANEL_REQUIRED_VERSION = @XFCE4_PANEL_REQUIRED_VERSION@
 XGETTEXT = @XGETTEXT@
+XGETTEXT_ARGS = @XGETTEXT_ARGS@
 ac_ct_AR = @ac_ct_AR@
 ac_ct_CC = @ac_ct_CC@
 ac_ct_CXX = @ac_ct_CXX@
@@ -197,28 +227,38 @@ sbindir = @sbindir@
 sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
-INCLUDES = \
-	-DG_LOG_DOMAIN=\"xfce4-sensors-plugin\"  \
-	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
+plugindir = $(libexecdir)/xfce4/panel-plugins
+xfce4_sensors_plugin_SOURCES = \
+    sensors.c                                           		     \
+	sensors.h                                           
 
-plugindir = $(libdir)/xfce4/panel-plugins
-plugin_LTLIBRARIES = \
-	libsensors.la
+xfce4_sensors_plugin_CFLAGS = \
+     -DPACKAGE_LOCALE_DIR=\"$(localedir)\"                           \
+     @LIBXFCE4PANEL_CFLAGS@             
 
-libsensors_la_LDFLAGS = \
-	-avoid-version							\
-	-module
-
-libsensors_la_SOURCES = \
-	sensors.h							\
-	sensors.c
-
-libsensors_la_CFLAGS = \
-	@XFCE4_PANEL_CFLAGS@
-
-libsensors_la_LIBADD = \
-	@XFCE4_PANEL_LIBS@						\
+xfce4_sensors_plugin_LDFLAGS = \
+    @SOLLIBS@                                   			         \
+	@LIBXFCE4PANEL_LIBS@                                             \
 	-lsensors
+
+
+# INCLUDES =								                             \
+#	-DG_LOG_DOMAIN=\"xfce4-sensors-plugin\"                          \
+#	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
+
+# .desktop file
+#
+# Some automake trickery here. Because we cannot use $(libexecdir) in the
+# automake stage, we'll use sed to get the full path into the .desktop file.
+# We also need to let intltool merge the translated fields, so we add an
+# additional level of indirection: a <name>.desktop.in.in file.
+# 
+desktop_in_in_files = xfce4-sensors-plugin.desktop.in.in
+desktop_in_files = $(desktop_in_in_files:.desktop.in.in=.desktop.in)
+desktopdir = $(datadir)/xfce4/panel-plugins
+desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+DISTCLEANFILES = \
+	$(desktop_DATA) $(desktop_in_files)
 
 all: all-am
 
@@ -233,9 +273,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign  panel-plugin/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu  panel-plugin/Makefile'; \
 	cd $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign  panel-plugin/Makefile
+	  $(AUTOMAKE) --gnu  panel-plugin/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -253,35 +293,37 @@ $(top_srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-install-pluginLTLIBRARIES: $(plugin_LTLIBRARIES)
+install-pluginPROGRAMS: $(plugin_PROGRAMS)
 	@$(NORMAL_INSTALL)
 	test -z "$(plugindir)" || $(mkdir_p) "$(DESTDIR)$(plugindir)"
-	@list='$(plugin_LTLIBRARIES)'; for p in $$list; do \
-	  if test -f $$p; then \
-	    f=$(am__strip_dir) \
-	    echo " $(LIBTOOL) --mode=install $(pluginLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) '$$p' '$(DESTDIR)$(plugindir)/$$f'"; \
-	    $(LIBTOOL) --mode=install $(pluginLTLIBRARIES_INSTALL) $(INSTALL_STRIP_FLAG) "$$p" "$(DESTDIR)$(plugindir)/$$f"; \
+	@list='$(plugin_PROGRAMS)'; for p in $$list; do \
+	  p1=`echo $$p|sed 's/$(EXEEXT)$$//'`; \
+	  if test -f $$p \
+	     || test -f $$p1 \
+	  ; then \
+	    f=`echo "$$p1" | sed 's,^.*/,,;$(transform);s/$$/$(EXEEXT)/'`; \
+	   echo " $(INSTALL_PROGRAM_ENV) $(LIBTOOL) --mode=install $(pluginPROGRAMS_INSTALL) '$$p' '$(DESTDIR)$(plugindir)/$$f'"; \
+	   $(INSTALL_PROGRAM_ENV) $(LIBTOOL) --mode=install $(pluginPROGRAMS_INSTALL) "$$p" "$(DESTDIR)$(plugindir)/$$f" || exit 1; \
 	  else :; fi; \
 	done
 
-uninstall-pluginLTLIBRARIES:
+uninstall-pluginPROGRAMS:
 	@$(NORMAL_UNINSTALL)
-	@set -x; list='$(plugin_LTLIBRARIES)'; for p in $$list; do \
-	  p=$(am__strip_dir) \
-	  echo " $(LIBTOOL) --mode=uninstall rm -f '$(DESTDIR)$(plugindir)/$$p'"; \
-	  $(LIBTOOL) --mode=uninstall rm -f "$(DESTDIR)$(plugindir)/$$p"; \
+	@list='$(plugin_PROGRAMS)'; for p in $$list; do \
+	  f=`echo "$$p" | sed 's,^.*/,,;s/$(EXEEXT)$$//;$(transform);s/$$/$(EXEEXT)/'`; \
+	  echo " rm -f '$(DESTDIR)$(plugindir)/$$f'"; \
+	  rm -f "$(DESTDIR)$(plugindir)/$$f"; \
 	done
 
-clean-pluginLTLIBRARIES:
-	-test -z "$(plugin_LTLIBRARIES)" || rm -f $(plugin_LTLIBRARIES)
-	@list='$(plugin_LTLIBRARIES)'; for p in $$list; do \
-	  dir="`echo $$p | sed -e 's|/[^/]*$$||'`"; \
-	  test "$$dir" != "$$p" || dir=.; \
-	  echo "rm -f \"$${dir}/so_locations\""; \
-	  rm -f "$${dir}/so_locations"; \
+clean-pluginPROGRAMS:
+	@list='$(plugin_PROGRAMS)'; for p in $$list; do \
+	  f=`echo $$p|sed 's/$(EXEEXT)$$//'`; \
+	  echo " rm -f $$p $$f"; \
+	  rm -f $$p $$f ; \
 	done
-libsensors.la: $(libsensors_la_OBJECTS) $(libsensors_la_DEPENDENCIES) 
-	$(LINK) -rpath $(plugindir) $(libsensors_la_LDFLAGS) $(libsensors_la_OBJECTS) $(libsensors_la_LIBADD) $(LIBS)
+xfce4-sensors-plugin$(EXEEXT): $(xfce4_sensors_plugin_OBJECTS) $(xfce4_sensors_plugin_DEPENDENCIES) 
+	@rm -f xfce4-sensors-plugin$(EXEEXT)
+	$(LINK) $(xfce4_sensors_plugin_LDFLAGS) $(xfce4_sensors_plugin_OBJECTS) $(xfce4_sensors_plugin_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -289,7 +331,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libsensors_la-sensors.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_sensors_plugin-sensors.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	if $(COMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" -c -o $@ $<; \
@@ -312,12 +354,19 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-libsensors_la-sensors.lo: sensors.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libsensors_la_CFLAGS) $(CFLAGS) -MT libsensors_la-sensors.lo -MD -MP -MF "$(DEPDIR)/libsensors_la-sensors.Tpo" -c -o libsensors_la-sensors.lo `test -f 'sensors.c' || echo '$(srcdir)/'`sensors.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libsensors_la-sensors.Tpo" "$(DEPDIR)/libsensors_la-sensors.Plo"; else rm -f "$(DEPDIR)/libsensors_la-sensors.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sensors.c' object='libsensors_la-sensors.lo' libtool=yes @AMDEPBACKSLASH@
+xfce4_sensors_plugin-sensors.o: sensors.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_sensors_plugin_CFLAGS) $(CFLAGS) -MT xfce4_sensors_plugin-sensors.o -MD -MP -MF "$(DEPDIR)/xfce4_sensors_plugin-sensors.Tpo" -c -o xfce4_sensors_plugin-sensors.o `test -f 'sensors.c' || echo '$(srcdir)/'`sensors.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/xfce4_sensors_plugin-sensors.Tpo" "$(DEPDIR)/xfce4_sensors_plugin-sensors.Po"; else rm -f "$(DEPDIR)/xfce4_sensors_plugin-sensors.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sensors.c' object='xfce4_sensors_plugin-sensors.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libsensors_la_CFLAGS) $(CFLAGS) -c -o libsensors_la-sensors.lo `test -f 'sensors.c' || echo '$(srcdir)/'`sensors.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_sensors_plugin_CFLAGS) $(CFLAGS) -c -o xfce4_sensors_plugin-sensors.o `test -f 'sensors.c' || echo '$(srcdir)/'`sensors.c
+
+xfce4_sensors_plugin-sensors.obj: sensors.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_sensors_plugin_CFLAGS) $(CFLAGS) -MT xfce4_sensors_plugin-sensors.obj -MD -MP -MF "$(DEPDIR)/xfce4_sensors_plugin-sensors.Tpo" -c -o xfce4_sensors_plugin-sensors.obj `if test -f 'sensors.c'; then $(CYGPATH_W) 'sensors.c'; else $(CYGPATH_W) '$(srcdir)/sensors.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/xfce4_sensors_plugin-sensors.Tpo" "$(DEPDIR)/xfce4_sensors_plugin-sensors.Po"; else rm -f "$(DEPDIR)/xfce4_sensors_plugin-sensors.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sensors.c' object='xfce4_sensors_plugin-sensors.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_sensors_plugin_CFLAGS) $(CFLAGS) -c -o xfce4_sensors_plugin-sensors.obj `if test -f 'sensors.c'; then $(CYGPATH_W) 'sensors.c'; else $(CYGPATH_W) '$(srcdir)/sensors.c'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
@@ -328,6 +377,23 @@ clean-libtool:
 distclean-libtool:
 	-rm -f libtool
 uninstall-info-am:
+install-desktopDATA: $(desktop_DATA)
+	@$(NORMAL_INSTALL)
+	test -z "$(desktopdir)" || $(mkdir_p) "$(DESTDIR)$(desktopdir)"
+	@list='$(desktop_DATA)'; for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  f=$(am__strip_dir) \
+	  echo " $(desktopDATA_INSTALL) '$$d$$p' '$(DESTDIR)$(desktopdir)/$$f'"; \
+	  $(desktopDATA_INSTALL) "$$d$$p" "$(DESTDIR)$(desktopdir)/$$f"; \
+	done
+
+uninstall-desktopDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(desktop_DATA)'; for p in $$list; do \
+	  f=$(am__strip_dir) \
+	  echo " rm -f '$(DESTDIR)$(desktopdir)/$$f'"; \
+	  rm -f "$(DESTDIR)$(desktopdir)/$$f"; \
+	done
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -406,9 +472,9 @@ distdir: $(DISTFILES)
 	done
 check-am: all-am
 check: check-am
-all-am: Makefile $(LTLIBRARIES)
+all-am: Makefile $(PROGRAMS) $(DATA)
 installdirs:
-	for dir in "$(DESTDIR)$(plugindir)"; do \
+	for dir in "$(DESTDIR)$(plugindir)" "$(DESTDIR)$(desktopdir)"; do \
 	  test -z "$$dir" || $(mkdir_p) "$$dir"; \
 	done
 install: install-am
@@ -431,13 +497,14 @@ clean-generic:
 
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
+	-test -z "$(DISTCLEANFILES)" || rm -f $(DISTCLEANFILES)
 
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-am
 
-clean-am: clean-generic clean-libtool clean-pluginLTLIBRARIES \
+clean-am: clean-generic clean-libtool clean-pluginPROGRAMS \
 	mostlyclean-am
 
 distclean: distclean-am
@@ -456,7 +523,7 @@ info: info-am
 
 info-am:
 
-install-data-am: install-pluginLTLIBRARIES
+install-data-am: install-desktopDATA install-pluginPROGRAMS
 
 install-exec-am:
 
@@ -484,21 +551,29 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-info-am uninstall-pluginLTLIBRARIES
+uninstall-am: uninstall-desktopDATA uninstall-info-am \
+	uninstall-pluginPROGRAMS
 
 .PHONY: CTAGS GTAGS all all-am check check-am clean clean-generic \
-	clean-libtool clean-pluginLTLIBRARIES ctags distclean \
+	clean-libtool clean-pluginPROGRAMS ctags distclean \
 	distclean-compile distclean-generic distclean-libtool \
 	distclean-tags distdir dvi dvi-am html html-am info info-am \
-	install install-am install-data install-data-am install-exec \
-	install-exec-am install-info install-info-am install-man \
-	install-pluginLTLIBRARIES install-strip installcheck \
-	installcheck-am installdirs maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
-	tags uninstall uninstall-am uninstall-info-am \
-	uninstall-pluginLTLIBRARIES
+	install install-am install-data install-data-am \
+	install-desktopDATA install-exec install-exec-am install-info \
+	install-info-am install-man install-pluginPROGRAMS \
+	install-strip installcheck installcheck-am installdirs \
+	maintainer-clean maintainer-clean-generic mostlyclean \
+	mostlyclean-compile mostlyclean-generic mostlyclean-libtool \
+	pdf pdf-am ps ps-am tags uninstall uninstall-am \
+	uninstall-desktopDATA uninstall-info-am \
+	uninstall-pluginPROGRAMS
 
+@INTLTOOL_DESKTOP_RULE@
+
+# get full path into .desktop file
+%.desktop.in: %.desktop.in.in
+	sed -e "s^@PLUGIN_PATH@^$(libexecdir)/xfce4/panel-plugins^" 	 \
+		$< > $@
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:

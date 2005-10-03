@@ -1,8 +1,7 @@
 @SET_MAKE@
 
-SUBDIRS =								\
-	panel-plugin							\
-	po
+SUBDIRS = panel-plugin					\
+	  po
 
 distclean-local:
 	rm -rf *.cache *~
@@ -19,7 +18,7 @@ rpm: dist
 	rpmbuild -ta $(PACKAGE)-$(VERSION).tar.gz
 	@rm -f $(PACKAGE)-$(VERSION).tar.gz
 
-EXTRA_DIST =								\
+EXTRA_DIST =							\
 	AUTHORS								\
 	COPYING								\
 	ChangeLog							\
@@ -27,8 +26,14 @@ EXTRA_DIST =								\
 	NEWS								\
 	README								\
 	TODO								\
-	xfce4-sensors-plugin.spec
+	xfce4-sensors-plugin.spec			\
+	intltool-extract.in                 \
+    intltool-merge.in                   \
+    intltool-update.in            	    \
+    xfce-sensors.png
 
-ACLOCAL_AMFLAGS = -I m4
+DISTCLEANFILES =						\
+	intltool-extract					\
+	intltool-merge						\
+	intltool-update
 
-localedir = ${prefix}/share/locale

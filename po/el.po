@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-14 22:23+0200\n"
+"POT-Creation-Date: 2005-10-03 12:02+0200\n"
 "PO-Revision-Date: 2005-07-27 18:50+0200\n"
 "Last-Translator: Stavros Giannouris <stavrosg2002@freemail.gr>\n"
 "Language-Team: Greek <el@li.org>\n"
@@ -17,43 +17,31 @@ msgstr ""
 "X-Poedit-Language: Greek\n"
 "X-Poedit-Country: GREECE\n"
 
-#. g_printf("sensors_add_graphical_panel\n");
-#: panel-plugin/sensors.c:143 panel-plugin/sensors.c:1954
+#: ../panel-plugin/sensors.c:151 ../panel-plugin/sensors.c:1969
 msgid "<b>Sensors</b>"
 msgstr ""
 
-#: panel-plugin/sensors.c:173
+#: ../panel-plugin/sensors.c:181
 #, c-format
 msgid "%s"
 msgstr ""
 
-#: panel-plugin/sensors.c:296
+#: ../panel-plugin/sensors.c:271
 #, fuzzy, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Αισθητήρες</b></span> \n"
 
-#: panel-plugin/sensors.c:359
+#: ../panel-plugin/sensors.c:330
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Αισθητήρες</b></span>"
 
-#. +--------------------+
-#. I asb-1-100          I
-#. I   CPU: 42.00       I
-#. I   MB: 24.50        I
-#. I eeprom-80          I
-#. I   id: 42           I
-#. +--------------------+
-#. we will duplicate the string everywhere,
-#. so don't allocate a fixed portion.
-#. FIX ME!
-#. = (gchar *) g_malloc(1024);
 #. circumvent empty char pointer
-#: panel-plugin/sensors.c:447
+#: ../panel-plugin/sensors.c:408
 msgid "No sensors selected!"
 msgstr "Δεν επιλέχθηκαν αισθητήρες!"
 
-#: panel-plugin/sensors.c:483 panel-plugin/sensors.c:1514
+#: ../panel-plugin/sensors.c:444 ../panel-plugin/sensors.c:1514
 msgid ""
 " \n"
 "Xfce Hardware Sensors Plugin: \n"
@@ -65,134 +53,139 @@ msgstr ""
 "Από οτι φαίνεται υπήρξε πρόβλημα κατά την ανάγνωση κάποιου αισθητήρα. \n"
 "Δεν είναι εγγυημένη η κανονική συνέχεια.\n"
 
-#: panel-plugin/sensors.c:503
+#: ../panel-plugin/sensors.c:464
 #, c-format
 msgid "%5.0f rpm"
 msgstr "%5.0f rpm"
 
-#: panel-plugin/sensors.c:658
+#: ../panel-plugin/sensors.c:662
 msgid "Error: Could not connect to sensors!"
 msgstr ""
 
-#: panel-plugin/sensors.c:745
+#: ../panel-plugin/sensors.c:749
 msgid "No sensors found!"
 msgstr "Δε βρέθηκαν αισθητήρες!"
 
-#: panel-plugin/sensors.c:807
-#, c-format
-msgid ""
-"A problem occured while trying to close the config file. Restart your "
-"computer ... err ... restart the sensor daemon only :-) \n"
-msgstr ""
-"Εμφανίστηκε ένα πρόβλημα κατά το κλείσιμο του αρχείου ρυθμήσεων. "
-"Επανεκκινείστε τον υπολογιστή σας... εμμ... επανεκκινείστε τον sensor daemon "
-"μόνο :-) \n"
-
-#: panel-plugin/sensors.c:1577
+#: ../panel-plugin/sensors.c:1579
 msgid "UI style:"
 msgstr ""
 
-#: panel-plugin/sensors.c:1578
+#: ../panel-plugin/sensors.c:1580
 msgid "text"
 msgstr ""
 
-#: panel-plugin/sensors.c:1580
+#: ../panel-plugin/sensors.c:1582
 msgid "graphical"
 msgstr ""
 
-#: panel-plugin/sensors.c:1615
+#: ../panel-plugin/sensors.c:1619
 msgid "Show labels in graphical UI"
 msgstr ""
 
-#: panel-plugin/sensors.c:1639
+#: ../panel-plugin/sensors.c:1644
 msgid "Show title"
 msgstr "Εμφάνιση τίτλου"
 
-#: panel-plugin/sensors.c:1664
+#: ../panel-plugin/sensors.c:1670
 msgid "Sensors type:"
 msgstr "Τύπος Αισθητήρα:"
 
-#: panel-plugin/sensors.c:1713
+#: ../panel-plugin/sensors.c:1717
 msgid "Name"
 msgstr ""
 
-#: panel-plugin/sensors.c:1722
+#: ../panel-plugin/sensors.c:1726
 msgid "Value"
 msgstr ""
 
-#: panel-plugin/sensors.c:1728
+#: ../panel-plugin/sensors.c:1732
 msgid "Show"
 msgstr ""
 
-#: panel-plugin/sensors.c:1737
+#: ../panel-plugin/sensors.c:1741
 msgid "Color"
 msgstr ""
 
-#: panel-plugin/sensors.c:1747
+#: ../panel-plugin/sensors.c:1751
 msgid "Min"
 msgstr ""
 
-#: panel-plugin/sensors.c:1756
+#: ../panel-plugin/sensors.c:1760
 msgid "Max"
 msgstr ""
 
-#. g_printf(" add_font_size_box\n");
-#: panel-plugin/sensors.c:1789
+#: ../panel-plugin/sensors.c:1788
 msgid "Font size:"
 msgstr "Μέγεθος γραμματοσειράς:"
 
-#: panel-plugin/sensors.c:1796
+#: ../panel-plugin/sensors.c:1795
 msgid "x-small"
 msgstr "πολύ μικρό"
 
-#: panel-plugin/sensors.c:1797
+#: ../panel-plugin/sensors.c:1796
 msgid "small"
 msgstr "Μικρό"
 
-#: panel-plugin/sensors.c:1798
+#: ../panel-plugin/sensors.c:1797
 msgid "medium"
 msgstr "μεσαίο"
 
-#: panel-plugin/sensors.c:1799
+#: ../panel-plugin/sensors.c:1798
 msgid "large"
 msgstr "μεγάλο"
 
-#: panel-plugin/sensors.c:1800
+#: ../panel-plugin/sensors.c:1799
 msgid "x-large"
 msgstr "πολύ μεγάλο"
 
-#: panel-plugin/sensors.c:1825
+#: ../panel-plugin/sensors.c:1827
 msgid "Temperature scale:"
 msgstr ""
 
-#: panel-plugin/sensors.c:1827
+#: ../panel-plugin/sensors.c:1829
 msgid "Celsius"
 msgstr ""
 
-#: panel-plugin/sensors.c:1829
+#: ../panel-plugin/sensors.c:1831
 msgid "Fahrenheit"
 msgstr ""
 
-#: panel-plugin/sensors.c:1867
+#: ../panel-plugin/sensors.c:1870
 msgid "Update interval (seconds):"
 msgstr "Μεσοδιάστημα ανανέωσης (δευτερόλεπτα):"
 
-#: panel-plugin/sensors.c:1891
+#: ../panel-plugin/sensors.c:1897
 #, fuzzy
 msgid "Execute on double click:"
 msgstr "Εκτέλεση στο διπλό κλικ:"
 
-#: panel-plugin/sensors.c:1927
+#: ../panel-plugin/sensors.c:1939
 msgid "<b>View</b>"
 msgstr ""
 
-#: panel-plugin/sensors.c:1979
+#: ../panel-plugin/sensors.c:1997
 msgid "<b>Miscellaneous</b>"
 msgstr ""
 
-#: panel-plugin/sensors.c:2101
-msgid "Hardware Sensors"
-msgstr "Αισθητήρες Υλικού"
+#: ../panel-plugin/sensors.c:2044
+msgid "Edit Properties"
+msgstr ""
+
+#. #include <unistd.h>
+#: ../panel-plugin/sensors.c:2051 ../panel-plugin/sensors.h:48
+msgid "Sensors Plugin"
+msgstr ""
+
+#~ msgid ""
+#~ "A problem occured while trying to close the config file. Restart your "
+#~ "computer ... err ... restart the sensor daemon only :-) \n"
+#~ msgstr ""
+#~ "Εμφανίστηκε ένα πρόβλημα κατά το κλείσιμο του αρχείου ρυθμήσεων. "
+#~ "Επανεκκινείστε τον υπολογιστή σας... εμμ... επανεκκινείστε τον sensor "
+#~ "daemon μόνο :-) \n"
+
+#~ msgid "Hardware Sensors"
+#~ msgstr "Αισθητήρες Υλικού"
 
 #~ msgid ""
 #~ " \n"

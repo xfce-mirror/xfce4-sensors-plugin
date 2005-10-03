@@ -15,12 +15,12 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA. 
  */
 
-/* This plugin requires libsensors-1 and its headers !*/
+/* This plugin requires libsensors-3 and its headers !*/
+
+/* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
 
 #ifndef XFCE4_SENSORS_H
 #define XFCE4_SENSORS_H
-
-
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -28,28 +28,33 @@
 
 #include <glib/gprintf.h>
 
-#include <libxfce4util/i18n.h>
+#include <libxfce4util/libxfce4util.h>
+#include <libxfcegui4/libxfcegui4.h>
+#include <libxfce4panel/xfce-panel-plugin.h>
+
+/* #include <libxfce4util/i18n.h>
 #include <libxfce4util/libxfce4util.h>
 #include <libxfcegui4/xfce_clock.h>
 
 #include <panel/controls.h>
 #include <panel/global.h>
-/* #include <panel/icons.h> */
-#include <panel/plugins.h>
+#include <panel/icons.h>
+#include <panel/plugins.h> */
 
+/* this is libsensors3 */
 #include <sensors/sensors.h>
 
-#include <unistd.h>
-
+/* #include <unistd.h> */
+#define APP_NAME N_("Sensors Plugin")
 
 #define BORDER 6
 #define SENSORS 10
 #define FEATURES_PER_SENSOR 256
 
 
-#define COLOR_ERROR	"#f00000"
-#define COLOR_WARN	"#f0f000"
-#define COLOR_NORMAL	"#00C000"
+#define COLOR_ERROR     "#f00000"
+#define COLOR_WARN      "#f0f000"
+#define COLOR_NORMAL    "#00C000"
 
 
 typedef enum {
@@ -59,20 +64,22 @@ typedef enum {
     OTHER
 } sensor_type;
 
+
 typedef enum {
     CELSIUS,
     FAHRENHEIT
 } temp_scale;
 
+
 typedef struct {
-	/* the progress bar */
-	GtkWidget *progressbar;
+    /* the progress bar */
+    GtkWidget *progressbar;
 
-	/* the label */
-	GtkWidget *label;
+    /* the label */
+    GtkWidget *label;
 
-	/* the surrounding box */
-	GtkWidget *databox;
+    /* the surrounding box */
+    GtkWidget *databox;
 } t_barpanel;
 
 
@@ -80,6 +87,9 @@ typedef struct {
  *  ------------
  */
 typedef struct {
+
+    XfcePanelPlugin *plugin;
+
     /* eventbox to catch events */
     GtkWidget *eventbox;
     
@@ -90,7 +100,7 @@ typedef struct {
     GtkWidget *panelValuesLabel;
 
     /* update the tooltip */
-    gint timeout_id, timeout_id2;
+    gint timeout_id;
 
     /* font size for display in panel */
     gchar* fontSize;
@@ -206,6 +216,7 @@ typedef struct {
 }
 SensorsDialog;
 
+static GtkTooltips *tooltips = NULL;
 
 
 #endif // XFCE4_SENSORS_H
