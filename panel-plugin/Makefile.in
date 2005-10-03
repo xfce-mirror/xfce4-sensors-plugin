@@ -257,6 +257,9 @@ desktop_in_in_files = xfce4-sensors-plugin.desktop.in.in
 desktop_in_files = $(desktop_in_in_files:.desktop.in.in=.desktop.in)
 desktopdir = $(datadir)/xfce4/panel-plugins
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+EXTRA_DIST = \
+	$(desktop_in_in_files)
+
 DISTCLEANFILES = \
 	$(desktop_DATA) $(desktop_in_files)
 
