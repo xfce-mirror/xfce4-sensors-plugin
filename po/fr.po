@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-03 16:25+0200\n"
+"POT-Creation-Date: 2005-10-08 15:30+0200\n"
 "PO-Revision-Date: 2005-08-01 09:31+0200\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -166,11 +166,15 @@ msgstr "Ajouter propriétés"
 
 #. #include <unistd.h>
 #: ../panel-plugin/sensors.c:2019 ../panel-plugin/sensors.h:48
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensors Plugin"
 msgstr "Plugin senseurs"
 
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
-msgid "Show sensor values."
-msgstr "Montrer les valeurs senseurs"
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
+#, fuzzy
+msgid " Sensor plugin "
+msgstr "Plugin senseurs"
 
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
+#, fuzzy
+msgid " Show sensor values."
+msgstr "Montrer les valeurs senseurs"
