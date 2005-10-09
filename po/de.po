@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-08 15:30+0200\n"
+"POT-Creation-Date: 2005-10-09 11:15+0200\n"
 "PO-Revision-Date: 2005-09-14 22:28+0200\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: de <LL@li.org>\n"
@@ -168,9 +168,9 @@ msgid "Sensors Plugin"
 msgstr "Sensor Plugin"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
-msgid " Sensor plugin "
+msgid "Sensor plugin "
 msgstr "Sensor Plugin"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
-msgid " Show sensor values."
-msgstr "Zeige Sensorwerte an"
+msgid "Show sensor values."
+msgstr "Sensorwerte erkannter Sensoren überwachen."
