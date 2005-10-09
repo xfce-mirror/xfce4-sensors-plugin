@@ -295,24 +295,29 @@ sensors_show_text_panel (t_sensors *st)
     
     gint numRows = 0, numCols, size = st->panelSize;
     
-    switch (st->fontSizeNumerical) {
-        /* we have to allocate N items per row and N-1 spaces. Assuming that
-           row spacing is half the font size and smallest font size is 6, we add
-           6/2 more space for row spacing per each item, except for the last.
-           this one is added to the panelSize. */
-        /* The author knows that normally the font sizes depend on the settings
-           of the icon theme, but he doesn't want to find out where those
-           settings can be found. */
-        case 0: for (size+=3; size>=(6+3); numRows++, size-=(6+3)) ; break;
-        
-        case 1: for (size+=4; size>=(8+4); numRows++, size-=(8+4)) ; break;
-        
-        case 2: for (size+=5; size>=(10+5); numRows++, size-=(10+5)) ; break;
-        
-        case 3: for (size+=6; size>=(12+6); numRows++, size-=(12+6)) ; break;
-        
-        case 4: for (size+=7; size>=(14+7); numRows++, size-=(14+7)) ; break;
-        default: numRows = 2;
+    if (st->orientation == GTK_ORIENTATION_HORIZONTAL) {
+        switch (st->fontSizeNumerical) {
+            /* we have to allocate N items per row and N-1 spaces. Assuming that
+               row spacing is half the font size and smallest font size is 6, we add
+               6/2 more space for row spacing per each item, except for the last.
+               this one is added to the panelSize. */
+            /* The author knows that normally the font sizes depend on the settings
+               of the icon theme, but he doesn't want to find out where those
+               settings can be found. */
+            case 0: for (size+=3; size>=(6+3); numRows++, size-=(6+3)) ; break;
+            
+            case 1: for (size+=4; size>=(8+4); numRows++, size-=(8+4)) ; break;
+            
+            case 2: for (size+=5; size>=(10+5); numRows++, size-=(10+5)) ; break;
+            
+            case 3: for (size+=6; size>=(12+6); numRows++, size-=(12+6)) ; break;
+            
+            case 4: for (size+=7; size>=(14+7); numRows++, size-=(14+7)) ; break;
+            default: numRows = 2;
+        } /* end switch */
+    } /* end if horizontal */
+    else {
+        numRows = FEATURES_PER_SENSOR * SENSORS + 1; /* cannot have more rows ;-) */
     }
     
     /* fail-safe */
