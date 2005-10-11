@@ -871,6 +871,8 @@ sensors_write_config (XfcePanelPlugin *plugin, t_sensors *st)
     if (!(file = xfce_panel_plugin_save_location (plugin, TRUE)))
         return;
     
+    /* int res = */ unlink (file);
+        
     rc = xfce_rc_simple_open (file, FALSE);
     g_free (file);
 
