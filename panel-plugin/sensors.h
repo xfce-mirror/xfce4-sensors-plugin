@@ -182,6 +182,9 @@ typedef struct {
     
     /* callback_id for doubleclicks */
      gint doubleClick_id; 
+     
+     /* hddtemp disks */
+     GSList *disklist;
     
 }
 t_sensors;

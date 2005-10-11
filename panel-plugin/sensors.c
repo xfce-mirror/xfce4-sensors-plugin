@@ -385,7 +385,8 @@ sensors_show_text_panel (t_sensors *st)
 }
 
 
-/* create tooltip */
+/* create tooltip
+Updates the sensor values, see lines 440 and following */
 static gboolean
 sensors_date_tooltip (gpointer data)
 {
@@ -411,6 +412,11 @@ sensors_date_tooltip (gpointer data)
     if (st->sensorNumber > SENSORS) return FALSE;
     
     gboolean first = TRUE;
+    
+    /* FIXME: st->sensorNumber must be decreased by one for 
+    hddtemp to use last sensor. */
+    
+    /* FIXME: update hddtemp values */
     
     while ( i < st->sensorNumber ) {
     
@@ -676,10 +682,44 @@ sensors_new (XfcePanelPlugin *plugin)
     st->sensorNumber = 0;
     st->chipName[st->sensorNumber] = 
         sensors_get_detected_chips(&st->sensorNumber);
+        
+        
+    /* hddtemp extension - move to init_widgets() ? */
+    int disksensor = st->sensorNumber-1;
+    if (st->chipName[disksensor]!=NULL) {
+    
+        st->sensorId[disksensor] = g_strdup(_("HDD Temperature"));
+        st->sensorsCount[disksensor]=0;
+        char *disk;
+        int diskIndex = 0;
+        
+        while ( (disk = (char*) disklist->g_slist_next(disklist) ) {
+            
+           st->sensorColors [disksensor][diskIndex] = "#000000";
+           st->sensorValid [disksensor][diskIndex] = TRUE;
+           st->sensorValues [disksensor][diskIndex] = 
+                    g_strdup_printf("%+5.2f", 0.0);
+           st->sensorRawValues [disksensor][nr1] = 0.0;
+        
+           st->sensor_types[disksensor][diskIndex] = TEMPERATURE;
+	       st->sensorMinValues[disksensor][diskIndex] = 10;
+	       st->sensorMaxValues[disksensor][diskIndex] = 40;
+	       
+	       st->sensorNames [disksensor][diskIndex] = disk;
+	       
+	       st->sensorCheckBoxes [disksensor] [diskIndex] = FALSE;
+            
+           diskindex++;
+        }
+        st->sensorsCount[st->sensorNumber-1] = diskindex;
+    
+    }
+    /* end hddtemp extension */
+        
 
-    /* iterate over chips on mainboard */
-    while (st->chipName[st->sensorNumber-1]!=NULL) {
-        int currentIndex = st->sensorNumber-1;
+    /* iterate over chips on mainboard, last one is for hddtemp! */
+    while (st->chipName[st->sensorNumber-2]!=NULL) {
+        int currentIndex = st->sensorNumber-2;
 
         st->sensorId[currentIndex] =  g_strdup_printf("%s-%i-%i", 
                         st->chipName[currentIndex]->prefix, 
@@ -927,7 +967,9 @@ sensors_write_config (XfcePanelPlugin *plugin, t_sensors *st)
                 
                xfce_rc_write_int_entry (rc, "Id", getIdFromAddress(i, j, st));
                 
-               xfce_rc_write_int_entry (rc, "Address", j);
+               /* only use this if no hddtemp sensor */
+               if (i!=st->sensorNumber-1)
+                    xfce_rc_write_int_entry (rc, "Address", j);
                 
                xfce_rc_write_entry (rc, "Name", st->sensorNames[i][j]);
                 
@@ -1044,11 +1086,13 @@ sensors_read_config (XfcePanelPlugin *plugin, t_sensors *st)
                 	
                 	    id = (gint) xfce_rc_read_int_entry (rc, "Id", 0);
                 	    
+                	    if (i!=st->sensorNumber-1)
                         address = (gint) xfce_rc_read_int_entry (rc, "Address", 0);
                         
                         /* assert correctly saved file */
-                        g_return_if_fail 
-                            (st->sensorAddress[sensorNumber][id] == address);
+                        if (i!=st->sensorNumber-1)
+                            g_return_if_fail 
+                                (st->sensorAddress[sensorNumber][id] == address);
                     
                         if ((value = xfce_rc_read_entry (rc, "Name", NULL)) 
                                 && *value) {
@@ -1460,6 +1504,14 @@ init_widgets (SensorsDialog *sd)
     #ifdef DEBUG
     g_printf ("init_widgets \n");
     #endif
+    
+    /* FIXME: initialize sd->sensors->disklist by reading from /sys/block
+        or /proc/ide */
+    
+    /* FIXME: have one more sensor in sd->sensors->sensorNumber,
+        thus  do anything until sd->sensors->sensorNumber-1 only;
+        and check for hddtemp value separately! */
+    /* or do it in sensors_new() ? */
     
     int i=0;
     while( i < sd->sensors->sensorNumber ) {
