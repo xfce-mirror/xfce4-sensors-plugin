@@ -5,7 +5,7 @@ dnl
 dnl 2003,2004 Benedikt Meurer <benny@xfce.org>
 dnl
 
-m4_define([sensors_version],[0.8.2])
+m4_define([sensors_version],[0.8.3])
 
 AC_INIT([xfce4-sensors-plugin], [sensors_version()], [timystery@arcor.de])
 
