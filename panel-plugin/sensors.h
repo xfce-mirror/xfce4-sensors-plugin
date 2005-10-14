@@ -44,6 +44,9 @@
 /* this is libsensors3 */
 #include <sensors/sensors.h>
 
+/* for strstr() */
+#include <string.h>
+
 /* #include <unistd.h> */
 #define APP_NAME N_("Sensors Plugin")
 

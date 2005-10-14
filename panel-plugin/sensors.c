@@ -682,44 +682,11 @@ sensors_new (XfcePanelPlugin *plugin)
     st->sensorNumber = 0;
     st->chipName[st->sensorNumber] = 
         sensors_get_detected_chips(&st->sensorNumber);
-        
-        
-    /* hddtemp extension - move to init_widgets() ? */
-    int disksensor = st->sensorNumber-1;
-    if (st->chipName[disksensor]!=NULL) {
-    
-        st->sensorId[disksensor] = g_strdup(_("HDD Temperature"));
-        st->sensorsCount[disksensor]=0;
-        char *disk;
-        int diskIndex = 0;
-        
-        while ( (disk = (char*) disklist->g_slist_next(disklist) ) {
-            
-           st->sensorColors [disksensor][diskIndex] = "#000000";
-           st->sensorValid [disksensor][diskIndex] = TRUE;
-           st->sensorValues [disksensor][diskIndex] = 
-                    g_strdup_printf("%+5.2f", 0.0);
-           st->sensorRawValues [disksensor][nr1] = 0.0;
-        
-           st->sensor_types[disksensor][diskIndex] = TEMPERATURE;
-	       st->sensorMinValues[disksensor][diskIndex] = 10;
-	       st->sensorMaxValues[disksensor][diskIndex] = 40;
-	       
-	       st->sensorNames [disksensor][diskIndex] = disk;
-	       
-	       st->sensorCheckBoxes [disksensor] [diskIndex] = FALSE;
-            
-           diskindex++;
-        }
-        st->sensorsCount[st->sensorNumber-1] = diskindex;
-    
-    }
-    /* end hddtemp extension */
-        
+       
 
-    /* iterate over chips on mainboard, last one is for hddtemp! */
-    while (st->chipName[st->sensorNumber-2]!=NULL) {
-        int currentIndex = st->sensorNumber-2;
+    /* iterate over chips on mainboard */
+    while (st->chipName[st->sensorNumber-1]!=NULL) {
+        int currentIndex = st->sensorNumber-1;
 
         st->sensorId[currentIndex] =  g_strdup_printf("%s-%i-%i", 
                         st->chipName[currentIndex]->prefix, 
@@ -794,6 +761,41 @@ sensors_new (XfcePanelPlugin *plugin)
         sensors_get_detected_chips in order to now reflect the correct
         number of found sensor chips */
     st->sensorNumber--;
+    
+            
+    /* hddtemp extension - move to init_widgets() ? */
+    int disksensor = st->sensorNumber++; /* have one more sensor - disk sensor */
+    st->chipName[disksensor] = (const sensors_chip_name *) strdup( _("Hard disks") );
+    if (st->chipName[disksensor]!=NULL) {
+    
+        st->sensorId[disksensor] = g_strdup(_("Hard disk temperature sensors"));
+        st->sensorsCount[disksensor]=0;
+        char *disk;
+        int diskIndex = 0;
+        
+        while ( (disk = (char*) g_slist_next(st->disklist))!=NULL ) {
+            
+           st->sensorColors [disksensor][diskIndex] = "#000000";
+           st->sensorValid [disksensor][diskIndex] = TRUE;
+           st->sensorValues [disksensor][diskIndex] = 
+                    g_strdup_printf("%+5.2f", 0.0);
+           st->sensorRawValues [disksensor][diskIndex] = 0.0;
+        
+           st->sensor_types[disksensor][diskIndex] = TEMPERATURE;
+	       st->sensorMinValues[disksensor][diskIndex] = 10;
+	       st->sensorMaxValues[disksensor][diskIndex] = 40;
+	       
+	       st->sensorNames [disksensor][diskIndex] = disk;
+	       
+	       st->sensorCheckBoxes [disksensor] [diskIndex] = FALSE;
+            
+           diskIndex++;
+        }
+        st->sensorsCount[disksensor] = diskIndex;
+    
+    }
+    /* end hddtemp extension */
+        
     
     /* error handling for no sensors */
     if (st->sensorNumber == 0) {
