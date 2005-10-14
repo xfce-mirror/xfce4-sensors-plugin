@@ -22,7 +22,7 @@
 
 #include "sensors.h"
 
-#define DEBUG
+/* #define DEBUG */
 
 static void
 sensors_set_bar_size (GtkWidget *bar, int size, int orientation)
@@ -393,26 +393,26 @@ get_hddtemp_value (char* disk)
     #endif
 
     GError *error = NULL;
-    char* argv[5];
-    argv[0] = "hddtemp"; argv[1] = "-n"; argv[2] = "-q"; 
-    argv[3] = disk; argv[4] = "\n";
-    gchar **standard_output;
-    gint exit_status;
+    gchar *standard_output;
+    gchar *standard_error;
+    gint exit_status=0;
 
     gboolean result;
-    result = g_spawn_sync (NULL, argv, NULL, 
-                           G_SPAWN_SEARCH_PATH /* | G_SPAWN_CHILD_INHERITS_STDIN */,
-                           NULL, NULL, standard_output, NULL, &exit_status,
-                           &error);
+    gchar *cmd_line;
+    cmd_line = g_strdup_printf ( "hddtemp -n -q %s", disk);
+    result = g_spawn_command_line_sync ( cmd_line,
+            &standard_output, &standard_error, &exit_status, &error);
                                              
     /* filter those with no sensors out */
-    if (!result || exit_status!=0 /* || error!=NULL */ )
+    if (!result || exit_status!=0 /* || error!=NULL */ ) {
         return 0.0;
+    }
         
-    double value; /* this could go in one line, but let's see... */
-    value = atof (standard_output[0]);
+    double value = strtod ( (const char*) standard_output, NULL);
     
-    g_printf(" value for disk %s: %d \n", disk, value);
+    g_free(cmd_line);
+    g_free(standard_output);
+    g_free(standard_error);
     
     return value;
 }
