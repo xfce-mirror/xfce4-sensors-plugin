@@ -22,7 +22,7 @@
 
 #include "sensors.h"
 
-/* #define DEBUG */
+#define DEBUG
 
 static void
 sensors_set_bar_size (GtkWidget *bar, int size, int orientation)
@@ -385,6 +385,39 @@ sensors_show_text_panel (t_sensors *st)
 }
 
 
+static double
+get_hddtemp_value (char* disk) 
+{
+    #ifdef DEBUG
+    g_printf ("get_hddtemp_value %s \n", disk);
+    #endif
+
+    GError *error = NULL;
+    char* argv[5];
+    argv[0] = "hddtemp"; argv[1] = "-n"; argv[2] = "-q"; 
+    argv[3] = disk; argv[4] = "\n";
+    gchar **standard_output;
+    gint exit_status;
+
+    gboolean result;
+    result = g_spawn_sync (NULL, argv, NULL, 
+                           G_SPAWN_SEARCH_PATH /* | G_SPAWN_CHILD_INHERITS_STDIN */,
+                           NULL, NULL, standard_output, NULL, &exit_status,
+                           &error);
+                                             
+    /* filter those with no sensors out */
+    if (!result || exit_status!=0 /* || error!=NULL */ )
+        return 0.0;
+        
+    double value; /* this could go in one line, but let's see... */
+    value = atof (standard_output[0]);
+    
+    g_printf(" value for disk %s: %d \n", disk, value);
+    
+    return value;
+}
+
+
 /* create tooltip
 Updates the sensor values, see lines 440 and following */
 static gboolean
@@ -409,20 +442,17 @@ sensors_date_tooltip (gpointer data)
     
     int i=0;
     
-    if (st->sensorNumber > SENSORS) return FALSE;
+    if (st->sensorNumber > SENSORS+1) return FALSE; /* accept one more for hdd */
     
     gboolean first = TRUE;
-    
-    /* FIXME: st->sensorNumber must be decreased by one for 
-    hddtemp to use last sensor. */
-    
-    /* FIXME: update hddtemp values */
-    
-    while ( i < st->sensorNumber ) {
-    
-        gboolean prependedChipName = FALSE;
+
+    /* FIXME: update hddtemp values after while loop */
+
+    gboolean prependedChipName;
+    while ( i < st->sensorNumber-1 ) { /* last one is hddtemp */
     
         int nr1 = 0;
+        prependedChipName = FALSE;
         while ( nr1 < FEATURES_PER_SENSOR ) {
             
             if ( st->sensorValid[i][nr1] == TRUE &&
@@ -439,7 +469,7 @@ sensors_date_tooltip (gpointer data)
                             myToolTipText, " \n ", st->sensorId[i], NULL);
                         
                     prependedChipName = TRUE;
-                }
+                } /* end if prepended chipname */
             
                 double sensorFeature;
                 int res = sensors_get_feature(*st->chipName[i], nr1, 
@@ -456,12 +486,13 @@ guaranteed.\n"));
                 gchar *help;
                 switch (st->sensor_types[i][nr1]) {
                   case TEMPERATURE:
-                           if( st->scale == FAHRENHEIT ) {
-                               help = g_strdup_printf("%5.1f °F", ((float)sensorFeature)*9/5+32);
-			   } else { /* Celsius */
-                               help = g_strdup_printf("%5.1f °C", sensorFeature);
-                           }
-                           break;
+                       if( st->scale == FAHRENHEIT ) {
+                            help = g_strdup_printf("%5.1f °F", 
+                                        (float) (sensorFeature * 9/5 + 32) );
+        			   } else { /* Celsius */
+                            help = g_strdup_printf("%5.1f °C", sensorFeature);
+                       }
+                       break;
                   case VOLTAGE: 
                            help = g_strdup_printf("%+5.2f V", sensorFeature);
                            break;
@@ -470,7 +501,7 @@ guaranteed.\n"));
                            break;
                   default: help = g_strdup_printf("%+5.2f", sensorFeature);
                            break;
-                }
+                } /* end switch */
                 
                 myToolTipText = g_strconcat (myToolTipText, "\n  ", 
                     st->sensorNames[i][nr1], ": ", help, NULL);
@@ -485,6 +516,45 @@ guaranteed.\n"));
         }
 
         i++;
+    }
+    
+    /* now use 'i' to get hddtemp information */
+    int diskIndex = 0;
+    
+    prependedChipName = FALSE;
+    while ( diskIndex < st->numDisks ) {
+    
+        if ( st->sensorValid[i][diskIndex] == TRUE &&
+            st->sensorCheckBoxes[i][diskIndex] == TRUE ) {
+        
+            if ( prependedChipName != TRUE) {
+                if (first == TRUE) {
+                    myToolTipText = g_strdup(st->sensorId[i]);
+                    first = FALSE;
+                }
+                else
+                    myToolTipText = g_strconcat (
+                        myToolTipText, " \n ", st->sensorId[i], NULL);
+                prependedChipName = TRUE;
+            }
+            
+            double value;
+            value = get_hddtemp_value (
+                    g_ptr_array_index (st->disklist, diskIndex));
+           
+            gchar *help;
+            if( st->scale == FAHRENHEIT )
+                help = g_strdup_printf("%5.1f °F", (float) (value * 9/5 + 32));
+    	    else /* Celsius */
+                help = g_strdup_printf("%5.1f °C", value);
+
+            myToolTipText = g_strconcat (myToolTipText, "\n  ", 
+                    st->sensorNames[i][diskIndex], ": ", help, NULL);
+                
+            st->sensorValues[i][diskIndex] = g_strdup (help);
+    	    st->sensorRawValues[i][diskIndex] = value;
+        }
+        diskIndex++;
     }
 
     if (!tooltips) {
@@ -627,23 +697,6 @@ execute_command (GtkWidget *widget, GdkEventButton *event, gpointer data)
 }
 
 
-/* static gboolean
-execCommandName_activate (GtkWidget *widget, GdkEventButton *event, gpointer data) 
-{
-    #ifdef DEBUG
-    g_printf ("execCommandName_activate \n");
-    #endif
-    
-    printf( "entry_text: %s \n", gtk_entry_get_text(GTK_ENTRY(widget)) );
-    t_sensors *st = (t_sensors *) data;
-
-    st->commandName = g_strdup(gtk_entry_get_text(GTK_ENTRY(widget)));
-    printf(" commandName: %s\n", st->commandName);
-
-    return FALSE;
-} */
-
-
 static t_sensors *
 sensors_new (XfcePanelPlugin *plugin)
 {
@@ -763,18 +816,40 @@ sensors_new (XfcePanelPlugin *plugin)
     st->sensorNumber--;
     
             
-    /* hddtemp extension - move to init_widgets() ? */
+    /* hddtemp extension */
     int disksensor = st->sensorNumber++; /* have one more sensor - disk sensor */
-    st->chipName[disksensor] = (const sensors_chip_name *) strdup( _("Hard disks") );
-    if (st->chipName[disksensor]!=NULL) {
     
-        st->sensorId[disksensor] = g_strdup(_("Hard disk temperature sensors"));
-        st->sensorsCount[disksensor]=0;
-        char *disk;
+    st->chipName[disksensor] = (const sensors_chip_name*) 
+            ( strdup(_("Hard disks")), 0, 0, strdup(_("Hard disks")) );
+    
+    /* FIXME: Discover supported HDDs and only insert those! */
+    st->disklist = g_ptr_array_new ();
+    g_ptr_array_add (st->disklist, "/dev/hda");
+    g_ptr_array_add (st->disklist, "/dev/hdb");
+    g_ptr_array_add (st->disklist, "/dev/hdc");
+    g_ptr_array_add (st->disklist, "/dev/hdd");
+    st->numDisks = 4;
+    int i=0;
+    while (i<st->numDisks) {
+        if ( get_hddtemp_value(g_ptr_array_index (st->disklist, i))==0.0) {
+            g_ptr_array_remove_index (st->disklist, i);
+            i--;
+            st->numDisks--;
+        }
+        i++;
+    }
+    
+    if ( 1 ) {
+    
+        st->sensorId[disksensor] = g_strdup(_("Hard disks"));
+        st->sensorsCount[disksensor] = 0;
         int diskIndex = 0;
         
-        while ( (disk = (char*) g_slist_next(st->disklist))!=NULL ) {
-            
+        while ( diskIndex < st->numDisks) {
+           gint ci = st->sensorsCount [disksensor];
+           st->sensorAddress [disksensor] [ ci ] = diskIndex;
+           st->sensorsCount [disksensor]++;
+           
            st->sensorColors [disksensor][diskIndex] = "#000000";
            st->sensorValid [disksensor][diskIndex] = TRUE;
            st->sensorValues [disksensor][diskIndex] = 
@@ -785,20 +860,22 @@ sensors_new (XfcePanelPlugin *plugin)
 	       st->sensorMinValues[disksensor][diskIndex] = 10;
 	       st->sensorMaxValues[disksensor][diskIndex] = 40;
 	       
-	       st->sensorNames [disksensor][diskIndex] = disk;
+	       st->sensorNames [disksensor][diskIndex] = 
+	               (char*) g_ptr_array_index (st->disklist, diskIndex);
 	       
 	       st->sensorCheckBoxes [disksensor] [diskIndex] = FALSE;
             
            diskIndex++;
-        }
+        } 
         st->sensorsCount[disksensor] = diskIndex;
     
     }
     /* end hddtemp extension */
-        
     
     /* error handling for no sensors */
-    if (st->sensorNumber == 0) {
+    /* FIXME: we always have our 'virtual' hdd temp sensor, even if it has no
+        values */
+    if (st->sensorNumber <= 0) {
         st->sensorAddress    [0] [0] = 0;
         st->sensorId             [0] =  g_strdup(_("No sensors found!"));
         st->sensorsCount         [0] = 1;
@@ -968,20 +1045,26 @@ sensors_write_config (XfcePanelPlugin *plugin, t_sensors *st)
                xfce_rc_set_group (rc, feature);
                 
                xfce_rc_write_int_entry (rc, "Id", getIdFromAddress(i, j, st));
+               g_printf(" %d \n", getIdFromAddress(i, j, st));
                 
                /* only use this if no hddtemp sensor */
                if (i!=st->sensorNumber-1)
                     xfce_rc_write_int_entry (rc, "Address", j);
                 
                xfce_rc_write_entry (rc, "Name", st->sensorNames[i][j]);
+               g_printf(" %s \n", st->sensorNames[i][j]);
                 
                xfce_rc_write_entry (rc, "Color", st->sensorColors[i][j]);
+               g_printf(" %s \n", st->sensorColors[i][j]);
                 
                xfce_rc_write_bool_entry (rc, "Show", st->sensorCheckBoxes[i][j]);
+               g_printf(" %d \n", st->sensorCheckBoxes[i][j]);
 
                xfce_rc_write_int_entry (rc, "Min", st->sensorMinValues[i][j]);
+               g_printf(" %d \n", st->sensorMinValues[i][j]);
 
                xfce_rc_write_int_entry (rc, "Max", st->sensorMaxValues[i][j]);
+               g_printf(" %d \n", st->sensorMaxValues[i][j]);
             }
             
         } /* end for j */
@@ -1209,9 +1292,13 @@ sensor_entry_changed (GtkWidget *widget, SensorsDialog *sd)
         gtk_combo_box_get_active(GTK_COMBO_BOX (widget));
 
     /* widget should be sd->myComboBox */
-    gtk_label_set_label (GTK_LABEL(sd->mySensorLabel), 
-            (const gchar*) sensors_get_adapter_name
-                (sd->sensors->chipName[gtk_combo_box_active]->bus) );
+    const char* adapter_name;
+    if ( gtk_combo_box_active!=sd->sensors->sensorNumber-1 ) 
+        gtk_label_set_label (GTK_LABEL(sd->mySensorLabel), 
+                sensors_get_adapter_name
+                    (sd->sensors->chipName[gtk_combo_box_active]->bus) );
+    else gtk_label_set_label (GTK_LABEL(sd->mySensorLabel), 
+                g_strdup(_("Hard disk temperature sensors")) );
     
     gtk_tree_view_set_model ( 
         GTK_TREE_VIEW (sd->myTreeView), 
@@ -1526,7 +1613,7 @@ init_widgets (SensorsDialog *sd)
     GtkTreeIter iter;
     
     i=0;
-    while( i < sd->sensors->sensorNumber ) {
+    while( i < sd->sensors->sensorNumber-1 ) { /* one less because of hdd sensors */
         
         gtk_combo_box_append_text ( GTK_COMBO_BOX(sd->myComboBox), 
                                     sd->sensors->sensorId[i] );
@@ -1567,6 +1654,36 @@ guaranteed.\n") );
 
         i++;
     } /* end while i < sensorNumber */
+    
+    
+    /* hdd extension */
+    gtk_combo_box_append_text ( GTK_COMBO_BOX(sd->myComboBox), 
+                                    sd->sensors->sensorId[i] );
+    int diskIndex = 0;
+    while ( diskIndex < sd->sensors->numDisks ) {
+        if ( sd->sensors->sensorValid[i][diskIndex] == TRUE ) {
+            double value = get_hddtemp_value (
+                    (char*) g_ptr_array_index (sd->sensors->disklist, diskIndex));
+            sd->sensors->sensorValues[i][diskIndex] = 
+                g_strdup_printf("%+5.2f", value);
+	        sd->sensors->sensorRawValues[i][diskIndex] = value;
+            gtk_tree_store_append ( GTK_TREE_STORE (sd->myListStore[i]), 
+                                    &iter, NULL);
+            gtk_tree_store_set ( GTK_TREE_STORE (sd->myListStore[i]),
+                            &iter,
+                            0, sd->sensors->sensorNames[i][diskIndex] ,
+                            1, sd->sensors->sensorValues[i][diskIndex] ,
+                            2, sd->sensors->sensorCheckBoxes[i][diskIndex],
+                            3, sd->sensors->sensorColors[i][diskIndex],
+                            4, sd->sensors->sensorMinValues[i][diskIndex],
+                            5, sd->sensors->sensorMaxValues[i][diskIndex],
+                                    -1);
+        } /* end if sensors-valid */
+
+        diskIndex++;
+    } /* end while diskIndex */
+    
+    /* end hdd extension */
     
     if(sd->sensors->sensorNumber == 0) {
         gtk_combo_box_append_text ( GTK_COMBO_BOX(sd->myComboBox), 

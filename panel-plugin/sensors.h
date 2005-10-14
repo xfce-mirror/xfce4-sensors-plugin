@@ -178,16 +178,17 @@ typedef struct {
     
     /* double-click improvement as suggested on xfce4-goodies@berlios.de */
     /* whether to execute command on double click */
-     gboolean execCommand; 
+    gboolean execCommand; 
     
     /* command to excute */
-     gchar* commandName; 
+    gchar* commandName; 
     
     /* callback_id for doubleclicks */
-     gint doubleClick_id; 
+    gint doubleClick_id; 
      
-     /* hddtemp disks */
-     GSList *disklist;
+    /* hddtemp disks */
+    GPtrArray *disklist;
+    gint numDisks;
     
 }
 t_sensors;
