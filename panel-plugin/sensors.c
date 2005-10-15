@@ -630,16 +630,6 @@ sensors_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
     sensors_show_panel (st);
 }
 
-/*
-static gboolean
-global_update_function (gpointer data)
-{
-    #ifdef DEBUG
-    g_printf ("global_update_function \n");
-    #endif
-    return sensors_show_panel (data);
-} */
-
 
 /* initialize box and label to pack them together */
 static void
@@ -822,13 +812,66 @@ sensors_new (XfcePanelPlugin *plugin)
     st->chipName[disksensor] = (const sensors_chip_name*) 
             ( strdup(_("Hard disks")), 0, 0, strdup(_("Hard disks")) );
     
-    /* FIXME: Discover supported HDDs and only insert those! */
     st->disklist = g_ptr_array_new ();
-    g_ptr_array_add (st->disklist, "/dev/hda");
-    g_ptr_array_add (st->disklist, "/dev/hdb");
-    g_ptr_array_add (st->disklist, "/dev/hdc");
-    g_ptr_array_add (st->disklist, "/dev/hdd");
-    st->numDisks = 4;
+    st->numDisks = 0;
+    
+    /* determine kernel version under linux */
+    GError *error = NULL;
+    gchar *standard_output;
+    gint exit_status=0;
+
+    gchar *cmd_line = g_strdup ("uname -s");
+    gboolean result = g_spawn_command_line_sync (cmd_line, &standard_output, 
+                                                 NULL, &exit_status, &error);
+    
+    if (result && exit_status==0 && strncmp(standard_output, "Linux", 5)==0 ) {
+    
+        error = NULL;
+        cmd_line = g_strdup ("uname -r");
+        result = g_spawn_command_line_sync (cmd_line, &standard_output, 
+                                            NULL, &exit_status, &error);
+        
+        if (result && exit_status==0) {
+            int generation = atoi ( standard_output );
+            int major = atoi ( (standard_output+2) );
+            
+            if (generation==2 && major<=4) { /* kernel 2.0.* - 2.4.* */
+                /* read from /proc/ide */
+                error = NULL;
+                GDir *gdir = g_dir_open ("/proc/ide/", 0, &error);
+                const gchar* dirname;
+                while ( (dirname = g_dir_read_name (gdir))!=NULL ) {
+                    if ( strncmp (dirname, "hd", 2)==0 ) {
+                        gchar* disk = g_strconcat ("/dev/", dirname, NULL);
+                        g_ptr_array_add (st->disklist, disk);
+                        st->numDisks++;
+                    }
+                } 
+                /* FIXME: read SCSI info from where?  */
+            }
+            else if (generation==2 && major<=6) { /* kernel 2.6.* */
+                /* read from /sys/block */
+                error = NULL;
+                GDir *gdir = g_dir_open ("/sys/block/", 0, &error);
+                const gchar* dirname;
+                while ( (dirname = g_dir_read_name (gdir))!=NULL ) {
+                    if ( strncmp (dirname, "ram", 3)!=0 && 
+                         strncmp (dirname, "loop", 4)!=0 ) {
+                        gchar* disk = g_strconcat ("/dev/", dirname, NULL);
+                        #ifdef DEBUG
+                        g_printf(" disk=%s \n", disk);
+                        #endif
+                        g_ptr_array_add (st->disklist, disk);
+                        st->numDisks++;
+                    }
+                } 
+            }
+            /* what comes next with kernel 2.7 and above? sysdevprocfs? */
+        }
+        
+    } /* end if LINUX */
+    /* else FIXME: BSD and others... */
+    
     int i=0;
     while (i<st->numDisks) {
         if ( get_hddtemp_value(g_ptr_array_index (st->disklist, i))==0.0) {
@@ -1045,26 +1088,38 @@ sensors_write_config (XfcePanelPlugin *plugin, t_sensors *st)
                xfce_rc_set_group (rc, feature);
                 
                xfce_rc_write_int_entry (rc, "Id", getIdFromAddress(i, j, st));
+               #ifdef DEBUG
                g_printf(" %d \n", getIdFromAddress(i, j, st));
+               #endif
                 
                /* only use this if no hddtemp sensor */
                if (i!=st->sensorNumber-1)
                     xfce_rc_write_int_entry (rc, "Address", j);
                 
                xfce_rc_write_entry (rc, "Name", st->sensorNames[i][j]);
+               #ifdef DEBUG
                g_printf(" %s \n", st->sensorNames[i][j]);
+               #endif
                 
                xfce_rc_write_entry (rc, "Color", st->sensorColors[i][j]);
+               #ifdef DEBUG
                g_printf(" %s \n", st->sensorColors[i][j]);
+               #endif
                 
                xfce_rc_write_bool_entry (rc, "Show", st->sensorCheckBoxes[i][j]);
+               #ifdef DEBUG
                g_printf(" %d \n", st->sensorCheckBoxes[i][j]);
+               #endif
 
                xfce_rc_write_int_entry (rc, "Min", st->sensorMinValues[i][j]);
+               #ifdef DEBUG
                g_printf(" %d \n", st->sensorMinValues[i][j]);
+               #endif
 
                xfce_rc_write_int_entry (rc, "Max", st->sensorMaxValues[i][j]);
+               #ifdef DEBUG
                g_printf(" %d \n", st->sensorMaxValues[i][j]);
+               #endif
             }
             
         } /* end for j */
@@ -1593,15 +1648,7 @@ init_widgets (SensorsDialog *sd)
     #ifdef DEBUG
     g_printf ("init_widgets \n");
     #endif
-    
-    /* FIXME: initialize sd->sensors->disklist by reading from /sys/block
-        or /proc/ide */
-    
-    /* FIXME: have one more sensor in sd->sensors->sensorNumber,
-        thus  do anything until sd->sensors->sensorNumber-1 only;
-        and check for hddtemp value separately! */
-    /* or do it in sensors_new() ? */
-    
+        
     int i=0;
     while( i < sd->sensors->sensorNumber ) {
         sd->myListStore[i] = gtk_tree_store_new (6, G_TYPE_STRING, 

@@ -1,7 +1,7 @@
 Xfce4-Sensors-Plugin
 ====================
 
-Version 0.8.4 - Panel 4.3.22 and newer only!
+Version 0.9.9 - For Xfce 4 Panel 4.3.22 and newer only!
 
 Copyright (c) 2004,2005 by Fabian Nowak (timystery@arcor.de), Stefan Ott
 
@@ -13,6 +13,8 @@ Dependencies: libxfcegui4-1, libxfce4util-1, libgtk2.0-0, libsensors3,
                 xfce4-panel
               libxfcegui4-dev, libxfce4util-dev, libgtk2.0-dev, libsensors-dev, 
                 xfce4-panel-dev
+
+Optional: hddtemp
 
 Installation: ./configure && make && [sudo] make install
 
