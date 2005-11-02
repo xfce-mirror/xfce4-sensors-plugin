@@ -1,27 +1,27 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Korean translations for libxfcegui4 package.
+# Copyright (C) 2002-2005 The Xfce development team.
+# This file is distributed under the same license as the libxfcegui4 package.
+# ByungHyun Choi <byunghyun.choi@gmail.com>, 2005.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-10-14 16:57+0200\n"
-"PO-Revision-Date: 2005-01-19 16:24+0900\n"
+"PO-Revision-Date: 2005-11-03 01:59+0900\n"
 "Last-Translator: ByungHyun Choi<byunghyun.choi@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge."
+"net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../panel-plugin/sensors.c:153 ../panel-plugin/sensors.c:2115
 msgid "<b>Sensors</b>"
-msgstr ""
+msgstr "<b>센서</b>"
 
 #: ../panel-plugin/sensors.c:272
-#, fuzzy, c-format
+#, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>센서</b></span> \n"
 
@@ -36,7 +36,7 @@ msgid "No sensors selected!"
 msgstr "센서를 선택하지 않았습니다!"
 
 #: ../panel-plugin/sensors.c:479 ../panel-plugin/sensors.c:1630
-#, fuzzy
+#, 
 msgid ""
 " \n"
 "Xfce Hardware Sensors Plugin: \n"
@@ -51,40 +51,40 @@ msgstr ""
 #: ../panel-plugin/sensors.c:500
 #, c-format
 msgid "%5.0f rpm"
-msgstr ""
+msgstr "%5.0f RPM"
 
 #: ../panel-plugin/sensors.c:733
 msgid "Error: Could not connect to sensors!"
-msgstr ""
+msgstr "오류: 선세에 연결하지 못 했습니다."
 
 #: ../panel-plugin/sensors.c:823 ../panel-plugin/sensors.c:844
 msgid "Hard disks"
-msgstr ""
+msgstr "하드 디스크"
 
 #: ../panel-plugin/sensors.c:880
 msgid "No sensors found!"
 msgstr "센서를 못 찾았습니다!"
 
 #: ../panel-plugin/sensors.c:1301
-#, fuzzy
+#, 
 msgid "Hard disk temperature sensors"
-msgstr "하드웨어 센서"
+msgstr "하드디스크 온도 센서"
 
 #: ../panel-plugin/sensors.c:1725
 msgid "UI style:"
-msgstr ""
+msgstr "UI 스타일:"
 
 #: ../panel-plugin/sensors.c:1726
 msgid "text"
-msgstr ""
+msgstr "글자"
 
 #: ../panel-plugin/sensors.c:1728
 msgid "graphical"
-msgstr ""
+msgstr "그림"
 
 #: ../panel-plugin/sensors.c:1765
 msgid "Show labels in graphical UI"
-msgstr ""
+msgstr "GUI에 레이블 보이기"
 
 #: ../panel-plugin/sensors.c:1790
 msgid "Show title"
@@ -96,27 +96,27 @@ msgstr "센서 종류:"
 
 #: ../panel-plugin/sensors.c:1863
 msgid "Name"
-msgstr ""
+msgstr "이름"
 
 #: ../panel-plugin/sensors.c:1872
 msgid "Value"
-msgstr ""
+msgstr "값"
 
 #: ../panel-plugin/sensors.c:1878
 msgid "Show"
-msgstr ""
+msgstr "보이기"
 
 #: ../panel-plugin/sensors.c:1887
 msgid "Color"
-msgstr ""
+msgstr "색상"
 
 #: ../panel-plugin/sensors.c:1897
 msgid "Min"
-msgstr ""
+msgstr "최소"
 
 #: ../panel-plugin/sensors.c:1906
 msgid "Max"
-msgstr ""
+msgstr "최대"
 
 #: ../panel-plugin/sensors.c:1934
 msgid "Font size:"
@@ -144,15 +144,15 @@ msgstr "아주 크게"
 
 #: ../panel-plugin/sensors.c:1973
 msgid "Temperature scale:"
-msgstr ""
+msgstr "온도 단위:"
 
 #: ../panel-plugin/sensors.c:1975
 msgid "Celsius"
-msgstr ""
+msgstr "섭씨"
 
 #: ../panel-plugin/sensors.c:1977
 msgid "Fahrenheit"
-msgstr ""
+msgstr "화씨"
 
 #: ../panel-plugin/sensors.c:2016
 msgid "Update interval (seconds):"
@@ -160,61 +160,29 @@ msgstr "검사 간격 (초):"
 
 #: ../panel-plugin/sensors.c:2043
 msgid "Execute on double click:"
-msgstr ""
+msgstr "따닥(더블클릭)하면 실행합니다."
 
 #: ../panel-plugin/sensors.c:2085
 msgid "<b>View</b>"
-msgstr ""
+msgstr "<b>보기</b>"
 
 #: ../panel-plugin/sensors.c:2143
 msgid "<b>Miscellaneous</b>"
-msgstr ""
+msgstr "<b>기타</b>"
 
 #: ../panel-plugin/sensors.c:2190
 msgid "Edit Properties"
-msgstr ""
+msgstr "속성 변경"
 
 #. #include <unistd.h>
 #: ../panel-plugin/sensors.c:2197 ../panel-plugin/sensors.h:51
 msgid "Sensors Plugin"
-msgstr ""
+msgstr "센서 플러그인"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
-msgstr ""
+msgstr "센서 플러그인"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
-msgstr ""
-
-#, fuzzy
-#~ msgid ""
-#~ "A problem occured while trying to close the config file. Restart your "
-#~ "computer ... err ... restart the sensor daemon only :-) \n"
-#~ msgstr ""
-#~ "설정 화일을 닫는 도중에 문제가 발생했습니다.                          컴퓨"
-#~ "터를 재시작하십시오 ... 아! 실수 ...               센서 데몬만 다시 시작 "
-#~ "시키십시오. :-) \n"
-
-#, fuzzy
-#~ msgid ""
-#~ " \n"
-#~ "Xfce Hardware Sensors Plugin: \n"
-#~ " Seems like there was a problem reading a sensor feature value. \n"
-#~ "Proper proceeding cannot be guaranteed. \n"
-#~ msgstr ""
-#~ " \n"
-#~ "Xfce 하드웨어 센서 플러그인: \n"
-#~ "센서의 기능과 측정치를 읽는 도중 문제가 생긴 것 같습니다.\n"
-#~ "따라서 정상적인 동작을 보장할 수 없습니다.\n"
-
-#~ msgid ""
-#~ " \n"
-#~ "Xfce Hardware Sensors Plugin:                         \n"
-#~ "Seems like there was a problem reading a sensor                         "
-#~ "feature value. \n"
-#~ "Proper proceeding cannot be                         guaranteed.\n"
-#~ msgstr ""
-#~ "Xfce 하드웨어 센서 플러그인: \n"
-#~ "센서의 기능과 측정치를 읽는 도중 문제가 생긴 것 같습니다.\n"
-#~ "따라서 정상적인 동작을 보장할 수 없습니다.\n"
+msgstr "센서 값 보이기"
