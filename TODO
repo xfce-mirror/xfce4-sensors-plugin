@@ -1,0 +1,30 @@
+TODO
+======
+
+- g_free everything that can be freed safely - ?
+
+- load / save values from config file - DONE
+
+- tooltip text - DONE
+
+- update function for panel widget - DONE
+
+- insert columns in panel widget if more than 4 medium sized entries shall be inserted into 
+  large sized panel, more than 5 small sized, more than 3 large, ... - DONE
+  
+- add FILE or filename to structure to be read from config file - REALLY?
+
+- add "update tooltip" time - DONE
+
+- add "update panel" time - Deprecated - But DONE
+
+- fix error in sensors_date_tooltip: doesn't concat string. perhaps need other string concat function - DONE
+
+- fix error: doesn't find all sensors when newly adding plugin to panel - sensors library problem?
+
+- replace g_strdup_printf calls by g_snprintf and g_sprintf and make it WORK!
+    current solution is to NOT use g_malloc(1024) but g_strdup and g_strconcat.
+    
+- create translations, at least for French and German.
+
+- fix crash when no sensors were found - DONE in version 0.23

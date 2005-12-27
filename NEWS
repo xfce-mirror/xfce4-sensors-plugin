@@ -1,0 +1,9 @@
+0.4.0: double click extension
+0.5.0: categorized values
+0.5.1: i18n working
+0.6.0: more graphical ui if desired
+0.6.1: fixes with double-click extension
+0.6.2: found more translatable strings ;)
+0.6.3: less compiler warnings, some spacings in panel plugin, temperature scale switch
+0.7.0: new options user interface
+
