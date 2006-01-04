@@ -18,12 +18,12 @@ msgstr ""
 #: panel-plugin/sensors.c:187
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span> \n"
-msgstr "<span foreground=\"#000000\" size=\"%s\"><b>¥»¥ó¥µ¡¼</b></span> \n"
+msgstr "<span foreground=\"#000000\" size=\"%s\"><b>ã‚»ãƒ³ã‚µãƒ¼</b></span> \n"
 
 #: panel-plugin/sensors.c:250
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
-msgstr "<span foreground=\"#000000\" size=\"%s\"><b>¥»¥ó¥µ¡¼</b></span>"
+msgstr "<span foreground=\"#000000\" size=\"%s\"><b>ã‚»ãƒ³ã‚µãƒ¼</b></span>"
 
 #. +--------------------+
 #. I asb-1-100          I
@@ -39,7 +39,7 @@ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>¥»¥ó¥µ¡¼</b></span>"
 #. circumvent empty char pointer
 #: panel-plugin/sensors.c:337
 msgid "No sensors selected!"
-msgstr "¥»¥ó¥µ¡¼¤¬ÁªÂò¤µ¤ì¤Æ¤¤¤Ş¤»¤ó¡ª"
+msgstr "ã‚»ãƒ³ã‚µãƒ¼ãŒé¸æŠã•ã‚Œã¦ã„ã¾ã›ã‚“ï¼"
 
 #: panel-plugin/sensors.c:373
 msgid ""
@@ -49,9 +49,9 @@ msgid ""
 "Proper proceeding cannot be guaranteed. \n"
 msgstr ""
 " \n"
-"Xfce ¥Ï¡¼¥É¥¦¥§¥¢¡¦¥»¥ó¥µ¡¼¡¦¥×¥é¥°¥¤¥ó: \n"
-" ¥»¥ó¥µ¡¼¤Îµ¡Ç½ÃÍ¤ÎÆÉ¤ß¹ş¤ß¤ËÌäÂê¤¬¤¢¤Ã¤¿¤è¤¦¤Ç¤¹¡£ \n"
-"Àµ¤·¤¤¿¶¤ëÉñ¤¤¤ÏÊİ¾Ú¤µ¤ì¤Ş¤»¤ó¡£ \n"
+"Xfce ãƒãƒ¼ãƒ‰ã‚¦ã‚§ã‚¢ãƒ»ã‚»ãƒ³ã‚µãƒ¼ãƒ»ãƒ—ãƒ©ã‚°ã‚¤ãƒ³: \n"
+" ã‚»ãƒ³ã‚µãƒ¼ã®æ©Ÿèƒ½å€¤ã®èª­ã¿è¾¼ã¿ã«å•é¡ŒãŒã‚ã£ãŸã‚ˆã†ã§ã™ã€‚ \n"
+"æ­£ã—ã„æŒ¯ã‚‹èˆã„ã¯ä¿è¨¼ã•ã‚Œã¾ã›ã‚“ã€‚ \n"
 
 #: panel-plugin/sensors.c:388
 #, c-format
@@ -64,7 +64,7 @@ msgstr "/usr/bin/xsensors"
 
 #: panel-plugin/sensors.c:571
 msgid "No sensors found!"
-msgstr "¥»¥ó¥µ¡¼¤¬¸«¤Ä¤«¤ê¤Ş¤»¤ó¡ª"
+msgstr "ã‚»ãƒ³ã‚µãƒ¼ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ï¼"
 
 #: panel-plugin/sensors.c:633
 #, c-format
@@ -72,8 +72,8 @@ msgid ""
 "A problem occured while trying to close the config file. Restart your "
 "computer ... err ... restart the sensor daemon only :-) \n"
 msgstr ""
-"ÀßÄê¥Õ¥¡¥¤¥ë¤òÊÄ¤¸¤è¤¦¤È¤¹¤ëºİ¤ËÌäÂê¤¬È¯À¸¤·¤Ş¤·¤¿¡£¤¢¤Ê¤¿¤Î¥³¥ó¥Ô¥å¡¼¥¿¤òºÆ"
-"µ¯Æ° ... ¤¤¤ä ... ¥»¥ó¥µ¡¼¡¦¥Ç¡¼¥â¥ó¤Î¤ß¤òºÆµ¯Æ°¤·¤Æ²¼¤µ¤¤ :-) \n"
+"è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‰ã˜ã‚ˆã†ã¨ã™ã‚‹éš›ã«å•é¡ŒãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚ã‚ãªãŸã®ã‚³ãƒ³ãƒ”ãƒ¥ãƒ¼ã‚¿ã‚’å†"
+"èµ·å‹• ... ã„ã‚„ ... ã‚»ãƒ³ã‚µãƒ¼ãƒ»ãƒ‡ãƒ¼ãƒ¢ãƒ³ã®ã¿ã‚’å†èµ·å‹•ã—ã¦ä¸‹ã•ã„ :-) \n"
 
 #: panel-plugin/sensors.c:1156
 msgid ""
@@ -83,51 +83,51 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
 " \n"
-"Xfce ¥Ï¡¼¥É¥¦¥§¥¢¡¦¥»¥ó¥µ¡¼¡¦¥×¥é¥°¥¤¥ó: \n"
-"¥»¥ó¥µ¡¼¤Îµ¡Ç½ÃÍ¤ÎÆÉ¤ß¹ş¤ß¤ËÌäÂê¤¬¤¢¤Ã¤¿¤è¤¦¤Ç¤¹¡£ \n"
-"Àµ¤·¤¤¿¶¤ëÉñ¤¤¤ÏÊİ¾Ú¤µ¤ì¤Ş¤»¤ó¡£\n"
+"Xfce ãƒãƒ¼ãƒ‰ã‚¦ã‚§ã‚¢ãƒ»ã‚»ãƒ³ã‚µãƒ¼ãƒ»ãƒ—ãƒ©ã‚°ã‚¤ãƒ³: \n"
+"ã‚»ãƒ³ã‚µãƒ¼ã®æ©Ÿèƒ½å€¤ã®èª­ã¿è¾¼ã¿ã«å•é¡ŒãŒã‚ã£ãŸã‚ˆã†ã§ã™ã€‚ \n"
+"æ­£ã—ã„æŒ¯ã‚‹èˆã„ã¯ä¿è¨¼ã•ã‚Œã¾ã›ã‚“ã€‚\n"
 
 #: panel-plugin/sensors.c:1210
 msgid "Show title"
-msgstr "¥¿¥¤¥È¥ë¤òÉ½¼¨"
+msgstr "ã‚¿ã‚¤ãƒˆãƒ«ã‚’è¡¨ç¤º"
 
 #: panel-plugin/sensors.c:1235
 msgid "Sensors type:"
-msgstr "¥»¥ó¥µ¡¼¤Î¼ïÎà:"
+msgstr "ã‚»ãƒ³ã‚µãƒ¼ã®ç¨®é¡:"
 
 #. g_printf(" add_font_size_box\n");
 #: panel-plugin/sensors.c:1347
 msgid "Font size:"
-msgstr "¥Õ¥©¥ó¥È¤Î¥µ¥¤¥º:"
+msgstr "ãƒ•ã‚©ãƒ³ãƒˆã®ã‚µã‚¤ã‚º:"
 
 #: panel-plugin/sensors.c:1351
 msgid "x-small"
-msgstr "¶Ë¾®"
+msgstr "æ¥µå°"
 
 #: panel-plugin/sensors.c:1352
 msgid "small"
-msgstr "¾®"
+msgstr "å°"
 
 #: panel-plugin/sensors.c:1353
 msgid "medium"
-msgstr "ÉáÄÌ"
+msgstr "æ™®é€š"
 
 #: panel-plugin/sensors.c:1354
 msgid "large"
-msgstr "Âç"
+msgstr "å¤§"
 
 #: panel-plugin/sensors.c:1355
 msgid "x-large"
-msgstr "µğÂç"
+msgstr "å·¨å¤§"
 
 #: panel-plugin/sensors.c:1388
 msgid "Update interval (seconds):"
-msgstr "¹¹¿·´Ö³Ö (ÉÃ:)"
+msgstr "æ›´æ–°é–“éš” (ç§’:)"
 
 #: panel-plugin/sensors.c:1412
 msgid "Execute on double click: "
-msgstr "¥À¥Ö¥ë¥¯¥ê¥Ã¥¯¤Ç¼Â¹Ô: "
+msgstr "ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯ã§å®Ÿè¡Œ: "
 
 #: panel-plugin/sensors.c:1518
 msgid "Hardware Sensors"
-msgstr "¥Ï¡¼¥É¥¦¥§¥¢¡¦¥»¥ó¥µ¡¼"
+msgstr "ãƒãƒ¼ãƒ‰ã‚¦ã‚§ã‚¢ãƒ»ã‚»ãƒ³ã‚µãƒ¼"
