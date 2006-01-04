@@ -1,45 +1,375 @@
-2004-12-31 11:23  timystery
+2005-11-02 17:19  byunghyunchoi
 
-	* panel-plugin/sensors.c: added i18n macros to some strings
+	* xfce4-fsguard-plugin/trunk/po/ko.po,
+	  xfce4-modemlights-plugin/trunk/po/ko.po, po/ko.po,
+	  xfce4-wavelan-plugin/trunk/po/ko.po: 11/03/2005: ByungHyun Choi
+	  added Korean translations for modemlights and wavelan plugin
+	  modified Korean translations for fsguard and sendsors plugin
 
-2004-12-28 20:42  benny
+2005-10-15 10:28  timystery
+
+	* README, configure, configure.ac, icons/Makefile,
+	  panel-plugin/sensors.c: version 0.9.0 with hddtemp working with
+	  any device in /proc/ide with 2.4 kernels and most devices from
+	  /sys/block witch 3.6 kernels. support for bsd is planned, but
+	  yet unknown which direcories to look in.
+
+2005-10-14 14:55  timystery
+
+	* configure.ac: set version to 0.8.99 instead of pre0.9.0 as its
+	  still pretty untested.
+
+2005-10-14 14:54  timystery
+
+	* po/de.po, po/el.po, po/fr.po, po/ko.po, po/lt.po: updated
+	  translations for hddtemp
+
+2005-10-14 14:53  timystery
+
+	* panel-plugin/sensors.c: working hddtemp
+
+2005-10-14 13:29  timystery
+
+	* panel-plugin/sensors.c, panel-plugin/sensors.h: some more steps
+	  towards hdd temp values...
+
+2005-10-14 10:41  timystery
+
+	* icons/Makefile, panel-plugin/sensors.c, panel-plugin/sensors.h:
+	  compiling again with first hddtemp stuff in it.
+
+2005-10-11 20:20  timystery
+
+	* Makefile.in, aclocal.m4, configure, icons/Makefile,
+	  icons/Makefile.in, panel-plugin/Makefile.in,
+	  panel-plugin/sensors.c, panel-plugin/sensors.h: hddtemp
+	  extensions
+
+2005-10-11 11:38  timystery
+
+	* configure, configure.ac, icons/Makefile: version 0.8.3 in
+	  configuration file now
+
+2005-10-11 11:30  timystery
+
+	* README, TODO, autogen.sh, panel-plugin/sensors.c: fixed bug:
+	  removing values from plugin wasn't saved properly autogen for
+	  xdt-autogen now.
+
+2005-10-09 13:58  timystery
+
+	* README, configure, configure.ac, icons/Makefile,
+	  panel-plugin/sensors.c: version 0.8.2 to fix the bug, that more
+	  than one column is displayed in vertical panel layout mode. so
+	  now it properly works.
+
+2005-10-09 09:20  timystery
+
+	* po/de.po, po/el.po, po/fr.po, po/ko.po, po/lt.po,
+	  po/xfce4-sensors-plugin.pot: updated german translation, but
+	  other translations were also affected by being updated to
+	  contain newest strings for translation.
+
+2005-10-08 13:36  timystery
+
+	* po/de.po: updated german tranlastaoit
+
+2005-10-08 13:33  timystery
+
+	* Makefile.in, aclocal.m4, configure, icons, icons/Makefile,
+	  icons/Makefile.am, icons/Makefile.in, icons/xfce-sensors.png,
+	  panel-plugin/Makefile.in,
+	  panel-plugin/xfce4-sensors-plugin.desktop.in.in, po/de.po,
+	  po/el.po, po/fr.po, po/ko.po, po/lt.po: neues icon zeug, desktop
+	  file eingetragen
+
+2005-10-03 19:43  timystery
+
+	* po/de.gmo: delete unnnecessary gmo file from repositor
+
+2005-10-03 19:42  timystery
+
+	* Makefile.am, Makefile.in, configure, configure.ac: image icon
+	  now copied to 48er hicolor icon theme
+
+2005-10-03 14:50  timystery
+
+	* Makefile.am, Makefile.in, panel-plugin/Makefile.am,
+	  panel-plugin/Makefile.in: fully new version with working
+	  tranlsations, xdt-autogen and so on
+
+2005-10-03 14:26  timystery
+
+	* README, TODO, panel-plugin/Makefile.am, po/POTFILES.in,
+	  po/de.po, po/el.po, po/fr.po, po/ko.po, po/lt.po: .desktop and
+	  translation stuff
+
+2005-10-03 14:12  timystery
+
+	* Makefile.am, Makefile.in, aclocal.m4, config.guess, config.h.in,
+	  config.sub, configure, configure.ac, ltmain.sh, mkinstalldirs,
+	  panel-plugin/Makefile.am, panel-plugin/Makefile.in,
+	  panel-plugin/sensors.c, panel-plugin/sensors.h,
+	  po/Makefile.in.in, po/POTFILES.in, po/de.po, po/el.po, po/fr.po,
+	  po/ko.po, po/lt.po, xfce-sensors.png: Version 0.8.0 for new
+	  panel 4.3.22 and higher. Pretty bug free (TM)
+
+2005-09-18 16:30  stefan_ott
+
+	* panel-plugin/sensors.c: Removed some uncommented stuff
+
+2005-09-14 21:21  timystery
+
+	* panel-plugin/sensors.c: some more code cleanups, could already
+	  be regarded as 0.7.1, as it makes the optiosn dialog faster
+
+2005-09-14 21:08  timystery
+
+	* NEWS, README, configure, configure.ac, panel-plugin/sensors.c,
+	  panel-plugin/sensors.h, po/de.po, po/el.po, po/fr.po, po/ko.po,
+	  po/lt.po, po/xfce4-sensors-plugin.pot: new user interface for
+	  options dialog
+
+2005-09-11 00:26  stefan_ott
+
+	* panel-plugin/sensors.c, panel-plugin/sensors.h: The scale is now
+	  an enum (+ some other small fixes)
+
+2005-09-11 00:06  stefan_ott
+
+	* panel-plugin/sensors.c: Some more unit->scale transitions, fixed
+	  properties window size
+
+2005-09-11 00:03  stefan_ott
+
+	* panel-plugin/sensors.c, panel-plugin/sensors.h: Renamed "unit"
+	  to "scale"
+
+2005-09-11 00:01  stefan_ott
+
+	* panel-plugin/sensors.c, panel-plugin/sensors.h: Added Fahrenheit
+	  option
+
+2005-08-12 12:25  stefan_ott
+
+	* panel-plugin/sensors.c: Does not cause a segfault anymore when
+	  no sensors are found
+
+2005-08-02 19:17  stefan_ott
+
+	* po/de.po, po/el.po, po/fr.po, po/ko.po, po/lt.po: Added new
+	  language lines
+
+2005-08-02 19:14  stefan_ott
+
+	* panel-plugin/sensors.c: Converted the UI checkbox to radio
+	  buttons
+
+2005-08-02 17:20  stefan_ott
+
+	* panel-plugin/sensors.c, panel-plugin/sensors.h: Renamed NewUI to
+	  BarUI
+
+2005-08-02 16:46  stefan_ott
+
+	* Makefile.in, aclocal.m4, compile, configure, depcomp,
+	  install-sh, missing, mkinstalldirs, panel-plugin/Makefile.in:
+	  Regenerated autoconf/automake files with new tests
+
+2005-08-02 15:05  stefan_ott
+
+	* panel-plugin/sensors.c: The panel is now updated correctly when
+	  options change
+
+2005-08-02 14:57  stefan_ott
+
+	* aclocal.m4, configure, configure.ac: Upgraded panel dependency
+	  from 4.0.0 to 4.2.0
+
+2005-08-01 07:45  timystery
+
+	* panel-plugin/sensors.c, po/de.po, po/el.po, po/fr.po, po/ko.po,
+	  po/lt.po, po/xfce4-sensors-plugin.pot: some more improvements
+	  concerning i18n
+
+2005-08-01 07:35  timystery
+
+	* NEWS, README, configure.ac, panel-plugin/sensors.c, po/de.po,
+	  po/el.po, po/fr.po, po/ko.po, po/lt.po,
+	  po/xfce4-sensors-plugin.pot: found more translatable strings ;)
+
+2005-07-31 16:09  timystery
+
+	* Makefile.in, aclocal.m4, compile, config.guess, config.h.in,
+	  config.sub, configure, configure.ac, depcomp, install-sh,
+	  ltmain.sh, missing, mkinstalldirs, panel-plugin/Makefile.am,
+	  panel-plugin/Makefile.in, po/de.po, po/el.po, po/fr.po,
+	  po/ko.po, po/lt.po, po/xfce4-sensors-plugin.pot: remode ja.po
+	  from targets, added sensors.h to targets
+
+2005-07-31 13:01  timystery
+
+	* NEWS, README, configure.ac: version number change, history in
+	  NEWS
+
+2005-07-31 12:54  timystery
+
+	* panel-plugin/sensors.h: exported structs and includes into this
+	  header file
+
+2005-07-31 12:52  timystery
+
+	* panel-plugin/sensors.c, po/de.po, po/fr.po, po/ko.po,
+	  po/xfce4-sensors-plugin.pot: svn-commit.5.tmp
+
+2005-07-30 20:10  stefan_ott
+
+	* panel-plugin/sensors.c: Implemented set_orientation
+
+2005-07-30 19:34  stefan_ott
+
+	* configure.ac: Added check for libsensors
+
+2005-07-30 19:27  stefan_ott
+
+	* panel-plugin/sensors.c: Introduced SENSORS and
+	  FEATURES_PER_SENSOR for more flexibility
+
+2005-07-30 19:21  stefan_ott
+
+	* panel-plugin/sensors.c: Properties-GUI elements are now enabled
+	  and disabled according to the current UI style
+
+2005-07-30 19:02  stefan_ott
+
+	* Makefile.am, README, panel-plugin/Makefile.am,
+	  panel-plugin/Makefile.in: Synchronized some files with v0.5.1
+
+2005-07-29 19:18  stefan_ott
+
+	* po/de.po: Added new lines
+
+2005-07-29 19:12  stefan_ott
+
+	* panel-plugin/sensors.c: Added new UI
+
+2005-07-28 12:25  p0llux
+
+	* configure.ac, po/el.po, po/fr.po, po/ja.po: add EL, FR and JA
+	  translations
+
+2005-06-16 08:53  timystery
+
+	* README, configure: Forgot to change version number in README
+	  added screenshot location to README
+
+2005-06-15 20:18  timystery
+
+	* configure.ac, panel-plugin/sensors.c, po/de.po, po/ko.po,
+	  po/xfce4-sensors-plugin.pot: Improved data visualization
+
+2005-06-15 18:17  timystery
+
+	* panel-plugin/sensors.c, po/de.po, po/ko.po,
+	  po/xfce4-sensors-plugin.pot: some more textual changes, sorry
+	  translators
+
+2005-06-15 18:09  timystery
+
+	* panel-plugin/sensors.c: successfully implemented and tested
+	  double-click improvement
+
+2005-06-15 17:19  timystery
+
+	* configure.ac, panel-plugin/Makefile.am,
+	  panel-plugin/Makefile.in, panel-plugin/sensors.c: - uncommented
+	  double-click changes - removed -enable-dynamic from library-flags
+
+2005-06-14 18:13  timystery
+
+	* README, panel-plugin/sensors.c: tried to add launch ommand
+	  ability
+
+2005-02-13 12:56  p0llux
+
+	* configure.ac, po/lt.po: add LT translations
+
+2005-01-25 10:10  p0llux
+
+	* Makefile.in, aclocal.m4, compile, config.guess, config.sub,
+	  configure, configure.ac, install-sh, ltmain.sh,
+	  panel-plugin/Makefile.in, po/de.gmo, po/ko.po: add KO
+	  translations
+
+2005-01-17 18:33  benny
+
+	* po/ChangeLog: Translators changelog.
+
+2004-12-31 12:17  timystery
+
+	* panel-plugin/sensors.c, po/de.po: removed gettext macros,
+	  included xfce-i18n header
+
+2004-12-31 10:51  timystery
+
+	* panel-plugin/sensors.c, po/de.gmo, po/de.po,
+	  po/xfce4-sensors-plugin.pot: further gettext macros
+
+2004-12-31 10:42  timystery
+
+	* README, configure, configure.ac, po/de.gmo, po/de.po,
+	  po/xfce4-sensors-plugin.pot: added i18n macros to some strings
+
+2004-12-31 10:26  timystery
+
+	* ChangeLog, panel-plugin/sensors.c: added i18n macros to some
+	  strings
+
+2004-12-29 22:49  timystery
+
+	* po/de.gmo: newly created file for german tranlation
+
+2004-12-29 22:48  timystery
+
+	* po/de.po: tranlated en -> de
+
+2004-12-28 19:42  benny
 
 	* ChangeLog, Makefile.am, Makefile.in, aclocal.m4, autogen.sh,
-	config.h.in, configure, configure.ac, mkinstalldirs,
-	xfce4-sensors-plugin.spec.in, m4/glib-gettext.m4,
-	panel-plugin/Makefile.in: Added i18n support. Added dist-bz2 and
-	distcheck-bz2 targets. Updated spec file.
+	  config.h.in, configure, configure.ac, m4/glib-gettext.m4,
+	  mkinstalldirs, panel-plugin/Makefile.in, po, po/Makefile.in.in,
+	  po/POTFILES.in, po/de.gmo, po/de.po,
+	  po/xfce4-sensors-plugin.pot, xfce4-sensors-plugin.spec.in: Added
+	  i18n support. Added dist-bz2 and distcheck-bz2 targets. Updated
+	  spec file.
 
-2004-12-27 11:39  timystery
+2004-12-27 10:39  timystery
 
 	* ChangeLog, README, configure, panel-plugin/sensors.c: removed
-	warnings, changed everything to version 0.3.1
+	  warnings, changed everything to version 0.3.1
 
-2004-12-27 10:46  benny
+2004-12-27 09:46  benny
 
 	* xfce4-sensors-plugin.spec.in: Fix spec file.
 
-2004-12-24 14:15  benny
+2004-12-24 13:15  benny
 
 	* ChangeLog, Makefile.am, Makefile.in, NEWS, configure,
-	configure.ac, xfce4-sensors-plugin.spec.in: Added missing files.
-	Fixes.
+	  configure.ac, xfce4-sensors-plugin.spec.in: Added missing files.
+	  Fixes.
 
-2004-12-24 13:49  benny
+2004-12-24 12:49  benny
 
-	* Makefile.am, README, TODO, autogen.sh, configure.ac,
-	config.guess, config.sub, ltmain.sh, aclocal.m4, config.h.in,
-	install-sh, missing, compile, configure, depcomp, AUTHORS, COPYING,
-	INSTALL, Makefile.in, m4/debug.m4, m4/depends.m4, m4/i18n.m4,
-	m4/pkg.m4, panel-plugin/Makefile.am, panel-plugin/Makefile.in,
-	panel-plugin/sensors.c: Initial import.
+	* AUTHORS, COPYING, INSTALL, Makefile.am, Makefile.in, README,
+	  TODO, aclocal.m4, autogen.sh, compile, config.guess,
+	  config.h.in, config.sub, configure, configure.ac, depcomp,
+	  install-sh, ltmain.sh, m4, m4/debug.m4, m4/depends.m4,
+	  m4/i18n.m4, m4/pkg.m4, missing, panel-plugin,
+	  panel-plugin/Makefile.am, panel-plugin/Makefile.in,
+	  panel-plugin/sensors.c: Initial revision
 
-2004-12-24 13:49  benny
+2004-12-24 12:49  
 
-	* Makefile.am, README, TODO, autogen.sh, configure.ac,
-	config.guess, config.sub, ltmain.sh, aclocal.m4, config.h.in,
-	install-sh, missing, compile, configure, depcomp, AUTHORS, COPYING,
-	INSTALL, Makefile.in, m4/debug.m4, m4/depends.m4, m4/i18n.m4,
-	m4/pkg.m4, panel-plugin/Makefile.am, panel-plugin/Makefile.in,
-	panel-plugin/sensors.c: Initial revision
+	* xfce4-sensors-plugin/branches, xfce4-sensors-plugin/tags, .: New
+	  repository initialized by cvs2svn.
 

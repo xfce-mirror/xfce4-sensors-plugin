@@ -1,0 +1,125 @@
+2005-11-02 17:19  ByungHyun Choi <byunghyun.choi@gmail.com>
+
+	* ko.po: added Korean translations
+
+2005-10-14 14:54  Fabian Nowak <timystery@arcor.de>
+
+	* de.po, el.po, fr.po, ko.po, lt.po: updated translations for
+	  hddtemp
+
+2005-10-09 09:20  Fabian Nowak <timystery@arcor.de>
+
+	* de.po, el.po, fr.po, ko.po, lt.po, xfce4-sensors-plugin.pot:
+	  updated german translation, but other translations were also
+	  affected by being updated to contain newest strings for
+	  translation.
+
+2005-10-08 13:36  Fabian Nowak <timystery@arcor.de>
+
+	* de.po: updated german tranlastaoit
+
+2005-10-08 13:33  Fabian Nowak <timystery@arcor.de>
+
+	* de.po, el.po, fr.po, ko.po, lt.po: neues icon zeug, desktop file
+	  eingetragen
+
+2005-10-03 19:43  Fabian Nowak <timystery@arcor.de>
+
+	* de.gmo: delete unnnecessary gmo file from repositor
+
+2005-10-03 14:26  Fabian Nowak <timystery@arcor.de>
+
+	* POTFILES.in, de.po, el.po, fr.po, ko.po, lt.po: .desktop and
+	  translation stuff
+
+2005-10-03 14:12  Fabian Nowak <timystery@arcor.de>
+
+	* Makefile.in.in, POTFILES.in, de.po, el.po, fr.po, ko.po, lt.po:
+	  Version 0.8.0 for new panel 4.3.22 and higher. Pretty bug free
+	  (TM)
+
+2005-09-14 21:08  Fabian Nowak <timystery@arcor.de>
+
+	* de.po, el.po, fr.po, ko.po, lt.po, xfce4-sensors-plugin.pot:
+	  new user interface for options dialog
+
+2005-08-02 19:17  Stefan Ott <stefan@desire.ch>
+
+	* de.po, el.po, fr.po, ko.po, lt.po: Added new language lines
+
+2005-08-01 07:45  Fabian Nowak <timystery@arcor.de>
+
+	* de.po, el.po, fr.po, ko.po, lt.po, xfce4-sensors-plugin.pot:
+	  some more improvements concerning i18n
+
+2005-08-01 07:35  Fabian Nowak <timystery@arcor.de>
+
+	* de.po, el.po, fr.po, ko.po, lt.po, xfce4-sensors-plugin.pot:
+	  found more translatable strings ;)
+
+2005-07-31 16:09  Fabian Nowak <timystery@arcor.de>
+
+	* de.po, el.po, fr.po, ko.po, lt.po, xfce4-sensors-plugin.pot:
+	  remove ja.po from targets, added sensors.h to targets
+
+2005-07-31 12:52  Fabian Nowak <timystery@arcor.de>
+
+	* de.po, fr.po, ko.po, xfce4-sensors-plugin.pot: svn-commit.5.tmp
+
+2005-07-29 19:18  Stefan Ott <stefan@desire.ch>
+
+	* de.po: Added new lines
+
+2005-07-28 12:25  Jean-Francois Wauthy <pollux@xfce.org>
+
+	* el.po, fr.po, ja.po: add EL, FR and JA translations
+
+2005-06-15 20:18  Fabian Nowak <timystery@arcor.de>
+
+	* de.po, ko.po, xfce4-sensors-plugin.pot: Improved data
+	  visualization
+
+2005-06-15 18:17  Fabian Nowak <timystery@arcor.de>
+
+	* de.po, ko.po, xfce4-sensors-plugin.pot: some more textual
+	  changes, sorry translators
+
+2005-02-13 12:56  Jean-Francois Wauthy <pollux@xfce.org>
+
+	* lt.po: add LT translations
+
+2005-01-25 10:10  Jean-Francois Wauthy <pollux@xfce.org>
+
+	* de.gmo, ko.po: add KO translations
+
+2005-01-17 18:33  Benedikt Meurer <benny@xfce.org>
+
+	* ChangeLog: Translators changelog.
+
+2004-12-31 12:17  Fabian Nowak <timystery@arcor.de>
+
+	* de.po: removed gettext macros, included xfce-i18n header
+
+2004-12-31 10:51  Fabian Nowak <timystery@arcor.de>
+
+	* de.gmo, de.po, xfce4-sensors-plugin.pot: further gettext macros
+
+2004-12-31 10:42  Fabian Nowak <timystery@arcor.de>
+
+	* de.gmo, de.po, xfce4-sensors-plugin.pot: added i18n macros to
+	  some strings
+
+2004-12-29 22:49  Fabian Nowak <timystery@arcor.de>
+
+	* de.gmo: newly created file for german tranlation
+
+2004-12-29 22:48  Fabian Nowak <timystery@arcor.de>
+
+	* de.po: tranlated en -> de
+
+2004-12-28 19:42  Benedikt Meurer <benny@xfce.org>
+
+	* Makefile.in.in, POTFILES.in, de.gmo, de.po,
+	  xfce4-sensors-plugin.pot: Added i18n support. Added dist-bz2 and
+	  distcheck-bz2 targets. Updated spec file.
+
