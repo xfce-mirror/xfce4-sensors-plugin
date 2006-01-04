@@ -1,6 +1,6 @@
-# French translation for the xfce4-sensors-plugin.
-# Copyright (C) 2005 Fabian Nowak
-# This file is distributed under the same license as the PACKAGE package.
+# French translations for xfce4-sensors-plugin package.
+# Copyright (C) 2004-2005 Fabian Nowak.
+# This file is distributed under the same license as the xfce4-sensors-plugin package.
 # Stephane Roy <sroy@j2n.net>, 2005.
 # Fabian Nowak <timystery@arcor.de>, 2005.
 #
