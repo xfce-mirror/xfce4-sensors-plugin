@@ -1,7 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"POT-Creation-Date: \n"
+"Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-10-09 11:15+0200\n"
 "PO-Revision-Date: 2006-02-11 18:02+0100\n"
 "Last-Translator: SZERVÑC Attila <sas@321.hu>\n"
 "Language-Team: hu\n"
@@ -11,8 +12,7 @@ msgstr ""
 "X-Poedit-Language: Hungarian\n"
 "X-Poedit-Country: HUNGARY\n"
 
-#: ../panel-plugin/sensors.c:153
-#: ../panel-plugin/sensors.c:1937
+#: ../panel-plugin/sensors.c:153 ../panel-plugin/sensors.c:1937
 msgid "<b>Sensors</b>"
 msgstr "<b>Érzékelők</b>"
 
@@ -31,8 +31,7 @@ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Érzékelők</b></span>"
 msgid "No sensors selected!"
 msgstr "Nincsenek érzékelők!"
 
-#: ../panel-plugin/sensors.c:438
-#: ../panel-plugin/sensors.c:1482
+#: ../panel-plugin/sensors.c:438 ../panel-plugin/sensors.c:1482
 msgid ""
 " \n"
 "Xfce Hardware Sensors Plugin: \n"
@@ -162,8 +161,7 @@ msgid "Edit Properties"
 msgstr "Tulajdonságok szerkesztése"
 
 #. #include <unistd.h>
-#: ../panel-plugin/sensors.c:2019
-#: ../panel-plugin/sensors.h:48
+#: ../panel-plugin/sensors.c:2019 ../panel-plugin/sensors.h:48
 msgid "Sensors Plugin"
 msgstr "Érzékelők"
 
@@ -174,4 +172,3 @@ msgstr "Érzékelő"
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "Értékek mutatása"
-
