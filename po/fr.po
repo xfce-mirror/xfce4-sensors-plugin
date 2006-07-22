@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-10-09 11:15+0200\n"
-"PO-Revision-Date: 2005-08-01 09:31+0200\n"
-"Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
-"Language-Team: French <traduc@traduc.org>\n"
+"PO-Revision-Date: 2006-07-22 13:18+0100\n"
+"Last-Translator: Maximilian Schleiss <maxschleiss@bluewin.ch>\n"
+"Language-Team: French <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors.c:153 ../panel-plugin/sensors.c:1937
+#: ../panel-plugin/sensors.c:153
+#: ../panel-plugin/sensors.c:1937
 msgid "<b>Sensors</b>"
 msgstr "<b>Senseurs</b>"
 
@@ -35,7 +36,8 @@ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Senseurs</b></span>"
 msgid "No sensors selected!"
 msgstr "Aucun senseur sélectionné !"
 
-#: ../panel-plugin/sensors.c:438 ../panel-plugin/sensors.c:1482
+#: ../panel-plugin/sensors.c:438
+#: ../panel-plugin/sensors.c:1482
 msgid ""
 " \n"
 "Xfce Hardware Sensors Plugin: \n"
@@ -43,8 +45,8 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
 " \n"
-"Xfce Greffon de Senseur Matériel : \n"
-"Il semblerait qu'il y ait un problème de lecture de valeur sur un senseur. \n"
+"Xfce Greffon de Senseurs Matériel : \n"
+"Il semblerait qu'il y ait eu un problème de lecture de valeur sur un senseur. \n"
 "L'exécution normale ne peut pas être garantie.\n"
 
 #: ../panel-plugin/sensors.c:458
@@ -74,11 +76,11 @@ msgstr "graphique"
 
 #: ../panel-plugin/sensors.c:1587
 msgid "Show labels in graphical UI"
-msgstr "Montrer du texte"
+msgstr "Afficher du texte"
 
 #: ../panel-plugin/sensors.c:1612
 msgid "Show title"
-msgstr "Montrer le titre"
+msgstr "Afficher le titre"
 
 #: ../panel-plugin/sensors.c:1638
 msgid "Sensors type:"
@@ -94,7 +96,7 @@ msgstr "Valeur"
 
 #: ../panel-plugin/sensors.c:1700
 msgid "Show"
-msgstr "Montrer"
+msgstr "Afficher"
 
 #: ../panel-plugin/sensors.c:1709
 msgid "Color"
@@ -114,15 +116,15 @@ msgstr "Taille de la police:"
 
 #: ../panel-plugin/sensors.c:1763
 msgid "x-small"
-msgstr "très pétite"
+msgstr "très petite"
 
 #: ../panel-plugin/sensors.c:1764
 msgid "small"
-msgstr "pétite"
+msgstr "petite"
 
 #: ../panel-plugin/sensors.c:1765
 msgid "medium"
-msgstr "normale"
+msgstr "moyenne"
 
 #: ../panel-plugin/sensors.c:1766
 msgid "large"
@@ -134,7 +136,7 @@ msgstr "très grande"
 
 #: ../panel-plugin/sensors.c:1795
 msgid "Temperature scale:"
-msgstr "Scale de temperature"
+msgstr "Échelle de température"
 
 #: ../panel-plugin/sensors.c:1797
 msgid "Celsius"
@@ -150,7 +152,7 @@ msgstr "Intervalle de mise-à-jour (secondes):"
 
 #: ../panel-plugin/sensors.c:1865
 msgid "Execute on double click:"
-msgstr "Exécute après un double clic:"
+msgstr "Exécute après un double-clique:"
 
 #: ../panel-plugin/sensors.c:1907
 msgid "<b>View</b>"
@@ -162,19 +164,19 @@ msgstr "<b>Divers</b>"
 
 #: ../panel-plugin/sensors.c:2012
 msgid "Edit Properties"
-msgstr "Ajouter propriétés"
+msgstr "Éditer les propriétés"
 
 #. #include <unistd.h>
-#: ../panel-plugin/sensors.c:2019 ../panel-plugin/sensors.h:48
+#: ../panel-plugin/sensors.c:2019
+#: ../panel-plugin/sensors.h:48
 msgid "Sensors Plugin"
-msgstr "Plugin senseurs"
+msgstr "Greffon pour senseurs"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Sensor plugin "
-msgstr "Plugin senseurs"
+msgstr "Greffon pour senseurs"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
-#, fuzzy
 msgid "Show sensor values."
-msgstr "Montrer les valeurs senseurs"
+msgstr "Afficher les valeurs des senseurs"
+
