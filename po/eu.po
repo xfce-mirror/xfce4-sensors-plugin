@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-09 11:15+0200\n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2006-02-13 22:20+0100\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: Librezale <librezale@librezale.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 0.6.3.20060126\n"
 
-#: ../panel-plugin/sensors.c:153 ../panel-plugin/sensors.c:1937
+#: ../panel-plugin/sensors.c:153 ../panel-plugin/sensors.c:2162
 msgid "<b>Sensors</b>"
 msgstr "<b>Sentsoreak</b>"
 
@@ -25,17 +25,17 @@ msgstr "<b>Sentsoreak</b>"
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sentsoreak</b></span>\n"
 
-#: ../panel-plugin/sensors.c:329
+#: ../panel-plugin/sensors.c:334
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sentsoreak</b></span>"
 
 #. circumvent empty char pointer
-#: ../panel-plugin/sensors.c:402
+#: ../panel-plugin/sensors.c:441
 msgid "No sensors selected!"
 msgstr "Ez da sentsorerik hautatu!"
 
-#: ../panel-plugin/sensors.c:438 ../panel-plugin/sensors.c:1482
+#: ../panel-plugin/sensors.c:479 ../panel-plugin/sensors.c:1677
 msgid ""
 " \n"
 "Xfce Hardware Sensors Plugin: \n"
@@ -47,125 +47,133 @@ msgstr ""
 "Dirudienez arazo bat dago sentsore ezaugarri balioa irakurtzerakoan. \n"
 "Ezin da behar ebzala ibiliko den ziurtatu.\n"
 
-#: ../panel-plugin/sensors.c:458
+#: ../panel-plugin/sensors.c:500
 #, c-format
 msgid "%5.0f rpm"
 msgstr "%5.0f b/min"
 
-#: ../panel-plugin/sensors.c:669
+#: ../panel-plugin/sensors.c:723
 msgid "Error: Could not connect to sensors!"
 msgstr "Errorea: Ezin da sentsoreetara konektatu!"
 
-#: ../panel-plugin/sensors.c:756
+#: ../panel-plugin/sensors.c:813 ../panel-plugin/sensors.c:887
+msgid "Hard disks"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:923
 msgid "No sensors found!"
 msgstr "Ez da sentsorerik aurkitu!"
 
-#: ../panel-plugin/sensors.c:1547
+#: ../panel-plugin/sensors.c:1356
+msgid "Hard disk temperature sensors"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:1772
 msgid "UI style:"
 msgstr "UI estiloa:"
 
-#: ../panel-plugin/sensors.c:1548
+#: ../panel-plugin/sensors.c:1773
 msgid "text"
 msgstr "testua"
 
-#: ../panel-plugin/sensors.c:1550
+#: ../panel-plugin/sensors.c:1775
 msgid "graphical"
 msgstr "grafikoa"
 
-#: ../panel-plugin/sensors.c:1587
+#: ../panel-plugin/sensors.c:1812
 msgid "Show labels in graphical UI"
 msgstr "Etitketa bistarazi UI grafikoan"
 
-#: ../panel-plugin/sensors.c:1612
+#: ../panel-plugin/sensors.c:1837
 msgid "Show title"
 msgstr "Izenburua bistarazi"
 
-#: ../panel-plugin/sensors.c:1638
+#: ../panel-plugin/sensors.c:1863
 msgid "Sensors type:"
 msgstr "Sentsore mota:"
 
-#: ../panel-plugin/sensors.c:1685
+#: ../panel-plugin/sensors.c:1910
 msgid "Name"
 msgstr "Izena"
 
-#: ../panel-plugin/sensors.c:1694
+#: ../panel-plugin/sensors.c:1919
 msgid "Value"
 msgstr "Balioa"
 
-#: ../panel-plugin/sensors.c:1700
+#: ../panel-plugin/sensors.c:1925
 msgid "Show"
 msgstr "Bistarazi"
 
-#: ../panel-plugin/sensors.c:1709
+#: ../panel-plugin/sensors.c:1934
 msgid "Color"
 msgstr "Kolorea"
 
-#: ../panel-plugin/sensors.c:1719
+#: ../panel-plugin/sensors.c:1944
 msgid "Min"
 msgstr "Min"
 
-#: ../panel-plugin/sensors.c:1728
+#: ../panel-plugin/sensors.c:1953
 msgid "Max"
 msgstr "Geh"
 
-#: ../panel-plugin/sensors.c:1756
+#: ../panel-plugin/sensors.c:1981
 msgid "Font size:"
 msgstr "Letra-tipo tamaina:"
 
-#: ../panel-plugin/sensors.c:1763
+#: ../panel-plugin/sensors.c:1988
 msgid "x-small"
 msgstr "oso txikia"
 
-#: ../panel-plugin/sensors.c:1764
+#: ../panel-plugin/sensors.c:1989
 msgid "small"
 msgstr "txikia"
 
-#: ../panel-plugin/sensors.c:1765
+#: ../panel-plugin/sensors.c:1990
 msgid "medium"
 msgstr "ertaina"
 
-#: ../panel-plugin/sensors.c:1766
+#: ../panel-plugin/sensors.c:1991
 msgid "large"
 msgstr "handia"
 
-#: ../panel-plugin/sensors.c:1767
+#: ../panel-plugin/sensors.c:1992
 msgid "x-large"
 msgstr "oso handia"
 
-#: ../panel-plugin/sensors.c:1795
+#: ../panel-plugin/sensors.c:2020
 msgid "Temperature scale:"
 msgstr "Tenperatura eskala:"
 
-#: ../panel-plugin/sensors.c:1797
+#: ../panel-plugin/sensors.c:2022
 msgid "Celsius"
 msgstr "Celsius"
 
-#: ../panel-plugin/sensors.c:1799
+#: ../panel-plugin/sensors.c:2024
 msgid "Fahrenheit"
 msgstr "Fahrenheit"
 
-#: ../panel-plugin/sensors.c:1838
+#: ../panel-plugin/sensors.c:2063
 msgid "Update interval (seconds):"
 msgstr "Eguneraketa aldia (segundu):"
 
-#: ../panel-plugin/sensors.c:1865
+#: ../panel-plugin/sensors.c:2090
 msgid "Execute on double click:"
 msgstr "Klik bikoitzarekin exekutatu:"
 
-#: ../panel-plugin/sensors.c:1907
+#: ../panel-plugin/sensors.c:2132
 msgid "<b>View</b>"
 msgstr "<b>Bistarazi</b>"
 
-#: ../panel-plugin/sensors.c:1965
+#: ../panel-plugin/sensors.c:2190
 msgid "<b>Miscellaneous</b>"
 msgstr "<b>Bestelakoak</b>"
 
-#: ../panel-plugin/sensors.c:2012
+#: ../panel-plugin/sensors.c:2237
 msgid "Edit Properties"
 msgstr "Propietateak Editatu"
 
 #. #include <unistd.h>
-#: ../panel-plugin/sensors.c:2019 ../panel-plugin/sensors.h:48
+#: ../panel-plugin/sensors.c:2244 ../panel-plugin/sensors.h:51
 msgid "Sensors Plugin"
 msgstr "Sentsore Plugin-a"
 
