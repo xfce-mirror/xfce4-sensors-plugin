@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2006-07-22 13:18+0100\n"
+"PO-Revision-Date: 2006-09-11 13:01+0100\n"
 "Last-Translator: Maximilian Schleiss <maxschleiss@bluewin.ch>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors.c:153 ../panel-plugin/sensors.c:2162
+#: ../panel-plugin/sensors.c:153
+#: ../panel-plugin/sensors.c:2162
 msgid "<b>Sensors</b>"
 msgstr "<b>Senseurs</b>"
 
@@ -35,7 +36,8 @@ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Senseurs</b></span>"
 msgid "No sensors selected!"
 msgstr "Aucun senseur sélectionné !"
 
-#: ../panel-plugin/sensors.c:479 ../panel-plugin/sensors.c:1677
+#: ../panel-plugin/sensors.c:479
+#: ../panel-plugin/sensors.c:1677
 msgid ""
 " \n"
 "Xfce Hardware Sensors Plugin: \n"
@@ -44,8 +46,7 @@ msgid ""
 msgstr ""
 " \n"
 "Xfce Greffon de Senseurs Matériel : \n"
-"Il semblerait qu'il y ait eu un problème de lecture de valeur sur un "
-"senseur. \n"
+"Il semblerait qu'il y ait eu un problème de lecture de valeur sur un senseur. \n"
 "L'exécution normale ne peut pas être garantie.\n"
 
 #: ../panel-plugin/sensors.c:500
@@ -57,9 +58,10 @@ msgstr "%5.0f rpm"
 msgid "Error: Could not connect to sensors!"
 msgstr "Erreur: Ne peut pas connecter aux senseurs!"
 
-#: ../panel-plugin/sensors.c:813 ../panel-plugin/sensors.c:887
+#: ../panel-plugin/sensors.c:813
+#: ../panel-plugin/sensors.c:887
 msgid "Hard disks"
-msgstr ""
+msgstr "Disques durs"
 
 #: ../panel-plugin/sensors.c:923
 msgid "No sensors found!"
@@ -67,7 +69,7 @@ msgstr "Aucun senseur trouvé!"
 
 #: ../panel-plugin/sensors.c:1356
 msgid "Hard disk temperature sensors"
-msgstr ""
+msgstr "Sondes de température des disques durs"
 
 #: ../panel-plugin/sensors.c:1772
 msgid "UI style:"
@@ -174,7 +176,8 @@ msgid "Edit Properties"
 msgstr "Éditer les propriétés"
 
 #. #include <unistd.h>
-#: ../panel-plugin/sensors.c:2244 ../panel-plugin/sensors.h:51
+#: ../panel-plugin/sensors.c:2244
+#: ../panel-plugin/sensors.h:51
 msgid "Sensors Plugin"
 msgstr "Greffon pour senseurs"
 
@@ -185,3 +188,4 @@ msgstr "Greffon pour senseurs"
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "Afficher les valeurs des senseurs"
+

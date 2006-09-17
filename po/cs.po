@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2006-08-27 02:00+0100\n"
+"PO-Revision-Date: 2006-09-17 09:44+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: ../panel-plugin/sensors.c:153 ../panel-plugin/sensors.c:2162
+#: ../panel-plugin/sensors.c:153
+#: ../panel-plugin/sensors.c:2162
 msgid "<b>Sensors</b>"
 msgstr "<b>Senzory</b>"
 
@@ -35,7 +36,8 @@ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Senzory</b></span>"
 msgid "No sensors selected!"
 msgstr "Nebyly nalezeny žádné senzory!"
 
-#: ../panel-plugin/sensors.c:479 ../panel-plugin/sensors.c:1677
+#: ../panel-plugin/sensors.c:479
+#: ../panel-plugin/sensors.c:1677
 msgid ""
 " \n"
 "Xfce Hardware Sensors Plugin: \n"
@@ -56,9 +58,10 @@ msgstr "%5.0f otáček za minutu"
 msgid "Error: Could not connect to sensors!"
 msgstr "Chyba: Nelze se připojit k senzorům!"
 
-#: ../panel-plugin/sensors.c:813 ../panel-plugin/sensors.c:887
+#: ../panel-plugin/sensors.c:813
+#: ../panel-plugin/sensors.c:887
 msgid "Hard disks"
-msgstr ""
+msgstr "Pevné disky"
 
 #: ../panel-plugin/sensors.c:923
 msgid "No sensors found!"
@@ -66,7 +69,7 @@ msgstr "Nebyly nalezeny žádné senzory!"
 
 #: ../panel-plugin/sensors.c:1356
 msgid "Hard disk temperature sensors"
-msgstr ""
+msgstr "Teplotní čidla pevných disků"
 
 #: ../panel-plugin/sensors.c:1772
 msgid "UI style:"
@@ -173,7 +176,8 @@ msgid "Edit Properties"
 msgstr "Upravit vlastnosti"
 
 #. #include <unistd.h>
-#: ../panel-plugin/sensors.c:2244 ../panel-plugin/sensors.h:51
+#: ../panel-plugin/sensors.c:2244
+#: ../panel-plugin/sensors.h:51
 msgid "Sensors Plugin"
 msgstr "Zásuvný modul senzory"
 
@@ -184,3 +188,4 @@ msgstr "Zásuvný modul senzor"
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "Zobrazovat hodnoty senzorů."
+
