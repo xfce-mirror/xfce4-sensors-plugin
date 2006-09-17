@@ -58,7 +58,7 @@ msgstr "Błąd: nie mogę połączyć się z czujnikiem!"
 
 #: ../panel-plugin/sensors.c:813 ../panel-plugin/sensors.c:887
 msgid "Hard disks"
-msgstr ""
+msgstr "Dyski twarde"
 
 #: ../panel-plugin/sensors.c:923
 msgid "No sensors found!"
@@ -66,7 +66,7 @@ msgstr "Brak czujników!"
 
 #: ../panel-plugin/sensors.c:1356
 msgid "Hard disk temperature sensors"
-msgstr ""
+msgstr "Czujniki temperatury dysków"
 
 #: ../panel-plugin/sensors.c:1772
 msgid "UI style:"
