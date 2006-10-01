@@ -127,6 +127,9 @@ typedef struct {
     /* show labels in panel (GUI mode only) */
     gboolean showLabels;
     
+    /* show colored bars (GUI mode only) */
+    gboolean showColoredBars;
+    
     /* use the progress-bar UI */
     gboolean useBarUI;
 
@@ -215,6 +218,7 @@ typedef struct {
     GtkTreeStore *myListStore[SENSORS];
     GtkWidget *fontBox; /* used to disable font size option when using graphical view */
     GtkWidget *labelsBox; /* used to enable 'show labels' option when using graphical view */
+    GtkWidget *coloredBarsBox;
     GtkWidget *temperature_radio_group;
 
     /* double-click improvement */  

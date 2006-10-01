@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2006-09-12 08:13+0100\n"
+"POT-Creation-Date: 2006-10-01 11:14+0200\n"
+"PO-Revision-Date: 2006-02-11 18:02+0100\n"
 "Last-Translator: SZERVÑC Attila <sas@321.hu>\n"
 "Language-Team: hu\n"
 "MIME-Version: 1.0\n"
@@ -12,28 +12,26 @@ msgstr ""
 "X-Poedit-Language: Hungarian\n"
 "X-Poedit-Country: HUNGARY\n"
 
-#: ../panel-plugin/sensors.c:153
-#: ../panel-plugin/sensors.c:2162
+#: ../panel-plugin/sensors.c:156 ../panel-plugin/sensors.c:2227
 msgid "<b>Sensors</b>"
 msgstr "<b>Érzékelők</b>"
 
-#: ../panel-plugin/sensors.c:272
+#: ../panel-plugin/sensors.c:275
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Érzékelők</b></span>\n"
 
-#: ../panel-plugin/sensors.c:334
+#: ../panel-plugin/sensors.c:337
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Érzékelők</b></span>"
 
 #. circumvent empty char pointer
-#: ../panel-plugin/sensors.c:441
+#: ../panel-plugin/sensors.c:444
 msgid "No sensors selected!"
 msgstr "Nincsenek érzékelők!"
 
-#: ../panel-plugin/sensors.c:479
-#: ../panel-plugin/sensors.c:1677
+#: ../panel-plugin/sensors.c:482 ../panel-plugin/sensors.c:1705
 msgid ""
 " \n"
 "Xfce Hardware Sensors Plugin: \n"
@@ -45,135 +43,150 @@ msgstr ""
 "Úgy tűnik, gond van egy érzékelő értékeinek kiolvasásával. \n"
 "A helyes működés nem szavatolt.\n"
 
-#: ../panel-plugin/sensors.c:500
+#: ../panel-plugin/sensors.c:503
 #, c-format
 msgid "%5.0f rpm"
 msgstr "%5.0f rpm"
 
-#: ../panel-plugin/sensors.c:723
+#: ../panel-plugin/sensors.c:726
 msgid "Error: Could not connect to sensors!"
 msgstr "Hiba: nem lehet érzékelőkhöz kapcsolódni!"
 
-#: ../panel-plugin/sensors.c:813
-#: ../panel-plugin/sensors.c:887
+#: ../panel-plugin/sensors.c:816 ../panel-plugin/sensors.c:890
 msgid "Hard disks"
-msgstr "Merevlemezek"
+msgstr ""
 
-#: ../panel-plugin/sensors.c:923
+#: ../panel-plugin/sensors.c:926
 msgid "No sensors found!"
 msgstr "Nem leltem érzékelőket!"
 
-#: ../panel-plugin/sensors.c:1356
+#: ../panel-plugin/sensors.c:1384
 msgid "Hard disk temperature sensors"
-msgstr "Merevlemez hőmérséklet mérők"
+msgstr ""
 
-#: ../panel-plugin/sensors.c:1772
-msgid "UI style:"
+#: ../panel-plugin/sensors.c:1800
+#, fuzzy
+msgid "_UI style:"
 msgstr "UI stílus:"
 
-#: ../panel-plugin/sensors.c:1773
-msgid "text"
+#: ../panel-plugin/sensors.c:1801
+#, fuzzy
+msgid "_text"
 msgstr "szöveg"
 
-#: ../panel-plugin/sensors.c:1775
-msgid "graphical"
+#: ../panel-plugin/sensors.c:1803
+#, fuzzy
+msgid "g_raphical"
 msgstr "grafikus"
 
-#: ../panel-plugin/sensors.c:1812
-msgid "Show labels in graphical UI"
+#: ../panel-plugin/sensors.c:1840
+#, fuzzy
+msgid "Show _labels in graphical UI"
 msgstr "Címkék a grafikus UI-ben"
 
-#: ../panel-plugin/sensors.c:1837
-msgid "Show title"
+#: ../panel-plugin/sensors.c:1869
+msgid "Show colored _bars"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:1898
+#, fuzzy
+msgid "_Show title"
 msgstr "Címek megjelenítése"
 
-#: ../panel-plugin/sensors.c:1863
-msgid "Sensors type:"
+#: ../panel-plugin/sensors.c:1924
+#, fuzzy
+msgid "Sensors t_ype:"
 msgstr "Érzékelők típusa:"
 
-#: ../panel-plugin/sensors.c:1910
+#: ../panel-plugin/sensors.c:1971
 msgid "Name"
 msgstr "Név"
 
-#: ../panel-plugin/sensors.c:1919
+#: ../panel-plugin/sensors.c:1980
 msgid "Value"
 msgstr "Érték"
 
-#: ../panel-plugin/sensors.c:1925
+#: ../panel-plugin/sensors.c:1986
 msgid "Show"
 msgstr "Megjelenítés"
 
-#: ../panel-plugin/sensors.c:1934
+#: ../panel-plugin/sensors.c:1995
 msgid "Color"
 msgstr "Szín"
 
-#: ../panel-plugin/sensors.c:1944
+#: ../panel-plugin/sensors.c:2005
 msgid "Min"
 msgstr "Min"
 
-#: ../panel-plugin/sensors.c:1953
+#: ../panel-plugin/sensors.c:2014
 msgid "Max"
 msgstr "Max"
 
-#: ../panel-plugin/sensors.c:1981
-msgid "Font size:"
+#: ../panel-plugin/sensors.c:2042
+#, fuzzy
+msgid "F_ont size:"
 msgstr "Betűméret:"
 
-#: ../panel-plugin/sensors.c:1988
+#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->useBarUI);
+#: ../panel-plugin/sensors.c:2049
 msgid "x-small"
 msgstr "törpe"
 
-#: ../panel-plugin/sensors.c:1989
+#: ../panel-plugin/sensors.c:2050
 msgid "small"
 msgstr "kicsi"
 
-#: ../panel-plugin/sensors.c:1990
+#: ../panel-plugin/sensors.c:2051
 msgid "medium"
 msgstr "közepes"
 
-#: ../panel-plugin/sensors.c:1991
+#: ../panel-plugin/sensors.c:2052
 msgid "large"
 msgstr "nagy"
 
-#: ../panel-plugin/sensors.c:1992
+#: ../panel-plugin/sensors.c:2053
 msgid "x-large"
 msgstr "óriás"
 
-#: ../panel-plugin/sensors.c:2020
-msgid "Temperature scale:"
+#: ../panel-plugin/sensors.c:2084
+#, fuzzy
+msgid "T_emperature scale:"
 msgstr "Hőfok skála:"
 
-#: ../panel-plugin/sensors.c:2022
-msgid "Celsius"
+#: ../panel-plugin/sensors.c:2086
+#, fuzzy
+msgid "_Celsius"
 msgstr "Celsius"
 
-#: ../panel-plugin/sensors.c:2024
-msgid "Fahrenheit"
+#: ../panel-plugin/sensors.c:2088
+#, fuzzy
+msgid "_Fahrenheit"
 msgstr "Fahrenheit"
 
-#: ../panel-plugin/sensors.c:2063
-msgid "Update interval (seconds):"
+#: ../panel-plugin/sensors.c:2127
+#, fuzzy
+msgid "U_pdate interval (seconds):"
 msgstr "Frissítési időközök (másodpercben):"
 
-#: ../panel-plugin/sensors.c:2090
-msgid "Execute on double click:"
+#: ../panel-plugin/sensors.c:2154
+#, fuzzy
+msgid "E_xecute on double click:"
 msgstr "Futtatás dupla kattintásra:"
 
-#: ../panel-plugin/sensors.c:2132
+#: ../panel-plugin/sensors.c:2196
 msgid "<b>View</b>"
 msgstr "<b>Nézet</b>"
 
-#: ../panel-plugin/sensors.c:2190
+#: ../panel-plugin/sensors.c:2256
 msgid "<b>Miscellaneous</b>"
 msgstr "<b>Egyebek</b>"
 
-#: ../panel-plugin/sensors.c:2237
+#: ../panel-plugin/sensors.c:2304
 msgid "Edit Properties"
 msgstr "Tulajdonságok szerkesztése"
 
 #. #include <unistd.h>
-#: ../panel-plugin/sensors.c:2244
-#: ../panel-plugin/sensors.h:51
+#: ../panel-plugin/sensors.c:2311 ../panel-plugin/sensors.h:51
 msgid "Sensors Plugin"
 msgstr "Érzékelők"
 
@@ -184,4 +197,3 @@ msgstr "Érzékelő"
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "Értékek mutatása"
-

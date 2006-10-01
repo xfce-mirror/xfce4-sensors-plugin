@@ -1,7 +1,7 @@
 Xfce4-Sensors-Plugin
 ====================
 
-Version 0.9.9 - For Xfce 4 Panel 4.3.22 and newer only!
+Version 0.10.0 - For Xfce 4 Panel 4.3.22 and newer only!
 
 Copyright (c) 2004,2005 by Fabian Nowak (timystery@arcor.de), Stefan Ott
 
@@ -9,7 +9,7 @@ Licence: GPL version 2 (or later at your option)
 
 Description: Reads your hardware sensor values and displays them in your panel
 
-Dependencies: libxfcegui4-1, libxfce4util-1, libgtk2.0-0, libsensors3, 
+Dependencies: libxfcegui4-4, libxfce4util-i4, libgtk2.0-0, libsensors3, 
                 xfce4-panel
               libxfcegui4-dev, libxfce4util-dev, libgtk2.0-dev, libsensors-dev, 
                 xfce4-panel-dev

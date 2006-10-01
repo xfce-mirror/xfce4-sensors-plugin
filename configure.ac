@@ -5,7 +5,7 @@ dnl
 dnl 2003,2004 Benedikt Meurer <benny@xfce.org>
 dnl
 
-m4_define([sensors_version],[0.9.0])
+m4_define([sensors_version],[0.10.0])
 
 AC_INIT([xfce4-sensors-plugin], [sensors_version()], [timystery@arcor.de])
 
@@ -67,7 +67,7 @@ dnl configure the panel plugin
 XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.3.20])
 
 dnl I18n support
-XDT_I18N([cs de el eu fr hu ja ko lt pl ru vi])
+XDT_I18N([de el eu fr hu ja ko lt pl ru vi])
 
 dnl Check for debugging support
 XDT_FEATURE_DEBUG()
