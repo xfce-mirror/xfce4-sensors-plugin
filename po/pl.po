@@ -58,7 +58,7 @@ msgstr "Błąd: nie mogę połączyć się z czujnikiem!"
 
 #: ../panel-plugin/sensors.c:816 ../panel-plugin/sensors.c:890
 msgid "Hard disks"
-msgstr ""
+msgstr "Dyski twarde"
 
 #: ../panel-plugin/sensors.c:926
 msgid "No sensors found!"
@@ -66,41 +66,35 @@ msgstr "Brak czujników!"
 
 #: ../panel-plugin/sensors.c:1384
 msgid "Hard disk temperature sensors"
-msgstr ""
+msgstr "Czujniki temperatury dysku"
 
 #: ../panel-plugin/sensors.c:1800
-#, fuzzy
 msgid "_UI style:"
-msgstr "Styl UI:"
+msgstr "Styl _GUI:"
 
 #: ../panel-plugin/sensors.c:1801
-#, fuzzy
 msgid "_text"
-msgstr "tekst"
+msgstr "_tekst"
 
 #: ../panel-plugin/sensors.c:1803
-#, fuzzy
 msgid "g_raphical"
-msgstr "graficzny"
+msgstr "g_raficzny"
 
 #: ../panel-plugin/sensors.c:1840
-#, fuzzy
 msgid "Show _labels in graphical UI"
-msgstr "Pokazuj etykiety w UI"
+msgstr "Pokazuj _etykiety w GUI"
 
 #: ../panel-plugin/sensors.c:1869
 msgid "Show colored _bars"
-msgstr ""
+msgstr "Pokazuj kolorowe _słupki"
 
 #: ../panel-plugin/sensors.c:1898
-#, fuzzy
 msgid "_Show title"
-msgstr "Pokazuj tutuł"
+msgstr "_Pokazuj tutuł"
 
 #: ../panel-plugin/sensors.c:1924
-#, fuzzy
 msgid "Sensors t_ype:"
-msgstr "Typ sensorów:"
+msgstr "T_yp sensorów:"
 
 #: ../panel-plugin/sensors.c:1971
 msgid "Name"
@@ -127,9 +121,8 @@ msgid "Max"
 msgstr "Maximum"
 
 #: ../panel-plugin/sensors.c:2042
-#, fuzzy
 msgid "F_ont size:"
-msgstr "Rozmiar czcionki:"
+msgstr "R_ozmiar czcionki:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->useBarUI);
 #: ../panel-plugin/sensors.c:2049
@@ -153,29 +146,24 @@ msgid "x-large"
 msgstr "x-duża"
 
 #: ../panel-plugin/sensors.c:2084
-#, fuzzy
 msgid "T_emperature scale:"
-msgstr "Skala temperatury:"
+msgstr "S_kala temperatury:"
 
 #: ../panel-plugin/sensors.c:2086
-#, fuzzy
 msgid "_Celsius"
-msgstr "Celcjusze"
+msgstr "_Celcjusze"
 
 #: ../panel-plugin/sensors.c:2088
-#, fuzzy
 msgid "_Fahrenheit"
-msgstr "Farenhaity"
+msgstr "_Farenhaity"
 
 #: ../panel-plugin/sensors.c:2127
-#, fuzzy
 msgid "U_pdate interval (seconds):"
-msgstr "Czas aktualizacji (sek):"
+msgstr "C_zas aktualizacji (sek):"
 
 #: ../panel-plugin/sensors.c:2154
-#, fuzzy
 msgid "E_xecute on double click:"
-msgstr "Wykonaj przy podwójnym kliknięciu:"
+msgstr "W_ykonaj przy podwójnym kliknięciu:"
 
 #: ../panel-plugin/sensors.c:2196
 msgid "<b>View</b>"
