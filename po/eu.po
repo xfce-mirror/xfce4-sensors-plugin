@@ -58,7 +58,7 @@ msgstr "Errorea: Ezin da sentsoreetara konektatu!"
 
 #: ../panel-plugin/sensors.c:816 ../panel-plugin/sensors.c:890
 msgid "Hard disks"
-msgstr ""
+msgstr "Diska Gogorrak"
 
 #: ../panel-plugin/sensors.c:926
 msgid "No sensors found!"
@@ -66,41 +66,35 @@ msgstr "Ez da sentsorerik aurkitu!"
 
 #: ../panel-plugin/sensors.c:1384
 msgid "Hard disk temperature sensors"
-msgstr ""
+msgstr "Diska gogor tenperatura sentsoreak"
 
 #: ../panel-plugin/sensors.c:1800
-#, fuzzy
 msgid "_UI style:"
-msgstr "UI estiloa:"
+msgstr "_UI estiloa:"
 
 #: ../panel-plugin/sensors.c:1801
-#, fuzzy
 msgid "_text"
-msgstr "testua"
+msgstr "_testua"
 
 #: ../panel-plugin/sensors.c:1803
-#, fuzzy
 msgid "g_raphical"
-msgstr "grafikoa"
+msgstr "g_rafikoa"
 
 #: ../panel-plugin/sensors.c:1840
-#, fuzzy
 msgid "Show _labels in graphical UI"
-msgstr "Etitketa bistarazi UI grafikoan"
+msgstr "_Etitketa bistarazi UI grafikoan"
 
 #: ../panel-plugin/sensors.c:1869
 msgid "Show colored _bars"
-msgstr ""
+msgstr "Koloretako _barrak ikusi"
 
 #: ../panel-plugin/sensors.c:1898
-#, fuzzy
 msgid "_Show title"
-msgstr "Izenburua bistarazi"
+msgstr "_Izenburua ikusi"
 
 #: ../panel-plugin/sensors.c:1924
-#, fuzzy
 msgid "Sensors t_ype:"
-msgstr "Sentsore mota:"
+msgstr "Sentsore m_ota:"
 
 #: ../panel-plugin/sensors.c:1971
 msgid "Name"
@@ -127,9 +121,8 @@ msgid "Max"
 msgstr "Geh"
 
 #: ../panel-plugin/sensors.c:2042
-#, fuzzy
 msgid "F_ont size:"
-msgstr "Letra-tipo tamaina:"
+msgstr "Letra-tip_o tamaina:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->useBarUI);
 #: ../panel-plugin/sensors.c:2049
@@ -153,29 +146,24 @@ msgid "x-large"
 msgstr "oso handia"
 
 #: ../panel-plugin/sensors.c:2084
-#, fuzzy
 msgid "T_emperature scale:"
-msgstr "Tenperatura eskala:"
+msgstr "T_enperatura eskala:"
 
 #: ../panel-plugin/sensors.c:2086
-#, fuzzy
 msgid "_Celsius"
-msgstr "Celsius"
+msgstr "_Celsius"
 
 #: ../panel-plugin/sensors.c:2088
-#, fuzzy
 msgid "_Fahrenheit"
-msgstr "Fahrenheit"
+msgstr "_Fahrenheit"
 
 #: ../panel-plugin/sensors.c:2127
-#, fuzzy
 msgid "U_pdate interval (seconds):"
-msgstr "Eguneraketa aldia (segundu):"
+msgstr "Egunera_keta aldia (segundu):"
 
 #: ../panel-plugin/sensors.c:2154
-#, fuzzy
 msgid "E_xecute on double click:"
-msgstr "Klik bikoitzarekin exekutatu:"
+msgstr "Klik bikoitzarekin e_xekutatu:"
 
 #: ../panel-plugin/sensors.c:2196
 msgid "<b>View</b>"
