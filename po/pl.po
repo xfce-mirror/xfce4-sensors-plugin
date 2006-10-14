@@ -69,34 +69,28 @@ msgid "Hard disk temperature sensors"
 msgstr "Czujniki temperatury dysku"
 
 #: ../panel-plugin/sensors.c:1772
-#, fuzzy
 msgid "UI style:"
-msgstr "Styl _GUI:"
+msgstr "Styl GUI:"
 
 #: ../panel-plugin/sensors.c:1773
-#, fuzzy
 msgid "text"
-msgstr "_tekst"
+msgstr "tekst"
 
 #: ../panel-plugin/sensors.c:1775
-#, fuzzy
 msgid "graphical"
-msgstr "g_raficzny"
+msgstr "graficzny"
 
 #: ../panel-plugin/sensors.c:1812
-#, fuzzy
 msgid "Show labels in graphical UI"
-msgstr "Pokazuj _etykiety w GUI"
+msgstr "Pokazuj etykiety w GUI"
 
 #: ../panel-plugin/sensors.c:1837
-#, fuzzy
 msgid "Show title"
-msgstr "_Pokazuj tutuł"
+msgstr "Pokazuj tutuł"
 
 #: ../panel-plugin/sensors.c:1863
-#, fuzzy
 msgid "Sensors type:"
-msgstr "T_yp sensorów:"
+msgstr "Typ sensorów:"
 
 #: ../panel-plugin/sensors.c:1910
 msgid "Name"
@@ -123,9 +117,8 @@ msgid "Max"
 msgstr "Maximum"
 
 #: ../panel-plugin/sensors.c:1981
-#, fuzzy
 msgid "Font size:"
-msgstr "R_ozmiar czcionki:"
+msgstr "Rozmiar czcionki:"
 
 #: ../panel-plugin/sensors.c:1988
 msgid "x-small"
@@ -148,29 +141,24 @@ msgid "x-large"
 msgstr "x-duża"
 
 #: ../panel-plugin/sensors.c:2020
-#, fuzzy
 msgid "Temperature scale:"
-msgstr "S_kala temperatury:"
+msgstr "Skala temperatury:"
 
 #: ../panel-plugin/sensors.c:2022
-#, fuzzy
 msgid "Celsius"
-msgstr "_Celcjusze"
+msgstr "Celcjusze"
 
 #: ../panel-plugin/sensors.c:2024
-#, fuzzy
 msgid "Fahrenheit"
-msgstr "_Farenhaity"
+msgstr "Farenhaity"
 
 #: ../panel-plugin/sensors.c:2063
-#, fuzzy
 msgid "Update interval (seconds):"
-msgstr "C_zas aktualizacji (sek):"
+msgstr "Czas aktualizacji (sek):"
 
 #: ../panel-plugin/sensors.c:2090
-#, fuzzy
 msgid "Execute on double click:"
-msgstr "W_ykonaj przy podwójnym kliknięciu:"
+msgstr "Wykonaj przy podwójnym kliknięciu:"
 
 #: ../panel-plugin/sensors.c:2132
 msgid "<b>View</b>"
