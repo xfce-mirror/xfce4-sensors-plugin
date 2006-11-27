@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-10-01 11:14+0200\n"
-"PO-Revision-Date: 2005-11-03 01:59+0900\n"
-"Last-Translator: ByungHyun Choi <byunghyun.choi@gmail.com>\n"
+"PO-Revision-Date: 2005-11-28 00:11+0900\n"
+"Last-Translator: ByungHyun Choi <byunghyun.choi@debianusers.org>\n"
 "Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge."
 "net>\n"
 "MIME-Version: 1.0\n"
@@ -69,38 +69,32 @@ msgid "Hard disk temperature sensors"
 msgstr "하드디스크 온도 센서"
 
 #: ../panel-plugin/sensors.c:1800
-#, fuzzy
 msgid "_UI style:"
-msgstr "UI 스타일:"
+msgstr "UI 스타일(_U):"
 
 #: ../panel-plugin/sensors.c:1801
-#, fuzzy
 msgid "_text"
-msgstr "글자"
+msgstr "글자(_t)"
 
 #: ../panel-plugin/sensors.c:1803
-#, fuzzy
 msgid "g_raphical"
-msgstr "그림"
+msgstr "그림(_r)"
 
 #: ../panel-plugin/sensors.c:1840
-#, fuzzy
 msgid "Show _labels in graphical UI"
-msgstr "GUI에 레이블 보이기"
+msgstr "GUI에 레이블 보이기(_l)"
 
 #: ../panel-plugin/sensors.c:1869
 msgid "Show colored _bars"
 msgstr ""
 
 #: ../panel-plugin/sensors.c:1898
-#, fuzzy
 msgid "_Show title"
-msgstr "이름 보여주기"
+msgstr "이름 보여주기(_S)"
 
 #: ../panel-plugin/sensors.c:1924
-#, fuzzy
 msgid "Sensors t_ype:"
-msgstr "센서 종류:"
+msgstr "센서 종류(_t):"
 
 #: ../panel-plugin/sensors.c:1971
 msgid "Name"
@@ -127,9 +121,8 @@ msgid "Max"
 msgstr "최대"
 
 #: ../panel-plugin/sensors.c:2042
-#, fuzzy
 msgid "F_ont size:"
-msgstr "글꼴 크기:"
+msgstr "글꼴 크기(_o):"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->useBarUI);
 #: ../panel-plugin/sensors.c:2049
@@ -153,29 +146,24 @@ msgid "x-large"
 msgstr "아주 크게"
 
 #: ../panel-plugin/sensors.c:2084
-#, fuzzy
 msgid "T_emperature scale:"
-msgstr "온도 단위:"
+msgstr "온도 단위(_e):"
 
 #: ../panel-plugin/sensors.c:2086
-#, fuzzy
 msgid "_Celsius"
-msgstr "섭씨"
+msgstr "섭씨(_C)"
 
 #: ../panel-plugin/sensors.c:2088
-#, fuzzy
 msgid "_Fahrenheit"
-msgstr "화씨"
+msgstr "화씨(_F)"
 
 #: ../panel-plugin/sensors.c:2127
-#, fuzzy
 msgid "U_pdate interval (seconds):"
-msgstr "검사 간격 (초):"
+msgstr "검사 간격 (초)(_p):"
 
 #: ../panel-plugin/sensors.c:2154
-#, fuzzy
 msgid "E_xecute on double click:"
-msgstr "따닥(더블클릭)하면 실행합니다."
+msgstr "따닥(더블클릭)하면 실행합니다(_x):"
 
 #: ../panel-plugin/sensors.c:2196
 msgid "<b>View</b>"
