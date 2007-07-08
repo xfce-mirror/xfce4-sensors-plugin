@@ -67,7 +67,7 @@ dnl configure the panel plugin
 XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.3.20])
 
 dnl I18n support
-XDT_I18N([de el eu fr hu ja ko lt pl ru vi])
+XDT_I18N([ca cs de el en_GB eu fr hu ja ko lt pl pt_PT ru sq vi zh_TW])
 
 dnl Check for debugging support
 XDT_FEATURE_DEBUG()
