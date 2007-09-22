@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2007-08-23 22:55+0100\n"
+"PO-Revision-Date: 2007-08-31 13:07+0100\n"
 "Last-Translator: Nuno Miguel <nunis@netcabo.pt>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -33,7 +33,7 @@ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensores</b></span>"
 #. circumvent empty char pointer
 #: ../panel-plugin/sensors.c:441
 msgid "No sensors selected!"
-msgstr "Nenhuma sensor seleccionada"
+msgstr "Nenhum sensor seleccionado!"
 
 #: ../panel-plugin/sensors.c:479
 #: ../panel-plugin/sensors.c:1677
