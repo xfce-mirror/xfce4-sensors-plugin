@@ -1,4 +1,4 @@
-@SET_MAKE@
+# $Id$
 
 SUBDIRS = panel-plugin					\
 	  po						\
@@ -27,13 +27,21 @@ EXTRA_DIST =							\
         NEWS								\
         README								\
         TODO								\
-        xfce4-sensors-plugin.spec			\
+		NOTES								\
+        xfce4-sensors-plugin.spec.in		\
         intltool-extract.in                 \
         intltool-merge.in                   \
-        intltool-update.in            	    
+        intltool-update.in
 
 DISTCLEANFILES =						\
 	intltool-extract					\
 	intltool-merge						\
-	intltool-update
+	intltool-update						\
+	xfce4-sensors-plugin.spec
 
+DISTCHECK_CONFIGURE_FLAGS =						\
+	--with-libsensors						\
+	--with-hddtemp							\
+	--with-acpi
+
+# vi:set ts=8 sw=8 noet ai nocindent syntax=automake:

@@ -36,10 +36,11 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = i686-pc-linux-gnu
 host_triplet = i686-pc-linux-gnu
+target_triplet = i686-pc-linux-gnu
 subdir = icons
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/configure.in
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
@@ -58,7 +59,7 @@ hicolor48DATA_INSTALL = $(INSTALL_DATA)
 DATA = $(hicolor48_DATA)
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = ${SHELL} /home/tim/tmp/xfce-4.3/xfce4-sensors-plugin/missing --run aclocal-1.9
-ALL_LINGUAS = de el eu fr hu ja ko lt pl ru vi
+ALL_LINGUAS = ca cs de el en_GB eu fr hu ja ko lt pl ru sq vi zh_TW
 AMDEP_FALSE = #
 AMDEP_TRUE = 
 AMTAR = ${SHELL} /home/tim/tmp/xfce-4.3/xfce4-sensors-plugin/missing --run tar
@@ -67,7 +68,7 @@ AUTOCONF = ${SHELL} /home/tim/tmp/xfce-4.3/xfce4-sensors-plugin/missing --run au
 AUTOHEADER = ${SHELL} /home/tim/tmp/xfce-4.3/xfce4-sensors-plugin/missing --run autoheader
 AUTOMAKE = ${SHELL} /home/tim/tmp/xfce-4.3/xfce4-sensors-plugin/missing --run automake-1.9
 AWK = mawk
-CATALOGS =  de.gmo el.gmo eu.gmo fr.gmo hu.gmo ja.gmo ko.gmo lt.gmo pl.gmo ru.gmo vi.gmo
+CATALOGS =  ca.gmo cs.gmo de.gmo el.gmo en_GB.gmo eu.gmo fr.gmo hu.gmo ja.gmo ko.gmo lt.gmo pl.gmo ru.gmo sq.gmo vi.gmo zh_TW.gmo
 CATOBJEXT = .gmo
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -91,9 +92,15 @@ EXEEXT =
 F77 = 
 FFLAGS = 
 GETTEXT_PACKAGE = xfce4-sensors-plugin
-GMOFILES =  de.gmo el.gmo eu.gmo fr.gmo hu.gmo ja.gmo ko.gmo lt.gmo pl.gmo ru.gmo vi.gmo
+GMOFILES =  ca.gmo cs.gmo de.gmo el.gmo en_GB.gmo eu.gmo fr.gmo hu.gmo ja.gmo ko.gmo lt.gmo pl.gmo ru.gmo sq.gmo vi.gmo zh_TW.gmo
 GMSGFMT = /usr/bin/msgfmt
 GREP = /bin/grep
+HAVE_ACPI_FALSE = #
+HAVE_ACPI_TRUE = 
+HAVE_HDDTEMP_FALSE = #
+HAVE_HDDTEMP_TRUE = 
+HAVE_LIBSENSORS_FALSE = #
+HAVE_LIBSENSORS_TRUE = 
 INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
@@ -104,14 +111,12 @@ INTLTOOL_CAVES_RULE = %.caves:     %.caves.in     $(INTLTOOL_MERGE) $(wildcard $
 INTLTOOL_DESKTOP_RULE = %.desktop:   %.desktop.in   $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
 INTLTOOL_DIRECTORY_RULE = %.directory: %.directory.in $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
 INTLTOOL_EXTRACT = $(top_builddir)/intltool-extract
-INTLTOOL_ICONV = /usr/bin/iconv
 INTLTOOL_KBD_RULE = %.kbd:       %.kbd.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -m -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
 INTLTOOL_KEYS_RULE = %.keys:      %.keys.in      $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -k -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
 INTLTOOL_MERGE = $(top_builddir)/intltool-merge
-INTLTOOL_MSGFMT = /usr/bin/msgfmt
-INTLTOOL_MSGMERGE = /usr/bin/msgmerge
 INTLTOOL_OAF_RULE = %.oaf:       %.oaf.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -o -p $(top_srcdir)/po $< $@
 INTLTOOL_PERL = /usr/bin/perl
+INTLTOOL_POLICY_RULE = %.policy:    %.policy.in    $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
 INTLTOOL_PONG_RULE = %.pong:      %.pong.in      $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
 INTLTOOL_PROP_RULE = %.prop:      %.prop.in      $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
 INTLTOOL_SCHEMAS_RULE = %.schemas:   %.schemas.in   $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -s -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
@@ -123,48 +128,50 @@ INTLTOOL_THEME_RULE = %.theme:     %.theme.in     $(INTLTOOL_MERGE) $(wildcard $
 INTLTOOL_UI_RULE = %.ui:        %.ui.in        $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
 INTLTOOL_UPDATE = $(top_builddir)/intltool-update
 INTLTOOL_XAM_RULE = %.xam:       %.xml.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
-INTLTOOL_XGETTEXT = /usr/bin/xgettext
 INTLTOOL_XML_NOMERGE_RULE = %.xml:       %.xml.in       $(INTLTOOL_MERGE) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u /tmp $< $@
 INTLTOOL_XML_RULE = %.xml:       %.xml.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
 LDFLAGS = 
 LIBOBJS = 
-LIBS = -lsensors 
+LIBS = 
+LIBSENSORS_CFLAGS = -I/usr/include
+LIBSENSORS_LDFLAGS = -lsensors
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
-LIBXFCE4PANEL_CFLAGS = -DXTHREADS -I/usr/local/include/xfce4/ -I/usr/local/include/xfce4 -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/pango-1.0 -I/usr/X11R6/include -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/cairo -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/atk-1.0  
-LIBXFCE4PANEL_LIBS = -L/usr/local/lib -L/usr/X11R6/lib -lxfce4panel -lxfcegui4 -lgtk-x11-2.0 -lxfce4util -lgdk-x11-2.0 -latk-1.0 -lgdk_pixbuf-2.0 -lm -lpangocairo-1.0 -lfontconfig -lXext -lXrender -lX11 -lXinerama -lXi -lXrandr -lXcursor -lXfixes -lpango-1.0 -lcairo -lgobject-2.0 -lgmodule-2.0 -ldl -lglib-2.0  
-LIBXFCE4PANEL_REQUIRED_VERSION = 4.3.20
-LIBXFCE4PANEL_VERSION = 4.3.99.1
+LIBXFCE4PANEL_CFLAGS = -I/usr/include/xfce4/ -I/usr/include/xfce4 -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/cairo -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/atk-1.0  
+LIBXFCE4PANEL_LIBS = -lxfce4panel -lxfcegui4 -lgtk-x11-2.0 -lxfce4util -lgdk-x11-2.0 -latk-1.0 -lgdk_pixbuf-2.0 -lm -lpangocairo-1.0 -lfontconfig -lXext -lXrender -lXinerama -lXi -lXrandr -lXcursor -lXcomposite -lXdamage -lpango-1.0 -lcairo -lX11 -lXfixes -lgobject-2.0 -lgmodule-2.0 -ldl -lglib-2.0  
+LIBXFCE4PANEL_REQUIRED_VERSION = 4.4.0
+LIBXFCE4PANEL_VERSION = 4.4.1
 LN_S = ln -s
 LTLIBOBJS = 
-MAINT = 
-MAINTAINER_MODE_FALSE = #
-MAINTAINER_MODE_TRUE = 
+MAINT = #
+MAINTAINER_MODE_FALSE = 
+MAINTAINER_MODE_TRUE = #
 MAKEINFO = ${SHELL} /home/tim/tmp/xfce-4.3/xfce4-sensors-plugin/missing --run makeinfo
 MKINSTALLDIRS = ./mkinstalldirs
 MSGFMT = /usr/bin/msgfmt
 OBJEXT = o
-OS = 
 PACKAGE = xfce4-sensors-plugin
 PACKAGE_BUGREPORT = timystery@arcor.de
 PACKAGE_NAME = xfce4-sensors-plugin
-PACKAGE_STRING = xfce4-sensors-plugin 0.10.0
+PACKAGE_STRING = xfce4-sensors-plugin 0.11.0
 PACKAGE_TARNAME = xfce4-sensors-plugin
-PACKAGE_VERSION = 0.10.0
+PACKAGE_VERSION = 0.11.0
 PATH_SEPARATOR = :
 PKG_CONFIG = /usr/bin/pkg-config
-POFILES =  de.po el.po eu.po fr.po hu.po ja.po ko.po lt.po pl.po ru.po vi.po
+PLATFORM_CFLAGS = 
+POFILES =  ca.po cs.po de.po el.po en_GB.po eu.po fr.po hu.po ja.po ko.po lt.po pl.po ru.po sq.po vi.po zh_TW.po
 POSUB = po
 PO_IN_DATADIR_FALSE = 
 PO_IN_DATADIR_TRUE = 
 RANLIB = ranlib
+SED = /bin/sed
 SET_MAKE = 
 SHELL = /bin/sh
 SOLLIBS = 
 STRIP = strip
 USE_NLS = yes
-VERSION = 0.10.0
+VERSION = 0.11.0
 XGETTEXT = /usr/bin/xgettext
-XGETTEXT_ARGS = --keyword=Q_
+XGETTEXT_ARGS = --keyword=Q_ --from-code=UTF-8
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 ac_ct_F77 = 
@@ -188,6 +195,7 @@ datarootdir = ${prefix}/share
 docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
 dvidir = ${docdir}
 exec_prefix = ${prefix}
+hddtemp = 1
 host = i686-pc-linux-gnu
 host_alias = 
 host_cpu = i686
@@ -211,7 +219,11 @@ psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
 sysconfdir = ${prefix}/etc
+target = i686-pc-linux-gnu
 target_alias = 
+target_cpu = i686
+target_os = linux-gnu
+target_vendor = pc
 hicolor48dir = $(datadir)/icons/hicolor/48x48/apps
 hicolor48_DATA = \
 	xfce-sensors.png 
@@ -220,7 +232,7 @@ EXTRA_DIST = $(hicolor48_DATA)
 all: all-am
 
 .SUFFIXES:
-$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
+$(srcdir)/Makefile.in: # $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
 	    *$$dep*) \
@@ -245,9 +257,9 @@ Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 $(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 
-$(top_srcdir)/configure:  $(am__configure_deps)
+$(top_srcdir)/configure: # $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-$(ACLOCAL_M4):  $(am__aclocal_m4_deps)
+$(ACLOCAL_M4): # $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 
 mostlyclean-libtool:

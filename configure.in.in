@@ -6,7 +6,7 @@ dnl 2003,2004 Benedikt Meurer <benny@xfce.org>
 dnl 2007 Benedikt Meurer <benny@xfce.org>, Fabian Nowak <timystery@arcor.de>
 dnl
 
-m4_define([sensors_version],[0.11.0])
+m4_define([sensors_version],[0.10.99-1])
 
 AC_INIT([xfce4-sensors-plugin], [sensors_version()], [timystery@arcor.de])
 AC_PREREQ([2.50])
@@ -31,64 +31,83 @@ AC_PROG_INTLTOOL
 dnl Check for standard header files
 AC_HEADER_STDC
 
+
 dnl Check for libsensors depending on whether it is disabled upon user request
 AC_ARG_ENABLE([libsensors], [AC_HELP_STRING([--disable-libsensors], [Do not use libsensors to read a vast amount of sensors on your mainboards @<:@default=no@:>@])],
 [
-	HAVE_LIBSENSORS=0
+    HAVE_LIBSENSORS=0
 ], [
-	AC_CHECK_LIB([sensors], [sensors_get_detected_chips],
-	[
-	  AC_DEFINE([HAVE_LIBSENSORS], [1], [Define to 1 if libsensors is found])
-	  HAVE_LIBSENSORS=1
-	],
-	[
-		HAVE_LIBSENSORS=0
-	])
+    AC_CHECK_LIB([sensors], [sensors_get_detected_chips],
+    [
+      AC_DEFINE([HAVE_LIBSENSORS], [1], [Define to 1 if libsensors is found])
+      HAVE_LIBSENSORS=1
+      LIBSENSORS_CFLAGS="-I/usr/include"
+      LIBSENSORS_LDFLAGS="-lsensors"
+    ],
+    [
+        HAVE_LIBSENSORS=0
+    ])
 ])
+AC_SUBST([LIBSENSORS_CFLAGS])
+AC_SUBST([LIBSENSORS_LDFLAGS])
+AM_CONDITIONAL([HAVE_LIBSENSORS], [test $HAVE_LIBSENSORS = 1])
+
 
 dnl Check for hddtemp depending on whether it is disabled upon user request
 AC_ARG_ENABLE([hddtemp], [AC_HELP_STRING([--disable-hddtemp], [Do not use hddtemp to read your harddisk temperature @<:@default=no@:>@])],
 [
-	HAVE_HDDTEMP=0
+    HAVE_HDDTEMP=0
 ],
 [
-	AC_CHECK_PROG([hddtemp], [hddtemp], [1])
-	if test "$hddtemp" = 1; then
-		AC_DEFINE([HAVE_HDDTEMP], [1], [Define to 1 if hddtemp is desired])
-		HAVE_HDDTEMP=1
-	else
-		HAVE_HDDTEMP=0
-	fi
+    AC_CHECK_PROG([hddtemp], [hddtemp], [1])
+    if test "$hddtemp" = 1; then
+        AC_DEFINE([HAVE_HDDTEMP], [1], [Define to 1 if hddtemp is desired])
+        HAVE_HDDTEMP=1
+    else
+        HAVE_HDDTEMP=0
+    fi
 ])
+AM_CONDITIONAL([HAVE_HDDTEMP], [test $HAVE_HDDTEMP = 1])
+
 
 dnl Check for interface for /proc/acpi to be used
 AC_ARG_ENABLE([procacpi], [AC_HELP_STRING([--disable-procacpi], [Do not use /proc/acpi to read your CPU temperature @<:@default=no@:>@])],
 [
-	HAVE_ACPI=0
+    HAVE_ACPI=0
 ],
 [
-	AC_CHECK_FILE([/proc/acpi/info],
-	[
-		AC_DEFINE([HAVE_ACPI], [1], [Define to 1 if proc/acpi is found])
-		HAVE_ACPI=1
-	],
-	[
-		HAVE_ACPI=0
-	])
+    AC_CHECK_FILE([/proc/acpi/info],
+    [
+        AC_DEFINE([HAVE_ACPI], [1], [Define to 1 if proc/acpi is found])
+        HAVE_ACPI=1
+    ],
+    [
+        HAVE_ACPI=0
+    ])
 ])
+AM_CONDITIONAL([HAVE_ACPI], [test $HAVE_ACPI = 1])
+
+
+dnl Check for full debugging
+AC_ARG_ENABLE([fulldebug], [AC_HELP_STRING([--enable-fulldebug], [Allow full debugging. Dont use the other debug switches! @<:@default=no@:>@])],
+[
+    AC_DEFINE([DEBUG], [1], [Set this to 1 to enable full debugging. Dont use the other debug switches!])
+    AC_DEFINE([DEBUG_TRACE], [1],
+        [Set this to 1 to enable full trace debugging. Dont use the other debug switches!]
+    )
+    DEBUG=1
+    PLATFORM_CFLAGS="-Wall -Werror $PLATFORM_CFLAGS"
+], [])
+AC_SUBST([PLATFORM_CFLAGS])
+
 
 dnl Get operating system information
 KERNEL=`uname -s`
 if test "$KERNEL" = "Linux"; then
-	VERSION=`uname -r`
-	if test "$VERSION" = "2.6"; then
-		AC_DEFINE([HAVE_LINUX26], [1], [Set this to 1 if using Linux 2.6 or newer])
-	else
-		AC_DEFINE([HAVE_LINUX24], [1], [Set this to 1 if using Linux 2.4 and older])
-	fi
-OS="$KERNEL"
-AC_DEFINE([OS], ["$OS"], [Set this to the name of the oeprating system.])
+    AC_DEFINE([HAVE_LINUX], [1], [Set this to 1 if using Linux or newer])
 fi
+dnl OS="$KERNEL"
+dnl AC_DEFINE([OS], ["$OS"], [Set this to the name of the operating system.])
 
 dnl Substitute in Makefile
 dnl AC_SUBST(OS)
@@ -140,9 +159,11 @@ dnl ***************************
 dnl *** Print configuration ***
 dnl ***************************
 echo
-echo "Build Configuration:"
+echo "==============================================================="
+echo "Build Configuration"
+echo "==============================================================="
 echo
-echo "Host system:	$OS"
+echo "Host system:    $OS"
 echo
 echo "The following sensor interfaces will be built into the plugin:"
 if test "$HAVE_HDDTEMP" = 1; then
@@ -155,3 +176,10 @@ if test "$HAVE_ACPI" = 1; then
 echo "*  /proc/acpi"
 fi
 echo
+if test "$DEBUG" = 1; then
+echo "Full debug is enabled"
+else
+echo "Full debug is disabled"
+fi
+echo
+echo "==============================================================="

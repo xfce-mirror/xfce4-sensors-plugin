@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-01 11:14+0200\n"
+"POT-Creation-Date: 2007-10-07 15:02+0200\n"
 "PO-Revision-Date: 2006-01-04 00:28+0900\n"
 "Last-Translator: Daichi Kawahata <daichi@xfce.org>\n"
 "Language-Team: xfce-users-jp <xfce-users-jp@ml.fdiary.net>\n"
@@ -15,29 +15,30 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors.c:156 ../panel-plugin/sensors.c:2227
-msgid "<b>Sensors</b>"
+#: ../panel-plugin/sensors.c:201 ../panel-plugin/sensors.c:2254
+#, fuzzy
+msgid "Sensors"
 msgstr "<b>センサー</b>"
 
-#: ../panel-plugin/sensors.c:275
+#: ../panel-plugin/sensors.c:323
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>センサー</b></span>\n"
 
-#: ../panel-plugin/sensors.c:337
+#: ../panel-plugin/sensors.c:388
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>センサー</b></span>"
 
 #. circumvent empty char pointer
-#: ../panel-plugin/sensors.c:444
+#: ../panel-plugin/sensors.c:470
 msgid "No sensors selected!"
 msgstr "センサーが選択されていません！"
 
-#: ../panel-plugin/sensors.c:482 ../panel-plugin/sensors.c:1705
+#: ../panel-plugin/sensors.c:509
+#, fuzzy, c-format
 msgid ""
-" \n"
-"Xfce Hardware Sensors Plugin: \n"
+"Xfce Hardware Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value. \n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
@@ -46,150 +47,138 @@ msgstr ""
 "センサーの機能値の読み込みに問題があるようです。 \n"
 "正確な値は保証されません。\n"
 
-#: ../panel-plugin/sensors.c:503
+#: ../panel-plugin/sensors.c:528
 #, c-format
 msgid "%5.0f rpm"
 msgstr "%5.0f rpm"
 
-#: ../panel-plugin/sensors.c:726
-msgid "Error: Could not connect to sensors!"
-msgstr "エラー: センサーに接続できませんでした！"
-
-#: ../panel-plugin/sensors.c:816 ../panel-plugin/sensors.c:890
-msgid "Hard disks"
-msgstr ""
-
-#: ../panel-plugin/sensors.c:926
+#: ../panel-plugin/sensors.c:840
 msgid "No sensors found!"
 msgstr "センサーが見つかりません！"
 
-#: ../panel-plugin/sensors.c:1384
-msgid "Hard disk temperature sensors"
-msgstr ""
-
-#: ../panel-plugin/sensors.c:1800
+#: ../panel-plugin/sensors.c:1813
 #, fuzzy
 msgid "_UI style:"
 msgstr "UIのスタイル:"
 
-#: ../panel-plugin/sensors.c:1801
+#: ../panel-plugin/sensors.c:1814
 #, fuzzy
 msgid "_text"
 msgstr "テキスト"
 
-#: ../panel-plugin/sensors.c:1803
+#: ../panel-plugin/sensors.c:1816
 #, fuzzy
 msgid "g_raphical"
 msgstr "グラフィック"
 
-#: ../panel-plugin/sensors.c:1840
+#: ../panel-plugin/sensors.c:1853
 #, fuzzy
 msgid "Show _labels in graphical UI"
 msgstr "UIにラベルを表示する"
 
-#: ../panel-plugin/sensors.c:1869
+#: ../panel-plugin/sensors.c:1883
 msgid "Show colored _bars"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1898
+#: ../panel-plugin/sensors.c:1912
 #, fuzzy
 msgid "_Show title"
 msgstr "タイトルを表示する"
 
-#: ../panel-plugin/sensors.c:1924
+#: ../panel-plugin/sensors.c:1940
 #, fuzzy
 msgid "Sensors t_ype:"
 msgstr "センサーの種類:"
 
-#: ../panel-plugin/sensors.c:1971
+#: ../panel-plugin/sensors.c:1990
 msgid "Name"
 msgstr "名前"
 
-#: ../panel-plugin/sensors.c:1980
+#: ../panel-plugin/sensors.c:1999
 msgid "Value"
 msgstr "値"
 
-#: ../panel-plugin/sensors.c:1986
+#: ../panel-plugin/sensors.c:2005
 msgid "Show"
 msgstr "表示"
 
-#: ../panel-plugin/sensors.c:1995
+#: ../panel-plugin/sensors.c:2014
 msgid "Color"
 msgstr "色"
 
-#: ../panel-plugin/sensors.c:2005
+#: ../panel-plugin/sensors.c:2024
 msgid "Min"
 msgstr "最小"
 
-#: ../panel-plugin/sensors.c:2014
+#: ../panel-plugin/sensors.c:2033
 msgid "Max"
 msgstr "最大"
 
-#: ../panel-plugin/sensors.c:2042
+#: ../panel-plugin/sensors.c:2065
 #, fuzzy
 msgid "F_ont size:"
 msgstr "フォントのサイズ:"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->useBarUI);
-#: ../panel-plugin/sensors.c:2049
+#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#: ../panel-plugin/sensors.c:2072
 msgid "x-small"
 msgstr "極小"
 
-#: ../panel-plugin/sensors.c:2050
+#: ../panel-plugin/sensors.c:2073
 msgid "small"
 msgstr "小"
 
-#: ../panel-plugin/sensors.c:2051
+#: ../panel-plugin/sensors.c:2074
 msgid "medium"
 msgstr "普通"
 
-#: ../panel-plugin/sensors.c:2052
+#: ../panel-plugin/sensors.c:2075
 msgid "large"
 msgstr "大"
 
-#: ../panel-plugin/sensors.c:2053
+#: ../panel-plugin/sensors.c:2076
 msgid "x-large"
 msgstr "巨大"
 
-#: ../panel-plugin/sensors.c:2084
+#: ../panel-plugin/sensors.c:2107
 #, fuzzy
 msgid "T_emperature scale:"
 msgstr "温度の目盛:"
 
-#: ../panel-plugin/sensors.c:2086
+#: ../panel-plugin/sensors.c:2109
 #, fuzzy
 msgid "_Celsius"
 msgstr "摂氏"
 
-#: ../panel-plugin/sensors.c:2088
+#: ../panel-plugin/sensors.c:2111
 #, fuzzy
 msgid "_Fahrenheit"
 msgstr "華氏"
 
-#: ../panel-plugin/sensors.c:2127
+#: ../panel-plugin/sensors.c:2150
 #, fuzzy
 msgid "U_pdate interval (seconds):"
 msgstr "更新の間隔 (秒):"
 
-#: ../panel-plugin/sensors.c:2154
+#: ../panel-plugin/sensors.c:2178
 #, fuzzy
 msgid "E_xecute on double click:"
 msgstr "ダブルクリックで実行:"
 
-#: ../panel-plugin/sensors.c:2196
-msgid "<b>View</b>"
-msgstr "<b>表示</b>"
+#: ../panel-plugin/sensors.c:2223
+msgid "View"
+msgstr ""
 
-#: ../panel-plugin/sensors.c:2256
-msgid "<b>Miscellaneous</b>"
+#: ../panel-plugin/sensors.c:2283
+#, fuzzy
+msgid "Miscellaneous"
 msgstr "<b>その他</b>"
 
-#: ../panel-plugin/sensors.c:2304
+#: ../panel-plugin/sensors.c:2331
 msgid "Edit Properties"
 msgstr "プロパティの編集"
 
-#. #include <unistd.h>
-#: ../panel-plugin/sensors.c:2311 ../panel-plugin/sensors.h:51
+#: ../panel-plugin/sensors.c:2338 ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr "センサープラグイン"
 
@@ -200,3 +189,9 @@ msgstr "センサー"
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "センサーの値を表示します。"
+
+#~ msgid "Error: Could not connect to sensors!"
+#~ msgstr "エラー: センサーに接続できませんでした！"
+
+#~ msgid "<b>View</b>"
+#~ msgstr "<b>表示</b>"

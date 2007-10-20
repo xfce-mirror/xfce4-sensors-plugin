@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"POT-Creation-Date: 2007-10-07 15:02+0200\n"
 "PO-Revision-Date: 2006-04-08 13:17+0900\n"
 "Last-Translator: Piotr Maliński <admin@rk.edu.pl>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -16,29 +16,30 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors.c:153 ../panel-plugin/sensors.c:2162
-msgid "<b>Sensors</b>"
-msgstr "<b>Czujniki</b>"
+#: ../panel-plugin/sensors.c:201 ../panel-plugin/sensors.c:2254
+#, fuzzy
+msgid "Sensors"
+msgstr "Typ sensorów:"
 
-#: ../panel-plugin/sensors.c:272
+#: ../panel-plugin/sensors.c:323
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Czujniki</b></span>\n"
 
-#: ../panel-plugin/sensors.c:334
+#: ../panel-plugin/sensors.c:388
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Czujniki</b></span>"
 
 #. circumvent empty char pointer
-#: ../panel-plugin/sensors.c:441
+#: ../panel-plugin/sensors.c:470
 msgid "No sensors selected!"
 msgstr "Brak wykrytych czujników!"
 
-#: ../panel-plugin/sensors.c:479 ../panel-plugin/sensors.c:1677
+#: ../panel-plugin/sensors.c:509
+#, fuzzy, c-format
 msgid ""
-" \n"
-"Xfce Hardware Sensors Plugin: \n"
+"Xfce Hardware Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value. \n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
@@ -47,133 +48,138 @@ msgstr ""
 "Chyba wystąpił problem przy czytaniu wartości z czujnika. \n"
 "Podane wartości mogą być niezgodne z prawdą.\n"
 
-#: ../panel-plugin/sensors.c:500
+#: ../panel-plugin/sensors.c:528
 #, c-format
 msgid "%5.0f rpm"
 msgstr "%5.0f rpm"
 
-#: ../panel-plugin/sensors.c:723
-msgid "Error: Could not connect to sensors!"
-msgstr "Błąd: nie mogę połączyć się z czujnikiem!"
-
-#: ../panel-plugin/sensors.c:813 ../panel-plugin/sensors.c:887
-msgid "Hard disks"
-msgstr "Dyski twarde"
-
-#: ../panel-plugin/sensors.c:923
+#: ../panel-plugin/sensors.c:840
 msgid "No sensors found!"
 msgstr "Brak czujników!"
 
-#: ../panel-plugin/sensors.c:1356
-msgid "Hard disk temperature sensors"
-msgstr "Czujniki temperatury dysku"
-
-#: ../panel-plugin/sensors.c:1772
-msgid "UI style:"
+#: ../panel-plugin/sensors.c:1813
+#, fuzzy
+msgid "_UI style:"
 msgstr "Styl GUI:"
 
-#: ../panel-plugin/sensors.c:1773
-msgid "text"
+#: ../panel-plugin/sensors.c:1814
+#, fuzzy
+msgid "_text"
 msgstr "tekst"
 
-#: ../panel-plugin/sensors.c:1775
-msgid "graphical"
+#: ../panel-plugin/sensors.c:1816
+#, fuzzy
+msgid "g_raphical"
 msgstr "graficzny"
 
-#: ../panel-plugin/sensors.c:1812
-msgid "Show labels in graphical UI"
+#: ../panel-plugin/sensors.c:1853
+#, fuzzy
+msgid "Show _labels in graphical UI"
 msgstr "Pokazuj etykiety w GUI"
 
-#: ../panel-plugin/sensors.c:1837
-msgid "Show title"
+#: ../panel-plugin/sensors.c:1883
+msgid "Show colored _bars"
+msgstr "Pokazuj kolorowe _słupki"
+
+#: ../panel-plugin/sensors.c:1912
+#, fuzzy
+msgid "_Show title"
 msgstr "Pokazuj tutuł"
 
-#: ../panel-plugin/sensors.c:1863
-msgid "Sensors type:"
+#: ../panel-plugin/sensors.c:1940
+#, fuzzy
+msgid "Sensors t_ype:"
 msgstr "Typ sensorów:"
 
-#: ../panel-plugin/sensors.c:1910
+#: ../panel-plugin/sensors.c:1990
 msgid "Name"
 msgstr "Nazwa"
 
-#: ../panel-plugin/sensors.c:1919
+#: ../panel-plugin/sensors.c:1999
 msgid "Value"
 msgstr "Wartość"
 
-#: ../panel-plugin/sensors.c:1925
+#: ../panel-plugin/sensors.c:2005
 msgid "Show"
 msgstr "Pokaż"
 
-#: ../panel-plugin/sensors.c:1934
+#: ../panel-plugin/sensors.c:2014
 msgid "Color"
 msgstr "Kolor"
 
-#: ../panel-plugin/sensors.c:1944
+#: ../panel-plugin/sensors.c:2024
 msgid "Min"
 msgstr "Minimum"
 
-#: ../panel-plugin/sensors.c:1953
+#: ../panel-plugin/sensors.c:2033
 msgid "Max"
 msgstr "Maximum"
 
-#: ../panel-plugin/sensors.c:1981
-msgid "Font size:"
+#: ../panel-plugin/sensors.c:2065
+#, fuzzy
+msgid "F_ont size:"
 msgstr "Rozmiar czcionki:"
 
-#: ../panel-plugin/sensors.c:1988
+#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#: ../panel-plugin/sensors.c:2072
 msgid "x-small"
 msgstr "x-mała"
 
-#: ../panel-plugin/sensors.c:1989
+#: ../panel-plugin/sensors.c:2073
 msgid "small"
 msgstr "mała"
 
-#: ../panel-plugin/sensors.c:1990
+#: ../panel-plugin/sensors.c:2074
 msgid "medium"
 msgstr "średnia"
 
-#: ../panel-plugin/sensors.c:1991
+#: ../panel-plugin/sensors.c:2075
 msgid "large"
 msgstr "duża"
 
-#: ../panel-plugin/sensors.c:1992
+#: ../panel-plugin/sensors.c:2076
 msgid "x-large"
 msgstr "x-duża"
 
-#: ../panel-plugin/sensors.c:2020
-msgid "Temperature scale:"
+#: ../panel-plugin/sensors.c:2107
+#, fuzzy
+msgid "T_emperature scale:"
 msgstr "Skala temperatury:"
 
-#: ../panel-plugin/sensors.c:2022
-msgid "Celsius"
+#: ../panel-plugin/sensors.c:2109
+#, fuzzy
+msgid "_Celsius"
 msgstr "Celcjusze"
 
-#: ../panel-plugin/sensors.c:2024
-msgid "Fahrenheit"
+#: ../panel-plugin/sensors.c:2111
+#, fuzzy
+msgid "_Fahrenheit"
 msgstr "Farenhaity"
 
-#: ../panel-plugin/sensors.c:2063
-msgid "Update interval (seconds):"
+#: ../panel-plugin/sensors.c:2150
+#, fuzzy
+msgid "U_pdate interval (seconds):"
 msgstr "Czas aktualizacji (sek):"
 
-#: ../panel-plugin/sensors.c:2090
-msgid "Execute on double click:"
+#: ../panel-plugin/sensors.c:2178
+#, fuzzy
+msgid "E_xecute on double click:"
 msgstr "Wykonaj przy podwójnym kliknięciu:"
 
-#: ../panel-plugin/sensors.c:2132
-msgid "<b>View</b>"
-msgstr "<b>Widok</b>"
+#: ../panel-plugin/sensors.c:2223
+msgid "View"
+msgstr ""
 
-#: ../panel-plugin/sensors.c:2190
-msgid "<b>Miscellaneous</b>"
+#: ../panel-plugin/sensors.c:2283
+#, fuzzy
+msgid "Miscellaneous"
 msgstr "<b>Inne</b>"
 
-#: ../panel-plugin/sensors.c:2237
+#: ../panel-plugin/sensors.c:2331
 msgid "Edit Properties"
 msgstr "Edytuj właściowości"
 
-#. #include <unistd.h>
-#: ../panel-plugin/sensors.c:2244 ../panel-plugin/sensors.h:51
+#: ../panel-plugin/sensors.c:2338 ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr "Wtyczka Czujników"
 
@@ -185,5 +191,17 @@ msgstr "Wtyczka czujników "
 msgid "Show sensor values."
 msgstr "Pokazuj wartości z czujników"
 
-#~ msgid "Show colored _bars"
-#~ msgstr "Pokazuj kolorowe _słupki"
+#~ msgid "Hard disk temperature sensors"
+#~ msgstr "Czujniki temperatury dysku"
+
+#~ msgid "<b>Sensors</b>"
+#~ msgstr "<b>Czujniki</b>"
+
+#~ msgid "Error: Could not connect to sensors!"
+#~ msgstr "Błąd: nie mogę połączyć się z czujnikiem!"
+
+#~ msgid "Hard disks"
+#~ msgstr "Dyski twarde"
+
+#~ msgid "<b>View</b>"
+#~ msgstr "<b>Widok</b>"

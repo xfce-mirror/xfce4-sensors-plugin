@@ -1,0 +1,14 @@
+Notes for package maintainers (and perhaps suitable for finding solutions to 
+your problem with no hddtemp being displayed):
+
+This version now has optional compile-time support for libsensors3, hddtemp and
+ACPI stuff. Thus, when creating packages, you have the choice to deliver a 
+package with all features, which then strongly depends on all of the compiled-in 
+features and libraries.
+
+hddtemp is no longer searched at run-time, it is only enabled at compile-time.
+
+If you know of any further OS-specific interface or system library that might be worth including, please tell me. 
+
+For hddtemp to work for users in the plugin, it must be setuid root or a hddtemp daemon must be running. if none of this is done, it cant display the hddtemp.
+

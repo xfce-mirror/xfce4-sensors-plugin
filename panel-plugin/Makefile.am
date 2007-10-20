@@ -1,23 +1,44 @@
 plugindir = $(libexecdir)/xfce4/panel-plugins
 plugin_PROGRAMS = xfce4-sensors-plugin
 
-LIBS = @LIBS@ @SOLLIBS@
+# LIBS = @LIBS@ @SOLLIBS@
 
-xfce4_sensors_plugin_SOURCES =                              		 \
-    sensors.c                                           		     \
-	sensors.h
+if HAVE_LIBSENSORS
+SENSORS_SOURCES = lmsensors.c lmsensors.h
+endif
 
-xfce4_sensors_plugin_CFLAGS =  		                                 \
-     -DPACKAGE_LOCALE_DIR=\"$(localedir)\"                           \
-     @LIBXFCE4PANEL_CFLAGS@
+if HAVE_HDDTEMP
+HDDTEMP_SOURCES = hddtemp.c hddtemp.h
+endif
 
-xfce4_sensors_plugin_LDFLAGS =                                       \
-    @SOLLIBS@                                   			         \
-	@LIBXFCE4PANEL_LIBS@                                             \
-	-lsensors
+if HAVE_ACPI
+ACPI_SOURCES = acpi.c acpi.h
+endif
 
-# INCLUDES =								                             \
-#	-DG_LOG_DOMAIN=\"xfce4-sensors-plugin\"                          \
+
+xfce4_sensors_plugin_SOURCES =									   \
+	middlelayer.c													\
+	middlelayer.h													\
+	$(SENSORS_SOURCES)												\
+	$(HDDTEMP_SOURCES)												\
+	$(ACPI_SOURCES)													\
+	sensors.c														\
+	sensors.h														\
+	types.h
+
+xfce4_sensors_plugin_CFLAGS = \
+	@LIBXFCE4PANEL_CFLAGS@										   \
+	@PLATFORM_CFLAGS@												\
+	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"							\
+	@LIBSENSORS_CFLAGS@
+
+xfce4_sensors_plugin_LDFLAGS = \
+	@LIBXFCE4PANEL_LIBS@											 \
+	@SOLLIBS@														\
+	@LIBSENSORS_LDFLAGS@
+
+# INCLUDES =														 \
+#	-DG_LOG_DOMAIN=\"xfce4-sensors-plugin\"						 \
 #	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
 
 # .desktop file
@@ -34,15 +55,15 @@ desktopdir = $(datadir)/xfce4/panel-plugins
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
-EXTRA_DIST =                 \
+EXTRA_DIST =														 \
 	$(desktop_in_in_files)
 
 
-DISTCLEANFILES =							                         \
+DISTCLEANFILES =													 \
 	$(desktop_DATA) $(desktop_in_files)
 
 # get full path into .desktop file
 %.desktop.in: %.desktop.in.in
-	sed -e "s^@PLUGIN_PATH@^$(libexecdir)/xfce4/panel-plugins^" 	 \
-		$< > $@
+	sed -e "s^@PLUGIN_PATH@^$(libexecdir)/xfce4/panel-plugins^" \
+	$< > $@
 

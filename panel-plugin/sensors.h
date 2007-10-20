@@ -1,5 +1,5 @@
-/*  Copyright 2004 Fabian Nowak (timystery@arcor.de)
- *  
+/*  Copyright 2004-2007 Fabian Nowak (timystery@arcor.de)
+ *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation; either version 2 of the License, or
@@ -12,68 +12,54 @@
  *
  *  You should have received a copy of the GNU General Public License
  *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA. 
+ *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-
-/* This plugin requires libsensors-3 and its headers !*/
 
 /* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
 
-#ifndef XFCE4_SENSORS_H
-#define XFCE4_SENSORS_H
+#ifndef XFCE4_SENSORS_SENSORS_H
+#define XFCE4_SENSORS_SENSORS_H
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+ #include <config.h>
 #endif
 
+/* #endif */
+
+#include <glib/garray.h>
 #include <glib/gprintf.h>
 
 #include <libxfce4util/libxfce4util.h>
 #include <libxfcegui4/libxfcegui4.h>
 #include <libxfce4panel/xfce-panel-plugin.h>
 
-/* #include <libxfce4util/i18n.h>
-#include <libxfce4util/libxfce4util.h>
-#include <libxfcegui4/xfce_clock.h>
-
-#include <panel/controls.h>
-#include <panel/global.h>
-#include <panel/icons.h>
-#include <panel/plugins.h> */
-
-/* this is libsensors3 */
-#include <sensors/sensors.h>
-
-/* for strstr() */
 #include <string.h>
 
-/* #include <unistd.h> */
+#include "middlelayer.h"
+
 #define APP_NAME N_("Sensors Plugin")
 
-#define BORDER 6
-#define SENSORS 10
-#define FEATURES_PER_SENSOR 256
+#define BORDER 8
+#define OUTER_BORDER 4
+#define INNER_BORDER 2
 
-
-#define COLOR_ERROR     "#f00000"
-#define COLOR_WARN      "#f0f000"
+#define COLOR_ERROR     "#F00000"
+#define COLOR_WARN      "#F0F000"
 #define COLOR_NORMAL    "#00C000"
 
 
-typedef enum {
-    TEMPERATURE,
-    VOLTAGE,
-    SPEED,
-    OTHER
-} sensor_type;
-
-
+/*
+ * temperature scale to show values in
+ */
 typedef enum {
     CELSIUS,
     FAHRENHEIT
-} temp_scale;
+} t_tempscale;
 
 
+/*
+ * compound widget displaying a progressbar and optional label
+ */
 typedef struct {
     /* the progress bar */
     GtkWidget *progressbar;
@@ -86,8 +72,8 @@ typedef struct {
 } t_barpanel;
 
 
-/*  Sensors module
- *  ------------
+/*
+ * Sensors module
  */
 typedef struct {
 
@@ -95,110 +81,117 @@ typedef struct {
 
     /* eventbox to catch events */
     GtkWidget *eventbox;
-    
+
     /* our XfceSensors widget */
-    GtkWidget *sensors;
-    
+    GtkWidget *widget_sensors;
+
     /* panel value display */
-    GtkWidget *panelValuesLabel;
+    GtkWidget *panel_label_text;
 
     /* update the tooltip */
     gint timeout_id;
 
     /* font size for display in panel */
-    gchar* fontSize;
-    gint fontSizeNumerical;
+    gchar* font_size;
+    gint font_size_numerical;
 
     /* temperature scale for display in panel */
-    temp_scale scale;
-    
+    t_tempscale scale;
+
     /* panel size to compute number of cols/columns */
-    gint panelSize;
+    gint panel_size;
 
     /* panel orientation */
     gint orientation;
 
     /* if the bars have been initialized */
-    gboolean barsCreated;
-    
+    gboolean bars_created;
+
     /* show title in panel */
-    gboolean showTitle;
+    gboolean show_title;
 
     /* show labels in panel (GUI mode only) */
-    gboolean showLabels;
-    
+    gboolean show_labels;
+
     /* show colored bars (GUI mode only) */
-    gboolean showColoredBars;
-    
+    gboolean show_colored_bars;
+
     /* use the progress-bar UI */
-    gboolean useBarUI;
+    gboolean display_values_graphically;
 
     /* sensor update time */
-    gint sensorUpdateTime;
-                
+    gint sensors_refresh_time;
+
     /* sensor relevant stuff */
-    /* no problem if less than 11 sensors, else will have to enlarge the 
+    /* no problem if less than 11 sensors, else will have to enlarge the
         following arrays. NYI!! */
-    gint sensorNumber;
-    gint sensorsCount[SENSORS];
-    
+    gint num_sensorchips;
+
+    /* gint sensorsCount[SENSORS]; */
+
     /* contains the progress bar panels */
-    GtkWidget* panels[SENSORS][FEATURES_PER_SENSOR];
-    
+    /* FIXME:    Might be replaced by GPtrArray as well */
+    GtkWidget* panels[10][256];
+    /*    GArray *panels_array; */
+
     /* contains structure from libsensors */
-    const sensors_chip_name *chipName[SENSORS];
-    
+    /* const sensors_chip_name *chipName[SENSORS]; */
+
     /* formatted sensor chip names, e.g. 'asb-100-45' */
-    gchar *sensorId[SENSORS];
-    
+    /* gchar *sensorId[SENSORS]; */
+
     /* unformatted sensor feature names, e.g. 'Vendor' */
-    gchar *sensorNames[SENSORS][FEATURES_PER_SENSOR];
+    /* gchar *sensorNames[SENSORS][FEATURES_PER_SENSOR]; */
 
     /* minimum and maximum values (GUI mode only) */
-    glong sensorMinValues[SENSORS][FEATURES_PER_SENSOR];
-    glong sensorMaxValues[SENSORS][FEATURES_PER_SENSOR];
-    
+    /* glong sensorMinValues[SENSORS][FEATURES_PER_SENSOR]; */
+    /* glong sensorMaxValues[SENSORS][FEATURES_PER_SENSOR]; */
+
     /* unformatted sensor feature values */
-    double sensorRawValues[SENSORS][FEATURES_PER_SENSOR];
+    /* double sensorRawValues[SENSORS][FEATURES_PER_SENSOR]; */
 
     /* formatted (%f5.2) sensor feature values */
-    gchar *sensorValues[SENSORS][FEATURES_PER_SENSOR];
+    /* gchar *sensorValues[SENSORS][FEATURES_PER_SENSOR]; */
 
     /* TRUE if sensorNames are set */
-    gboolean sensorValid[SENSORS][FEATURES_PER_SENSOR];
-    
+    /* gboolean sensorValid[SENSORS][FEATURES_PER_SENSOR]; */
+
     /* show sensor in panel */
-    gboolean sensorCheckBoxes[SENSORS][FEATURES_PER_SENSOR];
-    
+    /* gboolean sensorCheckBoxes[SENSORS][FEATURES_PER_SENSOR]; */
+
     /* sensor types to display values in appropriate format */
-    sensor_type sensor_types[SENSORS][FEATURES_PER_SENSOR];
-    
+    /* sensor_type sensor_types[SENSORS][FEATURES_PER_SENSOR]; */
+    GPtrArray *chips;
+
     /* sensor colors in panel */
-    gchar *sensorColors[SENSORS][FEATURES_PER_SENSOR];
-    
+    /* gchar *sensorColors[SENSORS][FEATURES_PER_SENSOR]; */
+
     /* number in list <--> number in array */
-    gint sensorAddress[SENSORS][FEATURES_PER_SENSOR];
-    
+    /* gint sensorAddress[NUM_SENSOR_CHIPS][FEATURES_PER_SENSOR]; */
+
     /* double-click improvement as suggested on xfce4-goodies@berlios.de */
     /* whether to execute command on double click */
-    gboolean execCommand; 
-    
+    gboolean exec_command;
+
     /* command to excute */
-    gchar* commandName; 
-    
+    gchar* command_name;
+
     /* callback_id for doubleclicks */
-    gint doubleClick_id; 
-     
+    gint doubleclick_id;
+
     /* hddtemp disks */
     GPtrArray *disklist;
-    gint numDisks;
-    
+    /* gint num_disks; */
+
+    /* ACPI thermal zones */
+    GPtrArray *acpi_zones;
+    gint num_acpi_zones;
 }
 t_sensors;
 
 
-/* sensor panel widget
- * -------------------
+/*
+ * sensor panel widget
  */
 typedef struct {
     /* the sensors structure */
@@ -215,19 +208,22 @@ typedef struct {
     /* GtkWidget *myFrame; */
     GtkWidget *mySensorLabel;
     GtkWidget *myTreeView;
-    GtkTreeStore *myListStore[SENSORS];
-    GtkWidget *fontBox; /* used to disable font size option when using graphical view */
-    GtkWidget *labelsBox; /* used to enable 'show labels' option when using graphical view */
-    GtkWidget *coloredBarsBox;
+    GtkTreeStore *myListStore[10]; /* replace by GPtrArray as well */
+    GtkWidget *font_Box; /* used to disable font size option when using graphical view */
+    GtkWidget *labels_Box; /* used to enable 'show labels' option when using graphical view */
+    GtkWidget *coloredBars_Box;
     GtkWidget *temperature_radio_group;
 
-    /* double-click improvement */  
-    GtkWidget *myExecCommandCheckBox;
-    GtkWidget *myCommandNameEntry; 
+    /* double-click improvement */
+    GtkWidget *myExecCommand_CheckBox;
+    GtkWidget *myCommandName_Entry;
 }
-SensorsDialog;
+t_sensors_dialog;
 
+/*
+ * Tooltips to display for any part of this plugin
+ */
 static GtkTooltips *tooltips = NULL;
 
 
-#endif // XFCE4_SENSORS_H
+#endif /* XFCE4_SENSORS_SENSORS_H */

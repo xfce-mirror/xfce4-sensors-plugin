@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-01 11:14+0200\n"
+"POT-Creation-Date: 2007-10-07 15:02+0200\n"
 "PO-Revision-Date: 2006-02-13 22:20+0100\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: Librezale <librezale@librezale.org>\n"
@@ -16,29 +16,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 0.6.3.20060126\n"
 
-#: ../panel-plugin/sensors.c:156 ../panel-plugin/sensors.c:2227
-msgid "<b>Sensors</b>"
+#: ../panel-plugin/sensors.c:201 ../panel-plugin/sensors.c:2254
+#, fuzzy
+msgid "Sensors"
 msgstr "<b>Sentsoreak</b>"
 
-#: ../panel-plugin/sensors.c:275
+#: ../panel-plugin/sensors.c:323
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sentsoreak</b></span>\n"
 
-#: ../panel-plugin/sensors.c:337
+#: ../panel-plugin/sensors.c:388
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sentsoreak</b></span>"
 
 #. circumvent empty char pointer
-#: ../panel-plugin/sensors.c:444
+#: ../panel-plugin/sensors.c:470
 msgid "No sensors selected!"
 msgstr "Ez da sentsorerik hautatu!"
 
-#: ../panel-plugin/sensors.c:482 ../panel-plugin/sensors.c:1705
+#: ../panel-plugin/sensors.c:509
+#, fuzzy, c-format
 msgid ""
-" \n"
-"Xfce Hardware Sensors Plugin: \n"
+"Xfce Hardware Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value. \n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
@@ -47,138 +48,126 @@ msgstr ""
 "Dirudienez arazo bat dago sentsore ezaugarri balioa irakurtzerakoan. \n"
 "Ezin da behar ebzala ibiliko den ziurtatu.\n"
 
-#: ../panel-plugin/sensors.c:503
+#: ../panel-plugin/sensors.c:528
 #, c-format
 msgid "%5.0f rpm"
 msgstr "%5.0f b/min"
 
-#: ../panel-plugin/sensors.c:726
-msgid "Error: Could not connect to sensors!"
-msgstr "Errorea: Ezin da sentsoreetara konektatu!"
-
-#: ../panel-plugin/sensors.c:816 ../panel-plugin/sensors.c:890
-msgid "Hard disks"
-msgstr "Diska Gogorrak"
-
-#: ../panel-plugin/sensors.c:926
+#: ../panel-plugin/sensors.c:840
 msgid "No sensors found!"
 msgstr "Ez da sentsorerik aurkitu!"
 
-#: ../panel-plugin/sensors.c:1384
-msgid "Hard disk temperature sensors"
-msgstr "Diska gogor tenperatura sentsoreak"
-
-#: ../panel-plugin/sensors.c:1800
+#: ../panel-plugin/sensors.c:1813
 msgid "_UI style:"
 msgstr "_UI estiloa:"
 
-#: ../panel-plugin/sensors.c:1801
+#: ../panel-plugin/sensors.c:1814
 msgid "_text"
 msgstr "_testua"
 
-#: ../panel-plugin/sensors.c:1803
+#: ../panel-plugin/sensors.c:1816
 msgid "g_raphical"
 msgstr "g_rafikoa"
 
-#: ../panel-plugin/sensors.c:1840
+#: ../panel-plugin/sensors.c:1853
 msgid "Show _labels in graphical UI"
 msgstr "_Etitketa bistarazi UI grafikoan"
 
-#: ../panel-plugin/sensors.c:1869
+#: ../panel-plugin/sensors.c:1883
 msgid "Show colored _bars"
 msgstr "Koloretako _barrak ikusi"
 
-#: ../panel-plugin/sensors.c:1898
+#: ../panel-plugin/sensors.c:1912
 msgid "_Show title"
 msgstr "_Izenburua ikusi"
 
-#: ../panel-plugin/sensors.c:1924
+#: ../panel-plugin/sensors.c:1940
 msgid "Sensors t_ype:"
 msgstr "Sentsore m_ota:"
 
-#: ../panel-plugin/sensors.c:1971
+#: ../panel-plugin/sensors.c:1990
 msgid "Name"
 msgstr "Izena"
 
-#: ../panel-plugin/sensors.c:1980
+#: ../panel-plugin/sensors.c:1999
 msgid "Value"
 msgstr "Balioa"
 
-#: ../panel-plugin/sensors.c:1986
+#: ../panel-plugin/sensors.c:2005
 msgid "Show"
 msgstr "Bistarazi"
 
-#: ../panel-plugin/sensors.c:1995
+#: ../panel-plugin/sensors.c:2014
 msgid "Color"
 msgstr "Kolorea"
 
-#: ../panel-plugin/sensors.c:2005
+#: ../panel-plugin/sensors.c:2024
 msgid "Min"
 msgstr "Min"
 
-#: ../panel-plugin/sensors.c:2014
+#: ../panel-plugin/sensors.c:2033
 msgid "Max"
 msgstr "Geh"
 
-#: ../panel-plugin/sensors.c:2042
+#: ../panel-plugin/sensors.c:2065
 msgid "F_ont size:"
 msgstr "Letra-tip_o tamaina:"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->useBarUI);
-#: ../panel-plugin/sensors.c:2049
+#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#: ../panel-plugin/sensors.c:2072
 msgid "x-small"
 msgstr "oso txikia"
 
-#: ../panel-plugin/sensors.c:2050
+#: ../panel-plugin/sensors.c:2073
 msgid "small"
 msgstr "txikia"
 
-#: ../panel-plugin/sensors.c:2051
+#: ../panel-plugin/sensors.c:2074
 msgid "medium"
 msgstr "ertaina"
 
-#: ../panel-plugin/sensors.c:2052
+#: ../panel-plugin/sensors.c:2075
 msgid "large"
 msgstr "handia"
 
-#: ../panel-plugin/sensors.c:2053
+#: ../panel-plugin/sensors.c:2076
 msgid "x-large"
 msgstr "oso handia"
 
-#: ../panel-plugin/sensors.c:2084
+#: ../panel-plugin/sensors.c:2107
 msgid "T_emperature scale:"
 msgstr "T_enperatura eskala:"
 
-#: ../panel-plugin/sensors.c:2086
+#: ../panel-plugin/sensors.c:2109
 msgid "_Celsius"
 msgstr "_Celsius"
 
-#: ../panel-plugin/sensors.c:2088
+#: ../panel-plugin/sensors.c:2111
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../panel-plugin/sensors.c:2127
+#: ../panel-plugin/sensors.c:2150
 msgid "U_pdate interval (seconds):"
 msgstr "Egunera_keta aldia (segundu):"
 
-#: ../panel-plugin/sensors.c:2154
+#: ../panel-plugin/sensors.c:2178
 msgid "E_xecute on double click:"
 msgstr "Klik bikoitzarekin e_xekutatu:"
 
-#: ../panel-plugin/sensors.c:2196
-msgid "<b>View</b>"
-msgstr "<b>Bistarazi</b>"
+#: ../panel-plugin/sensors.c:2223
+msgid "View"
+msgstr ""
 
-#: ../panel-plugin/sensors.c:2256
-msgid "<b>Miscellaneous</b>"
+#: ../panel-plugin/sensors.c:2283
+#, fuzzy
+msgid "Miscellaneous"
 msgstr "<b>Bestelakoak</b>"
 
-#: ../panel-plugin/sensors.c:2304
+#: ../panel-plugin/sensors.c:2331
 msgid "Edit Properties"
 msgstr "Propietateak Editatu"
 
-#. #include <unistd.h>
-#: ../panel-plugin/sensors.c:2311 ../panel-plugin/sensors.h:51
+#: ../panel-plugin/sensors.c:2338 ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr "Sentsore Plugin-a"
 
@@ -189,3 +178,15 @@ msgstr "Sentsore plugin-a "
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "Sentsore balioak bistarazi."
+
+#~ msgid "Hard disk temperature sensors"
+#~ msgstr "Diska gogor tenperatura sentsoreak"
+
+#~ msgid "Error: Could not connect to sensors!"
+#~ msgstr "Errorea: Ezin da sentsoreetara konektatu!"
+
+#~ msgid "Hard disks"
+#~ msgstr "Diska Gogorrak"
+
+#~ msgid "<b>View</b>"
+#~ msgstr "<b>Bistarazi</b>"

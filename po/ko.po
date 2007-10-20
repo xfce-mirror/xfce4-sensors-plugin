@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-01 11:14+0200\n"
+"POT-Creation-Date: 2007-10-07 15:02+0200\n"
 "PO-Revision-Date: 2005-12-11 02:20+0900\n"
 "Last-Translator: ByungHyun Choi <byunghyun.choi@debianusers.org>\n"
 "Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge."
@@ -16,29 +16,30 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors.c:156 ../panel-plugin/sensors.c:2227
-msgid "<b>Sensors</b>"
+#: ../panel-plugin/sensors.c:201 ../panel-plugin/sensors.c:2254
+#, fuzzy
+msgid "Sensors"
 msgstr "<b>센서</b>"
 
-#: ../panel-plugin/sensors.c:275
+#: ../panel-plugin/sensors.c:323
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>센서</b></span> \n"
 
-#: ../panel-plugin/sensors.c:337
+#: ../panel-plugin/sensors.c:388
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>센서</b></span>"
 
 #. circumvent empty char pointer
-#: ../panel-plugin/sensors.c:444
+#: ../panel-plugin/sensors.c:470
 msgid "No sensors selected!"
 msgstr "센서를 선택하지 않았습니다!"
 
-#: ../panel-plugin/sensors.c:482 ../panel-plugin/sensors.c:1705
+#: ../panel-plugin/sensors.c:509
+#, fuzzy, c-format
 msgid ""
-" \n"
-"Xfce Hardware Sensors Plugin: \n"
+"Xfce Hardware Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value. \n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
@@ -47,138 +48,126 @@ msgstr ""
 "센서의 기능과 측정치를 읽는 도중 문제가 생긴 것 같습니다.\n"
 "따라서 정상적인 동작을 보장할 수 없습니다.\n"
 
-#: ../panel-plugin/sensors.c:503
+#: ../panel-plugin/sensors.c:528
 #, c-format
 msgid "%5.0f rpm"
 msgstr "%5.0f RPM"
 
-#: ../panel-plugin/sensors.c:726
-msgid "Error: Could not connect to sensors!"
-msgstr "오류: 선세에 연결하지 못 했습니다."
-
-#: ../panel-plugin/sensors.c:816 ../panel-plugin/sensors.c:890
-msgid "Hard disks"
-msgstr "하드 디스크"
-
-#: ../panel-plugin/sensors.c:926
+#: ../panel-plugin/sensors.c:840
 msgid "No sensors found!"
 msgstr "센서를 못 찾았습니다!"
 
-#: ../panel-plugin/sensors.c:1384
-msgid "Hard disk temperature sensors"
-msgstr "하드디스크 온도 센서"
-
-#: ../panel-plugin/sensors.c:1800
+#: ../panel-plugin/sensors.c:1813
 msgid "_UI style:"
 msgstr "UI 스타일(_U):"
 
-#: ../panel-plugin/sensors.c:1801
+#: ../panel-plugin/sensors.c:1814
 msgid "_text"
 msgstr "글자(_t)"
 
-#: ../panel-plugin/sensors.c:1803
+#: ../panel-plugin/sensors.c:1816
 msgid "g_raphical"
 msgstr "그림(_r)"
 
-#: ../panel-plugin/sensors.c:1840
+#: ../panel-plugin/sensors.c:1853
 msgid "Show _labels in graphical UI"
 msgstr "GUI에 레이블 보이기(_l)"
 
-#: ../panel-plugin/sensors.c:1869
+#: ../panel-plugin/sensors.c:1883
 msgid "Show colored _bars"
 msgstr "색깔있는 막대 보이기(_b)"
 
-#: ../panel-plugin/sensors.c:1898
+#: ../panel-plugin/sensors.c:1912
 msgid "_Show title"
 msgstr "이름 보여주기(_S)"
 
-#: ../panel-plugin/sensors.c:1924
+#: ../panel-plugin/sensors.c:1940
 msgid "Sensors t_ype:"
 msgstr "센서 종류(_t):"
 
-#: ../panel-plugin/sensors.c:1971
+#: ../panel-plugin/sensors.c:1990
 msgid "Name"
 msgstr "이름"
 
-#: ../panel-plugin/sensors.c:1980
+#: ../panel-plugin/sensors.c:1999
 msgid "Value"
 msgstr "값"
 
-#: ../panel-plugin/sensors.c:1986
+#: ../panel-plugin/sensors.c:2005
 msgid "Show"
 msgstr "보이기"
 
-#: ../panel-plugin/sensors.c:1995
+#: ../panel-plugin/sensors.c:2014
 msgid "Color"
 msgstr "색상"
 
-#: ../panel-plugin/sensors.c:2005
+#: ../panel-plugin/sensors.c:2024
 msgid "Min"
 msgstr "최소"
 
-#: ../panel-plugin/sensors.c:2014
+#: ../panel-plugin/sensors.c:2033
 msgid "Max"
 msgstr "최대"
 
-#: ../panel-plugin/sensors.c:2042
+#: ../panel-plugin/sensors.c:2065
 msgid "F_ont size:"
 msgstr "글꼴 크기(_o):"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->useBarUI);
-#: ../panel-plugin/sensors.c:2049
+#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#: ../panel-plugin/sensors.c:2072
 msgid "x-small"
 msgstr "아주 작게"
 
-#: ../panel-plugin/sensors.c:2050
+#: ../panel-plugin/sensors.c:2073
 msgid "small"
 msgstr "작게"
 
-#: ../panel-plugin/sensors.c:2051
+#: ../panel-plugin/sensors.c:2074
 msgid "medium"
 msgstr "중간"
 
-#: ../panel-plugin/sensors.c:2052
+#: ../panel-plugin/sensors.c:2075
 msgid "large"
 msgstr "크게"
 
-#: ../panel-plugin/sensors.c:2053
+#: ../panel-plugin/sensors.c:2076
 msgid "x-large"
 msgstr "아주 크게"
 
-#: ../panel-plugin/sensors.c:2084
+#: ../panel-plugin/sensors.c:2107
 msgid "T_emperature scale:"
 msgstr "온도 단위(_e):"
 
-#: ../panel-plugin/sensors.c:2086
+#: ../panel-plugin/sensors.c:2109
 msgid "_Celsius"
 msgstr "섭씨(_C)"
 
-#: ../panel-plugin/sensors.c:2088
+#: ../panel-plugin/sensors.c:2111
 msgid "_Fahrenheit"
 msgstr "화씨(_F)"
 
-#: ../panel-plugin/sensors.c:2127
+#: ../panel-plugin/sensors.c:2150
 msgid "U_pdate interval (seconds):"
 msgstr "검사 간격 (초)(_p):"
 
-#: ../panel-plugin/sensors.c:2154
+#: ../panel-plugin/sensors.c:2178
 msgid "E_xecute on double click:"
 msgstr "따닥(더블클릭)하면 실행합니다(_x):"
 
-#: ../panel-plugin/sensors.c:2196
-msgid "<b>View</b>"
-msgstr "<b>보기</b>"
+#: ../panel-plugin/sensors.c:2223
+msgid "View"
+msgstr ""
 
-#: ../panel-plugin/sensors.c:2256
-msgid "<b>Miscellaneous</b>"
+#: ../panel-plugin/sensors.c:2283
+#, fuzzy
+msgid "Miscellaneous"
 msgstr "<b>기타</b>"
 
-#: ../panel-plugin/sensors.c:2304
+#: ../panel-plugin/sensors.c:2331
 msgid "Edit Properties"
 msgstr "속성 변경"
 
-#. #include <unistd.h>
-#: ../panel-plugin/sensors.c:2311 ../panel-plugin/sensors.h:51
+#: ../panel-plugin/sensors.c:2338 ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr "센서 플러그인"
 
@@ -189,3 +178,15 @@ msgstr "센서 플러그인"
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "센서 값 보이기"
+
+#~ msgid "Hard disk temperature sensors"
+#~ msgstr "하드디스크 온도 센서"
+
+#~ msgid "Error: Could not connect to sensors!"
+#~ msgstr "오류: 선세에 연결하지 못 했습니다."
+
+#~ msgid "Hard disks"
+#~ msgstr "하드 디스크"
+
+#~ msgid "<b>View</b>"
+#~ msgstr "<b>보기</b>"

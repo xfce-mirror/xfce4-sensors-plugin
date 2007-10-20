@@ -10,3 +10,7 @@
 0.9.0: support for hddtemp
 0.10.0: accelerators in options dialog, some cleanup in options dialog, colored
         bars possible, bars are arranged more carfeully in panel
+0.11.0: Modular sensors interface suitable for extension of further 
+        system-specific routines and libraries. New configure stuff. 
+        Added po/LINGUAS.
+
