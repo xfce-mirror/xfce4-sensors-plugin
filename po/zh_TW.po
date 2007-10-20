@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-07 15:02+0200\n"
+"POT-Creation-Date: 2007-10-20 20:12+0200\n"
 "PO-Revision-Date: 2006-06-26 22:37+0800\n"
 "Last-Translator: Hydonsingore Cia <hydonsingore@educities.edu.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -15,27 +15,26 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors.c:201 ../panel-plugin/sensors.c:2254
+#: ../panel-plugin/sensors.c:196
 #, fuzzy
-msgid "Sensors"
-msgstr "感測器類型："
+msgid "<span foreground=\"#000000\"><b>Sensors</b></span>\n"
+msgstr "<span foreground=\"#000000\" size=\"%s\"><b>感測器</b></span>\n"
 
-#: ../panel-plugin/sensors.c:323
+#: ../panel-plugin/sensors.c:480
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>感測器</b></span>\n"
 
-#: ../panel-plugin/sensors.c:388
+#: ../panel-plugin/sensors.c:524
 #, c-format
-msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
-msgstr "<span foreground=\"#000000\" size=\"%s\"><b>感測器</b></span>"
+msgid "%5.0f rpm"
+msgstr "%5.0f rpm"
 
-#. circumvent empty char pointer
-#: ../panel-plugin/sensors.c:470
+#: ../panel-plugin/sensors.c:556
 msgid "No sensors selected!"
 msgstr "沒有感測器被選用！"
 
-#: ../panel-plugin/sensors.c:509
+#: ../panel-plugin/sensors.c:588
 #, fuzzy, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -47,14 +46,33 @@ msgstr ""
 "在讀取感測器數值時似乎有點問題。\n"
 "無法保證能夠正常運作。\n"
 
-#: ../panel-plugin/sensors.c:528
-#, c-format
-msgid "%5.0f rpm"
-msgstr "%5.0f rpm"
-
-#: ../panel-plugin/sensors.c:840
+#: ../panel-plugin/sensors.c:820
 msgid "No sensors found!"
 msgstr "找不到感測器！"
+
+#. #ifdef DEBUG
+#. g_printf(" %d \n", getIdFromAddress(i, j, sensors));
+#. #endif
+#. only use this if no hddtemp sensor
+#. FIXME: compare strings, or also have hddtmep and acpi store numeric values
+#. assert correctly saved file
+#: ../panel-plugin/sensors.c:1014 ../panel-plugin/sensors.c:1171
+#: ../panel-plugin/sensors.c:1177
+msgid "Hard disks"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:1390
+#, fuzzy, c-format
+msgid ""
+"\n"
+"Xfce Hardware Sensors Plugin: \n"
+"Seems like there was a problem reading a sensor feature value. \n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr ""
+" \n"
+"Xfce 硬體感測外掛程式：\n"
+"在讀取感測器數值時似乎有點問題。\n"
+"無法保證能夠正常運作。\n"
 
 #: ../panel-plugin/sensors.c:1813
 #, fuzzy
@@ -80,63 +98,63 @@ msgstr "在圖形介面中顯示標籤"
 msgid "Show colored _bars"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1912
+#: ../panel-plugin/sensors.c:1911
 #, fuzzy
 msgid "_Show title"
 msgstr "顯示標題"
 
-#: ../panel-plugin/sensors.c:1940
+#: ../panel-plugin/sensors.c:1939
 #, fuzzy
 msgid "Sensors t_ype:"
 msgstr "感測器類型："
 
-#: ../panel-plugin/sensors.c:1990
+#: ../panel-plugin/sensors.c:1989
 msgid "Name"
 msgstr "名稱"
 
-#: ../panel-plugin/sensors.c:1999
+#: ../panel-plugin/sensors.c:1998
 msgid "Value"
 msgstr "數值"
 
-#: ../panel-plugin/sensors.c:2005
+#: ../panel-plugin/sensors.c:2004
 msgid "Show"
 msgstr "顯示"
 
-#: ../panel-plugin/sensors.c:2014
+#: ../panel-plugin/sensors.c:2013
 msgid "Color"
 msgstr "顏色"
 
-#: ../panel-plugin/sensors.c:2024
+#: ../panel-plugin/sensors.c:2023
 msgid "Min"
 msgstr "最小"
 
-#: ../panel-plugin/sensors.c:2033
+#: ../panel-plugin/sensors.c:2032
 msgid "Max"
 msgstr "最大"
 
-#: ../panel-plugin/sensors.c:2065
+#: ../panel-plugin/sensors.c:2064
 #, fuzzy
 msgid "F_ont size:"
 msgstr "字型大小："
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:2072
+#: ../panel-plugin/sensors.c:2071
 msgid "x-small"
 msgstr "極小"
 
-#: ../panel-plugin/sensors.c:2073
+#: ../panel-plugin/sensors.c:2072
 msgid "small"
 msgstr "小"
 
-#: ../panel-plugin/sensors.c:2074
+#: ../panel-plugin/sensors.c:2073
 msgid "medium"
 msgstr "普通"
 
-#: ../panel-plugin/sensors.c:2075
+#: ../panel-plugin/sensors.c:2074
 msgid "large"
 msgstr "大"
 
-#: ../panel-plugin/sensors.c:2076
+#: ../panel-plugin/sensors.c:2075
 msgid "x-large"
 msgstr "巨大"
 
@@ -165,20 +183,25 @@ msgstr "更新間隔時間(秒)："
 msgid "E_xecute on double click:"
 msgstr "於雙擊時執行："
 
-#: ../panel-plugin/sensors.c:2223
+#: ../panel-plugin/sensors.c:2222
 msgid "View"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2283
+#: ../panel-plugin/sensors.c:2253
+#, fuzzy
+msgid "Sensors"
+msgstr "感測器類型："
+
+#: ../panel-plugin/sensors.c:2282
 #, fuzzy
 msgid "Miscellaneous"
 msgstr "<b>雜項</b>"
 
-#: ../panel-plugin/sensors.c:2331
+#: ../panel-plugin/sensors.c:2330
 msgid "Edit Properties"
 msgstr "編輯屬性"
 
-#: ../panel-plugin/sensors.c:2338 ../panel-plugin/sensors.h:40
+#: ../panel-plugin/sensors.c:2337 ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr "感測器外掛程式"
 
@@ -189,6 +212,9 @@ msgstr "感測器外掛程式"
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "顯示感測器數值。"
+
+#~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
+#~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>感測器</b></span>"
 
 #~ msgid "<b>Sensors</b>"
 #~ msgstr "<b>感測器</b>"

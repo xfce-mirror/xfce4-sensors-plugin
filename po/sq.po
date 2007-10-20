@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-07 15:02+0200\n"
+"POT-Creation-Date: 2007-10-20 20:12+0200\n"
 "PO-Revision-Date: 2007-01-30 21:21+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: Albanian <translation-team-sq@lists.sourceforge.net>\n"
@@ -15,27 +15,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.1\n"
 
-#: ../panel-plugin/sensors.c:201 ../panel-plugin/sensors.c:2254
+#: ../panel-plugin/sensors.c:196
 #, fuzzy
-msgid "Sensors"
-msgstr "Tip ndijuesish:"
+msgid "<span foreground=\"#000000\"><b>Sensors</b></span>\n"
+msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Ndijuesa</b></span>\n"
 
-#: ../panel-plugin/sensors.c:323
+#: ../panel-plugin/sensors.c:480
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Ndijuesa</b></span>\n"
 
-#: ../panel-plugin/sensors.c:388
+#: ../panel-plugin/sensors.c:524
 #, c-format
-msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
-msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Ndijuesa</b></span>"
+msgid "%5.0f rpm"
+msgstr "%5.0f rpm"
 
-#. circumvent empty char pointer
-#: ../panel-plugin/sensors.c:470
+#: ../panel-plugin/sensors.c:556
 msgid "No sensors selected!"
 msgstr "Pa ndijuesa të përzgjedhur!"
 
-#: ../panel-plugin/sensors.c:509
+#: ../panel-plugin/sensors.c:588
 #, fuzzy, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -47,14 +46,33 @@ msgstr ""
 "Duket se ka problem me leximin e vlerës së një ndijuesi. \n"
 "Nuk garantoj dot ecurinë e duhur.\n"
 
-#: ../panel-plugin/sensors.c:528
-#, c-format
-msgid "%5.0f rpm"
-msgstr "%5.0f rpm"
-
-#: ../panel-plugin/sensors.c:840
+#: ../panel-plugin/sensors.c:820
 msgid "No sensors found!"
 msgstr "S'u gjetën ndijuesa!"
+
+#. #ifdef DEBUG
+#. g_printf(" %d \n", getIdFromAddress(i, j, sensors));
+#. #endif
+#. only use this if no hddtemp sensor
+#. FIXME: compare strings, or also have hddtmep and acpi store numeric values
+#. assert correctly saved file
+#: ../panel-plugin/sensors.c:1014 ../panel-plugin/sensors.c:1171
+#: ../panel-plugin/sensors.c:1177
+msgid "Hard disks"
+msgstr "Hard disqe"
+
+#: ../panel-plugin/sensors.c:1390
+#, fuzzy, c-format
+msgid ""
+"\n"
+"Xfce Hardware Sensors Plugin: \n"
+"Seems like there was a problem reading a sensor feature value. \n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr ""
+" \n"
+"Shtojcë Xfce për Ndijuesa \"Hardware\": \n"
+"Duket se ka problem me leximin e vlerës së një ndijuesi. \n"
+"Nuk garantoj dot ecurinë e duhur.\n"
 
 #: ../panel-plugin/sensors.c:1813
 #, fuzzy
@@ -80,63 +98,63 @@ msgstr "Shfaq etiketa në UI grafike"
 msgid "Show colored _bars"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1912
+#: ../panel-plugin/sensors.c:1911
 #, fuzzy
 msgid "_Show title"
 msgstr "Shfaq titull"
 
-#: ../panel-plugin/sensors.c:1940
+#: ../panel-plugin/sensors.c:1939
 #, fuzzy
 msgid "Sensors t_ype:"
 msgstr "Tip ndijuesish:"
 
-#: ../panel-plugin/sensors.c:1990
+#: ../panel-plugin/sensors.c:1989
 msgid "Name"
 msgstr "Emër"
 
-#: ../panel-plugin/sensors.c:1999
+#: ../panel-plugin/sensors.c:1998
 msgid "Value"
 msgstr "Vlerë"
 
-#: ../panel-plugin/sensors.c:2005
+#: ../panel-plugin/sensors.c:2004
 msgid "Show"
 msgstr "Shfaq"
 
-#: ../panel-plugin/sensors.c:2014
+#: ../panel-plugin/sensors.c:2013
 msgid "Color"
 msgstr "Ngjyrë"
 
-#: ../panel-plugin/sensors.c:2024
+#: ../panel-plugin/sensors.c:2023
 msgid "Min"
 msgstr "Min."
 
-#: ../panel-plugin/sensors.c:2033
+#: ../panel-plugin/sensors.c:2032
 msgid "Max"
 msgstr "Maks."
 
-#: ../panel-plugin/sensors.c:2065
+#: ../panel-plugin/sensors.c:2064
 #, fuzzy
 msgid "F_ont size:"
 msgstr "Madhësi gërmash:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:2072
+#: ../panel-plugin/sensors.c:2071
 msgid "x-small"
 msgstr "x-small"
 
-#: ../panel-plugin/sensors.c:2073
+#: ../panel-plugin/sensors.c:2072
 msgid "small"
 msgstr "të vogla"
 
-#: ../panel-plugin/sensors.c:2074
+#: ../panel-plugin/sensors.c:2073
 msgid "medium"
 msgstr "të mesme"
 
-#: ../panel-plugin/sensors.c:2075
+#: ../panel-plugin/sensors.c:2074
 msgid "large"
 msgstr "të mëdha"
 
-#: ../panel-plugin/sensors.c:2076
+#: ../panel-plugin/sensors.c:2075
 msgid "x-large"
 msgstr "shumë të mëdha"
 
@@ -165,20 +183,25 @@ msgstr "Interval përditësimi (sekonda):"
 msgid "E_xecute on double click:"
 msgstr "Veprim kur dyklikohet:"
 
-#: ../panel-plugin/sensors.c:2223
+#: ../panel-plugin/sensors.c:2222
 msgid "View"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2283
+#: ../panel-plugin/sensors.c:2253
+#, fuzzy
+msgid "Sensors"
+msgstr "Tip ndijuesish:"
+
+#: ../panel-plugin/sensors.c:2282
 #, fuzzy
 msgid "Miscellaneous"
 msgstr "<b>Të ndryshme</b>"
 
-#: ../panel-plugin/sensors.c:2331
+#: ../panel-plugin/sensors.c:2330
 msgid "Edit Properties"
 msgstr "Përpunoni Veti"
 
-#: ../panel-plugin/sensors.c:2338 ../panel-plugin/sensors.h:40
+#: ../panel-plugin/sensors.c:2337 ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr "Shtojcë Ndijuesish"
 
@@ -190,14 +213,14 @@ msgstr "Shtojcë ndijuesi"
 msgid "Show sensor values."
 msgstr "Shfaq vlera ndijuesish."
 
+#~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
+#~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Ndijuesa</b></span>"
+
 #~ msgid "<b>Sensors</b>"
 #~ msgstr "<b>Ndijuesa</b>"
 
 #~ msgid "Error: Could not connect to sensors!"
 #~ msgstr "Gabim: Nuk u lidha dot me ndijuesat!"
-
-#~ msgid "Hard disks"
-#~ msgstr "Hard disqe"
 
 #~ msgid "Hard disk temperature sensors"
 #~ msgstr "Nidjuesa temperature hard disku"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-07 15:02+0200\n"
+"POT-Creation-Date: 2007-10-20 20:12+0200\n"
 "PO-Revision-Date: 2006-10-14 19:59+0200\n"
 "Last-Translator: Stavros Giannouris <stavrosg@serverhive.com>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -16,27 +16,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Country: GREECE\n"
 
-#: ../panel-plugin/sensors.c:201 ../panel-plugin/sensors.c:2254
+#: ../panel-plugin/sensors.c:196
 #, fuzzy
-msgid "Sensors"
-msgstr "Τύπος αισθητήρα:"
+msgid "<span foreground=\"#000000\"><b>Sensors</b></span>\n"
+msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Αισθητήρες</b></span> \n"
 
-#: ../panel-plugin/sensors.c:323
+#: ../panel-plugin/sensors.c:480
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Αισθητήρες</b></span> \n"
 
-#: ../panel-plugin/sensors.c:388
+#: ../panel-plugin/sensors.c:524
 #, c-format
-msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
-msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Αισθητήρες</b></span>"
+msgid "%5.0f rpm"
+msgstr "%5.0f rpm"
 
-#. circumvent empty char pointer
-#: ../panel-plugin/sensors.c:470
+#: ../panel-plugin/sensors.c:556
 msgid "No sensors selected!"
 msgstr "Δεν επιλέχθηκαν αισθητήρες!"
 
-#: ../panel-plugin/sensors.c:509
+#: ../panel-plugin/sensors.c:588
 #, fuzzy, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -48,14 +47,33 @@ msgstr ""
 "Από οτι φαίνεται υπήρξε πρόβλημα κατά την ανάγνωση κάποιου αισθητήρα. \n"
 "Δεν είναι εγγυημένη η κανονική συνέχεια.\n"
 
-#: ../panel-plugin/sensors.c:528
-#, c-format
-msgid "%5.0f rpm"
-msgstr "%5.0f rpm"
-
-#: ../panel-plugin/sensors.c:840
+#: ../panel-plugin/sensors.c:820
 msgid "No sensors found!"
 msgstr "Δε βρέθηκαν αισθητήρες!"
+
+#. #ifdef DEBUG
+#. g_printf(" %d \n", getIdFromAddress(i, j, sensors));
+#. #endif
+#. only use this if no hddtemp sensor
+#. FIXME: compare strings, or also have hddtmep and acpi store numeric values
+#. assert correctly saved file
+#: ../panel-plugin/sensors.c:1014 ../panel-plugin/sensors.c:1171
+#: ../panel-plugin/sensors.c:1177
+msgid "Hard disks"
+msgstr "Σκληροί δίσκοι"
+
+#: ../panel-plugin/sensors.c:1390
+#, fuzzy, c-format
+msgid ""
+"\n"
+"Xfce Hardware Sensors Plugin: \n"
+"Seems like there was a problem reading a sensor feature value. \n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr ""
+" \n"
+"Xfce Hardware Sensors Plugin: \n"
+"Από οτι φαίνεται υπήρξε πρόβλημα κατά την ανάγνωση κάποιου αισθητήρα. \n"
+"Δεν είναι εγγυημένη η κανονική συνέχεια.\n"
 
 #: ../panel-plugin/sensors.c:1813
 #, fuzzy
@@ -81,63 +99,63 @@ msgstr "Εμφάνιση ετικετών σε γραφικό UI"
 msgid "Show colored _bars"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1912
+#: ../panel-plugin/sensors.c:1911
 #, fuzzy
 msgid "_Show title"
 msgstr "Εμφάνιση τίτλου"
 
-#: ../panel-plugin/sensors.c:1940
+#: ../panel-plugin/sensors.c:1939
 #, fuzzy
 msgid "Sensors t_ype:"
 msgstr "Τύπος αισθητήρα:"
 
-#: ../panel-plugin/sensors.c:1990
+#: ../panel-plugin/sensors.c:1989
 msgid "Name"
 msgstr "Όνομα"
 
-#: ../panel-plugin/sensors.c:1999
+#: ../panel-plugin/sensors.c:1998
 msgid "Value"
 msgstr "Τιμή"
 
-#: ../panel-plugin/sensors.c:2005
+#: ../panel-plugin/sensors.c:2004
 msgid "Show"
 msgstr "Εμφάνιση"
 
-#: ../panel-plugin/sensors.c:2014
+#: ../panel-plugin/sensors.c:2013
 msgid "Color"
 msgstr "Χρώμα"
 
-#: ../panel-plugin/sensors.c:2024
+#: ../panel-plugin/sensors.c:2023
 msgid "Min"
 msgstr "Ελαχ"
 
-#: ../panel-plugin/sensors.c:2033
+#: ../panel-plugin/sensors.c:2032
 msgid "Max"
 msgstr "Μεγ"
 
-#: ../panel-plugin/sensors.c:2065
+#: ../panel-plugin/sensors.c:2064
 #, fuzzy
 msgid "F_ont size:"
 msgstr "Μέγεθος γραμματοσειράς:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:2072
+#: ../panel-plugin/sensors.c:2071
 msgid "x-small"
 msgstr "πολύ μικρό"
 
-#: ../panel-plugin/sensors.c:2073
+#: ../panel-plugin/sensors.c:2072
 msgid "small"
 msgstr "Μικρό"
 
-#: ../panel-plugin/sensors.c:2074
+#: ../panel-plugin/sensors.c:2073
 msgid "medium"
 msgstr "μεσαίο"
 
-#: ../panel-plugin/sensors.c:2075
+#: ../panel-plugin/sensors.c:2074
 msgid "large"
 msgstr "μεγάλο"
 
-#: ../panel-plugin/sensors.c:2076
+#: ../panel-plugin/sensors.c:2075
 msgid "x-large"
 msgstr "πολύ μεγάλο"
 
@@ -166,20 +184,25 @@ msgstr "Διάστημα ανανέωσης (δευτερόλεπτα):"
 msgid "E_xecute on double click:"
 msgstr "Εκτέλεση στο διπλό κλικ:"
 
-#: ../panel-plugin/sensors.c:2223
+#: ../panel-plugin/sensors.c:2222
 msgid "View"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2283
+#: ../panel-plugin/sensors.c:2253
+#, fuzzy
+msgid "Sensors"
+msgstr "Τύπος αισθητήρα:"
+
+#: ../panel-plugin/sensors.c:2282
 #, fuzzy
 msgid "Miscellaneous"
 msgstr "<b>Διάφορα</b>"
 
-#: ../panel-plugin/sensors.c:2331
+#: ../panel-plugin/sensors.c:2330
 msgid "Edit Properties"
 msgstr "Ιδιότητες"
 
-#: ../panel-plugin/sensors.c:2338 ../panel-plugin/sensors.h:40
+#: ../panel-plugin/sensors.c:2337 ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr "Πρόσθετο αισθητήρων"
 
@@ -191,6 +214,9 @@ msgstr "Πρόσθετο αισθητήρων"
 msgid "Show sensor values."
 msgstr "Εμφάνιση τιμών αισθητήρων."
 
+#~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
+#~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Αισθητήρες</b></span>"
+
 #~ msgid "Hard disk temperature sensors"
 #~ msgstr "Αισθητήρες θερμοκρασίας σκληρών δίσκων"
 
@@ -199,9 +225,6 @@ msgstr "Εμφάνιση τιμών αισθητήρων."
 
 #~ msgid "Error: Could not connect to sensors!"
 #~ msgstr "Σφάλμα: Δεν ήταν δυνατή η σύνδεση με τους αισθητήρες!"
-
-#~ msgid "Hard disks"
-#~ msgstr "Σκληροί δίσκοι"
 
 #~ msgid "<b>View</b>"
 #~ msgstr "<b>Προβολή</b>"

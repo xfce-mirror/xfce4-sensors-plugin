@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-07 15:02+0200\n"
+"POT-Creation-Date: 2007-10-20 20:12+0200\n"
 "PO-Revision-Date: 2005-02-04 21:07+0200\n"
 "Last-Translator: Rimas Kudelis <rq@akl.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
@@ -15,27 +15,26 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors.c:201 ../panel-plugin/sensors.c:2254
+#: ../panel-plugin/sensors.c:196
 #, fuzzy
-msgid "Sensors"
-msgstr "Sensorių tipas:"
+msgid "<span foreground=\"#000000\"><b>Sensors</b></span>\n"
+msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensoriai</b></span> \n"
 
-#: ../panel-plugin/sensors.c:323
+#: ../panel-plugin/sensors.c:480
 #, fuzzy, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensoriai</b></span> \n"
 
-#: ../panel-plugin/sensors.c:388
+#: ../panel-plugin/sensors.c:524
 #, c-format
-msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
-msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensoriai</b></span>"
+msgid "%5.0f rpm"
+msgstr ""
 
-#. circumvent empty char pointer
-#: ../panel-plugin/sensors.c:470
+#: ../panel-plugin/sensors.c:556
 msgid "No sensors selected!"
 msgstr "Nepasirinkti jokie sensoriai!"
 
-#: ../panel-plugin/sensors.c:509
+#: ../panel-plugin/sensors.c:588
 #, fuzzy, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -48,14 +47,34 @@ msgstr ""
 "savybės                         reikšmę. \n"
 "Tvarkingas tolesnis darbas negali būti užtikrinamas. \n"
 
-#: ../panel-plugin/sensors.c:528
-#, c-format
-msgid "%5.0f rpm"
-msgstr ""
-
-#: ../panel-plugin/sensors.c:840
+#: ../panel-plugin/sensors.c:820
 msgid "No sensors found!"
 msgstr "Jokių sensorių nerasta!"
+
+#. #ifdef DEBUG
+#. g_printf(" %d \n", getIdFromAddress(i, j, sensors));
+#. #endif
+#. only use this if no hddtemp sensor
+#. FIXME: compare strings, or also have hddtmep and acpi store numeric values
+#. assert correctly saved file
+#: ../panel-plugin/sensors.c:1014 ../panel-plugin/sensors.c:1171
+#: ../panel-plugin/sensors.c:1177
+msgid "Hard disks"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:1390
+#, fuzzy, c-format
+msgid ""
+"\n"
+"Xfce Hardware Sensors Plugin: \n"
+"Seems like there was a problem reading a sensor feature value. \n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr ""
+" \n"
+"Xfce aparatinių sensorių įskiepis: \n"
+"                       Atrodo, jog buvo problemų nuskaitant sensoriaus "
+"savybės                         reikšmę. \n"
+"Tvarkingas tolesnis darbas negali būti užtikrinamas. \n"
 
 #: ../panel-plugin/sensors.c:1813
 msgid "_UI style:"
@@ -77,63 +96,63 @@ msgstr ""
 msgid "Show colored _bars"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1912
+#: ../panel-plugin/sensors.c:1911
 #, fuzzy
 msgid "_Show title"
 msgstr "Rodyti pavadinimą"
 
-#: ../panel-plugin/sensors.c:1940
+#: ../panel-plugin/sensors.c:1939
 #, fuzzy
 msgid "Sensors t_ype:"
 msgstr "Sensorių tipas:"
 
-#: ../panel-plugin/sensors.c:1990
+#: ../panel-plugin/sensors.c:1989
 msgid "Name"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1999
+#: ../panel-plugin/sensors.c:1998
 msgid "Value"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2005
+#: ../panel-plugin/sensors.c:2004
 msgid "Show"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2014
+#: ../panel-plugin/sensors.c:2013
 msgid "Color"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2024
+#: ../panel-plugin/sensors.c:2023
 msgid "Min"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2033
+#: ../panel-plugin/sensors.c:2032
 msgid "Max"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2065
+#: ../panel-plugin/sensors.c:2064
 #, fuzzy
 msgid "F_ont size:"
 msgstr "Šrifto dydis:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:2072
+#: ../panel-plugin/sensors.c:2071
 msgid "x-small"
 msgstr "labai mažas"
 
-#: ../panel-plugin/sensors.c:2073
+#: ../panel-plugin/sensors.c:2072
 msgid "small"
 msgstr "mažas"
 
-#: ../panel-plugin/sensors.c:2074
+#: ../panel-plugin/sensors.c:2073
 msgid "medium"
 msgstr "vidutinis"
 
-#: ../panel-plugin/sensors.c:2075
+#: ../panel-plugin/sensors.c:2074
 msgid "large"
 msgstr "didelis"
 
-#: ../panel-plugin/sensors.c:2076
+#: ../panel-plugin/sensors.c:2075
 msgid "x-large"
 msgstr "labai didelis"
 
@@ -158,19 +177,24 @@ msgstr "Atnaujinimo dažnumas (sek.):"
 msgid "E_xecute on double click:"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2223
+#: ../panel-plugin/sensors.c:2222
 msgid "View"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2283
+#: ../panel-plugin/sensors.c:2253
+#, fuzzy
+msgid "Sensors"
+msgstr "Sensorių tipas:"
+
+#: ../panel-plugin/sensors.c:2282
 msgid "Miscellaneous"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2331
+#: ../panel-plugin/sensors.c:2330
 msgid "Edit Properties"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2338 ../panel-plugin/sensors.h:40
+#: ../panel-plugin/sensors.c:2337 ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr ""
 
@@ -181,6 +205,9 @@ msgstr ""
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr ""
+
+#~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
+#~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensoriai</b></span>"
 
 #, fuzzy
 #~ msgid "Hard disk temperature sensors"

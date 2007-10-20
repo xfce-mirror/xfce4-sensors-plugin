@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"POT-Creation-Date: 2007-10-20 20:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,160 +16,170 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors.c:153 ../panel-plugin/sensors.c:2162
-msgid "<b>Sensors</b>"
+#: ../panel-plugin/sensors.c:196
+msgid "<span foreground=\"#000000\"><b>Sensors</b></span>\n"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:272
+#: ../panel-plugin/sensors.c:480
 #, c-format
 msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:334
+#: ../panel-plugin/sensors.c:524
 #, c-format
-msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
+msgid "%5.0f rpm"
 msgstr ""
 
-#. circumvent empty char pointer
-#: ../panel-plugin/sensors.c:441
+#: ../panel-plugin/sensors.c:556
 msgid "No sensors selected!"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:479 ../panel-plugin/sensors.c:1677
+#: ../panel-plugin/sensors.c:588
+#, c-format
 msgid ""
-" \n"
+"Xfce Hardware Sensors Plugin:\n"
+"Seems like there was a problem reading a sensor feature value. \n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:820
+msgid "No sensors found!"
+msgstr ""
+
+#. #ifdef DEBUG
+#. g_printf(" %d \n", getIdFromAddress(i, j, sensors));
+#. #endif
+#. only use this if no hddtemp sensor
+#. FIXME: compare strings, or also have hddtmep and acpi store numeric values
+#. assert correctly saved file
+#: ../panel-plugin/sensors.c:1014 ../panel-plugin/sensors.c:1171
+#: ../panel-plugin/sensors.c:1177
+msgid "Hard disks"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:1390
+#, c-format
+msgid ""
+"\n"
 "Xfce Hardware Sensors Plugin: \n"
 "Seems like there was a problem reading a sensor feature value. \n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:500
-#, c-format
-msgid "%5.0f rpm"
+#: ../panel-plugin/sensors.c:1813
+msgid "_UI style:"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:723
-msgid "Error: Could not connect to sensors!"
+#: ../panel-plugin/sensors.c:1814
+msgid "_text"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:813 ../panel-plugin/sensors.c:887
-msgid "Hard disks"
+#: ../panel-plugin/sensors.c:1816
+msgid "g_raphical"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:923
-msgid "No sensors found!"
+#: ../panel-plugin/sensors.c:1853
+msgid "Show _labels in graphical UI"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1356
-msgid "Hard disk temperature sensors"
+#: ../panel-plugin/sensors.c:1883
+msgid "Show colored _bars"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1772
-msgid "UI style:"
+#: ../panel-plugin/sensors.c:1911
+msgid "_Show title"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1773
-msgid "text"
-msgstr ""
-
-#: ../panel-plugin/sensors.c:1775
-msgid "graphical"
-msgstr ""
-
-#: ../panel-plugin/sensors.c:1812
-msgid "Show labels in graphical UI"
-msgstr ""
-
-#: ../panel-plugin/sensors.c:1837
-msgid "Show title"
-msgstr ""
-
-#: ../panel-plugin/sensors.c:1863
-msgid "Sensors type:"
-msgstr ""
-
-#: ../panel-plugin/sensors.c:1910
-msgid "Name"
-msgstr ""
-
-#: ../panel-plugin/sensors.c:1919
-msgid "Value"
-msgstr ""
-
-#: ../panel-plugin/sensors.c:1925
-msgid "Show"
-msgstr ""
-
-#: ../panel-plugin/sensors.c:1934
-msgid "Color"
-msgstr ""
-
-#: ../panel-plugin/sensors.c:1944
-msgid "Min"
-msgstr ""
-
-#: ../panel-plugin/sensors.c:1953
-msgid "Max"
-msgstr ""
-
-#: ../panel-plugin/sensors.c:1981
-msgid "Font size:"
-msgstr ""
-
-#: ../panel-plugin/sensors.c:1988
-msgid "x-small"
+#: ../panel-plugin/sensors.c:1939
+msgid "Sensors t_ype:"
 msgstr ""
 
 #: ../panel-plugin/sensors.c:1989
+msgid "Name"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:1998
+msgid "Value"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:2004
+msgid "Show"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:2013
+msgid "Color"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:2023
+msgid "Min"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:2032
+msgid "Max"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:2064
+msgid "F_ont size:"
+msgstr ""
+
+#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#: ../panel-plugin/sensors.c:2071
+msgid "x-small"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:2072
 msgid "small"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1990
+#: ../panel-plugin/sensors.c:2073
 msgid "medium"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1991
+#: ../panel-plugin/sensors.c:2074
 msgid "large"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1992
+#: ../panel-plugin/sensors.c:2075
 msgid "x-large"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2020
-msgid "Temperature scale:"
+#: ../panel-plugin/sensors.c:2107
+msgid "T_emperature scale:"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2022
-msgid "Celsius"
+#: ../panel-plugin/sensors.c:2109
+msgid "_Celsius"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2024
-msgid "Fahrenheit"
+#: ../panel-plugin/sensors.c:2111
+msgid "_Fahrenheit"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2063
-msgid "Update interval (seconds):"
+#: ../panel-plugin/sensors.c:2150
+msgid "U_pdate interval (seconds):"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2090
-msgid "Execute on double click:"
+#: ../panel-plugin/sensors.c:2178
+msgid "E_xecute on double click:"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2132
-msgid "<b>View</b>"
+#: ../panel-plugin/sensors.c:2222
+msgid "View"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2190
-msgid "<b>Miscellaneous</b>"
+#: ../panel-plugin/sensors.c:2253
+msgid "Sensors"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2237
+#: ../panel-plugin/sensors.c:2282
+msgid "Miscellaneous"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:2330
 msgid "Edit Properties"
 msgstr ""
 
-#. #include <unistd.h>
-#: ../panel-plugin/sensors.c:2244 ../panel-plugin/sensors.h:51
+#: ../panel-plugin/sensors.c:2337 ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr ""
 
