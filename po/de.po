@@ -17,7 +17,7 @@ msgstr ""
 
 #: ../panel-plugin/sensors.c:196
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>\n"
-msgstr "<span foreground=\"#000000\""><b>Sensoren</b></span>\n"
+msgstr "<span foreground=\"#000000\"><b>Sensoren</b></span>\n"
 
 #: ../panel-plugin/sensors.c:480
 #, c-format

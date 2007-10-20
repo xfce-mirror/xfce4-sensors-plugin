@@ -142,9 +142,9 @@ LIBXFCE4PANEL_REQUIRED_VERSION = 4.4.0
 LIBXFCE4PANEL_VERSION = 4.4.1
 LN_S = ln -s
 LTLIBOBJS = 
-MAINT = #
-MAINTAINER_MODE_FALSE = 
-MAINTAINER_MODE_TRUE = #
+MAINT = 
+MAINTAINER_MODE_FALSE = #
+MAINTAINER_MODE_TRUE = 
 MAKEINFO = ${SHELL} /home/tim/tmp/xfce-4.3/xfce4-sensors-plugin/missing --run makeinfo
 MKINSTALLDIRS = ./mkinstalldirs
 MSGFMT = /usr/bin/msgfmt
@@ -152,9 +152,9 @@ OBJEXT = o
 PACKAGE = xfce4-sensors-plugin
 PACKAGE_BUGREPORT = timystery@arcor.de
 PACKAGE_NAME = xfce4-sensors-plugin
-PACKAGE_STRING = xfce4-sensors-plugin 0.11.0
+PACKAGE_STRING = xfce4-sensors-plugin 0.10.99-1
 PACKAGE_TARNAME = xfce4-sensors-plugin
-PACKAGE_VERSION = 0.11.0
+PACKAGE_VERSION = 0.10.99-1
 PATH_SEPARATOR = :
 PKG_CONFIG = /usr/bin/pkg-config
 PLATFORM_CFLAGS = 
@@ -169,7 +169,7 @@ SHELL = /bin/sh
 SOLLIBS = 
 STRIP = strip
 USE_NLS = yes
-VERSION = 0.11.0
+VERSION = 0.10.99-1
 XGETTEXT = /usr/bin/xgettext
 XGETTEXT_ARGS = --keyword=Q_ --from-code=UTF-8
 ac_ct_CC = gcc
@@ -232,7 +232,7 @@ EXTRA_DIST = $(hicolor48_DATA)
 all: all-am
 
 .SUFFIXES:
-$(srcdir)/Makefile.in: # $(srcdir)/Makefile.am  $(am__configure_deps)
+$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
 	    *$$dep*) \
@@ -257,9 +257,9 @@ Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 $(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 
-$(top_srcdir)/configure: # $(am__configure_deps)
+$(top_srcdir)/configure:  $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-$(ACLOCAL_M4): # $(am__aclocal_m4_deps)
+$(ACLOCAL_M4):  $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 
 mostlyclean-libtool:
