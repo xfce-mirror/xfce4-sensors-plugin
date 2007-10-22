@@ -1,3 +1,6 @@
 panel-plugin/sensors.c
 panel-plugin/sensors.h
+panel-plugin/acpi.c
+panel-plugin/hddtemp.c
+panel-plugin/lmsensors.c
 panel-plugin/xfce4-sensors-plugin.desktop.in.in
