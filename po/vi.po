@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-28 17:21+0100\n"
+"POT-Creation-Date: 2007-10-20 20:12+0200\n"
 "PO-Revision-Date: 2006-02-19 22:51+0300\n"
 "Last-Translator: Phan Vĩnh Thịnh <teppi@vnlinux.org>\n"
 "Language-Team: Vietnamese <none@li.org>\n"
@@ -15,21 +15,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
 
-#: ../panel-plugin/sensors.c:199 ../panel-plugin/sensors.c:512
+#: ../panel-plugin/sensors.c:196
 #, fuzzy
-msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
+msgid "<span foreground=\"#000000\"><b>Sensors</b></span>\n"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Cảm ứng</b></span>\n"
 
-#: ../panel-plugin/sensors.c:552
+#: ../panel-plugin/sensors.c:480
+#, c-format
+msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
+msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Cảm ứng</b></span>\n"
+
+#: ../panel-plugin/sensors.c:524
 #, c-format
 msgid "%5.0f rpm"
 msgstr "%5.0f rpm"
 
-#: ../panel-plugin/sensors.c:584
+#: ../panel-plugin/sensors.c:556
 msgid "No sensors selected!"
 msgstr "Chưa chọn bộ cảm ứng nào!"
 
-#: ../panel-plugin/sensors.c:616
+#: ../panel-plugin/sensors.c:588
 #, fuzzy, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -41,11 +46,22 @@ msgstr ""
 "Có vẻ như có vấn đề đọc một giá trị cảm ứng. \n"
 "Không có bảo đảm cho sự thực hiện.\n"
 
-#: ../panel-plugin/sensors.c:852
+#: ../panel-plugin/sensors.c:820
 msgid "No sensors found!"
 msgstr "Không tìm thấy bộ cảm ứng!"
 
-#: ../panel-plugin/sensors.c:1070
+#. #ifdef DEBUG
+#. g_printf(" %d \n", getIdFromAddress(i, j, sensors));
+#. #endif
+#. only use this if no hddtemp sensor
+#. FIXME: compare strings, or also have hddtmep and acpi store numeric values
+#. assert correctly saved file
+#: ../panel-plugin/sensors.c:1014 ../panel-plugin/sensors.c:1171
+#: ../panel-plugin/sensors.c:1177
+msgid "Hard disks"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:1390
 #, fuzzy, c-format
 msgid ""
 "\n"
@@ -58,167 +74,136 @@ msgstr ""
 "Có vẻ như có vấn đề đọc một giá trị cảm ứng. \n"
 "Không có bảo đảm cho sự thực hiện.\n"
 
-#: ../panel-plugin/sensors.c:1493
+#: ../panel-plugin/sensors.c:1813
 #, fuzzy
 msgid "_UI style:"
 msgstr "Dạng giao diện:"
 
-#: ../panel-plugin/sensors.c:1494
+#: ../panel-plugin/sensors.c:1814
 #, fuzzy
 msgid "_text"
 msgstr "văn bản"
 
-#: ../panel-plugin/sensors.c:1496
+#: ../panel-plugin/sensors.c:1816
 #, fuzzy
 msgid "g_raphical"
 msgstr "đồ hoạ"
 
-#: ../panel-plugin/sensors.c:1533
+#: ../panel-plugin/sensors.c:1853
 #, fuzzy
 msgid "Show _labels in graphical UI"
 msgstr "Hiển thị nhãn trong giao diện đồ hoạ"
 
-#: ../panel-plugin/sensors.c:1563
+#: ../panel-plugin/sensors.c:1883
 msgid "Show colored _bars"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1591
+#: ../panel-plugin/sensors.c:1911
 #, fuzzy
 msgid "_Show title"
 msgstr "Hiển thị tiêu đề"
 
-#: ../panel-plugin/sensors.c:1619
+#: ../panel-plugin/sensors.c:1939
 #, fuzzy
 msgid "Sensors t_ype:"
 msgstr "Dạng cảm ứng:"
 
-#: ../panel-plugin/sensors.c:1669
+#: ../panel-plugin/sensors.c:1989
 msgid "Name"
 msgstr "Tên"
 
-#: ../panel-plugin/sensors.c:1678
+#: ../panel-plugin/sensors.c:1998
 msgid "Value"
 msgstr "Giá trị"
 
-#: ../panel-plugin/sensors.c:1684
+#: ../panel-plugin/sensors.c:2004
 msgid "Show"
 msgstr "Hiện"
 
-#: ../panel-plugin/sensors.c:1693
+#: ../panel-plugin/sensors.c:2013
 msgid "Color"
 msgstr "Màu"
 
-#: ../panel-plugin/sensors.c:1703
+#: ../panel-plugin/sensors.c:2023
 msgid "Min"
 msgstr "Min"
 
-#: ../panel-plugin/sensors.c:1712
+#: ../panel-plugin/sensors.c:2032
 msgid "Max"
 msgstr "Max"
 
-#: ../panel-plugin/sensors.c:1745
+#: ../panel-plugin/sensors.c:2064
 #, fuzzy
 msgid "F_ont size:"
 msgstr "Kích cỡ phông:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:1752
+#: ../panel-plugin/sensors.c:2071
 msgid "x-small"
 msgstr "rất nhỏ"
 
-#: ../panel-plugin/sensors.c:1753
+#: ../panel-plugin/sensors.c:2072
 msgid "small"
 msgstr "nhỏ"
 
-#: ../panel-plugin/sensors.c:1754
+#: ../panel-plugin/sensors.c:2073
 msgid "medium"
 msgstr "trung bình"
 
-#: ../panel-plugin/sensors.c:1755
+#: ../panel-plugin/sensors.c:2074
 msgid "large"
 msgstr "lớn"
 
-#: ../panel-plugin/sensors.c:1756
+#: ../panel-plugin/sensors.c:2075
 msgid "x-large"
 msgstr "rất lớn"
 
-#: ../panel-plugin/sensors.c:1788
+#: ../panel-plugin/sensors.c:2107
 #, fuzzy
 msgid "T_emperature scale:"
 msgstr "Thang nhiệt độ:"
 
-#: ../panel-plugin/sensors.c:1790
+#: ../panel-plugin/sensors.c:2109
 #, fuzzy
 msgid "_Celsius"
 msgstr "Độ C"
 
-#: ../panel-plugin/sensors.c:1792
+#: ../panel-plugin/sensors.c:2111
 #, fuzzy
 msgid "_Fahrenheit"
 msgstr "Độ F"
 
-#: ../panel-plugin/sensors.c:1831
+#: ../panel-plugin/sensors.c:2150
 #, fuzzy
 msgid "U_pdate interval (seconds):"
 msgstr "Cập nhật sau (giây):"
 
-#: ../panel-plugin/sensors.c:1859
+#: ../panel-plugin/sensors.c:2178
 #, fuzzy
 msgid "E_xecute on double click:"
 msgstr "Thực hiện khi nháy kép:"
 
-#: ../panel-plugin/sensors.c:1903
+#: ../panel-plugin/sensors.c:2222
 msgid "View"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1934
+#: ../panel-plugin/sensors.c:2253
 #, fuzzy
 msgid "Sensors"
 msgstr "<b>Cảm ứng</b>"
 
-#: ../panel-plugin/sensors.c:1963
+#: ../panel-plugin/sensors.c:2282
 #, fuzzy
 msgid "Miscellaneous"
 msgstr "<b>Khác</b>"
 
-#: ../panel-plugin/sensors.c:2011
+#: ../panel-plugin/sensors.c:2330
 msgid "Edit Properties"
 msgstr "Sửa thuộc tính"
 
-#: ../panel-plugin/sensors.c:2018 ../panel-plugin/sensors.h:40
+#: ../panel-plugin/sensors.c:2337 ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr "Plugin cảm ứng"
-
-#. only use this if no hddtemp sensor
-#. FIXME: compare strings, or also have hddtmep and acpi store numeric values
-#. assert correctly saved file
-#: ../panel-plugin/configuration.c:133 ../panel-plugin/configuration.c:275
-#: ../panel-plugin/configuration.c:281 ../panel-plugin/hddtemp.c:129
-#: ../panel-plugin/hddtemp.c:168 ../panel-plugin/hddtemp.c:173
-msgid "Hard disks"
-msgstr ""
-
-#: ../panel-plugin/acpi.c:46 ../panel-plugin/acpi.c:53
-msgid "ACPI"
-msgstr ""
-
-#: ../panel-plugin/acpi.c:47
-msgid "Advanced Configuration and Power Interface"
-msgstr ""
-
-#: ../panel-plugin/hddtemp.c:172
-msgid "S.M.A.R.T. harddisk temperatures"
-msgstr ""
-
-#: ../panel-plugin/lmsensors.c:52
-#, fuzzy
-msgid "LM Sensors"
-msgstr "<b>Cảm ứng</b>"
-
-#: ../panel-plugin/lmsensors.c:131
-#, c-format
-msgid "Error: Could not connect to sensors!"
-msgstr "Lỗi: Không thể kết nối tới bộ cảm ứng!"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
@@ -228,8 +213,12 @@ msgstr "Plugin cảm ứng "
 msgid "Show sensor values."
 msgstr "Hiển thị các giá trị cảm ứng."
 
-#~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
-#~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Cảm ứng</b></span>\n"
+#, fuzzy
+#~ msgid "LM Sensors"
+#~ msgstr "<b>Cảm ứng</b>"
+
+#~ msgid "Error: Could not connect to sensors!"
+#~ msgstr "Lỗi: Không thể kết nối tới bộ cảm ứng!"
 
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Cảm ứng</b></span>"
