@@ -180,7 +180,7 @@ initialize_hddtemp (GPtrArray *chips)
 
     generation = atoi ( p_uname->release ); /* this might cause trouble on */
     major = atoi ( p_uname->release+2 );      /* other systems than Linux! */
-                /* actually, wanted to use build time configuration therefore /*
+                /* actually, wanted to use build time configuration therefore */
 
     /* Note: This is actually supposed to be carried out by ifdef HAVE_LINUX
      and major/minor number stuff from compile time*/

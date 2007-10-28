@@ -171,7 +171,7 @@ get_acpi_zone_value (char *zone)
 {
     char *filename, *value;
 
-    TRACE ("enters get_acpi_zone_value for %s", info);
+    TRACE ("enters get_acpi_zone_value for %s", zone);
 
     filename = g_strdup_printf ("%s/%s/%s/%s", ACPI_PATH, ACPI_DIR,
                                                         zone, ACPI_FILE);

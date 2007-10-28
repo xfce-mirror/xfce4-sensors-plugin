@@ -1,11 +1,5 @@
 TODO
 ======
 
-- g_free everything that can be freed safely - ?
-
 - fix error: doesn't find all sensors when newly adding plugin to panel - sensors library problem?
-
-- implement HDD sensor values
-
-- enable compilöe-time configure-switches
 

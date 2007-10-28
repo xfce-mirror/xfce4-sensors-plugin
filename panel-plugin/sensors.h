@@ -86,6 +86,9 @@ typedef struct {
     GtkWidget *widget_sensors;
 
     /* panel value display */
+    GtkWidget *panel_label_data;
+
+    /* optional label for plugin */
     GtkWidget *panel_label_text;
 
     /* update the tooltip */

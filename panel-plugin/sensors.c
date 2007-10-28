@@ -27,6 +27,9 @@
 
 #include "sensors.h"
 
+#include <math.h>
+#include <stdlib.h>
+
 static void
 sensors_set_bar_size (GtkWidget *bar, int size, int orientation)
 {
@@ -133,7 +136,8 @@ sensors_remove_graphical_panel (t_sensors *sensors)
         }
     }
     sensors->bars_created = FALSE;
-    gtk_widget_hide(sensors->panel_label_text);
+    gtk_widget_hide (sensors->panel_label_text);
+    /* gtk_widget_hide (sensors->panel_label_data); */
 
     TRACE ("leaves sensors_remove_graphical_panel");
 }
@@ -275,6 +279,8 @@ sensors_add_graphical_panel (t_sensors *sensors)
     else
         gtk_widget_show (sensors->panel_label_text);
 
+    gtk_widget_hide (sensors->panel_label_data);
+
     sensors->bars_created = TRUE;
     sensors_update_graphical_panel (sensors);
 
@@ -301,41 +307,80 @@ sensors_show_graphical_panel (t_sensors *sensors)
 static int
 determine_number_of_rows (t_sensors *sensors)
 {
-    gint numRows, size;
+    gint numRows, gtk_font_size, additional_offset;
+    gdouble divisor;
+    GtkStyle *style;
+    PangoFontDescription *descr;
+    PangoFontMask mask;
+    gboolean is_absolute;
 
     TRACE ("enters determine_number_of_rows");
 
-    numRows = 0;
-    size = sensors->panel_size;
+    style = gtk_widget_get_style (sensors->panel_label_data);
+
+    descr = style->font_desc; /* Note that stupid GTK guys forgot the r' */
+
+    is_absolute = FALSE;
+    mask = pango_font_description_get_set_fields (descr);
+    //g_printf ("mask=%x\n", (int) mask);
+    if (mask>=PANGO_FONT_MASK_SIZE) {
+        is_absolute = pango_font_description_get_size_is_absolute (descr);
+        //g_printf ("absolute=%d\n", (int) is_absolute);
+        if (!is_absolute) {
+            gtk_font_size = pango_font_description_get_size (descr) / 10;
+            //g_printf ("fontsize=%d\n", gtk_font_size);
+        }
+    }
+    if (mask<PANGO_FONT_MASK_SIZE || is_absolute) {
+        gtk_font_size = 10; /* not many people will want a bigger font size,
+                                and so only few rows are gonna be displayed. */
+    }
+
+    // g_printf ("fontsize=%d, absolute=%d, mask=%x", gtk_font_size, is_absolute, (int) mask);
+
+    g_assert (gtk_font_size!=0);
 
     if (sensors->orientation == GTK_ORIENTATION_HORIZONTAL) {
-        switch (sensors->font_size_numerical) {
-            /* we have to allocate N items per row and N-1 spaces. Assuming that
-               row spacing is half the font size and smallest font size is 6, we add
-               6/2 more space for row spacing per each item, except for the last.
-               this one is added to the panelSize. */
-            /* The author knows that normally the font sizes depend on the settings
-               of the icon theme, but he doesn't want to find out where those
-               settings can be found. */
-            case 0: for (size+=3; size>=(6+3); numRows++, size-=(6+3)) ; break;
+        //numRows = sensors->panel_size / (sensors->font_size_numerical+3)*3;
+        switch (gtk_font_size) {
+            case 8:
+                switch (sensors->font_size_numerical) {
+                    case 0: additional_offset=8; divisor = 12; break;
+                    case 1: additional_offset=9; divisor = 12; break;
+                    case 2: additional_offset=12; divisor = 12; break;
+                    case 3: additional_offset=13; divisor = 13; break;
+                    default: additional_offset=16; divisor = 17; break;
+                }
 
-            case 1: for (size+=4; size>=(8+4); numRows++, size-=(8+4)) ; break;
+            case 9:
+                switch (sensors->font_size_numerical) {
+                    case 0: additional_offset=9; divisor = 13; break;
+                    case 1: additional_offset=10; divisor = 13; break;
+                    case 2: additional_offset=12; divisor = 14; break;
+                    case 3: additional_offset=13; divisor = 17; break;
+                    default: additional_offset=16; divisor = 20; break;
+                }
 
-            case 2: for (size+=5; size>=(10+5); numRows++, size-=(10+5)) ; break;
 
-            case 3: for (size+=6; size>=(12+6); numRows++, size-=(12+6)) ; break;
+            default: /* case 10 */
+                 switch (sensors->font_size_numerical) {
+                    case 0: additional_offset=10; divisor = 14; break;
+                    case 1: additional_offset=12; divisor = 14; break;
+                    case 2: additional_offset=14; divisor = 14; break;
+                    case 3: additional_offset=16; divisor = 17; break;
+                    default: additional_offset=20; divisor = 20; break;
+                }
+        }
+        numRows = (int) floor ((sensors->panel_size-additional_offset)  / divisor);
+        if (numRows < 0)
+            numRows = 0;
 
-            case 4: for (size+=7; size>=(14+7); numRows++, size-=(14+7)) ; break;
-            default: numRows = 2;
-        } /* end switch */
-    } /* end if horizontal */
-    else
-        /* could not have more rows when limited amount of pointers was used
-           before*/
-        numRows = 256 * 10 + 1;
+        numRows++;
+    }
+    else numRows = 1 << 30; /* that's enough, MAXINT would be nicer */
 
     /* fail-safe */
-    if (numRows==0)
+    if (numRows<=0)
         numRows = 1;
 
     TRACE ("leaves determine_number_of_rows");
@@ -345,7 +390,7 @@ determine_number_of_rows (t_sensors *sensors)
 
 
 static int
-determine_number_of_cols (int numRows, int itemsToDisplay)
+determine_number_of_cols (gint numRows, gint itemsToDisplay)
 {
     gint numCols;
 
@@ -353,11 +398,9 @@ determine_number_of_cols (int numRows, int itemsToDisplay)
 
     if (numRows > 1) {
         if (itemsToDisplay > numRows)
-            /* the following is a simple integer ceiling function */
-            numCols = (itemsToDisplay%numRows == 0) ?
-                    itemsToDisplay/numRows : itemsToDisplay/numRows+1;
+            numCols = (gint) ceil (itemsToDisplay/ (float)numRows);
         else
-            numCols = 1;
+            numCols = (gint) 1;
     }
     else
         numCols = itemsToDisplay;
@@ -369,16 +412,22 @@ determine_number_of_cols (int numRows, int itemsToDisplay)
 
 
 static void
-sensors_set_text_panel_label (t_sensors *sensors, gint numCols,
-                              gint itemsToDisplay, gchar **myLabelText)
+sensors_set_text_panel_label (t_sensors *sensors, gint numCols, gint itemsToDisplay)
 {
     gint currentColumn, chipNum, feature;
     t_chip *chip;
     t_chipfeature *chipfeature;
+    gchar *myLabelText;
 
     TRACE ("enters sensors_set_text_panel_label");
 
+    if (itemsToDisplay==0) {
+        gtk_widget_hide (sensors->panel_label_data);
+        return;
+    }
+
     currentColumn = 0;
+    myLabelText = g_strdup ("");
 
     for (chipNum=0; chipNum < sensors->num_sensorchips; chipNum++) {
         chip = (t_chip *) g_ptr_array_index (sensors->chips, chipNum);
@@ -389,7 +438,7 @@ sensors_set_text_panel_label (t_sensors *sensors, gint numCols,
             g_assert (chipfeature != NULL);
 
             if (chipfeature->show == TRUE) {
-                *myLabelText = g_strconcat (*myLabelText,
+                myLabelText = g_strconcat (myLabelText,
                                             "<span foreground=\"",
                                             chipfeature->color, "\" size=\"",
                                             sensors->font_size, "\">",
@@ -397,11 +446,11 @@ sensors_set_text_panel_label (t_sensors *sensors, gint numCols,
                                             "</span>", NULL);
 
                 if (currentColumn < numCols-1) {
-                    *myLabelText = g_strconcat (*myLabelText, " \t", NULL);
+                    myLabelText = g_strconcat (myLabelText, " \t", NULL);
                     currentColumn++;
                 }
                 else if (itemsToDisplay > 1) { /* do NOT add \n if last item */
-                    *myLabelText = g_strconcat (*myLabelText, " \n", NULL);
+                    myLabelText = g_strconcat (myLabelText, " \n", NULL);
                     currentColumn = 0;
                 }
                 itemsToDisplay--;
@@ -411,7 +460,10 @@ sensors_set_text_panel_label (t_sensors *sensors, gint numCols,
 
     g_assert (itemsToDisplay==0);
 
-    gtk_label_set_markup (GTK_LABEL(sensors->panel_label_text), *myLabelText);
+    gtk_label_set_markup (GTK_LABEL(sensors->panel_label_data), myLabelText);
+    gtk_misc_set_padding (GTK_MISC(sensors->panel_label_data), 0, 0);
+    gtk_misc_set_alignment(GTK_MISC(sensors->panel_label_data), 0.0, 0.0);
+    gtk_widget_show (sensors->panel_label_data);
 
     TRACE ("leaves sensors_set_text_panel_label");
 }
@@ -459,16 +511,6 @@ sensors_show_text_panel (t_sensors *sensors)
 
     TRACE ("enters sensors_show_text_panel");
 
-/* REMARK (old):
-    Since sensors_show_panel is called with the same period as
-    update_tooltip and update_tooltip already reads in new
-    sensor values, this isn't done again in here.
-    (new): We should perhaps now care more about that, as it is no more done in
-    update_tooltip(). FIXME therefore. */
-
-    gtk_widget_show (sensors->panel_label_text);
-    gtk_misc_set_padding (GTK_MISC(sensors->panel_label_text), OUTER_BORDER, 0);
-
     /* count number of checked sensors to display.
        this could also be done by every toggle/untoggle action
        by putting this variable into t_sensors */
@@ -477,21 +519,19 @@ sensors_show_text_panel (t_sensors *sensors)
     numRows = determine_number_of_rows (sensors);
 
     if (sensors->show_title == TRUE || itemsToDisplay==0) {
-        myLabelText = g_strdup_printf (_("<span foreground=\"#000000\" "
-                                       "size=\"%s\"><b>Sensors</b></span>\n"),
-                                       sensors->font_size);
-        if (sensors->show_title == TRUE)
-            numRows--; /* we can draw one more item per column */
+        myLabelText = g_strdup (_("<span foreground=\"#000000\"><b>Sensors"
+                                    "</b></span>"));
+        gtk_label_set_markup(GTK_LABEL(sensors->panel_label_text), myLabelText);
+        gtk_misc_set_padding (GTK_MISC(sensors->panel_label_text), OUTER_BORDER, 0);
+        gtk_misc_set_alignment(GTK_MISC(sensors->panel_label_text), 0.0, 0.5);
+        gtk_widget_show (sensors->panel_label_text);
     }
     else
-        /* draw the title if no item is to be displayed.
-        This enables the user to still find the plugin. */
-        myLabelText = g_strdup ("");
+        gtk_widget_hide (sensors->panel_label_text);
 
     numCols = determine_number_of_cols (numRows, itemsToDisplay);
 
-    sensors_set_text_panel_label (sensors, numCols, itemsToDisplay,
-                                  &myLabelText);
+    sensors_set_text_panel_label (sensors, numCols, itemsToDisplay);
 
     TRACE ("leaves sensors_show_text_panel\n");
 
@@ -669,6 +709,7 @@ sensors_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
     gtk_widget_show (newBox);
 
     gtk_widget_reparent (sensors->panel_label_text, newBox);
+    gtk_widget_reparent (sensors->panel_label_data, newBox);
 
     for (i=0; i < sensors->num_sensorchips; i++) {
         chip = (t_chip *) g_ptr_array_index (sensors->chips, i);
@@ -714,16 +755,21 @@ create_panel_widget (t_sensors * sensors)
 
     /* initialize value label widget */
     sensors->panel_label_text = gtk_label_new (NULL);
+    sensors->panel_label_data = gtk_label_new (NULL);
     gtk_widget_show (sensors->panel_label_text);
+    gtk_widget_show (sensors->panel_label_data);
 
     /* create 'valued' label */
     sensors_show_panel (sensors);
 
-    g_assert (sensors->panel_label_text!=NULL);
+    /* g_assert (sensors->panel_label_text!=NULL); */
 
     /* add newly created label to box */
     gtk_box_pack_start (GTK_BOX (sensors->widget_sensors),
                         sensors->panel_label_text, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (sensors->widget_sensors),
+                        sensors->panel_label_data, FALSE, FALSE, 0);
+
 
     TRACE ("leaves create_panel_widget");
 }

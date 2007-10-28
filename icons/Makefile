@@ -136,15 +136,15 @@ LIBS =
 LIBSENSORS_CFLAGS = -I/usr/include
 LIBSENSORS_LDFLAGS = -lsensors
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
-LIBXFCE4PANEL_CFLAGS = -I/usr/include/xfce4/ -I/usr/include/xfce4 -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/cairo -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/atk-1.0  
-LIBXFCE4PANEL_LIBS = -lxfce4panel -lxfcegui4 -lgtk-x11-2.0 -lxfce4util -lgdk-x11-2.0 -latk-1.0 -lgdk_pixbuf-2.0 -lm -lpangocairo-1.0 -lfontconfig -lXext -lXrender -lXinerama -lXi -lXrandr -lXcursor -lXcomposite -lXdamage -lpango-1.0 -lcairo -lX11 -lXfixes -lgobject-2.0 -lgmodule-2.0 -ldl -lglib-2.0  
+LIBXFCE4PANEL_CFLAGS = -I/usr/local/include/xfce4/ -I/usr/local/include/xfce4 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/pango-1.0 -I/usr/include/cairo -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/atk-1.0  
+LIBXFCE4PANEL_LIBS = -L/usr/local/lib -lxfce4panel -lxfcegui4 -lgtk-x11-2.0 -lxfce4util -lgdk-x11-2.0 -latk-1.0 -lgdk_pixbuf-2.0 -lm -lpangocairo-1.0 -lfontconfig -lXext -lXrender -lXinerama -lXi -lXrandr -lXcursor -lXcomposite -lXdamage -lpango-1.0 -lcairo -lX11 -lXfixes -lgobject-2.0 -lgmodule-2.0 -ldl -lglib-2.0  
 LIBXFCE4PANEL_REQUIRED_VERSION = 4.4.0
-LIBXFCE4PANEL_VERSION = 4.4.1
+LIBXFCE4PANEL_VERSION = 4.5.0.3svn-r26177
 LN_S = ln -s
 LTLIBOBJS = 
-MAINT = 
-MAINTAINER_MODE_FALSE = #
-MAINTAINER_MODE_TRUE = 
+MAINT = #
+MAINTAINER_MODE_FALSE = 
+MAINTAINER_MODE_TRUE = #
 MAKEINFO = ${SHELL} /home/tim/tmp/xfce-4.3/xfce4-sensors-plugin/missing --run makeinfo
 MKINSTALLDIRS = ./mkinstalldirs
 MSGFMT = /usr/bin/msgfmt
@@ -157,7 +157,7 @@ PACKAGE_TARNAME = xfce4-sensors-plugin
 PACKAGE_VERSION = 0.10.99.2
 PATH_SEPARATOR = :
 PKG_CONFIG = /usr/bin/pkg-config
-PLATFORM_CFLAGS = 
+PLATFORM_CFLAGS = -Wall -Werror 
 POFILES =  ca.po cs.po de.po el.po en_GB.po eu.po fr.po hu.po ja.po ko.po lt.po pl.po ru.po sq.po vi.po zh_TW.po
 POSUB = po
 PO_IN_DATADIR_FALSE = 
@@ -232,7 +232,7 @@ EXTRA_DIST = $(hicolor48_DATA)
 all: all-am
 
 .SUFFIXES:
-$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
+$(srcdir)/Makefile.in: # $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
 	    *$$dep*) \
@@ -257,9 +257,9 @@ Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 $(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 
-$(top_srcdir)/configure:  $(am__configure_deps)
+$(top_srcdir)/configure: # $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-$(ACLOCAL_M4):  $(am__aclocal_m4_deps)
+$(ACLOCAL_M4): # $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 
 mostlyclean-libtool:

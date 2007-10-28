@@ -56,8 +56,7 @@ msgstr "Aucun senseur trouvé !"
 #. only use this if no hddtemp sensor
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../panel-plugin/sensors.c:1014
-#: ../panel-plugin/sensors.c:1171
+#: ../panel-plugin/sensors.c:1014 ../panel-plugin/sensors.c:1171
 #: ../panel-plugin/sensors.c:1177
 msgid "Hard disks"
 msgstr "Disques dur"
@@ -70,7 +69,7 @@ msgid ""
 "Seems like there was a problem reading a sensor feature value. \n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-" \n"
+"\n"
 "Xfce Greffon de Senseur Matériel : \n"
 "Il semblerait qu'il y ait un problème de lecture de valeur sur un senseur. \n"
 "L'exécution normale ne peut pas être garantie.\n"
@@ -188,8 +187,7 @@ msgstr "Divers"
 msgid "Edit Properties"
 msgstr "Ajouter propriétés"
 
-#: ../panel-plugin/sensors.c:2337
-#: ../panel-plugin/sensors.h:40
+#: ../panel-plugin/sensors.c:2337 ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr "Plugin senseurs"
 
@@ -203,10 +201,12 @@ msgstr "Afficher les valeurs du senseur."
 
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Senseurs</b></span>"
+
 #~ msgid "Hard disk temperature sensors"
 #~ msgstr "Sondes de température du disque dur"
+
 #~ msgid "Error: Could not connect to sensors!"
 #~ msgstr "Erreur : ne peut pas se connecter aux senseurs !"
+
 #~ msgid "<b>View</b>"
 #~ msgstr "<b>Vue</b>"
-
