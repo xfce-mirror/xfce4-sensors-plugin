@@ -22,6 +22,8 @@ xfce4_sensors_plugin_SOURCES =									   \
 	$(SENSORS_SOURCES)												\
 	$(HDDTEMP_SOURCES)												\
 	$(ACPI_SOURCES)													\
+	configuration.c													\
+	configuration.h													\
 	sensors.c														\
 	sensors.h														\
 	types.h

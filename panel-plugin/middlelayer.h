@@ -73,23 +73,8 @@ void categorize_sensor_type (t_chipfeature* chipfeature);
  */
 int sensors_get_feature_wrapper (t_chip *chip, int number, double *value);
 
-/*
- * Returns temperature for parameter "/dev/hda" for example
+/* Clean up structures and call library routines for ending "session".
  */
-/* double get_hddtemp_value (char* disk);
-
-
-double get_acpi_zone_value (char *zone);
-
-
-char *get_acpi_info ();
-
-
-char *get_acpi_value (char *filename);
-
-
-int acpi_ignore_directory_entry (struct dirent *de); */
-
-
+void sensor_interface_cleanup ();
 
 #endif /* XFCE4_SENSORS_MIDDLELAYER_H */

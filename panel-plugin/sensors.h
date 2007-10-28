@@ -223,10 +223,6 @@ typedef struct {
 }
 t_sensors_dialog;
 
-/*
- * Tooltips to display for any part of this plugin
- */
-static GtkTooltips *tooltips = NULL;
 
 
 #endif /* XFCE4_SENSORS_SENSORS_H */

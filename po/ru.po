@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-20 20:12+0200\n"
+"POT-Creation-Date: 2007-10-28 17:21+0100\n"
 "PO-Revision-Date: 2006-04-09 17:07+0600\n"
 "Last-Translator: Andrey Fedoseev <andrey.fedoseev@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -15,26 +15,21 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors.c:196
+#: ../panel-plugin/sensors.c:199 ../panel-plugin/sensors.c:512
 #, fuzzy
-msgid "<span foreground=\"#000000\"><b>Sensors</b></span>\n"
+msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Сенсоры</b></span>\n"
 
-#: ../panel-plugin/sensors.c:480
-#, c-format
-msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
-msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Сенсоры</b></span>\n"
-
-#: ../panel-plugin/sensors.c:524
+#: ../panel-plugin/sensors.c:552
 #, c-format
 msgid "%5.0f rpm"
 msgstr "%5.0f оборотов/мин"
 
-#: ../panel-plugin/sensors.c:556
+#: ../panel-plugin/sensors.c:584
 msgid "No sensors selected!"
 msgstr "Сенсоры не выбраны!"
 
-#: ../panel-plugin/sensors.c:588
+#: ../panel-plugin/sensors.c:616
 #, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -42,22 +37,11 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:820
+#: ../panel-plugin/sensors.c:852
 msgid "No sensors found!"
 msgstr "Сенсоры на найдены!"
 
-#. #ifdef DEBUG
-#. g_printf(" %d \n", getIdFromAddress(i, j, sensors));
-#. #endif
-#. only use this if no hddtemp sensor
-#. FIXME: compare strings, or also have hddtmep and acpi store numeric values
-#. assert correctly saved file
-#: ../panel-plugin/sensors.c:1014 ../panel-plugin/sensors.c:1171
-#: ../panel-plugin/sensors.c:1177
-msgid "Hard disks"
-msgstr ""
-
-#: ../panel-plugin/sensors.c:1390
+#: ../panel-plugin/sensors.c:1070
 #, c-format
 msgid ""
 "\n"
@@ -66,136 +50,167 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1813
+#: ../panel-plugin/sensors.c:1493
 #, fuzzy
 msgid "_UI style:"
 msgstr "Стиль отображения"
 
-#: ../panel-plugin/sensors.c:1814
+#: ../panel-plugin/sensors.c:1494
 #, fuzzy
 msgid "_text"
 msgstr "текстовый"
 
-#: ../panel-plugin/sensors.c:1816
+#: ../panel-plugin/sensors.c:1496
 #, fuzzy
 msgid "g_raphical"
 msgstr "графический"
 
-#: ../panel-plugin/sensors.c:1853
+#: ../panel-plugin/sensors.c:1533
 #, fuzzy
 msgid "Show _labels in graphical UI"
 msgstr "Отображать метки"
 
-#: ../panel-plugin/sensors.c:1883
+#: ../panel-plugin/sensors.c:1563
 msgid "Show colored _bars"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1911
+#: ../panel-plugin/sensors.c:1591
 #, fuzzy
 msgid "_Show title"
 msgstr "Отображать заголовок"
 
-#: ../panel-plugin/sensors.c:1939
+#: ../panel-plugin/sensors.c:1619
 #, fuzzy
 msgid "Sensors t_ype:"
 msgstr "Тип сенсоров:"
 
-#: ../panel-plugin/sensors.c:1989
+#: ../panel-plugin/sensors.c:1669
 msgid "Name"
 msgstr "Имя"
 
-#: ../panel-plugin/sensors.c:1998
+#: ../panel-plugin/sensors.c:1678
 msgid "Value"
 msgstr "Значение"
 
-#: ../panel-plugin/sensors.c:2004
+#: ../panel-plugin/sensors.c:1684
 msgid "Show"
 msgstr "Отображать"
 
-#: ../panel-plugin/sensors.c:2013
+#: ../panel-plugin/sensors.c:1693
 msgid "Color"
 msgstr "Цвет"
 
-#: ../panel-plugin/sensors.c:2023
+#: ../panel-plugin/sensors.c:1703
 msgid "Min"
 msgstr "Мин."
 
-#: ../panel-plugin/sensors.c:2032
+#: ../panel-plugin/sensors.c:1712
 msgid "Max"
 msgstr "Макс."
 
-#: ../panel-plugin/sensors.c:2064
+#: ../panel-plugin/sensors.c:1745
 #, fuzzy
 msgid "F_ont size:"
 msgstr "Размер шрифта:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:2071
+#: ../panel-plugin/sensors.c:1752
 msgid "x-small"
 msgstr "крошечный"
 
-#: ../panel-plugin/sensors.c:2072
+#: ../panel-plugin/sensors.c:1753
 msgid "small"
 msgstr "маленький"
 
-#: ../panel-plugin/sensors.c:2073
+#: ../panel-plugin/sensors.c:1754
 msgid "medium"
 msgstr "средний"
 
-#: ../panel-plugin/sensors.c:2074
+#: ../panel-plugin/sensors.c:1755
 msgid "large"
 msgstr "большой"
 
-#: ../panel-plugin/sensors.c:2075
+#: ../panel-plugin/sensors.c:1756
 msgid "x-large"
 msgstr "огромный"
 
-#: ../panel-plugin/sensors.c:2107
+#: ../panel-plugin/sensors.c:1788
 #, fuzzy
 msgid "T_emperature scale:"
 msgstr "Температурная шкала:"
 
-#: ../panel-plugin/sensors.c:2109
+#: ../panel-plugin/sensors.c:1790
 #, fuzzy
 msgid "_Celsius"
 msgstr "По Цельсию"
 
-#: ../panel-plugin/sensors.c:2111
+#: ../panel-plugin/sensors.c:1792
 #, fuzzy
 msgid "_Fahrenheit"
 msgstr "По Фаренгейту"
 
-#: ../panel-plugin/sensors.c:2150
+#: ../panel-plugin/sensors.c:1831
 #, fuzzy
 msgid "U_pdate interval (seconds):"
 msgstr "Интервал обновления (сек.):"
 
-#: ../panel-plugin/sensors.c:2178
+#: ../panel-plugin/sensors.c:1859
 #, fuzzy
 msgid "E_xecute on double click:"
 msgstr "Выполнить по двойному щелчку:"
 
-#: ../panel-plugin/sensors.c:2222
+#: ../panel-plugin/sensors.c:1903
 msgid "View"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2253
+#: ../panel-plugin/sensors.c:1934
 #, fuzzy
 msgid "Sensors"
 msgstr "<b>Сенсоры</b>"
 
-#: ../panel-plugin/sensors.c:2282
+#: ../panel-plugin/sensors.c:1963
 #, fuzzy
 msgid "Miscellaneous"
 msgstr "<b>Дополнительно</b>"
 
-#: ../panel-plugin/sensors.c:2330
+#: ../panel-plugin/sensors.c:2011
 msgid "Edit Properties"
 msgstr "Свойства"
 
-#: ../panel-plugin/sensors.c:2337 ../panel-plugin/sensors.h:40
+#: ../panel-plugin/sensors.c:2018 ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr "Сенсоры"
+
+#. only use this if no hddtemp sensor
+#. FIXME: compare strings, or also have hddtmep and acpi store numeric values
+#. assert correctly saved file
+#: ../panel-plugin/configuration.c:133 ../panel-plugin/configuration.c:275
+#: ../panel-plugin/configuration.c:281 ../panel-plugin/hddtemp.c:129
+#: ../panel-plugin/hddtemp.c:168 ../panel-plugin/hddtemp.c:173
+msgid "Hard disks"
+msgstr ""
+
+#: ../panel-plugin/acpi.c:46 ../panel-plugin/acpi.c:53
+msgid "ACPI"
+msgstr ""
+
+#: ../panel-plugin/acpi.c:47
+msgid "Advanced Configuration and Power Interface"
+msgstr ""
+
+#: ../panel-plugin/hddtemp.c:172
+msgid "S.M.A.R.T. harddisk temperatures"
+msgstr ""
+
+#: ../panel-plugin/lmsensors.c:52
+#, fuzzy
+msgid "LM Sensors"
+msgstr "<b>Сенсоры</b>"
+
+#: ../panel-plugin/lmsensors.c:131
+#, c-format
+msgid "Error: Could not connect to sensors!"
+msgstr "Ошибка: Не удается соединиться с сенсорами!"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
@@ -205,11 +220,11 @@ msgstr "Сенсоры"
 msgid "Show sensor values."
 msgstr "Отображает значения сенсоров."
 
+#~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
+#~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Сенсоры</b></span>\n"
+
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Сенсоры</b></span>"
-
-#~ msgid "Error: Could not connect to sensors!"
-#~ msgstr "Ошибка: Не удается соединиться с сенсорами!"
 
 #~ msgid "<b>View</b>"
 #~ msgstr "<b>Вид</b>"

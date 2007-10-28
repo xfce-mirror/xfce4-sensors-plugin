@@ -182,3 +182,11 @@ sensors_get_feature_wrapper (t_chip *chip, int number, double *value)
     }
     return -1;
 }
+
+void
+sensor_interface_cleanup()
+{
+    #ifdef HAVE_LIBSENSORS
+        sensors_cleanup();
+    #endif
+}

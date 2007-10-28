@@ -171,7 +171,7 @@ STRIP = strip
 USE_NLS = yes
 VERSION = 0.10.99.2
 XGETTEXT = /usr/bin/xgettext
-XGETTEXT_ARGS = --keyword=Q_ --from-code=UTF-8
+XGETTEXT_ARGS = --keyword=Q_
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 ac_ct_F77 = 
