@@ -67,10 +67,6 @@ sensors_set_bar_color (GtkWidget *bar, double fraction, gchar* user_bar_color,
 
     g_return_if_fail (G_IS_OBJECT(bar));
 
-    /*    rc = gtk_widget_get_modifier_style(GTK_WIDGET(bar));
-    if (!rc)
-        rc = gtk_rc_style_new();    */
-
     if (fraction >= 1 || fraction<=0)
         gdk_color_parse(COLOR_ERROR, &color);
 
@@ -83,11 +79,6 @@ sensors_set_bar_color (GtkWidget *bar, double fraction, gchar* user_bar_color,
         else
             gdk_color_parse(COLOR_NORMAL, &color);
     }
-
-/*
-    rc->color_flags[GTK_STATE_PRELIGHT] |= GTK_RC_BG;
-    rc->bg[GTK_STATE_PRELIGHT] = color;
-    gtk_widget_modify_bg(bar, GTK_STATE_PRELIGHT, &color); */
 
     gtk_widget_modify_bg (bar, GTK_STATE_PRELIGHT, &color);
     gtk_widget_modify_bg (bar, GTK_STATE_SELECTED, &color);
@@ -335,11 +326,6 @@ determine_number_of_rows (t_sensors *sensors)
         gtk_font_size = 10; /* not many people will want a bigger font size,
                                 and so only few rows are gonna be displayed. */
     }
-
-    DBG    ("fontsize=%d, absolute=%d, mask=%x, font_size_numerical=%d, "
-                 "panelsize=%d\n", gtk_font_size, (int) is_absolute,
-                 (int) mask, sensors->font_size_numerical,
-                 sensors->panel_size);
 
     g_assert (gtk_font_size!=0);
 
@@ -631,7 +617,7 @@ sensors_create_tooltip (gpointer data)
                 if ( res!=0 ) {
                     g_printf ( _("Xfce Hardware Sensors Plugin:\n"
                     "Seems like there was a problem reading a sensor feature "
-                    "value. \nProper proceeding cannot be guaranteed.\n") );
+                    "value.\nProper proceeding cannot be guaranteed.\n") );
                     break;
                 }
                 tmp = g_new (gchar, 0);
@@ -1084,9 +1070,9 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale)
             res = sensors_get_feature_wrapper
                     (chip, chipfeature->address, &sensorFeature);
             if ( res!=0) {
-                g_printf( _("\nXfce Hardware Sensors Plugin: \n"
+                g_printf( _("Xfce Hardware Sensors Plugin:\n"
                     "Seems like there was a problem reading a sensor "
-                    "feature value. \nProper proceeding cannot be "
+                    "feature value.\nProper proceeding cannot be "
                     "guaranteed.\n") );
                 break;
             }
