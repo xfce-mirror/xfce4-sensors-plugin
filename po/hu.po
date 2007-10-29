@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-10-20 20:12+0200\n"
-"PO-Revision-Date: 2006-10-01 21:31+0100\n"
+"PO-Revision-Date: 2007-10-29 05:39+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: hu\n"
 "MIME-Version: 1.0\n"
@@ -13,9 +13,8 @@ msgstr ""
 "X-Poedit-Country: HUNGARY\n"
 
 #: ../panel-plugin/sensors.c:196
-#, fuzzy
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>\n"
-msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Érzékelők</b></span>\n"
+msgstr "<span foreground=\"#000000\"><b>Érzékelők</b></span>\n"
 
 #: ../panel-plugin/sensors.c:480
 #, c-format
@@ -32,13 +31,12 @@ msgid "No sensors selected!"
 msgstr "Nincsenek érzékelők!"
 
 #: ../panel-plugin/sensors.c:588
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value. \n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-" \n"
 "Xfce Hardver Érzékelő: \n"
 "Úgy tűnik, gond van egy érzékelő értékeinek kiolvasásával. \n"
 "A helyes működés nem szavatolt.\n"
@@ -53,13 +51,14 @@ msgstr "Nem leltem érzékelőket!"
 #. only use this if no hddtemp sensor
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../panel-plugin/sensors.c:1014 ../panel-plugin/sensors.c:1171
+#: ../panel-plugin/sensors.c:1014
+#: ../panel-plugin/sensors.c:1171
 #: ../panel-plugin/sensors.c:1177
 msgid "Hard disks"
 msgstr "Merevlemezek"
 
 #: ../panel-plugin/sensors.c:1390
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "\n"
 "Xfce Hardware Sensors Plugin: \n"
@@ -170,23 +169,22 @@ msgstr "Futtatás dupla kattintásra:"
 
 #: ../panel-plugin/sensors.c:2222
 msgid "View"
-msgstr ""
+msgstr "Nézet"
 
 #: ../panel-plugin/sensors.c:2253
-#, fuzzy
 msgid "Sensors"
-msgstr "<b>Érzékelők</b>"
+msgstr "Érzékelők"
 
 #: ../panel-plugin/sensors.c:2282
-#, fuzzy
 msgid "Miscellaneous"
-msgstr "<b>Egyebek</b>"
+msgstr "Egyebek"
 
 #: ../panel-plugin/sensors.c:2330
 msgid "Edit Properties"
 msgstr "Tulajdonságok szerkesztése"
 
-#: ../panel-plugin/sensors.c:2337 ../panel-plugin/sensors.h:40
+#: ../panel-plugin/sensors.c:2337
+#: ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr "Érzékelők"
 
@@ -205,12 +203,10 @@ msgstr "Értékek mutatása"
 #, fuzzy
 #~ msgid "LM Sensors"
 #~ msgstr "<b>Érzékelők</b>"
-
 #~ msgid "Error: Could not connect to sensors!"
 #~ msgstr "Hiba: nem lehet érzékelőkhöz kapcsolódni!"
-
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Érzékelők</b></span>"
-
 #~ msgid "<b>View</b>"
 #~ msgstr "<b>Nézet</b>"
+
