@@ -67,11 +67,11 @@ sensors_set_bar_color (GtkWidget *bar, double fraction, gchar* user_bar_color,
 
     g_return_if_fail (G_IS_OBJECT(bar));
 
-    rc = gtk_widget_get_modifier_style(GTK_WIDGET(bar));
+    /*    rc = gtk_widget_get_modifier_style(GTK_WIDGET(bar));
     if (!rc)
-        rc = gtk_rc_style_new();
+        rc = gtk_rc_style_new();    */
 
-    if (fraction >= 1)
+    if (fraction >= 1 || fraction<=0)
         gdk_color_parse(COLOR_ERROR, &color);
 
     else if ((fraction < .2) || (fraction > .8))
@@ -84,9 +84,14 @@ sensors_set_bar_color (GtkWidget *bar, double fraction, gchar* user_bar_color,
             gdk_color_parse(COLOR_NORMAL, &color);
     }
 
+/*
     rc->color_flags[GTK_STATE_PRELIGHT] |= GTK_RC_BG;
     rc->bg[GTK_STATE_PRELIGHT] = color;
-    gtk_widget_modify_bg(bar, GTK_STATE_PRELIGHT, &color);
+    gtk_widget_modify_bg(bar, GTK_STATE_PRELIGHT, &color); */
+
+    gtk_widget_modify_bg (bar, GTK_STATE_PRELIGHT, &color);
+    gtk_widget_modify_bg (bar, GTK_STATE_SELECTED, &color);
+    gtk_widget_modify_base (bar, GTK_STATE_SELECTED, &color);
 
     TRACE ("leaves sensors_set_bar_color");
 }

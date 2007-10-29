@@ -51,8 +51,7 @@ msgstr "Nem leltem érzékelőket!"
 #. only use this if no hddtemp sensor
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../panel-plugin/sensors.c:1014
-#: ../panel-plugin/sensors.c:1171
+#: ../panel-plugin/sensors.c:1014 ../panel-plugin/sensors.c:1171
 #: ../panel-plugin/sensors.c:1177
 msgid "Hard disks"
 msgstr "Merevlemezek"
@@ -65,7 +64,7 @@ msgid ""
 "Seems like there was a problem reading a sensor feature value. \n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-" \n"
+"\n"
 "Xfce Hardver Érzékelő: \n"
 "Úgy tűnik, gond van egy érzékelő értékeinek kiolvasásával. \n"
 "A helyes működés nem szavatolt.\n"
@@ -183,8 +182,7 @@ msgstr "Egyebek"
 msgid "Edit Properties"
 msgstr "Tulajdonságok szerkesztése"
 
-#: ../panel-plugin/sensors.c:2337
-#: ../panel-plugin/sensors.h:40
+#: ../panel-plugin/sensors.c:2337 ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr "Érzékelők"
 
@@ -203,10 +201,12 @@ msgstr "Értékek mutatása"
 #, fuzzy
 #~ msgid "LM Sensors"
 #~ msgstr "<b>Érzékelők</b>"
+
 #~ msgid "Error: Could not connect to sensors!"
 #~ msgstr "Hiba: nem lehet érzékelőkhöz kapcsolódni!"
+
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Érzékelők</b></span>"
+
 #~ msgid "<b>View</b>"
 #~ msgstr "<b>Nézet</b>"
-
