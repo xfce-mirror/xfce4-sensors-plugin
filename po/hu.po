@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-10-29 23:33+0100\n"
-"PO-Revision-Date: 2007-10-29 05:39+0100\n"
+"PO-Revision-Date: 2007-11-01 08:35+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: hu\n"
 "MIME-Version: 1.0\n"
@@ -12,10 +12,10 @@ msgstr ""
 "X-Poedit-Language: Hungarian\n"
 "X-Poedit-Country: HUNGARY\n"
 
-#: ../panel-plugin/sensors.c:202 ../panel-plugin/sensors.c:514
-#, fuzzy
+#: ../panel-plugin/sensors.c:202
+#: ../panel-plugin/sensors.c:514
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
-msgstr "<span foreground=\"#000000\"><b>Érzékelők</b></span>\n"
+msgstr "<span foreground=\"#000000\"><b>Érzékelők</b></span>"
 
 #: ../panel-plugin/sensors.c:554
 #, c-format
@@ -26,8 +26,9 @@ msgstr "%5.0f rpm"
 msgid "No sensors selected!"
 msgstr "Nincsenek érzékelők!"
 
-#: ../panel-plugin/sensors.c:618 ../panel-plugin/sensors.c:1073
-#, fuzzy, c-format
+#: ../panel-plugin/sensors.c:618
+#: ../panel-plugin/sensors.c:1073
+#, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
@@ -154,36 +155,39 @@ msgstr "Egyebek"
 msgid "Edit Properties"
 msgstr "Tulajdonságok szerkesztése"
 
-#: ../panel-plugin/sensors.c:2021 ../panel-plugin/sensors.h:40
+#: ../panel-plugin/sensors.c:2021
+#: ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr "Érzékelők"
 
 #. only use this if no hddtemp sensor
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../panel-plugin/configuration.c:133 ../panel-plugin/configuration.c:275
-#: ../panel-plugin/configuration.c:281 ../panel-plugin/hddtemp.c:129
-#: ../panel-plugin/hddtemp.c:168 ../panel-plugin/hddtemp.c:173
+#: ../panel-plugin/configuration.c:133
+#: ../panel-plugin/configuration.c:275
+#: ../panel-plugin/configuration.c:281
+#: ../panel-plugin/hddtemp.c:129
+#: ../panel-plugin/hddtemp.c:168
+#: ../panel-plugin/hddtemp.c:173
 msgid "Hard disks"
 msgstr "Merevlemezek"
 
-#: ../panel-plugin/acpi.c:46 ../panel-plugin/acpi.c:53
+#: ../panel-plugin/acpi.c:46
+#: ../panel-plugin/acpi.c:53
 msgid "ACPI"
-msgstr ""
+msgstr "ACPI"
 
 #: ../panel-plugin/acpi.c:47
 msgid "Advanced Configuration and Power Interface"
 msgstr ""
 
 #: ../panel-plugin/hddtemp.c:172
-#, fuzzy
 msgid "S.M.A.R.T. harddisk temperatures"
-msgstr "Merevlemez hőmérséklet érzékelők"
+msgstr "S.M.A.R.T. merevlemez hőmérséklet"
 
 #: ../panel-plugin/lmsensors.c:52
-#, fuzzy
 msgid "LM Sensors"
-msgstr "<b>Érzékelők</b>"
+msgstr "LM érzékelők"
 
 #: ../panel-plugin/lmsensors.c:131
 #, c-format
@@ -208,12 +212,10 @@ msgstr "Értékek mutatása"
 #~ "Xfce Hardver Érzékelő: \n"
 #~ "Úgy tűnik, gond van egy érzékelő értékeinek kiolvasásával. \n"
 #~ "A helyes működés nem szavatolt.\n"
-
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Érzékelők</b></span>\n"
-
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Érzékelők</b></span>"
-
 #~ msgid "<b>View</b>"
 #~ msgstr "<b>Nézet</b>"
+
