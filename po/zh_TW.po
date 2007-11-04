@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-04 12:52+0100\n"
+"POT-Creation-Date: 2007-10-29 23:33+0100\n"
 "PO-Revision-Date: 2006-06-26 22:37+0800\n"
 "Last-Translator: Hydonsingore Cia <hydonsingore@educities.edu.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -47,7 +47,7 @@ msgstr "找不到感測器！"
 
 #: ../panel-plugin/sensors.c:1496
 #, fuzzy
-msgid "UI style:"
+msgid "_UI style:"
 msgstr "使用介面風格"
 
 #: ../panel-plugin/sensors.c:1497
@@ -79,100 +79,100 @@ msgstr "顯示標題"
 msgid "Sensors t_ype:"
 msgstr "感測器類型："
 
-#: ../panel-plugin/sensors.c:1674
+#: ../panel-plugin/sensors.c:1672
 msgid "Name"
 msgstr "名稱"
 
-#: ../panel-plugin/sensors.c:1683
+#: ../panel-plugin/sensors.c:1681
 msgid "Value"
 msgstr "數值"
 
-#: ../panel-plugin/sensors.c:1689
+#: ../panel-plugin/sensors.c:1687
 msgid "Show"
 msgstr "顯示"
 
-#: ../panel-plugin/sensors.c:1698
+#: ../panel-plugin/sensors.c:1696
 msgid "Color"
 msgstr "顏色"
 
-#: ../panel-plugin/sensors.c:1708
+#: ../panel-plugin/sensors.c:1706
 msgid "Min"
 msgstr "最小"
 
-#: ../panel-plugin/sensors.c:1717
+#: ../panel-plugin/sensors.c:1715
 msgid "Max"
 msgstr "最大"
 
-#: ../panel-plugin/sensors.c:1750
+#: ../panel-plugin/sensors.c:1748
 #, fuzzy
 msgid "F_ont size:"
 msgstr "字型大小："
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:1757
+#: ../panel-plugin/sensors.c:1755
 msgid "x-small"
 msgstr "極小"
 
-#: ../panel-plugin/sensors.c:1758
+#: ../panel-plugin/sensors.c:1756
 msgid "small"
 msgstr "小"
 
-#: ../panel-plugin/sensors.c:1759
+#: ../panel-plugin/sensors.c:1757
 msgid "medium"
 msgstr "普通"
 
-#: ../panel-plugin/sensors.c:1760
+#: ../panel-plugin/sensors.c:1758
 msgid "large"
 msgstr "大"
 
-#: ../panel-plugin/sensors.c:1761
+#: ../panel-plugin/sensors.c:1759
 msgid "x-large"
 msgstr "巨大"
 
-#: ../panel-plugin/sensors.c:1793
+#: ../panel-plugin/sensors.c:1791
 #, fuzzy
-msgid "Temperature scale:"
+msgid "T_emperature scale:"
 msgstr "温標："
 
-#: ../panel-plugin/sensors.c:1795
+#: ../panel-plugin/sensors.c:1793
 #, fuzzy
 msgid "_Celsius"
 msgstr "攝氏"
 
-#: ../panel-plugin/sensors.c:1797
+#: ../panel-plugin/sensors.c:1795
 #, fuzzy
 msgid "_Fahrenheit"
 msgstr "華氏"
 
-#: ../panel-plugin/sensors.c:1836
+#: ../panel-plugin/sensors.c:1834
 #, fuzzy
 msgid "U_pdate interval (seconds):"
 msgstr "更新間隔時間(秒)："
 
-#: ../panel-plugin/sensors.c:1866
+#: ../panel-plugin/sensors.c:1862
 #, fuzzy
 msgid "E_xecute on double click:"
 msgstr "於雙擊時執行："
 
-#: ../panel-plugin/sensors.c:1909
-msgid "_View"
+#: ../panel-plugin/sensors.c:1906
+msgid "View"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1939
+#: ../panel-plugin/sensors.c:1937
 #, fuzzy
-msgid "_Sensors"
+msgid "Sensors"
 msgstr "感測器類型："
 
-#: ../panel-plugin/sensors.c:1967
+#: ../panel-plugin/sensors.c:1966
 #, fuzzy
-msgid "_Miscellaneous"
+msgid "Miscellaneous"
 msgstr "<b>雜項</b>"
 
-#: ../panel-plugin/sensors.c:2015
+#: ../panel-plugin/sensors.c:2014
 msgid "Edit Properties"
 msgstr "編輯屬性"
 
-#: ../panel-plugin/sensors.c:2022 ../panel-plugin/sensors.h:40
+#: ../panel-plugin/sensors.c:2021 ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr "感測器外掛程式"
 

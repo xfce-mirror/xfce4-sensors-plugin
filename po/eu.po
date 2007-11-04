@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-04 12:52+0100\n"
+"POT-Creation-Date: 2007-10-29 23:33+0100\n"
 "PO-Revision-Date: 2006-02-13 22:20+0100\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: Librezale <librezale@librezale.org>\n"
@@ -48,7 +48,7 @@ msgstr "Ez da sentsorerik aurkitu!"
 
 #: ../panel-plugin/sensors.c:1496
 #, fuzzy
-msgid "UI style:"
+msgid "_UI style:"
 msgstr "_UI estiloa:"
 
 #: ../panel-plugin/sensors.c:1497
@@ -75,95 +75,95 @@ msgstr "_Izenburua ikusi"
 msgid "Sensors t_ype:"
 msgstr "Sentsore m_ota:"
 
-#: ../panel-plugin/sensors.c:1674
+#: ../panel-plugin/sensors.c:1672
 msgid "Name"
 msgstr "Izena"
 
-#: ../panel-plugin/sensors.c:1683
+#: ../panel-plugin/sensors.c:1681
 msgid "Value"
 msgstr "Balioa"
 
-#: ../panel-plugin/sensors.c:1689
+#: ../panel-plugin/sensors.c:1687
 msgid "Show"
 msgstr "Bistarazi"
 
-#: ../panel-plugin/sensors.c:1698
+#: ../panel-plugin/sensors.c:1696
 msgid "Color"
 msgstr "Kolorea"
 
-#: ../panel-plugin/sensors.c:1708
+#: ../panel-plugin/sensors.c:1706
 msgid "Min"
 msgstr "Min"
 
-#: ../panel-plugin/sensors.c:1717
+#: ../panel-plugin/sensors.c:1715
 msgid "Max"
 msgstr "Geh"
 
-#: ../panel-plugin/sensors.c:1750
+#: ../panel-plugin/sensors.c:1748
 msgid "F_ont size:"
 msgstr "Letra-tip_o tamaina:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:1757
+#: ../panel-plugin/sensors.c:1755
 msgid "x-small"
 msgstr "oso txikia"
 
-#: ../panel-plugin/sensors.c:1758
+#: ../panel-plugin/sensors.c:1756
 msgid "small"
 msgstr "txikia"
 
-#: ../panel-plugin/sensors.c:1759
+#: ../panel-plugin/sensors.c:1757
 msgid "medium"
 msgstr "ertaina"
 
-#: ../panel-plugin/sensors.c:1760
+#: ../panel-plugin/sensors.c:1758
 msgid "large"
 msgstr "handia"
 
-#: ../panel-plugin/sensors.c:1761
+#: ../panel-plugin/sensors.c:1759
 msgid "x-large"
 msgstr "oso handia"
 
-#: ../panel-plugin/sensors.c:1793
+#: ../panel-plugin/sensors.c:1791
 #, fuzzy
-msgid "Temperature scale:"
+msgid "T_emperature scale:"
 msgstr "T_enperatura eskala:"
 
-#: ../panel-plugin/sensors.c:1795
+#: ../panel-plugin/sensors.c:1793
 msgid "_Celsius"
 msgstr "_Celsius"
 
-#: ../panel-plugin/sensors.c:1797
+#: ../panel-plugin/sensors.c:1795
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../panel-plugin/sensors.c:1836
+#: ../panel-plugin/sensors.c:1834
 msgid "U_pdate interval (seconds):"
 msgstr "Egunera_keta aldia (segundu):"
 
-#: ../panel-plugin/sensors.c:1866
+#: ../panel-plugin/sensors.c:1862
 msgid "E_xecute on double click:"
 msgstr "Klik bikoitzarekin e_xekutatu:"
 
-#: ../panel-plugin/sensors.c:1909
-msgid "_View"
+#: ../panel-plugin/sensors.c:1906
+msgid "View"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1939
+#: ../panel-plugin/sensors.c:1937
 #, fuzzy
-msgid "_Sensors"
+msgid "Sensors"
 msgstr "<b>Sentsoreak</b>"
 
-#: ../panel-plugin/sensors.c:1967
+#: ../panel-plugin/sensors.c:1966
 #, fuzzy
-msgid "_Miscellaneous"
+msgid "Miscellaneous"
 msgstr "<b>Bestelakoak</b>"
 
-#: ../panel-plugin/sensors.c:2015
+#: ../panel-plugin/sensors.c:2014
 msgid "Edit Properties"
 msgstr "Propietateak Editatu"
 
-#: ../panel-plugin/sensors.c:2022 ../panel-plugin/sensors.h:40
+#: ../panel-plugin/sensors.c:2021 ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr "Sentsore Plugin-a"
 

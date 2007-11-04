@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-04 12:52+0100\n"
+"POT-Creation-Date: 2007-10-29 23:33+0100\n"
 "PO-Revision-Date: 2007-11-01 08:35+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: hu\n"
@@ -42,7 +42,7 @@ msgstr "Nem leltem érzékelőket!"
 
 #: ../panel-plugin/sensors.c:1496
 #, fuzzy
-msgid "UI style:"
+msgid "_UI style:"
 msgstr "_UI stílus:"
 
 #: ../panel-plugin/sensors.c:1497
@@ -69,96 +69,96 @@ msgstr "Cím mutatá_sa"
 msgid "Sensors t_ype:"
 msgstr "Érzékelők tí_pusa:"
 
-#: ../panel-plugin/sensors.c:1674
+#: ../panel-plugin/sensors.c:1672
 msgid "Name"
 msgstr "Név"
 
-#: ../panel-plugin/sensors.c:1683
+#: ../panel-plugin/sensors.c:1681
 msgid "Value"
 msgstr "Érték"
 
-#: ../panel-plugin/sensors.c:1689
+#: ../panel-plugin/sensors.c:1687
 msgid "Show"
 msgstr "Megjelenítés"
 
-#: ../panel-plugin/sensors.c:1698
+#: ../panel-plugin/sensors.c:1696
 msgid "Color"
 msgstr "Szín"
 
-#: ../panel-plugin/sensors.c:1708
+#: ../panel-plugin/sensors.c:1706
 msgid "Min"
 msgstr "Min"
 
-#: ../panel-plugin/sensors.c:1717
+#: ../panel-plugin/sensors.c:1715
 msgid "Max"
 msgstr "Max"
 
-#: ../panel-plugin/sensors.c:1750
+#: ../panel-plugin/sensors.c:1748
 msgid "F_ont size:"
 msgstr "_Betű mérete:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:1757
+#: ../panel-plugin/sensors.c:1755
 msgid "x-small"
 msgstr "törpe"
 
-#: ../panel-plugin/sensors.c:1758
+#: ../panel-plugin/sensors.c:1756
 msgid "small"
 msgstr "kicsi"
 
-#: ../panel-plugin/sensors.c:1759
+#: ../panel-plugin/sensors.c:1757
 msgid "medium"
 msgstr "közepes"
 
-#: ../panel-plugin/sensors.c:1760
+#: ../panel-plugin/sensors.c:1758
 msgid "large"
 msgstr "nagy"
 
-#: ../panel-plugin/sensors.c:1761
+#: ../panel-plugin/sensors.c:1759
 msgid "x-large"
 msgstr "óriás"
 
-#: ../panel-plugin/sensors.c:1793
+#: ../panel-plugin/sensors.c:1791
 #, fuzzy
-msgid "Temperature scale:"
+msgid "T_emperature scale:"
 msgstr "_Hőfok skála:"
 
-#: ../panel-plugin/sensors.c:1795
+#: ../panel-plugin/sensors.c:1793
 msgid "_Celsius"
 msgstr "_Celsius"
 
-#: ../panel-plugin/sensors.c:1797
+#: ../panel-plugin/sensors.c:1795
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../panel-plugin/sensors.c:1836
+#: ../panel-plugin/sensors.c:1834
 msgid "U_pdate interval (seconds):"
 msgstr "Frissítési időközök (másodpercben):"
 
-#: ../panel-plugin/sensors.c:1866
+#: ../panel-plugin/sensors.c:1862
 msgid "E_xecute on double click:"
 msgstr "Futtatás dupla kattintásra:"
 
-#: ../panel-plugin/sensors.c:1909
+#: ../panel-plugin/sensors.c:1906
 #, fuzzy
-msgid "_View"
+msgid "View"
 msgstr "Nézet"
 
-#: ../panel-plugin/sensors.c:1939
+#: ../panel-plugin/sensors.c:1937
 #, fuzzy
-msgid "_Sensors"
+msgid "Sensors"
 msgstr "Érzékelők"
 
-#: ../panel-plugin/sensors.c:1967
+#: ../panel-plugin/sensors.c:1966
 #, fuzzy
-msgid "_Miscellaneous"
+msgid "Miscellaneous"
 msgstr "Egyebek"
 
-#: ../panel-plugin/sensors.c:2015
+#: ../panel-plugin/sensors.c:2014
 msgid "Edit Properties"
 msgstr "Tulajdonságok szerkesztése"
 
-#: ../panel-plugin/sensors.c:2022 ../panel-plugin/sensors.h:40
+#: ../panel-plugin/sensors.c:2021 ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr "Érzékelők"
 

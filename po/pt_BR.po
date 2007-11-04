@@ -17,8 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../panel-plugin/sensors.c:202
-#: ../panel-plugin/sensors.c:514
+#: ../panel-plugin/sensors.c:202 ../panel-plugin/sensors.c:514
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Sensores</b></span>"
 
@@ -31,8 +30,7 @@ msgstr "%5.0f rpm"
 msgid "No sensors selected!"
 msgstr "Nenhum sensor selecionado!"
 
-#: ../panel-plugin/sensors.c:618
-#: ../panel-plugin/sensors.c:1073
+#: ../panel-plugin/sensors.c:618 ../panel-plugin/sensors.c:1073
 #, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -160,25 +158,20 @@ msgstr "Miscelâneo"
 msgid "Edit Properties"
 msgstr "Editar Propriedades"
 
-#: ../panel-plugin/sensors.c:2021
-#: ../panel-plugin/sensors.h:40
+#: ../panel-plugin/sensors.c:2021 ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr "Plug-in de Sensores"
 
 #. only use this if no hddtemp sensor
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../panel-plugin/configuration.c:133
-#: ../panel-plugin/configuration.c:275
-#: ../panel-plugin/configuration.c:281
-#: ../panel-plugin/hddtemp.c:129
-#: ../panel-plugin/hddtemp.c:168
-#: ../panel-plugin/hddtemp.c:173
+#: ../panel-plugin/configuration.c:133 ../panel-plugin/configuration.c:275
+#: ../panel-plugin/configuration.c:281 ../panel-plugin/hddtemp.c:129
+#: ../panel-plugin/hddtemp.c:168 ../panel-plugin/hddtemp.c:173
 msgid "Hard disks"
 msgstr "Discos rígidos"
 
-#: ../panel-plugin/acpi.c:46
-#: ../panel-plugin/acpi.c:53
+#: ../panel-plugin/acpi.c:46 ../panel-plugin/acpi.c:53
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -209,8 +202,9 @@ msgstr "Mostrar valores do sensor."
 
 #~ msgid "<b>Sensors</b>"
 #~ msgstr "<b>Sensores</b>"
+
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensores</b></span>\n"
+
 #~ msgid "<b>View</b>"
 #~ msgstr "<b>Ver</b>"
-
