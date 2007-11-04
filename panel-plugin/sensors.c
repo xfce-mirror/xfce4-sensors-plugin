@@ -1493,7 +1493,7 @@ add_ui_style_box (GtkWidget * vbox, t_sensors_dialog * sd)
     hbox = gtk_hbox_new (FALSE, BORDER);
     gtk_widget_show (hbox);
 
-    label = gtk_label_new_with_mnemonic(_("_UI style:"));
+    label = gtk_label_new (_("UI style:"));
     radioText = gtk_radio_button_new_with_mnemonic(NULL, _("_text"));
     radioBars = gtk_radio_button_new_with_mnemonic(
            gtk_radio_button_group(GTK_RADIO_BUTTON(radioText)), _("g_raphical"));
@@ -1627,16 +1627,18 @@ add_type_box (GtkWidget * vbox, t_sensors_dialog * sd)
     gtk_widget_show (sd->myComboBox);
     gtk_box_pack_start (GTK_BOX (hbox), sd->myComboBox, FALSE, FALSE, 0);
 
+    gtk_label_set_mnemonic_widget(GTK_LABEL(label), sd->myComboBox);
+
     gtk_combo_box_active =
         gtk_combo_box_get_active(GTK_COMBO_BOX(sd->myComboBox));
 
-    chip = g_ptr_array_index(sd->sensors->chips, gtk_combo_box_active);
+    chip = g_ptr_array_index (sd->sensors->chips, gtk_combo_box_active);
 
-    if (sd->sensors->num_sensorchips > 0)
+    /* if (sd->sensors->num_sensorchips > 0)
         sd->mySensorLabel = gtk_label_new
-            ( sensors_get_adapter_name
+            ( sensors_get_adapter_name_wrapper
                 ( chip->chip_name->bus) );
-    else
+    else */
         sd->mySensorLabel =
             gtk_label_new (chip->sensorId);
 
@@ -1788,7 +1790,7 @@ add_temperature_unit_box (GtkWidget *vbox, t_sensors_dialog *sd)
     hbox = gtk_hbox_new (FALSE, BORDER);
     gtk_widget_show (hbox);
 
-    label = gtk_label_new_with_mnemonic ( _("T_emperature scale:"));
+    label = gtk_label_new ( _("Temperature scale:"));
     radioCelsius = gtk_radio_button_new_with_mnemonic (NULL,
                                                               _("_Celsius"));
     radioFahrenheit = gtk_radio_button_new_with_mnemonic(
@@ -1832,6 +1834,8 @@ add_update_time_box (GtkWidget * vbox, t_sensors_dialog * sd)
     spinner = gtk_spin_button_new (spinner_adj, 10.0, 0);
 
     myLabel = gtk_label_new_with_mnemonic ( _("U_pdate interval (seconds):"));
+    gtk_label_set_mnemonic_widget (GTK_LABEL(myLabel), spinner);
+
     myBox = gtk_hbox_new(FALSE, BORDER);
 
     gtk_box_pack_start (GTK_BOX (myBox), myLabel, FALSE, FALSE, 0);
@@ -1902,8 +1906,7 @@ add_view_frame (GtkWidget * notebook, t_sensors_dialog * sd)
     gtk_container_set_border_width (GTK_CONTAINER(_vbox), 4);
     gtk_widget_show (_vbox);
 
-    _label = gtk_label_new("");
-    gtk_label_set_markup(GTK_LABEL(_label),  _("View"));
+    _label = gtk_label_new_with_mnemonic(_("_View"));
     gtk_widget_show (_label);
 
     gtk_container_set_border_width (GTK_CONTAINER (_vbox), BORDER<<1);
@@ -1933,8 +1936,7 @@ add_sensors_frame (GtkWidget * notebook, t_sensors_dialog * sd)
     gtk_container_set_border_width (GTK_CONTAINER(_vbox), 4);
     gtk_widget_show (_vbox);
 
-    _label = gtk_label_new("");
-    gtk_label_set_markup(GTK_LABEL(_label),  _("Sensors"));
+    _label = gtk_label_new_with_mnemonic(_("_Sensors"));
     gtk_widget_show (_label);
 
     gtk_container_set_border_width (GTK_CONTAINER (_vbox), BORDER<<1);
@@ -1962,8 +1964,7 @@ add_miscellaneous_frame (GtkWidget * notebook, t_sensors_dialog * sd)
     gtk_container_set_border_width (GTK_CONTAINER(_vbox), 4);
     gtk_widget_show (_vbox);
 
-    _label = gtk_label_new("");
-    gtk_label_set_markup(GTK_LABEL(_label),  _("Miscellaneous"));
+    _label = gtk_label_new_with_mnemonic (_("_Miscellaneous"));
     gtk_widget_show (_label);
 
     gtk_container_set_border_width (GTK_CONTAINER (_vbox), BORDER<<1);

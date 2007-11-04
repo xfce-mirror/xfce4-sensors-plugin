@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-29 23:33+0100\n"
+"POT-Creation-Date: 2007-11-04 12:52+0100\n"
 "PO-Revision-Date: 2005-12-11 02:20+0900\n"
 "Last-Translator: ByungHyun Choi <byunghyun.choi@debianusers.org>\n"
 "Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge."
@@ -47,7 +47,8 @@ msgid "No sensors found!"
 msgstr "센서를 못 찾았습니다!"
 
 #: ../panel-plugin/sensors.c:1496
-msgid "_UI style:"
+#, fuzzy
+msgid "UI style:"
 msgstr "UI 스타일(_U):"
 
 #: ../panel-plugin/sensors.c:1497
@@ -74,94 +75,95 @@ msgstr "이름 보여주기(_S)"
 msgid "Sensors t_ype:"
 msgstr "센서 종류(_t):"
 
-#: ../panel-plugin/sensors.c:1672
+#: ../panel-plugin/sensors.c:1674
 msgid "Name"
 msgstr "이름"
 
-#: ../panel-plugin/sensors.c:1681
+#: ../panel-plugin/sensors.c:1683
 msgid "Value"
 msgstr "값"
 
-#: ../panel-plugin/sensors.c:1687
+#: ../panel-plugin/sensors.c:1689
 msgid "Show"
 msgstr "보이기"
 
-#: ../panel-plugin/sensors.c:1696
+#: ../panel-plugin/sensors.c:1698
 msgid "Color"
 msgstr "색상"
 
-#: ../panel-plugin/sensors.c:1706
+#: ../panel-plugin/sensors.c:1708
 msgid "Min"
 msgstr "최소"
 
-#: ../panel-plugin/sensors.c:1715
+#: ../panel-plugin/sensors.c:1717
 msgid "Max"
 msgstr "최대"
 
-#: ../panel-plugin/sensors.c:1748
+#: ../panel-plugin/sensors.c:1750
 msgid "F_ont size:"
 msgstr "글꼴 크기(_o):"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:1755
+#: ../panel-plugin/sensors.c:1757
 msgid "x-small"
 msgstr "아주 작게"
 
-#: ../panel-plugin/sensors.c:1756
+#: ../panel-plugin/sensors.c:1758
 msgid "small"
 msgstr "작게"
 
-#: ../panel-plugin/sensors.c:1757
+#: ../panel-plugin/sensors.c:1759
 msgid "medium"
 msgstr "중간"
 
-#: ../panel-plugin/sensors.c:1758
+#: ../panel-plugin/sensors.c:1760
 msgid "large"
 msgstr "크게"
 
-#: ../panel-plugin/sensors.c:1759
+#: ../panel-plugin/sensors.c:1761
 msgid "x-large"
 msgstr "아주 크게"
 
-#: ../panel-plugin/sensors.c:1791
-msgid "T_emperature scale:"
+#: ../panel-plugin/sensors.c:1793
+#, fuzzy
+msgid "Temperature scale:"
 msgstr "온도 단위(_e):"
 
-#: ../panel-plugin/sensors.c:1793
+#: ../panel-plugin/sensors.c:1795
 msgid "_Celsius"
 msgstr "섭씨(_C)"
 
-#: ../panel-plugin/sensors.c:1795
+#: ../panel-plugin/sensors.c:1797
 msgid "_Fahrenheit"
 msgstr "화씨(_F)"
 
-#: ../panel-plugin/sensors.c:1834
+#: ../panel-plugin/sensors.c:1836
 msgid "U_pdate interval (seconds):"
 msgstr "검사 간격 (초)(_p):"
 
-#: ../panel-plugin/sensors.c:1862
+#: ../panel-plugin/sensors.c:1866
 msgid "E_xecute on double click:"
 msgstr "따닥(더블클릭)하면 실행합니다(_x):"
 
-#: ../panel-plugin/sensors.c:1906
-msgid "View"
+#: ../panel-plugin/sensors.c:1909
+msgid "_View"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1937
+#: ../panel-plugin/sensors.c:1939
 #, fuzzy
-msgid "Sensors"
+msgid "_Sensors"
 msgstr "<b>센서</b>"
 
-#: ../panel-plugin/sensors.c:1966
+#: ../panel-plugin/sensors.c:1967
 #, fuzzy
-msgid "Miscellaneous"
+msgid "_Miscellaneous"
 msgstr "<b>기타</b>"
 
-#: ../panel-plugin/sensors.c:2014
+#: ../panel-plugin/sensors.c:2015
 msgid "Edit Properties"
 msgstr "속성 변경"
 
-#: ../panel-plugin/sensors.c:2021 ../panel-plugin/sensors.h:40
+#: ../panel-plugin/sensors.c:2022 ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr "센서 플러그인"
 
