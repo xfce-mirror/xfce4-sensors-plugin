@@ -1,3 +1,10 @@
+2006-10 - 2007-11 timystery
+
+	* New internal structure being able to run with ACPI, hddtemp and lm
+	  sensors independently, should make plugin work on any OS.
+	* new settings interface
+	* new translations
+
 2005-11-02 17:19  byunghyunchoi
 
 	* xfce4-fsguard-plugin/trunk/po/ko.po,
