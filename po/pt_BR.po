@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-29 23:33+0100\n"
+"POT-Creation-Date: 2007-11-05 23:42+0100\n"
 "PO-Revision-Date: 2007-11-04 08:14-0500\n"
 "Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
@@ -46,7 +46,8 @@ msgid "No sensors found!"
 msgstr "Nenhum sensor encontrado!"
 
 #: ../panel-plugin/sensors.c:1496
-msgid "_UI style:"
+#, fuzzy
+msgid "UI style:"
 msgstr "Estilo da Interface:"
 
 #: ../panel-plugin/sensors.c:1497
@@ -73,92 +74,96 @@ msgstr "Mo_strar título"
 msgid "Sensors t_ype:"
 msgstr "Tipos de sensores:"
 
-#: ../panel-plugin/sensors.c:1672
+#: ../panel-plugin/sensors.c:1674
 msgid "Name"
 msgstr "Nome"
 
-#: ../panel-plugin/sensors.c:1681
+#: ../panel-plugin/sensors.c:1683
 msgid "Value"
 msgstr "Valor"
 
-#: ../panel-plugin/sensors.c:1687
+#: ../panel-plugin/sensors.c:1689
 msgid "Show"
 msgstr "Mostrar"
 
-#: ../panel-plugin/sensors.c:1696
+#: ../panel-plugin/sensors.c:1698
 msgid "Color"
 msgstr "Cor"
 
-#: ../panel-plugin/sensors.c:1706
+#: ../panel-plugin/sensors.c:1708
 msgid "Min"
 msgstr "Mín."
 
-#: ../panel-plugin/sensors.c:1715
+#: ../panel-plugin/sensors.c:1717
 msgid "Max"
 msgstr "Máx."
 
-#: ../panel-plugin/sensors.c:1748
+#: ../panel-plugin/sensors.c:1750
 msgid "F_ont size:"
 msgstr "Tamanho de f_onte:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:1755
+#: ../panel-plugin/sensors.c:1757
 msgid "x-small"
 msgstr "muito pequena"
 
-#: ../panel-plugin/sensors.c:1756
+#: ../panel-plugin/sensors.c:1758
 msgid "small"
 msgstr "pequena"
 
-#: ../panel-plugin/sensors.c:1757
+#: ../panel-plugin/sensors.c:1759
 msgid "medium"
 msgstr "média"
 
-#: ../panel-plugin/sensors.c:1758
+#: ../panel-plugin/sensors.c:1760
 msgid "large"
 msgstr "grande"
 
-#: ../panel-plugin/sensors.c:1759
+#: ../panel-plugin/sensors.c:1761
 msgid "x-large"
 msgstr "muito grande"
 
-#: ../panel-plugin/sensors.c:1791
-msgid "T_emperature scale:"
+#: ../panel-plugin/sensors.c:1793
+#, fuzzy
+msgid "Temperature scale:"
 msgstr "Escala de t_emperatura:"
 
-#: ../panel-plugin/sensors.c:1793
+#: ../panel-plugin/sensors.c:1795
 msgid "_Celsius"
 msgstr "_Celsius"
 
-#: ../panel-plugin/sensors.c:1795
+#: ../panel-plugin/sensors.c:1797
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../panel-plugin/sensors.c:1834
+#: ../panel-plugin/sensors.c:1836
 msgid "U_pdate interval (seconds):"
 msgstr "Intervalo de atualização (em segundos):"
 
-#: ../panel-plugin/sensors.c:1862
+#: ../panel-plugin/sensors.c:1866
 msgid "E_xecute on double click:"
 msgstr "E_xecutar com clique duplo:"
 
-#: ../panel-plugin/sensors.c:1906
-msgid "View"
+#: ../panel-plugin/sensors.c:1909
+#, fuzzy
+msgid "_View"
 msgstr "Ver"
 
-#: ../panel-plugin/sensors.c:1937
-msgid "Sensors"
+#: ../panel-plugin/sensors.c:1939
+#, fuzzy
+msgid "_Sensors"
 msgstr "Sensores"
 
-#: ../panel-plugin/sensors.c:1966
-msgid "Miscellaneous"
+#: ../panel-plugin/sensors.c:1967
+#, fuzzy
+msgid "_Miscellaneous"
 msgstr "Miscelâneo"
 
-#: ../panel-plugin/sensors.c:2014
+#: ../panel-plugin/sensors.c:2015
 msgid "Edit Properties"
 msgstr "Editar Propriedades"
 
-#: ../panel-plugin/sensors.c:2021 ../panel-plugin/sensors.h:40
+#: ../panel-plugin/sensors.c:2022 ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr "Plug-in de Sensores"
 

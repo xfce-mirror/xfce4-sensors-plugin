@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-29 23:33+0100\n"
+"POT-Creation-Date: 2007-11-05 23:42+0100\n"
 "PO-Revision-Date: 2007-11-04 12:22+0000\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German <de@li.org>\n"
@@ -44,8 +44,8 @@ msgid "No sensors found!"
 msgstr "Keine Sensoren gefunden!"
 
 #: ../panel-plugin/sensors.c:1496
-msgid "_UI style:"
-msgstr "_Darstellung:"
+msgid "UI style:"
+msgstr "Darstellung:"
 
 #: ../panel-plugin/sensors.c:1497
 msgid "_text"
@@ -53,7 +53,7 @@ msgstr "_textuell"
 
 #: ../panel-plugin/sensors.c:1499
 msgid "g_raphical"
-msgstr "g_raphisch"
+msgstr "_graphisch"
 
 #: ../panel-plugin/sensors.c:1536
 msgid "Show _labels in graphical UI"
@@ -61,7 +61,7 @@ msgstr "_Beschriftungen im graphischen Modus anzeigen"
 
 #: ../panel-plugin/sensors.c:1566
 msgid "Show colored _bars"
-msgstr "B_alken farbig darstellen"
+msgstr "Bal_ken farbig darstellen"
 
 #: ../panel-plugin/sensors.c:1594
 msgid "_Show title"
@@ -71,92 +71,92 @@ msgstr "T_itel anzeigen"
 msgid "Sensors t_ype:"
 msgstr "Sensort_yp:"
 
-#: ../panel-plugin/sensors.c:1672
+#: ../panel-plugin/sensors.c:1674
 msgid "Name"
 msgstr "Name"
 
-#: ../panel-plugin/sensors.c:1681
+#: ../panel-plugin/sensors.c:1683
 msgid "Value"
 msgstr "Wert"
 
-#: ../panel-plugin/sensors.c:1687
+#: ../panel-plugin/sensors.c:1689
 msgid "Show"
 msgstr "Anzeigen"
 
-#: ../panel-plugin/sensors.c:1696
+#: ../panel-plugin/sensors.c:1698
 msgid "Color"
 msgstr "Farbe"
 
-#: ../panel-plugin/sensors.c:1706
+#: ../panel-plugin/sensors.c:1708
 msgid "Min"
 msgstr "Min"
 
-#: ../panel-plugin/sensors.c:1715
+#: ../panel-plugin/sensors.c:1717
 msgid "Max"
 msgstr "Max"
 
-#: ../panel-plugin/sensors.c:1748
+#: ../panel-plugin/sensors.c:1750
 msgid "F_ont size:"
 msgstr "Sc_hriftgröße:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:1755
+#: ../panel-plugin/sensors.c:1757
 msgid "x-small"
 msgstr "extra-klein"
 
-#: ../panel-plugin/sensors.c:1756
+#: ../panel-plugin/sensors.c:1758
 msgid "small"
 msgstr "klein"
 
-#: ../panel-plugin/sensors.c:1757
+#: ../panel-plugin/sensors.c:1759
 msgid "medium"
 msgstr "normal"
 
-#: ../panel-plugin/sensors.c:1758
+#: ../panel-plugin/sensors.c:1760
 msgid "large"
 msgstr "groß"
 
-#: ../panel-plugin/sensors.c:1759
+#: ../panel-plugin/sensors.c:1761
 msgid "x-large"
 msgstr "extra-groß"
 
-#: ../panel-plugin/sensors.c:1791
-msgid "T_emperature scale:"
-msgstr "T_emperaturskala"
-
 #: ../panel-plugin/sensors.c:1793
+msgid "Temperature scale:"
+msgstr "Temperaturskala"
+
+#: ../panel-plugin/sensors.c:1795
 msgid "_Celsius"
 msgstr "C_elsius"
 
-#: ../panel-plugin/sensors.c:1795
+#: ../panel-plugin/sensors.c:1797
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../panel-plugin/sensors.c:1834
+#: ../panel-plugin/sensors.c:1836
 msgid "U_pdate interval (seconds):"
 msgstr "A_uffrischungsintervall (Sekunden):"
 
-#: ../panel-plugin/sensors.c:1862
+#: ../panel-plugin/sensors.c:1866
 msgid "E_xecute on double click:"
-msgstr "Bei D_oppel-Klick ausführen:"
+msgstr "Bei _Doppel-Klick ausführen:"
 
-#: ../panel-plugin/sensors.c:1906
-msgid "View"
-msgstr "Aussehen"
+#: ../panel-plugin/sensors.c:1909
+msgid "_View"
+msgstr "_Aussehen"
 
-#: ../panel-plugin/sensors.c:1937
-msgid "Sensors"
-msgstr "Sensoren"
+#: ../panel-plugin/sensors.c:1939
+msgid "_Sensors"
+msgstr "_Sensoren"
 
-#: ../panel-plugin/sensors.c:1966
-msgid "Miscellaneous"
-msgstr "Sonstige Einstellungen"
+#: ../panel-plugin/sensors.c:1967
+msgid "_Miscellaneous"
+msgstr "S_onstige Einstellungen"
 
-#: ../panel-plugin/sensors.c:2014
+#: ../panel-plugin/sensors.c:2015
 msgid "Edit Properties"
 msgstr "Eigenschaften einstellen"
 
-#: ../panel-plugin/sensors.c:2021 ../panel-plugin/sensors.h:40
+#: ../panel-plugin/sensors.c:2022 ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr "Sensorüberwachung"
 
@@ -198,7 +198,6 @@ msgstr "Sensor Plugin"
 msgid "Show sensor values."
 msgstr "Sensorwerte erkannter Sensoren überwachen."
 
-#, fuzzy
 #~ msgid ""
 #~ "Xfce Hardware Sensors Plugin: \n"
 #~ "Seems like there was a problem reading a sensor feature value. \n"
