@@ -59,7 +59,7 @@ hicolor48DATA_INSTALL = $(INSTALL_DATA)
 DATA = $(hicolor48_DATA)
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = ${SHELL} /home/tim/tmp/xfce-4.3/xfce4-sensors-plugin/missing --run aclocal-1.9
-ALL_LINGUAS = ca cs de el en_GB eu fr hu ja ko lt pk pl ru sq vi zh_TW
+ALL_LINGUAS = ca cs de el en_GB eu fr hu ja ko lt pk pl pt_BR pt_PT ru sq vi zh_TW
 AMDEP_FALSE = #
 AMDEP_TRUE = 
 AMTAR = ${SHELL} /home/tim/tmp/xfce-4.3/xfce4-sensors-plugin/missing --run tar
@@ -68,7 +68,7 @@ AUTOCONF = ${SHELL} /home/tim/tmp/xfce-4.3/xfce4-sensors-plugin/missing --run au
 AUTOHEADER = ${SHELL} /home/tim/tmp/xfce-4.3/xfce4-sensors-plugin/missing --run autoheader
 AUTOMAKE = ${SHELL} /home/tim/tmp/xfce-4.3/xfce4-sensors-plugin/missing --run automake-1.9
 AWK = mawk
-CATALOGS =  ca.gmo cs.gmo de.gmo el.gmo en_GB.gmo eu.gmo fr.gmo hu.gmo ja.gmo ko.gmo lt.gmo pk.gmo pl.gmo ru.gmo sq.gmo vi.gmo zh_TW.gmo
+CATALOGS =  ca.gmo cs.gmo de.gmo el.gmo en_GB.gmo eu.gmo fr.gmo hu.gmo ja.gmo ko.gmo lt.gmo pk.gmo pl.gmo pt_BR.gmo pt_PT.gmo ru.gmo sq.gmo vi.gmo zh_TW.gmo
 CATOBJEXT = .gmo
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -92,7 +92,7 @@ EXEEXT =
 F77 = 
 FFLAGS = 
 GETTEXT_PACKAGE = xfce4-sensors-plugin
-GMOFILES =  ca.gmo cs.gmo de.gmo el.gmo en_GB.gmo eu.gmo fr.gmo hu.gmo ja.gmo ko.gmo lt.gmo pk.gmo pl.gmo ru.gmo sq.gmo vi.gmo zh_TW.gmo
+GMOFILES =  ca.gmo cs.gmo de.gmo el.gmo en_GB.gmo eu.gmo fr.gmo hu.gmo ja.gmo ko.gmo lt.gmo pk.gmo pl.gmo pt_BR.gmo pt_PT.gmo ru.gmo sq.gmo vi.gmo zh_TW.gmo
 GMSGFMT = /usr/bin/msgfmt
 GREP = /bin/grep
 HAVE_ACPI_FALSE = #
@@ -142,9 +142,9 @@ LIBXFCE4PANEL_REQUIRED_VERSION = 4.4.0
 LIBXFCE4PANEL_VERSION = 4.5.0.3svn-r26177
 LN_S = ln -s
 LTLIBOBJS = 
-MAINT = #
-MAINTAINER_MODE_FALSE = 
-MAINTAINER_MODE_TRUE = #
+MAINT = 
+MAINTAINER_MODE_FALSE = #
+MAINTAINER_MODE_TRUE = 
 MAKEINFO = ${SHELL} /home/tim/tmp/xfce-4.3/xfce4-sensors-plugin/missing --run makeinfo
 MKINSTALLDIRS = ./mkinstalldirs
 MSGFMT = /usr/bin/msgfmt
@@ -158,7 +158,7 @@ PACKAGE_VERSION = 0.10.99.2
 PATH_SEPARATOR = :
 PKG_CONFIG = /usr/bin/pkg-config
 PLATFORM_CFLAGS = 
-POFILES =  ca.po cs.po de.po el.po en_GB.po eu.po fr.po hu.po ja.po ko.po lt.po pk.po pl.po ru.po sq.po vi.po zh_TW.po
+POFILES =  ca.po cs.po de.po el.po en_GB.po eu.po fr.po hu.po ja.po ko.po lt.po pk.po pl.po pt_BR.po pt_PT.po ru.po sq.po vi.po zh_TW.po
 POSUB = po
 PO_IN_DATADIR_FALSE = 
 PO_IN_DATADIR_TRUE = 
@@ -232,7 +232,7 @@ EXTRA_DIST = $(hicolor48_DATA)
 all: all-am
 
 .SUFFIXES:
-$(srcdir)/Makefile.in: # $(srcdir)/Makefile.am  $(am__configure_deps)
+$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
 	    *$$dep*) \
@@ -257,9 +257,9 @@ Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 $(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 
-$(top_srcdir)/configure: # $(am__configure_deps)
+$(top_srcdir)/configure:  $(am__configure_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
-$(ACLOCAL_M4): # $(am__aclocal_m4_deps)
+$(ACLOCAL_M4):  $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 
 mostlyclean-libtool:

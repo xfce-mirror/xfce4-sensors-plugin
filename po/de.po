@@ -44,9 +44,8 @@ msgid "No sensors found!"
 msgstr "Keine Sensoren gefunden!"
 
 #: ../panel-plugin/sensors.c:1496
-#, fuzzy
 msgid "_UI style:"
-msgstr "Darstellung:"
+msgstr "_Darstellung:"
 
 #: ../panel-plugin/sensors.c:1497
 msgid "_text"
@@ -122,9 +121,8 @@ msgid "x-large"
 msgstr "extra-groß"
 
 #: ../panel-plugin/sensors.c:1791
-#, fuzzy
 msgid "T_emperature scale:"
-msgstr "Temperaturskala"
+msgstr "T_emperaturskala"
 
 #: ../panel-plugin/sensors.c:1793
 msgid "_Celsius"
@@ -143,19 +141,16 @@ msgid "E_xecute on double click:"
 msgstr "Bei D_oppel-Klick ausführen:"
 
 #: ../panel-plugin/sensors.c:1906
-#, fuzzy
 msgid "View"
-msgstr "_Aussehen"
+msgstr "Aussehen"
 
 #: ../panel-plugin/sensors.c:1937
-#, fuzzy
 msgid "Sensors"
-msgstr "_Sensoren"
+msgstr "Sensoren"
 
 #: ../panel-plugin/sensors.c:1966
-#, fuzzy
 msgid "Miscellaneous"
-msgstr "S_onstige Einstellungen"
+msgstr "Sonstige Einstellungen"
 
 #: ../panel-plugin/sensors.c:2014
 msgid "Edit Properties"
