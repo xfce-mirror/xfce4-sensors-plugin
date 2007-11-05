@@ -18,9 +18,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../panel-plugin/sensors.c:202 ../panel-plugin/sensors.c:514
-#, fuzzy
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
-msgstr "<span foreground=\"#000000\"><b>Senseurs</b></span>\n"
+msgstr "<span foreground=\"#000000\"><b>Senseurs</b></span>"
 
 #: ../panel-plugin/sensors.c:554
 #, c-format
@@ -32,14 +31,14 @@ msgid "No sensors selected!"
 msgstr "Aucun senseur sélectionné !"
 
 #: ../panel-plugin/sensors.c:618 ../panel-plugin/sensors.c:1073
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-"Xfce Greffon de Senseur Matériel : \n"
-"Il semblerait qu'il y ait un problème de lecture de valeur sur un senseur. \n"
+"Xfce Greffon de Senseur Matériel :\n"
+"Il semblerait qu'il y ait un problème de lecture de valeur sur un senseur.\n"
 "L'exécution normale ne peut pas être garantie.\n"
 
 #: ../panel-plugin/sensors.c:855
@@ -47,7 +46,6 @@ msgid "No sensors found!"
 msgstr "Aucun senseur trouvé !"
 
 #: ../panel-plugin/sensors.c:1496
-#, fuzzy
 msgid "UI style:"
 msgstr "Style de l'interface :"
 
@@ -61,7 +59,7 @@ msgstr "g_raphique"
 
 #: ../panel-plugin/sensors.c:1536
 msgid "Show _labels in graphical UI"
-msgstr "Afficher les étiquettes dans l'interface graphique"
+msgstr "Affic_her les étiquettes dans l'interface graphique"
 
 #: ../panel-plugin/sensors.c:1566
 msgid "Show colored _bars"
@@ -69,7 +67,7 @@ msgstr "Afficher les _barres en couleur"
 
 #: ../panel-plugin/sensors.c:1594
 msgid "_Show title"
-msgstr "_Afficher le titre"
+msgstr "Affi_cher le titre"
 
 #: ../panel-plugin/sensors.c:1622
 msgid "Sensors t_ype:"
@@ -125,7 +123,6 @@ msgid "x-large"
 msgstr "très grande"
 
 #: ../panel-plugin/sensors.c:1793
-#, fuzzy
 msgid "Temperature scale:"
 msgstr "Échelle de température :"
 
@@ -146,19 +143,16 @@ msgid "E_xecute on double click:"
 msgstr "E_xécute après un double clic :"
 
 #: ../panel-plugin/sensors.c:1909
-#, fuzzy
 msgid "_View"
-msgstr "Afficher"
+msgstr "_Afficher"
 
 #: ../panel-plugin/sensors.c:1939
-#, fuzzy
 msgid "_Sensors"
-msgstr "Senseurs"
+msgstr "_Senseurs"
 
 #: ../panel-plugin/sensors.c:1967
-#, fuzzy
 msgid "_Miscellaneous"
-msgstr "Divers"
+msgstr "_Divers"
 
 #: ../panel-plugin/sensors.c:2015
 msgid "Edit Properties"
@@ -208,7 +202,6 @@ msgstr "Greffon senseur"
 msgid "Show sensor values."
 msgstr "Afficher les valeurs du senseur."
 
-#, fuzzy
 #~ msgid ""
 #~ "Xfce Hardware Sensors Plugin: \n"
 #~ "Seems like there was a problem reading a sensor feature value. \n"
