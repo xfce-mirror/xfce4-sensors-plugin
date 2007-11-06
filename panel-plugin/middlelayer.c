@@ -180,7 +180,10 @@ sensors_get_feature_wrapper (t_chip *chip, int number, double *value)
             return -1;
         #endif
     }
-    return -1;
+    else {
+        feature = NULL;
+        return -1;
+    }
 }
 
 void
