@@ -59,6 +59,8 @@ AC_ARG_ENABLE([hddtemp], [AC_HELP_STRING([--disable-hddtemp], [Do not use hddtem
     HAVE_HDDTEMP=0
 ],
 [
+    OLDPATH="$PATH"
+    PATH="$PATH:/usr/sbin"
     AC_CHECK_PROG([hddtemp], [hddtemp], [1])
     if test "$hddtemp" = 1; then
         AC_DEFINE([HAVE_HDDTEMP], [1], [Define to 1 if hddtemp is desired])
@@ -66,6 +68,7 @@ AC_ARG_ENABLE([hddtemp], [AC_HELP_STRING([--disable-hddtemp], [Do not use hddtem
     else
         HAVE_HDDTEMP=0
     fi
+    PATH="$OLDPATH"
 ])
 AM_CONDITIONAL([HAVE_HDDTEMP], [test $HAVE_HDDTEMP = 1])
 
