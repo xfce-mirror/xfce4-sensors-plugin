@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-11-05 23:42+0100\n"
-"PO-Revision-Date: 2007-11-04 08:14-0500\n"
+"PO-Revision-Date: 2007-11-05 21:12-0500\n"
 "Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
@@ -46,9 +46,8 @@ msgid "No sensors found!"
 msgstr "Nenhum sensor encontrado!"
 
 #: ../panel-plugin/sensors.c:1496
-#, fuzzy
 msgid "UI style:"
-msgstr "Estilo da Interface:"
+msgstr "Estilo da interface:"
 
 #: ../panel-plugin/sensors.c:1497
 msgid "_text"
@@ -124,9 +123,8 @@ msgid "x-large"
 msgstr "muito grande"
 
 #: ../panel-plugin/sensors.c:1793
-#, fuzzy
 msgid "Temperature scale:"
-msgstr "Escala de t_emperatura:"
+msgstr "Escala de temperatura:"
 
 #: ../panel-plugin/sensors.c:1795
 msgid "_Celsius"
@@ -145,19 +143,16 @@ msgid "E_xecute on double click:"
 msgstr "E_xecutar com clique duplo:"
 
 #: ../panel-plugin/sensors.c:1909
-#, fuzzy
 msgid "_View"
-msgstr "Ver"
+msgstr "_Ver"
 
 #: ../panel-plugin/sensors.c:1939
-#, fuzzy
 msgid "_Sensors"
-msgstr "Sensores"
+msgstr "_Sensores"
 
 #: ../panel-plugin/sensors.c:1967
-#, fuzzy
 msgid "_Miscellaneous"
-msgstr "Miscelâneo"
+msgstr "_Miscelâneo"
 
 #: ../panel-plugin/sensors.c:2015
 msgid "Edit Properties"
