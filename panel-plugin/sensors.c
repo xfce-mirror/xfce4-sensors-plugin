@@ -61,7 +61,6 @@ sensors_set_bar_color (GtkWidget *bar, double fraction, gchar* user_bar_color,
                        t_sensors *sensors)
 {
     GdkColor color;
-    GtkRcStyle *rc;
 
     TRACE ("enters sensors_set_bar_color");
 
