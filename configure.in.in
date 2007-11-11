@@ -66,7 +66,14 @@ AC_ARG_ENABLE([hddtemp], [AC_HELP_STRING([--disable-hddtemp], [Do not use hddtem
         AC_DEFINE([HAVE_HDDTEMP], [1], [Define to 1 if hddtemp is desired])
         HAVE_HDDTEMP=1
     else
-        HAVE_HDDTEMP=0
+        AC_ARG_ENABLE([hddtemp], [AC_HELP_STRING([--force-hddtemp], [Force using hddtemp to read your harddisk temperature @<:@default=no@:>@])],
+        [
+            echo "You forced the execution of hddtemp. Make sure it is located in /usr/sbin and executable by the user, e.g. by setting the setuid bit for root."
+            HAVE_HDDTEMP=1
+        ],
+        [
+            HAVE_HDDTEMP=0
+        ])
     fi
     PATH="$OLDPATH"
 ])
@@ -85,7 +92,14 @@ AC_ARG_ENABLE([procacpi], [AC_HELP_STRING([--disable-procacpi], [Do not use /pro
         HAVE_ACPI=1
     ],
     [
-        HAVE_ACPI=0
+        AC_ARG_ENABLE([procacpi], [AC_HELP_STRING([--force-procacpi], [Force using /proc/acpi to read your CPU temperature @<:@default=no@:>@])],
+        [
+            echo "You forced the inclusion of the ACPI module. Note that you should have loaded the kernel modules 'processor' and at least one of 'thermal', 'fan' or 'battery' then."
+            HAVE_ACPI=1
+        ],
+        [
+            HAVE_ACPI=0
+        ])
     ])
 ])
 AM_CONDITIONAL([HAVE_ACPI], [test $HAVE_ACPI = 1])
