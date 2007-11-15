@@ -1,0 +1,193 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-sensors-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"PO-Revision-Date: 2007-10-27 16:37+0500\n"
+"Last-Translator: Muhammad Ali Makki <makk.ma@gmail.com>\n"
+"Language-Team: Urdu <makki.ma@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Urdu\n"
+"X-Poedit-Country: PAKISTAN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../panel-plugin/sensors.c:153
+#: ../panel-plugin/sensors.c:2162
+msgid "<b>Sensors</b>"
+msgstr "<b>سینسرز</b>"
+
+#: ../panel-plugin/sensors.c:272
+#, c-format
+msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
+msgstr "<span foreground=\"#000000\" size=\"%s\"><b>سینسرز</b></span>\n"
+
+#: ../panel-plugin/sensors.c:334
+#, c-format
+msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
+msgstr "<span foreground=\"#000000\" size=\"%s\"><b>سینسرز</b></span>"
+
+#. circumvent empty char pointer
+#: ../panel-plugin/sensors.c:441
+msgid "No sensors selected!"
+msgstr "کوئی سینسر منتخب نہیں!"
+
+#: ../panel-plugin/sensors.c:479
+#: ../panel-plugin/sensors.c:1677
+msgid ""
+" \n"
+"Xfce Hardware Sensors Plugin: \n"
+"Seems like there was a problem reading a sensor feature value. \n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr ""
+" \n"
+"ایکسفس ہارڈویئر سینسر پلگ ان: \n"
+"معلوم ہوتا ہے کہ سینسر خاصیت ویلیو پڑھنے میں مسئلہ ہے. \n"
+"درست کاروائی کی ضمانت نہیں دی جاسکتی.\n"
+
+#: ../panel-plugin/sensors.c:500
+#, c-format
+msgid "%5.0f rpm"
+msgstr "%5.0f rpm"
+
+#: ../panel-plugin/sensors.c:723
+msgid "Error: Could not connect to sensors!"
+msgstr "غلطی: سینسر سے رابطہ نہیں ہوسکا!"
+
+#: ../panel-plugin/sensors.c:813
+#: ../panel-plugin/sensors.c:887
+msgid "Hard disks"
+msgstr "ہارڈ ڈسکس"
+
+#: ../panel-plugin/sensors.c:923
+msgid "No sensors found!"
+msgstr "کوئی سینسر نہیں ملا!"
+
+#: ../panel-plugin/sensors.c:1356
+msgid "Hard disk temperature sensors"
+msgstr "ہارڈ ڈسک ٹمپریچر سینسرز"
+
+#: ../panel-plugin/sensors.c:1772
+msgid "UI style:"
+msgstr "مواجہ انداز:"
+
+#: ../panel-plugin/sensors.c:1773
+msgid "text"
+msgstr "متن"
+
+#: ../panel-plugin/sensors.c:1775
+msgid "graphical"
+msgstr "گریفکل"
+
+#: ../panel-plugin/sensors.c:1812
+msgid "Show labels in graphical UI"
+msgstr "گریفکل مواجہ میں لیبل ظاہر کریں"
+
+#: ../panel-plugin/sensors.c:1837
+msgid "Show title"
+msgstr "عنوان ظاہر کریں"
+
+#: ../panel-plugin/sensors.c:1863
+msgid "Sensors type:"
+msgstr "سینسر قسم:"
+
+#: ../panel-plugin/sensors.c:1910
+msgid "Name"
+msgstr "نام"
+
+#: ../panel-plugin/sensors.c:1919
+msgid "Value"
+msgstr "ویلیو"
+
+#: ../panel-plugin/sensors.c:1925
+msgid "Show"
+msgstr "دکھائیں"
+
+#: ../panel-plugin/sensors.c:1934
+msgid "Color"
+msgstr "رنگ"
+
+#: ../panel-plugin/sensors.c:1944
+msgid "Min"
+msgstr "کم"
+
+#: ../panel-plugin/sensors.c:1953
+msgid "Max"
+msgstr "زیادہ"
+
+#: ../panel-plugin/sensors.c:1981
+msgid "Font size:"
+msgstr "فونٹ حجم:"
+
+#: ../panel-plugin/sensors.c:1988
+msgid "x-small"
+msgstr "x-چھوٹا"
+
+#: ../panel-plugin/sensors.c:1989
+msgid "small"
+msgstr "چھوٹا"
+
+#: ../panel-plugin/sensors.c:1990
+msgid "medium"
+msgstr "درمیانہ"
+
+#: ../panel-plugin/sensors.c:1991
+msgid "large"
+msgstr "بڑا"
+
+#: ../panel-plugin/sensors.c:1992
+msgid "x-large"
+msgstr "x-بڑا"
+
+#: ../panel-plugin/sensors.c:2020
+msgid "Temperature scale:"
+msgstr "ٹمپریچر قیاس:"
+
+#: ../panel-plugin/sensors.c:2022
+msgid "Celsius"
+msgstr "Celsius"
+
+#: ../panel-plugin/sensors.c:2024
+msgid "Fahrenheit"
+msgstr "فارن ہائیٹ"
+
+#: ../panel-plugin/sensors.c:2063
+msgid "Update interval (seconds):"
+msgstr "تجدید وقفہ (سیکنڈ):"
+
+#: ../panel-plugin/sensors.c:2090
+msgid "Execute on double click:"
+msgstr "دہرے کلک پر چلائیں:"
+
+#: ../panel-plugin/sensors.c:2132
+msgid "<b>View</b>"
+msgstr "<b>منظر</b>"
+
+#: ../panel-plugin/sensors.c:2190
+msgid "<b>Miscellaneous</b>"
+msgstr "<b>متفرق</b>"
+
+#: ../panel-plugin/sensors.c:2237
+msgid "Edit Properties"
+msgstr "خصوصیات مدون کریں"
+
+#. #include <unistd.h>
+#: ../panel-plugin/sensors.c:2244
+#: ../panel-plugin/sensors.h:51
+msgid "Sensors Plugin"
+msgstr "سینسرز پلگ ان"
+
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
+msgid "Sensor plugin "
+msgstr "سینسر پلگ ان"
+
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
+msgid "Show sensor values."
+msgstr "سینسر ویلیو دکھائیں:"
+
