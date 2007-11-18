@@ -10,5 +10,5 @@ hddtemp is no longer searched at run-time, it is only enabled at compile-time.
 
 If you know of any further OS-specific interface or system library that might be worth including, please tell me. 
 
-For hddtemp to work for users in the plugin, it must be setuid root or a hddtemp daemon must be running. if none of this is done, it cant display the hddtemp.
+For hddtemp to work for users in the plugin, it must be setuid root or a hddtemp daemon must be running. if none of this is done, it cant display the hddtemp. A possible workaround consists of adding a wrapper script as option to --with-pathhddtemp, that will call sudo on hddtmep.
 

@@ -6,14 +6,14 @@ dnl 2003,2004 Benedikt Meurer <benny@xfce.org>
 dnl 2007 Benedikt Meurer <benny@xfce.org>, Fabian Nowak <timystery@arcor.de>
 dnl
 
-m4_define([sensors_version],[0.10.99.2])
+m4_define([plugin_version],[0.10.99.3])
 
-AC_INIT([xfce4-sensors-plugin], [sensors_version], [timystery@arcor.de])
+AC_INIT([xfce4-sensors-plugin], [plugin_version], [timystery@arcor.de])
 AC_PREREQ([2.50])
 AC_CANONICAL_TARGET()
 
-SENSORS_VERSION=sensors_version()
-AM_INIT_AUTOMAKE([xfce4-sensors-plugin], [$SENSORS_VERSION])
+PLUGIN_VERSION=plugin_version()
+AM_INIT_AUTOMAKE([AC_PACKAGE_TARNAME], [AC_PACKAGE_VERSION])
 AM_CONFIG_HEADER([config.h])
 AM_MAINTAINER_MODE
 
@@ -28,93 +28,122 @@ AC_PROG_INSTALL
 AC_PROG_LIBTOOL
 AC_PROG_INTLTOOL
 
+dnl ****************************
+dnl *** Intltool-update hack ***
+dnl ****************************
+AC_CONFIG_COMMANDS([intltool-update],
+    [(sed -e 's/^\("desktop.*".*\)/\1\n"rc(?:\\\\.in)+|"\./' intltool-update > intltool-update-tmp &&
+      mv intltool-update-tmp intltool-update && chmod 755 intltool-update)])
+
 dnl Check for standard header files
 AC_HEADER_STDC
 
-
 dnl Check for libsensors depending on whether it is disabled upon user request
-AC_ARG_ENABLE([libsensors], [AC_HELP_STRING([--disable-libsensors], [Do not use libsensors to read a vast amount of sensors on your mainboards @<:@default=no@:>@])],
-[
-    HAVE_LIBSENSORS=0
-], [
+AC_ARG_ENABLE([libsensors],
+            AC_HELP_STRING([--enable-libsensors=auto|yes|no],
+                    [Use LM-sensors to read a vast amount of sensors on your mainboards @<:@default=auto@:>@]),
+            [],
+            [enable_libsensors=auto])
+
+if test x"$enable_libsensors" = x"auto"; then
     AC_CHECK_LIB([sensors], [sensors_get_detected_chips],
     [
-      AC_DEFINE([HAVE_LIBSENSORS], [1], [Define to 1 if libsensors is found])
-      HAVE_LIBSENSORS=1
-      LIBSENSORS_CFLAGS="-I/usr/include"
-      LIBSENSORS_LDFLAGS="-lsensors"
+        enable_libsensors=yes
     ],
     [
-        HAVE_LIBSENSORS=0
+        enable_libsensors=no
     ])
-])
+fi
+
+if test x"$enable_libsensors" = x"yes"; then
+    AC_DEFINE([HAVE_LIBSENSORS], [1], [Define to 1 if libsensors is found])
+    dnl FIXME:  make that dynamic in case of auto
+    LIBSENSORS_CFLAGS="-I/usr/include"
+    LIBSENSORS_LDFLAGS="-lsensors"
+fi
+
 AC_SUBST([LIBSENSORS_CFLAGS])
 AC_SUBST([LIBSENSORS_LDFLAGS])
-AM_CONDITIONAL([HAVE_LIBSENSORS], [test $HAVE_LIBSENSORS = 1])
+AM_CONDITIONAL([HAVE_LIBSENSORS], [test x"enable_libsensors" = x"yes"])
 
 
 dnl Check for hddtemp depending on whether it is disabled upon user request
-AC_ARG_ENABLE([hddtemp], [AC_HELP_STRING([--disable-hddtemp], [Do not use hddtemp to read your harddisk temperature @<:@default=no@:>@])],
-[
-    HAVE_HDDTEMP=0
-],
-[
-    OLDPATH="$PATH"
-    PATH="$PATH:/usr/sbin"
-    AC_CHECK_PROG([hddtemp], [hddtemp], [1])
-    if test "$hddtemp" = 1; then
-        AC_DEFINE([HAVE_HDDTEMP], [1], [Define to 1 if hddtemp is desired])
-        HAVE_HDDTEMP=1
-    else
-        AC_ARG_ENABLE([hddtemp], [AC_HELP_STRING([--force-hddtemp], [Force using hddtemp to read your harddisk temperature @<:@default=no@:>@])],
+AC_ARG_ENABLE([hddtemp],
+        [AC_HELP_STRING([--enable-hddtemp=auto|yes|no],
+                [Use hddtemp to read your harddisk temperature @<:@default=auto@:>@])],
+        [],
         [
-            echo "You forced the execution of hddtemp. Make sure it is located in /usr/sbin and executable by the user, e.g. by setting the setuid bit for root."
-            HAVE_HDDTEMP=1
-        ],
-        [
-            HAVE_HDDTEMP=0
+        enable_hddtemp=auto
         ])
+
+if test x"$enable_hddtemp" = x"auto"; then
+    AC_CHECK_PROG([hddtemp], [hddtemp], [yes], [], [$PATH:/sbin:/usr/sbin:/usr/local/sbin])
+    if test "$hddtemp" = "yes"; then
+        enable_hddtemp=yes
+    else
+        enable_hddtemp=no
     fi
-    PATH="$OLDPATH"
-])
-AM_CONDITIONAL([HAVE_HDDTEMP], [test $HAVE_HDDTEMP = 1])
+fi
+
+if test x"$enable_hddtemp" = x"yes"; then
+    AC_DEFINE([HAVE_HDDTEMP], [1], [Define to 1 if hddtemp is desired])
+
+    AC_ARG_WITH([pathhddtemp], [AC_HELP_STRING([--with-pathhddtemp], [Specify path to hddtemp @<:@default=auto@:>@])],
+    [
+        HDDTEMP=$withval
+    ], [
+        AC_MSG_CHECKING([for hddtemp path])
+        HDDTEMP=([`whereis -b hddtemp | sed 's/.*\ \(\/[a-zA-Z0-9\-\/.]*bin[A-Za-z0-9\-\/.]*hddtemp\).*/\1/'`])
+
+        AC_MSG_RESULT([$HDDTEMP])
+    ])
+
+    AC_DEFINE_UNQUOTED([PATH_HDDTEMP], ["$HDDTEMP"], [Complete path to hddtemp])
+    AC_SUBST([PATH_HDDTEMP])
+fi
+
+AM_CONDITIONAL([HAVE_HDDTEMP], [test x"$enable_hddtemp=" = x"yes"])
 
 
 dnl Check for interface for /proc/acpi to be used
-AC_ARG_ENABLE([procacpi], [AC_HELP_STRING([--disable-procacpi], [Do not use /proc/acpi to read your CPU temperature @<:@default=no@:>@])],
+AC_ARG_ENABLE([procacpi], [AC_HELP_STRING([--enable-procacpi], [Use /proc/acpi to read your CPU temperature @<:@default=yes@:>@])],
+[],
 [
-    HAVE_ACPI=0
-],
-[
+    enable_procacpi=auto
+])
+
+if test x"$enable_procacpi" = x"auto"; then
     AC_CHECK_FILE([/proc/acpi/info],
     [
-        AC_DEFINE([HAVE_ACPI], [1], [Define to 1 if proc/acpi is found])
-        HAVE_ACPI=1
+        enable_procacpi=yes
     ],
     [
-        AC_ARG_ENABLE([procacpi], [AC_HELP_STRING([--force-procacpi], [Force using /proc/acpi to read your CPU temperature @<:@default=no@:>@])],
-        [
-            echo "You forced the inclusion of the ACPI module. Note that you should have loaded the kernel modules 'processor' and at least one of 'thermal', 'fan' or 'battery' then."
-            HAVE_ACPI=1
-        ],
-        [
-            HAVE_ACPI=0
-        ])
+        enable_procacpi=no
     ])
-])
-AM_CONDITIONAL([HAVE_ACPI], [test $HAVE_ACPI = 1])
+fi
+
+if test x"$enable_procacpi" = x"yes"; then
+    AC_DEFINE([HAVE_ACPI], [1], [Define to 1 if proc/acpi is found])
+fi
+
+AM_CONDITIONAL([HAVE_ACPI], [test x$enable_procacpi = x"yes"])
 
 
 dnl Check for full debugging
-AC_ARG_ENABLE([fulldebug], [AC_HELP_STRING([--enable-fulldebug], [Allow full debugging. Dont use the other debug switches! @<:@default=no@:>@])],
+AC_ARG_ENABLE([debug], [AC_HELP_STRING([--enable-debug], [Allow full debugging. @<:@default=no@:>@])],
+[],
 [
-    AC_DEFINE([DEBUG], [1], [Set this to 1 to enable full debugging. Dont use the other debug switches!])
+    enable_debug=no
+])
+
+if test x"$enable_debug" = x"yes"; then
+    AC_DEFINE([DEBUG], [1], [Set this to 1 to enable full debugging.)
     AC_DEFINE([DEBUG_TRACE], [1],
-        [Set this to 1 to enable full trace debugging. Dont use the other debug switches!]
+        [Set this to 1 to enable full trace debugging.]
     )
-    DEBUG=1
     PLATFORM_CFLAGS="-Wall -Werror $PLATFORM_CFLAGS"
-], [])
+fi
+
 AC_SUBST([PLATFORM_CFLAGS])
 
 
@@ -180,20 +209,20 @@ echo "==============================================================="
 echo "Build Configuration"
 echo "==============================================================="
 echo
-echo "Host system:    $OS"
+echo "Host system:  $OS"
 echo
 echo "The following sensor interfaces will be built into the plugin:"
-if test "$HAVE_HDDTEMP" = 1; then
-echo "*  hddtemp"
+if test x"$enable_hddtemp" = x"yes"; then
+echo "*  hddtemp: $HDDTEMP"
 fi
-if test "$HAVE_LIBSENSORS" = 1; then
+if test x"$enable_libsensors" = x"yes"; then
 echo "*  libsensors"
 fi
-if test "$HAVE_ACPI" = 1; then
+if test x"$enable_procacpi" = x"yes"; then
 echo "*  /proc/acpi"
 fi
 echo
-if test "$DEBUG" = 1; then
+if test x"$enable_debug" = x"yes"; then
 echo "Full debug is enabled"
 else
 echo "Full debug is disabled"
