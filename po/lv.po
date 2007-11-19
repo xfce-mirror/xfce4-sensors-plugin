@@ -1,0 +1,207 @@
+# Latvian translations for XFCE package.
+# Copyright (C) 2007 THE XFCE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce4-sensors-plugin package.
+# Rihards Prieditis <rprieditis@inbox.lv>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Pxfce4-sensors-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-11-05 23:42+0100\n"
+"PO-Revision-Date: 2007-11-16 23:56+0300\n"
+"Last-Translator: Rihards Priedītis <rprieditis@inbox.lv>\n"
+"Language-Team: Latvian <rprieditis@inbox.lv>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../panel-plugin/sensors.c:202
+#: ../panel-plugin/sensors.c:514
+msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
+msgstr "<span foreground=\"#000000\"><b>Sensors</b></span>"
+
+#: ../panel-plugin/sensors.c:554
+#, c-format
+msgid "%5.0f rpm"
+msgstr "%5.0f apgr. min."
+
+#: ../panel-plugin/sensors.c:586
+msgid "No sensors selected!"
+msgstr "Neviens sensors nav izvēlēts!"
+
+#: ../panel-plugin/sensors.c:618
+#: ../panel-plugin/sensors.c:1073
+#, c-format
+msgid ""
+"Xfce Hardware Sensors Plugin:\n"
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr ""
+"Xfce Dzelžu Senosra Spraudnis:\n"
+"Liekas, ka radāas problēma lasot senosora iespēju vērtību.\n"
+"Darbotspējīga turpināšana netiek garentēta.\n"
+
+#: ../panel-plugin/sensors.c:855
+msgid "No sensors found!"
+msgstr "Netika atrasts neviens sensors!"
+
+#: ../panel-plugin/sensors.c:1496
+msgid "UI style:"
+msgstr "UI stils:"
+
+#: ../panel-plugin/sensors.c:1497
+msgid "_text"
+msgstr "_teksts"
+
+#: ../panel-plugin/sensors.c:1499
+msgid "g_raphical"
+msgstr "g_rafisks"
+
+#: ../panel-plugin/sensors.c:1536
+msgid "Show _labels in graphical UI"
+msgstr "Rādīt _etiķetes grafiskajā UI"
+
+#: ../panel-plugin/sensors.c:1566
+msgid "Show colored _bars"
+msgstr "Rādit krāsanaias _joslas"
+
+#: ../panel-plugin/sensors.c:1594
+msgid "_Show title"
+msgstr "_Rādīt virsrakstu"
+
+#: ../panel-plugin/sensors.c:1622
+msgid "Sensors t_ype:"
+msgstr "Sensora _tips:"
+
+#: ../panel-plugin/sensors.c:1674
+msgid "Name"
+msgstr "Nosaukums"
+
+#: ../panel-plugin/sensors.c:1683
+msgid "Value"
+msgstr "Vērtība"
+
+#: ../panel-plugin/sensors.c:1689
+msgid "Show"
+msgstr "Rādīt"
+
+#: ../panel-plugin/sensors.c:1698
+msgid "Color"
+msgstr "Krāsa"
+
+#: ../panel-plugin/sensors.c:1708
+msgid "Min"
+msgstr "Min"
+
+#: ../panel-plugin/sensors.c:1717
+msgid "Max"
+msgstr "Maks"
+
+#: ../panel-plugin/sensors.c:1750
+msgid "F_ont size:"
+msgstr "F_onta izmērs:"
+
+#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#: ../panel-plugin/sensors.c:1757
+msgid "x-small"
+msgstr "vissmazākais"
+
+#: ../panel-plugin/sensors.c:1758
+msgid "small"
+msgstr "mazs"
+
+#: ../panel-plugin/sensors.c:1759
+msgid "medium"
+msgstr "vidējs"
+
+#: ../panel-plugin/sensors.c:1760
+msgid "large"
+msgstr "liels"
+
+#: ../panel-plugin/sensors.c:1761
+msgid "x-large"
+msgstr "visslielākais"
+
+#: ../panel-plugin/sensors.c:1793
+msgid "Temperature scale:"
+msgstr "Temperatūras skala:"
+
+#: ../panel-plugin/sensors.c:1795
+msgid "_Celsius"
+msgstr "_Celsija"
+
+#: ../panel-plugin/sensors.c:1797
+msgid "_Fahrenheit"
+msgstr "_Fārenheita"
+
+#: ../panel-plugin/sensors.c:1836
+msgid "U_pdate interval (seconds):"
+msgstr "At_jaunināšanas intervāls (sekundes)"
+
+#: ../panel-plugin/sensors.c:1866
+msgid "E_xecute on double click:"
+msgstr "I_zpildīt uz dubultklikšķi:"
+
+#: ../panel-plugin/sensors.c:1909
+msgid "_View"
+msgstr "_Skats"
+
+#: ../panel-plugin/sensors.c:1939
+msgid "_Sensors"
+msgstr "S_ensori"
+
+#: ../panel-plugin/sensors.c:1967
+msgid "_Miscellaneous"
+msgstr "_Dažādi"
+
+#: ../panel-plugin/sensors.c:2015
+msgid "Edit Properties"
+msgstr "Rediģēt Rekvizītus"
+
+#: ../panel-plugin/sensors.c:2022
+#: ../panel-plugin/sensors.h:40
+msgid "Sensors Plugin"
+msgstr "Sensoru Spraudnis"
+
+#. only use this if no hddtemp sensor
+#. FIXME: compare strings, or also have hddtmep and acpi store numeric values
+#. assert correctly saved file
+#: ../panel-plugin/configuration.c:133
+#: ../panel-plugin/configuration.c:275
+#: ../panel-plugin/configuration.c:281
+#: ../panel-plugin/hddtemp.c:129
+#: ../panel-plugin/hddtemp.c:168
+#: ../panel-plugin/hddtemp.c:173
+msgid "Hard disks"
+msgstr "Cietie Diski"
+
+#: ../panel-plugin/acpi.c:46
+#: ../panel-plugin/acpi.c:53
+msgid "ACPI"
+msgstr "ACPI"
+
+#: ../panel-plugin/acpi.c:47
+msgid "Advanced Configuration and Power Interface"
+msgstr "Paplašināta Konfigurācija un Enerģijas Saskarsne"
+
+#: ../panel-plugin/hddtemp.c:172
+msgid "S.M.A.R.T. harddisk temperatures"
+msgstr "S.M.A.R.T. cietā diska temperatūras"
+
+#: ../panel-plugin/lmsensors.c:52
+msgid "LM Sensors"
+msgstr "LM Sensors"
+
+#: ../panel-plugin/lmsensors.c:131
+#, c-format
+msgid "Error: Could not connect to sensors!"
+msgstr "Kļūda: Nevarēju savienoties ar sensoru!"
+
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
+msgid "Sensor plugin "
+msgstr "Sensoru spraudnis"
+
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
+msgid "Show sensor values."
+msgstr "Rādīt sensora vērtības."
+
