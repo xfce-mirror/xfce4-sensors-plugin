@@ -137,7 +137,7 @@ AC_ARG_ENABLE([debug], [AC_HELP_STRING([--enable-debug], [Allow full debugging. 
 ])
 
 if test x"$enable_debug" = x"yes"; then
-    AC_DEFINE([DEBUG], [1], [Set this to 1 to enable full debugging.)
+    AC_DEFINE([DEBUG], [1], [Set this to 1 to enable full debugging.])
     AC_DEFINE([DEBUG_TRACE], [1],
         [Set this to 1 to enable full trace debugging.]
     )
@@ -157,7 +157,7 @@ dnl AC_DEFINE([OS], ["$OS"], [Set this to the name of the operating system.])
 
 dnl Substitute in Makefile
 dnl AC_SUBST(OS)
-dnl where's that crap from?
+dnl where is that crap from?
 
 AC_CHECK_FUNCS([gethostname])
 AC_CHECK_FUNCS([memset])
@@ -229,3 +229,4 @@ echo "Full debug is disabled"
 fi
 echo
 echo "==============================================================="
+
