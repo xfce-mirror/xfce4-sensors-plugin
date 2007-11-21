@@ -139,11 +139,13 @@ sensors_write_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 
                xfce_rc_write_bool_entry (rc, "Show", chipfeature->show);
 
-                tmp = g_strdup_printf("%.2f", chipfeature->min_value);
+               tmp = g_strdup_printf("%.2f", chipfeature->min_value);
                xfce_rc_write_entry (rc, "Min", tmp);
+               g_free (tmp);
 
                tmp = g_strdup_printf("%.2f", chipfeature->max_value);
                xfce_rc_write_entry (rc, "Max", tmp);
+               g_free (tmp);
             } /* end if */
 
         } /* end for j */

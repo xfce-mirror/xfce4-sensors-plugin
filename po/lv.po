@@ -15,8 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors.c:202
-#: ../panel-plugin/sensors.c:514
+#: ../panel-plugin/sensors.c:202 ../panel-plugin/sensors.c:514
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Sensors</b></span>"
 
@@ -29,8 +28,7 @@ msgstr "%5.0f apgr. min."
 msgid "No sensors selected!"
 msgstr "Neviens sensors nav izvēlēts!"
 
-#: ../panel-plugin/sensors.c:618
-#: ../panel-plugin/sensors.c:1073
+#: ../panel-plugin/sensors.c:618 ../panel-plugin/sensors.c:1073
 #, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -158,25 +156,20 @@ msgstr "_Dažādi"
 msgid "Edit Properties"
 msgstr "Rediģēt Rekvizītus"
 
-#: ../panel-plugin/sensors.c:2022
-#: ../panel-plugin/sensors.h:40
+#: ../panel-plugin/sensors.c:2022 ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr "Sensoru Spraudnis"
 
 #. only use this if no hddtemp sensor
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../panel-plugin/configuration.c:133
-#: ../panel-plugin/configuration.c:275
-#: ../panel-plugin/configuration.c:281
-#: ../panel-plugin/hddtemp.c:129
-#: ../panel-plugin/hddtemp.c:168
-#: ../panel-plugin/hddtemp.c:173
+#: ../panel-plugin/configuration.c:133 ../panel-plugin/configuration.c:275
+#: ../panel-plugin/configuration.c:281 ../panel-plugin/hddtemp.c:129
+#: ../panel-plugin/hddtemp.c:168 ../panel-plugin/hddtemp.c:173
 msgid "Hard disks"
 msgstr "Cietie Diski"
 
-#: ../panel-plugin/acpi.c:46
-#: ../panel-plugin/acpi.c:53
+#: ../panel-plugin/acpi.c:46 ../panel-plugin/acpi.c:53
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -204,4 +197,3 @@ msgstr "Sensoru spraudnis"
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "Rādīt sensora vērtības."
-

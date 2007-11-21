@@ -64,7 +64,7 @@ fi
 
 AC_SUBST([LIBSENSORS_CFLAGS])
 AC_SUBST([LIBSENSORS_LDFLAGS])
-AM_CONDITIONAL([HAVE_LIBSENSORS], [test x"enable_libsensors" = x"yes"])
+AM_CONDITIONAL([HAVE_LIBSENSORS], [test x$enable_libsensors = x"yes"])
 
 
 dnl Check for hddtemp depending on whether it is disabled upon user request
@@ -102,7 +102,7 @@ if test x"$enable_hddtemp" = x"yes"; then
     AC_SUBST([PATH_HDDTEMP])
 fi
 
-AM_CONDITIONAL([HAVE_HDDTEMP], [test x"$enable_hddtemp=" = x"yes"])
+AM_CONDITIONAL([HAVE_HDDTEMP], [test x$enable_hddtemp = x"yes"])
 
 
 dnl Check for interface for /proc/acpi to be used

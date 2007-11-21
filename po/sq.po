@@ -209,10 +209,12 @@ msgid "Error: Could not connect to sensors!"
 msgstr "Gabim: Nuk u lidha dot me ndijuesat!"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
+#, fuzzy
 msgid "Sensor plugin "
 msgstr "Shtojcë ndijuesi"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
+#, fuzzy
 msgid "Show sensor values."
 msgstr "Shfaq vlera ndijuesish."
 

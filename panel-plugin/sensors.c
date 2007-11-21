@@ -498,7 +498,6 @@ static gboolean
 sensors_show_text_display (t_sensors *sensors)
 {
     gint itemsToDisplay, numRows, numCols;
-    gchar *myLabelText;
 
     TRACE ("enters sensors_show_text_display");
 
@@ -509,12 +508,8 @@ sensors_show_text_display (t_sensors *sensors)
 
     numRows = determine_number_of_rows (sensors);
 
-    if (sensors->show_title == TRUE || itemsToDisplay==0) {
-        myLabelText = g_strdup (_("<span foreground=\"#000000\"><b>Sensors"
-                                    "</b></span>"));
-        gtk_label_set_markup(GTK_LABEL(sensors->panel_label_text), myLabelText);
+    if (sensors->show_title == TRUE || itemsToDisplay==0)
         gtk_widget_show (sensors->panel_label_text);
-    }
     else
         gtk_widget_hide (sensors->panel_label_text);
 
@@ -537,17 +532,24 @@ format_sensor_value (t_tempscale scale, t_chipfeature *chipfeature,
     switch (chipfeature->class) {
         case TEMPERATURE:
            if (scale == FAHRENHEIT) {
-                *help = g_strdup_printf("%5.1f °F",
+                *help = g_strdup_printf(_("%5.1f °F"),
                             (float) (sensorFeature * 9/5 + 32) );
            } else { /* Celsius */
-                *help = g_strdup_printf("%5.1f °C", sensorFeature);
+                *help = g_strdup_printf(_("%5.1f °C"), sensorFeature);
            }
            break;
 
         case VOLTAGE:
-               *help = g_strdup_printf("%+5.2f V", sensorFeature);
+               *help = g_strdup_printf(_("%+5.2f V"), sensorFeature);
                break;
 
+        case ENERGY:
+               *help = g_strdup_printf(_("%.0f mWh"), sensorFeature);
+               break;
+
+        case STATE:
+               *help = g_strdup_printf("%.0f", sensorFeature);
+               break;
 
         case SPEED:
                *help = g_strdup_printf(_("%5.0f rpm"), sensorFeature);
@@ -574,7 +576,7 @@ sensors_create_tooltip (gpointer data)
     int i, index_feature, res;
     double sensorFeature;
     gboolean first, prependedChipName;
-    gchar *myToolTipText, *tmp;
+    gchar *myToolTipText, *myToolTipText2, *tmp;
     t_chipfeature *chipfeature;
     t_chip *chip;
 
@@ -586,13 +588,13 @@ sensors_create_tooltip (gpointer data)
     first = TRUE;
 
     for (i=0; i < sensors->num_sensorchips; i++) {
-        chip = (t_chip *) g_ptr_array_index(sensors->chips, i);
+        chip = (t_chip *) g_ptr_array_index (sensors->chips, i);
         g_assert (chip!=NULL);
 
         prependedChipName = FALSE;
 
         for (index_feature = 0; index_feature<chip->num_features; index_feature++) {
-            chipfeature = g_ptr_array_index(chip->chip_features, index_feature);
+            chipfeature = g_ptr_array_index (chip->chip_features, index_feature);
             g_assert (chipfeature!=NULL);
 
             if ( chipfeature->valid == TRUE && chipfeature->show == TRUE ) {
@@ -603,9 +605,12 @@ sensors_create_tooltip (gpointer data)
                         myToolTipText = g_strdup (chip->sensorId);
                         first = FALSE;
                     }
-                    else
-                        myToolTipText = g_strconcat (myToolTipText, " \n",
+                    else {
+                        myToolTipText2 = g_strconcat (myToolTipText, " \n",
                                                      chip->sensorId, NULL);
+                        g_free (myToolTipText);
+                        myToolTipText = myToolTipText2;
+                    }
 
                     prependedChipName = TRUE;
                 }
@@ -623,10 +628,13 @@ sensors_create_tooltip (gpointer data)
                 format_sensor_value (sensors->scale, chipfeature,
                                      sensorFeature, &tmp);
 
-                myToolTipText = g_strconcat (myToolTipText, "\n  ",
+                myToolTipText2 = g_strconcat (myToolTipText, "\n  ",
                                              chipfeature->name, ": ", tmp,
                                              NULL);
+                g_free (myToolTipText);
+                myToolTipText = myToolTipText2;
 
+                g_free (chipfeature->formatted_value);
                 chipfeature->formatted_value = g_strdup (tmp);
                 chipfeature->raw_value = sensorFeature;
 
@@ -730,6 +738,7 @@ sensors_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
 static void
 create_panel_widget (t_sensors * sensors)
 {
+    gchar *myLabelText;
     TRACE ("enters create_panel_widget");
 
     /* initialize a new vbox widget */
@@ -744,6 +753,10 @@ create_panel_widget (t_sensors * sensors)
     sensors->panel_label_text = gtk_label_new (NULL);
     gtk_misc_set_padding (GTK_MISC(sensors->panel_label_text), INNER_BORDER, 0);
     gtk_misc_set_alignment(GTK_MISC(sensors->panel_label_text), 0.0, 0.5);
+
+    myLabelText = g_strdup (_("<span foreground=\"#000000\"><b>Sensors"
+                                    "</b></span>"));
+    gtk_label_set_markup(GTK_LABEL(sensors->panel_label_text), myLabelText);
     gtk_widget_show (sensors->panel_label_text);
 
     sensors->panel_label_data = gtk_label_new (NULL);
@@ -856,7 +869,8 @@ sensors_new (XfcePanelPlugin *plugin)
         chipfeature->color = "#000000";
         chipfeature->name = "No sensor";
         chipfeature->valid = TRUE;
-        chipfeature->formatted_value = g_strdup_printf("%+5.2f", 0.0);
+        g_free (chipfeature->formatted_value);
+        chipfeature->formatted_value = g_strdup_printf("0.0");
         chipfeature->raw_value = 0.0;
         chipfeature->min_value = 0;
         chipfeature->max_value = 7000;
@@ -909,6 +923,7 @@ sensors_free (XfcePanelPlugin *plugin, t_sensors *sensors)
     g_source_remove (sensors->doubleclick_id);
 
     /* free structures and arrays */
+    g_ptr_array_foreach (sensors->chips, free_chip, NULL);
     g_ptr_array_free (sensors->chips, TRUE);
 
     g_free (sensors);
@@ -927,7 +942,7 @@ sensors_set_size (XfcePanelPlugin *plugin, int size, t_sensors *sensors)
     /* update the panel widget */
     sensors_show_panel ((gpointer) sensors);
 
-    TRACE ("leaves sensors_free");
+    TRACE ("leaves sensors_set_size");
 }
 
 
@@ -1075,6 +1090,7 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale)
                     "guaranteed.\n") );
                 break;
             }
+            g_free (chipfeature->formatted_value);
             chipfeature->formatted_value = g_new (gchar, 0);
             format_sensor_value (scale, chipfeature, sensorFeature,
                                  &(chipfeature->formatted_value));
@@ -1357,9 +1373,12 @@ list_cell_text_edited (GtkCellRendererText *cellrenderertext,
     gtk_tree_store_set (GTK_TREE_STORE (model), &iter, 0, new_text, -1);
     chip = (t_chip *) g_ptr_array_index(sd->sensors->chips, gtk_combo_box_active);
 
-    chipfeature = (t_chipfeature *) g_ptr_array_index(chip->chip_features, atoi(path_str));
-    chipfeature->name =
-        g_strdup (new_text);
+    if (chip->type==LMSENSOR) { /* No Bug. The cryptic filesystem names are
+                                  needed for the update in ACPI and hddtemp. */
+        chipfeature = (t_chipfeature *) g_ptr_array_index (chip->chip_features,
+                                                            atoi(path_str));
+        chipfeature->name = g_strdup (new_text);
+    }
 
     /* clean up */
     gtk_tree_path_free (path);
@@ -1639,7 +1658,7 @@ add_type_box (GtkWidget * vbox, t_sensors_dialog * sd)
                 ( chip->chip_name->bus) );
     else */
         sd->mySensorLabel =
-            gtk_label_new (chip->sensorId);
+            gtk_label_new (chip->description);
 
     gtk_widget_show (sd->mySensorLabel);
     gtk_box_pack_start (GTK_BOX (hbox), sd->mySensorLabel, FALSE, FALSE, 0);

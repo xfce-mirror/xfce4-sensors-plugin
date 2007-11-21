@@ -208,10 +208,12 @@ msgid "Error: Could not connect to sensors!"
 msgstr "錯誤：無法連線至感測器！"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
+#, fuzzy
 msgid "Sensor plugin "
 msgstr "感測器外掛程式"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
+#, fuzzy
 msgid "Show sensor values."
 msgstr "顯示感測器數值。"
 

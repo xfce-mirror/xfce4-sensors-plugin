@@ -17,7 +17,9 @@
 
 /* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
 
+#include "config.h"
 #include "hddtemp.h"
+#include "middlelayer.h"
 #include "types.h"
 
 #include <glib/garray.h>
@@ -29,22 +31,60 @@
 #include <glib/gspawn.h>
 #include <glib/gstrfuncs.h>
 
+#include <gtk/gtkmessagedialog.h>
+#include <gtk/gtklabel.h>
+#include <gtk/gtkstock.h>
+
 /* #include <stdio.h> */
 #include <stdlib.h>
 #include <string.h>
 
 #include <sys/utsname.h>
 
+#include <unistd.h>
+
+
+void quick_message (gchar *message) {
+
+    GtkWidget *dialog;  /*, *label; */
+
+    TRACE ("enters quick_message");
+
+    dialog = gtk_message_dialog_new (NULL,
+                                  GTK_DIALOG_DESTROY_WITH_PARENT,
+                                  GTK_MESSAGE_INFO,
+                                  GTK_BUTTONS_CLOSE,
+                                  message);
+
+    /* dialog = gtk_dialog_new_with_buttons (_("Could not run \"hddtemp\""),
+                                         NULL, 0, // GTK DIALOG NO MODAL ;-)
+                                         GTK_STOCK_CLOSE, GTK_RESPONSE_NONE,
+                                         NULL);
+    label = gtk_label_new (message);
+    gtk_label_set_line_wrap (GTK_LABEL(label), TRUE);
+    gtk_label_set_width_chars (GTK_LABEL(label), 60); */
+
+    g_signal_connect_swapped (dialog, "response",
+                             G_CALLBACK (gtk_widget_destroy), dialog);
+
+    /*
+    gtk_container_add (GTK_CONTAINER (GTK_DIALOG(dialog)->vbox), label);
+    gtk_widget_show_all (dialog); */
+    gtk_dialog_run(GTK_DIALOG(dialog));
+
+    TRACE ("leaves quick_message");
+}
+
+
 void
-read_disks_linux24 (t_chip *chip)
+read_disks_fallback (t_chip *chip)
 {
     GError *error;
     GDir *gdir;
-    gchar * disk;
     t_chipfeature *chipfeature;
     const gchar* dirname;
 
-    TRACE ("enters read_disks_linux24");
+    TRACE ("enters read_disks_fallback");
 
     /* read from /proc/ide */
     error = NULL;
@@ -52,45 +92,46 @@ read_disks_linux24 (t_chip *chip)
 
     while ( (dirname = g_dir_read_name (gdir))!=NULL ) {
         if ( strncmp (dirname, "hd", 2)==0 || strncmp (dirname, "sd", 2)==0) {
-            disk = g_strconcat ("/dev/", dirname, NULL);
             /* TODO: look, if /dev/dirname exists? */
             chipfeature = g_new0 (t_chipfeature, 1);
-            chipfeature->name = disk;
+            chipfeature->name = g_strconcat ("/dev/", dirname, NULL);;
             g_ptr_array_add (chip->chip_features, chipfeature);
             chip->num_features++;
         }
     }
+
+    g_dir_close (gdir);
+
     /* FIXME: read SCSI info from where? SATA?  */
 
-    TRACE ("leaves read_disks_linux24");
+    TRACE ("leaves read_disks_fallback");
 }
 
 
 void
 read_disks_linux26 (t_chip *chip)
 {
-    GError *error;
     GDir *gdir;
-    gchar * disk;
     t_chipfeature *chipfeature;
     const gchar* dirname;
 
     TRACE ("enters read_disks_linux26");
 
     /* read from /sys/block */
-    error = NULL;
-    gdir = g_dir_open ("/sys/block/", 0, &error);
+    gdir = g_dir_open ("/sys/block/", 0, NULL);
     while ( (dirname = g_dir_read_name (gdir))!=NULL ) {
         if ( strncmp (dirname, "ram", 3)!=0 &&
-             strncmp (dirname, "loop", 4)!=0 ) {
-            disk = g_strconcat ("/dev/", dirname, NULL);
+             strncmp (dirname, "loop", 4)!=0 &&
+             strncmp (dirname, "dm-", 3)!=0 ) {
             /* TODO: look, if /dev/dirname exists? */
             chipfeature = g_new0 (t_chipfeature, 1);
-            chipfeature->name = disk; /* /proc/ide/hda/model ?? */
+            chipfeature->name = g_strconcat ("/dev/", dirname, NULL); /* /proc/ide/hda/model ?? */
             g_ptr_array_add (chip->chip_features, chipfeature);
             chip->num_features++;
         }
     }
+
+    g_dir_close (gdir);
 
     TRACE ("leaves read_disks_linux26");
 }
@@ -99,17 +140,33 @@ read_disks_linux26 (t_chip *chip)
 void
 remove_unmonitored_drives (t_chip *chip)
 {
-    int i;
+    int i, result;
     t_chipfeature *chipfeature;
 
     TRACE ("enters remove_unmonitored_drives");
 
-    for (i=0; i<chip->num_features; i++) {
+    for (i=0; i<chip->num_features; i++)
+    {
         chipfeature = g_ptr_array_index (chip->chip_features, i);
-        if ( get_hddtemp_value (chipfeature->name)==0.0) {
+        result = get_hddtemp_value (chipfeature->name);
+        if (result == 0.0)
+        {
+            free_chipfeature ( (gpointer) chipfeature, NULL);
             g_ptr_array_remove_index (chip->chip_features, i);
             i--;
             chip->num_features--;
+        }
+        else if (result == ZERO_KELVIN)
+        {
+            for (i=0; i < chip->num_features; i++) {
+                // printf("remove %d\n", i);
+                chipfeature = g_ptr_array_index (chip->chip_features, i);
+                free_chipfeature ( (gpointer) chipfeature, NULL);
+            }
+            g_ptr_array_free (chip->chip_features, TRUE);
+            // chip->chip_features = g_ptr_array_new();
+            chip->num_features=0;
+            return;
         }
     }
 
@@ -165,18 +222,21 @@ initialize_hddtemp (GPtrArray *chips)
     chip = g_new (t_chip, 1);
 
     chip->chip_name = (const sensors_chip_name *)
-            ( g_strdup(_("Hard disks")), 0, 0, g_strdup(_("Hard disks")) );
+            ( _("Hard disks"), 0, 0, _("Hard disks") );
 
     chip->chip_features = g_ptr_array_new ();
     chip->num_features = 0;
-    chip->description = g_strdup (_("S.M.A.R.T. harddisk temperatures"));
-    chip->name = g_strdup (_("Hard disks"));
+    chip->description = _("S.M.A.R.T. harddisk temperatures");
+    chip->name = _("Hard disks");
+    chip->sensorId = "Hard disks";
     chip->type = HDD;
 
     p_uname = (struct utsname *) malloc (sizeof(struct utsname));
     result =  uname (p_uname);
-    if (result!=0)
+    if (result!=0) {
+        g_free(p_uname);
         return -1;
+    }
 
     generation = atoi ( p_uname->release ); /* this might cause trouble on */
     major = atoi ( p_uname->release+2 );      /* other systems than Linux! */
@@ -187,7 +247,9 @@ initialize_hddtemp (GPtrArray *chips)
     if (strcmp(p_uname->sysname, "Linux")==0 && major>=5)
         read_disks_linux26 (chip);
     else
-        read_disks_linux24 (chip); /* hopefully, that's a safe variant */
+        read_disks_fallback (chip); /* hopefully, that's a safe variant */
+
+    g_free(p_uname);
 
     remove_unmonitored_drives (chip);
 
@@ -216,19 +278,31 @@ get_hddtemp_value (char* disk)
 
     TRACE ("enters get_hddtemp_value for %s", disk);
 
-    /*    FIXME: On self-installed systems, this is /usr/local/sbin!    */
-    cmd_line = g_strdup_printf ( "/usr/sbin/hddtemp -n -q %s", disk);
+    cmd_line = g_strdup_printf ( "%s -n -q %s", PATH_HDDTEMP, disk);
     result = g_spawn_command_line_sync (cmd_line,
             &standard_output, &standard_error, &exit_status, NULL);
 
     /* filter those with no sensors out */
     if (!result || exit_status!=0 /* || error!=NULL */ ) {
-        return 0.0;
+        if (exit_status!=0 && access (PATH_HDDTEMP, X_OK)==0) {
+            quick_message ("\"hddtemp\" was not executed correctly, although it is "
+                        "executable. This is most probably due to the disks "
+                        "requiring root privileges to read their temperatures, "
+                        "and \"hddtemp\" not being setuid root.\n\n"
+                        "An easy but dirty solution is to run \"chmod u+s "
+                        PATH_HDDTEMP "\" as root user and restart this plugin "
+                        "or its panel.");
+            value = ZERO_KELVIN;
+        }
+        else
+            value = 0.0;
     }
-
-    /* hddtemp does not return floating values, but only integer ones.
-      So have an easier life with atoi. */
-    value = (double) (atoi ( (const char*) standard_output) );
+    else {
+        /* hddtemp does not return floating values, but only integer ones.
+          So have an easier life with atoi.
+          FIXME: Use strtod() instead?*/
+        value = (double) (atoi ( (const char*) standard_output) );
+    }
 
     g_free (cmd_line);
     g_free (standard_output);
@@ -254,7 +328,12 @@ refresh_hddtemp (gpointer chip_feature, gpointer data)
 
     value = get_hddtemp_value (cf->name);
 
-    cf->formatted_value = g_strdup_printf("%+5.2f", value);
+    g_free (cf->formatted_value);
+    /*  if (scale == FAHRENHEIT) {
+        cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
+    } else { // Celsius  */
+        cf->formatted_value = g_strdup_printf(_("%5.1f °C"), value);
+    /* } */
     cf->raw_value = value;
 
     TRACE ("leaves refresh_hddtemp");

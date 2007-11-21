@@ -22,6 +22,10 @@
 
 #include <glib/garray.h>
 
+
+#define ZERO_KELVIN -273 /*.15 */
+
+
 /*
  * Initialize hddtemp by finding disks to monitor
  * @Return: Number of initialized chips

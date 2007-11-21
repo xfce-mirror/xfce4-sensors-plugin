@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
+"POT-Creation-Date: 2007-11-05 23:42+0100\n"
 "PO-Revision-Date: 2007-10-27 16:37+0500\n"
 "Last-Translator: Muhammad Ali Makki <makk.ma@gmail.com>\n"
 "Language-Team: Urdu <makki.ma@gmail.com>\n"
@@ -18,32 +18,25 @@ msgstr ""
 "X-Poedit-Country: PAKISTAN\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../panel-plugin/sensors.c:153
-#: ../panel-plugin/sensors.c:2162
-msgid "<b>Sensors</b>"
-msgstr "<b>سینسرز</b>"
-
-#: ../panel-plugin/sensors.c:272
-#, c-format
-msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
-msgstr "<span foreground=\"#000000\" size=\"%s\"><b>سینسرز</b></span>\n"
-
-#: ../panel-plugin/sensors.c:334
-#, c-format
-msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
+#: ../panel-plugin/sensors.c:202 ../panel-plugin/sensors.c:514
+#, fuzzy
+msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>سینسرز</b></span>"
 
-#. circumvent empty char pointer
-#: ../panel-plugin/sensors.c:441
+#: ../panel-plugin/sensors.c:554
+#, c-format
+msgid "%5.0f rpm"
+msgstr "%5.0f rpm"
+
+#: ../panel-plugin/sensors.c:586
 msgid "No sensors selected!"
 msgstr "کوئی سینسر منتخب نہیں!"
 
-#: ../panel-plugin/sensors.c:479
-#: ../panel-plugin/sensors.c:1677
+#: ../panel-plugin/sensors.c:618 ../panel-plugin/sensors.c:1073
+#, fuzzy, c-format
 msgid ""
-" \n"
-"Xfce Hardware Sensors Plugin: \n"
-"Seems like there was a problem reading a sensor feature value. \n"
+"Xfce Hardware Sensors Plugin:\n"
+"Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
 " \n"
@@ -51,137 +44,170 @@ msgstr ""
 "معلوم ہوتا ہے کہ سینسر خاصیت ویلیو پڑھنے میں مسئلہ ہے. \n"
 "درست کاروائی کی ضمانت نہیں دی جاسکتی.\n"
 
-#: ../panel-plugin/sensors.c:500
-#, c-format
-msgid "%5.0f rpm"
-msgstr "%5.0f rpm"
-
-#: ../panel-plugin/sensors.c:723
-msgid "Error: Could not connect to sensors!"
-msgstr "غلطی: سینسر سے رابطہ نہیں ہوسکا!"
-
-#: ../panel-plugin/sensors.c:813
-#: ../panel-plugin/sensors.c:887
-msgid "Hard disks"
-msgstr "ہارڈ ڈسکس"
-
-#: ../panel-plugin/sensors.c:923
+#: ../panel-plugin/sensors.c:855
 msgid "No sensors found!"
 msgstr "کوئی سینسر نہیں ملا!"
 
-#: ../panel-plugin/sensors.c:1356
-msgid "Hard disk temperature sensors"
-msgstr "ہارڈ ڈسک ٹمپریچر سینسرز"
-
-#: ../panel-plugin/sensors.c:1772
+#: ../panel-plugin/sensors.c:1496
 msgid "UI style:"
 msgstr "مواجہ انداز:"
 
-#: ../panel-plugin/sensors.c:1773
-msgid "text"
+#: ../panel-plugin/sensors.c:1497
+#, fuzzy
+msgid "_text"
 msgstr "متن"
 
-#: ../panel-plugin/sensors.c:1775
-msgid "graphical"
+#: ../panel-plugin/sensors.c:1499
+#, fuzzy
+msgid "g_raphical"
 msgstr "گریفکل"
 
-#: ../panel-plugin/sensors.c:1812
-msgid "Show labels in graphical UI"
+#: ../panel-plugin/sensors.c:1536
+#, fuzzy
+msgid "Show _labels in graphical UI"
 msgstr "گریفکل مواجہ میں لیبل ظاہر کریں"
 
-#: ../panel-plugin/sensors.c:1837
-msgid "Show title"
+#: ../panel-plugin/sensors.c:1566
+msgid "Show colored _bars"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:1594
+#, fuzzy
+msgid "_Show title"
 msgstr "عنوان ظاہر کریں"
 
-#: ../panel-plugin/sensors.c:1863
-msgid "Sensors type:"
+#: ../panel-plugin/sensors.c:1622
+#, fuzzy
+msgid "Sensors t_ype:"
 msgstr "سینسر قسم:"
 
-#: ../panel-plugin/sensors.c:1910
+#: ../panel-plugin/sensors.c:1674
 msgid "Name"
 msgstr "نام"
 
-#: ../panel-plugin/sensors.c:1919
+#: ../panel-plugin/sensors.c:1683
 msgid "Value"
 msgstr "ویلیو"
 
-#: ../panel-plugin/sensors.c:1925
+#: ../panel-plugin/sensors.c:1689
 msgid "Show"
 msgstr "دکھائیں"
 
-#: ../panel-plugin/sensors.c:1934
+#: ../panel-plugin/sensors.c:1698
 msgid "Color"
 msgstr "رنگ"
 
-#: ../panel-plugin/sensors.c:1944
+#: ../panel-plugin/sensors.c:1708
 msgid "Min"
 msgstr "کم"
 
-#: ../panel-plugin/sensors.c:1953
+#: ../panel-plugin/sensors.c:1717
 msgid "Max"
 msgstr "زیادہ"
 
-#: ../panel-plugin/sensors.c:1981
-msgid "Font size:"
+#: ../panel-plugin/sensors.c:1750
+#, fuzzy
+msgid "F_ont size:"
 msgstr "فونٹ حجم:"
 
-#: ../panel-plugin/sensors.c:1988
+#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#: ../panel-plugin/sensors.c:1757
 msgid "x-small"
 msgstr "x-چھوٹا"
 
-#: ../panel-plugin/sensors.c:1989
+#: ../panel-plugin/sensors.c:1758
 msgid "small"
 msgstr "چھوٹا"
 
-#: ../panel-plugin/sensors.c:1990
+#: ../panel-plugin/sensors.c:1759
 msgid "medium"
 msgstr "درمیانہ"
 
-#: ../panel-plugin/sensors.c:1991
+#: ../panel-plugin/sensors.c:1760
 msgid "large"
 msgstr "بڑا"
 
-#: ../panel-plugin/sensors.c:1992
+#: ../panel-plugin/sensors.c:1761
 msgid "x-large"
 msgstr "x-بڑا"
 
-#: ../panel-plugin/sensors.c:2020
+#: ../panel-plugin/sensors.c:1793
 msgid "Temperature scale:"
 msgstr "ٹمپریچر قیاس:"
 
-#: ../panel-plugin/sensors.c:2022
-msgid "Celsius"
+#: ../panel-plugin/sensors.c:1795
+#, fuzzy
+msgid "_Celsius"
 msgstr "Celsius"
 
-#: ../panel-plugin/sensors.c:2024
-msgid "Fahrenheit"
+#: ../panel-plugin/sensors.c:1797
+#, fuzzy
+msgid "_Fahrenheit"
 msgstr "فارن ہائیٹ"
 
-#: ../panel-plugin/sensors.c:2063
-msgid "Update interval (seconds):"
+#: ../panel-plugin/sensors.c:1836
+#, fuzzy
+msgid "U_pdate interval (seconds):"
 msgstr "تجدید وقفہ (سیکنڈ):"
 
-#: ../panel-plugin/sensors.c:2090
-msgid "Execute on double click:"
+#: ../panel-plugin/sensors.c:1866
+#, fuzzy
+msgid "E_xecute on double click:"
 msgstr "دہرے کلک پر چلائیں:"
 
-#: ../panel-plugin/sensors.c:2132
-msgid "<b>View</b>"
-msgstr "<b>منظر</b>"
+#: ../panel-plugin/sensors.c:1909
+msgid "_View"
+msgstr ""
 
-#: ../panel-plugin/sensors.c:2190
-msgid "<b>Miscellaneous</b>"
+#: ../panel-plugin/sensors.c:1939
+#, fuzzy
+msgid "_Sensors"
+msgstr "سینسر قسم:"
+
+#: ../panel-plugin/sensors.c:1967
+#, fuzzy
+msgid "_Miscellaneous"
 msgstr "<b>متفرق</b>"
 
-#: ../panel-plugin/sensors.c:2237
+#: ../panel-plugin/sensors.c:2015
 msgid "Edit Properties"
 msgstr "خصوصیات مدون کریں"
 
-#. #include <unistd.h>
-#: ../panel-plugin/sensors.c:2244
-#: ../panel-plugin/sensors.h:51
+#: ../panel-plugin/sensors.c:2022 ../panel-plugin/sensors.h:40
 msgid "Sensors Plugin"
 msgstr "سینسرز پلگ ان"
+
+#. only use this if no hddtemp sensor
+#. FIXME: compare strings, or also have hddtmep and acpi store numeric values
+#. assert correctly saved file
+#: ../panel-plugin/configuration.c:133 ../panel-plugin/configuration.c:275
+#: ../panel-plugin/configuration.c:281 ../panel-plugin/hddtemp.c:129
+#: ../panel-plugin/hddtemp.c:168 ../panel-plugin/hddtemp.c:173
+msgid "Hard disks"
+msgstr "ہارڈ ڈسکس"
+
+#: ../panel-plugin/acpi.c:46 ../panel-plugin/acpi.c:53
+msgid "ACPI"
+msgstr ""
+
+#: ../panel-plugin/acpi.c:47
+msgid "Advanced Configuration and Power Interface"
+msgstr ""
+
+#: ../panel-plugin/hddtemp.c:172
+#, fuzzy
+msgid "S.M.A.R.T. harddisk temperatures"
+msgstr "ہارڈ ڈسک ٹمپریچر سینسرز"
+
+#: ../panel-plugin/lmsensors.c:52
+#, fuzzy
+msgid "LM Sensors"
+msgstr "سینسر قسم:"
+
+#: ../panel-plugin/lmsensors.c:131
+#, c-format
+msgid "Error: Could not connect to sensors!"
+msgstr "غلطی: سینسر سے رابطہ نہیں ہوسکا!"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
@@ -191,3 +217,11 @@ msgstr "سینسر پلگ ان"
 msgid "Show sensor values."
 msgstr "سینسر ویلیو دکھائیں:"
 
+#~ msgid "<b>Sensors</b>"
+#~ msgstr "<b>سینسرز</b>"
+
+#~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
+#~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>سینسرز</b></span>\n"
+
+#~ msgid "<b>View</b>"
+#~ msgstr "<b>منظر</b>"

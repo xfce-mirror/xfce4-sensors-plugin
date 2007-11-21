@@ -200,10 +200,12 @@ msgid "Error: Could not connect to sensors!"
 msgstr "오류: 선세에 연결하지 못 했습니다."
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
+#, fuzzy
 msgid "Sensor plugin "
 msgstr "센서 플러그인"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
+#, fuzzy
 msgid "Show sensor values."
 msgstr "센서 값 보이기"
 

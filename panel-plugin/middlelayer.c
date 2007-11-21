@@ -18,11 +18,15 @@
  *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#include <config.h>
+#ifdef HAVE_CONFIG_H
+  #include "config.h"
+#endif
+
 
 #ifdef HAVE_LINUX
 #include <sys/utsname.h>
 #endif
+
 
 #include "middlelayer.h"
 
@@ -133,6 +137,11 @@ categorize_sensor_type (t_chipfeature* chipfeature)
          chipfeature->class = SPEED;
          chipfeature->min_value = 1000.0;
          chipfeature->max_value = 3500.0;
+   } else if ( strstr(chipfeature->name, "alarm")!=NULL
+      || strstr(chipfeature->name, "Alarm")!=NULL ) {
+         chipfeature->class = STATE;
+         chipfeature->min_value = 0.0;
+         chipfeature->max_value = 1.0;
    } else {
          chipfeature->class = OTHER;
          chipfeature->min_value = 0.0;
@@ -164,6 +173,9 @@ sensors_get_feature_wrapper (t_chip *chip, int number, double *value)
             feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, number);
             g_assert (feature!=NULL);
             *value = get_hddtemp_value (feature->name);
+            if (*value==ZERO_KELVIN) {
+                return NO_VALID_HDDTEMP;
+            }
             return 0;
         #else
             return -1;
@@ -174,7 +186,9 @@ sensors_get_feature_wrapper (t_chip *chip, int number, double *value)
             g_assert (number<chip->num_features);
             feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, number);
             g_assert (feature!=NULL);
-            *value = get_acpi_zone_value (feature->name);
+            /*  *value = get_acpi_zone_value (feature->name); */
+            /* refresh_acpi ((gpointer) feature);   */
+            *value = feature->raw_value;
             return 0; /* HERE    I    AM,    I    WANNA    BE    FIXED    */
         #else
             return -1;
@@ -185,6 +199,38 @@ sensors_get_feature_wrapper (t_chip *chip, int number, double *value)
         return -1;
     }
 }
+
+
+void
+free_chipfeature (gpointer chipfeature, gpointer data)
+{
+    t_chipfeature *cf;
+    cf = (t_chipfeature *) chipfeature;
+
+    g_free (cf->name);
+    g_free (cf->formatted_value);
+    g_free (cf->color);
+}
+
+
+void
+free_chip (gpointer chip, gpointer data)
+{
+    t_chip *c;
+    c = (t_chip *) chip;
+    if (c->type==LMSENSOR)
+        g_free (c->name);
+    g_free (c->sensorId);
+    g_free (c->description);
+    if (c->type==LMSENSOR) {
+        g_free (c->chip_name->prefix);
+        g_free (c->chip_name->busname);
+    }
+    /* g_free (c->chip_name); */   /* is a _copied_ structure of libsensors */
+    g_ptr_array_foreach (c->chip_features, free_chipfeature, NULL);
+    g_ptr_array_free (c->chip_features, TRUE);
+}
+
 
 void
 sensor_interface_cleanup()

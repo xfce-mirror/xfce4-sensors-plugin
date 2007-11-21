@@ -49,7 +49,7 @@ t_chip *setup_chip (GPtrArray *chips, const sensors_chip_name *name, int num_sen
 
     chip->sensorId = g_strdup_printf ("%s-%x-%x", name->prefix, name->bus, name->addr);
     chip->num_features=0;
-    chip->name = g_strdup (_("LM Sensors"));
+    chip->name = _("LM Sensors");
     chip->chip_features = g_ptr_array_new();
 
     chip->description = g_strdup (sensors_get_adapter_name (num_sensorchips-1));
@@ -66,7 +66,8 @@ void setup_chipfeature (t_chipfeature *chipfeature, int number, double sensorFea
 
     chipfeature->color = "#00B000";
     chipfeature->valid = TRUE;
-    chipfeature->formatted_value = g_strdup_printf("%+5.1f", sensorFeature);
+    g_free (chipfeature->formatted_value);
+    chipfeature->formatted_value = g_strdup_printf ("%+5.1f", sensorFeature);
     chipfeature->raw_value = sensorFeature;
     chipfeature->address = number;
     chipfeature->show = FALSE;
@@ -88,8 +89,8 @@ t_chipfeature *find_chipfeature    (const sensors_chip_name *name, t_chip *chip,
     chipfeature = g_new0 (t_chipfeature, 1);
 
     if (sensors_get_ignored (*(name), number)==1) {
-        res = sensors_get_label(*(name), number,
-                                &(chipfeature->name));
+        g_free (chipfeature->name); /*  ?  */
+        res = sensors_get_label (*(name), number, &(chipfeature->name));
 
         if (res==0) {
             res = sensors_get_feature (*(name), number,
@@ -105,6 +106,7 @@ t_chipfeature *find_chipfeature    (const sensors_chip_name *name, t_chip *chip,
     }
 
     TRACE("leaves find_chipfeature with null");
+    g_free (chipfeature);
     return NULL;
 }
 
@@ -125,11 +127,12 @@ int initialize_libsensors (GPtrArray *chips)
 
     if (errno != ENOENT) /* the file actually exists */
     {
-        sensorsInit = sensors_init(file);
+        sensorsInit = sensors_init (file);
         if (sensorsInit != 0)
         {
             g_printf(_("Error: Could not connect to sensors!"));
             /* FIXME: better popup window? write to special logfile? */
+            fclose (file);
             return -2;
         }
 

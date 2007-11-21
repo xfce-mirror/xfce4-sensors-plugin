@@ -208,10 +208,12 @@ msgid "Error: Could not connect to sensors!"
 msgstr "エラー: センサーに接続できませんでした！"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
+#, fuzzy
 msgid "Sensor plugin "
 msgstr "センサー"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
+#, fuzzy
 msgid "Show sensor values."
 msgstr "センサーの値を表示します。"
 

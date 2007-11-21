@@ -195,10 +195,12 @@ msgid "Error: Could not connect to sensors!"
 msgstr "Erreur : ne peut pas se connecter aux senseurs !"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
+#, fuzzy
 msgid "Sensor plugin "
 msgstr "Greffon senseur"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
+#, fuzzy
 msgid "Show sensor values."
 msgstr "Afficher les valeurs du senseur."
 

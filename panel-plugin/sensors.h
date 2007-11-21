@@ -36,6 +36,7 @@
 #include <string.h>
 
 #include "middlelayer.h"
+#include "types.h"
 
 #define APP_NAME N_("Sensors Plugin")
 
@@ -46,15 +47,6 @@
 #define COLOR_ERROR     "#F00000"
 #define COLOR_WARN      "#F0F000"
 #define COLOR_NORMAL    "#00C000"
-
-
-/*
- * temperature scale to show values in
- */
-typedef enum {
-    CELSIUS,
-    FAHRENHEIT
-} t_tempscale;
 
 
 /*

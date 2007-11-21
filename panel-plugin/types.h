@@ -38,9 +38,18 @@
   char *prefix;
   int bus;
   int addr;
-  char *busname;	/* if dummy */
+  char *busname;    /* if dummy */
  } sensors_chip_name;
 #endif
+
+
+/*
+ * temperature scale to show values in
+ */
+typedef enum {
+    CELSIUS,
+    FAHRENHEIT
+} t_tempscale;
 
 
 /* #define NUM_SENSOR_CHIPS 10
@@ -60,6 +69,8 @@ typedef enum {
     TEMPERATURE,
     VOLTAGE,
     SPEED,
+    ENERGY,
+    STATE,
     OTHER
 } t_chipfeature_class;
 

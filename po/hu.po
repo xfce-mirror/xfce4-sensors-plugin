@@ -193,10 +193,12 @@ msgid "Error: Could not connect to sensors!"
 msgstr "Hiba: nem lehet érzékelőkhöz kapcsolódni!"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
+#, fuzzy
 msgid "Sensor plugin "
 msgstr "Érzékelő"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
+#, fuzzy
 msgid "Show sensor values."
 msgstr "Értékek mutatása"
 

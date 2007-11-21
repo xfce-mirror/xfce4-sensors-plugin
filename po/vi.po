@@ -208,10 +208,12 @@ msgid "Error: Could not connect to sensors!"
 msgstr "Lỗi: Không thể kết nối tới bộ cảm ứng!"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
+#, fuzzy
 msgid "Sensor plugin "
 msgstr "Plugin cảm ứng "
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
+#, fuzzy
 msgid "Show sensor values."
 msgstr "Hiển thị các giá trị cảm ứng."
 

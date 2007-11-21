@@ -138,7 +138,7 @@ msgstr "A_uffrischungsintervall (Sekunden):"
 
 #: ../panel-plugin/sensors.c:1866
 msgid "E_xecute on double click:"
-msgstr "Bei _Doppel-Klick ausführen:"
+msgstr "Bei _Doppelklick ausführen:"
 
 #: ../panel-plugin/sensors.c:1909
 msgid "_View"
@@ -183,7 +183,7 @@ msgstr "S.M.A.R.T.-Sensoren der Festplatten"
 
 #: ../panel-plugin/lmsensors.c:52
 msgid "LM Sensors"
-msgstr "LM Sensoren"
+msgstr "LM-Sensoren"
 
 #: ../panel-plugin/lmsensors.c:131
 #, c-format
@@ -192,7 +192,7 @@ msgstr "Fehler: Konnte nicht mit Sensoren verbinden!"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
-msgstr "Sensor Plugin"
+msgstr "Sensor-Plugin"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."

@@ -1,3 +1,15 @@
+2007-11-18 timystery
+	* Hddtemp can be specified at configure-time now and now longer relies
+	statically on /usr/sbin .
+	* acpi implementation going on.
+
+2007-11-15 timystery
+	* Rewrote big parts of configure.in.in to better support enable/disable.
+
+2007-11-10 timystery
+	* Went through the plugin with valgrind and removed lots of sources for
+	data accumulation.
+
 2006-10 - 2007-11 timystery
 
 	* New internal structure being able to run with ACPI, hddtemp and lm

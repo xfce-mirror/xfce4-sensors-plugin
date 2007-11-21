@@ -34,6 +34,8 @@
 
 #include <string.h>
 
+#define NO_VALID_HDDTEMP -2
+
 /*
  * Initialize all sensors detected by iterating and calling init-routines
  * @Return: Number of initialized features
@@ -72,6 +74,15 @@ void categorize_sensor_type (t_chipfeature* chipfeature);
  * @Return: 0 on success, >0 else.
  */
 int sensors_get_feature_wrapper (t_chip *chip, int number, double *value);
+
+
+/*  Free data in chipfeatures */
+void free_chipfeature (gpointer chipfeature, gpointer data);
+
+
+/*  Free reamining structures in chips and associated chipfeatures */
+void free_chip (gpointer chip, gpointer data);
+
 
 /* Clean up structures and call library routines for ending "session".
  */

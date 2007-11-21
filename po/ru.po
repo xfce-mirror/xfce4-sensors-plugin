@@ -204,10 +204,12 @@ msgid "Error: Could not connect to sensors!"
 msgstr "Ошибка: Не удается соединиться с сенсорами!"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
+#, fuzzy
 msgid "Sensor plugin "
 msgstr "Сенсоры"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
+#, fuzzy
 msgid "Show sensor values."
 msgstr "Отображает значения сенсоров."
 
