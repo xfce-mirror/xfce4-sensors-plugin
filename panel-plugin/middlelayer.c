@@ -153,16 +153,16 @@ categorize_sensor_type (t_chipfeature* chipfeature)
 
 
 int
-sensors_get_feature_wrapper (t_chip *chip, int number, double *value)
+sensor_get_value (t_chip *chip, int number, double *value)
 {
     t_chipfeature *feature;
-    /* TRACE ("enters sensors_get_feature_wrapper %d", number); */
+    /* TRACE ("enters sensor_get_value %d", number); */
 
     g_assert (chip!=NULL);
 
     if (chip->type==LMSENSOR ) {
         #ifdef HAVE_LIBSENSORS
-            return sensors_get_feature (*(chip->chip_name), number, value);
+            return sensors_get_feature_wrapper (*(chip->chip_name), number, value);
         #else
             return -1;
         #endif

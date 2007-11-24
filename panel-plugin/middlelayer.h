@@ -73,7 +73,7 @@ void categorize_sensor_type (t_chipfeature* chipfeature);
  * @Param value: address where double value can be stored
  * @Return: 0 on success, >0 else.
  */
-int sensors_get_feature_wrapper (t_chip *chip, int number, double *value);
+int sensor_get_value (t_chip *chip, int number, double *value);
 
 
 /*  Free data in chipfeatures */

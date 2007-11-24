@@ -8,29 +8,61 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-05 23:42+0100\n"
+"POT-Creation-Date: 2007-11-24 19:34+0100\n"
 "PO-Revision-Date: 2007-11-05 21:12-0500\n"
 "Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../panel-plugin/sensors.c:202 ../panel-plugin/sensors.c:514
+#: ../panel-plugin/sensors.c:201 ../panel-plugin/sensors.c:760
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Sensores</b></span>"
 
+#: ../panel-plugin/sensors.c:535
+#, c-format
+msgid "%5.1f °F"
+msgstr ""
+
+#. Celsius
+#. if (scale == FAHRENHEIT) {
+#. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
+#. } else { // Celsius
+#: ../panel-plugin/sensors.c:538 ../panel-plugin/hddtemp.c:346
+#, c-format
+msgid "%5.1f °C"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:543
+#, c-format
+msgid "%+5.2f V"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:547
+#, fuzzy, c-format
+msgid "%.0f mWh"
+msgstr "%5.0f rpm"
+
+#: ../panel-plugin/sensors.c:552
+msgid "off"
+msgstr ""
+
 #: ../panel-plugin/sensors.c:554
+msgid "on"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:558
 #, c-format
 msgid "%5.0f rpm"
 msgstr "%5.0f rpm"
 
-#: ../panel-plugin/sensors.c:586
+#: ../panel-plugin/sensors.c:590
 msgid "No sensors selected!"
 msgstr "Nenhum sensor selecionado!"
 
-#: ../panel-plugin/sensors.c:618 ../panel-plugin/sensors.c:1073
+#: ../panel-plugin/sensors.c:625 ../panel-plugin/sensors.c:1089
 #, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -41,153 +73,160 @@ msgstr ""
 "Parece ter ocorrido um problema durante a leitura de algum sensor.\n"
 "Não é possível garantir o procedimento apropriado.\n"
 
-#: ../panel-plugin/sensors.c:855
+#: ../panel-plugin/sensors.c:869
 msgid "No sensors found!"
 msgstr "Nenhum sensor encontrado!"
 
-#: ../panel-plugin/sensors.c:1496
+#: ../panel-plugin/sensors.c:1516
 msgid "UI style:"
 msgstr "Estilo da interface:"
 
-#: ../panel-plugin/sensors.c:1497
+#: ../panel-plugin/sensors.c:1517
 msgid "_text"
 msgstr "_texto"
 
-#: ../panel-plugin/sensors.c:1499
+#: ../panel-plugin/sensors.c:1519
 msgid "g_raphical"
 msgstr "g_ráfico"
 
-#: ../panel-plugin/sensors.c:1536
+#: ../panel-plugin/sensors.c:1556
 msgid "Show _labels in graphical UI"
 msgstr "Mostrar rótu_los na interface gráfica"
 
-#: ../panel-plugin/sensors.c:1566
+#: ../panel-plugin/sensors.c:1586
 msgid "Show colored _bars"
 msgstr "Mostrar _barras coloridas"
 
-#: ../panel-plugin/sensors.c:1594
+#: ../panel-plugin/sensors.c:1614
 msgid "_Show title"
 msgstr "Mo_strar título"
 
-#: ../panel-plugin/sensors.c:1622
+#: ../panel-plugin/sensors.c:1642
 msgid "Sensors t_ype:"
 msgstr "Tipos de sensores:"
 
-#: ../panel-plugin/sensors.c:1674
+#: ../panel-plugin/sensors.c:1694
 msgid "Name"
 msgstr "Nome"
 
-#: ../panel-plugin/sensors.c:1683
+#: ../panel-plugin/sensors.c:1703
 msgid "Value"
 msgstr "Valor"
 
-#: ../panel-plugin/sensors.c:1689
+#: ../panel-plugin/sensors.c:1709
 msgid "Show"
 msgstr "Mostrar"
 
-#: ../panel-plugin/sensors.c:1698
+#: ../panel-plugin/sensors.c:1718
 msgid "Color"
 msgstr "Cor"
 
-#: ../panel-plugin/sensors.c:1708
+#: ../panel-plugin/sensors.c:1728
 msgid "Min"
 msgstr "Mín."
 
-#: ../panel-plugin/sensors.c:1717
+#: ../panel-plugin/sensors.c:1737
 msgid "Max"
 msgstr "Máx."
 
-#: ../panel-plugin/sensors.c:1750
+#: ../panel-plugin/sensors.c:1770
 msgid "F_ont size:"
 msgstr "Tamanho de f_onte:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:1757
+#: ../panel-plugin/sensors.c:1777
 msgid "x-small"
 msgstr "muito pequena"
 
-#: ../panel-plugin/sensors.c:1758
+#: ../panel-plugin/sensors.c:1778
 msgid "small"
 msgstr "pequena"
 
-#: ../panel-plugin/sensors.c:1759
+#: ../panel-plugin/sensors.c:1779
 msgid "medium"
 msgstr "média"
 
-#: ../panel-plugin/sensors.c:1760
+#: ../panel-plugin/sensors.c:1780
 msgid "large"
 msgstr "grande"
 
-#: ../panel-plugin/sensors.c:1761
+#: ../panel-plugin/sensors.c:1781
 msgid "x-large"
 msgstr "muito grande"
 
-#: ../panel-plugin/sensors.c:1793
+#: ../panel-plugin/sensors.c:1813
 msgid "Temperature scale:"
 msgstr "Escala de temperatura:"
 
-#: ../panel-plugin/sensors.c:1795
+#: ../panel-plugin/sensors.c:1815
 msgid "_Celsius"
 msgstr "_Celsius"
 
-#: ../panel-plugin/sensors.c:1797
+#: ../panel-plugin/sensors.c:1817
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../panel-plugin/sensors.c:1836
+#: ../panel-plugin/sensors.c:1856
 msgid "U_pdate interval (seconds):"
 msgstr "Intervalo de atualização (em segundos):"
 
-#: ../panel-plugin/sensors.c:1866
+#: ../panel-plugin/sensors.c:1886
 msgid "E_xecute on double click:"
 msgstr "E_xecutar com clique duplo:"
 
-#: ../panel-plugin/sensors.c:1909
+#: ../panel-plugin/sensors.c:1929
 msgid "_View"
 msgstr "_Ver"
 
-#: ../panel-plugin/sensors.c:1939
+#: ../panel-plugin/sensors.c:1959
 msgid "_Sensors"
 msgstr "_Sensores"
 
-#: ../panel-plugin/sensors.c:1967
+#: ../panel-plugin/sensors.c:1987
 msgid "_Miscellaneous"
 msgstr "_Miscelâneo"
 
-#: ../panel-plugin/sensors.c:2015
+#: ../panel-plugin/sensors.c:2035
 msgid "Edit Properties"
 msgstr "Editar Propriedades"
 
-#: ../panel-plugin/sensors.c:2022 ../panel-plugin/sensors.h:40
+#: ../panel-plugin/sensors.c:2042 ../panel-plugin/sensors.h:41
 msgid "Sensors Plugin"
 msgstr "Plug-in de Sensores"
 
 #. only use this if no hddtemp sensor
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../panel-plugin/configuration.c:133 ../panel-plugin/configuration.c:275
-#: ../panel-plugin/configuration.c:281 ../panel-plugin/hddtemp.c:129
-#: ../panel-plugin/hddtemp.c:168 ../panel-plugin/hddtemp.c:173
+#: ../panel-plugin/configuration.c:133 ../panel-plugin/configuration.c:277
+#: ../panel-plugin/configuration.c:283 ../panel-plugin/hddtemp.c:188
+#: ../panel-plugin/hddtemp.c:227 ../panel-plugin/hddtemp.c:232
 msgid "Hard disks"
 msgstr "Discos rígidos"
 
-#: ../panel-plugin/acpi.c:46 ../panel-plugin/acpi.c:53
+#: ../panel-plugin/acpi.c:409 ../panel-plugin/acpi.c:417
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../panel-plugin/acpi.c:47
-msgid "Advanced Configuration and Power Interface"
-msgstr "Advanced Configuration and Power Interface"
+#. to be displayed
+#. chip->description = _("Advanced Configuration and Power Interface");
+#: ../panel-plugin/acpi.c:411
+#, c-format
+msgid "ACPI v%s zones"
+msgstr ""
 
-#: ../panel-plugin/hddtemp.c:172
+#: ../panel-plugin/acpi.c:512
+msgid "<Unknown>"
+msgstr ""
+
+#: ../panel-plugin/hddtemp.c:231
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "Temperatura do disco rígido S.M.A.R.T."
 
-#: ../panel-plugin/lmsensors.c:52
+#: ../panel-plugin/lmsensors.c:58
 msgid "LM Sensors"
 msgstr "Tipos de Sensores"
 
-#: ../panel-plugin/lmsensors.c:131
+#: ../panel-plugin/lmsensors.c:139
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Erro: Não foi possível conectar-se aos sensores!"
@@ -201,6 +240,9 @@ msgstr "Plug-in de sensor"
 #, fuzzy
 msgid "Show sensor values."
 msgstr "Mostrar valores do sensor."
+
+#~ msgid "Advanced Configuration and Power Interface"
+#~ msgstr "Advanced Configuration and Power Interface"
 
 #~ msgid "<b>Sensors</b>"
 #~ msgstr "<b>Sensores</b>"

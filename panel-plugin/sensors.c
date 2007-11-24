@@ -41,7 +41,7 @@ static GtkTooltips *tooltips = NULL;
 static void
 sensors_set_bar_size (GtkWidget *bar, int size, int orientation)
 {
-    TRACE ("enters sensors_set_bar_size");
+    //TRACE ("enters sensors_set_bar_size");
 
     /* check arguments */
     g_return_if_fail (G_IS_OBJECT(bar));
@@ -52,7 +52,7 @@ sensors_set_bar_size (GtkWidget *bar, int size, int orientation)
         gtk_widget_set_size_request (bar, size-BORDER, BORDER);
     }
 
-    TRACE ("leaves sensors_set_bar_size");
+    //TRACE ("leaves sensors_set_bar_size");
 }
 
 
@@ -62,7 +62,7 @@ sensors_set_bar_color (GtkWidget *bar, double fraction, gchar* user_bar_color,
 {
     GdkColor color;
 
-    TRACE ("enters sensors_set_bar_color");
+    //TRACE ("enters sensors_set_bar_color");
 
     g_return_if_fail (G_IS_OBJECT(bar));
 
@@ -83,7 +83,7 @@ sensors_set_bar_color (GtkWidget *bar, double fraction, gchar* user_bar_color,
     gtk_widget_modify_bg (bar, GTK_STATE_SELECTED, &color);
     gtk_widget_modify_base (bar, GTK_STATE_SELECTED, &color);
 
-    TRACE ("leaves sensors_set_bar_color");
+    //TRACE ("leaves sensors_set_bar_color");
 }
 
 static double
@@ -91,7 +91,7 @@ sensors_get_percentage (t_chipfeature *chipfeature)
 {
     double value, min, max, percentage;
 
-    TRACE ("enters sensors_get_percentage");
+    //TRACE ("enters sensors_get_percentage");
 
     value = chipfeature->raw_value;
     min = chipfeature->min_value;
@@ -104,7 +104,7 @@ sensors_get_percentage (t_chipfeature *chipfeature)
     else if (percentage <= 0.0)
         percentage = 0.0;
 
-    TRACE ("leaves sensors_get_percentage with %f", percentage);
+    //TRACE ("leaves sensors_get_percentage with %f", percentage);
     return percentage;
 }
 
@@ -154,7 +154,7 @@ sensors_update_graphical_panel (t_sensors *sensors)
     double fraction;
     GtkWidget *bar;
 
-    TRACE("enters sensors_update_graphical_panel");
+    //TRACE("enters sensors_update_graphical_panel");
 
     for (chipNum=0; chipNum < sensors->num_sensorchips; chipNum++) {
         chip = (t_chip *) g_ptr_array_index(sensors->chips, chipNum);
@@ -181,7 +181,7 @@ sensors_update_graphical_panel (t_sensors *sensors)
         }
     }
 
-    TRACE("leaves sensors_update_graphical_panel");
+    //TRACE("leaves sensors_update_graphical_panel");
 }
 
 
@@ -548,7 +548,10 @@ format_sensor_value (t_tempscale scale, t_chipfeature *chipfeature,
                break;
 
         case STATE:
-               *help = g_strdup_printf("%.0f", sensorFeature);
+                if (sensorFeature==0.0)
+                    *help = g_strdup (_("off"));
+                else
+                    *help = g_strdup (_("on"));
                break;
 
         case SPEED:
@@ -615,7 +618,7 @@ sensors_create_tooltip (gpointer data)
                     prependedChipName = TRUE;
                 }
 
-                res = sensors_get_feature_wrapper (chip, chipfeature->address,
+                res = sensor_get_value (chip, chipfeature->address,
                                                     &sensorFeature);
 
                 if ( res!=0 ) {
@@ -854,7 +857,6 @@ sensors_new (XfcePanelPlugin *plugin)
 
     /* error handling for no sensors */
     if (!sensors->chips || sensors->num_sensorchips <= 0) {
-        g_printf("no sensors found! \n");
         if (!sensors->chips)
             sensors->chips = g_ptr_array_new ();
 
@@ -1081,13 +1083,14 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale)
         iter = g_new0 (GtkTreeIter, 1);
 
         if ( chipfeature->valid == TRUE ) {
-            res = sensors_get_feature_wrapper
+            res = sensor_get_value
                     (chip, chipfeature->address, &sensorFeature);
             if ( res!=0) {
-                g_printf( _("Xfce Hardware Sensors Plugin:\n"
+                DBG ( _("Xfce Hardware Sensors Plugin:\n"
                     "Seems like there was a problem reading a sensor "
                     "feature value.\nProper proceeding cannot be "
                     "guaranteed.\n") );
+                /* FIXME: Better popup a window or DBG message or quit plugin. */
                 break;
             }
             g_free (chipfeature->formatted_value);
@@ -1096,7 +1099,6 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale)
                                  &(chipfeature->formatted_value));
             chipfeature->raw_value = sensorFeature;
             gtk_tree_store_append (model, iter, NULL);
-            /*    DBG("appended line, iterator=%d\n", iter->stamp); */
             gtk_tree_store_set ( model, iter,
                                  0, chipfeature->name,
                                 1, chipfeature->formatted_value,
@@ -1129,8 +1131,8 @@ reload_listbox (t_sensors_dialog *sd)
 
         model = sd->myListStore[chipindex];
         gtk_tree_store_clear (model);
-        /*    iter = g_new (GtkTreeIter, 1); */
-       fill_gtkTreeStore (model, chip, sensors->scale);
+
+        fill_gtkTreeStore (model, chip, sensors->scale);
 
     }
     TRACE ("leaves reload_listbox");

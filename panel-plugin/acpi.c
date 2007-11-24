@@ -94,13 +94,13 @@ read_thermal_zone (t_chip *chip)
                 chipfeature = g_new0 (t_chipfeature, 1);
 
                 chipfeature->color = "#0000B0";
+                chipfeature->address = chip->chip_features->len;
                 chipfeature->name = g_strdup (de->d_name);
                 chipfeature->formatted_value = NULL; /*  Gonna refresh it in
                                                         sensors_get_wrapper or some
                                                         other functions */
                 zone = g_strdup_printf ("%s/%s", ACPI_DIR_THERMAL, de->d_name);
                 chipfeature->raw_value = get_acpi_zone_value (zone, ACPI_FILE_THERMAL);
-                //printf ("got value %f\n", chipfeature->raw_value);
                 g_free (zone);
 
                 chipfeature->valid = TRUE;
@@ -110,7 +110,7 @@ read_thermal_zone (t_chip *chip)
 
                 g_ptr_array_add (chip->chip_features, chipfeature);
 
-                chip->num_features++; /* FIXME: actually I am just the same like
+                chip->num_features++; /* FIXME: actually I am just the same as
                     chip->chip_features->len */
 
                 fclose(file);
@@ -133,6 +133,45 @@ read_thermal_zone (t_chip *chip)
 }
 
 
+double get_fan_zone_value (char *zone)
+{
+    double value;
+
+    FILE *file;
+    char buf [1024], *filename, *tmp;
+
+    TRACE ("enters get_fan_zone_value for %s", zone);
+
+    value = 0.0;
+
+    filename = g_strdup_printf ("%s/%s/%s/%s", ACPI_PATH, ACPI_DIR_FAN,
+                                zone, ACPI_FILE_FAN);
+    DBG("filename=%s", filename);
+    file = fopen (filename, "r");
+    if (file) {
+        while (fgets (buf, 1024, file)!=NULL)
+        {
+            if (strncmp (buf, "status:", 7)==0)
+            {
+                tmp = strip_key_colon_spaces(buf);
+                DBG ("tmp=%s", tmp);
+                if (strncmp (tmp, "on", 2)==0)
+                    value = 1.0;
+                else
+                    value = 0.0;
+
+                break;
+            }
+        }
+        /*  g_free (tmp); */ /* points to inside the buffer! */
+        fclose (file);
+    }
+
+    g_free (filename);
+
+    return value;
+}
+
 double get_battery_zone_value (char *zone)
 {
     double value;
@@ -152,10 +191,8 @@ double get_battery_zone_value (char *zone)
         {
             if (strncmp (buf, "remaining capacity:", 19)==0)
             {
-                //printf  ("remaining=");
                 tmp = strip_key_colon_spaces(buf);
                 value = strtod (tmp, NULL);
-                //printf ("%f\n", value);
                 break;
             }
         }
@@ -194,12 +231,15 @@ int read_battery_zone (t_chip *chip)
                 filename = g_strdup_printf ("%s/%s/%s/%s", ACPI_PATH,
                                             ACPI_DIR_BATTERY, de->d_name,
                                             ACPI_FILE_BATTERY_STATE);
+                DBG ("filename=%s\n", filename);
                 file = fopen (filename, "r");
                 if (file) {
                     chipfeature = g_new0 (t_chipfeature, 1);
+                    chipfeature->address = chip->chip_features->len;
                     chipfeature->name = g_strdup (de->d_name);
                     chipfeature->valid = TRUE;
                     chipfeature->min_value = 0.0;
+                    chipfeature->raw_value = 0.0;
                     chipfeature->class = ENERGY;
                     chipfeature->formatted_value = NULL;
                     chipfeature->color = "#0000B0";
@@ -212,10 +252,8 @@ int read_battery_zone (t_chip *chip)
                         }
                         else if (strncmp (buf, "remaining capacity:", 19)==0)
                         {
-                            printf  ("remaining=");
                             tmp = strip_key_colon_spaces(buf);
                             chipfeature->raw_value = strtod (tmp, NULL);
-                            printf ("%f\n", chipfeature->raw_value);
                         }
                     }
                     /* g_free (tmp); */ /* points to inside of the buffer */
@@ -270,12 +308,10 @@ get_battery_max_value (char *name, t_chipfeature *chipfeature)
     {
         while (fgets (buf, 1024, file)!=NULL)
         {
-            printf ("reading %s\n", buf);
             if (strncmp (buf, "last full capacity:", 19)==0)
             {
-                printf  ("last full");
+
                 tmp = strip_key_colon_spaces(buf);
-                printf ("=%s\n", tmp);
                 chipfeature->max_value = strtod (tmp, NULL);
             }
         }
@@ -290,13 +326,75 @@ get_battery_max_value (char *name, t_chipfeature *chipfeature)
 
 int read_fan_zone (t_chip *chip)
 {
-    /*DIR *d;
+    DIR *d;
+    FILE *file;
+    char *filename;
     struct dirent *de;
-    t_chipfeature *chipfeature; */
+    t_chipfeature *chipfeature;
 
     TRACE ("enters read_fan_zone");
 
-    TRACE ("leaves read_fan_zone");
+    if ((chdir (ACPI_PATH) == 0) && (chdir (ACPI_DIR_FAN) == 0))
+    {
+        d = opendir (".");
+        if (!d) {
+            closedir (d);
+            return -1;
+        }
+
+        while ((de = readdir (d)))
+        {
+            //printf ("reading %s\n", de->d_name);
+            if (strncmp(de->d_name, ".", 1)==0)
+                continue;
+
+            filename = g_strdup_printf ("%s/%s/%s/%s", ACPI_PATH,
+                                        ACPI_DIR_FAN, de->d_name,
+                                        ACPI_FILE_FAN);
+            file = fopen (filename, "r");
+            if (file)
+            {
+                //printf ("parsing temperature file...\n");
+                /* if (acpi_ignore_directory_entry (de))
+                    continue; */
+
+                chipfeature = g_new0 (t_chipfeature, 1);
+
+                chipfeature->color = "#0000B0";
+                chipfeature->address = chip->chip_features->len;
+                chipfeature->name = g_strdup (de->d_name);
+                chipfeature->formatted_value = NULL; /*  Gonna refresh it in
+                                                        sensors_get_wrapper or some
+                                                        other functions */
+                chipfeature->raw_value = get_fan_zone_value (de->d_name);
+
+                chipfeature->valid = TRUE;
+                chipfeature->min_value = 0.0;
+                chipfeature->max_value = 2.0;
+                chipfeature->class = STATE;
+
+                g_ptr_array_add (chip->chip_features, chipfeature);
+
+                chip->num_features++; /* FIXME: actually I am just the same as
+                    chip->chip_features->len */
+
+                fclose(file);
+            }
+            //else
+                //printf ("not parsing temperature file...\n");
+
+            g_free (filename);
+        }
+
+        closedir (d);
+        TRACE ("leaves read_fan_zone");
+
+        return 0;
+    }
+    else {
+        TRACE ("leaves read_fan_zone");
+        return -2;
+    }
     return -7;
 }
 
@@ -326,10 +424,15 @@ int initialize_ACPI (GPtrArray *chips)
     read_thermal_zone (chip);
     read_fan_zone (chip);
 
-    printf ("len= %d\n", chip->chip_features->len);
-    printf ("num_features = %d\n", chip->num_features);
-
     g_ptr_array_add (chips, chip);
+
+    /* int i = 0;
+    t_chipfeature *chipfeature;
+    printf ("chip->chip_features->len=%d\n", chip->chip_features->len);
+    while (i<chip->chip_features->len ) {
+        chipfeature = g_ptr_array_index(chip->chip_features, i++);
+        g_printf ("chips val=%f\n", chipfeature->raw_value);
+    } */
 
     TRACE ("leaves initialize_ACPI");
 

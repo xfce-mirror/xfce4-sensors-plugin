@@ -2,30 +2,62 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-05 23:42+0100\n"
+"POT-Creation-Date: 2007-11-24 19:34+0100\n"
 "PO-Revision-Date: 2007-11-01 08:35+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: hu\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Hungarian\n"
 "X-Poedit-Country: HUNGARY\n"
 
-#: ../panel-plugin/sensors.c:202 ../panel-plugin/sensors.c:514
+#: ../panel-plugin/sensors.c:201 ../panel-plugin/sensors.c:760
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Érzékelők</b></span>"
 
+#: ../panel-plugin/sensors.c:535
+#, c-format
+msgid "%5.1f °F"
+msgstr ""
+
+#. Celsius
+#. if (scale == FAHRENHEIT) {
+#. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
+#. } else { // Celsius
+#: ../panel-plugin/sensors.c:538 ../panel-plugin/hddtemp.c:346
+#, c-format
+msgid "%5.1f °C"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:543
+#, c-format
+msgid "%+5.2f V"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:547
+#, fuzzy, c-format
+msgid "%.0f mWh"
+msgstr "%5.0f rpm"
+
+#: ../panel-plugin/sensors.c:552
+msgid "off"
+msgstr ""
+
 #: ../panel-plugin/sensors.c:554
+msgid "on"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:558
 #, c-format
 msgid "%5.0f rpm"
 msgstr "%5.0f rpm"
 
-#: ../panel-plugin/sensors.c:586
+#: ../panel-plugin/sensors.c:590
 msgid "No sensors selected!"
 msgstr "Nincsenek érzékelők!"
 
-#: ../panel-plugin/sensors.c:618 ../panel-plugin/sensors.c:1073
+#: ../panel-plugin/sensors.c:625 ../panel-plugin/sensors.c:1089
 #, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -36,158 +68,165 @@ msgstr ""
 "Úgy tűnik, gond van egy érzékelő értékeinek kiolvasásával. \n"
 "A helyes működés nem szavatolt.\n"
 
-#: ../panel-plugin/sensors.c:855
+#: ../panel-plugin/sensors.c:869
 msgid "No sensors found!"
 msgstr "Nem leltem érzékelőket!"
 
-#: ../panel-plugin/sensors.c:1496
+#: ../panel-plugin/sensors.c:1516
 #, fuzzy
 msgid "UI style:"
 msgstr "_UI stílus:"
 
-#: ../panel-plugin/sensors.c:1497
+#: ../panel-plugin/sensors.c:1517
 msgid "_text"
 msgstr "s_zöveg"
 
-#: ../panel-plugin/sensors.c:1499
+#: ../panel-plugin/sensors.c:1519
 msgid "g_raphical"
 msgstr "g_rafikus"
 
-#: ../panel-plugin/sensors.c:1536
+#: ../panel-plugin/sensors.c:1556
 msgid "Show _labels in graphical UI"
 msgstr "Címkék a grafikus UI-ben"
 
-#: ../panel-plugin/sensors.c:1566
+#: ../panel-plugin/sensors.c:1586
 msgid "Show colored _bars"
 msgstr "Színes sá_vok mutatása"
 
-#: ../panel-plugin/sensors.c:1594
+#: ../panel-plugin/sensors.c:1614
 msgid "_Show title"
 msgstr "Cím mutatá_sa"
 
-#: ../panel-plugin/sensors.c:1622
+#: ../panel-plugin/sensors.c:1642
 msgid "Sensors t_ype:"
 msgstr "Érzékelők tí_pusa:"
 
-#: ../panel-plugin/sensors.c:1674
+#: ../panel-plugin/sensors.c:1694
 msgid "Name"
 msgstr "Név"
 
-#: ../panel-plugin/sensors.c:1683
+#: ../panel-plugin/sensors.c:1703
 msgid "Value"
 msgstr "Érték"
 
-#: ../panel-plugin/sensors.c:1689
+#: ../panel-plugin/sensors.c:1709
 msgid "Show"
 msgstr "Megjelenítés"
 
-#: ../panel-plugin/sensors.c:1698
+#: ../panel-plugin/sensors.c:1718
 msgid "Color"
 msgstr "Szín"
 
-#: ../panel-plugin/sensors.c:1708
+#: ../panel-plugin/sensors.c:1728
 msgid "Min"
 msgstr "Min"
 
-#: ../panel-plugin/sensors.c:1717
+#: ../panel-plugin/sensors.c:1737
 msgid "Max"
 msgstr "Max"
 
-#: ../panel-plugin/sensors.c:1750
+#: ../panel-plugin/sensors.c:1770
 msgid "F_ont size:"
 msgstr "_Betű mérete:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:1757
+#: ../panel-plugin/sensors.c:1777
 msgid "x-small"
 msgstr "törpe"
 
-#: ../panel-plugin/sensors.c:1758
+#: ../panel-plugin/sensors.c:1778
 msgid "small"
 msgstr "kicsi"
 
-#: ../panel-plugin/sensors.c:1759
+#: ../panel-plugin/sensors.c:1779
 msgid "medium"
 msgstr "közepes"
 
-#: ../panel-plugin/sensors.c:1760
+#: ../panel-plugin/sensors.c:1780
 msgid "large"
 msgstr "nagy"
 
-#: ../panel-plugin/sensors.c:1761
+#: ../panel-plugin/sensors.c:1781
 msgid "x-large"
 msgstr "óriás"
 
-#: ../panel-plugin/sensors.c:1793
+#: ../panel-plugin/sensors.c:1813
 #, fuzzy
 msgid "Temperature scale:"
 msgstr "_Hőfok skála:"
 
-#: ../panel-plugin/sensors.c:1795
+#: ../panel-plugin/sensors.c:1815
 msgid "_Celsius"
 msgstr "_Celsius"
 
-#: ../panel-plugin/sensors.c:1797
+#: ../panel-plugin/sensors.c:1817
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../panel-plugin/sensors.c:1836
+#: ../panel-plugin/sensors.c:1856
 msgid "U_pdate interval (seconds):"
 msgstr "Frissítési időközök (másodpercben):"
 
-#: ../panel-plugin/sensors.c:1866
+#: ../panel-plugin/sensors.c:1886
 msgid "E_xecute on double click:"
 msgstr "Futtatás dupla kattintásra:"
 
-#: ../panel-plugin/sensors.c:1909
+#: ../panel-plugin/sensors.c:1929
 #, fuzzy
 msgid "_View"
 msgstr "Nézet"
 
-#: ../panel-plugin/sensors.c:1939
+#: ../panel-plugin/sensors.c:1959
 #, fuzzy
 msgid "_Sensors"
 msgstr "Érzékelők"
 
-#: ../panel-plugin/sensors.c:1967
+#: ../panel-plugin/sensors.c:1987
 #, fuzzy
 msgid "_Miscellaneous"
 msgstr "Egyebek"
 
-#: ../panel-plugin/sensors.c:2015
+#: ../panel-plugin/sensors.c:2035
 msgid "Edit Properties"
 msgstr "Tulajdonságok szerkesztése"
 
-#: ../panel-plugin/sensors.c:2022 ../panel-plugin/sensors.h:40
+#: ../panel-plugin/sensors.c:2042 ../panel-plugin/sensors.h:41
 msgid "Sensors Plugin"
 msgstr "Érzékelők"
 
 #. only use this if no hddtemp sensor
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../panel-plugin/configuration.c:133 ../panel-plugin/configuration.c:275
-#: ../panel-plugin/configuration.c:281 ../panel-plugin/hddtemp.c:129
-#: ../panel-plugin/hddtemp.c:168 ../panel-plugin/hddtemp.c:173
+#: ../panel-plugin/configuration.c:133 ../panel-plugin/configuration.c:277
+#: ../panel-plugin/configuration.c:283 ../panel-plugin/hddtemp.c:188
+#: ../panel-plugin/hddtemp.c:227 ../panel-plugin/hddtemp.c:232
 msgid "Hard disks"
 msgstr "Merevlemezek"
 
-#: ../panel-plugin/acpi.c:46 ../panel-plugin/acpi.c:53
+#: ../panel-plugin/acpi.c:409 ../panel-plugin/acpi.c:417
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../panel-plugin/acpi.c:47
-msgid "Advanced Configuration and Power Interface"
+#. to be displayed
+#. chip->description = _("Advanced Configuration and Power Interface");
+#: ../panel-plugin/acpi.c:411
+#, c-format
+msgid "ACPI v%s zones"
 msgstr ""
 
-#: ../panel-plugin/hddtemp.c:172
+#: ../panel-plugin/acpi.c:512
+msgid "<Unknown>"
+msgstr ""
+
+#: ../panel-plugin/hddtemp.c:231
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "S.M.A.R.T. merevlemez hőmérséklet"
 
-#: ../panel-plugin/lmsensors.c:52
+#: ../panel-plugin/lmsensors.c:58
 msgid "LM Sensors"
 msgstr "LM érzékelők"
 
-#: ../panel-plugin/lmsensors.c:131
+#: ../panel-plugin/lmsensors.c:139
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Hiba: nem lehet érzékelőkhöz kapcsolódni!"

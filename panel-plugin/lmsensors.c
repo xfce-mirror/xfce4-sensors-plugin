@@ -34,11 +34,17 @@ int get_number_chip_features (const sensors_chip_name *name)
 } */
 
 
+int sensors_get_feature_wrapper (const sensors_chip_name name, int number, double *value)
+{
+    return sensors_get_feature (name, number, value);
+}
+
+
 t_chip *setup_chip (GPtrArray *chips, const sensors_chip_name *name, int num_sensorchips)
 {
     t_chip* chip;
 
-    TRACE("enters setup_chip");
+    TRACE ("enters setup_chip");
 
     chip = g_new0 (t_chip, 1);
 
@@ -54,7 +60,7 @@ t_chip *setup_chip (GPtrArray *chips, const sensors_chip_name *name, int num_sen
 
     chip->description = g_strdup (sensors_get_adapter_name (num_sensorchips-1));
 
-    TRACE("leaves setup_chip");
+    TRACE ("leaves setup_chip");
 
     return chip;
 }
@@ -62,7 +68,7 @@ t_chip *setup_chip (GPtrArray *chips, const sensors_chip_name *name, int num_sen
 
 void setup_chipfeature (t_chipfeature *chipfeature, int number, double sensorFeature)
 {
-    TRACE("enters setup_chipfeature");
+    TRACE ("enters setup_chipfeature");
 
     chipfeature->color = "#00B000";
     chipfeature->valid = TRUE;
@@ -74,7 +80,7 @@ void setup_chipfeature (t_chipfeature *chipfeature, int number, double sensorFea
 
     categorize_sensor_type (chipfeature);
 
-    TRACE("leaves setup_chipfeature");
+    TRACE ("leaves setup_chipfeature");
 }
 
 
@@ -84,7 +90,7 @@ t_chipfeature *find_chipfeature    (const sensors_chip_name *name, t_chip *chip,
     double sensorFeature;
     t_chipfeature *chipfeature;
 
-    TRACE("enters find_chipfeature");
+    TRACE ("enters find_chipfeature");
 
     chipfeature = g_new0 (t_chipfeature, 1);
 
@@ -105,7 +111,7 @@ t_chipfeature *find_chipfeature    (const sensors_chip_name *name, t_chip *chip,
         }
     }
 
-    TRACE("leaves find_chipfeature with null");
+    TRACE ("leaves find_chipfeature with null");
     g_free (chipfeature);
     return NULL;
 }

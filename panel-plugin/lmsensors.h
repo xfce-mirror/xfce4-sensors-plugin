@@ -3,10 +3,12 @@
 
 #include <glib/garray.h>
 
+#include "types.h"
+
 /*
  *  Initialize libsensors by reading sensor config and other stuff
+ * @Param chips: Pointer to array of chips
  * @Return: Number of found chip_features
- * @Param: Pointer to array of chips
  */
 int initialize_libsensors (GPtrArray *chips);
 
@@ -16,5 +18,14 @@ int initialize_libsensors (GPtrArray *chips);
  * @Param chip_feature: Pointer to feature
  */
 void refresh_lmsensors (gpointer chip_feature, gpointer data);
+
+/*
+ * Get the value of subsensor/feature that is number in array of sensors.
+ * @Param name: Structure of sensor description.
+ * @Param number: number of feature to read the value from
+ * @Param value: pointer where the double feature value is to be stored
+ * @Return: 0 on success
+ */
+int sensors_get_feature_wrapper (const sensors_chip_name name, int number, double *value);
 
 #endif /* XFCE4_SENSORS_LMSENSORS_H */

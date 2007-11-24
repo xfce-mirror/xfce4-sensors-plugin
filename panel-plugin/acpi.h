@@ -20,7 +20,7 @@
 #ifndef XFCE4_SENSORS_ACPI_H
 #define XFCE4_SENSORS_ACPI_H
 
-#define ACPI_PATH               "/home/tim/acpi" /* FIXME:  /proc/acpi */
+#define ACPI_PATH               "/proc/acpi"
 #define ACPI_DIR_THERMAL        "thermal_zone"
 #define ACPI_DIR_BATTERY        "battery"
 #define ACPI_DIR_FAN            "fan"
@@ -56,10 +56,18 @@ void refresh_acpi (gpointer chip_feature, gpointer data);
  * Read a double value from zone. Calls get_acpi_value with prolonged path.
  * @Param zone: zone name under /proc/acpi including the subdir for one zone.
  * @Param file: file to read information from, e.g. info.
- * @Return: value read in firt line of file after keyword and colon.
+ * @Return: value read in first line of file after keyword and colon.
  */
 double get_acpi_zone_value (char *zone, char *file);
 
+
+/*
+ * Read a double value from status file for fans.
+ * When status is on, result is 1.0; else it is 0.0.
+ * @Param zone: file to read information from, e.g. state.
+ * @Return: valued read in any line starting with "status:", converted to 1 or 0
+ */
+double get_fan_zone_value (char *zone);
 
 /*
  * Read a double value from special subzone denoted by name.

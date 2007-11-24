@@ -151,6 +151,7 @@ remove_unmonitored_drives (t_chip *chip)
         result = get_hddtemp_value (chipfeature->name);
         if (result == 0.0)
         {
+            DBG ("removing single disk");
             free_chipfeature ( (gpointer) chipfeature, NULL);
             g_ptr_array_remove_index (chip->chip_features, i);
             i--;
@@ -159,13 +160,14 @@ remove_unmonitored_drives (t_chip *chip)
         else if (result == ZERO_KELVIN)
         {
             for (i=0; i < chip->num_features; i++) {
-                // printf("remove %d\n", i);
+                DBG ("remove %d\n", i);
                 chipfeature = g_ptr_array_index (chip->chip_features, i);
                 free_chipfeature ( (gpointer) chipfeature, NULL);
             }
             g_ptr_array_free (chip->chip_features, TRUE);
             // chip->chip_features = g_ptr_array_new();
             chip->num_features=0;
+            DBG ("Returning because of bad hddtemp.\n");
             return;
         }
     }
@@ -188,7 +190,7 @@ populate_detected_drives (t_chip *chip)
     for (diskIndex=0; diskIndex < chip->num_features; diskIndex++)
     {
        chipfeature = g_ptr_array_index (chip->chip_features, diskIndex);
-       g_assert  (chipfeature!=NULL);
+       g_assert (chipfeature!=NULL);
 
        chipfeature->address = diskIndex;
 
@@ -252,8 +254,9 @@ initialize_hddtemp (GPtrArray *chips)
     g_free(p_uname);
 
     remove_unmonitored_drives (chip);
-
+    DBG  ("numfeatures=%d\n", chip->num_features);
     if ( chip->num_features>0 ) {  /* if (1) */
+
         populate_detected_drives (chip);
         g_ptr_array_add (chips, chip);
         retval = 2;
@@ -275,32 +278,40 @@ get_hddtemp_value (char* disk)
     gint exit_status=0;
     double value;
     gboolean result;
+    GError *error;
 
     TRACE ("enters get_hddtemp_value for %s", disk);
 
-    cmd_line = g_strdup_printf ( "%s -n -q %s", PATH_HDDTEMP, disk);
+    cmd_line = g_strdup_printf ( "%s -F -n -q %s", PATH_HDDTEMP, disk);
+    DBG  ("cmdline=%s\n", cmd_line);
+    error = NULL;
     result = g_spawn_command_line_sync (cmd_line,
-            &standard_output, &standard_error, &exit_status, NULL);
+            &standard_output, &standard_error, &exit_status, &error);
 
     /* filter those with no sensors out */
-    if (!result || exit_status!=0 /* || error!=NULL */ ) {
-        if (exit_status!=0 && access (PATH_HDDTEMP, X_OK)==0) {
-            quick_message ("\"hddtemp\" was not executed correctly, although it is "
-                        "executable. This is most probably due to the disks "
-                        "requiring root privileges to read their temperatures, "
-                        "and \"hddtemp\" not being setuid root.\n\n"
-                        "An easy but dirty solution is to run \"chmod u+s "
-                        PATH_HDDTEMP "\" as root user and restart this plugin "
-                        "or its panel.");
-            value = ZERO_KELVIN;
-        }
-        else
-            value = 0.0;
+    DBG  ("result=%d exit_status=%d disk=%s\n", result, exit_status, disk);
+    if (exit_status==256 && access (PATH_HDDTEMP, X_OK)==0)
+    {
+        quick_message ("\"hddtemp\" was not executed correctly, although it is "
+                       "executable. This is most probably due to the disks "
+                       "requiring root privileges to read their temperatures, "
+                       "and \"hddtemp\" not being setuid root.\n\n"
+                       "An easy but dirty solution is to run \"chmod u+s "
+                       PATH_HDDTEMP "\" as root user and restart this plugin "
+                       "or its panel.");
+        value = ZERO_KELVIN;
     }
-    else {
+    else if (error && (!result || exit_status!=0))
+    {
+        DBG  ("error %s\n", error->message);
+        value = 0.0;
+    }
+    else
+    {
         /* hddtemp does not return floating values, but only integer ones.
           So have an easier life with atoi.
           FIXME: Use strtod() instead?*/
+        DBG ("standard_output=%s\n", standard_output);
         value = (double) (atoi ( (const char*) standard_output) );
     }
 
