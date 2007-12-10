@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-24 19:34+0100\n"
+"POT-Creation-Date: 2007-12-10 18:14+0100\n"
 "PO-Revision-Date: 2007-11-04 12:22+0000\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German <de@li.org>\n"
@@ -28,7 +28,7 @@ msgstr "%5.1f °F"
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#: ../panel-plugin/sensors.c:538 ../panel-plugin/hddtemp.c:346
+#: ../panel-plugin/sensors.c:538 ../panel-plugin/hddtemp.c:367
 #, c-format
 msgid "%5.1f °C"
 msgstr "%5.1f °C"

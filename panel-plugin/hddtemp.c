@@ -274,20 +274,41 @@ initialize_hddtemp (GPtrArray *chips)
 double
 get_hddtemp_value (char* disk)
 {
-    gchar *standard_output, *standard_error, *cmd_line;
+    gchar *standard_output, *standard_error;
+    gchar *cmd_line;
     gint exit_status=0;
     double value;
     gboolean result;
     GError *error;
+    gchar *argv [6];
 
     TRACE ("enters get_hddtemp_value for %s", disk);
 
-    cmd_line = g_strdup_printf ( "%s -F -n -q %s", PATH_HDDTEMP, disk);
-    DBG  ("cmdline=%s\n", cmd_line);
-    error = NULL;
-    result = g_spawn_command_line_sync (cmd_line,
-            &standard_output, &standard_error, &exit_status, &error);
+    // extern char **environ;
 
+    /*int i=0;
+    printf("environ\n");
+    while (environ[i]!=0) {
+        printf("%d: %s\n", i, environ[i]);
+        i++;
+    } */
+
+    cmd_line = g_strdup_printf ( "%s -F -n -q %s", PATH_HDDTEMP, disk);
+    //cmd_line = g_strdup("/bin/cat /home/tim/test");
+    DBG  ("cmdline=%s\n", cmd_line);
+
+    argv[0] = "/home/tim/bin/hddtemp";
+    argv[1] = "-n";
+    argv[2] = "-q";
+    argv[3] = "-F";
+    argv[4] = disk;
+    argv[5] = NULL;
+
+    error = NULL;
+    result = g_spawn_command_line_sync ( (const gchar*) cmd_line,
+            &standard_output, &standard_error, &exit_status, &error);
+    /*result = g_spawn_sync (NULL, argv, environ, G_SPAWN_FILE_AND_ARGV_ZERO, NULL, NULL, &standard_output, &standard_error, &exit_status, &error); */
+ 
     /* filter those with no sensors out */
     DBG  ("result=%d exit_status=%d disk=%s\n", result, exit_status, disk);
     if (exit_status==256 && access (PATH_HDDTEMP, X_OK)==0)
