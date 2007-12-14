@@ -29,7 +29,7 @@
 #define ACPI_FILE_BATTERY_INFO  "info"
 #define ACPI_FILE_FAN           "state"
 
-#define ACPI_INFO               "info"
+#define ACPI_INFO               "info_"
 
 #include <glib/garray.h>
 

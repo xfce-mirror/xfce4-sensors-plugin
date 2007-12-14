@@ -26,6 +26,19 @@ void refresh_lmsensors (gpointer chip_feature, gpointer data);
  * @Param value: pointer where the double feature value is to be stored
  * @Return: 0 on success
  */
-int sensors_get_feature_wrapper (const sensors_chip_name name, int number, double *value);
+int sensors_get_feature_wrapper (const sensors_chip_name *name, int number,
+                                 double *value);
+
+/*
+ * Free the additionally allocated structures in the sensors_chip_name
+ * according to the version of libsensors.
+ * @Param chip: Pointer to t_chip
+ */
+void free_lmsensors_chip (gpointer chip);
+
+
+void
+categorize_lmsensors_type (t_chipfeature *chipfeature,
+                           sensors_feature *feature);
 
 #endif /* XFCE4_SENSORS_LMSENSORS_H */

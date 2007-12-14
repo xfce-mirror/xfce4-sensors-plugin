@@ -131,8 +131,10 @@ sensors_remove_graphical_panel (t_sensors *sensors)
                 panel = (t_barpanel*) sensors->panels[chipNum][feature];
 
                 gtk_widget_destroy (panel->progressbar);
-                gtk_widget_destroy (panel->label);
                 gtk_widget_destroy (panel->databox);
+                if (sensors->show_labels == TRUE)
+                    gtk_widget_destroy (panel->label);
+
                 g_free (panel);
             }
         }

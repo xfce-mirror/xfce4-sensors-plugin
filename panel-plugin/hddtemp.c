@@ -275,51 +275,41 @@ double
 get_hddtemp_value (char* disk)
 {
     gchar *standard_output, *standard_error;
-    gchar *cmd_line;
+    gchar *cmd_line, *msg_text;
     gint exit_status=0;
     double value;
     gboolean result;
     GError *error;
-    gchar *argv [6];
 
     TRACE ("enters get_hddtemp_value for %s", disk);
 
-    // extern char **environ;
-
-    /*int i=0;
-    printf("environ\n");
-    while (environ[i]!=0) {
-        printf("%d: %s\n", i, environ[i]);
-        i++;
-    } */
-
     cmd_line = g_strdup_printf ( "%s -F -n -q %s", PATH_HDDTEMP, disk);
-    //cmd_line = g_strdup("/bin/cat /home/tim/test");
-    DBG  ("cmdline=%s\n", cmd_line);
 
-    argv[0] = "/home/tim/bin/hddtemp";
-    argv[1] = "-n";
-    argv[2] = "-q";
-    argv[3] = "-F";
-    argv[4] = disk;
-    argv[5] = NULL;
+    msg_text = NULL;
 
     error = NULL;
     result = g_spawn_command_line_sync ( (const gchar*) cmd_line,
             &standard_output, &standard_error, &exit_status, &error);
-    /*result = g_spawn_sync (NULL, argv, environ, G_SPAWN_FILE_AND_ARGV_ZERO, NULL, NULL, &standard_output, &standard_error, &exit_status, &error); */
- 
+
     /* filter those with no sensors out */
-    DBG  ("result=%d exit_status=%d disk=%s\n", result, exit_status, disk);
     if (exit_status==256 && access (PATH_HDDTEMP, X_OK)==0)
     {
-        quick_message ("\"hddtemp\" was not executed correctly, although it is "
-                       "executable. This is most probably due to the disks "
-                       "requiring root privileges to read their temperatures, "
-                       "and \"hddtemp\" not being setuid root.\n\n"
-                       "An easy but dirty solution is to run \"chmod u+s "
-                       PATH_HDDTEMP "\" as root user and restart this plugin "
-                       "or its panel.");
+        /* note that this check does only work for some versions of hddtmep. */
+        msg_text = g_strdup_printf(_("\"hddtemp\" was not executed correctly, "
+                        "although it is executable. This is most probably due "
+                        "to the disks requiring root privileges to read their "
+                        "temperatures, and \"hddtemp\" not being setuid root."
+                        "\n\n"
+                        "An easy but dirty solution is to run \"chmod u+s %s"
+                        "\" as root user and restart this plugin "
+                        "or its panel."), PATH_HDDTEMP);
+        quick_message (msg_text);
+        value = ZERO_KELVIN;
+    }
+    else if (strlen(standard_error)>0) {
+        msg_text = g_strdup_printf (_("An error occurred when executing"
+                                      " \"%s\":\n%s"), cmd_line, standard_error);
+        quick_message (msg_text);
         value = ZERO_KELVIN;
     }
     else if (error && (!result || exit_status!=0))
@@ -332,13 +322,13 @@ get_hddtemp_value (char* disk)
         /* hddtemp does not return floating values, but only integer ones.
           So have an easier life with atoi.
           FIXME: Use strtod() instead?*/
-        DBG ("standard_output=%s\n", standard_output);
         value = (double) (atoi ( (const char*) standard_output) );
     }
 
     g_free (cmd_line);
     g_free (standard_output);
     g_free (standard_error);
+    g_free (msg_text);
 
     TRACE ("leaves get_hddtemp_value");
 

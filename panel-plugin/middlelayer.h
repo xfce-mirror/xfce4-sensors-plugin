@@ -63,7 +63,7 @@ void refresh_all_chips (GPtrArray *chips);
  * Classifies sensor type
  * @Param: Pointer to feature
  */
-void categorize_sensor_type (t_chipfeature* chipfeature);
+void categorize_sensor_type (t_chipfeature *chipfeature);
 
 
 /* Gets value of specified number in chip_name

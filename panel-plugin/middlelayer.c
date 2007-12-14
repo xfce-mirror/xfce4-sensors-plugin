@@ -119,36 +119,35 @@ categorize_sensor_type (t_chipfeature* chipfeature)
 {
     TRACE ("enters categorize_sensor_type");
 
-    /* categorize sensor type */
-   if ( strstr(chipfeature->name, "Temp")!=NULL
+    if ( strstr(chipfeature->name, "Temp")!=NULL
     || strstr(chipfeature->name, "temp")!=NULL ) {
-         chipfeature->class = TEMPERATURE;
-         chipfeature->min_value = 0.0;
-         chipfeature->max_value = 80.0;
-   } else if ( strstr(chipfeature->name, "VCore")!=NULL
-      || strstr(chipfeature->name, "3V")!=NULL
-      || strstr(chipfeature->name, "5V")!=NULL
-      || strstr(chipfeature->name, "12V")!=NULL ) {
-         chipfeature->class = VOLTAGE;
-         chipfeature->min_value = 2.8;
-         chipfeature->max_value = 12.2;
-   } else if ( strstr(chipfeature->name, "Fan")!=NULL
-      || strstr(chipfeature->name, "fan")!=NULL ) {
-         chipfeature->class = SPEED;
-         chipfeature->min_value = 1000.0;
-         chipfeature->max_value = 3500.0;
-   } else if ( strstr(chipfeature->name, "alarm")!=NULL
-      || strstr(chipfeature->name, "Alarm")!=NULL ) {
-         chipfeature->class = STATE;
-         chipfeature->min_value = 0.0;
-         chipfeature->max_value = 1.0;
-   } else {
-         chipfeature->class = OTHER;
-         chipfeature->min_value = 0.0;
-         chipfeature->max_value = 7000.0;
-   }
+        chipfeature->class = TEMPERATURE;
+        chipfeature->min_value = 0.0;
+        chipfeature->max_value = 80.0;
+    } else if ( strstr(chipfeature->name, "VCore")!=NULL
+    || strstr(chipfeature->name, "3V")!=NULL
+    || strstr(chipfeature->name, "5V")!=NULL
+    || strstr(chipfeature->name, "12V")!=NULL ) {
+        chipfeature->class = VOLTAGE;
+        chipfeature->min_value = 1.0;
+        chipfeature->max_value = 12.2;
+    } else if ( strstr(chipfeature->name, "Fan")!=NULL
+    || strstr(chipfeature->name, "fan")!=NULL ) {
+        chipfeature->class = SPEED;
+        chipfeature->min_value = 1000.0;
+        chipfeature->max_value = 3500.0;
+    } else if ( strstr(chipfeature->name, "alarm")!=NULL
+    || strstr(chipfeature->name, "Alarm")!=NULL ) {
+        chipfeature->class = STATE;
+        chipfeature->min_value = 0.0;
+        chipfeature->max_value = 1.0;
+    } else {
+        chipfeature->class = OTHER;
+        chipfeature->min_value = 0.0;
+        chipfeature->max_value = 7000.0;
+    }
 
-   TRACE ("leaves categorize_sensor_type");
+    TRACE ("leaves categorize_sensor_type");
 }
 
 
@@ -162,7 +161,7 @@ sensor_get_value (t_chip *chip, int number, double *value)
 
     if (chip->type==LMSENSOR ) {
         #ifdef HAVE_LIBSENSORS
-            return sensors_get_feature_wrapper (*(chip->chip_name), number, value);
+            return sensors_get_feature_wrapper (chip->chip_name, number, value);
         #else
             return -1;
         #endif
@@ -218,13 +217,11 @@ free_chip (gpointer chip, gpointer data)
 {
     t_chip *c;
     c = (t_chip *) chip;
-    if (c->type==LMSENSOR)
-        g_free (c->name);
+
     g_free (c->sensorId);
     g_free (c->description);
     if (c->type==LMSENSOR) {
-        g_free (c->chip_name->prefix);
-        g_free (c->chip_name->busname);
+        free_lmsensors_chip (chip);
     }
     /* g_free (c->chip_name); */   /* is a _copied_ structure of libsensors */
     g_ptr_array_foreach (c->chip_features, free_chipfeature, NULL);
