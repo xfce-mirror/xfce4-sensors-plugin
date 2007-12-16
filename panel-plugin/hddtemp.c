@@ -319,6 +319,7 @@ get_hddtemp_value (char* disk)
         /* DBG  ("error %s\n", error->message); */
         msg_text = g_strdup_printf (_("An error occurred when executing"
                                       " \"%s\":\n%s"), cmd_line, error->message);
+        quick_message (msg_text);
         value = 0.0;
     }
     else
