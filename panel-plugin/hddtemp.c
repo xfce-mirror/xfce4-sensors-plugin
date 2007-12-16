@@ -283,7 +283,7 @@ get_hddtemp_value (char* disk)
 
     TRACE ("enters get_hddtemp_value for %s", disk);
 
-    cmd_line = g_strdup_printf ( "%s -F -n -q %s", PATH_HDDTEMP, disk);
+    cmd_line = g_strdup_printf ( "%s -n -q %s", PATH_HDDTEMP, disk);
 
     msg_text = NULL;
 
