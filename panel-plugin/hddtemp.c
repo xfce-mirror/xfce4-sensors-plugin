@@ -292,7 +292,7 @@ get_hddtemp_value (char* disk)
             &standard_output, &standard_error, &exit_status, &error);
 
     /* filter those with no sensors out */
-    if (exit_status==256 && access (PATH_HDDTEMP, X_OK)==0)
+    if ((exit_status==256 && access (PATH_HDDTEMP, X_OK)==0) || strlen(standard_error)>0)
     {
         /* note that this check does only work for some versions of hddtmep. */
         msg_text = g_strdup_printf(_("\"hddtemp\" was not executed correctly, "
@@ -302,19 +302,23 @@ get_hddtemp_value (char* disk)
                         "\n\n"
                         "An easy but dirty solution is to run \"chmod u+s %s"
                         "\" as root user and restart this plugin "
-                        "or its panel."), PATH_HDDTEMP);
+                        "or its panel.\n\n"
+                        "Calling \"%s\" gave the following error:\n%s"),
+                        PATH_HDDTEMP, cmd_line, standard_error);
         quick_message (msg_text);
         value = ZERO_KELVIN;
     }
-    else if (strlen(standard_error)>0) {
+    /* else if (strlen(standard_error)>0) {
         msg_text = g_strdup_printf (_("An error occurred when executing"
                                       " \"%s\":\n%s"), cmd_line, standard_error);
         quick_message (msg_text);
         value = ZERO_KELVIN;
-    }
+    } */
     else if (error && (!result || exit_status!=0))
     {
-        DBG  ("error %s\n", error->message);
+        /* DBG  ("error %s\n", error->message); */
+        msg_text = g_strdup_printf (_("An error occurred when executing"
+                                      " \"%s\":\n%s"), cmd_line, error->message);
         value = 0.0;
     }
     else

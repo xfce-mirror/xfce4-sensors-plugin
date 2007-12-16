@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-10 18:14+0100\n"
+"POT-Creation-Date: 2007-12-16 10:25+0100\n"
 "PO-Revision-Date: 2007-10-27 16:37+0500\n"
 "Last-Translator: Muhammad Ali Makki <makk.ma@gmail.com>\n"
 "Language-Team: Urdu <makki.ma@gmail.com>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "X-Poedit-Country: PAKISTAN\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../panel-plugin/sensors.c:201 ../panel-plugin/sensors.c:760
+#: ../panel-plugin/sensors.c:203 ../panel-plugin/sensors.c:762
 #, fuzzy
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>سینسرز</b></span>"
 
-#: ../panel-plugin/sensors.c:535
+#: ../panel-plugin/sensors.c:537
 #, c-format
 msgid "%5.1f °F"
 msgstr ""
@@ -32,39 +32,39 @@ msgstr ""
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#: ../panel-plugin/sensors.c:538 ../panel-plugin/hddtemp.c:367
+#: ../panel-plugin/sensors.c:540 ../panel-plugin/hddtemp.c:361
 #, c-format
 msgid "%5.1f °C"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:543
+#: ../panel-plugin/sensors.c:545
 #, c-format
 msgid "%+5.2f V"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:547
+#: ../panel-plugin/sensors.c:549
 #, fuzzy, c-format
 msgid "%.0f mWh"
 msgstr "%5.0f rpm"
 
-#: ../panel-plugin/sensors.c:552
+#: ../panel-plugin/sensors.c:554
 msgid "off"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:554
+#: ../panel-plugin/sensors.c:556
 msgid "on"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:558
+#: ../panel-plugin/sensors.c:560
 #, c-format
 msgid "%5.0f rpm"
 msgstr "%5.0f rpm"
 
-#: ../panel-plugin/sensors.c:590
+#: ../panel-plugin/sensors.c:592
 msgid "No sensors selected!"
 msgstr "کوئی سینسر منتخب نہیں!"
 
-#: ../panel-plugin/sensors.c:625 ../panel-plugin/sensors.c:1089
+#: ../panel-plugin/sensors.c:627 ../panel-plugin/sensors.c:1091
 #, fuzzy, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -76,136 +76,136 @@ msgstr ""
 "معلوم ہوتا ہے کہ سینسر خاصیت ویلیو پڑھنے میں مسئلہ ہے. \n"
 "درست کاروائی کی ضمانت نہیں دی جاسکتی.\n"
 
-#: ../panel-plugin/sensors.c:869
+#: ../panel-plugin/sensors.c:871
 msgid "No sensors found!"
 msgstr "کوئی سینسر نہیں ملا!"
 
-#: ../panel-plugin/sensors.c:1516
+#: ../panel-plugin/sensors.c:1518
 msgid "UI style:"
 msgstr "مواجہ انداز:"
 
-#: ../panel-plugin/sensors.c:1517
+#: ../panel-plugin/sensors.c:1519
 #, fuzzy
 msgid "_text"
 msgstr "متن"
 
-#: ../panel-plugin/sensors.c:1519
+#: ../panel-plugin/sensors.c:1521
 #, fuzzy
 msgid "g_raphical"
 msgstr "گریفکل"
 
-#: ../panel-plugin/sensors.c:1556
+#: ../panel-plugin/sensors.c:1558
 #, fuzzy
 msgid "Show _labels in graphical UI"
 msgstr "گریفکل مواجہ میں لیبل ظاہر کریں"
 
-#: ../panel-plugin/sensors.c:1586
+#: ../panel-plugin/sensors.c:1588
 msgid "Show colored _bars"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1614
+#: ../panel-plugin/sensors.c:1616
 #, fuzzy
 msgid "_Show title"
 msgstr "عنوان ظاہر کریں"
 
-#: ../panel-plugin/sensors.c:1642
+#: ../panel-plugin/sensors.c:1644
 #, fuzzy
 msgid "Sensors t_ype:"
 msgstr "سینسر قسم:"
 
-#: ../panel-plugin/sensors.c:1694
+#: ../panel-plugin/sensors.c:1696
 msgid "Name"
 msgstr "نام"
 
-#: ../panel-plugin/sensors.c:1703
+#: ../panel-plugin/sensors.c:1705
 msgid "Value"
 msgstr "ویلیو"
 
-#: ../panel-plugin/sensors.c:1709
+#: ../panel-plugin/sensors.c:1711
 msgid "Show"
 msgstr "دکھائیں"
 
-#: ../panel-plugin/sensors.c:1718
+#: ../panel-plugin/sensors.c:1720
 msgid "Color"
 msgstr "رنگ"
 
-#: ../panel-plugin/sensors.c:1728
+#: ../panel-plugin/sensors.c:1730
 msgid "Min"
 msgstr "کم"
 
-#: ../panel-plugin/sensors.c:1737
+#: ../panel-plugin/sensors.c:1739
 msgid "Max"
 msgstr "زیادہ"
 
-#: ../panel-plugin/sensors.c:1770
+#: ../panel-plugin/sensors.c:1772
 #, fuzzy
 msgid "F_ont size:"
 msgstr "فونٹ حجم:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:1777
+#: ../panel-plugin/sensors.c:1779
 msgid "x-small"
 msgstr "x-چھوٹا"
 
-#: ../panel-plugin/sensors.c:1778
+#: ../panel-plugin/sensors.c:1780
 msgid "small"
 msgstr "چھوٹا"
 
-#: ../panel-plugin/sensors.c:1779
+#: ../panel-plugin/sensors.c:1781
 msgid "medium"
 msgstr "درمیانہ"
 
-#: ../panel-plugin/sensors.c:1780
+#: ../panel-plugin/sensors.c:1782
 msgid "large"
 msgstr "بڑا"
 
-#: ../panel-plugin/sensors.c:1781
+#: ../panel-plugin/sensors.c:1783
 msgid "x-large"
 msgstr "x-بڑا"
 
-#: ../panel-plugin/sensors.c:1813
+#: ../panel-plugin/sensors.c:1815
 msgid "Temperature scale:"
 msgstr "ٹمپریچر قیاس:"
 
-#: ../panel-plugin/sensors.c:1815
+#: ../panel-plugin/sensors.c:1817
 #, fuzzy
 msgid "_Celsius"
 msgstr "Celsius"
 
-#: ../panel-plugin/sensors.c:1817
+#: ../panel-plugin/sensors.c:1819
 #, fuzzy
 msgid "_Fahrenheit"
 msgstr "فارن ہائیٹ"
 
-#: ../panel-plugin/sensors.c:1856
+#: ../panel-plugin/sensors.c:1858
 #, fuzzy
 msgid "U_pdate interval (seconds):"
 msgstr "تجدید وقفہ (سیکنڈ):"
 
-#: ../panel-plugin/sensors.c:1886
+#: ../panel-plugin/sensors.c:1888
 #, fuzzy
 msgid "E_xecute on double click:"
 msgstr "دہرے کلک پر چلائیں:"
 
-#: ../panel-plugin/sensors.c:1929
+#: ../panel-plugin/sensors.c:1931
 msgid "_View"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1959
+#: ../panel-plugin/sensors.c:1961
 #, fuzzy
 msgid "_Sensors"
 msgstr "سینسر قسم:"
 
-#: ../panel-plugin/sensors.c:1987
+#: ../panel-plugin/sensors.c:1989
 #, fuzzy
 msgid "_Miscellaneous"
 msgstr "<b>متفرق</b>"
 
-#: ../panel-plugin/sensors.c:2035
+#: ../panel-plugin/sensors.c:2037
 msgid "Edit Properties"
 msgstr "خصوصیات مدون کریں"
 
-#: ../panel-plugin/sensors.c:2042 ../panel-plugin/sensors.h:41
+#: ../panel-plugin/sensors.c:2044 ../panel-plugin/sensors.h:41
 msgid "Sensors Plugin"
 msgstr "سینسرز پلگ ان"
 
@@ -238,12 +238,35 @@ msgstr ""
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "ہارڈ ڈسک ٹمپریچر سینسرز"
 
-#: ../panel-plugin/lmsensors.c:58
+#. note that this check does only work for some versions of hddtmep.
+#: ../panel-plugin/hddtemp.c:298
+#, c-format
+msgid ""
+"\"hddtemp\" was not executed correctly, although it is executable. This is "
+"most probably due to the disks requiring root privileges to read their "
+"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
+"restart this plugin or its panel.\n"
+"\n"
+"Calling \"%s\" gave the following error:\n"
+"%s"
+msgstr ""
+
+#. DBG  ("error %s\n", error->message);
+#: ../panel-plugin/hddtemp.c:320
+#, c-format
+msgid ""
+"An error occurred when executing \"%s\":\n"
+"%s"
+msgstr ""
+
+#: ../panel-plugin/lmsensors.c:77
 #, fuzzy
 msgid "LM Sensors"
 msgstr "سینسر قسم:"
 
-#: ../panel-plugin/lmsensors.c:139
+#: ../panel-plugin/lmsensors.c:335 ../panel-plugin/lmsensors.c:382
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "غلطی: سینسر سے رابطہ نہیں ہوسکا!"

@@ -7,19 +7,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-10 18:14+0100\n"
-"PO-Revision-Date: 2007-11-04 12:22+0000\n"
+"POT-Creation-Date: 2007-12-16 10:25+0100\n"
+"PO-Revision-Date: 2007-12-16 10:24+0000\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors.c:201 ../panel-plugin/sensors.c:760
+#: ../panel-plugin/sensors.c:203 ../panel-plugin/sensors.c:762
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Sensoren</b></span>"
 
-#: ../panel-plugin/sensors.c:535
+#: ../panel-plugin/sensors.c:537
 #, c-format
 msgid "%5.1f °F"
 msgstr "%5.1f °F"
@@ -28,39 +28,39 @@ msgstr "%5.1f °F"
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#: ../panel-plugin/sensors.c:538 ../panel-plugin/hddtemp.c:367
+#: ../panel-plugin/sensors.c:540 ../panel-plugin/hddtemp.c:361
 #, c-format
 msgid "%5.1f °C"
 msgstr "%5.1f °C"
 
-#: ../panel-plugin/sensors.c:543
+#: ../panel-plugin/sensors.c:545
 #, c-format
 msgid "%+5.2f V"
 msgstr "%+5.2f V"
 
-#: ../panel-plugin/sensors.c:547
+#: ../panel-plugin/sensors.c:549
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../panel-plugin/sensors.c:552
+#: ../panel-plugin/sensors.c:554
 msgid "off"
 msgstr "aus"
 
-#: ../panel-plugin/sensors.c:554
+#: ../panel-plugin/sensors.c:556
 msgid "on"
 msgstr "an"
 
-#: ../panel-plugin/sensors.c:558
+#: ../panel-plugin/sensors.c:560
 #, c-format
 msgid "%5.0f rpm"
 msgstr "%5.0f U/min"
 
-#: ../panel-plugin/sensors.c:590
+#: ../panel-plugin/sensors.c:592
 msgid "No sensors selected!"
 msgstr "Keine Sensoren ausgewählt!"
 
-#: ../panel-plugin/sensors.c:625 ../panel-plugin/sensors.c:1089
+#: ../panel-plugin/sensors.c:627 ../panel-plugin/sensors.c:1091
 #, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -71,124 +71,124 @@ msgstr ""
 "Anscheinend gab es ein Problem beim Auslesen eines Wertes.\n"
 "Sauberes Weiterlaufen kann nicht gewährleistet werden.\n"
 
-#: ../panel-plugin/sensors.c:869
+#: ../panel-plugin/sensors.c:871
 msgid "No sensors found!"
 msgstr "Keine Sensoren gefunden!"
 
-#: ../panel-plugin/sensors.c:1516
+#: ../panel-plugin/sensors.c:1518
 msgid "UI style:"
 msgstr "Darstellung:"
 
-#: ../panel-plugin/sensors.c:1517
+#: ../panel-plugin/sensors.c:1519
 msgid "_text"
 msgstr "_textuell"
 
-#: ../panel-plugin/sensors.c:1519
+#: ../panel-plugin/sensors.c:1521
 msgid "g_raphical"
 msgstr "_graphisch"
 
-#: ../panel-plugin/sensors.c:1556
+#: ../panel-plugin/sensors.c:1558
 msgid "Show _labels in graphical UI"
 msgstr "_Beschriftungen im graphischen Modus anzeigen"
 
-#: ../panel-plugin/sensors.c:1586
+#: ../panel-plugin/sensors.c:1588
 msgid "Show colored _bars"
 msgstr "Bal_ken farbig darstellen"
 
-#: ../panel-plugin/sensors.c:1614
+#: ../panel-plugin/sensors.c:1616
 msgid "_Show title"
 msgstr "T_itel anzeigen"
 
-#: ../panel-plugin/sensors.c:1642
+#: ../panel-plugin/sensors.c:1644
 msgid "Sensors t_ype:"
 msgstr "Sensort_yp:"
 
-#: ../panel-plugin/sensors.c:1694
+#: ../panel-plugin/sensors.c:1696
 msgid "Name"
 msgstr "Name"
 
-#: ../panel-plugin/sensors.c:1703
+#: ../panel-plugin/sensors.c:1705
 msgid "Value"
 msgstr "Wert"
 
-#: ../panel-plugin/sensors.c:1709
+#: ../panel-plugin/sensors.c:1711
 msgid "Show"
 msgstr "Anzeigen"
 
-#: ../panel-plugin/sensors.c:1718
+#: ../panel-plugin/sensors.c:1720
 msgid "Color"
 msgstr "Farbe"
 
-#: ../panel-plugin/sensors.c:1728
+#: ../panel-plugin/sensors.c:1730
 msgid "Min"
 msgstr "Min"
 
-#: ../panel-plugin/sensors.c:1737
+#: ../panel-plugin/sensors.c:1739
 msgid "Max"
 msgstr "Max"
 
-#: ../panel-plugin/sensors.c:1770
+#: ../panel-plugin/sensors.c:1772
 msgid "F_ont size:"
 msgstr "Sc_hriftgröße:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:1777
+#: ../panel-plugin/sensors.c:1779
 msgid "x-small"
 msgstr "extra-klein"
 
-#: ../panel-plugin/sensors.c:1778
+#: ../panel-plugin/sensors.c:1780
 msgid "small"
 msgstr "klein"
 
-#: ../panel-plugin/sensors.c:1779
+#: ../panel-plugin/sensors.c:1781
 msgid "medium"
 msgstr "normal"
 
-#: ../panel-plugin/sensors.c:1780
+#: ../panel-plugin/sensors.c:1782
 msgid "large"
 msgstr "groß"
 
-#: ../panel-plugin/sensors.c:1781
+#: ../panel-plugin/sensors.c:1783
 msgid "x-large"
 msgstr "extra-groß"
 
-#: ../panel-plugin/sensors.c:1813
+#: ../panel-plugin/sensors.c:1815
 msgid "Temperature scale:"
 msgstr "Temperaturskala"
 
-#: ../panel-plugin/sensors.c:1815
+#: ../panel-plugin/sensors.c:1817
 msgid "_Celsius"
 msgstr "C_elsius"
 
-#: ../panel-plugin/sensors.c:1817
+#: ../panel-plugin/sensors.c:1819
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../panel-plugin/sensors.c:1856
+#: ../panel-plugin/sensors.c:1858
 msgid "U_pdate interval (seconds):"
 msgstr "A_uffrischungsintervall (Sekunden):"
 
-#: ../panel-plugin/sensors.c:1886
+#: ../panel-plugin/sensors.c:1888
 msgid "E_xecute on double click:"
 msgstr "Bei _Doppelklick ausführen:"
 
-#: ../panel-plugin/sensors.c:1929
+#: ../panel-plugin/sensors.c:1931
 msgid "_View"
 msgstr "_Aussehen"
 
-#: ../panel-plugin/sensors.c:1959
+#: ../panel-plugin/sensors.c:1961
 msgid "_Sensors"
 msgstr "_Sensoren"
 
-#: ../panel-plugin/sensors.c:1987
+#: ../panel-plugin/sensors.c:1989
 msgid "_Miscellaneous"
 msgstr "S_onstige Einstellungen"
 
-#: ../panel-plugin/sensors.c:2035
+#: ../panel-plugin/sensors.c:2037
 msgid "Edit Properties"
 msgstr "Eigenschaften einstellen"
 
-#: ../panel-plugin/sensors.c:2042 ../panel-plugin/sensors.h:41
+#: ../panel-plugin/sensors.c:2044 ../panel-plugin/sensors.h:41
 msgid "Sensors Plugin"
 msgstr "Sensorüberwachung"
 
@@ -220,11 +220,46 @@ msgstr "<Unbekannt>"
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "S.M.A.R.T.-Sensoren der Festplatten"
 
-#: ../panel-plugin/lmsensors.c:58
+#. note that this check does only work for some versions of hddtmep.
+#: ../panel-plugin/hddtemp.c:298
+#, c-format
+msgid ""
+"\"hddtemp\" was not executed correctly, although it is executable. This is "
+"most probably due to the disks requiring root privileges to read their "
+"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
+"restart this plugin or its panel.\n"
+"\n"
+"Calling \"%s\" gave the following error:\n"
+"%s"
+msgstr ""
+"»hddtemp« wurde nicht ordnungsgemäß ausgeführt, obwohl es ausführbar ist. "
+"Dies liegt wahrscheinlich daran, dass zum Auslesen der "
+"Festplatteninformation die Rechte des Supernutzers nötig sind, bei »hddtemp« "
+"aber nicht das Setuid-Bit gesetzt ist.\n"
+"\n"
+"Eine einfache aber unsaubere Lösung ist, »chmod u+s %s« als Supernutzer "
+"auszuführen und das Plugin oder die Leiste neuzustarten.\n"
+"\n"
+"Der Aufruf »%s« führte zu folgendem Fehler:\n"
+"%s"
+
+#. DBG  ("error %s\n", error->message);
+#: ../panel-plugin/hddtemp.c:320
+#, c-format
+msgid ""
+"An error occurred when executing \"%s\":\n"
+"%s"
+msgstr ""
+"Ein Fehler hat sich beim Ausführen von »%s« ereignet:\n"
+"%s"
+
+#: ../panel-plugin/lmsensors.c:77
 msgid "LM Sensors"
 msgstr "LM-Sensoren"
 
-#: ../panel-plugin/lmsensors.c:139
+#: ../panel-plugin/lmsensors.c:335 ../panel-plugin/lmsensors.c:382
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Fehler: Konnte nicht mit Sensoren verbinden!"
@@ -236,29 +271,6 @@ msgstr "Sensor-Plugin"
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "Sensorwerte erkannter Sensoren überwachen."
-
-#~ msgid ""
-#~ "\"hddtemp\" was not executed correctly, although it is executable. This "
-#~ "is most probably due to the disks requiring root privileges to read their "
-#~ "temperatures, and \"hddtemp\" not being setuid root.\n"
-#~ "\n"
-#~ "An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-#~ "restart this plugin or its panel."
-#~ msgstr ""
-#~ "»hddtemp« wurde nicht ordnungsgemäß ausgeführt, obwohl es ausfühbar ist. "
-#~ "Dies liegt wahrscheinlich daran, dass zum Auslesen der "
-#~ "Festplatteninformation die Rechte des Supernutzers nötig sind, bei "
-#~ "»hddtemp« aber nicht das Setuid-Bit gesetzt ist.\n"
-#~ "\n"
-#~ "Eine einfache aber unsaubere Lösung ist, »chmod u+s %s« als Supernutzer "
-#~ "auszuführen und das Plugin oder die Leiste neuzustarten."
-
-#~ msgid ""
-#~ "An error occurred when executing \"%s\":\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Ein Fehler hat sich beim Ausführen von »%s« ereignet:\n"
-#~ "%s"
 
 #~ msgid "Advanced Configuration and Power Interface"
 #~ msgstr "Erweiterte Konfigurations- und Stromschnittstelle"

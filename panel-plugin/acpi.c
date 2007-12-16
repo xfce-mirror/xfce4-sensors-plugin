@@ -551,7 +551,7 @@ get_acpi_value (char *filename)
     if (!file)
         return NULL;
 
-    fgets (buf, 1024, file);
+    (void) fgets (buf, 1024, file);
     fclose (file);
 
     p = strip_key_colon_spaces (buf);
