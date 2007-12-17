@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-12-16 10:25+0100\n"
-"PO-Revision-Date: 2006-09-17 09:44+0100\n"
+"PO-Revision-Date: 2007-12-17 22:25+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -16,42 +16,43 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: ../panel-plugin/sensors.c:203 ../panel-plugin/sensors.c:762
-#, fuzzy
+#: ../panel-plugin/sensors.c:203
+#: ../panel-plugin/sensors.c:762
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
-msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Senzory</b></span>\n"
+msgstr "<span foreground=\"#000000\"><b>Senzory</b></span>"
 
 #: ../panel-plugin/sensors.c:537
 #, c-format
 msgid "%5.1f °F"
-msgstr ""
+msgstr "%5.1f °F"
 
 #. Celsius
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#: ../panel-plugin/sensors.c:540 ../panel-plugin/hddtemp.c:361
+#: ../panel-plugin/sensors.c:540
+#: ../panel-plugin/hddtemp.c:361
 #, c-format
 msgid "%5.1f °C"
-msgstr ""
+msgstr "%5.1f °C"
 
 #: ../panel-plugin/sensors.c:545
 #, c-format
 msgid "%+5.2f V"
-msgstr ""
+msgstr "%+5.2f V"
 
 #: ../panel-plugin/sensors.c:549
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f mWh"
-msgstr "%5.0f otáček za minutu"
+msgstr "%.0f mWh"
 
 #: ../panel-plugin/sensors.c:554
 msgid "off"
-msgstr ""
+msgstr "vypnuto"
 
 #: ../panel-plugin/sensors.c:556
 msgid "on"
-msgstr ""
+msgstr "zapnuto"
 
 #: ../panel-plugin/sensors.c:560
 #, c-format
@@ -62,55 +63,49 @@ msgstr "%5.0f otáček za minutu"
 msgid "No sensors selected!"
 msgstr "Nebyly nalezeny žádné senzory!"
 
-#: ../panel-plugin/sensors.c:627 ../panel-plugin/sensors.c:1091
-#, fuzzy, c-format
+#: ../panel-plugin/sensors.c:627
+#: ../panel-plugin/sensors.c:1091
+#, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-" \n"
 "Zásuvný modul Senzory hardwaru pro Xfce: \n"
 "Došlo k potížím při čtení hodnoty senzoru. \n"
-"Správná funkčnost nemůže být zaručena.\n"
+"Nelze zaručit správné fungování.\n"
 
 #: ../panel-plugin/sensors.c:871
 msgid "No sensors found!"
 msgstr "Nebyly nalezeny žádné senzory!"
 
 #: ../panel-plugin/sensors.c:1518
-#, fuzzy
 msgid "UI style:"
-msgstr "Styl grafického rozhraní UI:"
+msgstr "Styl uživatelského rozhraní:"
 
 #: ../panel-plugin/sensors.c:1519
-#, fuzzy
 msgid "_text"
-msgstr "text"
+msgstr "_text"
 
 #: ../panel-plugin/sensors.c:1521
-#, fuzzy
 msgid "g_raphical"
-msgstr "graficky"
+msgstr "g_rafický"
 
 #: ../panel-plugin/sensors.c:1558
-#, fuzzy
 msgid "Show _labels in graphical UI"
-msgstr "Zobrazovat popisky v grafickém rozhraní"
+msgstr "Zobrazovat _popisky v grafickém uživatelském rozhraní"
 
 #: ../panel-plugin/sensors.c:1588
 msgid "Show colored _bars"
-msgstr ""
+msgstr "Zobrazit barevné _sloupce"
 
 #: ../panel-plugin/sensors.c:1616
-#, fuzzy
 msgid "_Show title"
-msgstr "Zobrazovat titulek"
+msgstr "_Zobrazovat titulek"
 
 #: ../panel-plugin/sensors.c:1644
-#, fuzzy
 msgid "Sensors t_ype:"
-msgstr "Typ senzorů:"
+msgstr "T_yp senzorů:"
 
 #: ../panel-plugin/sensors.c:1696
 msgid "Name"
@@ -137,9 +132,8 @@ msgid "Max"
 msgstr "Max"
 
 #: ../panel-plugin/sensors.c:1772
-#, fuzzy
 msgid "F_ont size:"
-msgstr "Velikost písma:"
+msgstr "Velikost _písma:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors.c:1779
@@ -163,95 +157,95 @@ msgid "x-large"
 msgstr "x-large"
 
 #: ../panel-plugin/sensors.c:1815
-#, fuzzy
 msgid "Temperature scale:"
 msgstr "Rozsah teplot:"
 
 #: ../panel-plugin/sensors.c:1817
-#, fuzzy
 msgid "_Celsius"
-msgstr "Stupně Celsia"
+msgstr "Stupně _Celsia"
 
 #: ../panel-plugin/sensors.c:1819
-#, fuzzy
 msgid "_Fahrenheit"
-msgstr "Stupně Fahrenheita"
+msgstr "Stupně _Fahrenheita"
 
 #: ../panel-plugin/sensors.c:1858
-#, fuzzy
 msgid "U_pdate interval (seconds):"
-msgstr "Interval obnovení (vteřiny):"
+msgstr "I_nterval obnovení (sekundy):"
 
 #: ../panel-plugin/sensors.c:1888
-#, fuzzy
 msgid "E_xecute on double click:"
-msgstr "Spustit při dvojitém kliknutí:"
+msgstr "_Spustit při dvojitém kliknutí:"
 
 #: ../panel-plugin/sensors.c:1931
 msgid "_View"
-msgstr ""
+msgstr "_Zobrazit"
 
 #: ../panel-plugin/sensors.c:1961
-#, fuzzy
 msgid "_Sensors"
-msgstr "Typ senzorů:"
+msgstr "_Senzory:"
 
 #: ../panel-plugin/sensors.c:1989
-#, fuzzy
 msgid "_Miscellaneous"
-msgstr "<b>Ostatní</b>"
+msgstr "_Ostatní"
 
 #: ../panel-plugin/sensors.c:2037
 msgid "Edit Properties"
 msgstr "Upravit vlastnosti"
 
-#: ../panel-plugin/sensors.c:2044 ../panel-plugin/sensors.h:41
+#: ../panel-plugin/sensors.c:2044
+#: ../panel-plugin/sensors.h:41
 msgid "Sensors Plugin"
 msgstr "Zásuvný modul senzory"
 
 #. only use this if no hddtemp sensor
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../panel-plugin/configuration.c:133 ../panel-plugin/configuration.c:277
-#: ../panel-plugin/configuration.c:283 ../panel-plugin/hddtemp.c:188
-#: ../panel-plugin/hddtemp.c:227 ../panel-plugin/hddtemp.c:232
+#: ../panel-plugin/configuration.c:133
+#: ../panel-plugin/configuration.c:277
+#: ../panel-plugin/configuration.c:283
+#: ../panel-plugin/hddtemp.c:188
+#: ../panel-plugin/hddtemp.c:227
+#: ../panel-plugin/hddtemp.c:232
 msgid "Hard disks"
 msgstr "Pevné disky"
 
-#: ../panel-plugin/acpi.c:409 ../panel-plugin/acpi.c:417
+#: ../panel-plugin/acpi.c:409
+#: ../panel-plugin/acpi.c:417
 msgid "ACPI"
-msgstr ""
+msgstr "ACPI"
 
 #. to be displayed
 #. chip->description = _("Advanced Configuration and Power Interface");
 #: ../panel-plugin/acpi.c:411
 #, c-format
 msgid "ACPI v%s zones"
-msgstr ""
+msgstr "Zóny ACPI v%s"
 
 #: ../panel-plugin/acpi.c:512
 msgid "<Unknown>"
-msgstr ""
+msgstr "<Neznámý>"
 
 #: ../panel-plugin/hddtemp.c:231
-#, fuzzy
 msgid "S.M.A.R.T. harddisk temperatures"
-msgstr "Teplotní čidla pevných disků"
+msgstr "Teploty pevných disků S.M.A.R.T."
 
 #. note that this check does only work for some versions of hddtmep.
 #: ../panel-plugin/hddtemp.c:298
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s"
 msgstr ""
+"Aplikace \"hddtemp\" nebyla korektně spuštěna, přestože je spustitelná. Disky obvykle ke čtení teploty vyžadují oprávnění uživatele root, ale aplikace  \"hddtemp\" nemá nastaven bit suid.\n"
+"\n"
+"Jednoduchým, ale nečistým řešením je spuštění příkazu \"chmod u+s %s\" opd uživatelem root a následné opětovné spuštění tohoto zásuvného modulu nebo jeho panelu.\n"
+"\n"
+"Volání \"%s\" vrátilo tuto chybu:\n"
+"%s"
 
 #. DBG  ("error %s\n", error->message);
 #: ../panel-plugin/hddtemp.c:320
@@ -260,24 +254,24 @@ msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr ""
+"Při spouštění  \"%s\" nastala chyba:\n"
+"%s"
 
 #: ../panel-plugin/lmsensors.c:77
-#, fuzzy
 msgid "LM Sensors"
-msgstr "Typ senzorů:"
+msgstr "Senzory LM:"
 
-#: ../panel-plugin/lmsensors.c:335 ../panel-plugin/lmsensors.c:382
+#: ../panel-plugin/lmsensors.c:335
+#: ../panel-plugin/lmsensors.c:382
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Chyba: Nelze se připojit k senzorům!"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Sensor plugin "
 msgstr "Zásuvný modul senzor"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
-#, fuzzy
 msgid "Show sensor values."
 msgstr "Zobrazovat hodnoty senzorů."
 
@@ -291,15 +285,12 @@ msgstr "Zobrazovat hodnoty senzorů."
 #~ "Zásuvný modul Senzory hardwaru pro Xfce: \n"
 #~ "Došlo k potížím při čtení hodnoty senzoru. \n"
 #~ "Správná funkčnost nemůže být zaručena.\n"
-
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Senzory</b></span>\n"
-
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Senzory</b></span>"
-
 #~ msgid "<b>Sensors</b>"
 #~ msgstr "<b>Senzory</b>"
-
 #~ msgid "<b>View</b>"
 #~ msgstr "<b>Zobrazit</b>"
+
