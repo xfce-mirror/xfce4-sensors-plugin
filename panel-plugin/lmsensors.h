@@ -1,7 +1,13 @@
 #ifndef XFCE4_SENSORS_LMSENSORS_H
 #define XFCE4_SENSORS_LMSENSORS_H
 
+#ifdef HAVE_CONFIG_H
+  #include "config.h"
+#endif
+
 #include <glib/garray.h>
+
+#include <sensors/sensors.h>
 
 #include "types.h"
 
@@ -35,10 +41,5 @@ int sensors_get_feature_wrapper (const sensors_chip_name *name, int number,
  * @Param chip: Pointer to t_chip
  */
 void free_lmsensors_chip (gpointer chip);
-
-
-void
-categorize_lmsensors_type (t_chipfeature *chipfeature,
-                           sensors_feature *feature);
 
 #endif /* XFCE4_SENSORS_LMSENSORS_H */

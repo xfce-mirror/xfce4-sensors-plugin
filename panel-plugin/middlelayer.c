@@ -220,9 +220,11 @@ free_chip (gpointer chip, gpointer data)
 
     g_free (c->sensorId);
     g_free (c->description);
+    #ifdef HAVE_LIBSENSORS
     if (c->type==LMSENSOR) {
         free_lmsensors_chip (chip);
     }
+    #endif
     /* g_free (c->chip_name); */   /* is a _copied_ structure of libsensors */
     g_ptr_array_foreach (c->chip_features, free_chipfeature, NULL);
     g_ptr_array_free (c->chip_features, TRUE);

@@ -67,5 +67,5 @@ DISTCLEANFILES =													 \
 # get full path into .desktop file
 %.desktop.in: %.desktop.in.in
 	sed -e "s^@PLUGIN_PATH@^$(libexecdir)/xfce4/panel-plugins^" \
-	$< > $@
+		$< > $@
 
