@@ -293,7 +293,7 @@ get_hddtemp_value (char* disk)
             &standard_output, &standard_error, &exit_status, &error);
 
     /* filter those with no sensors out */
-    if ((exit_status==256 && access (PATH_HDDTEMP, X_OK)==0) || strlen(standard_error)>0)
+    if ((exit_status==256 && access (PATH_HDDTEMP, X_OK)==0) /* || strlen(standard_error)>0) */
     {
         /* note that this check does only work for some versions of hddtmep. */
         msg_text = g_strdup_printf(_("\"hddtemp\" was not executed correctly, "
