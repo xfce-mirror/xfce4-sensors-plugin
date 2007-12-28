@@ -122,6 +122,7 @@ read_disks_linux26 (t_chip *chip)
     while ( (dirname = g_dir_read_name (gdir))!=NULL ) {
         if ( strncmp (dirname, "ram", 3)!=0 &&
              strncmp (dirname, "loop", 4)!=0 &&
+             strncmp (dirname, "md", 2)!=0 &&
              strncmp (dirname, "dm-", 3)!=0 ) {
             /* TODO: look, if /dev/dirname exists? */
             chipfeature = g_new0 (t_chipfeature, 1);
@@ -322,13 +323,15 @@ get_hddtemp_value (char* disk)
         quick_message (msg_text);
         value = 0.0;
     }
-    else
+    else if ( strlen(standard_output) > 0)
     {
         /* hddtemp does not return floating values, but only integer ones.
           So have an easier life with atoi.
           FIXME: Use strtod() instead?*/
         value = (double) (atoi ( (const char*) standard_output) );
     }
+    else
+        value = 0.0;
 
     g_free (cmd_line);
     g_free (standard_output);
