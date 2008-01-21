@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the XFCE package.
 # Bruno Jesus <myxfce@gmail.com>, 2007.
 # Og Maciel <ogmaciel@gnome.org>, 2007.
+# Fábio Nogueira <deb-user-ba@ubuntu.com>, 2008.
 #
 msgid ""
 msgstr ""
@@ -24,7 +25,7 @@ msgstr "<span foreground=\"#000000\"><b>Sensores</b></span>"
 #: ../panel-plugin/sensors.c:537
 #, c-format
 msgid "%5.1f °F"
-msgstr ""
+msgstr "%5.1f °F"
 
 #. Celsius
 #. if (scale == FAHRENHEIT) {
@@ -33,25 +34,25 @@ msgstr ""
 #: ../panel-plugin/sensors.c:540 ../panel-plugin/hddtemp.c:361
 #, c-format
 msgid "%5.1f °C"
-msgstr ""
+msgstr "%5.1f °C"
 
 #: ../panel-plugin/sensors.c:545
 #, c-format
 msgid "%+5.2f V"
-msgstr ""
+msgstr "%+5.2f V"
 
 #: ../panel-plugin/sensors.c:549
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f mWh"
-msgstr "%5.0f rpm"
+msgstr "%.0f mWh"
 
 #: ../panel-plugin/sensors.c:554
 msgid "off"
-msgstr ""
+msgstr "desligado"
 
 #: ../panel-plugin/sensors.c:556
 msgid "on"
-msgstr ""
+msgstr "ligado"
 
 #: ../panel-plugin/sensors.c:560
 #, c-format
@@ -212,11 +213,11 @@ msgstr "ACPI"
 #: ../panel-plugin/acpi.c:411
 #, c-format
 msgid "ACPI v%s zones"
-msgstr ""
+msgstr "Zonas v%s ACPI"
 
 #: ../panel-plugin/acpi.c:512
 msgid "<Unknown>"
-msgstr ""
+msgstr "<Desconhecido>"
 
 #: ../panel-plugin/hddtemp.c:231
 msgid "S.M.A.R.T. harddisk temperatures"
@@ -236,6 +237,15 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s"
 msgstr ""
+"\"hddtemp\" não foi executado corretamente, apesar de ser executável. Isto é "
+"devido provavelmente ao disco precisando de privilégios de root para fazer leitura de suas "
+"temperaturas, e o \"hddtemp\" não foi configurado como root.\n"
+"\n"
+"Um jeito fácil de resolver é executar \"chmod u+s %s\" como usuário root e "
+"reiniciar este plug-in ou painel.\n"
+"\n"
+"Chamando \"%s\" apresentou o seguinte erro:\n"
+"%s"
 
 #. DBG  ("error %s\n", error->message);
 #: ../panel-plugin/hddtemp.c:320
@@ -244,6 +254,8 @@ msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr ""
+"Um erro ocorreu ao executar \"%s\":\n"
+"%s"
 
 #: ../panel-plugin/lmsensors.c:77
 msgid "LM Sensors"
@@ -255,12 +267,10 @@ msgid "Error: Could not connect to sensors!"
 msgstr "Erro: Não foi possível conectar-se aos sensores!"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Sensor plugin "
-msgstr "Plug-in de sensor"
+msgstr "Plug-in do sensor"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
-#, fuzzy
 msgid "Show sensor values."
 msgstr "Mostrar valores do sensor."
 
