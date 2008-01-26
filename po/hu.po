@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-12-16 10:25+0100\n"
-"PO-Revision-Date: 2007-11-01 08:35+0100\n"
+"PO-Revision-Date: 2008-01-25 22:48+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: hu\n"
 "MIME-Version: 1.0\n"
@@ -12,41 +12,43 @@ msgstr ""
 "X-Poedit-Language: Hungarian\n"
 "X-Poedit-Country: HUNGARY\n"
 
-#: ../panel-plugin/sensors.c:203 ../panel-plugin/sensors.c:762
+#: ../panel-plugin/sensors.c:203
+#: ../panel-plugin/sensors.c:762
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Érzékelők</b></span>"
 
 #: ../panel-plugin/sensors.c:537
 #, c-format
 msgid "%5.1f °F"
-msgstr ""
+msgstr "%5.1f °F"
 
 #. Celsius
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#: ../panel-plugin/sensors.c:540 ../panel-plugin/hddtemp.c:361
+#: ../panel-plugin/sensors.c:540
+#: ../panel-plugin/hddtemp.c:361
 #, c-format
 msgid "%5.1f °C"
-msgstr ""
+msgstr "%5.1f °C"
 
 #: ../panel-plugin/sensors.c:545
 #, c-format
 msgid "%+5.2f V"
-msgstr ""
+msgstr "%+5.2f V"
 
 #: ../panel-plugin/sensors.c:549
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f mWh"
-msgstr "%5.0f rpm"
+msgstr "%.0f mWh"
 
 #: ../panel-plugin/sensors.c:554
 msgid "off"
-msgstr ""
+msgstr "ki"
 
 #: ../panel-plugin/sensors.c:556
 msgid "on"
-msgstr ""
+msgstr "be"
 
 #: ../panel-plugin/sensors.c:560
 #, c-format
@@ -57,7 +59,8 @@ msgstr "%5.0f rpm"
 msgid "No sensors selected!"
 msgstr "Nincsenek érzékelők!"
 
-#: ../panel-plugin/sensors.c:627 ../panel-plugin/sensors.c:1091
+#: ../panel-plugin/sensors.c:627
+#: ../panel-plugin/sensors.c:1091
 #, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -73,9 +76,8 @@ msgid "No sensors found!"
 msgstr "Nem leltem érzékelőket!"
 
 #: ../panel-plugin/sensors.c:1518
-#, fuzzy
 msgid "UI style:"
-msgstr "_UI stílus:"
+msgstr "UI stílus:"
 
 #: ../panel-plugin/sensors.c:1519
 msgid "_text"
@@ -151,9 +153,8 @@ msgid "x-large"
 msgstr "óriás"
 
 #: ../panel-plugin/sensors.c:1815
-#, fuzzy
 msgid "Temperature scale:"
-msgstr "_Hőfok skála:"
+msgstr "Hőfok skála:"
 
 #: ../panel-plugin/sensors.c:1817
 msgid "_Celsius"
@@ -172,17 +173,14 @@ msgid "E_xecute on double click:"
 msgstr "Futtatás dupla kattintásra:"
 
 #: ../panel-plugin/sensors.c:1931
-#, fuzzy
 msgid "_View"
-msgstr "Nézet"
+msgstr "_Nézet"
 
 #: ../panel-plugin/sensors.c:1961
-#, fuzzy
 msgid "_Sensors"
 msgstr "Érzékelők"
 
 #: ../panel-plugin/sensors.c:1989
-#, fuzzy
 msgid "_Miscellaneous"
 msgstr "Egyebek"
 
@@ -190,20 +188,25 @@ msgstr "Egyebek"
 msgid "Edit Properties"
 msgstr "Tulajdonságok szerkesztése"
 
-#: ../panel-plugin/sensors.c:2044 ../panel-plugin/sensors.h:41
+#: ../panel-plugin/sensors.c:2044
+#: ../panel-plugin/sensors.h:41
 msgid "Sensors Plugin"
 msgstr "Érzékelők"
 
 #. only use this if no hddtemp sensor
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../panel-plugin/configuration.c:133 ../panel-plugin/configuration.c:277
-#: ../panel-plugin/configuration.c:283 ../panel-plugin/hddtemp.c:188
-#: ../panel-plugin/hddtemp.c:227 ../panel-plugin/hddtemp.c:232
+#: ../panel-plugin/configuration.c:133
+#: ../panel-plugin/configuration.c:277
+#: ../panel-plugin/configuration.c:283
+#: ../panel-plugin/hddtemp.c:188
+#: ../panel-plugin/hddtemp.c:227
+#: ../panel-plugin/hddtemp.c:232
 msgid "Hard disks"
 msgstr "Merevlemezek"
 
-#: ../panel-plugin/acpi.c:409 ../panel-plugin/acpi.c:417
+#: ../panel-plugin/acpi.c:409
+#: ../panel-plugin/acpi.c:417
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -212,11 +215,11 @@ msgstr "ACPI"
 #: ../panel-plugin/acpi.c:411
 #, c-format
 msgid "ACPI v%s zones"
-msgstr ""
+msgstr "ACPI v%s zónák"
 
 #: ../panel-plugin/acpi.c:512
 msgid "<Unknown>"
-msgstr ""
+msgstr "<Ismeretlen>"
 
 #: ../panel-plugin/hddtemp.c:231
 msgid "S.M.A.R.T. harddisk temperatures"
@@ -226,12 +229,9 @@ msgstr "S.M.A.R.T. merevlemez hőmérséklet"
 #: ../panel-plugin/hddtemp.c:298
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s"
@@ -244,25 +244,26 @@ msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr ""
+"Hiba történt \"%s\" futtatásakor:\n"
+"%s"
 
 #: ../panel-plugin/lmsensors.c:77
 msgid "LM Sensors"
 msgstr "LM érzékelők"
 
-#: ../panel-plugin/lmsensors.c:335 ../panel-plugin/lmsensors.c:382
+#: ../panel-plugin/lmsensors.c:335
+#: ../panel-plugin/lmsensors.c:382
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Hiba: nem lehet érzékelőkhöz kapcsolódni!"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Sensor plugin "
-msgstr "Érzékelő"
+msgstr "Szenzor plugin"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
-#, fuzzy
 msgid "Show sensor values."
-msgstr "Értékek mutatása"
+msgstr "Szenzor értékek mutatása"
 
 #, fuzzy
 #~ msgid ""
@@ -274,12 +275,10 @@ msgstr "Értékek mutatása"
 #~ "Xfce Hardver Érzékelő: \n"
 #~ "Úgy tűnik, gond van egy érzékelő értékeinek kiolvasásával. \n"
 #~ "A helyes működés nem szavatolt.\n"
-
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Érzékelők</b></span>\n"
-
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Érzékelők</b></span>"
-
 #~ msgid "<b>View</b>"
 #~ msgstr "<b>Nézet</b>"
+
