@@ -2,13 +2,13 @@
 # Copyright (C) 2004-2006 Fabian Nowak
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
 # Pau Rul·lan Ferragut <paurullan@bulma.net>, 2006.
-# 
-# 
+#
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-16 10:25+0100\n"
+"POT-Creation-Date: 2008-02-16 15:59+0100\n"
 "PO-Revision-Date: 2006-09-20 13:53+0200\n"
 "Last-Translator: Pau Rul·lan Ferragut <paurullan@bulma.net>\n"
 "Language-Team: Catalan\n"
@@ -16,12 +16,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors.c:203 ../panel-plugin/sensors.c:762
+#: ../panel-plugin/sensors.c:204 ../panel-plugin/sensors.c:763
 #, fuzzy
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 
-#: ../panel-plugin/sensors.c:537
+#: ../panel-plugin/sensors.c:538
 #, c-format
 msgid "%5.1f °F"
 msgstr ""
@@ -30,39 +30,39 @@ msgstr ""
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#: ../panel-plugin/sensors.c:540 ../panel-plugin/hddtemp.c:361
+#: ../panel-plugin/sensors.c:541 ../panel-plugin/hddtemp.c:369
 #, c-format
 msgid "%5.1f °C"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:545
+#: ../panel-plugin/sensors.c:546
 #, c-format
 msgid "%+5.2f V"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:549
+#: ../panel-plugin/sensors.c:550
 #, fuzzy, c-format
 msgid "%.0f mWh"
 msgstr "%5.0f rpm"
 
-#: ../panel-plugin/sensors.c:554
+#: ../panel-plugin/sensors.c:555
 msgid "off"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:556
+#: ../panel-plugin/sensors.c:557
 msgid "on"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:560
+#: ../panel-plugin/sensors.c:561
 #, c-format
 msgid "%5.0f rpm"
 msgstr "%5.0f rpm"
 
-#: ../panel-plugin/sensors.c:592
+#: ../panel-plugin/sensors.c:593
 msgid "No sensors selected!"
 msgstr "No s’ha seleccionat cap sensor"
 
-#: ../panel-plugin/sensors.c:627 ../panel-plugin/sensors.c:1091
+#: ../panel-plugin/sensors.c:628 ../panel-plugin/sensors.c:1092
 #, fuzzy, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -74,138 +74,138 @@ msgstr ""
 "S’ha produït un error durant la lectura dels sensors.\n"
 "No es podrà assegurar un bon funcionament.\n"
 
-#: ../panel-plugin/sensors.c:871
+#: ../panel-plugin/sensors.c:872
 msgid "No sensors found!"
 msgstr "No s’han trobat sensors"
 
-#: ../panel-plugin/sensors.c:1518
+#: ../panel-plugin/sensors.c:1521
 #, fuzzy
 msgid "UI style:"
 msgstr "Estil de la interfície:"
 
-#: ../panel-plugin/sensors.c:1519
+#: ../panel-plugin/sensors.c:1522
 #, fuzzy
 msgid "_text"
 msgstr "text"
 
-#: ../panel-plugin/sensors.c:1521
+#: ../panel-plugin/sensors.c:1524
 #, fuzzy
 msgid "g_raphical"
 msgstr "gràfic"
 
-#: ../panel-plugin/sensors.c:1558
+#: ../panel-plugin/sensors.c:1561
 #, fuzzy
 msgid "Show _labels in graphical UI"
 msgstr "Mostra les etiquetes a l’interfície gràfica"
 
-#: ../panel-plugin/sensors.c:1588
+#: ../panel-plugin/sensors.c:1591
 msgid "Show colored _bars"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1616
+#: ../panel-plugin/sensors.c:1619
 #, fuzzy
 msgid "_Show title"
 msgstr "Mostra títol"
 
-#: ../panel-plugin/sensors.c:1644
+#: ../panel-plugin/sensors.c:1647
 #, fuzzy
 msgid "Sensors t_ype:"
 msgstr "Tipus de sensors:"
 
-#: ../panel-plugin/sensors.c:1696
+#: ../panel-plugin/sensors.c:1699
 msgid "Name"
 msgstr "Nom"
 
-#: ../panel-plugin/sensors.c:1705
+#: ../panel-plugin/sensors.c:1708
 msgid "Value"
 msgstr "Valor"
 
-#: ../panel-plugin/sensors.c:1711
+#: ../panel-plugin/sensors.c:1714
 msgid "Show"
 msgstr "Mostra"
 
-#: ../panel-plugin/sensors.c:1720
+#: ../panel-plugin/sensors.c:1723
 msgid "Color"
 msgstr "Color"
 
-#: ../panel-plugin/sensors.c:1730
+#: ../panel-plugin/sensors.c:1733
 msgid "Min"
 msgstr "Mín."
 
-#: ../panel-plugin/sensors.c:1739
+#: ../panel-plugin/sensors.c:1742
 msgid "Max"
 msgstr "Màx."
 
-#: ../panel-plugin/sensors.c:1772
+#: ../panel-plugin/sensors.c:1775
 #, fuzzy
 msgid "F_ont size:"
 msgstr "Mida de la lletra"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:1779
+#: ../panel-plugin/sensors.c:1782
 msgid "x-small"
 msgstr "molt petit"
 
-#: ../panel-plugin/sensors.c:1780
+#: ../panel-plugin/sensors.c:1783
 msgid "small"
 msgstr "petit"
 
-#: ../panel-plugin/sensors.c:1781
+#: ../panel-plugin/sensors.c:1784
 msgid "medium"
 msgstr "mitjà"
 
-#: ../panel-plugin/sensors.c:1782
+#: ../panel-plugin/sensors.c:1785
 msgid "large"
 msgstr "gran"
 
-#: ../panel-plugin/sensors.c:1783
+#: ../panel-plugin/sensors.c:1786
 msgid "x-large"
 msgstr "extra gran"
 
-#: ../panel-plugin/sensors.c:1815
+#: ../panel-plugin/sensors.c:1818
 #, fuzzy
 msgid "Temperature scale:"
 msgstr "Escala de temperatura:"
 
-#: ../panel-plugin/sensors.c:1817
+#: ../panel-plugin/sensors.c:1820
 #, fuzzy
 msgid "_Celsius"
 msgstr "Celsius"
 
-#: ../panel-plugin/sensors.c:1819
+#: ../panel-plugin/sensors.c:1822
 #, fuzzy
 msgid "_Fahrenheit"
 msgstr "Fahrenheit"
 
-#: ../panel-plugin/sensors.c:1858
+#: ../panel-plugin/sensors.c:1861
 #, fuzzy
 msgid "U_pdate interval (seconds):"
 msgstr "Interval d’actualització (segons):"
 
-#: ../panel-plugin/sensors.c:1888
+#: ../panel-plugin/sensors.c:1891
 #, fuzzy
 msgid "E_xecute on double click:"
 msgstr "Executa en fer doble clic:"
 
-#: ../panel-plugin/sensors.c:1931
+#: ../panel-plugin/sensors.c:1934
 msgid "_View"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1961
+#: ../panel-plugin/sensors.c:1964
 #, fuzzy
 msgid "_Sensors"
 msgstr "Tipus de sensors:"
 
-#: ../panel-plugin/sensors.c:1989
+#: ../panel-plugin/sensors.c:1992
 #, fuzzy
 msgid "_Miscellaneous"
 msgstr "<b>Miscel·lània</b>"
 
-#: ../panel-plugin/sensors.c:2037
+#: ../panel-plugin/sensors.c:2040
 msgid "Edit Properties"
 msgstr "Edita propietats"
 
-#: ../panel-plugin/sensors.c:2044 ../panel-plugin/sensors.h:41
+#: ../panel-plugin/sensors.c:2047 ../panel-plugin/sensors.h:41
 msgid "Sensors Plugin"
 msgstr "Connector de sensors"
 
@@ -213,8 +213,8 @@ msgstr "Connector de sensors"
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
 #: ../panel-plugin/configuration.c:133 ../panel-plugin/configuration.c:277
-#: ../panel-plugin/configuration.c:283 ../panel-plugin/hddtemp.c:188
-#: ../panel-plugin/hddtemp.c:227 ../panel-plugin/hddtemp.c:232
+#: ../panel-plugin/configuration.c:283 ../panel-plugin/hddtemp.c:189
+#: ../panel-plugin/hddtemp.c:228 ../panel-plugin/hddtemp.c:233
 msgid "Hard disks"
 msgstr "Discs durs"
 
@@ -229,17 +229,17 @@ msgstr ""
 msgid "ACPI v%s zones"
 msgstr ""
 
-#: ../panel-plugin/acpi.c:512
+#: ../panel-plugin/acpi.c:514
 msgid "<Unknown>"
 msgstr ""
 
-#: ../panel-plugin/hddtemp.c:231
+#: ../panel-plugin/hddtemp.c:232
 #, fuzzy
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "Sensors de temperatura dels discs durs"
 
 #. note that this check does only work for some versions of hddtmep.
-#: ../panel-plugin/hddtemp.c:298
+#: ../panel-plugin/hddtemp.c:302
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is "
@@ -250,11 +250,12 @@ msgid ""
 "restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
-"%s"
+"%s\n"
+"with a return value of %d.\n"
 msgstr ""
 
 #. DBG  ("error %s\n", error->message);
-#: ../panel-plugin/hddtemp.c:320
+#: ../panel-plugin/hddtemp.c:325
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"

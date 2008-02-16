@@ -293,7 +293,10 @@ get_hddtemp_value (char* disk)
             &standard_output, &standard_error, &exit_status, &error);
 
     /* filter those with no sensors out */
-    if (exit_status==256 && access (PATH_HDDTEMP, X_OK)==0) /* || strlen(standard_error)>0) */
+    if (exit_status==256 && strncmp(disk, "/dev/fd", 6)==0) { /* is returned for floppy disks */
+    	return 0.0;
+    }
+    else if (exit_status==256 && access (PATH_HDDTEMP, X_OK)==0) /* || strlen(standard_error)>0) */
     {
         /* note that this check does only work for some versions of hddtmep. */
         msg_text = g_strdup_printf(_("\"hddtemp\" was not executed correctly, "
@@ -304,8 +307,8 @@ get_hddtemp_value (char* disk)
                         "An easy but dirty solution is to run \"chmod u+s %s"
                         "\" as root user and restart this plugin "
                         "or its panel.\n\n"
-                        "Calling \"%s\" gave the following error:\n%s"),
-                        PATH_HDDTEMP, cmd_line, standard_error);
+                        "Calling \"%s\" gave the following error:\n%s\nwith a return value of %d.\n"),
+                        PATH_HDDTEMP, cmd_line, standard_error, exit_status);
         quick_message (msg_text);
         value = ZERO_KELVIN;
     }
@@ -315,6 +318,7 @@ get_hddtemp_value (char* disk)
         quick_message (msg_text);
         value = ZERO_KELVIN;
     } */
+    
     else if (error && (!result || exit_status!=0))
     {
         /* DBG  ("error %s\n", error->message); */

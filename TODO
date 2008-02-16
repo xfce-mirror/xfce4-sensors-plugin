@@ -3,3 +3,4 @@ TODO
 
 - fix error: doesn't find all sensors when newly adding plugin to panel - sensors library problem?
 
+- allow changing names in hddtemp and acpi sensors as well

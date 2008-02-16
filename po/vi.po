@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-16 10:25+0100\n"
+"POT-Creation-Date: 2008-02-16 15:59+0100\n"
 "PO-Revision-Date: 2006-02-19 22:51+0300\n"
 "Last-Translator: Phan Vĩnh Thịnh <teppi@vnlinux.org>\n"
 "Language-Team: Vietnamese <none@li.org>\n"
@@ -15,12 +15,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
 
-#: ../panel-plugin/sensors.c:203 ../panel-plugin/sensors.c:762
+#: ../panel-plugin/sensors.c:204 ../panel-plugin/sensors.c:763
 #, fuzzy
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Cảm ứng</b></span>\n"
 
-#: ../panel-plugin/sensors.c:537
+#: ../panel-plugin/sensors.c:538
 #, c-format
 msgid "%5.1f °F"
 msgstr ""
@@ -29,39 +29,39 @@ msgstr ""
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#: ../panel-plugin/sensors.c:540 ../panel-plugin/hddtemp.c:361
+#: ../panel-plugin/sensors.c:541 ../panel-plugin/hddtemp.c:369
 #, c-format
 msgid "%5.1f °C"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:545
+#: ../panel-plugin/sensors.c:546
 #, c-format
 msgid "%+5.2f V"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:549
+#: ../panel-plugin/sensors.c:550
 #, fuzzy, c-format
 msgid "%.0f mWh"
 msgstr "%5.0f rpm"
 
-#: ../panel-plugin/sensors.c:554
+#: ../panel-plugin/sensors.c:555
 msgid "off"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:556
+#: ../panel-plugin/sensors.c:557
 msgid "on"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:560
+#: ../panel-plugin/sensors.c:561
 #, c-format
 msgid "%5.0f rpm"
 msgstr "%5.0f rpm"
 
-#: ../panel-plugin/sensors.c:592
+#: ../panel-plugin/sensors.c:593
 msgid "No sensors selected!"
 msgstr "Chưa chọn bộ cảm ứng nào!"
 
-#: ../panel-plugin/sensors.c:627 ../panel-plugin/sensors.c:1091
+#: ../panel-plugin/sensors.c:628 ../panel-plugin/sensors.c:1092
 #, fuzzy, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -73,138 +73,138 @@ msgstr ""
 "Có vẻ như có vấn đề đọc một giá trị cảm ứng. \n"
 "Không có bảo đảm cho sự thực hiện.\n"
 
-#: ../panel-plugin/sensors.c:871
+#: ../panel-plugin/sensors.c:872
 msgid "No sensors found!"
 msgstr "Không tìm thấy bộ cảm ứng!"
 
-#: ../panel-plugin/sensors.c:1518
+#: ../panel-plugin/sensors.c:1521
 #, fuzzy
 msgid "UI style:"
 msgstr "Dạng giao diện:"
 
-#: ../panel-plugin/sensors.c:1519
+#: ../panel-plugin/sensors.c:1522
 #, fuzzy
 msgid "_text"
 msgstr "văn bản"
 
-#: ../panel-plugin/sensors.c:1521
+#: ../panel-plugin/sensors.c:1524
 #, fuzzy
 msgid "g_raphical"
 msgstr "đồ hoạ"
 
-#: ../panel-plugin/sensors.c:1558
+#: ../panel-plugin/sensors.c:1561
 #, fuzzy
 msgid "Show _labels in graphical UI"
 msgstr "Hiển thị nhãn trong giao diện đồ hoạ"
 
-#: ../panel-plugin/sensors.c:1588
+#: ../panel-plugin/sensors.c:1591
 msgid "Show colored _bars"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1616
+#: ../panel-plugin/sensors.c:1619
 #, fuzzy
 msgid "_Show title"
 msgstr "Hiển thị tiêu đề"
 
-#: ../panel-plugin/sensors.c:1644
+#: ../panel-plugin/sensors.c:1647
 #, fuzzy
 msgid "Sensors t_ype:"
 msgstr "Dạng cảm ứng:"
 
-#: ../panel-plugin/sensors.c:1696
+#: ../panel-plugin/sensors.c:1699
 msgid "Name"
 msgstr "Tên"
 
-#: ../panel-plugin/sensors.c:1705
+#: ../panel-plugin/sensors.c:1708
 msgid "Value"
 msgstr "Giá trị"
 
-#: ../panel-plugin/sensors.c:1711
+#: ../panel-plugin/sensors.c:1714
 msgid "Show"
 msgstr "Hiện"
 
-#: ../panel-plugin/sensors.c:1720
+#: ../panel-plugin/sensors.c:1723
 msgid "Color"
 msgstr "Màu"
 
-#: ../panel-plugin/sensors.c:1730
+#: ../panel-plugin/sensors.c:1733
 msgid "Min"
 msgstr "Min"
 
-#: ../panel-plugin/sensors.c:1739
+#: ../panel-plugin/sensors.c:1742
 msgid "Max"
 msgstr "Max"
 
-#: ../panel-plugin/sensors.c:1772
+#: ../panel-plugin/sensors.c:1775
 #, fuzzy
 msgid "F_ont size:"
 msgstr "Kích cỡ phông:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:1779
+#: ../panel-plugin/sensors.c:1782
 msgid "x-small"
 msgstr "rất nhỏ"
 
-#: ../panel-plugin/sensors.c:1780
+#: ../panel-plugin/sensors.c:1783
 msgid "small"
 msgstr "nhỏ"
 
-#: ../panel-plugin/sensors.c:1781
+#: ../panel-plugin/sensors.c:1784
 msgid "medium"
 msgstr "trung bình"
 
-#: ../panel-plugin/sensors.c:1782
+#: ../panel-plugin/sensors.c:1785
 msgid "large"
 msgstr "lớn"
 
-#: ../panel-plugin/sensors.c:1783
+#: ../panel-plugin/sensors.c:1786
 msgid "x-large"
 msgstr "rất lớn"
 
-#: ../panel-plugin/sensors.c:1815
+#: ../panel-plugin/sensors.c:1818
 #, fuzzy
 msgid "Temperature scale:"
 msgstr "Thang nhiệt độ:"
 
-#: ../panel-plugin/sensors.c:1817
+#: ../panel-plugin/sensors.c:1820
 #, fuzzy
 msgid "_Celsius"
 msgstr "Độ C"
 
-#: ../panel-plugin/sensors.c:1819
+#: ../panel-plugin/sensors.c:1822
 #, fuzzy
 msgid "_Fahrenheit"
 msgstr "Độ F"
 
-#: ../panel-plugin/sensors.c:1858
+#: ../panel-plugin/sensors.c:1861
 #, fuzzy
 msgid "U_pdate interval (seconds):"
 msgstr "Cập nhật sau (giây):"
 
-#: ../panel-plugin/sensors.c:1888
+#: ../panel-plugin/sensors.c:1891
 #, fuzzy
 msgid "E_xecute on double click:"
 msgstr "Thực hiện khi nháy kép:"
 
-#: ../panel-plugin/sensors.c:1931
+#: ../panel-plugin/sensors.c:1934
 msgid "_View"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1961
+#: ../panel-plugin/sensors.c:1964
 #, fuzzy
 msgid "_Sensors"
 msgstr "<b>Cảm ứng</b>"
 
-#: ../panel-plugin/sensors.c:1989
+#: ../panel-plugin/sensors.c:1992
 #, fuzzy
 msgid "_Miscellaneous"
 msgstr "<b>Khác</b>"
 
-#: ../panel-plugin/sensors.c:2037
+#: ../panel-plugin/sensors.c:2040
 msgid "Edit Properties"
 msgstr "Sửa thuộc tính"
 
-#: ../panel-plugin/sensors.c:2044 ../panel-plugin/sensors.h:41
+#: ../panel-plugin/sensors.c:2047 ../panel-plugin/sensors.h:41
 msgid "Sensors Plugin"
 msgstr "Plugin cảm ứng"
 
@@ -212,8 +212,8 @@ msgstr "Plugin cảm ứng"
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
 #: ../panel-plugin/configuration.c:133 ../panel-plugin/configuration.c:277
-#: ../panel-plugin/configuration.c:283 ../panel-plugin/hddtemp.c:188
-#: ../panel-plugin/hddtemp.c:227 ../panel-plugin/hddtemp.c:232
+#: ../panel-plugin/configuration.c:283 ../panel-plugin/hddtemp.c:189
+#: ../panel-plugin/hddtemp.c:228 ../panel-plugin/hddtemp.c:233
 msgid "Hard disks"
 msgstr ""
 
@@ -228,16 +228,16 @@ msgstr ""
 msgid "ACPI v%s zones"
 msgstr ""
 
-#: ../panel-plugin/acpi.c:512
+#: ../panel-plugin/acpi.c:514
 msgid "<Unknown>"
 msgstr ""
 
-#: ../panel-plugin/hddtemp.c:231
+#: ../panel-plugin/hddtemp.c:232
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr ""
 
 #. note that this check does only work for some versions of hddtmep.
-#: ../panel-plugin/hddtemp.c:298
+#: ../panel-plugin/hddtemp.c:302
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is "
@@ -248,11 +248,12 @@ msgid ""
 "restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
-"%s"
+"%s\n"
+"with a return value of %d.\n"
 msgstr ""
 
 #. DBG  ("error %s\n", error->message);
-#: ../panel-plugin/hddtemp.c:320
+#: ../panel-plugin/hddtemp.c:325
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"

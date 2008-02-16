@@ -507,7 +507,9 @@ get_acpi_info ()
     TRACE ("leaves get_acpi_info");
 
     version = get_acpi_value (filename);
-    version = g_strchomp (version);
+    if (version!=NULL)
+    	version = g_strchomp (version);
+
     if (version==NULL)
         version = _("<Unknown>");
 

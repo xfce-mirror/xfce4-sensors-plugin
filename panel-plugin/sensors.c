@@ -129,12 +129,13 @@ sensors_remove_graphical_panel (t_sensors *sensors)
 
             if (chipfeature->show == TRUE) {
                 panel = (t_barpanel*) sensors->panels[chipNum][feature];
+		
+		if (sensors->show_labels == TRUE)
+                    gtk_widget_destroy (panel->label);
 
                 gtk_widget_destroy (panel->progressbar);
                 gtk_widget_destroy (panel->databox);
-                if (sensors->show_labels == TRUE)
-                    gtk_widget_destroy (panel->label);
-
+                
                 g_free (panel);
             }
         }
@@ -1361,7 +1362,9 @@ list_cell_text_edited (GtkCellRendererText *cellrenderertext,
     TRACE ("enters list_cell_text_edited");
 
     if (sd->sensors->display_values_graphically == TRUE) {
+    	DBG("removing graphical panel");
         sensors_remove_graphical_panel(sd->sensors);
+	DBG("done removing grap. panel");
     }
     gtk_combo_box_active =
         gtk_combo_box_get_active(GTK_COMBO_BOX (sd->myComboBox));
