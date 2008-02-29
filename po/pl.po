@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-16 15:59+0100\n"
+"POT-Creation-Date: 2008-02-29 22:31+0100\n"
 "PO-Revision-Date: 2006-04-08 13:17+0900\n"
 "Last-Translator: Piotr Maliński <admin@rk.edu.pl>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -16,12 +16,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors.c:204 ../panel-plugin/sensors.c:763
+#: ../panel-plugin/sensors.c:204 ../panel-plugin/sensors.c:767
 #, fuzzy
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Czujniki</b></span>\n"
 
-#: ../panel-plugin/sensors.c:538
+#: ../panel-plugin/sensors.c:541
 #, c-format
 msgid "%5.1f °F"
 msgstr ""
@@ -30,39 +30,39 @@ msgstr ""
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#: ../panel-plugin/sensors.c:541 ../panel-plugin/hddtemp.c:369
+#: ../panel-plugin/sensors.c:544 ../panel-plugin/hddtemp.c:374
 #, c-format
 msgid "%5.1f °C"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:546
+#: ../panel-plugin/sensors.c:549
 #, c-format
 msgid "%+5.2f V"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:550
+#: ../panel-plugin/sensors.c:553
 #, fuzzy, c-format
 msgid "%.0f mWh"
 msgstr "%5.0f rpm"
 
-#: ../panel-plugin/sensors.c:555
+#: ../panel-plugin/sensors.c:558
 msgid "off"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:557
+#: ../panel-plugin/sensors.c:560
 msgid "on"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:561
+#: ../panel-plugin/sensors.c:564
 #, c-format
 msgid "%5.0f rpm"
 msgstr "%5.0f rpm"
 
-#: ../panel-plugin/sensors.c:593
+#: ../panel-plugin/sensors.c:596
 msgid "No sensors selected!"
 msgstr "Brak wykrytych czujników!"
 
-#: ../panel-plugin/sensors.c:628 ../panel-plugin/sensors.c:1092
+#: ../panel-plugin/sensors.c:631 ../panel-plugin/sensors.c:1097
 #, fuzzy, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -74,138 +74,138 @@ msgstr ""
 "Chyba wystąpił problem przy czytaniu wartości z czujnika. \n"
 "Podane wartości mogą być niezgodne z prawdą.\n"
 
-#: ../panel-plugin/sensors.c:872
+#: ../panel-plugin/sensors.c:877
 msgid "No sensors found!"
 msgstr "Brak czujników!"
 
-#: ../panel-plugin/sensors.c:1521
+#: ../panel-plugin/sensors.c:1529
 #, fuzzy
 msgid "UI style:"
 msgstr "Styl GUI:"
 
-#: ../panel-plugin/sensors.c:1522
+#: ../panel-plugin/sensors.c:1530
 #, fuzzy
 msgid "_text"
 msgstr "tekst"
 
-#: ../panel-plugin/sensors.c:1524
+#: ../panel-plugin/sensors.c:1532
 #, fuzzy
 msgid "g_raphical"
 msgstr "graficzny"
 
-#: ../panel-plugin/sensors.c:1561
+#: ../panel-plugin/sensors.c:1569
 #, fuzzy
 msgid "Show _labels in graphical UI"
 msgstr "Pokazuj etykiety w GUI"
 
-#: ../panel-plugin/sensors.c:1591
+#: ../panel-plugin/sensors.c:1599
 msgid "Show colored _bars"
 msgstr "Pokazuj kolorowe _słupki"
 
-#: ../panel-plugin/sensors.c:1619
+#: ../panel-plugin/sensors.c:1627
 #, fuzzy
 msgid "_Show title"
 msgstr "Pokazuj tutuł"
 
-#: ../panel-plugin/sensors.c:1647
+#: ../panel-plugin/sensors.c:1655
 #, fuzzy
 msgid "Sensors t_ype:"
 msgstr "Typ sensorów:"
 
-#: ../panel-plugin/sensors.c:1699
+#: ../panel-plugin/sensors.c:1707
 msgid "Name"
 msgstr "Nazwa"
 
-#: ../panel-plugin/sensors.c:1708
+#: ../panel-plugin/sensors.c:1716
 msgid "Value"
 msgstr "Wartość"
 
-#: ../panel-plugin/sensors.c:1714
+#: ../panel-plugin/sensors.c:1722
 msgid "Show"
 msgstr "Pokaż"
 
-#: ../panel-plugin/sensors.c:1723
+#: ../panel-plugin/sensors.c:1731
 msgid "Color"
 msgstr "Kolor"
 
-#: ../panel-plugin/sensors.c:1733
+#: ../panel-plugin/sensors.c:1741
 msgid "Min"
 msgstr "Minimum"
 
-#: ../panel-plugin/sensors.c:1742
+#: ../panel-plugin/sensors.c:1750
 msgid "Max"
 msgstr "Maximum"
 
-#: ../panel-plugin/sensors.c:1775
+#: ../panel-plugin/sensors.c:1783
 #, fuzzy
 msgid "F_ont size:"
 msgstr "Rozmiar czcionki:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:1782
+#: ../panel-plugin/sensors.c:1790
 msgid "x-small"
 msgstr "x-mała"
 
-#: ../panel-plugin/sensors.c:1783
+#: ../panel-plugin/sensors.c:1791
 msgid "small"
 msgstr "mała"
 
-#: ../panel-plugin/sensors.c:1784
+#: ../panel-plugin/sensors.c:1792
 msgid "medium"
 msgstr "średnia"
 
-#: ../panel-plugin/sensors.c:1785
+#: ../panel-plugin/sensors.c:1793
 msgid "large"
 msgstr "duża"
 
-#: ../panel-plugin/sensors.c:1786
+#: ../panel-plugin/sensors.c:1794
 msgid "x-large"
 msgstr "x-duża"
 
-#: ../panel-plugin/sensors.c:1818
+#: ../panel-plugin/sensors.c:1826
 #, fuzzy
 msgid "Temperature scale:"
 msgstr "Skala temperatury:"
 
-#: ../panel-plugin/sensors.c:1820
+#: ../panel-plugin/sensors.c:1828
 #, fuzzy
 msgid "_Celsius"
 msgstr "Celcjusze"
 
-#: ../panel-plugin/sensors.c:1822
+#: ../panel-plugin/sensors.c:1830
 #, fuzzy
 msgid "_Fahrenheit"
 msgstr "Farenhaity"
 
-#: ../panel-plugin/sensors.c:1861
+#: ../panel-plugin/sensors.c:1869
 #, fuzzy
 msgid "U_pdate interval (seconds):"
 msgstr "Czas aktualizacji (sek):"
 
-#: ../panel-plugin/sensors.c:1891
+#: ../panel-plugin/sensors.c:1899
 #, fuzzy
 msgid "E_xecute on double click:"
 msgstr "Wykonaj przy podwójnym kliknięciu:"
 
-#: ../panel-plugin/sensors.c:1934
+#: ../panel-plugin/sensors.c:1942
 msgid "_View"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1964
+#: ../panel-plugin/sensors.c:1972
 #, fuzzy
 msgid "_Sensors"
 msgstr "Typ sensorów:"
 
-#: ../panel-plugin/sensors.c:1992
+#: ../panel-plugin/sensors.c:2000
 #, fuzzy
 msgid "_Miscellaneous"
 msgstr "<b>Inne</b>"
 
-#: ../panel-plugin/sensors.c:2040
+#: ../panel-plugin/sensors.c:2049
 msgid "Edit Properties"
 msgstr "Edytuj właściowości"
 
-#: ../panel-plugin/sensors.c:2047 ../panel-plugin/sensors.h:41
+#: ../panel-plugin/sensors.c:2056 ../panel-plugin/sensors.h:41
 msgid "Sensors Plugin"
 msgstr "Wtyczka Czujników"
 
@@ -239,7 +239,7 @@ msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "Czujniki temperatury dysku"
 
 #. note that this check does only work for some versions of hddtmep.
-#: ../panel-plugin/hddtemp.c:302
+#: ../panel-plugin/hddtemp.c:305
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is "
@@ -255,7 +255,7 @@ msgid ""
 msgstr ""
 
 #. DBG  ("error %s\n", error->message);
-#: ../panel-plugin/hddtemp.c:325
+#: ../panel-plugin/hddtemp.c:328
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"

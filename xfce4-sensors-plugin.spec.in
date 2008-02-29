@@ -3,7 +3,7 @@ Name: 		xfce4-sensors-plugin
 Version: 	@VERSION@
 Release: 	1
 License:	GPL
-URL: 		http://xfce-goodies.berlios.de/
+URL: 		http://goodies.xfce.org/projects/panel-plugins/xfce4-sensors-plugin
 Source0: 	%{name}-%{version}.tar.gz
 Group: 		User Interface/Desktops
 BuildRoot: 	%{_tmppath}/%{name}-root

@@ -292,11 +292,14 @@ get_hddtemp_value (char* disk)
     result = g_spawn_command_line_sync ( (const gchar*) cmd_line,
             &standard_output, &standard_error, &exit_status, &error);
 
+    DBG ("Exit code %d on %s with stdout of %s.\n", exit_status, disk, standard_output);
+
     /* filter those with no sensors out */
-    if (exit_status==256 && strncmp(disk, "/dev/fd", 6)==0) { /* is returned for floppy disks */
-    	return 0.0;
+    if (exit_status!=0 && strncmp(disk, "/dev/fd", 6)==0) { /* is returned for floppy disks */
+        value = 0.0;
     }
-    else if (exit_status==256 && access (PATH_HDDTEMP, X_OK)==0) /* || strlen(standard_error)>0) */
+    else if ((exit_status==256 || strlen(standard_error)>0) 
+            && access (PATH_HDDTEMP, X_OK)==0) /* || strlen(standard_error)>0) */
     {
         /* note that this check does only work for some versions of hddtmep. */
         msg_text = g_strdup_printf(_("\"hddtemp\" was not executed correctly, "
@@ -329,6 +332,7 @@ get_hddtemp_value (char* disk)
     }
     else if ( strlen(standard_output) > 0)
     {
+        DBG("got the only useful return value of 0 and value of %s.\n", standard_output);
         /* hddtemp does not return floating values, but only integer ones.
           So have an easier life with atoi.
           FIXME: Use strtod() instead?*/
@@ -362,6 +366,7 @@ refresh_hddtemp (gpointer chip_feature, gpointer data)
 
     value = get_hddtemp_value (cf->name);
 
+    /* actually, that's done in the gui part */
     g_free (cf->formatted_value);
     /*  if (scale == FAHRENHEIT) {
         cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
@@ -372,3 +377,4 @@ refresh_hddtemp (gpointer chip_feature, gpointer data)
 
     TRACE ("leaves refresh_hddtemp");
 }
+

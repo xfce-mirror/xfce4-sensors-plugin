@@ -204,6 +204,7 @@ sensors_add_graphical_display (t_sensors *sensors)
     text = g_strdup (_("<span foreground=\"#000000\">"
                                      "<b>Sensors</b></span>"));
     gtk_label_set_markup (GTK_LABEL(sensors->panel_label_text), text);
+    g_free (text);
 
     for (chipNum=0; chipNum < sensors->num_sensorchips; chipNum++) {
         chip = (t_chip *) g_ptr_array_index(sensors->chips, chipNum);
@@ -247,6 +248,7 @@ sensors_add_graphical_display (t_sensors *sensors)
                 if (sensors->show_labels == TRUE) {
                     caption = g_strdup (chipfeature->name);
                     label = gtk_label_new (caption);
+                    g_free(caption);
                     gtk_label_set_max_width_chars (GTK_LABEL(label), 12);
                     gtk_label_set_ellipsize (GTK_LABEL(label),
                                              PANGO_ELLIPSIZE_END);
@@ -456,6 +458,7 @@ sensors_set_text_panel_label (t_sensors *sensors, gint numCols, gint itemsToDisp
     g_assert (itemsToDisplay==0);
 
     gtk_label_set_markup (GTK_LABEL(sensors->panel_label_data), myLabelText);
+    g_free(myLabelText);
     gtk_misc_set_alignment(GTK_MISC(sensors->panel_label_data), 0.0, 0.5);
     gtk_widget_show (sensors->panel_label_data);
 
@@ -654,6 +657,7 @@ sensors_create_tooltip (gpointer data)
 
     gtk_tooltips_set_tip (tooltips, GTK_WIDGET(sensors->eventbox),
                           myToolTipText, NULL);
+    g_free (myToolTipText);
 
     TRACE ("leaves sensors_create_tooltip");
 
@@ -764,6 +768,7 @@ create_panel_widget (t_sensors * sensors)
                                     "</b></span>"));
     gtk_label_set_markup(GTK_LABEL(sensors->panel_label_text), myLabelText);
     gtk_widget_show (sensors->panel_label_text);
+    g_free(myLabelText);
 
     sensors->panel_label_data = gtk_label_new (NULL);
     gtk_widget_show (sensors->panel_label_data);
@@ -875,7 +880,7 @@ sensors_new (XfcePanelPlugin *plugin)
         chipfeature->name = "No sensor";
         chipfeature->valid = TRUE;
         g_free (chipfeature->formatted_value);
-        chipfeature->formatted_value = g_strdup_printf("0.0");
+        chipfeature->formatted_value = g_strdup("0.0");
         chipfeature->raw_value = 0.0;
         chipfeature->min_value = 0;
         chipfeature->max_value = 7000;
@@ -1111,6 +1116,7 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale)
                                 5, chipfeature->max_value,
                                  -1);
         } /* end if sensors-valid */
+        /* g_free(iter); ??? */
     }
 
     TRACE ("leaves fill_gtkTreeStore");
@@ -1384,6 +1390,7 @@ list_cell_text_edited (GtkCellRendererText *cellrenderertext,
                                   needed for the update in ACPI and hddtemp. */
         chipfeature = (t_chipfeature *) g_ptr_array_index (chip->chip_features,
                                                             atoi(path_str));
+        g_free(chipfeature->name);
         chipfeature->name = g_strdup (new_text);
     }
 
@@ -1487,6 +1494,7 @@ init_widgets (t_sensors_dialog *sd)
         chipfeature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, 0);
         g_assert (chipfeature!=NULL);
 
+        g_free(chipfeature->formatted_value);
         chipfeature->formatted_value = g_strdup ("0.0");
         chipfeature->raw_value = 0.0;
 
@@ -2013,6 +2021,7 @@ on_optionsDialog_response (GtkWidget *dlg, int response, t_sensors_dialog *sd)
         /* FIXME: save most of the content in this function,
            remove those toggle functions where possible. NYI */
         /* sensors_apply_options (sd); */
+        g_free(sd->sensors->command_name);
         sd->sensors->command_name =
             g_strdup ( gtk_entry_get_text(GTK_ENTRY(sd->myCommandName_Entry)) );
 
