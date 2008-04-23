@@ -4,3 +4,12 @@ TODO
 - fix error: doesn't find all sensors when newly adding plugin to panel - sensors library problem?
 
 - allow changing names in hddtemp and acpi sensors as well
+
+Known bugs or user requests
+---------------------------
+- add default command via g_strdup instead of constant value
+- add ability to decrease space between columns i ntext view
+- add ability to not display units in text view
+- better support for hddtemp via nc/netcat
+- better checks for sudo/hddtemp/access rights via g_access or g_stat or similar
+
