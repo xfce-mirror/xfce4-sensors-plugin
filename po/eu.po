@@ -1,30 +1,30 @@
+# translation of eu.po to Euskara
 # Basque translations for PACKAGE package.
 # Copyright (C) 2006 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Piarres Beobide <pi@beobide.net>, 2006.
 #
+# Piarres Beobide <pi@beobide.net>, 2006, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
+"Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-02-29 22:31+0100\n"
-"PO-Revision-Date: 2006-02-13 22:20+0100\n"
+"PO-Revision-Date: 2008-05-02 10:59+0200\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
-"Language-Team: Librezale <librezale@librezale.org>\n"
+"Language-Team: Euskara <debian-l10n-basque@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Pootle 0.6.3.20060126\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: ../panel-plugin/sensors.c:204 ../panel-plugin/sensors.c:767
-#, fuzzy
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
-msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sentsoreak</b></span>\n"
+msgstr "<span foreground=\"#000000\"><b>Sentsoreak</b></span>"
 
 #: ../panel-plugin/sensors.c:541
 #, c-format
 msgid "%5.1f °F"
-msgstr ""
+msgstr "%5.1f °F"
 
 #. Celsius
 #. if (scale == FAHRENHEIT) {
@@ -33,25 +33,25 @@ msgstr ""
 #: ../panel-plugin/sensors.c:544 ../panel-plugin/hddtemp.c:374
 #, c-format
 msgid "%5.1f °C"
-msgstr ""
+msgstr "%5.1f °C"
 
 #: ../panel-plugin/sensors.c:549
 #, c-format
 msgid "%+5.2f V"
-msgstr ""
+msgstr "%+5.2f V"
 
 #: ../panel-plugin/sensors.c:553
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f mWh"
-msgstr "%5.0f b/min"
+msgstr "%.0f mWh"
 
 #: ../panel-plugin/sensors.c:558
 msgid "off"
-msgstr ""
+msgstr "itzalia"
 
 #: ../panel-plugin/sensors.c:560
 msgid "on"
-msgstr ""
+msgstr "aktibo"
 
 #: ../panel-plugin/sensors.c:564
 #, c-format
@@ -63,25 +63,23 @@ msgid "No sensors selected!"
 msgstr "Ez da sentsorerik hautatu!"
 
 #: ../panel-plugin/sensors.c:631 ../panel-plugin/sensors.c:1097
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-" \n"
 "Xfce Hardware Sentsore Plugin-a: \n"
 "Dirudienez arazo bat dago sentsore ezaugarri balioa irakurtzerakoan. \n"
-"Ezin da behar ebzala ibiliko den ziurtatu.\n"
+"Ezin da behar ebazlea ibiliko den ziurtatu.\n"
 
 #: ../panel-plugin/sensors.c:877
 msgid "No sensors found!"
 msgstr "Ez da sentsorerik aurkitu!"
 
 #: ../panel-plugin/sensors.c:1529
-#, fuzzy
 msgid "UI style:"
-msgstr "_UI estiloa:"
+msgstr "UI estiloa:"
 
 #: ../panel-plugin/sensors.c:1530
 msgid "_text"
@@ -157,9 +155,8 @@ msgid "x-large"
 msgstr "oso handia"
 
 #: ../panel-plugin/sensors.c:1826
-#, fuzzy
 msgid "Temperature scale:"
-msgstr "T_enperatura eskala:"
+msgstr "Tenperatura eskala:"
 
 #: ../panel-plugin/sensors.c:1828
 msgid "_Celsius"
@@ -179,17 +176,15 @@ msgstr "Klik bikoitzarekin e_xekutatu:"
 
 #: ../panel-plugin/sensors.c:1942
 msgid "_View"
-msgstr ""
+msgstr "_Ikusi"
 
 #: ../panel-plugin/sensors.c:1972
-#, fuzzy
 msgid "_Sensors"
-msgstr "<b>Sentsoreak</b>"
+msgstr "_Sentsoreak"
 
 #: ../panel-plugin/sensors.c:2000
-#, fuzzy
 msgid "_Miscellaneous"
-msgstr "<b>Bestelakoak</b>"
+msgstr "_Bestelakoak"
 
 #: ../panel-plugin/sensors.c:2049
 msgid "Edit Properties"
@@ -210,23 +205,22 @@ msgstr "Diska Gogorrak"
 
 #: ../panel-plugin/acpi.c:409 ../panel-plugin/acpi.c:417
 msgid "ACPI"
-msgstr ""
+msgstr "ACPI"
 
 #. to be displayed
 #. chip->description = _("Advanced Configuration and Power Interface");
 #: ../panel-plugin/acpi.c:411
 #, c-format
 msgid "ACPI v%s zones"
-msgstr ""
+msgstr "ACPI %sb zonaldeak"
 
 #: ../panel-plugin/acpi.c:514
 msgid "<Unknown>"
-msgstr ""
+msgstr "<Ezezaguna>"
 
 #: ../panel-plugin/hddtemp.c:232
-#, fuzzy
 msgid "S.M.A.R.T. harddisk temperatures"
-msgstr "Diska gogor tenperatura sentsoreak"
+msgstr "S.M.A.R.T. diska gogor tenperaturak"
 
 #. note that this check does only work for some versions of hddtmep.
 #: ../panel-plugin/hddtemp.c:305
@@ -243,6 +237,17 @@ msgid ""
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
+"\"hddtemp\" ez da behar bezala exekutatu, nahiz exekutagarria den. Hau "
+"ziurrenik diskoak tenperatura eskuratzeko disko gogorrek root baimenak "
+"eskatzen dituztelako eta \"hddtemp\"-ek ez duelako root uid-a ezarririk izango "
+"da.\n"
+"\n"
+"Konponbide erraz baina zatar bat root gisa \"chmod u+s %s\" exekutatzea "
+"eta plugina edo panela berrabiaraztea da.\n"
+"n "
+"\"%s\" deitzean hurrengo errorea ematen du:\n"
+"%s\n"
+"%d erantzun balioarekin.\n"
 
 #. DBG  ("error %s\n", error->message);
 #: ../panel-plugin/hddtemp.c:328
@@ -251,11 +256,12 @@ msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr ""
+"Errore bat gertatu da \"%s\" exekutatzean:\n"
+"%s"
 
 #: ../panel-plugin/lmsensors.c:77
-#, fuzzy
 msgid "LM Sensors"
-msgstr "<b>Sentsoreak</b>"
+msgstr "LM sentsoreak"
 
 #: ../panel-plugin/lmsensors.c:335 ../panel-plugin/lmsensors.c:382
 #, c-format
@@ -263,31 +269,10 @@ msgid "Error: Could not connect to sensors!"
 msgstr "Errorea: Ezin da sentsoreetara konektatu!"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Sensor plugin "
 msgstr "Sentsore plugin-a "
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
-#, fuzzy
 msgid "Show sensor values."
 msgstr "Sentsore balioak bistarazi."
 
-#, fuzzy
-#~ msgid ""
-#~ "Xfce Hardware Sensors Plugin: \n"
-#~ "Seems like there was a problem reading a sensor feature value. \n"
-#~ "Proper proceeding cannot be guaranteed.\n"
-#~ msgstr ""
-#~ " \n"
-#~ "Xfce Hardware Sentsore Plugin-a: \n"
-#~ "Dirudienez arazo bat dago sentsore ezaugarri balioa irakurtzerakoan. \n"
-#~ "Ezin da behar ebzala ibiliko den ziurtatu.\n"
-
-#~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
-#~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sentsoreak</b></span>\n"
-
-#~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
-#~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sentsoreak</b></span>"
-
-#~ msgid "<b>View</b>"
-#~ msgstr "<b>Bistarazi</b>"
