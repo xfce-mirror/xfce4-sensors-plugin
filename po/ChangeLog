@@ -1,6 +1,10 @@
+2008-05-13	Mike Massonnet <mmassonnet@xfce.org>
+
+	* en_GB.po: Update translation (Jeff Bailes)
+
 2008-05-02  Piarres Beobide <pi@beobide.net>
 
-        * eu.po: Basque translation update
+	* eu.po: Basque translation update
 
 2008-03-18	Mike Massonnet <mmassonnet@xfce.org>
 
@@ -25,14 +29,14 @@
 	* pk.po, ur.po: Rename pk.po to ur.po.
 
 2007-11-04  Og Maciel <ogmaciel@gnome.org>
-    * pt_BR.po: Updated Brazilian Protuguese translation
-    by Og Maciel <ogmaciel@gnome.org>
+	* pt_BR.po: Updated Brazilian Protuguese translation
+	by Og Maciel <ogmaciel@gnome.org>
 
 2007-11-04  Og Maciel <ogmaciel@gnome.org>
-    * pt_BR.po: Updated Brazilian Protuguese translation
-    and added it to LINGUAS by Og Maciel <ogmaciel@gnome.org>
-    * pt_PT.po: Updated the pt_PT.po file and added it to the
-    LINGUAS file by Og Maciel <ogmaciel@gnome.org>
+	* pt_BR.po: Updated Brazilian Protuguese translation
+	and added it to LINGUAS by Og Maciel <ogmaciel@gnome.org>
+	* pt_PT.po: Updated the pt_PT.po file and added it to the
+	LINGUAS file by Og Maciel <ogmaciel@gnome.org>
 
 2007-10-28	Mike Massonnet <mmassonnet@xfce.org>
 
