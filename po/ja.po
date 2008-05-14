@@ -2,28 +2,28 @@
 # Copyright (C) 2004-2005 Fabian Nowak.
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
 # Daichi Kawahata <daichi@xfce.org>, 2005-2006.
+# Nobuhiro Iwamatsu <iwamatsu@nigauri.org>, 2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-02-29 22:31+0100\n"
-"PO-Revision-Date: 2006-01-04 00:28+0900\n"
-"Last-Translator: Daichi Kawahata <daichi@xfce.org>\n"
+"PO-Revision-Date: 2008-05-14 10:48+0200\n"
+"Last-Translator: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>\n"
 "Language-Team: xfce-users-jp <xfce-users-jp@ml.fdiary.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../panel-plugin/sensors.c:204 ../panel-plugin/sensors.c:767
-#, fuzzy
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
-msgstr "<span foreground=\"#000000\" size=\"%s\"><b>センサー</b></span>\n"
+msgstr "<span foreground=\"#000000\"><b>センサー</b></span>"
 
 #: ../panel-plugin/sensors.c:541
 #, c-format
 msgid "%5.1f °F"
-msgstr ""
+msgstr "華氏 %5.1f 度"
 
 #. Celsius
 #. if (scale == FAHRENHEIT) {
@@ -32,25 +32,25 @@ msgstr ""
 #: ../panel-plugin/sensors.c:544 ../panel-plugin/hddtemp.c:374
 #, c-format
 msgid "%5.1f °C"
-msgstr ""
+msgstr "摂氏 %5.1f 度"
 
 #: ../panel-plugin/sensors.c:549
 #, c-format
 msgid "%+5.2f V"
-msgstr ""
+msgstr "%+5.2f V"
 
 #: ../panel-plugin/sensors.c:553
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f mWh"
-msgstr "%5.0f rpm"
+msgstr "%.0f mWh"
 
 #: ../panel-plugin/sensors.c:558
 msgid "off"
-msgstr ""
+msgstr "オフ"
 
 #: ../panel-plugin/sensors.c:560
 msgid "on"
-msgstr ""
+msgstr "オン"
 
 #: ../panel-plugin/sensors.c:564
 #, c-format
@@ -62,13 +62,12 @@ msgid "No sensors selected!"
 msgstr "センサーが選択されていません！"
 
 #: ../panel-plugin/sensors.c:631 ../panel-plugin/sensors.c:1097
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-" \n"
 "Xfce ハードウェアセンサー・プラグイン: \n"
 "センサーの機能値の読み込みに問題があるようです。 \n"
 "正確な値は保証されません。\n"
@@ -78,38 +77,32 @@ msgid "No sensors found!"
 msgstr "センサーが見つかりません！"
 
 #: ../panel-plugin/sensors.c:1529
-#, fuzzy
 msgid "UI style:"
 msgstr "UIのスタイル:"
 
 #: ../panel-plugin/sensors.c:1530
-#, fuzzy
 msgid "_text"
-msgstr "テキスト"
+msgstr "テキスト(_t)"
 
 #: ../panel-plugin/sensors.c:1532
-#, fuzzy
 msgid "g_raphical"
-msgstr "グラフィック"
+msgstr "グラフィック(_r)"
 
 #: ../panel-plugin/sensors.c:1569
-#, fuzzy
 msgid "Show _labels in graphical UI"
-msgstr "UIにラベルを表示する"
+msgstr "グラフィック UI にラベルを表示する(_l)"
 
 #: ../panel-plugin/sensors.c:1599
 msgid "Show colored _bars"
-msgstr ""
+msgstr "色付けされたバーを表示する(_b)"
 
 #: ../panel-plugin/sensors.c:1627
-#, fuzzy
 msgid "_Show title"
-msgstr "タイトルを表示する"
+msgstr "タイトルを表示する(_S)"
 
 #: ../panel-plugin/sensors.c:1655
-#, fuzzy
 msgid "Sensors t_ype:"
-msgstr "センサーの種類:"
+msgstr "センサーの種類(_y):"
 
 #: ../panel-plugin/sensors.c:1707
 msgid "Name"
@@ -136,9 +129,8 @@ msgid "Max"
 msgstr "最大"
 
 #: ../panel-plugin/sensors.c:1783
-#, fuzzy
 msgid "F_ont size:"
-msgstr "フォントのサイズ:"
+msgstr "フォントのサイズ(_o):"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors.c:1790
@@ -162,43 +154,37 @@ msgid "x-large"
 msgstr "巨大"
 
 #: ../panel-plugin/sensors.c:1826
-#, fuzzy
 msgid "Temperature scale:"
 msgstr "温度の目盛:"
 
 #: ../panel-plugin/sensors.c:1828
-#, fuzzy
 msgid "_Celsius"
-msgstr "摂氏"
+msgstr "摂氏(_C)"
 
 #: ../panel-plugin/sensors.c:1830
-#, fuzzy
 msgid "_Fahrenheit"
-msgstr "華氏"
+msgstr "華氏(_F)"
 
 #: ../panel-plugin/sensors.c:1869
 #, fuzzy
 msgid "U_pdate interval (seconds):"
-msgstr "更新の間隔 (秒):"
+msgstr "更新間隔 (秒)(_p):"
 
 #: ../panel-plugin/sensors.c:1899
-#, fuzzy
 msgid "E_xecute on double click:"
-msgstr "ダブルクリックで実行:"
+msgstr "ダブルクリックで実行(_x):"
 
 #: ../panel-plugin/sensors.c:1942
 msgid "_View"
-msgstr ""
+msgstr "表示(_V)"
 
 #: ../panel-plugin/sensors.c:1972
-#, fuzzy
 msgid "_Sensors"
-msgstr "<b>センサー</b>"
+msgstr "センサー(_S)"
 
 #: ../panel-plugin/sensors.c:2000
-#, fuzzy
 msgid "_Miscellaneous"
-msgstr "<b>その他</b>"
+msgstr "その他(_M)"
 
 #: ../panel-plugin/sensors.c:2049
 msgid "Edit Properties"
@@ -215,26 +201,26 @@ msgstr "センサープラグイン"
 #: ../panel-plugin/configuration.c:283 ../panel-plugin/hddtemp.c:189
 #: ../panel-plugin/hddtemp.c:228 ../panel-plugin/hddtemp.c:233
 msgid "Hard disks"
-msgstr ""
+msgstr "ハードディスク"
 
 #: ../panel-plugin/acpi.c:409 ../panel-plugin/acpi.c:417
 msgid "ACPI"
-msgstr ""
+msgstr "ACPI"
 
 #. to be displayed
 #. chip->description = _("Advanced Configuration and Power Interface");
 #: ../panel-plugin/acpi.c:411
 #, c-format
 msgid "ACPI v%s zones"
-msgstr ""
+msgstr "ACPI v%s ゾーン"
 
 #: ../panel-plugin/acpi.c:514
 msgid "<Unknown>"
-msgstr ""
+msgstr "不明"
 
 #: ../panel-plugin/hddtemp.c:232
 msgid "S.M.A.R.T. harddisk temperatures"
-msgstr ""
+msgstr "S.M.A.R.T. ハードディスク温度"
 
 #. note that this check does only work for some versions of hddtmep.
 #: ../panel-plugin/hddtemp.c:305
@@ -251,6 +237,16 @@ msgid ""
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
+"\"hddtemp\" は実行可能ですが、正常に実行されませんでした。おそらく、それらの温度を"
+"読み込む root 権限を必要とするディスクか、hddtemp コマンドが root として setuid"
+"されていないからでしょう。"
+"\n"
+"簡単ではありますが、お勧めしない提案として、 root ユーザで、\"chmod u+s %s\"を実行し、"
+"本プラグインかパネルを再起動するという方法があります。"
+"\n"
+"\"%s\" を呼んだ際に以下のエラーを受けとりました:\n"
+"%s\n"
+"返り値: %d です。\n"
 
 #. DBG  ("error %s\n", error->message);
 #: ../panel-plugin/hddtemp.c:328
@@ -259,11 +255,12 @@ msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr ""
+"\"%s\" を実行するときにエラーが発生しました。:\n"
+"%s"
 
 #: ../panel-plugin/lmsensors.c:77
-#, fuzzy
 msgid "LM Sensors"
-msgstr "<b>センサー</b>"
+msgstr "LM センサー"
 
 #: ../panel-plugin/lmsensors.c:335 ../panel-plugin/lmsensors.c:382
 #, c-format
@@ -271,12 +268,10 @@ msgid "Error: Could not connect to sensors!"
 msgstr "エラー: センサーに接続できませんでした！"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Sensor plugin "
-msgstr "センサー"
+msgstr "センサープラグイン"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
-#, fuzzy
 msgid "Show sensor values."
 msgstr "センサーの値を表示します。"
 
