@@ -1,0 +1,277 @@
+# translation of xfce4-sensors-plugin to Danish
+# Copyright (C) 2007 THE xfce4-sensors-plugin'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce4-sensors-plugin package.
+# Jens Hyllegaard <jens.hyllegaard@gmail.com>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-sensors-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-02-29 22:31+0100\n"
+"PO-Revision-Date: 2008-05-21 10:27+0100\n"
+"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../panel-plugin/sensors.c:204
+#: ../panel-plugin/sensors.c:767
+msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
+msgstr "<span foreground=\"#000000\"><b>Sensorer</b></span>"
+
+#: ../panel-plugin/sensors.c:541
+#, c-format
+msgid "%5.1f °F"
+msgstr "%5.1f °F"
+
+#. Celsius
+#. if (scale == FAHRENHEIT) {
+#. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
+#. } else { // Celsius
+#: ../panel-plugin/sensors.c:544
+#: ../panel-plugin/hddtemp.c:374
+#, c-format
+msgid "%5.1f °C"
+msgstr "%5.1f °C"
+
+#: ../panel-plugin/sensors.c:549
+#, c-format
+msgid "%+5.2f V"
+msgstr "%+5.2f V"
+
+#: ../panel-plugin/sensors.c:553
+#, c-format
+msgid "%.0f mWh"
+msgstr "%.0f mWh"
+
+#: ../panel-plugin/sensors.c:558
+msgid "off"
+msgstr "fra"
+
+#: ../panel-plugin/sensors.c:560
+msgid "on"
+msgstr "til"
+
+#: ../panel-plugin/sensors.c:564
+#, c-format
+msgid "%5.0f rpm"
+msgstr "%5.0f o/m."
+
+#: ../panel-plugin/sensors.c:596
+msgid "No sensors selected!"
+msgstr "Ingen sensorer valgt!"
+
+#: ../panel-plugin/sensors.c:631
+#: ../panel-plugin/sensors.c:1097
+#, c-format
+msgid ""
+"Xfce Hardware Sensors Plugin:\n"
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr ""
+"Xfce Hardwaresensorer-udvidelsesmodul:\n"
+"Det lader til at der var et problem med at læse en sensorværdi.\n"
+"Korrekt viderbehandling kan ikke garanteres.\n"
+
+#: ../panel-plugin/sensors.c:877
+msgid "No sensors found!"
+msgstr "Ingen sensorer fundet!"
+
+#: ../panel-plugin/sensors.c:1529
+msgid "UI style:"
+msgstr "Brugerfladestil:"
+
+#: ../panel-plugin/sensors.c:1530
+msgid "_text"
+msgstr "_tekst"
+
+#: ../panel-plugin/sensors.c:1532
+msgid "g_raphical"
+msgstr "g_rafisk"
+
+#: ../panel-plugin/sensors.c:1569
+msgid "Show _labels in graphical UI"
+msgstr "Vis _mærkater i grafisk brugerflade"
+
+#: ../panel-plugin/sensors.c:1599
+msgid "Show colored _bars"
+msgstr "Vis farvede _bjælker"
+
+#: ../panel-plugin/sensors.c:1627
+msgid "_Show title"
+msgstr "Vi_s titel"
+
+#: ../panel-plugin/sensors.c:1655
+msgid "Sensors t_ype:"
+msgstr "Sensortype:"
+
+#: ../panel-plugin/sensors.c:1707
+msgid "Name"
+msgstr "Navn"
+
+#: ../panel-plugin/sensors.c:1716
+msgid "Value"
+msgstr "Værdi"
+
+#: ../panel-plugin/sensors.c:1722
+msgid "Show"
+msgstr "Vis"
+
+#: ../panel-plugin/sensors.c:1731
+msgid "Color"
+msgstr "Farve"
+
+#: ../panel-plugin/sensors.c:1741
+msgid "Min"
+msgstr "Min."
+
+#: ../panel-plugin/sensors.c:1750
+msgid "Max"
+msgstr "Maks."
+
+#: ../panel-plugin/sensors.c:1783
+msgid "F_ont size:"
+msgstr "Skrifttypestørrelse:"
+
+#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#: ../panel-plugin/sensors.c:1790
+msgid "x-small"
+msgstr "ekstra lille"
+
+#: ../panel-plugin/sensors.c:1791
+msgid "small"
+msgstr "lille"
+
+#: ../panel-plugin/sensors.c:1792
+msgid "medium"
+msgstr "mellem"
+
+#: ../panel-plugin/sensors.c:1793
+msgid "large"
+msgstr "stor"
+
+#: ../panel-plugin/sensors.c:1794
+msgid "x-large"
+msgstr "ekstra stor"
+
+#: ../panel-plugin/sensors.c:1826
+msgid "Temperature scale:"
+msgstr "Temperaturskala:"
+
+#: ../panel-plugin/sensors.c:1828
+msgid "_Celsius"
+msgstr "_Celsius"
+
+#: ../panel-plugin/sensors.c:1830
+msgid "_Fahrenheit"
+msgstr "_Fahrenheit"
+
+#: ../panel-plugin/sensors.c:1869
+msgid "U_pdate interval (seconds):"
+msgstr "O_pdateringsinterval (sekunder):"
+
+#: ../panel-plugin/sensors.c:1899
+msgid "E_xecute on double click:"
+msgstr "U_dfør ved dobbeltklik:"
+
+#: ../panel-plugin/sensors.c:1942
+msgid "_View"
+msgstr "_Vis"
+
+#: ../panel-plugin/sensors.c:1972
+msgid "_Sensors"
+msgstr "_Sensorer"
+
+#: ../panel-plugin/sensors.c:2000
+msgid "_Miscellaneous"
+msgstr "_Diverse"
+
+#: ../panel-plugin/sensors.c:2049
+msgid "Edit Properties"
+msgstr "Redigér egenskaber"
+
+#: ../panel-plugin/sensors.c:2056
+#: ../panel-plugin/sensors.h:41
+msgid "Sensors Plugin"
+msgstr "Sensor-udvidelsesmodul"
+
+#. only use this if no hddtemp sensor
+#. FIXME: compare strings, or also have hddtmep and acpi store numeric values
+#. assert correctly saved file
+#: ../panel-plugin/configuration.c:133
+#: ../panel-plugin/configuration.c:277
+#: ../panel-plugin/configuration.c:283
+#: ../panel-plugin/hddtemp.c:189
+#: ../panel-plugin/hddtemp.c:228
+#: ../panel-plugin/hddtemp.c:233
+msgid "Hard disks"
+msgstr "Harddiske"
+
+#: ../panel-plugin/acpi.c:409
+#: ../panel-plugin/acpi.c:417
+msgid "ACPI"
+msgstr "ACPI"
+
+#. to be displayed
+#. chip->description = _("Advanced Configuration and Power Interface");
+#: ../panel-plugin/acpi.c:411
+#, c-format
+msgid "ACPI v%s zones"
+msgstr "ACPI v%s zoner"
+
+#: ../panel-plugin/acpi.c:514
+msgid "<Unknown>"
+msgstr "<Ukendt>"
+
+#: ../panel-plugin/hddtemp.c:232
+msgid "S.M.A.R.T. harddisk temperatures"
+msgstr "S.M.A.R.T. harddisk-temperaturer"
+
+#. note that this check does only work for some versions of hddtmep.
+#: ../panel-plugin/hddtemp.c:305
+#, c-format
+msgid ""
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"\n"
+"Calling \"%s\" gave the following error:\n"
+"%s\n"
+"with a return value of %d.\n"
+msgstr ""
+"\"hddtemp\" blev ikke afviklet korrekt, selv om den er eksekverbar. Dette skyldes nok at diskene kræver root-rettigheder for at læse deres temperaturer, og at \"hddtemp\" ikke er kørt som root.\n"
+"\n"
+"En hurtig, men beskidt løsning er at køre \"chmod u+s %s\" som root-bruger, og genstarte dette udvidelsesmodul eller dets panel.\n"
+"\n"
+"Afvikling af \"%s\" gav følgende fejl:\n"
+"%s\n"
+"med returkoden %d.\n"
+
+#. DBG  ("error %s\n", error->message);
+#: ../panel-plugin/hddtemp.c:328
+#, c-format
+msgid ""
+"An error occurred when executing \"%s\":\n"
+"%s"
+msgstr ""
+"Der opstod en fejl ved afvikling af \"%s\":\n"
+"%s"
+
+#: ../panel-plugin/lmsensors.c:77
+msgid "LM Sensors"
+msgstr "LM Sensors"
+
+#: ../panel-plugin/lmsensors.c:335
+#: ../panel-plugin/lmsensors.c:382
+#, c-format
+msgid "Error: Could not connect to sensors!"
+msgstr "Fejl: Kunne ikke tilslutte til sensorer!"
+
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
+msgid "Sensor plugin "
+msgstr "Sensor-udvidelsesmodul"
+
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
+msgid "Show sensor values."
+msgstr "Vis sensorværdier."
+
