@@ -7,9 +7,7 @@ TODO
 
 Known bugs or user requests
 ---------------------------
-- add default command via g_strdup instead of constant value
-- add ability to decrease space between columns i ntext view
-- add ability to not display units in text view
+- add ability to decrease space between columns in text view
 - better support for hddtemp via nc/netcat
 - better checks for sudo/hddtemp/access rights via g_access or g_stat or similar
-- check return code for /dev/fd0 in line 295 of hddtemp.c
+

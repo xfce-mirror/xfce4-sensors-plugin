@@ -1,5 +1,21 @@
+2008-06-13 timystery
+    * added ability to not display units in text view
+    * add default command via g_strdup instead of constant value
+    * did NOT replace check for hddtemp!=0 and /dev/fd* by ==0; would be very very wrong
+    * refresh ACPI values properly?
+    * added option to have smaller spacings between columns in textual display mode
+
+2008-03-04 timystery
+    * began adding checkbox to not display the units in text view
+
+2008-02-29 timystery
+    * removed some minor mem leaks
+    * changed error handling with hddtemp stuff
+    * changed my mind to start the netcat/nc stuff for 0.11.0 (0.10.99.5 and later)
+
 2007-12-14 timystery
     * added support for libsensors4
+
 2007-12-11 timystery
     * removed remainders of playing around with g_spawn*
     * removed some debug statements

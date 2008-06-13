@@ -108,6 +108,12 @@ typedef struct {
     /* show labels in panel (GUI mode only) */
     gboolean show_labels;
 
+    /* show units in textual view */
+    gboolean show_units;
+
+    /* show small spacings only in textual view */
+    gboolean show_smallspacings;
+
     /* show colored bars (GUI mode only) */
     gboolean show_colored_bars;
 
@@ -205,6 +211,8 @@ typedef struct {
     GtkWidget *myTreeView;
     GtkTreeStore *myListStore[10]; /* replace by GPtrArray as well */
     GtkWidget *font_Box; /* used to disable font size option when using graphical view */
+    GtkWidget *unit_checkbox;
+    GtkWidget *smallspacing_checkbox;
     GtkWidget *labels_Box; /* used to enable 'show labels' option when using graphical view */
     GtkWidget *coloredBars_Box;
     GtkWidget *temperature_radio_group;

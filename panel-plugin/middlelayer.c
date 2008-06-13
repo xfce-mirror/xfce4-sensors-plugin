@@ -185,8 +185,7 @@ sensor_get_value (t_chip *chip, int number, double *value)
             g_assert (number<chip->num_features);
             feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, number);
             g_assert (feature!=NULL);
-            /*  *value = get_acpi_zone_value (feature->name); */
-            /* refresh_acpi ((gpointer) feature);   */
+            refresh_acpi ((gpointer) feature, NULL);
             *value = feature->raw_value;
             return 0; /* HERE    I    AM,    I    WANNA    BE    FIXED    */
         #else

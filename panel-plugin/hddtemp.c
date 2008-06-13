@@ -123,6 +123,7 @@ read_disks_linux26 (t_chip *chip)
         if ( strncmp (dirname, "ram", 3)!=0 &&
              strncmp (dirname, "loop", 4)!=0 &&
              strncmp (dirname, "md", 2)!=0 &&
+             strncmp (dirname, "fd", 2)!=0 &&
              strncmp (dirname, "dm-", 3)!=0 ) {
             /* TODO: look, if /dev/dirname exists? */
             chipfeature = g_new0 (t_chipfeature, 1);
@@ -295,10 +296,10 @@ get_hddtemp_value (char* disk)
     DBG ("Exit code %d on %s with stdout of %s.\n", exit_status, disk, standard_output);
 
     /* filter those with no sensors out */
-    if (exit_status!=0 && strncmp(disk, "/dev/fd", 6)==0) { /* is returned for floppy disks */
+    if (exit_status==0 && strncmp(disk, "/dev/fd", 6)==0) { /* is returned for floppy disks */
         value = 0.0;
     }
-    else if ((exit_status==256 || strlen(standard_error)>0) 
+    else if ((exit_status==256 || strlen(standard_error)>0)
             && access (PATH_HDDTEMP, X_OK)==0) /* || strlen(standard_error)>0) */
     {
         /* note that this check does only work for some versions of hddtmep. */
@@ -321,7 +322,7 @@ get_hddtemp_value (char* disk)
         quick_message (msg_text);
         value = ZERO_KELVIN;
     } */
-    
+
     else if (error && (!result || exit_status!=0))
     {
         /* DBG  ("error %s\n", error->message); */

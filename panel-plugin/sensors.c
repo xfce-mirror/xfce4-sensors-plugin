@@ -129,13 +129,13 @@ sensors_remove_graphical_panel (t_sensors *sensors)
 
             if (chipfeature->show == TRUE) {
                 panel = (t_barpanel*) sensors->panels[chipNum][feature];
-		
-		if (sensors->show_labels == TRUE)
+
+        if (sensors->show_labels == TRUE)
                     gtk_widget_destroy (panel->label);
 
                 gtk_widget_destroy (panel->progressbar);
                 gtk_widget_destroy (panel->databox);
-                
+
                 g_free (panel);
             }
         }
@@ -402,7 +402,7 @@ determine_number_of_cols (gint numRows, gint itemsToDisplay)
     else
         numCols = itemsToDisplay;
 
-    TRACE ("leaves determine_number_of_cols");
+    TRACE ("leaves determine_number_of_cols width cols=%d", numCols);
 
     return numCols;
 }
@@ -414,7 +414,7 @@ sensors_set_text_panel_label (t_sensors *sensors, gint numCols, gint itemsToDisp
     gint currentColumn, chipNum, feature;
     t_chip *chip;
     t_chipfeature *chipfeature;
-    gchar *myLabelText;
+    gchar *myLabelText, *tmpstring;
 
     TRACE ("enters sensors_set_text_panel_label");
 
@@ -435,15 +435,30 @@ sensors_set_text_panel_label (t_sensors *sensors, gint numCols, gint itemsToDisp
             g_assert (chipfeature != NULL);
 
             if (chipfeature->show == TRUE) {
-                myLabelText = g_strconcat (myLabelText,
+                if (sensors->show_units) {
+                    tmpstring = g_strconcat (myLabelText,
                                             "<span foreground=\"",
                                             chipfeature->color, "\" size=\"",
                                             sensors->font_size, "\">",
                                             chipfeature->formatted_value,
                                             "</span>", NULL);
+                }
+                else {
+                    tmpstring = g_strdup_printf("%s<span foreground=\"%s\" size=\"%s\">%.1f</span>", myLabelText,
+                            chipfeature->color, sensors->font_size,
+                            chipfeature->raw_value);
+                    myLabelText = g_strconcat (myLabelText, tmpstring, NULL);
+                }
+
+                g_free (myLabelText);
+
+                myLabelText = tmpstring;
 
                 if (currentColumn < numCols-1) {
-                    myLabelText = g_strconcat (myLabelText, " \t", NULL);
+                    if (sensors->show_smallspacings)
+                        myLabelText = g_strconcat (myLabelText, "  ", NULL);
+                    else
+                        myLabelText = g_strconcat (myLabelText, " \t", NULL);
                     currentColumn++;
                 }
                 else if (itemsToDisplay > 1) { /* do NOT add \n if last item */
@@ -458,7 +473,10 @@ sensors_set_text_panel_label (t_sensors *sensors, gint numCols, gint itemsToDisp
     g_assert (itemsToDisplay==0);
 
     gtk_label_set_markup (GTK_LABEL(sensors->panel_label_data), myLabelText);
-    g_free(myLabelText);
+    /* if (sensors->show_units) */
+        g_free(myLabelText);
+    /* else: with sprintf, we cannot free the string. how bad. */
+
     gtk_misc_set_alignment(GTK_MISC(sensors->panel_label_data), 0.0, 0.5);
     gtk_widget_show (sensors->panel_label_data);
 
@@ -494,7 +512,7 @@ count_number_checked_sensor_features (t_sensors *sensors)
         }
     }
 
-    TRACE ("leaves count_number_checked_sensor_features");
+    TRACE ("leaves count_number_checked_sensor_features with %d", itemsToDisplay);
 
     return itemsToDisplay;
 }
@@ -628,6 +646,8 @@ sensors_create_tooltip (gpointer data)
                                                     &sensorFeature);
 
                 if ( res!=0 ) {
+                    /* FIXME: either print nothing, or undertake appropriate action,
+                     * or pop up a message box. */
                     g_printf ( _("Xfce Hardware Sensors Plugin:\n"
                     "Seems like there was a problem reading a sensor feature "
                     "value.\nProper proceeding cannot be guaranteed.\n") );
@@ -837,8 +857,13 @@ sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
 
     /* double-click improvement */
     sensors->exec_command = TRUE;
-    sensors->command_name = "xsensors";
+    sensors->command_name = g_strdup("xsensors");
     sensors->doubleclick_id = 0;
+
+    /* show units */
+    sensors->show_units = TRUE;
+
+    sensors->show_smallspacings = FALSE;
 
     TRACE ("leaves sensors_init_default_values");
 }
@@ -1012,11 +1037,15 @@ display_style_changed (GtkWidget *widget, t_sensors_dialog *sd)
         gtk_widget_hide(sd->labels_Box);
         gtk_widget_hide(sd->coloredBars_Box);
         gtk_widget_show(sd->font_Box);
+        gtk_widget_show (sd->unit_checkbox);
+        gtk_widget_show (sd->smallspacing_checkbox);
     }
     else {
         gtk_widget_show(sd->labels_Box);
         gtk_widget_show(sd->coloredBars_Box);
         gtk_widget_hide(sd->font_Box);
+        gtk_widget_hide (sd->unit_checkbox);
+        gtk_widget_hide (sd->smallspacing_checkbox);
     }
 
     sd->sensors->display_values_graphically = gtk_toggle_button_get_active
@@ -1182,6 +1211,36 @@ adjustment_value_changed (GtkWidget *widget, t_sensors_dialog* sd)
 
     TRACE ("leaves adjustment_value_changed ");
 }
+
+
+static void
+draw_units_changed (GtkWidget *widget, t_sensors_dialog* sd)
+{
+    TRACE ("enters draw_units_changed");
+
+    sd->sensors->show_units = ! sd->sensors->show_units;
+        /* (gboolean) gtk_toggle_button_get_mode ( GTK_TOGGLE_BUTTON (widget) ); */
+
+    sensors_show_text_display (sd->sensors);
+
+    TRACE ("leaves draw_units_changed");
+}
+
+
+static void
+draw_smallspacings_changed (GtkWidget *widget, t_sensors_dialog* sd)
+{
+    TRACE ("enters draw_smallspacings_changed");
+
+    sd->sensors->show_smallspacings = ! sd->sensors->show_smallspacings;
+        /* (gboolean) gtk_toggle_button_get_mode ( GTK_TOGGLE_BUTTON (widget) ); */
+
+    sensors_show_text_display (sd->sensors);
+
+    TRACE ("leaves draw_smallspacings_changed");
+}
+
+
 
 /* double-click improvement */
 static void
@@ -1368,9 +1427,9 @@ list_cell_text_edited (GtkCellRendererText *cellrenderertext,
     TRACE ("enters list_cell_text_edited");
 
     if (sd->sensors->display_values_graphically == TRUE) {
-    	DBG("removing graphical panel");
+        DBG("removing graphical panel");
         sensors_remove_graphical_panel(sd->sensors);
-	DBG("done removing grap. panel");
+    DBG("done removing grap. panel");
     }
     gtk_combo_box_active =
         gtk_combo_box_get_active(GTK_COMBO_BOX (sd->myComboBox));
@@ -1852,6 +1911,44 @@ add_temperature_unit_box (GtkWidget *vbox, t_sensors_dialog *sd)
 
 
 static void
+add_units_box (GtkWidget * vbox, t_sensors_dialog * sd)
+{
+    TRACE ("enters add_units_box");
+
+    sd->unit_checkbox = gtk_check_button_new_with_mnemonic(_("Show _Units"));
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(sd->unit_checkbox), sd->sensors->show_units);
+
+    gtk_widget_show (sd->unit_checkbox);
+
+    gtk_box_pack_start (GTK_BOX (vbox), sd->unit_checkbox, FALSE, TRUE, 0);
+
+    g_signal_connect   (G_OBJECT (sd->unit_checkbox), "toggled",
+                        G_CALLBACK (draw_units_changed), sd );
+
+    TRACE ("leaves add_units_box");
+}
+
+static void
+add_smallspacings_box (GtkWidget * vbox, t_sensors_dialog * sd)
+{
+    TRACE ("enters add_smallspacings_box");
+
+    sd->smallspacing_checkbox  = gtk_check_button_new_with_mnemonic(_("Small S_pacing"));
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(sd->smallspacing_checkbox), sd->sensors->show_smallspacings);
+
+    gtk_widget_show (sd->smallspacing_checkbox);
+
+    gtk_box_pack_start (GTK_BOX (vbox), sd->smallspacing_checkbox, FALSE, TRUE, 0);
+
+    g_signal_connect   (G_OBJECT (sd->smallspacing_checkbox), "toggled",
+                        G_CALLBACK (draw_smallspacings_changed), sd );
+
+    TRACE ("leaves add_smallspacings_box");
+}
+
+
+
+static void
 add_update_time_box (GtkWidget * vbox, t_sensors_dialog * sd)
 {
     GtkWidget *spinner, *myLabel, *myBox;
@@ -1949,10 +2046,11 @@ add_view_frame (GtkWidget * notebook, t_sensors_dialog * sd)
     add_title_box (_vbox, sd);
 
     add_ui_style_box (_vbox, sd);
-
     add_labels_box (_vbox, sd);
     add_colored_bars_box (_vbox, sd);
     add_font_size_box (_vbox, sd);
+    add_units_box (_vbox, sd);
+    add_smallspacings_box(_vbox, sd);
 
     TRACE ("leaves add_view_frame");
 }
@@ -2024,10 +2122,8 @@ on_optionsDialog_response (GtkWidget *dlg, int response, t_sensors_dialog *sd)
         g_free(sd->sensors->command_name);
         sd->sensors->command_name =
             g_strdup ( gtk_entry_get_text(GTK_ENTRY(sd->myCommandName_Entry)) );
-
         sensors_write_config (sd->sensors->plugin, sd->sensors);
     }
-
     gtk_widget_destroy (sd->dialog);
     xfce_panel_plugin_unblock_menu (sd->sensors->plugin);
 

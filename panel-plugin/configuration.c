@@ -98,6 +98,10 @@ sensors_write_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 
     xfce_rc_write_bool_entry (rc, "Exec_Command", sensors->exec_command);
 
+    xfce_rc_write_bool_entry (rc, "Show_Units", sensors->show_units);
+
+    xfce_rc_write_bool_entry(rc, "Small_Spacings", sensors->show_smallspacings);
+
     xfce_rc_write_entry (rc, "Command_Name", sensors->command_name);
 
     xfce_rc_write_int_entry (rc, "Number_Chips", sensors->num_sensorchips);
@@ -191,6 +195,10 @@ sensors_read_general_config (XfceRc *rc, t_sensors *sensors)
                                                   60);
 
         sensors->exec_command = xfce_rc_read_bool_entry (rc, "Exec_Command", TRUE);
+
+        sensors->show_units= xfce_rc_read_bool_entry (rc, "Show_Units", TRUE);
+
+        sensors->show_smallspacings= xfce_rc_read_bool_entry (rc, "Small_Spacings", FALSE);
 
         if ((value = xfce_rc_read_entry (rc, "Command_Name", NULL)) && *value) {
             sensors->command_name = g_strdup (value);
