@@ -1775,7 +1775,17 @@ add_type_box (GtkWidget * vbox, t_sensors_dialog * sd)
             ( sensors_get_adapter_name_wrapper
                 ( chip->chip_name->bus) );
     else */
-        sd->mySensorLabel =
+
+    hbox = gtk_hbox_new (FALSE, BORDER);
+    gtk_widget_show (hbox);
+    gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
+
+    label = gtk_label_new_with_mnemonic (_("Description:"));
+    gtk_widget_show (label);
+    gtk_misc_set_alignment (GTK_MISC (label), 0, 0.5);
+    gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 0);
+
+    sd->mySensorLabel =
             gtk_label_new (chip->description);
 
     gtk_widget_show (sd->mySensorLabel);
