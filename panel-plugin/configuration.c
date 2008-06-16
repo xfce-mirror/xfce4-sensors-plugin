@@ -106,6 +106,8 @@ sensors_write_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 
     xfce_rc_write_int_entry (rc, "Number_Chips", sensors->num_sensorchips);
 
+    xfce_rc_write_bool_entry (rc, "Suppress_Hddtemp_Message", sensors->suppressmessage);
+
 
     for (i=0; i<sensors->num_sensorchips; i++) {
 
@@ -204,6 +206,9 @@ sensors_read_general_config (XfceRc *rc, t_sensors *sensors)
             sensors->command_name = g_strdup (value);
         }
 
+        if (!sensors->suppressmessage)
+            sensors->suppressmessage = xfce_rc_read_bool_entry (rc, "Suppress_Hddtemp_Message", FALSE);
+
         num_chips = xfce_rc_read_int_entry (rc, "Number_Chips", 0);
         /* or could use 1 or the always existent dummy entry */
     }
@@ -211,6 +216,30 @@ sensors_read_general_config (XfceRc *rc, t_sensors *sensors)
     TRACE ("leaves sensors_read_general_config");
 }
 
+void
+sensors_read_preliminary_config (XfcePanelPlugin *plugin, t_sensors *sensors)
+{
+    char *file;
+    XfceRc *rc;
+
+    TRACE ("enters sensors_read_preliminary_config");
+
+    if (!(file = xfce_panel_plugin_lookup_rc_file (plugin)))
+        return;
+
+    rc = xfce_rc_simple_open (file, TRUE);
+    g_free (file);
+
+    if (!rc)
+        return;
+
+    if (xfce_rc_has_group (rc, "General") ) {
+        xfce_rc_set_group (rc, "General");
+        sensors->suppressmessage = xfce_rc_read_bool_entry (rc, "Suppress_Hddtemp_Message", FALSE);
+    }
+
+    TRACE ("leaves sensors_read_preliminary_config");
+}
 
 /* Read the configuration file at init */
 void

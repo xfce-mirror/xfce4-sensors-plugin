@@ -41,7 +41,7 @@
  * @Return: Number of initialized features
  * @Param: Double-pointer to array of chips
  */
-int initialize_all (GPtrArray **chips);
+int initialize_all (GPtrArray **chips, gboolean *suppressmessage);
 
 
 /*

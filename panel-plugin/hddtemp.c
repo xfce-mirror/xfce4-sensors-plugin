@@ -31,6 +31,8 @@
 #include <glib/gspawn.h>
 #include <glib/gstrfuncs.h>
 
+#include <gtk/gtkbox.h>
+#include <gtk/gtkcheckbutton.h>
 #include <gtk/gtkmessagedialog.h>
 #include <gtk/gtklabel.h>
 #include <gtk/gtkstock.h>
@@ -73,6 +75,38 @@ void quick_message (gchar *message) {
     gtk_dialog_run(GTK_DIALOG(dialog));
 
     TRACE ("leaves quick_message");
+}
+
+
+gboolean quick_message_with_checkbox (gchar *message, gchar *checkboxtext) {
+
+    GtkWidget *dialog, *checkbox;  /*, *label; */
+    gboolean is_active;
+
+    TRACE ("enters quick_message");
+
+    dialog = gtk_message_dialog_new (NULL,
+                                  GTK_DIALOG_DESTROY_WITH_PARENT,
+                                  GTK_MESSAGE_INFO,
+                                  GTK_BUTTONS_CLOSE,
+                                  message);
+
+    gtk_window_set_title(GTK_WINDOW(dialog), _("Xfce 4 Sensors Plugin"));
+
+    checkbox = gtk_check_button_new_with_mnemonic (checkboxtext);
+
+    gtk_box_pack_start (GTK_BOX(GTK_DIALOG(dialog)->vbox), checkbox, FALSE, FALSE, 0);
+    gtk_widget_show(checkbox);
+
+    gtk_dialog_run(GTK_DIALOG(dialog));
+
+    is_active = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON(checkbox));
+
+    gtk_widget_destroy (dialog);
+
+    TRACE ("leaves quick_message");
+
+    return is_active;
 }
 
 
@@ -140,7 +174,7 @@ read_disks_linux26 (t_chip *chip)
 
 
 void
-remove_unmonitored_drives (t_chip *chip)
+remove_unmonitored_drives (t_chip *chip, gboolean *suppressmessage)
 {
     int i, result;
     t_chipfeature *chipfeature;
@@ -150,7 +184,7 @@ remove_unmonitored_drives (t_chip *chip)
     for (i=0; i<chip->num_features; i++)
     {
         chipfeature = g_ptr_array_index (chip->chip_features, i);
-        result = get_hddtemp_value (chipfeature->name);
+        result = get_hddtemp_value (chipfeature->name, suppressmessage);
         if (result == 0.0)
         {
             DBG ("removing single disk");
@@ -213,7 +247,7 @@ populate_detected_drives (t_chip *chip)
 
 
 int
-initialize_hddtemp (GPtrArray *chips)
+initialize_hddtemp (GPtrArray *chips, gboolean *suppressmessage)
 {
     int generation, major, result, retval;
     struct utsname *p_uname;
@@ -255,7 +289,7 @@ initialize_hddtemp (GPtrArray *chips)
 
     g_free(p_uname);
 
-    remove_unmonitored_drives (chip);
+    remove_unmonitored_drives (chip, suppressmessage);
     DBG  ("numfeatures=%d\n", chip->num_features);
     if ( chip->num_features>0 ) {  /* if (1) */
 
@@ -274,16 +308,21 @@ initialize_hddtemp (GPtrArray *chips)
 
 
 double
-get_hddtemp_value (char* disk)
+get_hddtemp_value (char* disk, gboolean *suppressmessage)
 {
     gchar *standard_output, *standard_error;
-    gchar *cmd_line, *msg_text;
+    gchar *cmd_line, *msg_text, *checktext;
     gint exit_status=0;
     double value;
-    gboolean result;
+    gboolean result, nevershowagain;
     GError *error;
 
-    TRACE ("enters get_hddtemp_value for %s", disk);
+    TRACE ("enters get_hddtemp_value for %s with suppress=%d", disk, *suppressmessage);
+
+    if (suppressmessage!=NULL)
+        nevershowagain = *suppressmessage;
+    else
+        nevershowagain = FALSE;
 
     cmd_line = g_strdup_printf ( "%s -n -q %s", PATH_HDDTEMP, disk);
 
@@ -303,17 +342,25 @@ get_hddtemp_value (char* disk)
             && access (PATH_HDDTEMP, X_OK)==0) /* || strlen(standard_error)>0) */
     {
         /* note that this check does only work for some versions of hddtmep. */
-        msg_text = g_strdup_printf(_("\"hddtemp\" was not executed correctly, "
-                        "although it is executable. This is most probably due "
-                        "to the disks requiring root privileges to read their "
-                        "temperatures, and \"hddtemp\" not being setuid root."
-                        "\n\n"
-                        "An easy but dirty solution is to run \"chmod u+s %s"
-                        "\" as root user and restart this plugin "
-                        "or its panel.\n\n"
-                        "Calling \"%s\" gave the following error:\n%s\nwith a return value of %d.\n"),
-                        PATH_HDDTEMP, cmd_line, standard_error, exit_status);
-        quick_message (msg_text);
+        if (!nevershowagain) {
+            msg_text = g_strdup_printf(_("\"hddtemp\" was not executed correctly, "
+                            "although it is executable. This is most probably due "
+                            "to the disks requiring root privileges to read their "
+                            "temperatures, and \"hddtemp\" not being setuid root."
+                            "\n\n"
+                            "An easy but dirty solution is to run \"chmod u+s %s"
+                            "\" as root user and restart this plugin "
+                            "or its panel.\n\n"
+                            "Calling \"%s\" gave the following error:\n%s\nwith a return value of %d.\n"),
+                            PATH_HDDTEMP, cmd_line, standard_error, exit_status);
+            checktext = g_strdup(_("Suppress this message in future"));
+            /* quick_message (msg_text); */
+            nevershowagain = quick_message_with_checkbox(msg_text, checktext);
+
+            if (suppressmessage!=NULL)
+                *suppressmessage = nevershowagain;
+        }
+
         value = ZERO_KELVIN;
     }
     /* else if (strlen(standard_error)>0) {
@@ -365,7 +412,7 @@ refresh_hddtemp (gpointer chip_feature, gpointer data)
 
     cf = (t_chipfeature *) chip_feature;
 
-    value = get_hddtemp_value (cf->name);
+    value = get_hddtemp_value (cf->name, NULL);
 
     /* actually, that's done in the gui part */
     g_free (cf->formatted_value);

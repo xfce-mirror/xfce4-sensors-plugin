@@ -33,4 +33,6 @@ void sensors_read_general_config (XfceRc *rc, t_sensors *sensors);
 
 void sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors);
 
+void sensors_read_preliminary_config (XfcePanelPlugin *plugin, t_sensors *sensors);
+
 #endif  /* define XFCE4_SENSORS_CONFIGURATION_H */

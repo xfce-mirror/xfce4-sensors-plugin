@@ -41,7 +41,7 @@
 #endif
 
 int
-initialize_all (GPtrArray **chips)
+initialize_all (GPtrArray **chips, gboolean *suppressmessage)
 {
     int res = 0;
 
@@ -54,7 +54,7 @@ initialize_all (GPtrArray **chips)
     #endif
 
     #ifdef HAVE_HDDTEMP
-    res += initialize_hddtemp (*chips);
+    res += initialize_hddtemp (*chips, suppressmessage);
     #endif
 
     #ifdef HAVE_ACPI
@@ -171,7 +171,7 @@ sensor_get_value (t_chip *chip, int number, double *value)
             g_assert (number<chip->num_features);
             feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, number);
             g_assert (feature!=NULL);
-            *value = get_hddtemp_value (feature->name);
+            *value = get_hddtemp_value (feature->name, NULL);
             if (*value==ZERO_KELVIN) {
                 return NO_VALID_HDDTEMP;
             }

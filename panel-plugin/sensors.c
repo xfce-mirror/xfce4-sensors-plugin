@@ -675,6 +675,7 @@ sensors_create_tooltip (gpointer data)
     if (!tooltips)
       tooltips = gtk_tooltips_new();
 
+    /* #if GTK_VERSION < 2.11 */
     gtk_tooltips_set_tip (tooltips, GTK_WIDGET(sensors->eventbox),
                           myToolTipText, NULL);
     g_free (myToolTipText);
@@ -863,10 +864,35 @@ sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
     /* show units */
     sensors->show_units = TRUE;
 
+    sensors->suppressmessage = FALSE;
+
     sensors->show_smallspacings = FALSE;
 
     TRACE ("leaves sensors_init_default_values");
 }
+
+
+/* #if GTK_VERSION >= 2.11
+ * static gboolean
+handle_tooltip_query (GtkWidget  *widget,
+                                         gint        x, gint        y,
+                                         GtkTooltip *tooltip,
+                                         gpointer    data)
+{
+    t_sensors *sensors;
+    gchar *buffer;
+
+    g_assert (data!=NULL);
+
+    sensors = (t_sensors *) data;
+
+    buffer = g_strdup("Tooltip placeholder");
+
+    gtk_tooltip_set_markup (tooltip, buffer);
+
+    return TRUE;
+} */
+
 
 static t_sensors *
 sensors_new (XfcePanelPlugin *plugin)
@@ -883,8 +909,11 @@ sensors_new (XfcePanelPlugin *plugin)
     /* init xfce sensors stuff width default values */
     sensors_init_default_values (sensors, plugin);
 
+    /* get suppressmessages */
+    sensors_read_preliminary_config(plugin, sensors);
+
     /* read all sensors from libraries */
-    result = initialize_all (&(sensors->chips));
+    result = initialize_all (&(sensors->chips), &(sensors->suppressmessage));
 
     sensors->num_sensorchips = sensors->chips->len;
 
@@ -934,6 +963,13 @@ sensors_new (XfcePanelPlugin *plugin)
                                                  "button-press-event",
                                                  G_CALLBACK (execute_command),
                                                  (gpointer) sensors);
+
+    /* #if GTK_VERSION >= 2.11
+     * g_signal_connect(G_OBJECT(sensors->eventbox),
+                                    "query-tooltip",
+                                    G_CALLBACK(handle_tooltip_query),
+                                    (gpointer) sensors); */
+
 
     TRACE ("leaves sensors_new");
 
@@ -1219,7 +1255,6 @@ draw_units_changed (GtkWidget *widget, t_sensors_dialog* sd)
     TRACE ("enters draw_units_changed");
 
     sd->sensors->show_units = ! sd->sensors->show_units;
-        /* (gboolean) gtk_toggle_button_get_mode ( GTK_TOGGLE_BUTTON (widget) ); */
 
     sensors_show_text_display (sd->sensors);
 
@@ -1233,13 +1268,22 @@ draw_smallspacings_changed (GtkWidget *widget, t_sensors_dialog* sd)
     TRACE ("enters draw_smallspacings_changed");
 
     sd->sensors->show_smallspacings = ! sd->sensors->show_smallspacings;
-        /* (gboolean) gtk_toggle_button_get_mode ( GTK_TOGGLE_BUTTON (widget) ); */
 
     sensors_show_text_display (sd->sensors);
 
     TRACE ("leaves draw_smallspacings_changed");
 }
 
+
+static void
+suppressmessage_changed (GtkWidget *widget, t_sensors_dialog* sd)
+{
+    TRACE ("enters suppressmessage_changed");
+
+    sd->sensors->suppressmessage = ! sd->sensors->suppressmessage;
+
+    TRACE ("leaves suppressmessage_changed");
+}
 
 
 /* double-click improvement */
@@ -1922,6 +1966,9 @@ add_units_box (GtkWidget * vbox, t_sensors_dialog * sd)
 
     gtk_box_pack_start (GTK_BOX (vbox), sd->unit_checkbox, FALSE, TRUE, 0);
 
+    if (sd->sensors->display_values_graphically==TRUE)
+        gtk_widget_hide(sd->unit_checkbox);
+
     g_signal_connect   (G_OBJECT (sd->unit_checkbox), "toggled",
                         G_CALLBACK (draw_units_changed), sd );
 
@@ -1933,12 +1980,15 @@ add_smallspacings_box (GtkWidget * vbox, t_sensors_dialog * sd)
 {
     TRACE ("enters add_smallspacings_box");
 
-    sd->smallspacing_checkbox  = gtk_check_button_new_with_mnemonic(_("Small S_pacing"));
+    sd->smallspacing_checkbox  = gtk_check_button_new_with_mnemonic(_("Small horizontal s_pacing"));
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(sd->smallspacing_checkbox), sd->sensors->show_smallspacings);
 
     gtk_widget_show (sd->smallspacing_checkbox);
 
     gtk_box_pack_start (GTK_BOX (vbox), sd->smallspacing_checkbox, FALSE, TRUE, 0);
+
+    if (sd->sensors->display_values_graphically==TRUE)
+        gtk_widget_hide(sd->smallspacing_checkbox);
 
     g_signal_connect   (G_OBJECT (sd->smallspacing_checkbox), "toggled",
                         G_CALLBACK (draw_smallspacings_changed), sd );
@@ -1946,6 +1996,24 @@ add_smallspacings_box (GtkWidget * vbox, t_sensors_dialog * sd)
     TRACE ("leaves add_smallspacings_box");
 }
 
+
+static void
+add_suppressmessage_box (GtkWidget * vbox, t_sensors_dialog * sd)
+{
+    TRACE ("enters add_suppressmessage_box");
+
+    sd->suppressmessage_checkbox  = gtk_check_button_new_with_mnemonic(_("Suppress messages"));
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(sd->suppressmessage_checkbox), sd->sensors->suppressmessage);
+
+    gtk_widget_show (sd->suppressmessage_checkbox);
+
+    gtk_box_pack_start (GTK_BOX (vbox), sd->suppressmessage_checkbox, FALSE, TRUE, 0);
+
+    g_signal_connect   (G_OBJECT (sd->suppressmessage_checkbox), "toggled",
+                        G_CALLBACK (suppressmessage_changed), sd );
+
+    TRACE ("leaves add_suppressmessage_box");
+}
 
 
 static void
@@ -2044,6 +2112,8 @@ add_view_frame (GtkWidget * notebook, t_sensors_dialog * sd)
     gtk_notebook_append_page (GTK_NOTEBOOK(notebook), _vbox, _label);
 
     add_title_box (_vbox, sd);
+
+    add_suppressmessage_box(_vbox, sd);
 
     add_ui_style_box (_vbox, sd);
     add_labels_box (_vbox, sd);

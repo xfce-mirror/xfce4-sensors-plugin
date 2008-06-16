@@ -31,7 +31,7 @@
  * @Return: Number of initialized chips
  * @Param: Pointer to array of chips
  */
-int initialize_hddtemp (GPtrArray *chips);
+int initialize_hddtemp (GPtrArray *chips, gboolean *suppressmessage);
 
 
 /*
@@ -42,6 +42,6 @@ int initialize_hddtemp (GPtrArray *chips);
 void refresh_hddtemp (gpointer chip_feature, gpointer data);
 
 
-double get_hddtemp_value (char* disk);
+double get_hddtemp_value (char* disk, gboolean *suppressmessage);
 
 #endif /* XFCE4_SENSORS_HDDTEMP_H */
