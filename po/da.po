@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-16 21:19+0200\n"
+"POT-Creation-Date: 2008-06-16 23:23+0200\n"
 "PO-Revision-Date: 2008-05-21 10:27+0100\n"
 "Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -27,7 +27,7 @@ msgstr "%5.1f °F"
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:437
+#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:422
 #, c-format
 msgid "%5.1f °C"
 msgstr "%5.1f °C"
@@ -61,7 +61,7 @@ msgstr "Ingen sensorer valgt!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors.c:651 ../panel-plugin/sensors.c:1159
+#: ../panel-plugin/sensors.c:651 ../panel-plugin/sensors.c:1162
 #, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -72,146 +72,150 @@ msgstr ""
 "Det lader til at der var et problem med at læse en sensorværdi.\n"
 "Korrekt viderbehandling kan ikke garanteres.\n"
 
-#: ../panel-plugin/sensors.c:928
+#: ../panel-plugin/sensors.c:931
 msgid "No sensors found!"
 msgstr "Ingen sensorer fundet!"
 
-#: ../panel-plugin/sensors.c:1629
+#: ../panel-plugin/sensors.c:1632
 msgid "UI style:"
 msgstr "Brugerfladestil:"
 
-#: ../panel-plugin/sensors.c:1630
+#: ../panel-plugin/sensors.c:1633
 msgid "_text"
 msgstr "_tekst"
 
-#: ../panel-plugin/sensors.c:1632
+#: ../panel-plugin/sensors.c:1635
 msgid "g_raphical"
 msgstr "g_rafisk"
 
-#: ../panel-plugin/sensors.c:1669
+#: ../panel-plugin/sensors.c:1672
 msgid "Show _labels in graphical UI"
 msgstr "Vis _mærkater i grafisk brugerflade"
 
-#: ../panel-plugin/sensors.c:1699
+#: ../panel-plugin/sensors.c:1702
 msgid "Show colored _bars"
 msgstr "Vis farvede _bjælker"
 
-#: ../panel-plugin/sensors.c:1727
+#: ../panel-plugin/sensors.c:1730
 msgid "_Show title"
 msgstr "Vi_s titel"
 
-#: ../panel-plugin/sensors.c:1755
+#: ../panel-plugin/sensors.c:1758
 msgid "Sensors t_ype:"
 msgstr "Sensortype:"
 
-#: ../panel-plugin/sensors.c:1807
+#: ../panel-plugin/sensors.c:1783
+msgid "Description:"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:1820
 msgid "Name"
 msgstr "Navn"
 
-#: ../panel-plugin/sensors.c:1816
+#: ../panel-plugin/sensors.c:1829
 msgid "Value"
 msgstr "Værdi"
 
-#: ../panel-plugin/sensors.c:1822
+#: ../panel-plugin/sensors.c:1835
 msgid "Show"
 msgstr "Vis"
 
-#: ../panel-plugin/sensors.c:1831
+#: ../panel-plugin/sensors.c:1844
 msgid "Color"
 msgstr "Farve"
 
-#: ../panel-plugin/sensors.c:1841
+#: ../panel-plugin/sensors.c:1854
 msgid "Min"
 msgstr "Min."
 
-#: ../panel-plugin/sensors.c:1850
+#: ../panel-plugin/sensors.c:1863
 msgid "Max"
 msgstr "Maks."
 
-#: ../panel-plugin/sensors.c:1883
+#: ../panel-plugin/sensors.c:1896
 msgid "F_ont size:"
 msgstr "Skrifttypestørrelse:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:1890
+#: ../panel-plugin/sensors.c:1903
 msgid "x-small"
 msgstr "ekstra lille"
 
-#: ../panel-plugin/sensors.c:1891
+#: ../panel-plugin/sensors.c:1904
 msgid "small"
 msgstr "lille"
 
-#: ../panel-plugin/sensors.c:1892
+#: ../panel-plugin/sensors.c:1905
 msgid "medium"
 msgstr "mellem"
 
-#: ../panel-plugin/sensors.c:1893
+#: ../panel-plugin/sensors.c:1906
 msgid "large"
 msgstr "stor"
 
-#: ../panel-plugin/sensors.c:1894
+#: ../panel-plugin/sensors.c:1907
 msgid "x-large"
 msgstr "ekstra stor"
 
-#: ../panel-plugin/sensors.c:1926
+#: ../panel-plugin/sensors.c:1939
 msgid "Temperature scale:"
 msgstr "Temperaturskala:"
 
-#: ../panel-plugin/sensors.c:1928
+#: ../panel-plugin/sensors.c:1941
 msgid "_Celsius"
 msgstr "_Celsius"
 
-#: ../panel-plugin/sensors.c:1930
+#: ../panel-plugin/sensors.c:1943
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../panel-plugin/sensors.c:1959
+#: ../panel-plugin/sensors.c:1972
 #, fuzzy
 msgid "Show _Units"
 msgstr "Vi_s titel"
 
-#: ../panel-plugin/sensors.c:1980
+#: ../panel-plugin/sensors.c:1993
 msgid "Small horizontal s_pacing"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2002
+#: ../panel-plugin/sensors.c:2015
 msgid "Suppress messages"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2031
+#: ../panel-plugin/sensors.c:2044
 msgid "U_pdate interval (seconds):"
 msgstr "O_pdateringsinterval (sekunder):"
 
-#: ../panel-plugin/sensors.c:2061
+#: ../panel-plugin/sensors.c:2074
 msgid "E_xecute on double click:"
 msgstr "U_dfør ved dobbeltklik:"
 
-#: ../panel-plugin/sensors.c:2104
+#: ../panel-plugin/sensors.c:2117
 msgid "_View"
 msgstr "_Vis"
 
-#: ../panel-plugin/sensors.c:2137
+#: ../panel-plugin/sensors.c:2150
 msgid "_Sensors"
 msgstr "_Sensorer"
 
-#: ../panel-plugin/sensors.c:2165
+#: ../panel-plugin/sensors.c:2178
 msgid "_Miscellaneous"
 msgstr "_Diverse"
 
-#: ../panel-plugin/sensors.c:2212
+#: ../panel-plugin/sensors.c:2225
 msgid "Edit Properties"
 msgstr "Redigér egenskaber"
 
-#: ../panel-plugin/sensors.c:2219 ../panel-plugin/sensors.h:41
+#: ../panel-plugin/sensors.c:2232 ../panel-plugin/sensors.h:41
 msgid "Sensors Plugin"
 msgstr "Sensor-udvidelsesmodul"
 
 #. only use this if no hddtemp sensor
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../panel-plugin/configuration.c:139 ../panel-plugin/configuration.c:289
-#: ../panel-plugin/configuration.c:295 ../panel-plugin/hddtemp.c:239
-#: ../panel-plugin/hddtemp.c:278 ../panel-plugin/hddtemp.c:283
+#: ../panel-plugin/configuration.c:139 ../panel-plugin/configuration.c:314
+#: ../panel-plugin/configuration.c:320 ../panel-plugin/hddtemp.c:224
+#: ../panel-plugin/hddtemp.c:263 ../panel-plugin/hddtemp.c:268
 msgid "Hard disks"
 msgstr "Harddiske"
 
@@ -235,11 +239,11 @@ msgstr "<Ukendt>"
 msgid "Xfce 4 Sensors Plugin"
 msgstr "Sensor-udvidelsesmodul"
 
-#: ../panel-plugin/hddtemp.c:282
+#: ../panel-plugin/hddtemp.c:267
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "S.M.A.R.T. harddisk-temperaturer"
 
-#: ../panel-plugin/hddtemp.c:361
+#: ../panel-plugin/hddtemp.c:346
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is "
@@ -264,12 +268,12 @@ msgstr ""
 "%s\n"
 "med returkoden %d.\n"
 
-#: ../panel-plugin/hddtemp.c:371
+#: ../panel-plugin/hddtemp.c:356
 msgid "Suppress this message in future"
 msgstr ""
 
 #. DBG  ("error %s\n", error->message);
-#: ../panel-plugin/hddtemp.c:391
+#: ../panel-plugin/hddtemp.c:376
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"

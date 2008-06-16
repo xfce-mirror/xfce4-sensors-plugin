@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-16 21:19+0200\n"
+"POT-Creation-Date: 2008-06-16 23:23+0200\n"
 "PO-Revision-Date: 2005-12-11 02:20+0900\n"
 "Last-Translator: ByungHyun Choi <byunghyun.choi@debianusers.org>\n"
 "Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge."
@@ -30,7 +30,7 @@ msgstr ""
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:437
+#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:422
 #, c-format
 msgid "%5.1f °C"
 msgstr ""
@@ -64,7 +64,7 @@ msgstr "센서를 선택하지 않았습니다!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors.c:651 ../panel-plugin/sensors.c:1159
+#: ../panel-plugin/sensors.c:651 ../panel-plugin/sensors.c:1162
 #, fuzzy, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -76,150 +76,154 @@ msgstr ""
 "센서의 기능과 측정치를 읽는 도중 문제가 생긴 것 같습니다.\n"
 "따라서 정상적인 동작을 보장할 수 없습니다.\n"
 
-#: ../panel-plugin/sensors.c:928
+#: ../panel-plugin/sensors.c:931
 msgid "No sensors found!"
 msgstr "센서를 못 찾았습니다!"
 
-#: ../panel-plugin/sensors.c:1629
+#: ../panel-plugin/sensors.c:1632
 #, fuzzy
 msgid "UI style:"
 msgstr "UI 스타일(_U):"
 
-#: ../panel-plugin/sensors.c:1630
+#: ../panel-plugin/sensors.c:1633
 msgid "_text"
 msgstr "글자(_t)"
 
-#: ../panel-plugin/sensors.c:1632
+#: ../panel-plugin/sensors.c:1635
 msgid "g_raphical"
 msgstr "그림(_r)"
 
-#: ../panel-plugin/sensors.c:1669
+#: ../panel-plugin/sensors.c:1672
 msgid "Show _labels in graphical UI"
 msgstr "GUI에 레이블 보이기(_l)"
 
-#: ../panel-plugin/sensors.c:1699
+#: ../panel-plugin/sensors.c:1702
 msgid "Show colored _bars"
 msgstr "색깔있는 막대 보이기(_b)"
 
-#: ../panel-plugin/sensors.c:1727
+#: ../panel-plugin/sensors.c:1730
 msgid "_Show title"
 msgstr "이름 보여주기(_S)"
 
-#: ../panel-plugin/sensors.c:1755
+#: ../panel-plugin/sensors.c:1758
 msgid "Sensors t_ype:"
 msgstr "센서 종류(_t):"
 
-#: ../panel-plugin/sensors.c:1807
+#: ../panel-plugin/sensors.c:1783
+msgid "Description:"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:1820
 msgid "Name"
 msgstr "이름"
 
-#: ../panel-plugin/sensors.c:1816
+#: ../panel-plugin/sensors.c:1829
 msgid "Value"
 msgstr "값"
 
-#: ../panel-plugin/sensors.c:1822
+#: ../panel-plugin/sensors.c:1835
 msgid "Show"
 msgstr "보이기"
 
-#: ../panel-plugin/sensors.c:1831
+#: ../panel-plugin/sensors.c:1844
 msgid "Color"
 msgstr "색상"
 
-#: ../panel-plugin/sensors.c:1841
+#: ../panel-plugin/sensors.c:1854
 msgid "Min"
 msgstr "최소"
 
-#: ../panel-plugin/sensors.c:1850
+#: ../panel-plugin/sensors.c:1863
 msgid "Max"
 msgstr "최대"
 
-#: ../panel-plugin/sensors.c:1883
+#: ../panel-plugin/sensors.c:1896
 msgid "F_ont size:"
 msgstr "글꼴 크기(_o):"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:1890
+#: ../panel-plugin/sensors.c:1903
 msgid "x-small"
 msgstr "아주 작게"
 
-#: ../panel-plugin/sensors.c:1891
+#: ../panel-plugin/sensors.c:1904
 msgid "small"
 msgstr "작게"
 
-#: ../panel-plugin/sensors.c:1892
+#: ../panel-plugin/sensors.c:1905
 msgid "medium"
 msgstr "중간"
 
-#: ../panel-plugin/sensors.c:1893
+#: ../panel-plugin/sensors.c:1906
 msgid "large"
 msgstr "크게"
 
-#: ../panel-plugin/sensors.c:1894
+#: ../panel-plugin/sensors.c:1907
 msgid "x-large"
 msgstr "아주 크게"
 
-#: ../panel-plugin/sensors.c:1926
+#: ../panel-plugin/sensors.c:1939
 #, fuzzy
 msgid "Temperature scale:"
 msgstr "온도 단위(_e):"
 
-#: ../panel-plugin/sensors.c:1928
+#: ../panel-plugin/sensors.c:1941
 msgid "_Celsius"
 msgstr "섭씨(_C)"
 
-#: ../panel-plugin/sensors.c:1930
+#: ../panel-plugin/sensors.c:1943
 msgid "_Fahrenheit"
 msgstr "화씨(_F)"
 
-#: ../panel-plugin/sensors.c:1959
+#: ../panel-plugin/sensors.c:1972
 #, fuzzy
 msgid "Show _Units"
 msgstr "이름 보여주기(_S)"
 
-#: ../panel-plugin/sensors.c:1980
+#: ../panel-plugin/sensors.c:1993
 msgid "Small horizontal s_pacing"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2002
+#: ../panel-plugin/sensors.c:2015
 msgid "Suppress messages"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2031
+#: ../panel-plugin/sensors.c:2044
 msgid "U_pdate interval (seconds):"
 msgstr "검사 간격 (초)(_p):"
 
-#: ../panel-plugin/sensors.c:2061
+#: ../panel-plugin/sensors.c:2074
 msgid "E_xecute on double click:"
 msgstr "따닥(더블클릭)하면 실행합니다(_x):"
 
-#: ../panel-plugin/sensors.c:2104
+#: ../panel-plugin/sensors.c:2117
 msgid "_View"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2137
+#: ../panel-plugin/sensors.c:2150
 #, fuzzy
 msgid "_Sensors"
 msgstr "<b>센서</b>"
 
-#: ../panel-plugin/sensors.c:2165
+#: ../panel-plugin/sensors.c:2178
 #, fuzzy
 msgid "_Miscellaneous"
 msgstr "<b>기타</b>"
 
-#: ../panel-plugin/sensors.c:2212
+#: ../panel-plugin/sensors.c:2225
 msgid "Edit Properties"
 msgstr "속성 변경"
 
-#: ../panel-plugin/sensors.c:2219 ../panel-plugin/sensors.h:41
+#: ../panel-plugin/sensors.c:2232 ../panel-plugin/sensors.h:41
 msgid "Sensors Plugin"
 msgstr "센서 플러그인"
 
 #. only use this if no hddtemp sensor
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../panel-plugin/configuration.c:139 ../panel-plugin/configuration.c:289
-#: ../panel-plugin/configuration.c:295 ../panel-plugin/hddtemp.c:239
-#: ../panel-plugin/hddtemp.c:278 ../panel-plugin/hddtemp.c:283
+#: ../panel-plugin/configuration.c:139 ../panel-plugin/configuration.c:314
+#: ../panel-plugin/configuration.c:320 ../panel-plugin/hddtemp.c:224
+#: ../panel-plugin/hddtemp.c:263 ../panel-plugin/hddtemp.c:268
 msgid "Hard disks"
 msgstr "하드 디스크"
 
@@ -243,12 +247,12 @@ msgstr ""
 msgid "Xfce 4 Sensors Plugin"
 msgstr "센서 플러그인"
 
-#: ../panel-plugin/hddtemp.c:282
+#: ../panel-plugin/hddtemp.c:267
 #, fuzzy
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "하드디스크 온도 센서"
 
-#: ../panel-plugin/hddtemp.c:361
+#: ../panel-plugin/hddtemp.c:346
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is "
@@ -263,12 +267,12 @@ msgid ""
 "with a return value of %d.\n"
 msgstr ""
 
-#: ../panel-plugin/hddtemp.c:371
+#: ../panel-plugin/hddtemp.c:356
 msgid "Suppress this message in future"
 msgstr ""
 
 #. DBG  ("error %s\n", error->message);
-#: ../panel-plugin/hddtemp.c:391
+#: ../panel-plugin/hddtemp.c:376
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"

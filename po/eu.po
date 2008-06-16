@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-16 21:19+0200\n"
+"POT-Creation-Date: 2008-06-16 23:23+0200\n"
 "PO-Revision-Date: 2008-05-02 10:59+0200\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: Euskara <debian-l10n-basque@lists.debian.org>\n"
@@ -30,7 +30,7 @@ msgstr "%5.1f °F"
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:437
+#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:422
 #, c-format
 msgid "%5.1f °C"
 msgstr "%5.1f °C"
@@ -64,7 +64,7 @@ msgstr "Ez da sentsorerik hautatu!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors.c:651 ../panel-plugin/sensors.c:1159
+#: ../panel-plugin/sensors.c:651 ../panel-plugin/sensors.c:1162
 #, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -75,146 +75,150 @@ msgstr ""
 "Dirudienez arazo bat dago sentsore ezaugarri balioa irakurtzerakoan. \n"
 "Ezin da behar ebazlea ibiliko den ziurtatu.\n"
 
-#: ../panel-plugin/sensors.c:928
+#: ../panel-plugin/sensors.c:931
 msgid "No sensors found!"
 msgstr "Ez da sentsorerik aurkitu!"
 
-#: ../panel-plugin/sensors.c:1629
+#: ../panel-plugin/sensors.c:1632
 msgid "UI style:"
 msgstr "UI estiloa:"
 
-#: ../panel-plugin/sensors.c:1630
+#: ../panel-plugin/sensors.c:1633
 msgid "_text"
 msgstr "_testua"
 
-#: ../panel-plugin/sensors.c:1632
+#: ../panel-plugin/sensors.c:1635
 msgid "g_raphical"
 msgstr "g_rafikoa"
 
-#: ../panel-plugin/sensors.c:1669
+#: ../panel-plugin/sensors.c:1672
 msgid "Show _labels in graphical UI"
 msgstr "_Etitketa bistarazi UI grafikoan"
 
-#: ../panel-plugin/sensors.c:1699
+#: ../panel-plugin/sensors.c:1702
 msgid "Show colored _bars"
 msgstr "Koloretako _barrak ikusi"
 
-#: ../panel-plugin/sensors.c:1727
+#: ../panel-plugin/sensors.c:1730
 msgid "_Show title"
 msgstr "_Izenburua ikusi"
 
-#: ../panel-plugin/sensors.c:1755
+#: ../panel-plugin/sensors.c:1758
 msgid "Sensors t_ype:"
 msgstr "Sentsore m_ota:"
 
-#: ../panel-plugin/sensors.c:1807
+#: ../panel-plugin/sensors.c:1783
+msgid "Description:"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:1820
 msgid "Name"
 msgstr "Izena"
 
-#: ../panel-plugin/sensors.c:1816
+#: ../panel-plugin/sensors.c:1829
 msgid "Value"
 msgstr "Balioa"
 
-#: ../panel-plugin/sensors.c:1822
+#: ../panel-plugin/sensors.c:1835
 msgid "Show"
 msgstr "Bistarazi"
 
-#: ../panel-plugin/sensors.c:1831
+#: ../panel-plugin/sensors.c:1844
 msgid "Color"
 msgstr "Kolorea"
 
-#: ../panel-plugin/sensors.c:1841
+#: ../panel-plugin/sensors.c:1854
 msgid "Min"
 msgstr "Min"
 
-#: ../panel-plugin/sensors.c:1850
+#: ../panel-plugin/sensors.c:1863
 msgid "Max"
 msgstr "Geh"
 
-#: ../panel-plugin/sensors.c:1883
+#: ../panel-plugin/sensors.c:1896
 msgid "F_ont size:"
 msgstr "Letra-tip_o tamaina:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:1890
+#: ../panel-plugin/sensors.c:1903
 msgid "x-small"
 msgstr "oso txikia"
 
-#: ../panel-plugin/sensors.c:1891
+#: ../panel-plugin/sensors.c:1904
 msgid "small"
 msgstr "txikia"
 
-#: ../panel-plugin/sensors.c:1892
+#: ../panel-plugin/sensors.c:1905
 msgid "medium"
 msgstr "ertaina"
 
-#: ../panel-plugin/sensors.c:1893
+#: ../panel-plugin/sensors.c:1906
 msgid "large"
 msgstr "handia"
 
-#: ../panel-plugin/sensors.c:1894
+#: ../panel-plugin/sensors.c:1907
 msgid "x-large"
 msgstr "oso handia"
 
-#: ../panel-plugin/sensors.c:1926
+#: ../panel-plugin/sensors.c:1939
 msgid "Temperature scale:"
 msgstr "Tenperatura eskala:"
 
-#: ../panel-plugin/sensors.c:1928
+#: ../panel-plugin/sensors.c:1941
 msgid "_Celsius"
 msgstr "_Celsius"
 
-#: ../panel-plugin/sensors.c:1930
+#: ../panel-plugin/sensors.c:1943
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../panel-plugin/sensors.c:1959
+#: ../panel-plugin/sensors.c:1972
 #, fuzzy
 msgid "Show _Units"
 msgstr "_Izenburua ikusi"
 
-#: ../panel-plugin/sensors.c:1980
+#: ../panel-plugin/sensors.c:1993
 msgid "Small horizontal s_pacing"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2002
+#: ../panel-plugin/sensors.c:2015
 msgid "Suppress messages"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2031
+#: ../panel-plugin/sensors.c:2044
 msgid "U_pdate interval (seconds):"
 msgstr "Egunera_keta aldia (segundu):"
 
-#: ../panel-plugin/sensors.c:2061
+#: ../panel-plugin/sensors.c:2074
 msgid "E_xecute on double click:"
 msgstr "Klik bikoitzarekin e_xekutatu:"
 
-#: ../panel-plugin/sensors.c:2104
+#: ../panel-plugin/sensors.c:2117
 msgid "_View"
 msgstr "_Ikusi"
 
-#: ../panel-plugin/sensors.c:2137
+#: ../panel-plugin/sensors.c:2150
 msgid "_Sensors"
 msgstr "_Sentsoreak"
 
-#: ../panel-plugin/sensors.c:2165
+#: ../panel-plugin/sensors.c:2178
 msgid "_Miscellaneous"
 msgstr "_Bestelakoak"
 
-#: ../panel-plugin/sensors.c:2212
+#: ../panel-plugin/sensors.c:2225
 msgid "Edit Properties"
 msgstr "Propietateak Editatu"
 
-#: ../panel-plugin/sensors.c:2219 ../panel-plugin/sensors.h:41
+#: ../panel-plugin/sensors.c:2232 ../panel-plugin/sensors.h:41
 msgid "Sensors Plugin"
 msgstr "Sentsore Plugin-a"
 
 #. only use this if no hddtemp sensor
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../panel-plugin/configuration.c:139 ../panel-plugin/configuration.c:289
-#: ../panel-plugin/configuration.c:295 ../panel-plugin/hddtemp.c:239
-#: ../panel-plugin/hddtemp.c:278 ../panel-plugin/hddtemp.c:283
+#: ../panel-plugin/configuration.c:139 ../panel-plugin/configuration.c:314
+#: ../panel-plugin/configuration.c:320 ../panel-plugin/hddtemp.c:224
+#: ../panel-plugin/hddtemp.c:263 ../panel-plugin/hddtemp.c:268
 msgid "Hard disks"
 msgstr "Diska Gogorrak"
 
@@ -238,11 +242,11 @@ msgstr "<Ezezaguna>"
 msgid "Xfce 4 Sensors Plugin"
 msgstr "Sentsore Plugin-a"
 
-#: ../panel-plugin/hddtemp.c:282
+#: ../panel-plugin/hddtemp.c:267
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "S.M.A.R.T. diska gogor tenperaturak"
 
-#: ../panel-plugin/hddtemp.c:361
+#: ../panel-plugin/hddtemp.c:346
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is "
@@ -267,12 +271,12 @@ msgstr ""
 "%s\n"
 "%d erantzun balioarekin.\n"
 
-#: ../panel-plugin/hddtemp.c:371
+#: ../panel-plugin/hddtemp.c:356
 msgid "Suppress this message in future"
 msgstr ""
 
 #. DBG  ("error %s\n", error->message);
-#: ../panel-plugin/hddtemp.c:391
+#: ../panel-plugin/hddtemp.c:376
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"

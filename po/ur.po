@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-16 21:19+0200\n"
+"POT-Creation-Date: 2008-06-16 23:23+0200\n"
 "PO-Revision-Date: 2007-10-27 16:37+0500\n"
 "Last-Translator: Muhammad Ali Makki <makk.ma@gmail.com>\n"
 "Language-Team: Urdu <makki.ma@gmail.com>\n"
@@ -32,7 +32,7 @@ msgstr ""
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:437
+#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:422
 #, c-format
 msgid "%5.1f °C"
 msgstr ""
@@ -66,7 +66,7 @@ msgstr "کوئی سینسر منتخب نہیں!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors.c:651 ../panel-plugin/sensors.c:1159
+#: ../panel-plugin/sensors.c:651 ../panel-plugin/sensors.c:1162
 #, fuzzy, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -78,158 +78,162 @@ msgstr ""
 "معلوم ہوتا ہے کہ سینسر خاصیت ویلیو پڑھنے میں مسئلہ ہے. \n"
 "درست کاروائی کی ضمانت نہیں دی جاسکتی.\n"
 
-#: ../panel-plugin/sensors.c:928
+#: ../panel-plugin/sensors.c:931
 msgid "No sensors found!"
 msgstr "کوئی سینسر نہیں ملا!"
 
-#: ../panel-plugin/sensors.c:1629
+#: ../panel-plugin/sensors.c:1632
 msgid "UI style:"
 msgstr "مواجہ انداز:"
 
-#: ../panel-plugin/sensors.c:1630
+#: ../panel-plugin/sensors.c:1633
 #, fuzzy
 msgid "_text"
 msgstr "متن"
 
-#: ../panel-plugin/sensors.c:1632
+#: ../panel-plugin/sensors.c:1635
 #, fuzzy
 msgid "g_raphical"
 msgstr "گریفکل"
 
-#: ../panel-plugin/sensors.c:1669
+#: ../panel-plugin/sensors.c:1672
 #, fuzzy
 msgid "Show _labels in graphical UI"
 msgstr "گریفکل مواجہ میں لیبل ظاہر کریں"
 
-#: ../panel-plugin/sensors.c:1699
+#: ../panel-plugin/sensors.c:1702
 msgid "Show colored _bars"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:1727
+#: ../panel-plugin/sensors.c:1730
 #, fuzzy
 msgid "_Show title"
 msgstr "عنوان ظاہر کریں"
 
-#: ../panel-plugin/sensors.c:1755
+#: ../panel-plugin/sensors.c:1758
 #, fuzzy
 msgid "Sensors t_ype:"
 msgstr "سینسر قسم:"
 
-#: ../panel-plugin/sensors.c:1807
+#: ../panel-plugin/sensors.c:1783
+msgid "Description:"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:1820
 msgid "Name"
 msgstr "نام"
 
-#: ../panel-plugin/sensors.c:1816
+#: ../panel-plugin/sensors.c:1829
 msgid "Value"
 msgstr "ویلیو"
 
-#: ../panel-plugin/sensors.c:1822
+#: ../panel-plugin/sensors.c:1835
 msgid "Show"
 msgstr "دکھائیں"
 
-#: ../panel-plugin/sensors.c:1831
+#: ../panel-plugin/sensors.c:1844
 msgid "Color"
 msgstr "رنگ"
 
-#: ../panel-plugin/sensors.c:1841
+#: ../panel-plugin/sensors.c:1854
 msgid "Min"
 msgstr "کم"
 
-#: ../panel-plugin/sensors.c:1850
+#: ../panel-plugin/sensors.c:1863
 msgid "Max"
 msgstr "زیادہ"
 
-#: ../panel-plugin/sensors.c:1883
+#: ../panel-plugin/sensors.c:1896
 #, fuzzy
 msgid "F_ont size:"
 msgstr "فونٹ حجم:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:1890
+#: ../panel-plugin/sensors.c:1903
 msgid "x-small"
 msgstr "x-چھوٹا"
 
-#: ../panel-plugin/sensors.c:1891
+#: ../panel-plugin/sensors.c:1904
 msgid "small"
 msgstr "چھوٹا"
 
-#: ../panel-plugin/sensors.c:1892
+#: ../panel-plugin/sensors.c:1905
 msgid "medium"
 msgstr "درمیانہ"
 
-#: ../panel-plugin/sensors.c:1893
+#: ../panel-plugin/sensors.c:1906
 msgid "large"
 msgstr "بڑا"
 
-#: ../panel-plugin/sensors.c:1894
+#: ../panel-plugin/sensors.c:1907
 msgid "x-large"
 msgstr "x-بڑا"
 
-#: ../panel-plugin/sensors.c:1926
+#: ../panel-plugin/sensors.c:1939
 msgid "Temperature scale:"
 msgstr "ٹمپریچر قیاس:"
 
-#: ../panel-plugin/sensors.c:1928
+#: ../panel-plugin/sensors.c:1941
 #, fuzzy
 msgid "_Celsius"
 msgstr "Celsius"
 
-#: ../panel-plugin/sensors.c:1930
+#: ../panel-plugin/sensors.c:1943
 #, fuzzy
 msgid "_Fahrenheit"
 msgstr "فارن ہائیٹ"
 
-#: ../panel-plugin/sensors.c:1959
+#: ../panel-plugin/sensors.c:1972
 #, fuzzy
 msgid "Show _Units"
 msgstr "عنوان ظاہر کریں"
 
-#: ../panel-plugin/sensors.c:1980
+#: ../panel-plugin/sensors.c:1993
 msgid "Small horizontal s_pacing"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2002
+#: ../panel-plugin/sensors.c:2015
 msgid "Suppress messages"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2031
+#: ../panel-plugin/sensors.c:2044
 #, fuzzy
 msgid "U_pdate interval (seconds):"
 msgstr "تجدید وقفہ (سیکنڈ):"
 
-#: ../panel-plugin/sensors.c:2061
+#: ../panel-plugin/sensors.c:2074
 #, fuzzy
 msgid "E_xecute on double click:"
 msgstr "دہرے کلک پر چلائیں:"
 
-#: ../panel-plugin/sensors.c:2104
+#: ../panel-plugin/sensors.c:2117
 msgid "_View"
 msgstr ""
 
-#: ../panel-plugin/sensors.c:2137
+#: ../panel-plugin/sensors.c:2150
 #, fuzzy
 msgid "_Sensors"
 msgstr "سینسر قسم:"
 
-#: ../panel-plugin/sensors.c:2165
+#: ../panel-plugin/sensors.c:2178
 #, fuzzy
 msgid "_Miscellaneous"
 msgstr "<b>متفرق</b>"
 
-#: ../panel-plugin/sensors.c:2212
+#: ../panel-plugin/sensors.c:2225
 msgid "Edit Properties"
 msgstr "خصوصیات مدون کریں"
 
-#: ../panel-plugin/sensors.c:2219 ../panel-plugin/sensors.h:41
+#: ../panel-plugin/sensors.c:2232 ../panel-plugin/sensors.h:41
 msgid "Sensors Plugin"
 msgstr "سینسرز پلگ ان"
 
 #. only use this if no hddtemp sensor
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../panel-plugin/configuration.c:139 ../panel-plugin/configuration.c:289
-#: ../panel-plugin/configuration.c:295 ../panel-plugin/hddtemp.c:239
-#: ../panel-plugin/hddtemp.c:278 ../panel-plugin/hddtemp.c:283
+#: ../panel-plugin/configuration.c:139 ../panel-plugin/configuration.c:314
+#: ../panel-plugin/configuration.c:320 ../panel-plugin/hddtemp.c:224
+#: ../panel-plugin/hddtemp.c:263 ../panel-plugin/hddtemp.c:268
 msgid "Hard disks"
 msgstr "ہارڈ ڈسکس"
 
@@ -253,12 +257,12 @@ msgstr ""
 msgid "Xfce 4 Sensors Plugin"
 msgstr "سینسرز پلگ ان"
 
-#: ../panel-plugin/hddtemp.c:282
+#: ../panel-plugin/hddtemp.c:267
 #, fuzzy
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "ہارڈ ڈسک ٹمپریچر سینسرز"
 
-#: ../panel-plugin/hddtemp.c:361
+#: ../panel-plugin/hddtemp.c:346
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is "
@@ -273,12 +277,12 @@ msgid ""
 "with a return value of %d.\n"
 msgstr ""
 
-#: ../panel-plugin/hddtemp.c:371
+#: ../panel-plugin/hddtemp.c:356
 msgid "Suppress this message in future"
 msgstr ""
 
 #. DBG  ("error %s\n", error->message);
-#: ../panel-plugin/hddtemp.c:391
+#: ../panel-plugin/hddtemp.c:376
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
