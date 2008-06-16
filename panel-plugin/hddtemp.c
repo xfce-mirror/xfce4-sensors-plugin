@@ -317,12 +317,12 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
     gboolean result, nevershowagain;
     GError *error;
 
-    TRACE ("enters get_hddtemp_value for %s with suppress=%d", disk, *suppressmessage);
-
     if (suppressmessage!=NULL)
         nevershowagain = *suppressmessage;
     else
         nevershowagain = FALSE;
+
+    TRACE ("enters get_hddtemp_value for %s with suppress=%d", disk, nevershowagain); /* *suppressmessage); */
 
     cmd_line = g_strdup_printf ( "%s -n -q %s", PATH_HDDTEMP, disk);
 

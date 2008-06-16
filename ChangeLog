@@ -1,5 +1,6 @@
 2008-06-16 timystery
     * added switch to suppress hddtemp error dialog
+    * moved description of chosen sensor to bottom of combobox
 
 2008-06-13 timystery
     * added ability to not display units in text view
