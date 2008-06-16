@@ -7,7 +7,6 @@ TODO
 
 Known bugs or user requests
 ---------------------------
-- add ability to decrease space between columns in text view
 - better support for hddtemp via nc/netcat
 - better checks for sudo/hddtemp/access rights via g_access or g_stat or similar
 
