@@ -2,23 +2,24 @@
 # Copyright (C) 2007 THE XFCE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the XFCE package.
 # Bruno Jesus <myxfce@gmail.com>, 2007.
-# Og Maciel <ogmaciel@gnome.org>, 2007.
 # Fábio Nogueira <deb-user-ba@ubuntu.com>, 2008.
+# Og Maciel <ogmaciel@gnome.org>, 2007-2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-06-16 23:23+0200\n"
-"PO-Revision-Date: 2008-02-20 11:25-0500\n"
-"Last-Translator: Fábio Nogueira <deb-user-ba@ubuntu.com>\n"
+"PO-Revision-Date: 2008-06-16 18:31-0500\n"
+"Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../panel-plugin/sensors.c:204 ../panel-plugin/sensors.c:788
+#: ../panel-plugin/sensors.c:204
+#: ../panel-plugin/sensors.c:788
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Sensores</b></span>"
 
@@ -31,7 +32,8 @@ msgstr "%5.1f °F"
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:422
+#: ../panel-plugin/sensors.c:562
+#: ../panel-plugin/hddtemp.c:422
 #, c-format
 msgid "%5.1f °C"
 msgstr "%5.1f °C"
@@ -65,7 +67,8 @@ msgstr "Nenhum sensor selecionado!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors.c:651 ../panel-plugin/sensors.c:1162
+#: ../panel-plugin/sensors.c:651
+#: ../panel-plugin/sensors.c:1162
 #, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -110,7 +113,7 @@ msgstr "Tipos de sensores:"
 
 #: ../panel-plugin/sensors.c:1783
 msgid "Description:"
-msgstr ""
+msgstr "Descrição:"
 
 #: ../panel-plugin/sensors.c:1820
 msgid "Name"
@@ -174,17 +177,16 @@ msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
 #: ../panel-plugin/sensors.c:1972
-#, fuzzy
 msgid "Show _Units"
-msgstr "Mo_strar título"
+msgstr "Mostrar _unidades"
 
 #: ../panel-plugin/sensors.c:1993
 msgid "Small horizontal s_pacing"
-msgstr ""
+msgstr "Pequeno es_paço horizontal"
 
 #: ../panel-plugin/sensors.c:2015
 msgid "Suppress messages"
-msgstr ""
+msgstr "Suprimir mensagens"
 
 #: ../panel-plugin/sensors.c:2044
 msgid "U_pdate interval (seconds):"
@@ -210,20 +212,25 @@ msgstr "_Miscelâneo"
 msgid "Edit Properties"
 msgstr "Editar Propriedades"
 
-#: ../panel-plugin/sensors.c:2232 ../panel-plugin/sensors.h:41
+#: ../panel-plugin/sensors.c:2232
+#: ../panel-plugin/sensors.h:41
 msgid "Sensors Plugin"
 msgstr "Plug-in de Sensores"
 
 #. only use this if no hddtemp sensor
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../panel-plugin/configuration.c:139 ../panel-plugin/configuration.c:314
-#: ../panel-plugin/configuration.c:320 ../panel-plugin/hddtemp.c:224
-#: ../panel-plugin/hddtemp.c:263 ../panel-plugin/hddtemp.c:268
+#: ../panel-plugin/configuration.c:139
+#: ../panel-plugin/configuration.c:314
+#: ../panel-plugin/configuration.c:320
+#: ../panel-plugin/hddtemp.c:224
+#: ../panel-plugin/hddtemp.c:263
+#: ../panel-plugin/hddtemp.c:268
 msgid "Hard disks"
 msgstr "Discos rígidos"
 
-#: ../panel-plugin/acpi.c:409 ../panel-plugin/acpi.c:417
+#: ../panel-plugin/acpi.c:409
+#: ../panel-plugin/acpi.c:417
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -239,9 +246,8 @@ msgid "<Unknown>"
 msgstr "<Desconhecido>"
 
 #: ../panel-plugin/hddtemp.c:94
-#, fuzzy
 msgid "Xfce 4 Sensors Plugin"
-msgstr "Plug-in de Sensores"
+msgstr "Plug-in de sensores do Xfce"
 
 #: ../panel-plugin/hddtemp.c:267
 msgid "S.M.A.R.T. harddisk temperatures"
@@ -250,24 +256,17 @@ msgstr "Temperatura do disco rígido S.M.A.R.T."
 #: ../panel-plugin/hddtemp.c:346
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"O \"hddtemp\" não foi executado corretamente, apesar de ser executável. Isto "
-"é devido provavelmente ao disco necessitando de privilégios de root para "
-"fazer leitura de suas temperaturas, e o \"hddtemp\" não foi configurado com "
-"setuid de root.\n"
+"O \"hddtemp\" não foi executado corretamente, apesar de ser executável. Isto é devido provavelmente ao disco necessitando de privilégios de root para fazer leitura de suas temperaturas, e o \"hddtemp\" não foi configurado com setuid de root.\n"
 "\n"
-"Um jeito fácil de resolver isso é executar \"chmod u+s %s\" como usuário "
-"root e reiniciar este plug-in ou seu painel.\n"
+"Um jeito fácil de resolver isso é executar \"chmod u+s %s\" como usuário root e reiniciar este plug-in ou seu painel.\n"
 "\n"
 "Chamando \"%s\" apresentou o seguinte erro:\n"
 "%s\n"
@@ -275,7 +274,7 @@ msgstr ""
 
 #: ../panel-plugin/hddtemp.c:356
 msgid "Suppress this message in future"
-msgstr ""
+msgstr "Suprimir esta mensagem no futuro"
 
 #. DBG  ("error %s\n", error->message);
 #: ../panel-plugin/hddtemp.c:376
@@ -291,7 +290,8 @@ msgstr ""
 msgid "LM Sensors"
 msgstr "Tipos de Sensores"
 
-#: ../panel-plugin/lmsensors.c:335 ../panel-plugin/lmsensors.c:382
+#: ../panel-plugin/lmsensors.c:335
+#: ../panel-plugin/lmsensors.c:382
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Erro: Não foi possível conectar-se aos sensores!"
@@ -306,12 +306,10 @@ msgstr "Mostrar valores do sensor."
 
 #~ msgid "Advanced Configuration and Power Interface"
 #~ msgstr "Advanced Configuration and Power Interface"
-
 #~ msgid "<b>Sensors</b>"
 #~ msgstr "<b>Sensores</b>"
-
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensores</b></span>\n"
-
 #~ msgid "<b>View</b>"
 #~ msgstr "<b>Ver</b>"
+
