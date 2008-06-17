@@ -128,7 +128,8 @@ read_disks_fallback (t_chip *chip)
         if ( strncmp (dirname, "hd", 2)==0 || strncmp (dirname, "sd", 2)==0) {
             /* TODO: look, if /dev/dirname exists? */
             chipfeature = g_new0 (t_chipfeature, 1);
-            chipfeature->name = g_strconcat ("/dev/", dirname, NULL);;
+            chipfeature->devicename = g_strconcat ("/dev/", dirname, NULL);
+            chipfeature->name = g_strdup(chipfeature->devicename);
             g_ptr_array_add (chip->chip_features, chipfeature);
             chip->num_features++;
         }
@@ -161,7 +162,8 @@ read_disks_linux26 (t_chip *chip)
              strncmp (dirname, "dm-", 3)!=0 ) {
             /* TODO: look, if /dev/dirname exists? */
             chipfeature = g_new0 (t_chipfeature, 1);
-            chipfeature->name = g_strconcat ("/dev/", dirname, NULL); /* /proc/ide/hda/model ?? */
+            chipfeature->devicename = g_strconcat ("/dev/", dirname, NULL); /* /proc/ide/hda/model ?? */
+            chipfeature->name = g_strdup(chipfeature->devicename);
             g_ptr_array_add (chip->chip_features, chipfeature);
             chip->num_features++;
         }
@@ -184,7 +186,7 @@ remove_unmonitored_drives (t_chip *chip, gboolean *suppressmessage)
     for (i=0; i<chip->num_features; i++)
     {
         chipfeature = g_ptr_array_index (chip->chip_features, i);
-        result = get_hddtemp_value (chipfeature->name, suppressmessage);
+        result = get_hddtemp_value (chipfeature->devicename, suppressmessage);
         if (result == 0.0)
         {
             DBG ("removing single disk");
@@ -229,6 +231,8 @@ populate_detected_drives (t_chip *chip)
        g_assert (chipfeature!=NULL);
 
        chipfeature->address = diskIndex;
+
+       /* chipfeature->name = g_strdup(chipfeature->devicename); */
 
        chipfeature->color = "#B000B0";
        chipfeature->valid = TRUE;
@@ -412,7 +416,7 @@ refresh_hddtemp (gpointer chip_feature, gpointer data)
 
     cf = (t_chipfeature *) chip_feature;
 
-    value = get_hddtemp_value (cf->name, NULL);
+    value = get_hddtemp_value (cf->devicename, NULL);
 
     /* actually, that's done in the gui part */
     g_free (cf->formatted_value);

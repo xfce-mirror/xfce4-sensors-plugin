@@ -171,7 +171,7 @@ sensor_get_value (t_chip *chip, int number, double *value)
             g_assert (number<chip->num_features);
             feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, number);
             g_assert (feature!=NULL);
-            *value = get_hddtemp_value (feature->name, NULL);
+            *value = get_hddtemp_value (feature->devicename, NULL);
             if (*value==ZERO_KELVIN) {
                 return NO_VALID_HDDTEMP;
             }
@@ -206,6 +206,7 @@ free_chipfeature (gpointer chipfeature, gpointer data)
     cf = (t_chipfeature *) chipfeature;
 
     g_free (cf->name);
+    g_free (cf->devicename);
     g_free (cf->formatted_value);
     g_free (cf->color);
 }

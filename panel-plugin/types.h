@@ -79,6 +79,7 @@ typedef enum {
  */
 typedef struct {
     gchar *name;
+    gchar *devicename;
     /* gchar *description; */
     double raw_value; /* unformatted sensor feature values */
     gchar *formatted_value; /* formatted (%f5.2) sensor feature values */

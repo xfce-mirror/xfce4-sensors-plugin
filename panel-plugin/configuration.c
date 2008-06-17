@@ -136,8 +136,11 @@ sensors_write_config (XfcePanelPlugin *plugin, t_sensors *sensors)
                xfce_rc_write_int_entry (rc, "Id", get_Id_from_address(i, j, sensors));
 
                /* only use this if no hddtemp sensor */
-               if ( strcmp(chipfeature->name, _("Hard disks")) != 0 )
+               /* or do only use this , if it is an lmsensors device. whatever. */
+               if ( strcmp(chip->sensorId, _("Hard disks")) != 0 ) /* chip->name? */
                     xfce_rc_write_int_entry (rc, "Address", j);
+                else
+                    xfce_rc_write_entry (rc, "DeviceName", chipfeature->devicename);
 
                xfce_rc_write_entry (rc, "Name", chipfeature->name);
 
@@ -311,19 +314,25 @@ sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 
                         id = (gint) xfce_rc_read_int_entry (rc, "Id", 0);
 
-                        if ( strcmp(chip->name, _("Hard disks")) != 0 )
+                        if ( strcmp(chip->sensorId, _("Hard disks")) != 0 )
                             address = (gint) xfce_rc_read_int_entry (rc, "Address", 0);
                         else
+
                          /* FIXME: compare strings, or also have hddtmep and acpi store numeric values */
 
                         /* assert correctly saved file */
-                        if (strcmp(chip->name, _("Hard disks")) != 0) {
+                        if (strcmp(chip->sensorId, _("Hard disks")) != 0) { /* chip->name? */
                             chipfeature = g_ptr_array_index(chip->chip_features, id);
                             /* FIXME: it might be necessary to use sensors->addresses here */
                             /* g_return_if_fail
                                 (chipfeature->address == address); */
                             if (chipfeature->address != address)
                                 continue;
+                        }
+                        else if ((value = xfce_rc_read_entry (rc, "DeviceName", NULL))
+                            && *value) {
+                            chipfeature->devicename = g_strdup(value);
+                            /* g_free (value); */
                         }
 
                         if ((value = xfce_rc_read_entry (rc, "Name", NULL))
@@ -348,6 +357,7 @@ sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
                         if ((value = xfce_rc_read_entry (rc, "Max", NULL))
                                 && *value)
                             chipfeature->max_value = atof (value);
+
 
                     } /* end if */
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-16 23:23+0200\n"
+"POT-Creation-Date: 2008-06-17 23:22+0200\n"
 "PO-Revision-Date: 2006-02-19 22:51+0300\n"
 "Last-Translator: Phan Vĩnh Thịnh <teppi@vnlinux.org>\n"
 "Language-Team: Vietnamese <none@li.org>\n"
@@ -29,7 +29,7 @@ msgstr ""
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:422
+#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:426
 #, c-format
 msgid "%5.1f °C"
 msgstr ""
@@ -228,11 +228,12 @@ msgid "Sensors Plugin"
 msgstr "Plugin cảm ứng"
 
 #. only use this if no hddtemp sensor
+#. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../panel-plugin/configuration.c:139 ../panel-plugin/configuration.c:314
-#: ../panel-plugin/configuration.c:320 ../panel-plugin/hddtemp.c:224
-#: ../panel-plugin/hddtemp.c:263 ../panel-plugin/hddtemp.c:268
+#: ../panel-plugin/configuration.c:140 ../panel-plugin/configuration.c:317
+#: ../panel-plugin/configuration.c:324 ../panel-plugin/hddtemp.c:226
+#: ../panel-plugin/hddtemp.c:267 ../panel-plugin/hddtemp.c:272
 msgid "Hard disks"
 msgstr ""
 
@@ -256,11 +257,11 @@ msgstr ""
 msgid "Xfce 4 Sensors Plugin"
 msgstr "Plugin cảm ứng"
 
-#: ../panel-plugin/hddtemp.c:267
+#: ../panel-plugin/hddtemp.c:271
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr ""
 
-#: ../panel-plugin/hddtemp.c:346
+#: ../panel-plugin/hddtemp.c:350
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is "
@@ -275,12 +276,12 @@ msgid ""
 "with a return value of %d.\n"
 msgstr ""
 
-#: ../panel-plugin/hddtemp.c:356
+#: ../panel-plugin/hddtemp.c:360
 msgid "Suppress this message in future"
 msgstr ""
 
 #. DBG  ("error %s\n", error->message);
-#: ../panel-plugin/hddtemp.c:376
+#: ../panel-plugin/hddtemp.c:380
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"

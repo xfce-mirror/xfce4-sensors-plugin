@@ -1489,7 +1489,7 @@ list_cell_text_edited (GtkCellRendererText *cellrenderertext,
     gtk_tree_store_set (GTK_TREE_STORE (model), &iter, 0, new_text, -1);
     chip = (t_chip *) g_ptr_array_index(sd->sensors->chips, gtk_combo_box_active);
 
-    if (chip->type==LMSENSOR) { /* No Bug. The cryptic filesystem names are
+    if (chip->type!=ACPI) { /* No Bug. The cryptic filesystem names are
                                   needed for the update in ACPI and hddtemp. */
         chipfeature = (t_chipfeature *) g_ptr_array_index (chip->chip_features,
                                                             atoi(path_str));
