@@ -95,7 +95,8 @@ read_thermal_zone (t_chip *chip)
 
                 chipfeature->color = "#0000B0";
                 chipfeature->address = chip->chip_features->len;
-                chipfeature->name = g_strdup (de->d_name);
+                chipfeature->devicename = g_strdup (de->d_name);
+                chipfeature->name = g_strdup (chipfeature->devicename);
                 chipfeature->formatted_value = NULL; /*  Gonna refresh it in
                                                         sensors_get_wrapper or some
                                                         other functions */
@@ -236,7 +237,8 @@ int read_battery_zone (t_chip *chip)
                 if (file) {
                     chipfeature = g_new0 (t_chipfeature, 1);
                     chipfeature->address = chip->chip_features->len;
-                    chipfeature->name = g_strdup (de->d_name);
+                    chipfeature->devicename = g_strdup (de->d_name);
+                    chipfeature->name = g_strdup (chipfeature->devicename);
                     chipfeature->valid = TRUE;
                     chipfeature->min_value = 0.0;
                     chipfeature->raw_value = 0.0;
@@ -362,7 +364,8 @@ int read_fan_zone (t_chip *chip)
 
                 chipfeature->color = "#0000B0";
                 chipfeature->address = chip->chip_features->len;
-                chipfeature->name = g_strdup (de->d_name);
+                chipfeature->devicename = g_strdup (de->d_name);
+                chipfeature->name = g_strdup (chipfeature->devicename);
                 chipfeature->formatted_value = NULL; /*  Gonna refresh it in
                                                         sensors_get_wrapper or some
                                                         other functions */
@@ -453,7 +456,7 @@ refresh_acpi (gpointer chip_feature, gpointer data)
 
     switch (cf->class) {
         case TEMPERATURE:
-            zone = g_strdup_printf ("%s/%s", ACPI_DIR_THERMAL, cf->name);
+            zone = g_strdup_printf ("%s/%s", ACPI_DIR_THERMAL, cf->devicename);
             cf->raw_value = get_acpi_zone_value (zone, ACPI_FILE_THERMAL);
             g_free (zone);
             /* g_free (cf->formatted_value);
@@ -461,7 +464,7 @@ refresh_acpi (gpointer chip_feature, gpointer data)
             break;
 
         case ENERGY:
-            zone = g_strdup_printf ("%s/%s", ACPI_DIR_BATTERY, cf->name);
+            zone = g_strdup_printf ("%s/%s", ACPI_DIR_BATTERY, cf->devicename);
             cf->raw_value = get_battery_zone_value (zone);
             g_free (zone);
             /*  g_free (cf->formatted_value);
@@ -469,7 +472,7 @@ refresh_acpi (gpointer chip_feature, gpointer data)
             break;
 
         case STATE:
-            file = g_strdup_printf ("%s/%s/state", ACPI_DIR_FAN, cf->name);
+            file = g_strdup_printf ("%s/%s/state", ACPI_DIR_FAN, cf->devicename);
             cf->raw_value = strcmp(get_acpi_value(file), "on")==0 ? 1.0 : 0.0;
             g_free (file);
             /* g_free (cf->formatted_value);
@@ -508,7 +511,7 @@ get_acpi_info ()
 
     version = get_acpi_value (filename);
     if (version!=NULL)
-    	version = g_strchomp (version);
+        version = g_strchomp (version);
 
     if (version==NULL)
         version = _("<Unknown>");
