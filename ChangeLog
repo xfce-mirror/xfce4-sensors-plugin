@@ -1,3 +1,8 @@
+2008-06-20/21 timystery
+	* renaming of hddtemp and acpi features available
+	* whitelist for sd and hd disks only
+	* Update of German translation
+
 2008-06-16 timystery
     * added switch to suppress hddtemp error dialog
     * moved description of chosen sensor to bottom of combobox

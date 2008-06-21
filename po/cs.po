@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-17 23:22+0200\n"
+"POT-Creation-Date: 2008-06-21 15:07+0200\n"
 "PO-Revision-Date: 2007-12-17 22:25+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
@@ -29,7 +29,7 @@ msgstr "%5.1f °F"
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:426
+#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:429
 #, c-format
 msgid "%5.1f °C"
 msgstr "%5.1f °C"
@@ -217,23 +217,23 @@ msgstr "Zásuvný modul senzory"
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
 #: ../panel-plugin/configuration.c:140 ../panel-plugin/configuration.c:317
-#: ../panel-plugin/configuration.c:324 ../panel-plugin/hddtemp.c:226
-#: ../panel-plugin/hddtemp.c:267 ../panel-plugin/hddtemp.c:272
+#: ../panel-plugin/configuration.c:324 ../panel-plugin/hddtemp.c:229
+#: ../panel-plugin/hddtemp.c:270 ../panel-plugin/hddtemp.c:275
 msgid "Hard disks"
 msgstr "Pevné disky"
 
-#: ../panel-plugin/acpi.c:409 ../panel-plugin/acpi.c:417
+#: ../panel-plugin/acpi.c:412 ../panel-plugin/acpi.c:420
 msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
 #. chip->description = _("Advanced Configuration and Power Interface");
-#: ../panel-plugin/acpi.c:411
+#: ../panel-plugin/acpi.c:414
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "Zóny ACPI v%s"
 
-#: ../panel-plugin/acpi.c:514
+#: ../panel-plugin/acpi.c:517
 msgid "<Unknown>"
 msgstr "<Neznámý>"
 
@@ -242,11 +242,11 @@ msgstr "<Neznámý>"
 msgid "Xfce 4 Sensors Plugin"
 msgstr "Zásuvný modul senzory"
 
-#: ../panel-plugin/hddtemp.c:271
+#: ../panel-plugin/hddtemp.c:274
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "Teploty pevných disků S.M.A.R.T."
 
-#: ../panel-plugin/hddtemp.c:350
+#: ../panel-plugin/hddtemp.c:353
 #, fuzzy, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is "
@@ -271,12 +271,12 @@ msgstr ""
 "Volání \"%s\" vrátilo tuto chybu:\n"
 "%s"
 
-#: ../panel-plugin/hddtemp.c:360
+#: ../panel-plugin/hddtemp.c:363
 msgid "Suppress this message in future"
 msgstr ""
 
 #. DBG  ("error %s\n", error->message);
-#: ../panel-plugin/hddtemp.c:380
+#: ../panel-plugin/hddtemp.c:383
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
