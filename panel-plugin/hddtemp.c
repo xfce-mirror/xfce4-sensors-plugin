@@ -155,11 +155,14 @@ read_disks_linux26 (t_chip *chip)
     /* read from /sys/block */
     gdir = g_dir_open ("/sys/block/", 0, NULL);
     while ( (dirname = g_dir_read_name (gdir))!=NULL ) {
-        if ( strncmp (dirname, "ram", 3)!=0 &&
+        /* if ( strncmp (dirname, "ram", 3)!=0 &&
              strncmp (dirname, "loop", 4)!=0 &&
              strncmp (dirname, "md", 2)!=0 &&
              strncmp (dirname, "fd", 2)!=0 &&
-             strncmp (dirname, "dm-", 3)!=0 ) {
+             strncmp (dirname, "mmc", 3)!=0 &&
+             strncmp (dirname, "dm-", 3)!=0 ) { */
+            if ( strncmp (dirname, "hd", 2)==0 ||
+                            strncmp (dirname, "sd", 2)==0 ) {
             /* TODO: look, if /dev/dirname exists? */
             chipfeature = g_new0 (t_chipfeature, 1);
             chipfeature->devicename = g_strconcat ("/dev/", dirname, NULL); /* /proc/ide/hda/model ?? */
