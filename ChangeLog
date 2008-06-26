@@ -1,3 +1,8 @@
+2008-06-26 timystery
+	* also offer suppress-checkbox in other failure dialogs
+	* changed conditions for hddtemp error checking to check for valid pointer
+	as well
+
 2008-06-20/21 timystery
 	* renaming of hddtemp and acpi features available
 	* whitelist for sd and hd disks only

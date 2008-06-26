@@ -343,12 +343,13 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
 
     /* filter those with no sensors out */
     if (exit_status==0 && strncmp(disk, "/dev/fd", 6)==0) { /* is returned for floppy disks */
+        DBG("exit_status==0 && strncmp(disk, \"/dev/fd\", 6)==0");
         value = 0.0;
     }
-    else if ((exit_status==256 || strlen(standard_error)>0)
+    else if ((exit_status==256 || (standard_error && strlen(standard_error)>0))
             && access (PATH_HDDTEMP, X_OK)==0) /* || strlen(standard_error)>0) */
     {
-        /* note that this check does only work for some versions of hddtmep. */
+        /* note that this check does only work for some versions of hddtemp. */
         if (!nevershowagain) {
             msg_text = g_strdup_printf(_("\"hddtemp\" was not executed correctly, "
                             "although it is executable. This is most probably due "
@@ -367,6 +368,9 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
             if (suppressmessage!=NULL)
                 *suppressmessage = nevershowagain;
         }
+        else {
+            DBG  ("Suppressing dialog with exit_code=256 or output on standard_error");
+        }
 
         value = ZERO_KELVIN;
     }
@@ -379,13 +383,22 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
 
     else if (error && (!result || exit_status!=0))
     {
-        /* DBG  ("error %s\n", error->message); */
-        msg_text = g_strdup_printf (_("An error occurred when executing"
+         DBG  ("error %s\n", error->message);
+        if (!nevershowagain) {
+            msg_text = g_strdup_printf (_("An error occurred when executing"
                                       " \"%s\":\n%s"), cmd_line, error->message);
-        quick_message (msg_text);
+            checktext = g_strdup(_("Suppress this message in future"));
+            nevershowagain = quick_message_with_checkbox (msg_text, checktext);
+
+             if (suppressmessage!=NULL)
+                *suppressmessage = nevershowagain;
+        }
+        else {
+            DBG  ("Suppressing dialog because of error in g_spawn_cl");
+        }
         value = 0.0;
     }
-    else if ( strlen(standard_output) > 0)
+    else if (standard_output && strlen(standard_output) > 0)
     {
         DBG("got the only useful return value of 0 and value of %s.\n", standard_output);
         /* hddtemp does not return floating values, but only integer ones.
@@ -393,8 +406,10 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
           FIXME: Use strtod() instead?*/
         value = (double) (atoi ( (const char*) standard_output) );
     }
-    else
+    else {
+        DBG("No condition applied.");
         value = 0.0;
+    }
 
     g_free (cmd_line);
     g_free (standard_output);

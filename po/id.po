@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-29 22:31+0100\n"
+"POT-Creation-Date: 2008-06-26 23:45+0200\n"
 "PO-Revision-Date: 2008-06-21 12:51+0700\n"
 "Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
@@ -15,11 +15,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors.c:204 ../panel-plugin/sensors.c:767
+#: ../panel-plugin/sensors.c:204 ../panel-plugin/sensors.c:788
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Sensor</b></span>"
 
-#: ../panel-plugin/sensors.c:541
+#: ../panel-plugin/sensors.c:559
 #, c-format
 msgid "%5.1f °F"
 msgstr "%5.1f °F"
@@ -28,39 +28,41 @@ msgstr "%5.1f °F"
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#: ../panel-plugin/sensors.c:544 ../panel-plugin/hddtemp.c:374
+#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:444
 #, c-format
 msgid "%5.1f °C"
 msgstr "%5.1f °C"
 
-#: ../panel-plugin/sensors.c:549
+#: ../panel-plugin/sensors.c:567
 #, c-format
 msgid "%+5.2f V"
 msgstr "%+5.2f V"
 
-#: ../panel-plugin/sensors.c:553
+#: ../panel-plugin/sensors.c:571
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWj"
 
-#: ../panel-plugin/sensors.c:558
+#: ../panel-plugin/sensors.c:576
 msgid "off"
 msgstr "padam"
 
-#: ../panel-plugin/sensors.c:560
+#: ../panel-plugin/sensors.c:578
 msgid "on"
 msgstr "hidup"
 
-#: ../panel-plugin/sensors.c:564
+#: ../panel-plugin/sensors.c:582
 #, c-format
 msgid "%5.0f rpm"
 msgstr "%5.0f rpm"
 
-#: ../panel-plugin/sensors.c:596
+#: ../panel-plugin/sensors.c:614
 msgid "No sensors selected!"
 msgstr "Tak ada sensor yang dipilih!"
 
-#: ../panel-plugin/sensors.c:631 ../panel-plugin/sensors.c:1097
+#. FIXME: either print nothing, or undertake appropriate action,
+#. * or pop up a message box.
+#: ../panel-plugin/sensors.c:651 ../panel-plugin/sensors.c:1162
 #, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -71,157 +73,179 @@ msgstr ""
 "Kelihatannya terdapat masalah saat membaca nilai fitur sensor.\n"
 "Eksekusi yang normal tidak dijamin.\n"
 
-#: ../panel-plugin/sensors.c:877
+#: ../panel-plugin/sensors.c:931
 msgid "No sensors found!"
 msgstr "Tak ada sensor yang ditemukan!"
 
-#: ../panel-plugin/sensors.c:1529
+#: ../panel-plugin/sensors.c:1632
 msgid "UI style:"
 msgstr "Gaya UI:"
 
-#: ../panel-plugin/sensors.c:1530
+#: ../panel-plugin/sensors.c:1633
 msgid "_text"
 msgstr "_teks"
 
-#: ../panel-plugin/sensors.c:1532
+#: ../panel-plugin/sensors.c:1635
 msgid "g_raphical"
 msgstr "g_rafik"
 
-#: ../panel-plugin/sensors.c:1569
+#: ../panel-plugin/sensors.c:1672
 msgid "Show _labels in graphical UI"
 msgstr "Tampilkan _label dalam grafik UI"
 
-#: ../panel-plugin/sensors.c:1599
+#: ../panel-plugin/sensors.c:1702
 msgid "Show colored _bars"
 msgstr "Tampilkan batang _berwarna"
 
-#: ../panel-plugin/sensors.c:1627
+#: ../panel-plugin/sensors.c:1730
 msgid "_Show title"
 msgstr "_Tampilkan judul"
 
-#: ../panel-plugin/sensors.c:1655
+#: ../panel-plugin/sensors.c:1758
 msgid "Sensors t_ype:"
 msgstr "Tipe s_ensor:"
 
-#: ../panel-plugin/sensors.c:1707
+#: ../panel-plugin/sensors.c:1783
+msgid "Description:"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:1820
 msgid "Name"
 msgstr "Nama"
 
-#: ../panel-plugin/sensors.c:1716
+#: ../panel-plugin/sensors.c:1829
 msgid "Value"
 msgstr "Nilai"
 
-#: ../panel-plugin/sensors.c:1722
+#: ../panel-plugin/sensors.c:1835
 msgid "Show"
 msgstr "Tampilkan"
 
-#: ../panel-plugin/sensors.c:1731
+#: ../panel-plugin/sensors.c:1844
 msgid "Color"
 msgstr "Warna"
 
-#: ../panel-plugin/sensors.c:1741
+#: ../panel-plugin/sensors.c:1854
 msgid "Min"
 msgstr "Min"
 
-#: ../panel-plugin/sensors.c:1750
+#: ../panel-plugin/sensors.c:1863
 msgid "Max"
 msgstr "Maks"
 
-#: ../panel-plugin/sensors.c:1783
+#: ../panel-plugin/sensors.c:1896
 msgid "F_ont size:"
 msgstr "U_kuran fonta:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors.c:1790
+#: ../panel-plugin/sensors.c:1903
 msgid "x-small"
 msgstr "sangat kecil"
 
-#: ../panel-plugin/sensors.c:1791
+#: ../panel-plugin/sensors.c:1904
 msgid "small"
 msgstr "kecil"
 
-#: ../panel-plugin/sensors.c:1792
+#: ../panel-plugin/sensors.c:1905
 msgid "medium"
 msgstr "sedang"
 
-#: ../panel-plugin/sensors.c:1793
+#: ../panel-plugin/sensors.c:1906
 msgid "large"
 msgstr "besar"
 
-#: ../panel-plugin/sensors.c:1794
+#: ../panel-plugin/sensors.c:1907
 msgid "x-large"
 msgstr "sangat besar"
 
-#: ../panel-plugin/sensors.c:1826
+#: ../panel-plugin/sensors.c:1939
 msgid "Temperature scale:"
 msgstr "Skala temperatur:"
 
-#: ../panel-plugin/sensors.c:1828
+#: ../panel-plugin/sensors.c:1941
 msgid "_Celsius"
 msgstr "_Celsius"
 
-#: ../panel-plugin/sensors.c:1830
+#: ../panel-plugin/sensors.c:1943
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../panel-plugin/sensors.c:1869
+#: ../panel-plugin/sensors.c:1972
+#, fuzzy
+msgid "Show _Units"
+msgstr "_Tampilkan judul"
+
+#: ../panel-plugin/sensors.c:1993
+msgid "Small horizontal s_pacing"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:2015
+msgid "Suppress messages"
+msgstr ""
+
+#: ../panel-plugin/sensors.c:2044
 msgid "U_pdate interval (seconds):"
 msgstr "I_nterval mutakhirkan (detik):"
 
-#: ../panel-plugin/sensors.c:1899
+#: ../panel-plugin/sensors.c:2074
 msgid "E_xecute on double click:"
 msgstr "E_ksekusi pada klik ganda:"
 
-#: ../panel-plugin/sensors.c:1942
+#: ../panel-plugin/sensors.c:2117
 msgid "_View"
 msgstr "_Tampilan"
 
-#: ../panel-plugin/sensors.c:1972
+#: ../panel-plugin/sensors.c:2148
 msgid "_Sensors"
 msgstr "_Sensor"
 
-#: ../panel-plugin/sensors.c:2000
+#: ../panel-plugin/sensors.c:2176
 msgid "_Miscellaneous"
 msgstr "_Lainnya"
 
-#: ../panel-plugin/sensors.c:2049
+#: ../panel-plugin/sensors.c:2225
 msgid "Edit Properties"
 msgstr "Sunting Properti"
 
-#: ../panel-plugin/sensors.c:2056 ../panel-plugin/sensors.h:41
+#: ../panel-plugin/sensors.c:2232 ../panel-plugin/sensors.h:41
 msgid "Sensors Plugin"
 msgstr "Plugin Sensor"
 
 #. only use this if no hddtemp sensor
+#. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../panel-plugin/configuration.c:133 ../panel-plugin/configuration.c:277
-#: ../panel-plugin/configuration.c:283 ../panel-plugin/hddtemp.c:189
-#: ../panel-plugin/hddtemp.c:228 ../panel-plugin/hddtemp.c:233
+#: ../panel-plugin/configuration.c:140 ../panel-plugin/configuration.c:317
+#: ../panel-plugin/configuration.c:324 ../panel-plugin/hddtemp.c:229
+#: ../panel-plugin/hddtemp.c:270 ../panel-plugin/hddtemp.c:275
 msgid "Hard disks"
 msgstr "Cakram keras"
 
-#: ../panel-plugin/acpi.c:409 ../panel-plugin/acpi.c:417
+#: ../panel-plugin/acpi.c:412 ../panel-plugin/acpi.c:420
 msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
 #. chip->description = _("Advanced Configuration and Power Interface");
-#: ../panel-plugin/acpi.c:411
+#: ../panel-plugin/acpi.c:414
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "Zona v%s ACPI"
 
-#: ../panel-plugin/acpi.c:514
+#: ../panel-plugin/acpi.c:517
 msgid "<Unknown>"
 msgstr "<Tak diketahui>"
 
-#: ../panel-plugin/hddtemp.c:232
+#: ../panel-plugin/hddtemp.c:94
+#, fuzzy
+msgid "Xfce 4 Sensors Plugin"
+msgstr "Plugin Sensor"
+
+#: ../panel-plugin/hddtemp.c:274
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "Temperatur cakram keras S.M.A.R.T."
 
-#. note that this check does only work for some versions of hddtmep.
-#: ../panel-plugin/hddtemp.c:305
+#: ../panel-plugin/hddtemp.c:354
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is "
@@ -246,8 +270,11 @@ msgstr ""
 "%s\n"
 "dengan nilai kembali %d.\n"
 
-#. DBG  ("error %s\n", error->message);
-#: ../panel-plugin/hddtemp.c:328
+#: ../panel-plugin/hddtemp.c:364 ../panel-plugin/hddtemp.c:390
+msgid "Suppress this message in future"
+msgstr ""
+
+#: ../panel-plugin/hddtemp.c:388
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-21 15:07+0200\n"
+"POT-Creation-Date: 2008-06-26 23:45+0200\n"
 "PO-Revision-Date: 2008-06-16 21:08+0100\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German <de@li.org>\n"
@@ -28,7 +28,7 @@ msgstr "%5.1f °F"
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:429
+#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:444
 #, c-format
 msgid "%5.1f °C"
 msgstr "%5.1f °C"
@@ -194,11 +194,11 @@ msgstr "Bei _Doppelklick ausführen:"
 msgid "_View"
 msgstr "_Aussehen"
 
-#: ../panel-plugin/sensors.c:2150
+#: ../panel-plugin/sensors.c:2148
 msgid "_Sensors"
 msgstr "_Sensoren"
 
-#: ../panel-plugin/sensors.c:2178
+#: ../panel-plugin/sensors.c:2176
 msgid "_Miscellaneous"
 msgstr "S_onstige Einstellungen"
 
@@ -243,7 +243,7 @@ msgstr "Sensorüberwachung für Xfce4"
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "S.M.A.R.T.-Sensoren der Festplatten"
 
-#: ../panel-plugin/hddtemp.c:353
+#: ../panel-plugin/hddtemp.c:354
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is "
@@ -269,12 +269,11 @@ msgstr ""
 "%s\n"
 "mit einem Rückgabewert von %d.\n"
 
-#: ../panel-plugin/hddtemp.c:363
+#: ../panel-plugin/hddtemp.c:364 ../panel-plugin/hddtemp.c:390
 msgid "Suppress this message in future"
 msgstr "Diese Nachricht nicht mehr zeigen"
 
-#. DBG  ("error %s\n", error->message);
-#: ../panel-plugin/hddtemp.c:383
+#: ../panel-plugin/hddtemp.c:388
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"

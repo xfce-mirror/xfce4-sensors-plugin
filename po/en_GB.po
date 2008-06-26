@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-21 15:07+0200\n"
+"POT-Creation-Date: 2008-06-26 23:45+0200\n"
 "PO-Revision-Date: 2008-05-10 13:31+1000\n"
 "Last-Translator: Jeff Bailes <thepizzaking@gmail.com>\n"
 "Language-Team: English/GB\n"
@@ -30,7 +30,7 @@ msgstr "%5.1f °F"
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:429
+#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:444
 #, c-format
 msgid "%5.1f °C"
 msgstr "%5.1f °C"
@@ -197,11 +197,11 @@ msgstr "E_xecute on double click:"
 msgid "_View"
 msgstr "_View"
 
-#: ../panel-plugin/sensors.c:2150
+#: ../panel-plugin/sensors.c:2148
 msgid "_Sensors"
 msgstr "_Sensors"
 
-#: ../panel-plugin/sensors.c:2178
+#: ../panel-plugin/sensors.c:2176
 msgid "_Miscellaneous"
 msgstr "_Miscellaneous"
 
@@ -247,7 +247,7 @@ msgstr "Sensors Plugin"
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "S.M.A.R.T. harddisk temperatures"
 
-#: ../panel-plugin/hddtemp.c:353
+#: ../panel-plugin/hddtemp.c:354
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is "
@@ -272,12 +272,11 @@ msgstr ""
 "%s\n"
 "with a return value of %d.\n"
 
-#: ../panel-plugin/hddtemp.c:363
+#: ../panel-plugin/hddtemp.c:364 ../panel-plugin/hddtemp.c:390
 msgid "Suppress this message in future"
 msgstr ""
 
-#. DBG  ("error %s\n", error->message);
-#: ../panel-plugin/hddtemp.c:383
+#: ../panel-plugin/hddtemp.c:388
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"

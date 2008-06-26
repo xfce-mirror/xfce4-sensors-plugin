@@ -2123,8 +2123,6 @@ add_view_frame (GtkWidget * notebook, t_sensors_dialog * sd)
 
     add_title_box (_vbox, sd);
 
-    add_suppressmessage_box(_vbox, sd);
-
     add_ui_style_box (_vbox, sd);
     add_labels_box (_vbox, sd);
     add_colored_bars_box (_vbox, sd);
@@ -2183,6 +2181,8 @@ add_miscellaneous_frame (GtkWidget * notebook, t_sensors_dialog * sd)
     gtk_notebook_append_page (GTK_NOTEBOOK(notebook), _vbox, _label);
 
     add_update_time_box (_vbox, sd);
+
+    add_suppressmessage_box(_vbox, sd);
 
     add_command_box (_vbox, sd);
 

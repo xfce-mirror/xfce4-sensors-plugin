@@ -3,10 +3,7 @@ TODO
 
 - fix error: doesn't find all sensors when newly adding plugin to panel - sensors library problem?
 
-- allow changing names in hddtemp and acpi sensors as well
-
 Known bugs or user requests
 ---------------------------
 - better support for hddtemp via nc/netcat
-- better checks for sudo/hddtemp/access rights via g_access or g_stat or similar
 
