@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-06-26 23:45+0200\n"
-"PO-Revision-Date: 2007-12-17 22:25+0100\n"
+"PO-Revision-Date: 2008-07-07 19:33+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: ../panel-plugin/sensors.c:204 ../panel-plugin/sensors.c:788
+#: ../panel-plugin/sensors.c:204
+#: ../panel-plugin/sensors.c:788
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Senzory</b></span>"
 
@@ -29,7 +30,8 @@ msgstr "%5.1f °F"
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:444
+#: ../panel-plugin/sensors.c:562
+#: ../panel-plugin/hddtemp.c:444
 #, c-format
 msgid "%5.1f °C"
 msgstr "%5.1f °C"
@@ -63,7 +65,8 @@ msgstr "Nebyly nalezeny žádné senzory!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors.c:651 ../panel-plugin/sensors.c:1162
+#: ../panel-plugin/sensors.c:651
+#: ../panel-plugin/sensors.c:1162
 #, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -108,7 +111,7 @@ msgstr "T_yp senzorů:"
 
 #: ../panel-plugin/sensors.c:1783
 msgid "Description:"
-msgstr ""
+msgstr "Popis:"
 
 #: ../panel-plugin/sensors.c:1820
 msgid "Name"
@@ -172,17 +175,16 @@ msgid "_Fahrenheit"
 msgstr "Stupně _Fahrenheita"
 
 #: ../panel-plugin/sensors.c:1972
-#, fuzzy
 msgid "Show _Units"
-msgstr "_Zobrazovat titulek"
+msgstr "Zo_brazovat jednotky"
 
 #: ../panel-plugin/sensors.c:1993
 msgid "Small horizontal s_pacing"
-msgstr ""
+msgstr "Malý vodorovný oddělovací prostor"
 
 #: ../panel-plugin/sensors.c:2015
 msgid "Suppress messages"
-msgstr ""
+msgstr "Potlačit zprávy"
 
 #: ../panel-plugin/sensors.c:2044
 msgid "U_pdate interval (seconds):"
@@ -208,7 +210,8 @@ msgstr "_Ostatní"
 msgid "Edit Properties"
 msgstr "Upravit vlastnosti"
 
-#: ../panel-plugin/sensors.c:2232 ../panel-plugin/sensors.h:41
+#: ../panel-plugin/sensors.c:2232
+#: ../panel-plugin/sensors.h:41
 msgid "Sensors Plugin"
 msgstr "Zásuvný modul senzory"
 
@@ -216,13 +219,17 @@ msgstr "Zásuvný modul senzory"
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../panel-plugin/configuration.c:140 ../panel-plugin/configuration.c:317
-#: ../panel-plugin/configuration.c:324 ../panel-plugin/hddtemp.c:229
-#: ../panel-plugin/hddtemp.c:270 ../panel-plugin/hddtemp.c:275
+#: ../panel-plugin/configuration.c:140
+#: ../panel-plugin/configuration.c:317
+#: ../panel-plugin/configuration.c:324
+#: ../panel-plugin/hddtemp.c:229
+#: ../panel-plugin/hddtemp.c:270
+#: ../panel-plugin/hddtemp.c:275
 msgid "Hard disks"
 msgstr "Pevné disky"
 
-#: ../panel-plugin/acpi.c:412 ../panel-plugin/acpi.c:420
+#: ../panel-plugin/acpi.c:412
+#: ../panel-plugin/acpi.c:420
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -238,42 +245,36 @@ msgid "<Unknown>"
 msgstr "<Neznámý>"
 
 #: ../panel-plugin/hddtemp.c:94
-#, fuzzy
 msgid "Xfce 4 Sensors Plugin"
-msgstr "Zásuvný modul senzory"
+msgstr "Zásuvný modul Senzory pro Xfce 4"
 
 #: ../panel-plugin/hddtemp.c:274
 msgid "S.M.A.R.T. harddisk temperatures"
-msgstr "Teploty pevných disků S.M.A.R.T."
+msgstr "Teploty pevných disků ze systému S.M.A.R.T."
 
 #: ../panel-plugin/hddtemp.c:354
-#, fuzzy, c-format
+#, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"Aplikace \"hddtemp\" nebyla korektně spuštěna, přestože je spustitelná. "
-"Disky obvykle ke čtení teploty vyžadují oprávnění uživatele root, ale "
-"aplikace  \"hddtemp\" nemá nastaven bit suid.\n"
+"Aplikace \"hddtemp\" nebyla korektně spuštěna, přestože je spustitelná. Disky obvykle ke čtení teploty vyžadují oprávnění uživatele root, ale aplikace  \"hddtemp\" nemá nastaven bit suid.\n"
 "\n"
-"Jednoduchým, ale nečistým řešením je spuštění příkazu \"chmod u+s %s\" opd "
-"uživatelem root a následné opětovné spuštění tohoto zásuvného modulu nebo "
-"jeho panelu.\n"
+"Jednoduchým, ale nečistým řešením je spuštění příkazu \"chmod u+s %s\" pod uživatelem root a následné opětovné spuštění tohoto zásuvného modulu nebo jeho panelu.\n"
 "\n"
 "Volání \"%s\" vrátilo tuto chybu:\n"
-"%s"
+"%s\n"
+"with a return value of %d.\n"
 
-#: ../panel-plugin/hddtemp.c:364 ../panel-plugin/hddtemp.c:390
+#: ../panel-plugin/hddtemp.c:364
+#: ../panel-plugin/hddtemp.c:390
 msgid "Suppress this message in future"
-msgstr ""
+msgstr "Potlačit budoucí zprávy"
 
 #: ../panel-plugin/hddtemp.c:388
 #, c-format
@@ -288,7 +289,8 @@ msgstr ""
 msgid "LM Sensors"
 msgstr "Senzory LM:"
 
-#: ../panel-plugin/lmsensors.c:335 ../panel-plugin/lmsensors.c:382
+#: ../panel-plugin/lmsensors.c:335
+#: ../panel-plugin/lmsensors.c:382
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Chyba: Nelze se připojit k senzorům!"
@@ -311,15 +313,12 @@ msgstr "Zobrazovat hodnoty senzorů."
 #~ "Zásuvný modul Senzory hardwaru pro Xfce: \n"
 #~ "Došlo k potížím při čtení hodnoty senzoru. \n"
 #~ "Správná funkčnost nemůže být zaručena.\n"
-
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Senzory</b></span>\n"
-
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Senzory</b></span>"
-
 #~ msgid "<b>Sensors</b>"
 #~ msgstr "<b>Senzory</b>"
-
 #~ msgid "<b>View</b>"
 #~ msgstr "<b>Zobrazit</b>"
+
