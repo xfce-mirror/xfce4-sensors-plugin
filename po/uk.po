@@ -1,0 +1,300 @@
+# Ukrainian translation of xfce4-sensors-plugin.
+# Copyright (C) 2008 Dmitry Nikitin
+# This file is distributed under the same license as the xfce4-sensors-plugin package.
+#
+# Dmitry Nikitin <luckas_fb@mail.ru>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-sensors-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-07-14 09:50+0000\n"
+"PO-Revision-Date: 2008-07-09 12:15+0300\n"
+"Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
+"Language-Team: Ukrainian <xfce4-dev@xfce.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: ../panel-plugin/sensors.c:204 ../panel-plugin/sensors.c:788
+msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
+msgstr "<span foreground=\"#000000\"><b>Сенсори</b></span>"
+
+#: ../panel-plugin/sensors.c:559
+#, c-format
+msgid "%5.1f °F"
+msgstr "%5.1f °F градусів Фаренгейта"
+
+#. Celsius
+#. if (scale == FAHRENHEIT) {
+#. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
+#. } else { // Celsius
+#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:444
+#, c-format
+msgid "%5.1f °C"
+msgstr "%5.1f °C градусів Цельсія"
+
+#: ../panel-plugin/sensors.c:567
+#, c-format
+msgid "%+5.2f V"
+msgstr "%+5.2f V вольт"
+
+#: ../panel-plugin/sensors.c:571
+#, c-format
+msgid "%.0f mWh"
+msgstr "%.0f mWh"
+
+#: ../panel-plugin/sensors.c:576
+msgid "off"
+msgstr "вимкнуто"
+
+#: ../panel-plugin/sensors.c:578
+msgid "on"
+msgstr "увімкнуто"
+
+#: ../panel-plugin/sensors.c:582
+#, c-format
+msgid "%5.0f rpm"
+msgstr "%5.0f обертів за хвилину"
+
+#: ../panel-plugin/sensors.c:614
+msgid "No sensors selected!"
+msgstr "Не вибрано сенсорів!"
+
+#. FIXME: either print nothing, or undertake appropriate action,
+#. * or pop up a message box.
+#: ../panel-plugin/sensors.c:651 ../panel-plugin/sensors.c:1162
+#, c-format
+msgid ""
+"Xfce Hardware Sensors Plugin:\n"
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr ""
+"Плагін сенсорів обладнання для Xfce:\n"
+"Здається існують проблеми читання значень опцій сенсора.\n"
+"Правильна обробка не може бути гарантована.\n"
+
+#: ../panel-plugin/sensors.c:931
+msgid "No sensors found!"
+msgstr "Не знайдено сенсорів!"
+
+#: ../panel-plugin/sensors.c:1632
+msgid "UI style:"
+msgstr "Стиль UI:"
+
+#: ../panel-plugin/sensors.c:1633
+msgid "_text"
+msgstr "_текстовий"
+
+#: ../panel-plugin/sensors.c:1635
+msgid "g_raphical"
+msgstr "г_рафічний"
+
+#: ../panel-plugin/sensors.c:1672
+msgid "Show _labels in graphical UI"
+msgstr "Показувати _мітки в графічному UI"
+
+#: ../panel-plugin/sensors.c:1702
+msgid "Show colored _bars"
+msgstr "Поазувати кольорові _панелі"
+
+#: ../panel-plugin/sensors.c:1730
+msgid "_Show title"
+msgstr "_Показувати назву"
+
+#: ../panel-plugin/sensors.c:1758
+msgid "Sensors t_ype:"
+msgstr "Тип с_енсорів:"
+
+#: ../panel-plugin/sensors.c:1783
+msgid "Description:"
+msgstr "Опис:"
+
+#: ../panel-plugin/sensors.c:1820
+msgid "Name"
+msgstr "Назва"
+
+#: ../panel-plugin/sensors.c:1829
+msgid "Value"
+msgstr "Значення"
+
+#: ../panel-plugin/sensors.c:1835
+msgid "Show"
+msgstr "Відображення"
+
+#: ../panel-plugin/sensors.c:1844
+msgid "Color"
+msgstr "Колір"
+
+#: ../panel-plugin/sensors.c:1854
+msgid "Min"
+msgstr "Мінімум"
+
+#: ../panel-plugin/sensors.c:1863
+msgid "Max"
+msgstr "Максимум"
+
+#: ../panel-plugin/sensors.c:1896
+msgid "F_ont size:"
+msgstr "Розмір _шрифту:"
+
+#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#: ../panel-plugin/sensors.c:1903
+msgid "x-small"
+msgstr "найменші"
+
+#: ../panel-plugin/sensors.c:1904
+msgid "small"
+msgstr "малі"
+
+#: ../panel-plugin/sensors.c:1905
+msgid "medium"
+msgstr "середні"
+
+#: ../panel-plugin/sensors.c:1906
+msgid "large"
+msgstr "великі"
+
+#: ../panel-plugin/sensors.c:1907
+msgid "x-large"
+msgstr "найбільші"
+
+#: ../panel-plugin/sensors.c:1939
+msgid "Temperature scale:"
+msgstr "Шкала температури:"
+
+#: ../panel-plugin/sensors.c:1941
+msgid "_Celsius"
+msgstr "_Цельсія"
+
+#: ../panel-plugin/sensors.c:1943
+msgid "_Fahrenheit"
+msgstr "_Фаренгейта"
+
+#: ../panel-plugin/sensors.c:1972
+msgid "Show _Units"
+msgstr "Показувати _значення"
+
+#: ../panel-plugin/sensors.c:1993
+msgid "Small horizontal s_pacing"
+msgstr "Малі горизонтальні про_міжки"
+
+#: ../panel-plugin/sensors.c:2015
+msgid "Suppress messages"
+msgstr "Додаткові повідомлення"
+
+#: ../panel-plugin/sensors.c:2044
+msgid "U_pdate interval (seconds):"
+msgstr "Інтер_вал оновлення (секунд):"
+
+#: ../panel-plugin/sensors.c:2074
+msgid "E_xecute on double click:"
+msgstr "В_иконати при подвійному клацінні:"
+
+#: ../panel-plugin/sensors.c:2117
+msgid "_View"
+msgstr "_Перегляд"
+
+#: ../panel-plugin/sensors.c:2148
+msgid "_Sensors"
+msgstr "_Сенсори"
+
+#: ../panel-plugin/sensors.c:2176
+msgid "_Miscellaneous"
+msgstr "_Різне"
+
+#: ../panel-plugin/sensors.c:2225
+msgid "Edit Properties"
+msgstr "Редагувати властивості"
+
+#: ../panel-plugin/sensors.c:2232 ../panel-plugin/sensors.h:41
+msgid "Sensors Plugin"
+msgstr "Плагін сенсорів"
+
+#. only use this if no hddtemp sensor
+#. or do only use this , if it is an lmsensors device. whatever.
+#. FIXME: compare strings, or also have hddtmep and acpi store numeric values
+#. assert correctly saved file
+#: ../panel-plugin/configuration.c:140 ../panel-plugin/configuration.c:317
+#: ../panel-plugin/configuration.c:324 ../panel-plugin/hddtemp.c:229
+#: ../panel-plugin/hddtemp.c:270 ../panel-plugin/hddtemp.c:275
+msgid "Hard disks"
+msgstr "Жорсткі диски"
+
+#: ../panel-plugin/acpi.c:412 ../panel-plugin/acpi.c:420
+msgid "ACPI"
+msgstr "Інтерфейс ACPI"
+
+#. to be displayed
+#. chip->description = _("Advanced Configuration and Power Interface");
+#: ../panel-plugin/acpi.c:414
+#, c-format
+msgid "ACPI v%s zones"
+msgstr "ACPI v%s зони"
+
+#: ../panel-plugin/acpi.c:517
+msgid "<Unknown>"
+msgstr "<Невідомо>"
+
+#: ../panel-plugin/hddtemp.c:94
+msgid "Xfce 4 Sensors Plugin"
+msgstr "Плагін сенсорів для Xfce 4"
+
+#: ../panel-plugin/hddtemp.c:274
+msgid "S.M.A.R.T. harddisk temperatures"
+msgstr "Температура жорстких дисків із S.M.A.R.T."
+
+#: ../panel-plugin/hddtemp.c:354
+#, c-format
+msgid ""
+"\"hddtemp\" was not executed correctly, although it is executable. This is "
+"most probably due to the disks requiring root privileges to read their "
+"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
+"restart this plugin or its panel.\n"
+"\n"
+"Calling \"%s\" gave the following error:\n"
+"%s\n"
+"with a return value of %d.\n"
+msgstr ""
+"\"hddtemp\" не було виконано коректно, хоча це є виконуваним. Можливо це   "
+"потребує для дисків прав адміністратора для того, щоб зчитати їх       "
+"температури, і    \"hddtemp\" не має UID root.      \n"
+"\n"
+"Простіше, але неправильне рішення є \"chmod u+s %s\" під root а також  "
+"перезавантаження плагіна чи панелі.\n"
+"\n"
+"Виклик  \"%s\" дав наступні помилки:    \n"
+"%s\n"
+"і повернув значення    %d.\n"
+
+#: ../panel-plugin/hddtemp.c:364 ../panel-plugin/hddtemp.c:390
+msgid "Suppress this message in future"
+msgstr "Доповнювати це повідомлення в майбутньому"
+
+#: ../panel-plugin/hddtemp.c:388
+#, c-format
+msgid ""
+"An error occurred when executing \"%s\":\n"
+"%s"
+msgstr ""
+"Під час виконання виникла помилка \"%s\":\n"
+"%s"
+
+#: ../panel-plugin/lmsensors.c:77
+msgid "LM Sensors"
+msgstr "Сенсори LM"
+
+#: ../panel-plugin/lmsensors.c:335 ../panel-plugin/lmsensors.c:382
+#, c-format
+msgid "Error: Could not connect to sensors!"
+msgstr "Помилка: Неможливо отримати доступ до сенсорів!"
+
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
+msgid "Sensor plugin "
+msgstr "Плагін сенсорів "
+
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
+msgid "Show sensor values."
+msgstr "Поазувати значення сенсорів."
