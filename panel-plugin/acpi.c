@@ -93,7 +93,7 @@ read_thermal_zone (t_chip *chip)
 
                 chipfeature = g_new0 (t_chipfeature, 1);
 
-                chipfeature->color = "#0000B0";
+                chipfeature->color = g_strdup("#0000B0");
                 chipfeature->address = chip->chip_features->len;
                 chipfeature->devicename = g_strdup (de->d_name);
                 chipfeature->name = g_strdup (chipfeature->devicename);
@@ -244,7 +244,7 @@ int read_battery_zone (t_chip *chip)
                     chipfeature->raw_value = 0.0;
                     chipfeature->class = ENERGY;
                     chipfeature->formatted_value = NULL;
-                    chipfeature->color = "#0000B0";
+                    chipfeature->color = g_strdup("#0000B0");
                     while (fgets (buf, 1024, file)!=NULL)
                     {
                         if (strncmp (buf, "design capacity low:", 20)==0)
@@ -362,7 +362,7 @@ int read_fan_zone (t_chip *chip)
 
                 chipfeature = g_new0 (t_chipfeature, 1);
 
-                chipfeature->color = "#0000B0";
+                chipfeature->color = g_strdup("#0000B0");
                 chipfeature->address = chip->chip_features->len;
                 chipfeature->devicename = g_strdup (de->d_name);
                 chipfeature->name = g_strdup (chipfeature->devicename);
