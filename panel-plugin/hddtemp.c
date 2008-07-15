@@ -237,7 +237,7 @@ populate_detected_drives (t_chip *chip)
 
        /* chipfeature->name = g_strdup(chipfeature->devicename); */
 
-       chipfeature->color = "#B000B0";
+       chipfeature->color = g_strdup("#B000B0");
        chipfeature->valid = TRUE;
        chipfeature->formatted_value = g_strdup ("0.0"); /* _printf("%+5.1f", 0.0); */
        chipfeature->raw_value = 0.0;

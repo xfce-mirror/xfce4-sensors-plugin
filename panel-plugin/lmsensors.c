@@ -172,7 +172,7 @@ categorize_sensor_type_libsensors4 (t_chipfeature *chipfeature,
 void setup_chipfeature_common (t_chipfeature *chipfeature, int number,
                                double sensorFeature)
 {
-    chipfeature->color = "#00B000";
+    chipfeature->color = g_strdup("#00B000");
     chipfeature->valid = TRUE;
 
     chipfeature->raw_value = sensorFeature;
