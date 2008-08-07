@@ -445,7 +445,7 @@ int initialize_ACPI (GPtrArray *chips)
 void
 refresh_acpi (gpointer chip_feature, gpointer data)
 {
-    char *file, *zone;
+    char *file, *zone, *state;
     t_chipfeature *cf;
 
     TRACE ("enters refresh_acpi");
@@ -464,17 +464,29 @@ refresh_acpi (gpointer chip_feature, gpointer data)
             break;
 
         case ENERGY:
-            zone = g_strdup_printf ("%s/%s", ACPI_DIR_BATTERY, cf->devicename);
-            cf->raw_value = get_battery_zone_value (zone);
-            g_free (zone);
+            /* zone = g_strdup_printf ("%s/%s", ACPI_DIR_BATTERY, cf->devicename); */
+            cf->raw_value = get_battery_zone_value (cf->devicename); /* zone */
+            /* g_free (zone); */
             /*  g_free (cf->formatted_value);
             cf->formatted_value = g_strdup_printf (_("%.0f mWh"), cf->raw_value); */
             break;
 
         case STATE:
-            file = g_strdup_printf ("%s/%s/state", ACPI_DIR_FAN, cf->devicename);
-            cf->raw_value = strcmp(get_acpi_value(file), "on")==0 ? 1.0 : 0.0;
+            file = g_strdup_printf ("%s/%s/%s/state", ACPI_PATH, ACPI_DIR_FAN, cf->devicename);
+            
+            state = get_acpi_value(file);
+            if (state==NULL)
+            {
+            	DBG("Could not determine fan state.");
+            	cf->raw_value = 0.0;
+			}
+			else
+			{
+            	cf->raw_value = strncmp(state, "on", 2)==0 ? 1.0 : 0.0;
+            	/* g_free (state); Anyone with a fan state please check that, should be necessary to free this string as well */
+			}
             g_free (file);
+            
             /* g_free (cf->formatted_value);
             cf->formatted_value = g_strdup_printf (_("%.0f"), cf->raw_value); */
             break;
@@ -544,6 +556,11 @@ get_acpi_zone_value (char *zone, char *file)
 }
 
 
+/**
+ * Get the value from inside an acpi's file.
+ * @param filename An absolute filename, most likely starting with /proc/acpi...
+ * @return value found inside as a character
+ */
 char *
 get_acpi_value (char *filename)
 {
