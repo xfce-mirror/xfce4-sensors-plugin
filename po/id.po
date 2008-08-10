@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-06-26 23:45+0200\n"
-"PO-Revision-Date: 2008-06-21 12:51+0700\n"
+"PO-Revision-Date: 2008-07-18 22:23+0700\n"
 "Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -107,7 +107,7 @@ msgstr "Tipe s_ensor:"
 
 #: ../panel-plugin/sensors.c:1783
 msgid "Description:"
-msgstr ""
+msgstr "Keterangan:"
 
 #: ../panel-plugin/sensors.c:1820
 msgid "Name"
@@ -171,21 +171,20 @@ msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
 #: ../panel-plugin/sensors.c:1972
-#, fuzzy
 msgid "Show _Units"
-msgstr "_Tampilkan judul"
+msgstr "Tampilkan _Unit"
 
 #: ../panel-plugin/sensors.c:1993
 msgid "Small horizontal s_pacing"
-msgstr ""
+msgstr "P_emisah horizontal kecil"
 
 #: ../panel-plugin/sensors.c:2015
 msgid "Suppress messages"
-msgstr ""
+msgstr "Kecilkan pesan"
 
 #: ../panel-plugin/sensors.c:2044
 msgid "U_pdate interval (seconds):"
-msgstr "I_nterval mutakhirkan (detik):"
+msgstr "I_nterval pemutakhiran (detik):"
 
 #: ../panel-plugin/sensors.c:2074
 msgid "E_xecute on double click:"
@@ -237,9 +236,8 @@ msgid "<Unknown>"
 msgstr "<Tak diketahui>"
 
 #: ../panel-plugin/hddtemp.c:94
-#, fuzzy
 msgid "Xfce 4 Sensors Plugin"
-msgstr "Plugin Sensor"
+msgstr "Plugin Sensor Xfce 4"
 
 #: ../panel-plugin/hddtemp.c:274
 msgid "S.M.A.R.T. harddisk temperatures"
@@ -272,7 +270,7 @@ msgstr ""
 
 #: ../panel-plugin/hddtemp.c:364 ../panel-plugin/hddtemp.c:390
 msgid "Suppress this message in future"
-msgstr ""
+msgstr "Kecilkan pesan ini di masa depan"
 
 #: ../panel-plugin/hddtemp.c:388
 #, c-format
