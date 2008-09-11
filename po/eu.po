@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-06-26 23:45+0200\n"
-"PO-Revision-Date: 2008-05-02 10:59+0200\n"
+"PO-Revision-Date: 2008-09-11 22:18+0200\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: Euskara <debian-l10n-basque@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -109,7 +109,7 @@ msgstr "Sentsore m_ota:"
 
 #: ../panel-plugin/sensors.c:1783
 msgid "Description:"
-msgstr ""
+msgstr "Azalpena:"
 
 #: ../panel-plugin/sensors.c:1820
 msgid "Name"
@@ -129,7 +129,7 @@ msgstr "Kolorea"
 
 #: ../panel-plugin/sensors.c:1854
 msgid "Min"
-msgstr "Min"
+msgstr "Gutx"
 
 #: ../panel-plugin/sensors.c:1863
 msgid "Max"
@@ -173,17 +173,16 @@ msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
 #: ../panel-plugin/sensors.c:1972
-#, fuzzy
 msgid "Show _Units"
-msgstr "_Izenburua ikusi"
+msgstr "Ikusi _unitateak"
 
 #: ../panel-plugin/sensors.c:1993
 msgid "Small horizontal s_pacing"
-msgstr ""
+msgstr "Ikusi _zuriune horizontala"
 
 #: ../panel-plugin/sensors.c:2015
 msgid "Suppress messages"
-msgstr ""
+msgstr "Ezabatu mezuak"
 
 #: ../panel-plugin/sensors.c:2044
 msgid "U_pdate interval (seconds):"
@@ -207,7 +206,7 @@ msgstr "_Bestelakoak"
 
 #: ../panel-plugin/sensors.c:2225
 msgid "Edit Properties"
-msgstr "Propietateak Editatu"
+msgstr "Editatu propietateak"
 
 #: ../panel-plugin/sensors.c:2232 ../panel-plugin/sensors.h:41
 msgid "Sensors Plugin"
@@ -239,9 +238,8 @@ msgid "<Unknown>"
 msgstr "<Ezezaguna>"
 
 #: ../panel-plugin/hddtemp.c:94
-#, fuzzy
 msgid "Xfce 4 Sensors Plugin"
-msgstr "Sentsore Plugin-a"
+msgstr "Xfce 4 sentsore plugin-a"
 
 #: ../panel-plugin/hddtemp.c:274
 msgid "S.M.A.R.T. harddisk temperatures"
@@ -274,7 +272,7 @@ msgstr ""
 
 #: ../panel-plugin/hddtemp.c:364 ../panel-plugin/hddtemp.c:390
 msgid "Suppress this message in future"
-msgstr ""
+msgstr "Ez erakutsi mezu hau aurrerantzean"
 
 #: ../panel-plugin/hddtemp.c:388
 #, c-format
@@ -301,3 +299,4 @@ msgstr "Sentsore plugin-a "
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "Sentsore balioak bistarazi."
+
