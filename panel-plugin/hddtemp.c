@@ -271,9 +271,9 @@ initialize_hddtemp (GPtrArray *chips, gboolean *suppressmessage)
 
     chip->chip_features = g_ptr_array_new ();
     chip->num_features = 0;
-    chip->description = _("S.M.A.R.T. harddisk temperatures");
-    chip->name = _("Hard disks");
-    chip->sensorId = "Hard disks";
+    chip->description = g_strdup(_("S.M.A.R.T. harddisk temperatures"));
+    chip->name = g_strdup(_("Hard disks"));
+    chip->sensorId = g_strdup("Hard disks");
     chip->type = HDD;
 
     p_uname = (struct utsname *) malloc (sizeof(struct utsname));

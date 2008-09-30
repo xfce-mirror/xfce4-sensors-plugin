@@ -74,7 +74,7 @@ t_chip *setup_chip (GPtrArray *chips, const sensors_chip_name *name, int num_sen
     #endif
 
     chip->num_features=0;
-    chip->name = _("LM Sensors");
+    chip->name = g_strdup(_("LM Sensors"));
     chip->chip_features = g_ptr_array_new();
 
     #if SENSORS_API_VERSION < 0x400 /* libsensors3 */
@@ -172,6 +172,7 @@ categorize_sensor_type_libsensors4 (t_chipfeature *chipfeature,
 void setup_chipfeature_common (t_chipfeature *chipfeature, int number,
                                double sensorFeature)
 {
+    g_free (chipfeature->color);
     chipfeature->color = g_strdup("#00B000");
     chipfeature->valid = TRUE;
 

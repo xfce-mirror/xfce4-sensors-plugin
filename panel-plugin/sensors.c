@@ -930,8 +930,9 @@ sensors_new (XfcePanelPlugin *plugin)
         chipfeature->address = 0;
         chip->sensorId = g_strdup(_("No sensors found!"));
         chip->num_features = 1;
-        chipfeature->color = "#000000";
-        chipfeature->name = "No sensor";
+        chipfeature->color = g_strdup("#000000");
+        g_free (chipfeature->name);
+        chipfeature->name = g_strdup("No sensor");
         chipfeature->valid = TRUE;
         g_free (chipfeature->formatted_value);
         chipfeature->formatted_value = g_strdup("0.0");
@@ -1443,8 +1444,8 @@ list_cell_color_edited (GtkCellRendererText *cellrenderertext, gchar *path_str,
         chip = (t_chip *) g_ptr_array_index(sd->sensors->chips, gtk_combo_box_active);
 
         chipfeature = (t_chipfeature *) g_ptr_array_index(chip->chip_features, atoi(path_str));
-        chipfeature->color =
-            g_strdup(new_color);
+        g_free (chipfeature->color);
+        chipfeature->color = g_strdup(new_color);
 
         /* clean up */
         gtk_tree_path_free (path);
@@ -2205,7 +2206,22 @@ on_optionsDialog_response (GtkWidget *dlg, int response, t_sensors_dialog *sd)
         sensors_write_config (sd->sensors->plugin, sd->sensors);
     }
     gtk_widget_destroy (sd->dialog);
+
     xfce_panel_plugin_unblock_menu (sd->sensors->plugin);
+
+    /* g_free(sd->coloredBars_Box);
+    g_free(sd->font_Box);
+    g_free(sd->labels_Box);
+    g_free(sd->myComboBox);
+    g_free(sd->myCommandName_Entry);
+    g_free(sd->myExecCommand_CheckBox);
+    g_free(sd->mySensorLabel);
+    g_free(sd->smallspacing_checkbox);
+    g_free(sd->suppressmessage_checkbox);
+    g_free(sd->temperature_radio_group);
+    g_free(sd->unit_checkbox); */
+
+    g_free(sd);
 
     TRACE ("leaves on_optionsDialog_response");
 }

@@ -409,10 +409,10 @@ int initialize_ACPI (GPtrArray *chips)
     TRACE ("enters initialize_ACPI");
 
     chip = g_new0 (t_chip, 1);
-    chip->name = _("ACPI"); /* to be displayed */
-    /* chip->description = _("Advanced Configuration and Power Interface"); */
+    chip->name = g_strdup(_("ACPI")); /* to be displayed */
+    /* chip->description = g_strdup(_("Advanced Configuration and Power Interface")); */
     chip->description = g_strdup_printf (_("ACPI v%s zones"), get_acpi_info());
-    chip->sensorId = "ACPI"; /* used internally */
+    chip->sensorId = g_strdup ("ACPI"); /* used internally */
 
     chip->type = ACPI;
 
@@ -473,20 +473,20 @@ refresh_acpi (gpointer chip_feature, gpointer data)
 
         case STATE:
             file = g_strdup_printf ("%s/%s/%s/state", ACPI_PATH, ACPI_DIR_FAN, cf->devicename);
-            
+
             state = get_acpi_value(file);
             if (state==NULL)
             {
-            	DBG("Could not determine fan state.");
-            	cf->raw_value = 0.0;
-			}
-			else
-			{
-            	cf->raw_value = strncmp(state, "on", 2)==0 ? 1.0 : 0.0;
-            	/* g_free (state); Anyone with a fan state please check that, should be necessary to free this string as well */
-			}
+                DBG("Could not determine fan state.");
+                cf->raw_value = 0.0;
+            }
+            else
+            {
+                cf->raw_value = strncmp(state, "on", 2)==0 ? 1.0 : 0.0;
+                /* g_free (state); Anyone with a fan state please check that, should be necessary to free this string as well */
+            }
             g_free (file);
-            
+
             /* g_free (cf->formatted_value);
             cf->formatted_value = g_strdup_printf (_("%.0f"), cf->raw_value); */
             break;
