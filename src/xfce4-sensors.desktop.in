@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+_Name=Xfce 4 Sensors
+_Comment=Graphical Sensors Viewer for Xfce 4
+Exec=xfce4-sensors
+Icon=xfce4-sensors
+Terminal=false
+Type=Application
+_GenericName=Sensors Viewer
