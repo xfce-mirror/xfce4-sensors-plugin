@@ -21,6 +21,8 @@
 
 #include <gtk/gtk.h>
 
+#include <libxfce4util/libxfce4util.h>
+
 #include <stdio.h>
 
 #include <string.h>
@@ -28,14 +30,14 @@
 void
 print_usage ()
 {
-    print (_("Xfce4 Sensors -- \n"
-                     "Displays information about your sensors and ACPI.\n"
-                     "Synopsis: \n"
-                     "  xfce4-sensors options\n"
-                     "where options are one or more of the following:\n"
-                     "  -h, --help Print this help dialog.\n"
-                     "\n"
-                     "This program is published under the GPL v2.\n")
+    printf (_("Xfce4 Sensors -- \n"
+                      "Displays information about your sensors and ACPI.\n"
+                      "Synopsis: \n"
+                      "  xfce4-sensors options\n"
+                      "where options are one or more of the following:\n"
+                      "  -h, --help Print this help dialog.\n"
+                      "\n"
+                      "This program is published under the GPL v2.\n")
                 );
 }
 

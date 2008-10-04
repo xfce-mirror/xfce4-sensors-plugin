@@ -18,16 +18,18 @@ xfce4_sensors_SOURCES =									   \
 	../panel-plugin/lmsensors.c
 
 xfce4_sensors_CFLAGS = \
-	$(GTK_CFLAGS) \
+	@GTK_CFLAGS@ \
 	@PLATFORM_CFLAGS@												\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"							\
+	@LIBXFCE4UTIL_CFLAGS@ \
 	@LIBSENSORS_CFLAGS@
 #	@LIBXFCE4PANEL_CFLAGS@
 
 xfce4_sensors_LDFLAGS = \
-	$(GTK_LIBS) \
+	@GTK_LIBS@ \
 	@SOLLIBS@														\
-	@LIBSENSORS_LDFLAGS@
+	@LIBSENSORS_LDFLAGS@ \
+	@LIBXFCE4UTIL_LIBS@
 #	@LIBXFCE4PANEL_LIBS@
 
 # INCLUDES =														 \
