@@ -17,10 +17,10 @@
 
 /* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
 
-#include "config.h"
-#include "hddtemp.h"
-#include "middlelayer.h"
-#include "types.h"
+#include <config.h>
+#include <hddtemp.h>
+#include <middlelayer.h>
+#include <types.h>
 
 #include <glib/garray.h>
 #include <glib/gdir.h>

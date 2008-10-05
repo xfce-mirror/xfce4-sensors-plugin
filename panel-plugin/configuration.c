@@ -227,6 +227,9 @@ sensors_read_preliminary_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 
     TRACE ("enters sensors_read_preliminary_config");
 
+    if (plugin==NULL)
+        return;
+
     if (!(file = xfce_panel_plugin_lookup_rc_file (plugin)))
         return;
 

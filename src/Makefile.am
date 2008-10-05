@@ -1,8 +1,15 @@
 # $Id$
 
-INCLUDES = -I../panel-plugin/
-
 bin_PROGRAMS = xfce4-sensors
+
+
+INCLUDES = 			\
+	-I$(top_builddir)/include	\
+	-I$(top_builddir)/lib
+
+#	-DG_LOG_DOMAIN=\"xfce4-sensors-plugin\"						 \
+#	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
+
 
 # LIBS = @LIBS@ @SOLLIBS@
 # CFLAGS = @CFLAGS@
@@ -11,30 +18,35 @@ xfce4_sensors_SOURCES =									   \
 	main.c \
 	interface.c \
 	callbacks.c \
-	actions.c \
-	../panel-plugin/middlelayer.c \
-	../panel-plugin/acpi.c \
-	../panel-plugin/hddtemp.c \
-	../panel-plugin/lmsensors.c
+	actions.c
 
 xfce4_sensors_CFLAGS = \
-	@GTK_CFLAGS@ \
-	@PLATFORM_CFLAGS@												\
-	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"							\
+	@GTK_CFLAGS@ 												\
+	@GLIB_CFLAGS@ 												\
+	@PLATFORM_CFLAGS@											\
+	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"						\
+	@LIBSENSORS_CFLAGS@											\
 	@LIBXFCE4UTIL_CFLAGS@ \
-	@LIBSENSORS_CFLAGS@
+	@LIBXFCEGUI4_CFLAGS@
+
 #	@LIBXFCE4PANEL_CFLAGS@
 
-xfce4_sensors_LDFLAGS = \
-	@GTK_LIBS@ \
+#xfce4_sensors_LDFLAGS = 								\
+#	$(top_builddir)/lib/libxfce4sensors.la
+
+xfce4_sensors_LDADD = 								\
+	@GTK_LIBS@ 													\
+	@GLIB_LIBS@ 													\
 	@SOLLIBS@														\
-	@LIBSENSORS_LDFLAGS@ \
-	@LIBXFCE4UTIL_LIBS@
+	@LIBSENSORS_LDFLAGS@ 								\
+	@LIBXFCE4UTIL_LIBS@									\
+	@LIBXFCEGUI4_LIBS@
+
+#-L/usr/local/lib/xfce4/modules/ -L$(top_builddir)/lib -lxfce4sensors
 #	@LIBXFCE4PANEL_LIBS@
 
-# INCLUDES =														 \
-#	-DG_LOG_DOMAIN=\"xfce4-sensors-plugin\"						 \
-#	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
+#xfce4_sensors_DEPENDENCIES = \
+#	$(top_builddir)/lib/libxfce4sensors.la
 
 # .desktop file
 #
@@ -52,7 +64,6 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 
 EXTRA_DIST =														 \
 	$(desktop_in_in_files)
-
 
 DISTCLEANFILES =													 \
 	$(desktop_DATA) $(desktop_in_files)

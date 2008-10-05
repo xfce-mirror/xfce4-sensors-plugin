@@ -1,47 +1,35 @@
 plugindir = $(libexecdir)/xfce4/panel-plugins
 plugin_PROGRAMS = xfce4-sensors-plugin
 
-# LIBS = @LIBS@ @SOLLIBS@
+INCLUDES = 			\
+	-I$(top_builddir)/include 	\
+	-I$(top_builddir)/lib
 
-if HAVE_LIBSENSORS
-SENSORS_SOURCES = lmsensors.c lmsensors.h
-endif
-
-if HAVE_HDDTEMP
-HDDTEMP_SOURCES = hddtemp.c hddtemp.h
-endif
-
-if HAVE_ACPI
-ACPI_SOURCES = acpi.c acpi.h
-endif
-
+#	-DG_LOG_DOMAIN=\"xfce4-sensors-plugin\"						 \
+#	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
 
 xfce4_sensors_plugin_SOURCES =									   \
-	middlelayer.c													\
-	middlelayer.h													\
-	$(SENSORS_SOURCES)												\
-	$(HDDTEMP_SOURCES)												\
-	$(ACPI_SOURCES)													\
 	configuration.c													\
-	configuration.h													\
-	sensors.c														\
-	sensors.h														\
-	types.h
+	sensors-plugin.c
+
+# types.h
+# middlelayer.c													\
+# middlelayer.h
 
 xfce4_sensors_plugin_CFLAGS = \
+	@GTK_CFLAGS@ \
+	@GLIB_CFLAGS@ \
 	@LIBXFCE4PANEL_CFLAGS@										   \
 	@PLATFORM_CFLAGS@												\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"							\
 	@LIBSENSORS_CFLAGS@
 
 xfce4_sensors_plugin_LDFLAGS = \
+	@GTK_LIBS@ \
+	@GLIB_LIBS@ \
 	@LIBXFCE4PANEL_LIBS@											 \
 	@SOLLIBS@														\
 	@LIBSENSORS_LDFLAGS@
-
-# INCLUDES =														 \
-#	-DG_LOG_DOMAIN=\"xfce4-sensors-plugin\"						 \
-#	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
 
 # .desktop file
 #

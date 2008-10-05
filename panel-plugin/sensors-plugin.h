@@ -1,6 +1,4 @@
-/* File configuration.h
- *
- *  Copyright 2004-2007 Fabian Nowak (timystery@arcor.de)
+/*  Copyright 2004-2007 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -19,20 +17,31 @@
 
 /* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
 
-#ifndef XFCE4_SENSORS_CONFIGURATION_H
- #define XFCE4_SENSORS_CONFIGURATION_H
+#ifndef XFCE4_SENSORS_SENSORS_H
+#define XFCE4_SENSORS_SENSORS_H
+
+#ifdef HAVE_CONFIG_H
+ #include <config.h>
+#endif
+
+/* #endif */
+
+#include <glib/garray.h>
+#include <glib/gprintf.h>
+
+#include <libxfce4util/libxfce4util.h>
+#include <libxfcegui4/libxfcegui4.h>
+
+#include <string.h>
+
+#include <middlelayer.h>
+#include <sensors-interface-common.h>
+/* #include <types.h> */
+
+#define APP_NAME N_("Sensors Plugin")
 
 
-#include "sensors-plugin.h"
 
-gint get_Id_from_address (gint chipnumber, gint addr, t_sensors *sensors);
 
-void sensors_write_config (XfcePanelPlugin *plugin, t_sensors *sensors);
 
-void sensors_read_general_config (XfceRc *rc, t_sensors *sensors);
-
-void sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors);
-
-void sensors_read_preliminary_config (XfcePanelPlugin *plugin, t_sensors *sensors);
-
-#endif  /* define XFCE4_SENSORS_CONFIGURATION_H */
+#endif /* XFCE4_SENSORS_SENSORS_H */

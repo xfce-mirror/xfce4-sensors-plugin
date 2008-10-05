@@ -1,7 +1,7 @@
 
-#include "lmsensors.h"
-#include "middlelayer.h"
-#include "types.h"
+#include <lmsensors.h>
+#include <middlelayer.h>
+#include <types.h>
 
 #include <errno.h>
 

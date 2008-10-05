@@ -25,18 +25,11 @@
 #include "types.h"
 
 #include <glib/garray.h>
-#include <glib/gdir.h>
-#include <glib/gerror.h>
-#include <glib/gmem.h>
-#include <glib/gmessages.h>
-#include <glib/gprintf.h>
 #include <glib/gtypes.h>
-
-#include <string.h>
 
 #define NO_VALID_HDDTEMP -2
 
-/*
+/**
  * Initialize all sensors detected by iterating and calling init-routines
  * @Return: Number of initialized features
  * @Param: Double-pointer to array of chips
@@ -44,29 +37,30 @@
 int initialize_all (GPtrArray **chips, gboolean *suppressmessage);
 
 
-/*
+/**
  * Refresh all features of a chip
-
+ *
  * @Param chip: Pointer to chip
  */
 void refresh_chip (gpointer chip, gpointer data);
 
 
-/*
+/**
  * Refresh all features of a chip
  * @Param: Pointer to chip pointers
  */
 void refresh_all_chips (GPtrArray *chips);
 
 
-/*
+/**
  * Classifies sensor type
  * @Param: Pointer to feature
  */
 void categorize_sensor_type (t_chipfeature *chipfeature);
 
 
-/* Gets value of specified number in chip_name
+/**
+ * Gets value of specified number in chip_name
  * @Param chip_name: takten from libsensors3, it specifies bus and stuff of
  * the sensors chip feature
  * @Param number: number of chipfeature to look for
@@ -76,15 +70,20 @@ void categorize_sensor_type (t_chipfeature *chipfeature);
 int sensor_get_value (t_chip *chip, int number, double *value);
 
 
-/*  Free data in chipfeatures */
+/**
+ * Free data in chipfeatures
+ */
 void free_chipfeature (gpointer chipfeature, gpointer data);
 
 
-/*  Free reamining structures in chips and associated chipfeatures */
+/**
+ * Free reamining structures in chips and associated chipfeatures
+ */
 void free_chip (gpointer chip, gpointer data);
 
 
-/* Clean up structures and call library routines for ending "session".
+/**
+ * Clean up structures and call library routines for ending "session".
  */
 void sensor_interface_cleanup ();
 

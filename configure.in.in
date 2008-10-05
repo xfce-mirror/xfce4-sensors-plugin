@@ -183,6 +183,12 @@ AC_CHECK_LIB(kstat, kstat_open, SOLLIBS="-lkstat -lsocket", SOLLIBS="")
 AC_CHECK_LIB(nsl, kstat_open, SOLLIBS="$SOLLIBS -linet_ntop", SOLLIBS="$SOLLIBS")
 AC_SUBST(SOLLIBS)
 
+XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.10.0])
+XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.6.0])
+dnl XDT_CHECK_PACKAGE([GTHREAD], [gthread-2.0], [2.12.0])
+XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.4.0])
+XDT_CHECK_PACKAGE([LIBXFCEGUI4], [libxfcegui4-1.0], [4.4.0])
+
 dnl configure the panel plugin
 XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.4.0])
 
@@ -195,7 +201,9 @@ XDT_FEATURE_DEBUG()
 AC_OUTPUT([
 Makefile
 xfce4-sensors-plugin.spec
+lib/Makefile
 panel-plugin/Makefile
+src/Makefile
 icons/Makefile
 po/Makefile.in
 ])
@@ -213,7 +221,8 @@ echo "Host system:  $OS"
 echo
 echo "The following sensor interfaces will be built into the plugin:"
 if test x"$enable_hddtemp" = x"yes"; then
-echo "*  hddtemp: $HDDTEMP"
+echo "*  hddtemp: $HDDTEMP (Make sure it is user-executable with UID bit set "
+echo "                      and user member of the respective group)"
 fi
 if test x"$enable_libsensors" = x"yes"; then
 echo "*  libsensors"

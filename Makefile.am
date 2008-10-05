@@ -1,8 +1,11 @@
 # $Id$
 
-SUBDIRS = panel-plugin					\
-	  po						\
-	  icons
+SUBDIRS = 					\
+	lib							\
+	panel-plugin		\
+	src							\
+	po							\
+	icons
 
 distclean-local:
 	rm -rf *.cache *~
@@ -20,18 +23,18 @@ rpm: dist
 	@rm -f $(PACKAGE)-$(VERSION).tar.gz
 
 EXTRA_DIST =							\
-        AUTHORS								\
-        COPYING								\
-        ChangeLog							\
-        INSTALL								\
-        NEWS								\
-        README								\
-        TODO								\
-		NOTES								\
-        xfce4-sensors-plugin.spec.in		\
-        intltool-extract.in                 \
-        intltool-merge.in                   \
-        intltool-update.in
+	AUTHORS								\
+	COPYING								\
+	ChangeLog							\
+	INSTALL								\
+	NEWS									\
+	README								\
+	TODO									\
+	NOTES									\
+	xfce4-sensors-plugin.spec.in		\
+	intltool-extract.in                 \
+	intltool-merge.in                   \
+	intltool-update.in
 
 DISTCLEANFILES =						\
 	intltool-extract					\
@@ -55,4 +58,4 @@ release: gpg-sign
 	mv $(PACKAGE)-$(VERSION).tar.bz2* releases/
 	-rm $(PACKAGE)-$(VERSION).tar.gz
 
-# vi:set ts=8 sw=8 noet ai nocindent syntax=automake:
+# vi:set ts=4 sw=4 noet ai nocindent syntax=automake:

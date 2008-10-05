@@ -45,14 +45,14 @@
 int initialize_ACPI (GPtrArray *chips);
 
 
-/*
+/**
  * Refreshs an ACPI chip's feature in sense of raw and formatted value
  * @Param chip_feature: Pointer to feature
  */
 void refresh_acpi (gpointer chip_feature, gpointer data);
 
 
-/*
+/**
  * Read a double value from zone. Calls get_acpi_value with prolonged path.
  * @Param zone: zone name under /proc/acpi including the subdir for one zone.
  * @Param file: file to read information from, e.g. info.
@@ -61,7 +61,7 @@ void refresh_acpi (gpointer chip_feature, gpointer data);
 double get_acpi_zone_value (char *zone, char *file);
 
 
-/*
+/**
  * Read a double value from status file for fans.
  * When status is on, result is 1.0; else it is 0.0.
  * @Param zone: file to read information from, e.g. state.
@@ -69,14 +69,14 @@ double get_acpi_zone_value (char *zone, char *file);
  */
 double get_fan_zone_value (char *zone);
 
-/*
+/**
  * Read a double value from special subzone denoted by name.
  * @Param name: name in the /pro/acpi/battery directory.
  * @Param chipfeature: pointer to chipfeature to get a max value.
  */
 void get_battery_max_value (char *name, t_chipfeature *chipfeature);
 
-/*
+/**
  * Read information from the thermal zone.
  * @Param chip: Pointer to already allocated chip, where values can be added.
  * @Return: 0 on success
@@ -84,7 +84,7 @@ void get_battery_max_value (char *name, t_chipfeature *chipfeature);
 int read_thermal_zone (t_chip *chip);
 
 
-/*
+/**
  * Read information from the battery zone.
  * @Param chip: Pointer to already allocated chip, where values can be added.
  * @Return: 0 on success
@@ -92,7 +92,7 @@ int read_thermal_zone (t_chip *chip);
 int read_battery_zone (t_chip *chip);
 
 
-/*
+/**
  * Read information from the fan zone.
  * @Param chip: Pointer to already allocated chip, where values can be added.
  * @Return: 0 on success
@@ -100,14 +100,14 @@ int read_battery_zone (t_chip *chip);
 int read_fan_zone (t_chip *chip);
 
 
-/*
+/**
  * Returns the ACPI version number from /proc/acpi/info file.
  * @Return: versionnumber as string!
  */
 char * get_acpi_info ();
 
 
-/*
+/**
  * Get the string found in filename after the colon. To make a double out of
  * it, strtod is suitable.
  * @Param filename: Complete path to file to be inspected.
@@ -116,7 +116,7 @@ char * get_acpi_info ();
 char * get_acpi_value (char *filename);
 
 
-/*
+/**
  * Get the battery percentage from the battery information.
  * @Param zone: Complete zone path including both e.g. "battery" and "BAT0"
  * @Return double value of current battery power
@@ -124,7 +124,7 @@ char * get_acpi_value (char *filename);
 double get_battery_zone_value (char *zone);
 
 
-/*
+/**
  * Indicates whether a given directory entry should be ignored as it's not
  *  "temperature".
  * @Param de: pointer to directory entry.

@@ -17,8 +17,8 @@
 
 /* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
 
-#include "acpi.h"
-#include "types.h"
+#include <acpi.h>
+#include <types.h>
 
 #include <glib/gmessages.h>
 #include <glib/gmem.h>

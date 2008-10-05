@@ -25,7 +25,7 @@
 /* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
 
 
-#include "sensors.h"
+#include "sensors-plugin.h"
 #include "configuration.h"
 
 #include <math.h>
@@ -848,13 +848,15 @@ sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
     sensors->bars_created = FALSE;
     sensors->font_size = "medium";
     sensors->font_size_numerical = 2;
-    sensors->panel_size = xfce_panel_plugin_get_size (plugin);
+    if (plugin!=NULL)
+        sensors->panel_size = xfce_panel_plugin_get_size (plugin);
     sensors->show_colored_bars = TRUE;
     sensors->sensors_refresh_time = 60;
     sensors->scale = CELSIUS;
 
-    sensors->plugin = plugin;
-    sensors->orientation = xfce_panel_plugin_get_orientation (plugin);
+    sensors->plugin = plugin; // we prefer storing NULL in here in case it is NULL.
+    if (plugin!=NULL)
+        sensors->orientation = xfce_panel_plugin_get_orientation (plugin);
 
     /* double-click improvement */
     sensors->exec_command = TRUE;
@@ -894,88 +896,7 @@ handle_tooltip_query (GtkWidget  *widget,
 } */
 
 
-static t_sensors *
-sensors_new (XfcePanelPlugin *plugin)
-{
-    t_sensors *sensors;
-    gint result;
-    t_chip *chip;
-    t_chipfeature *chipfeature;
 
-    TRACE ("enters sensors_new");
-
-    sensors = g_new (t_sensors, 1);
-
-    /* init xfce sensors stuff width default values */
-    sensors_init_default_values (sensors, plugin);
-
-    /* get suppressmessages */
-    sensors_read_preliminary_config(plugin, sensors);
-
-    /* read all sensors from libraries */
-    result = initialize_all (&(sensors->chips), &(sensors->suppressmessage));
-
-    sensors->num_sensorchips = sensors->chips->len;
-
-    /* error handling for no sensors */
-    if (!sensors->chips || sensors->num_sensorchips <= 0) {
-        if (!sensors->chips)
-            sensors->chips = g_ptr_array_new ();
-
-        chip = g_new ( t_chip, 1);
-        g_ptr_array_add (sensors->chips, chip);
-        chip->chip_features = g_ptr_array_new();
-        chipfeature = g_new (t_chipfeature, 1);
-
-        chipfeature->address = 0;
-        chip->sensorId = g_strdup(_("No sensors found!"));
-        chip->num_features = 1;
-        chipfeature->color = g_strdup("#000000");
-        g_free (chipfeature->name);
-        chipfeature->name = g_strdup("No sensor");
-        chipfeature->valid = TRUE;
-        g_free (chipfeature->formatted_value);
-        chipfeature->formatted_value = g_strdup("0.0");
-        chipfeature->raw_value = 0.0;
-        chipfeature->min_value = 0;
-        chipfeature->max_value = 7000;
-        chipfeature->show = FALSE;
-
-        g_ptr_array_add (chip->chip_features, chipfeature);
-    }
-
-    /* create eventbox to catch events on widget */
-    sensors->eventbox = gtk_event_box_new ();
-    gtk_widget_set_name (sensors->eventbox, "xfce_sensors");
-    gtk_widget_show (sensors->eventbox);
-
-    /* Add tooltip to show extended current sensors status */
-    sensors_create_tooltip ((gpointer) sensors);
-
-    /* fill panel widget with boxes, strings, values, ... */
-    create_panel_widget (sensors);
-
-    /* finally add panel "sensors" to eventbox */
-    gtk_container_add (GTK_CONTAINER (sensors->eventbox),
-                       sensors->widget_sensors);
-
-    /* double-click improvement */
-    sensors->doubleclick_id = g_signal_connect (G_OBJECT(sensors->eventbox),
-                                                 "button-press-event",
-                                                 G_CALLBACK (execute_command),
-                                                 (gpointer) sensors);
-
-    /* #if GTK_VERSION >= 2.11
-     * g_signal_connect(G_OBJECT(sensors->eventbox),
-                                    "query-tooltip",
-                                    G_CALLBACK(handle_tooltip_query),
-                                    (gpointer) sensors); */
-
-
-    TRACE ("leaves sensors_new");
-
-    return sensors;
-}
 
 static void
 sensors_free (XfcePanelPlugin *plugin, t_sensors *sensors)
@@ -1559,65 +1480,7 @@ list_cell_toggle (GtkCellRendererToggle *cell, gchar *path_str,
 }
 
 
-static void
-init_widgets (t_sensors_dialog *sd)
-{
-    int chipindex;
-    t_chip *chip;
-    t_chipfeature *chipfeature;
-    GtkTreeIter *iter;
-    t_sensors *sensors;
-    GtkTreeStore *model;
 
-    TRACE ("enters init_widgets");
-
-    sensors = sd->sensors;
-
-    for (chipindex=0; chipindex < sensors->num_sensorchips; chipindex++) {
-        sd->myListStore[chipindex] = gtk_tree_store_new (6, G_TYPE_STRING,
-                        G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_STRING,
-                        G_TYPE_FLOAT, G_TYPE_FLOAT);
-
-        chip = (t_chip *) g_ptr_array_index (sensors->chips, chipindex);
-        gtk_combo_box_append_text ( GTK_COMBO_BOX(sd->myComboBox),
-                                    chip->sensorId );
-        model = GTK_TREE_STORE (sd->myListStore[chipindex]);
-
-        fill_gtkTreeStore (model, chip, sensors->scale);
-    }
-
-    if(sd->sensors->num_sensorchips == 0) {
-        chip = (t_chip *) g_ptr_array_index(sensors->chips, 0);
-        g_assert (chip!=NULL);
-        gtk_combo_box_append_text ( GTK_COMBO_BOX(sd->myComboBox),
-                                chip->sensorId );
-        sd->myListStore[0] = gtk_tree_store_new (6, G_TYPE_STRING,
-                                                G_TYPE_STRING, G_TYPE_BOOLEAN,
-                                                G_TYPE_STRING, G_TYPE_DOUBLE,
-                                                G_TYPE_DOUBLE);
-        chipfeature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, 0);
-        g_assert (chipfeature!=NULL);
-
-        g_free(chipfeature->formatted_value);
-        chipfeature->formatted_value = g_strdup ("0.0");
-        chipfeature->raw_value = 0.0;
-
-        iter = g_new0 (GtkTreeIter, 1);
-        gtk_tree_store_append ( GTK_TREE_STORE (sd->myListStore[0]),
-                            iter, NULL);
-        gtk_tree_store_set ( GTK_TREE_STORE (sd->myListStore[0]),
-                            iter,
-                            0, chipfeature->name,
-                            1, "0.0",        /* chipfeature->formatted_value */
-                            2, False,        /* chipfeature->show */
-                            3, "#000000",    /* chipfeature->color */
-                            3, "#000000",    /* chipfeature->color */
-                            4, 0.0,            /* chipfeature->min_value */
-                            5, 0.0,            /* chipfeature->max_value */
-                            -1);
-    }
-    TRACE ("leaves init_widgets");
-}
 
 
 static void
@@ -2135,33 +1998,6 @@ add_view_frame (GtkWidget * notebook, t_sensors_dialog * sd)
 }
 
 
-static void
-add_sensors_frame (GtkWidget * notebook, t_sensors_dialog * sd)
-{
-    GtkWidget *_vbox, *_label;
-
-    TRACE ("enters add_sensors_frame");
-
-    _vbox = gtk_vbox_new (FALSE, 4);
-    gtk_container_set_border_width (GTK_CONTAINER(_vbox), 4);
-    gtk_widget_show (_vbox);
-
-    _label = gtk_label_new_with_mnemonic(_("_Sensors"));
-    gtk_widget_show (_label);
-
-    gtk_container_set_border_width (GTK_CONTAINER (_vbox), BORDER<<1);
-
-    gtk_notebook_append_page (GTK_NOTEBOOK(notebook), _vbox, _label);
-
-    add_type_box (_vbox, sd);
-
-    add_sensor_settings_box (_vbox, sd);
-
-    add_temperature_unit_box (_vbox, sd);
-
-    TRACE ("leaves add_sensors_frame");
-}
-
 
 static void
 add_miscellaneous_frame (GtkWidget * notebook, t_sensors_dialog * sd)
@@ -2285,8 +2121,29 @@ sensors_create_options (XfcePanelPlugin *plugin, t_sensors *sensors)
 }
 
 
-/*  Sensors panel control
- *  ---------------------
+/**
+ * Add event box to sensors panel
+ * @param sensors Pointer to t_sensors structure
+ */
+static void
+add_event_box (t_sensors *sensors)
+{
+    /* create eventbox to catch events on widget */
+    sensors->eventbox = gtk_event_box_new ();
+    gtk_widget_set_name (sensors->eventbox, "xfce_sensors");
+    gtk_widget_show (sensors->eventbox);
+
+    /* double-click improvement */
+    sensors->doubleclick_id = g_signal_connect (G_OBJECT(sensors->eventbox),
+                                                 "button-press-event",
+                                                 G_CALLBACK (execute_command),
+                                                 (gpointer) sensors);
+}
+
+
+/**
+ * Create sensors panel control
+ * @param plugin Panel plugin proxy to create sensors plugin in
  */
 static t_sensors *
 create_sensors_control (XfcePanelPlugin *plugin)
@@ -2297,7 +2154,7 @@ create_sensors_control (XfcePanelPlugin *plugin)
 
     sensors = sensors_new (plugin);
 
-    gtk_widget_show (sensors->eventbox);
+    add_event_box (sensors);
 
     /* sensors_set_size (control, settings.size); */
 

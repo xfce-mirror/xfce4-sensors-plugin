@@ -18,26 +18,33 @@
  *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#ifdef HAVE_CONFIG_H
-  #include "config.h"
-#endif
+/* #ifdef HAVE_CONFIG_H */
+  #include <config.h>
+/* #endif */
 
 
 #ifdef HAVE_LINUX
 #include <sys/utsname.h>
 #endif
 
+#include <glib/gdir.h>
+#include <glib/gerror.h>
+#include <glib/gmem.h>
+#include <glib/gmessages.h>
+#include <glib/gprintf.h>
 
-#include "middlelayer.h"
+#include <string.h>
+
+#include <middlelayer.h>
 
 #ifdef HAVE_LIBSENSORS
-    #include "lmsensors.h"
+    #include <lmsensors.h>
 #endif
 #ifdef HAVE_HDDTEMP
-    #include "hddtemp.h"
+    #include <hddtemp.h>
 #endif
 #ifdef HAVE_ACPI
-    #include "acpi.h"
+    #include <acpi.h>
 #endif
 
 int
