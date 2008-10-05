@@ -21,7 +21,8 @@
 #include <libxfce4panel/xfce-panel-plugin.h>
 
 /* Local/package includes */
-#include "sensors-interface-common.h"
+#include <y.h>
+#include <sensors-interface-common.h>
 
 t_sensors * sensors_new (XfcePanelPlugin *plugin)
 {
