@@ -120,3 +120,183 @@ init_widgets (t_sensors_dialog *sd)
     }
     TRACE ("leaves init_widgets");
 }
+
+
+void
+add_type_box (GtkWidget * vbox, t_sensors_dialog * sd)
+{
+    GtkWidget *hbox, *label;
+    t_chip *chip;
+    gint gtk_combo_box_active;
+
+    TRACE ("enters add_type_box");
+
+    hbox = gtk_hbox_new (FALSE, BORDER);
+    gtk_widget_show (hbox);
+    gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
+
+    label = gtk_label_new_with_mnemonic (_("Sensors t_ype:"));
+    gtk_widget_show (label);
+    gtk_misc_set_alignment (GTK_MISC (label), 0, 0.5);
+    gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 0);
+
+    gtk_widget_show (sd->myComboBox);
+    gtk_box_pack_start (GTK_BOX (hbox), sd->myComboBox, FALSE, FALSE, 0);
+
+    gtk_label_set_mnemonic_widget(GTK_LABEL(label), sd->myComboBox);
+
+    gtk_combo_box_active =
+        gtk_combo_box_get_active(GTK_COMBO_BOX(sd->myComboBox));
+
+    chip = g_ptr_array_index (sd->sensors->chips, gtk_combo_box_active);
+
+    /* if (sd->sensors->num_sensorchips > 0)
+        sd->mySensorLabel = gtk_label_new
+            ( sensors_get_adapter_name_wrapper
+                ( chip->chip_name->bus) );
+    else */
+
+    hbox = gtk_hbox_new (FALSE, BORDER);
+    gtk_widget_show (hbox);
+    gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
+
+    label = gtk_label_new_with_mnemonic (_("Description:"));
+    gtk_widget_show (label);
+    gtk_misc_set_alignment (GTK_MISC (label), 0, 0.5);
+    gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 0);
+
+    sd->mySensorLabel =
+            gtk_label_new (chip->description);
+
+    gtk_widget_show (sd->mySensorLabel);
+    gtk_box_pack_start (GTK_BOX (hbox), sd->mySensorLabel, FALSE, FALSE, 0);
+
+    g_signal_connect (G_OBJECT (sd->myComboBox), "changed",
+                      G_CALLBACK (sensor_entry_changed), sd );
+
+    TRACE ("leaves add_type_box");
+}
+
+
+void
+add_sensor_settings_box ( GtkWidget * vbox, t_sensors_dialog * sd)
+{
+    GtkTreeViewColumn *aTreeViewColumn;
+    GtkCellRenderer *myCellRendererText, *myCellRendererToggle;
+    GtkWidget *myScrolledWindow;
+    gint gtk_combo_box_active;
+
+    TRACE ("enters add_sensor_settings_box");
+
+    gtk_combo_box_active =
+        gtk_combo_box_get_active(GTK_COMBO_BOX(sd->myComboBox));
+
+    sd->myTreeView = gtk_tree_view_new_with_model
+        ( GTK_TREE_MODEL ( sd->myListStore[ gtk_combo_box_active ] ) );
+
+    myCellRendererText = gtk_cell_renderer_text_new ();
+    g_object_set ( (gpointer*) myCellRendererText, "editable", TRUE, NULL );
+
+    aTreeViewColumn = gtk_tree_view_column_new_with_attributes (_("Name"),
+                        myCellRendererText, "text", 0, NULL);
+    g_signal_connect    (G_OBJECT (myCellRendererText), "edited",
+                        G_CALLBACK (list_cell_text_edited), sd);
+    gtk_tree_view_column_set_expand (aTreeViewColumn, TRUE);
+    gtk_tree_view_append_column (GTK_TREE_VIEW (sd->myTreeView),
+                        GTK_TREE_VIEW_COLUMN (aTreeViewColumn));
+
+    myCellRendererText = gtk_cell_renderer_text_new ();
+    aTreeViewColumn = gtk_tree_view_column_new_with_attributes (_("Value"),
+                        myCellRendererText, "text", 1, NULL);
+    gtk_tree_view_append_column (GTK_TREE_VIEW (sd->myTreeView),
+                        GTK_TREE_VIEW_COLUMN (aTreeViewColumn));
+
+    myCellRendererToggle = gtk_cell_renderer_toggle_new();
+    aTreeViewColumn = gtk_tree_view_column_new_with_attributes (_("Show"),
+                        myCellRendererToggle, "active", 2, NULL);
+    g_signal_connect    (G_OBJECT (myCellRendererToggle), "toggled",
+                        G_CALLBACK (list_cell_toggle), sd );
+    gtk_tree_view_append_column (GTK_TREE_VIEW (sd->myTreeView),
+                        GTK_TREE_VIEW_COLUMN (aTreeViewColumn));
+
+    myCellRendererText = gtk_cell_renderer_text_new ();
+    g_object_set ( (gpointer*) myCellRendererText, "editable", TRUE, NULL );
+    aTreeViewColumn = gtk_tree_view_column_new_with_attributes (_("Color"),
+                        myCellRendererText, "text", 3, NULL);
+    g_signal_connect    (G_OBJECT (myCellRendererText), "edited",
+                        G_CALLBACK (list_cell_color_edited), sd);
+    gtk_tree_view_append_column (GTK_TREE_VIEW (sd->myTreeView),
+                        GTK_TREE_VIEW_COLUMN (aTreeViewColumn));
+
+    myCellRendererText = gtk_cell_renderer_text_new ();
+    g_object_set ( (gpointer*) myCellRendererText, "editable", TRUE, NULL );
+    aTreeViewColumn = gtk_tree_view_column_new_with_attributes
+                    (_("Min"), myCellRendererText, "text", 4, NULL);
+    g_signal_connect(G_OBJECT(myCellRendererText), "edited",
+                        G_CALLBACK(minimum_changed), sd);
+    gtk_tree_view_append_column(GTK_TREE_VIEW(sd->myTreeView),
+                        GTK_TREE_VIEW_COLUMN(aTreeViewColumn));
+
+    myCellRendererText = gtk_cell_renderer_text_new ();
+    g_object_set ( (gpointer*) myCellRendererText, "editable", TRUE, NULL );
+    aTreeViewColumn = gtk_tree_view_column_new_with_attributes
+                    (_("Max"), myCellRendererText, "text", 5, NULL);
+    g_signal_connect(G_OBJECT(myCellRendererText), "edited",
+                        G_CALLBACK(maximum_changed), sd);
+    gtk_tree_view_append_column(GTK_TREE_VIEW(sd->myTreeView),
+                        GTK_TREE_VIEW_COLUMN(aTreeViewColumn));
+
+    myScrolledWindow = gtk_scrolled_window_new (NULL, NULL);
+        gtk_scrolled_window_set_policy (
+            GTK_SCROLLED_WINDOW (myScrolledWindow), GTK_POLICY_AUTOMATIC,
+            GTK_POLICY_AUTOMATIC);
+        gtk_container_set_border_width (GTK_CONTAINER (myScrolledWindow), 0);
+        /* gtk_scrolled_window_add_with_viewport (
+            GTK_SCROLLED_WINDOW (myScrolledWindow), sd->myTreeView); */
+        gtk_container_add (GTK_CONTAINER (myScrolledWindow), sd->myTreeView);
+
+    gtk_box_pack_start (GTK_BOX (vbox), myScrolledWindow, TRUE, TRUE, BORDER);
+
+    gtk_widget_show (sd->myTreeView);
+    gtk_widget_show (myScrolledWindow);
+
+    TRACE ("leaves add_sensor_settings_box");
+}
+
+
+void
+add_temperature_unit_box (GtkWidget *vbox, t_sensors_dialog *sd)
+{
+    GtkWidget *hbox, *label, *radioCelsius, *radioFahrenheit;
+
+    TRACE ("enters add_temperature_unit_box");
+
+    hbox = gtk_hbox_new (FALSE, BORDER);
+    gtk_widget_show (hbox);
+
+    label = gtk_label_new ( _("Temperature scale:"));
+    radioCelsius = gtk_radio_button_new_with_mnemonic (NULL,
+                                                              _("_Celsius"));
+    radioFahrenheit = gtk_radio_button_new_with_mnemonic(
+      gtk_radio_button_get_group(GTK_RADIO_BUTTON(radioCelsius)), _("_Fahrenheit"));
+
+    gtk_widget_show(radioCelsius);
+    gtk_widget_show(radioFahrenheit);
+    gtk_widget_show(label);
+
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(radioCelsius),
+                    sd->sensors->scale == CELSIUS);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(radioFahrenheit),
+                    sd->sensors->scale == FAHRENHEIT);
+
+    gtk_box_pack_start(GTK_BOX (hbox), label, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX (hbox), radioCelsius, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX (hbox), radioFahrenheit, FALSE, FALSE, 0);
+
+    gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, TRUE, 0);
+
+    g_signal_connect (G_OBJECT (radioCelsius), "toggled",
+                      G_CALLBACK (temperature_unit_change), sd );
+
+    TRACE ("leaves add_temperature_unit_box");
+}

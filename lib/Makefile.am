@@ -19,6 +19,7 @@ endif
 
 libxfce4sensors_la_SOURCES =									   \
 	middlelayer.c													\
+	configuration.c													\
 	sensors-interface-common.c						\
 	sensors-interface.c										\
 	$(SENSORS_SOURCES)												\

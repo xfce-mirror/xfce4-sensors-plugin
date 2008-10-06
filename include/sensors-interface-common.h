@@ -36,8 +36,6 @@
 /* Package includes */
 #include <types.h>
 
-#include "craph.h"
-
 /* Definitions */
 #define BORDER 8
 #define OUTER_BORDER 4
@@ -226,5 +224,7 @@ typedef struct {
 t_sensors_dialog;
 
 t_sensors * sensors_new (XfcePanelPlugin *plugin);
+
+void sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin);
 
 #endif /* XFCE4_SENSORS_INTERFACE_COMMON_H */

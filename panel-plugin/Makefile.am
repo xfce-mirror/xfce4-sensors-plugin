@@ -9,7 +9,6 @@ INCLUDES = 			\
 #	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
 
 xfce4_sensors_plugin_SOURCES =									   \
-	configuration.c													\
 	sensors-plugin.c
 
 # types.h

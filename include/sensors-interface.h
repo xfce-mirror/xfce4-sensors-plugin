@@ -26,10 +26,14 @@
 /* Local includes */
 #include "sensors-interface-common.h"
 
-extern void
-add_sensors_frame (GtkWidget * notebook, t_sensors_dialog * sd);
+extern void add_sensors_frame (GtkWidget * notebook, t_sensors_dialog * sd);
 
-void
-init_widgets (t_sensors_dialog *sd);
+void init_widgets (t_sensors_dialog *sd);
+
+void add_sensor_settings_box ( GtkWidget * vbox, t_sensors_dialog * sd);
+
+void add_type_box (GtkWidget * vbox, t_sensors_dialog * sd);
+
+void add_temperature_unit_box (GtkWidget *vbox, t_sensors_dialog *sd);
 
 #endif /* XFCE4_SENSORS_INTERFACE_H */

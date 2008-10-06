@@ -22,8 +22,7 @@
 #ifndef XFCE4_SENSORS_CONFIGURATION_H
  #define XFCE4_SENSORS_CONFIGURATION_H
 
-
-#include "sensors-plugin.h"
+#include "sensors-interface-common.h"
 
 gint get_Id_from_address (gint chipnumber, gint addr, t_sensors *sensors);
 

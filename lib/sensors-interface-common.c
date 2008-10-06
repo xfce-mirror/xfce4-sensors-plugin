@@ -21,10 +21,12 @@
 #include <libxfce4panel/xfce-panel-plugin.h>
 
 /* Local/package includes */
-#include <y.h>
+#include <configuration.h>
 #include <sensors-interface-common.h>
+#include <middlelayer.h>
 
-t_sensors * sensors_new (XfcePanelPlugin *plugin)
+t_sensors *
+sensors_new (XfcePanelPlugin *plugin)
 {
     t_sensors *sensors;
     gint result;
@@ -73,26 +75,46 @@ t_sensors * sensors_new (XfcePanelPlugin *plugin)
         g_ptr_array_add (chip->chip_features, chipfeature);
     }
 
-
-    /* Add tooltip to show extended current sensors status */
-    sensors_create_tooltip ((gpointer) sensors);
-
-    /* fill panel widget with boxes, strings, values, ... */
-    create_panel_widget (sensors);
-
-    /* finally add panel "sensors" to eventbox */
-    gtk_container_add (GTK_CONTAINER (sensors->eventbox),
-                       sensors->widget_sensors);
-
-
-    /* #if GTK_VERSION >= 2.11
-     * g_signal_connect(G_OBJECT(sensors->eventbox),
-                                    "query-tooltip",
-                                    G_CALLBACK(handle_tooltip_query),
-                                    (gpointer) sensors); */
-
-
     TRACE ("leaves sensors_new");
 
     return sensors;
 }
+
+
+
+void
+sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
+{
+    TRACE ("enters sensors_init_default_values");
+
+    sensors->show_title = TRUE;
+    sensors->show_labels = TRUE;
+    sensors->display_values_graphically = FALSE;
+    sensors->bars_created = FALSE;
+    sensors->font_size = "medium";
+    sensors->font_size_numerical = 2;
+    if (plugin!=NULL)
+        sensors->panel_size = xfce_panel_plugin_get_size (plugin);
+    sensors->show_colored_bars = TRUE;
+    sensors->sensors_refresh_time = 60;
+    sensors->scale = CELSIUS;
+
+    sensors->plugin = plugin; // we prefer storing NULL in here in case it is NULL.
+    if (plugin!=NULL)
+        sensors->orientation = xfce_panel_plugin_get_orientation (plugin);
+
+    /* double-click improvement */
+    sensors->exec_command = TRUE;
+    sensors->command_name = g_strdup("xsensors");
+    sensors->doubleclick_id = 0;
+
+    /* show units */
+    sensors->show_units = TRUE;
+
+    sensors->suppressmessage = FALSE;
+
+    sensors->show_smallspacings = FALSE;
+
+    TRACE ("leaves sensors_init_default_values");
+}
+

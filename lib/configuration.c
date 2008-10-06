@@ -19,10 +19,12 @@
 
 /* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
 
-
-#include "configuration.h"
-
+/* Global includes */
 #include <stdlib.h>
+#include <unistd.h>
+
+/* Package includes */
+#include <configuration.h>
 
 
 gint
