@@ -25,14 +25,18 @@
 #endif
 
 /* Glib/Gtk includes */
+#include <gtk/gtk.h>
 #include <glib/garray.h>
 #include <glib/gprintf.h>
+#include <glib/gtypes.h>
 
 /* Xfce includes */
 #include <libxfce4panel/xfce-panel-plugin.h>
 
 /* Package includes */
 #include <types.h>
+
+#include "craph.h"
 
 /* Definitions */
 #define BORDER 8
