@@ -26,7 +26,7 @@
 #include <middlelayer.h>
 
 t_sensors *
-sensors_new (XfcePanelPlugin *plugin)
+sensors_new (XfcePanelPlugin *plugin, gchar *plugin_config_file)
 {
     t_sensors *sensors;
     gint result;
@@ -36,6 +36,7 @@ sensors_new (XfcePanelPlugin *plugin)
     TRACE ("enters sensors_new");
 
     sensors = g_new (t_sensors, 1);
+    sensors->plugin_config_file = plugin_config_file; /* important as we check against NULL frequently */
 
     /* init xfce sensors stuff width default values */
     sensors_init_default_values (sensors, plugin);
@@ -93,15 +94,13 @@ sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
     sensors->bars_created = FALSE;
     sensors->font_size = "medium";
     sensors->font_size_numerical = 2;
-    if (plugin!=NULL)
-        sensors->panel_size = xfce_panel_plugin_get_size (plugin);
+
     sensors->show_colored_bars = TRUE;
     sensors->sensors_refresh_time = 60;
     sensors->scale = CELSIUS;
 
     sensors->plugin = plugin; // we prefer storing NULL in here in case it is NULL.
-    if (plugin!=NULL)
-        sensors->orientation = xfce_panel_plugin_get_orientation (plugin);
+
 
     /* double-click improvement */
     sensors->exec_command = TRUE;
@@ -118,3 +117,46 @@ sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
     TRACE ("leaves sensors_init_default_values");
 }
 
+
+void
+format_sensor_value (t_tempscale scale, t_chipfeature *chipfeature,
+                     double sensorFeature, gchar **help)
+{
+    /* TRACE ("enters format_sensor_value"); */
+
+    switch (chipfeature->class) {
+        case TEMPERATURE:
+           if (scale == FAHRENHEIT) {
+                *help = g_strdup_printf(_("%5.1f °F"),
+                            (float) (sensorFeature * 9/5 + 32) );
+           } else { /* Celsius */
+                *help = g_strdup_printf(_("%5.1f °C"), sensorFeature);
+           }
+           break;
+
+        case VOLTAGE:
+               *help = g_strdup_printf(_("%+5.2f V"), sensorFeature);
+               break;
+
+        case ENERGY:
+               *help = g_strdup_printf(_("%.0f mWh"), sensorFeature);
+               break;
+
+        case STATE:
+                if (sensorFeature==0.0)
+                    *help = g_strdup (_("off"));
+                else
+                    *help = g_strdup (_("on"));
+               break;
+
+        case SPEED:
+               *help = g_strdup_printf(_("%5.0f rpm"), sensorFeature);
+               break;
+
+        default:
+                *help = g_strdup_printf("%+5.2f", sensorFeature);
+               break;
+    } /* end switch */
+
+    /* TRACE ("leaves format_sensor_value"); */
+}

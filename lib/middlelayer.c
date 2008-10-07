@@ -27,14 +27,17 @@
 #include <sys/utsname.h>
 #endif
 
-#include <glib/gdir.h>
-#include <glib/gerror.h>
+/* Gtk/Glib includes */
+#include <glib.h>
+/* #include <glib/gerror.h>
 #include <glib/gmem.h>
 #include <glib/gmessages.h>
-#include <glib/gprintf.h>
+#include <glib/gprintf.h> */
 
+/* Global includes */
 #include <string.h>
 
+/* Package includes */
 #include <middlelayer.h>
 
 #ifdef HAVE_LIBSENSORS

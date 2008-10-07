@@ -23,8 +23,14 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+/* Xfce includes */
+#include <libxfce4util/libxfce4util.h>
+#include <libxfce4panel/xfce-panel-plugin.h>
+
 /* Package includes */
 #include <configuration.h>
+#include <sensors-interface.h>
+#include <types.h>
 
 
 gint
@@ -64,7 +70,7 @@ sensors_write_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 
     TRACE ("enters sensors_write_config");
 
-    if (!(file = xfce_panel_plugin_save_location (plugin, TRUE))) {
+    if ( ! (file = sensors->plugin_config_file) ) {
         TRACE ("leaves sensors_write_config: No file location specified.");
         return;
     }
@@ -232,7 +238,7 @@ sensors_read_preliminary_config (XfcePanelPlugin *plugin, t_sensors *sensors)
     if (plugin==NULL)
         return;
 
-    if (!(file = xfce_panel_plugin_lookup_rc_file (plugin)))
+    if (!(file = sensors->plugin_config_file))
         return;
 
     rc = xfce_rc_simple_open (file, TRUE);
@@ -265,7 +271,7 @@ sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 
     TRACE ("enters sensors_read_config");
 
-    if (!(file = xfce_panel_plugin_lookup_rc_file (plugin)))
+    if (!(file = sensors->plugin_config_file))
         return;
 
     rc = xfce_rc_simple_open (file, TRUE);

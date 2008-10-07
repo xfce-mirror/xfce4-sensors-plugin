@@ -23,7 +23,7 @@
 /* #include <stdlib.h> */
 
 /* Glib/Gtk includes */
-#include <glib/gtree.h>
+#include <glib.h>
 #include <gtk/gtk.h>
 
 /* Xfce includes */
@@ -32,94 +32,58 @@
 /* Package includes */
 #include <sensors-interface-common.h>
 #include <sensors-interface.h>
+#include <middlelayer.h>
 
 
 void
-add_sensors_frame (GtkWidget * notebook, t_sensors_dialog * sd)
+fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale)
 {
-    GtkWidget *_vbox, *_label;
-
-    TRACE ("enters add_sensors_frame");
-
-    _vbox = gtk_vbox_new (FALSE, 4);
-    gtk_container_set_border_width (GTK_CONTAINER(_vbox), 4);
-    gtk_widget_show (_vbox);
-
-    _label = gtk_label_new_with_mnemonic(_("_Sensors"));
-    gtk_widget_show (_label);
-
-    gtk_container_set_border_width (GTK_CONTAINER (_vbox), BORDER<<1);
-
-    gtk_notebook_append_page (GTK_NOTEBOOK(notebook), _vbox, _label);
-
-    add_type_box (_vbox, sd);
-
-    add_sensor_settings_box (_vbox, sd);
-
-    add_temperature_unit_box (_vbox, sd);
-
-    TRACE ("leaves add_sensors_frame");
-}
-
-void
-init_widgets (t_sensors_dialog *sd)
-{
-    int chipindex;
-    t_chip *chip;
+    int featureindex, res;
+    double sensorFeature;
     t_chipfeature *chipfeature;
     GtkTreeIter *iter;
-    t_sensors *sensors;
-    GtkTreeStore *model;
 
-    TRACE ("enters init_widgets");
+    TRACE ("enters fill_gtkTreeStore");
 
-    sensors = sd->sensors;
-
-    for (chipindex=0; chipindex < sensors->num_sensorchips; chipindex++) {
-        sd->myListStore[chipindex] = gtk_tree_store_new (6, G_TYPE_STRING,
-                        G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_STRING,
-                        G_TYPE_FLOAT, G_TYPE_FLOAT);
-
-        chip = (t_chip *) g_ptr_array_index (sensors->chips, chipindex);
-        gtk_combo_box_append_text ( GTK_COMBO_BOX(sd->myComboBox),
-                                    chip->sensorId );
-        model = GTK_TREE_STORE (sd->myListStore[chipindex]);
-
-        fill_gtkTreeStore (model, chip, sensors->scale);
-    }
-
-    if(sd->sensors->num_sensorchips == 0) {
-        chip = (t_chip *) g_ptr_array_index(sensors->chips, 0);
-        g_assert (chip!=NULL);
-        gtk_combo_box_append_text ( GTK_COMBO_BOX(sd->myComboBox),
-                                chip->sensorId );
-        sd->myListStore[0] = gtk_tree_store_new (6, G_TYPE_STRING,
-                                                G_TYPE_STRING, G_TYPE_BOOLEAN,
-                                                G_TYPE_STRING, G_TYPE_DOUBLE,
-                                                G_TYPE_DOUBLE);
-        chipfeature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, 0);
+    for (featureindex=0; featureindex < chip->num_features; featureindex++)
+    {
+        chipfeature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, featureindex);
         g_assert (chipfeature!=NULL);
 
-        g_free(chipfeature->formatted_value);
-        chipfeature->formatted_value = g_strdup ("0.0");
-        chipfeature->raw_value = 0.0;
-
         iter = g_new0 (GtkTreeIter, 1);
-        gtk_tree_store_append ( GTK_TREE_STORE (sd->myListStore[0]),
-                            iter, NULL);
-        gtk_tree_store_set ( GTK_TREE_STORE (sd->myListStore[0]),
-                            iter,
-                            0, chipfeature->name,
-                            1, "0.0",        /* chipfeature->formatted_value */
-                            2, False,        /* chipfeature->show */
-                            3, "#000000",    /* chipfeature->color */
-                            3, "#000000",    /* chipfeature->color */
-                            4, 0.0,            /* chipfeature->min_value */
-                            5, 0.0,            /* chipfeature->max_value */
-                            -1);
+
+        if ( chipfeature->valid == TRUE ) {
+            res = sensor_get_value
+                    (chip, chipfeature->address, &sensorFeature);
+            if ( res!=0) {
+                DBG ( _("Xfce Hardware Sensors Plugin:\n"
+                    "Seems like there was a problem reading a sensor "
+                    "feature value.\nProper proceeding cannot be "
+                    "guaranteed.\n") );
+                /* FIXME: Better popup a window or DBG message or quit plugin. */
+                break;
+            }
+            g_free (chipfeature->formatted_value);
+            chipfeature->formatted_value = g_new (gchar, 0);
+            format_sensor_value (scale, chipfeature, sensorFeature,
+                                 &(chipfeature->formatted_value));
+            chipfeature->raw_value = sensorFeature;
+            gtk_tree_store_append (model, iter, NULL);
+            gtk_tree_store_set ( model, iter,
+                                 0, chipfeature->name,
+                                1, chipfeature->formatted_value,
+                                2, chipfeature->show,
+                                3, chipfeature->color,
+                                4, chipfeature->min_value,
+                                5, chipfeature->max_value,
+                                 -1);
+        } /* end if sensors-valid */
+        /* g_free(iter); ??? */
     }
-    TRACE ("leaves init_widgets");
+
+    TRACE ("leaves fill_gtkTreeStore");
 }
+
 
 
 void
@@ -300,3 +264,94 @@ add_temperature_unit_box (GtkWidget *vbox, t_sensors_dialog *sd)
 
     TRACE ("leaves add_temperature_unit_box");
 }
+
+
+
+void
+add_sensors_frame (GtkWidget * notebook, t_sensors_dialog * sd)
+{
+    GtkWidget *_vbox, *_label;
+
+    TRACE ("enters add_sensors_frame");
+
+    _vbox = gtk_vbox_new (FALSE, 4);
+    gtk_container_set_border_width (GTK_CONTAINER(_vbox), 4);
+    gtk_widget_show (_vbox);
+
+    _label = gtk_label_new_with_mnemonic(_("_Sensors"));
+    gtk_widget_show (_label);
+
+    gtk_container_set_border_width (GTK_CONTAINER (_vbox), BORDER<<1);
+
+    gtk_notebook_append_page (GTK_NOTEBOOK(notebook), _vbox, _label);
+
+    add_type_box (_vbox, sd);
+
+    add_sensor_settings_box (_vbox, sd);
+
+    add_temperature_unit_box (_vbox, sd);
+
+    TRACE ("leaves add_sensors_frame");
+}
+
+
+void
+init_widgets (t_sensors_dialog *sd)
+{
+    int chipindex;
+    t_chip *chip;
+    t_chipfeature *chipfeature;
+    GtkTreeIter *iter;
+    t_sensors *sensors;
+    GtkTreeStore *model;
+
+    TRACE ("enters init_widgets");
+
+    sensors = sd->sensors;
+
+    for (chipindex=0; chipindex < sensors->num_sensorchips; chipindex++) {
+        sd->myListStore[chipindex] = gtk_tree_store_new (6, G_TYPE_STRING,
+                        G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_STRING,
+                        G_TYPE_FLOAT, G_TYPE_FLOAT);
+
+        chip = (t_chip *) g_ptr_array_index (sensors->chips, chipindex);
+        gtk_combo_box_append_text ( GTK_COMBO_BOX(sd->myComboBox),
+                                    chip->sensorId );
+        model = GTK_TREE_STORE (sd->myListStore[chipindex]);
+
+        fill_gtkTreeStore (model, chip, sensors->scale);
+    }
+
+    if(sd->sensors->num_sensorchips == 0) {
+        chip = (t_chip *) g_ptr_array_index(sensors->chips, 0);
+        g_assert (chip!=NULL);
+        gtk_combo_box_append_text ( GTK_COMBO_BOX(sd->myComboBox),
+                                chip->sensorId );
+        sd->myListStore[0] = gtk_tree_store_new (6, G_TYPE_STRING,
+                                                G_TYPE_STRING, G_TYPE_BOOLEAN,
+                                                G_TYPE_STRING, G_TYPE_DOUBLE,
+                                                G_TYPE_DOUBLE);
+        chipfeature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, 0);
+        g_assert (chipfeature!=NULL);
+
+        g_free(chipfeature->formatted_value);
+        chipfeature->formatted_value = g_strdup ("0.0");
+        chipfeature->raw_value = 0.0;
+
+        iter = g_new0 (GtkTreeIter, 1);
+        gtk_tree_store_append ( GTK_TREE_STORE (sd->myListStore[0]),
+                            iter, NULL);
+        gtk_tree_store_set ( GTK_TREE_STORE (sd->myListStore[0]),
+                            iter,
+                            0, chipfeature->name,
+                            1, "0.0",        /* chipfeature->formatted_value */
+                            2, False,        /* chipfeature->show */
+                            3, "#000000",    /* chipfeature->color */
+                            3, "#000000",    /* chipfeature->color */
+                            4, 0.0,            /* chipfeature->min_value */
+                            5, 0.0,            /* chipfeature->max_value */
+                            -1);
+    }
+    TRACE ("leaves init_widgets");
+}
+

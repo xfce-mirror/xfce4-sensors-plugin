@@ -24,24 +24,9 @@
  #include <config.h>
 #endif
 
-/* #endif */
 
-#include <glib/garray.h>
-#include <glib/gprintf.h>
-
-#include <libxfce4util/libxfce4util.h>
-#include <libxfcegui4/libxfcegui4.h>
-
-#include <string.h>
-
-#include <middlelayer.h>
-#include <sensors-interface-common.h>
-/* #include <types.h> */
 
 #define APP_NAME N_("Sensors Plugin")
-
-
-
 
 
 #endif /* XFCE4_SENSORS_SENSORS_H */

@@ -31,8 +31,8 @@ xfce4_sensors_CFLAGS = \
 
 #	@LIBXFCE4PANEL_CFLAGS@
 
-#xfce4_sensors_LDFLAGS = 								\
-#	$(top_builddir)/lib/libxfce4sensors.la
+xfce4_sensors_LDFLAGS = 								\
+	$(top_builddir)/lib/libxfce4sensors.la
 
 xfce4_sensors_LDADD = 								\
 	@GTK_LIBS@ 													\

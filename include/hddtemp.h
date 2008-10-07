@@ -20,8 +20,9 @@
 #ifndef XFCE4_SENSORS_HDDTEMP_H
 #define XFCE4_SENSORS_HDDTEMP_H
 
-#include <glib/garray.h>
-
+/* Gtk/Glib includes */
+#include <glib.h>
+/* #include <gtk/gtk.h> */
 
 #define ZERO_KELVIN -273 /*.15 */
 

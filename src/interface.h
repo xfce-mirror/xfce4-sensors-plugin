@@ -18,3 +18,11 @@
  */
 
 /* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
+
+/* Gtk/Glib includes */
+#include <gtk/gtk.h>
+
+/* Package includes */
+#include <sensors-interface-common.h>
+
+GtkWidget * create_main_window (t_sensors_dialog *sd);

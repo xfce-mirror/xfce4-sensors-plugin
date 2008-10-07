@@ -26,9 +26,8 @@
 
 /* Glib/Gtk includes */
 #include <gtk/gtk.h>
-#include <glib/garray.h>
-#include <glib/gprintf.h>
-#include <glib/gtypes.h>
+#include <glib.h>
+/* #include <glib/gprintf.h>  */
 
 /* Xfce includes */
 #include <libxfce4panel/xfce-panel-plugin.h>
@@ -186,6 +185,8 @@ typedef struct {
     /* ACPI thermal zones */
     /*GPtrArray *acpi_zones;
     gint num_acpi_zones; */
+
+    gchar *plugin_config_file;
 }
 t_sensors;
 
@@ -223,8 +224,42 @@ typedef struct {
 }
 t_sensors_dialog;
 
-t_sensors * sensors_new (XfcePanelPlugin *plugin);
+
+
+/* Extern functions that need to be re-implemented in the sensors-viewer and
+ * the panel code. */
+extern void
+sensor_entry_changed (GtkWidget *widget, t_sensors_dialog *sd);
+
+extern void
+list_cell_text_edited (GtkCellRendererText *cellrenderertext,
+                      gchar *path_str, gchar *new_text, t_sensors_dialog *sd);
+
+extern void
+list_cell_toggle (GtkCellRendererToggle *cell, gchar *path_str,
+                  t_sensors_dialog *sd);
+
+extern void
+list_cell_color_edited (GtkCellRendererText *cellrenderertext, gchar *path_str,
+                       gchar *new_color, t_sensors_dialog *sd);
+
+extern void
+minimum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
+                 gchar *new_value, t_sensors_dialog *sd);
+
+extern void
+maximum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
+            gchar *new_value, t_sensors_dialog *sd);
+
+extern void
+temperature_unit_change (GtkWidget *widget, t_sensors_dialog *sd);
+
+/* Regularly included functions in library */
+t_sensors * sensors_new (XfcePanelPlugin *plugin, gchar * plugin_config_file);
 
 void sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin);
+
+void format_sensor_value (t_tempscale scale, t_chipfeature *chipfeature,
+                     double sensorFeature, gchar **help);
 
 #endif /* XFCE4_SENSORS_INTERFACE_COMMON_H */

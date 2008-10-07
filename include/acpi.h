@@ -31,10 +31,13 @@
 
 #define ACPI_INFO               "info_"
 
-#include <glib/garray.h>
+/* Gtk/Glib includes */
+#include <glib.h>
 
+/* Global includes */
 #include <dirent.h>    /* directory listing and reading */
 
+/* Package/local includes */
 #include "types.h"
 
 /*

@@ -18,3 +18,6 @@
  */
 
 /* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
+
+/* Local includes */
+#include "actions.h"

@@ -22,13 +22,14 @@
 #ifndef XFCE4_SENSORS_TYPES_H
 #define XFCE4_SENSORS_TYPES_H
 
-#include <glib/garray.h>
-#include <glib/gtypes.h>
-
 #ifdef HAVE_CONFIG_H
   #include "config.h"
 #endif
 
+/* Glib includes */
+#include <glib.h>
+
+/* Xfce includes */
 #include <libxfce4util/libxfce4util.h>
 
 #ifdef HAVE_LIBSENSORS

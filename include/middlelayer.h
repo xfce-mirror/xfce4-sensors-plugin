@@ -22,10 +22,11 @@
 #ifndef XFCE4_SENSORS_MIDDLELAYER_H
 #define XFCE4_SENSORS_MIDDLELAYER_H
 
+/* Package/Local includes */
 #include "types.h"
 
-#include <glib/garray.h>
-#include <glib/gtypes.h>
+/* Gtk/Glib includes */
+#include <glib.h>
 
 #define NO_VALID_HDDTEMP -2
 

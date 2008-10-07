@@ -28,9 +28,21 @@
 /* Global includes */
 #include <math.h>
 #include <stdlib.h>
+#include <string.h>
+
+/* Gtk/Glib includes */
+#include <glib.h>
+#include <glib/gprintf.h> /* ain't included in glib.h! */
+
+/* Xfce includes */
+#include <libxfce4util/libxfce4util.h>
+#include <libxfcegui4/libxfcegui4.h>
 
 /* Package includes */
 #include <configuration.h>
+#include <sensors-interface.h>
+#include <sensors-interface-common.h>
+#include <middlelayer.h>
 
 /* Local includes */
 #include "sensors-plugin.h"
@@ -521,6 +533,7 @@ count_number_checked_sensor_features (t_sensors *sensors)
     return itemsToDisplay;
 }
 
+
 /* draw label with sensor values into panel's vbox */
 static gboolean
 sensors_show_text_display (t_sensors *sensors)
@@ -548,50 +561,6 @@ sensors_show_text_display (t_sensors *sensors)
     TRACE ("leaves sensors_show_text_display\n");
 
     return TRUE;
-}
-
-
-static void
-format_sensor_value (t_tempscale scale, t_chipfeature *chipfeature,
-                     double sensorFeature, gchar **help)
-{
-    /* TRACE ("enters format_sensor_value"); */
-
-    switch (chipfeature->class) {
-        case TEMPERATURE:
-           if (scale == FAHRENHEIT) {
-                *help = g_strdup_printf(_("%5.1f °F"),
-                            (float) (sensorFeature * 9/5 + 32) );
-           } else { /* Celsius */
-                *help = g_strdup_printf(_("%5.1f °C"), sensorFeature);
-           }
-           break;
-
-        case VOLTAGE:
-               *help = g_strdup_printf(_("%+5.2f V"), sensorFeature);
-               break;
-
-        case ENERGY:
-               *help = g_strdup_printf(_("%.0f mWh"), sensorFeature);
-               break;
-
-        case STATE:
-                if (sensorFeature==0.0)
-                    *help = g_strdup (_("off"));
-                else
-                    *help = g_strdup (_("on"));
-               break;
-
-        case SPEED:
-               *help = g_strdup_printf(_("%5.0f rpm"), sensorFeature);
-               break;
-
-        default:
-                *help = g_strdup_printf("%+5.2f", sensorFeature);
-               break;
-    } /* end switch */
-
-    /* TRACE ("leaves format_sensor_value"); */
 }
 
 
@@ -887,6 +856,7 @@ sensors_free (XfcePanelPlugin *plugin, t_sensors *sensors)
     g_ptr_array_foreach (sensors->chips, free_chip, NULL);
     g_ptr_array_free (sensors->chips, TRUE);
 
+    g_free (sensors->plugin_config_file);
     g_free (sensors);
 
     TRACE ("leaves sensors_free");
@@ -983,7 +953,7 @@ display_style_changed (GtkWidget *widget, t_sensors_dialog *sd)
 }
 
 
-static void
+void
 sensor_entry_changed (GtkWidget *widget, t_sensors_dialog *sd)
 {
     gint gtk_combo_box_active;
@@ -1028,54 +998,6 @@ font_size_change (GtkWidget *widget, t_sensors_dialog *sd)
 }
 
 
-static void
-fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale)
-{
-    int featureindex, res;
-    double sensorFeature;
-    t_chipfeature *chipfeature;
-    GtkTreeIter *iter;
-
-    TRACE ("enters fill_gtkTreeStore");
-
-    for (featureindex=0; featureindex < chip->num_features; featureindex++)
-    {
-        chipfeature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, featureindex);
-        g_assert (chipfeature!=NULL);
-
-        iter = g_new0 (GtkTreeIter, 1);
-
-        if ( chipfeature->valid == TRUE ) {
-            res = sensor_get_value
-                    (chip, chipfeature->address, &sensorFeature);
-            if ( res!=0) {
-                DBG ( _("Xfce Hardware Sensors Plugin:\n"
-                    "Seems like there was a problem reading a sensor "
-                    "feature value.\nProper proceeding cannot be "
-                    "guaranteed.\n") );
-                /* FIXME: Better popup a window or DBG message or quit plugin. */
-                break;
-            }
-            g_free (chipfeature->formatted_value);
-            chipfeature->formatted_value = g_new (gchar, 0);
-            format_sensor_value (scale, chipfeature, sensorFeature,
-                                 &(chipfeature->formatted_value));
-            chipfeature->raw_value = sensorFeature;
-            gtk_tree_store_append (model, iter, NULL);
-            gtk_tree_store_set ( model, iter,
-                                 0, chipfeature->name,
-                                1, chipfeature->formatted_value,
-                                2, chipfeature->show,
-                                3, chipfeature->color,
-                                4, chipfeature->min_value,
-                                5, chipfeature->max_value,
-                                 -1);
-        } /* end if sensors-valid */
-        /* g_free(iter); ??? */
-    }
-
-    TRACE ("leaves fill_gtkTreeStore");
-}
 
 
 static void
@@ -1103,7 +1025,7 @@ reload_listbox (t_sensors_dialog *sd)
 }
 
 
-static void
+void
 temperature_unit_change (GtkWidget *widget, t_sensors_dialog *sd)
 {
     TRACE ("enters temperature_unit_change ");
@@ -1196,7 +1118,7 @@ execCommand_toggled (GtkWidget *widget, t_sensors_dialog* sd)
 }
 
 
-static void
+void
 minimum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
                  gchar *new_value, t_sensors_dialog *sd)
 {
@@ -1244,7 +1166,7 @@ minimum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
 }
 
 
-static void
+void
 maximum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
             gchar *new_value, t_sensors_dialog *sd)
 {
@@ -1292,7 +1214,7 @@ maximum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
 }
 
 
-static void
+void
 list_cell_color_edited (GtkCellRendererText *cellrenderertext, gchar *path_str,
                        gchar *new_color, t_sensors_dialog *sd)
 {
@@ -1347,7 +1269,7 @@ list_cell_color_edited (GtkCellRendererText *cellrenderertext, gchar *path_str,
 }
 
 
-static void
+void
 list_cell_text_edited (GtkCellRendererText *cellrenderertext,
                       gchar *path_str, gchar *new_text, t_sensors_dialog *sd)
 {
@@ -1397,7 +1319,7 @@ list_cell_text_edited (GtkCellRendererText *cellrenderertext,
 }
 
 
-static void
+void
 list_cell_toggle (GtkCellRendererToggle *cell, gchar *path_str,
                   t_sensors_dialog *sd)
 {
@@ -1830,7 +1752,12 @@ on_optionsDialog_response (GtkWidget *dlg, int response, t_sensors_dialog *sd)
         g_free(sd->sensors->command_name);
         sd->sensors->command_name =
             g_strdup ( gtk_entry_get_text(GTK_ENTRY(sd->myCommandName_Entry)) );
-        sensors_write_config (sd->sensors->plugin, sd->sensors);
+
+            if (! sd->sensors->plugin_config_file)
+                sd->sensors->plugin_config_file = xfce_panel_plugin_save_location (plugin, TRUE)
+
+            if (sd->sensors->plugin_config_file)
+                sensors_write_config (sd->sensors->plugin, sd->sensors);
     }
     gtk_widget_destroy (sd->dialog);
 
@@ -1943,10 +1870,16 @@ static t_sensors *
 create_sensors_control (XfcePanelPlugin *plugin)
 {
     t_sensors *sensors;
+    gchar *tmp;
 
     TRACE ("enters create_sensors_control");
 
-    sensors = sensors_new (plugin);
+    tmp = xfce_panel_plugin_lookup_rc_file(plugin);
+
+    sensors = sensors_new (plugin, tmp);
+    /* need/want to encapsulate/wrap that ? */
+    sensors->orientation = xfce_panel_plugin_get_orientation (plugin);
+    sensors->panel_size = xfce_panel_plugin_get_size (plugin);
 
     add_event_box (sensors);
 
@@ -1985,6 +1918,7 @@ sensors_plugin_construct (XfcePanelPlugin *plugin)
 
     sensors = create_sensors_control (plugin);
 
+    sd->sensors->plugin_config_file = xfce_panel_plugin_lookup_rc_file(plugin);
     sensors_read_config (plugin, sensors);
 
     /* Try to resize the sensors to fit the user settings.
@@ -1997,6 +1931,7 @@ sensors_plugin_construct (XfcePanelPlugin *plugin)
 
     g_signal_connect (plugin, "free-data", G_CALLBACK (sensors_free), sensors);
 
+    sensors->plugin_config_file = xfce_panel_plugin_save_location (plugin, TRUE)
     g_signal_connect (plugin, "save", G_CALLBACK (sensors_write_config),
                       sensors);
 

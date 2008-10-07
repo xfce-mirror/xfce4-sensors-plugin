@@ -18,3 +18,24 @@
  */
 
 /* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
+
+/* Package includes */
+#include <sensors-interface-common.h>
+
+/* Global includes */
+/* #include <glib.h> */
+#include <gtk/gtk.h>
+
+/*
+void sensor_entry_changed (GtkWidget *widget, t_sensors_dialog *sd);
+
+void list_cell_text_edited (GtkCellRendererText *cellrenderertext,
+                            gchar *path_str, gchar *new_text, t_sensors_dialog *sd);
+*/
+
+/* there should also be some "private" callbacks such as closing/qutting
+ * the application.
+ */
+void close_window_requested ();
+
+

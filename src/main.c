@@ -31,9 +31,14 @@
  #include <config.h>
 /* #endif */
 
-#include <sensors-interface-common.h>
+/* Package includes */
 #include <sensors-interface.h>
-#include <types.h>
+#include <sensors-interface-common.h>
+
+/* Local includes */
+#include "actions.h"
+#include "callbacks.h"
+#include "interface.h"
 
 void
 print_usage ()
@@ -52,8 +57,8 @@ print_usage ()
 int
 main (int argc, char **argv)
 {
+    GtkWidget *window;
     t_sensors_dialog *sd;
-    GtkWidget *dlg, *header, *vbox, *notebook;
     t_sensors *sensors;
 
     if ( argc > 1 && (strcmp(argv[1], "--help")==0 || strcmp(argv[1], "-h")==0) )
@@ -62,46 +67,22 @@ main (int argc, char **argv)
         return 0;
     }
 
-    /* initialize */
-    sensors = sensors_new (NULL);
+    /* initialize sensor stuff */
+    sensors = sensors_new (NULL, NULL);
+    sd = g_new0 (t_sensors_dialog, 1);
     sd->sensors = sensors;
 
-    sd = g_new0 (t_sensors_dialog, 1);
-
-    /* start and populate */
-    dlg = (GtkWidget *) gtk_dialog_new_with_buttons (_("Xfce 4 Sensors Viewer"),
-                NULL, // anciently: GTK_WINDOW(gtk_get_toplevel(plugin));
-                GTK_DIALOG_NO_SEPARATOR, // anciently: | GTK_DIALOG_DESTROY_WITH_PARENT
-                GTK_STOCK_CLOSE, GTK_RESPONSE_OK, NULL);
-
-    gtk_container_set_border_width (GTK_CONTAINER (dlg), 2);
-
-    header = (GtkWidget *) xfce_create_header (NULL, _("View sensor values"));
-    gtk_widget_set_size_request (GTK_BIN (header)->child, -1, 32);
-    gtk_container_set_border_width (GTK_CONTAINER (header), BORDER-2);
-    gtk_widget_show (header);
-    gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dlg)->vbox), header,
-                        FALSE, TRUE, 0);
-
-    vbox = GTK_DIALOG (dlg)->vbox;
-
-    sd->dialog = dlg;
-
-    sd->myComboBox = gtk_combo_box_new_text();
-
-    init_widgets (sd);
-
-    gtk_combo_box_set_active (GTK_COMBO_BOX(sd->myComboBox), 0);
-
-    notebook = gtk_notebook_new ();
-
-    gtk_box_pack_start (GTK_BOX(vbox), notebook, TRUE, TRUE, 0);
-    gtk_widget_show(notebook);
-
-    add_sensors_frame (notebook, sd);
+    /* build main application */
+    window = create_main_window (sd);
 
     /* show window and run forever */
     gtk_main();
+
+    /* do the cleaning? */
+    /*
+    gtk_widget_destroy(window);
+    g_free (window);
+    */
 
     return 0;
 }

@@ -17,26 +17,29 @@
 
 /* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
 
+/* Package includes */
 #include <config.h>
 #include <hddtemp.h>
 #include <middlelayer.h>
 #include <types.h>
 
-#include <glib/garray.h>
+/* Gtk/Glib includes */
+#include <glib.h>
+/* #include <glib/garray.h>
 #include <glib/gdir.h>
 #include <glib/gerror.h>
 #include <glib/gmem.h>
 #include <glib/gmessages.h>
 #include <glib/gprintf.h>
 #include <glib/gspawn.h>
-#include <glib/gstrfuncs.h>
-
-#include <gtk/gtkbox.h>
-#include <gtk/gtkcheckbutton.h>
+#include <glib/gstrfuncs.h> */
+#include <gtk/gtk.h>
+/* #include <gtk/gtkcheckbutton.h>
 #include <gtk/gtkmessagedialog.h>
 #include <gtk/gtklabel.h>
-#include <gtk/gtkstock.h>
+#include <gtk/gtkstock.h> */
 
+/* Global includes */
 /* #include <stdio.h> */
 #include <stdlib.h>
 #include <string.h>

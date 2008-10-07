@@ -17,14 +17,14 @@
 
 /* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
 
+/* Package includes */
 #include <acpi.h>
 #include <types.h>
 
-#include <glib/gmessages.h>
-#include <glib/gmem.h>
-#include <glib/gprintf.h>
-#include <glib/gstrfuncs.h>
+/* Glib includes */
+#include <glib.h>
 
+/* Global includes */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

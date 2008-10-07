@@ -23,7 +23,10 @@ xfce4_sensors_plugin_CFLAGS = \
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"							\
 	@LIBSENSORS_CFLAGS@
 
-xfce4_sensors_plugin_LDFLAGS = \
+xfce4_sensors_plugin_LDFLAGS = 								\
+	$(top_builddir)/lib/libxfce4sensors.la
+
+xfce4_sensors_plugin_LDADD = \
 	@GTK_LIBS@ \
 	@GLIB_LIBS@ \
 	@LIBXFCE4PANEL_LIBS@											 \
