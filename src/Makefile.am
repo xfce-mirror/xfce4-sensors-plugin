@@ -1,4 +1,4 @@
-# $Id$
+# $Id:$
 
 bin_PROGRAMS = xfce4-sensors
 
@@ -32,12 +32,13 @@ xfce4_sensors_CFLAGS = \
 #	@LIBXFCE4PANEL_CFLAGS@
 
 xfce4_sensors_LDFLAGS = 								\
-	$(top_builddir)/lib/libxfce4sensors.la
+	-no-undefined								\
+	@PLATFORM_LDFLAGS@
 
 xfce4_sensors_LDADD = 								\
+	$(top_builddir)/lib/libxfce4sensors.la \
 	@GTK_LIBS@ 													\
 	@GLIB_LIBS@ 													\
-	@SOLLIBS@														\
 	@LIBSENSORS_LDFLAGS@ 								\
 	@LIBXFCE4UTIL_LIBS@									\
 	@LIBXFCEGUI4_LIBS@
@@ -45,8 +46,8 @@ xfce4_sensors_LDADD = 								\
 #-L/usr/local/lib/xfce4/modules/ -L$(top_builddir)/lib -lxfce4sensors
 #	@LIBXFCE4PANEL_LIBS@
 
-#xfce4_sensors_DEPENDENCIES = \
-#	$(top_builddir)/lib/libxfce4sensors.la
+xfce4_sensors_DEPENDENCIES = \
+	$(top_builddir)/lib/libxfce4sensors.la
 
 # .desktop file
 #
