@@ -1,3 +1,5 @@
+# $Id:$
+
 plugindir = $(libdir)/xfce4/modules
 
 plugin_LTLIBRARIES = libxfce4sensors.la
@@ -40,20 +42,31 @@ libxfce4sensors_la_CFLAGS = \
 	@PLATFORM_CFLAGS@												\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"							\
 	@LIBSENSORS_CFLAGS@										\
-	@LIBXFCE4UTIL_CFLAGS@
+	@LIBXFCE4UTIL_CFLAGS@							\
+	@LIBXFCEGUI4_CFLAGS@								\
+	@LIBXFCE4PANEL_CFLAGS@
 
 
 libxfce4sensors_la_LDFLAGS = \
-	-export-dynamic \
-	-avoid-version \
-	-module
+	-export-dynamic							\
+	-export-symbols-regex "^[^_].*"					\
+	-version-info $(LIBXFCE4SENSORS_VERINFO)
+
+#	@PLATFORM_LDFLAGS@
+
+#	-export-dynamic \
+#	-avoid-version \
+#	-module
 
 libxfce4sensors_la_LIBADD = \
 	@GTK_LIBS@ \
 	@GLIB_LIBS@ \
-	@SOLLIBS@														\
 	@LIBSENSORS_LDFLAGS@									\
-	@LIBXFCE4UTIL_LIBS@
+	@LIBXFCE4UTIL_LIBS@								\
+	@LIBXFCEGUI4_LIBS@								\
+	@LIBXFCE4PANEL_LIBS@
+
+#@SOLLIBS@
 
 # -fPIC -shared
 
@@ -62,3 +75,8 @@ libxfce4sensors_la_LIBADD = \
 
 DISTCLEANFILES =
 
+##
+## Pkg-config information
+##
+pkgconfigdir = $(libdir)/pkgconfig
+pkgconfig_DATA = libxfce4sensors-1.0.pc
