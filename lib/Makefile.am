@@ -1,5 +1,8 @@
 # $Id:$
 
+INCLUDES =														  \
+	-I$(top_srcdir)/include
+
 plugindir = $(libdir)/xfce4/modules
 
 plugin_LTLIBRARIES = libxfce4sensors.la
@@ -33,19 +36,16 @@ libxfce4sensors_la_SOURCES =									   \
 # types.h																	\
 # middlelayer.h
 
-INCLUDES =														  \
-	-I$(top_srcdir)/include
-
 libxfce4sensors_la_CFLAGS = \
 	@GTK_CFLAGS@ \
 	@GLIB_CFLAGS@ \
 	@PLATFORM_CFLAGS@												\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"							\
 	@LIBSENSORS_CFLAGS@										\
-	@LIBXFCE4UTIL_CFLAGS@							\
-	@LIBXFCEGUI4_CFLAGS@								\
 	@LIBXFCE4PANEL_CFLAGS@
 
+#	@LIBXFCE4UTIL_CFLAGS@							\
+#	@LIBXFCEGUI4_CFLAGS@
 
 libxfce4sensors_la_LDFLAGS = \
 	-export-dynamic							\
@@ -62,9 +62,10 @@ libxfce4sensors_la_LIBADD = \
 	@GTK_LIBS@ \
 	@GLIB_LIBS@ \
 	@LIBSENSORS_LDFLAGS@									\
-	@LIBXFCE4UTIL_LIBS@								\
-	@LIBXFCEGUI4_LIBS@								\
 	@LIBXFCE4PANEL_LIBS@
+
+#	@LIBXFCE4UTIL_LIBS@								\
+#	@LIBXFCEGUI4_LIBS@
 
 #@SOLLIBS@
 

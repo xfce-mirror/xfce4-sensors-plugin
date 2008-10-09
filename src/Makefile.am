@@ -1,11 +1,10 @@
 # $Id:$
 
-bin_PROGRAMS = xfce4-sensors
-
-
 INCLUDES = 			\
-	-I$(top_builddir)/include	\
-	-I$(top_builddir)/lib
+	-I$(top_builddir)/include
+
+bin_PROGRAMS = \
+	xfce4-sensors
 
 #	-DG_LOG_DOMAIN=\"xfce4-sensors-plugin\"						 \
 #	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"

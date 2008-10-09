@@ -37,6 +37,7 @@
 /* Xfce includes */
 #include <libxfce4util/libxfce4util.h>
 #include <libxfcegui4/libxfcegui4.h>
+#include <libxfce4panel/xfce-panel-plugin.h>
 
 /* Package includes */
 #include <configuration.h>
@@ -1754,7 +1755,7 @@ on_optionsDialog_response (GtkWidget *dlg, int response, t_sensors_dialog *sd)
             g_strdup ( gtk_entry_get_text(GTK_ENTRY(sd->myCommandName_Entry)) );
 
             if (! sd->sensors->plugin_config_file)
-                sd->sensors->plugin_config_file = xfce_panel_plugin_save_location (plugin, TRUE)
+                sd->sensors->plugin_config_file = xfce_panel_plugin_save_location (sd->sensors->plugin, TRUE);
 
             if (sd->sensors->plugin_config_file)
                 sensors_write_config (sd->sensors->plugin, sd->sensors);
@@ -1918,7 +1919,7 @@ sensors_plugin_construct (XfcePanelPlugin *plugin)
 
     sensors = create_sensors_control (plugin);
 
-    sd->sensors->plugin_config_file = xfce_panel_plugin_lookup_rc_file(plugin);
+    sensors->plugin_config_file = xfce_panel_plugin_lookup_rc_file(plugin);
     sensors_read_config (plugin, sensors);
 
     /* Try to resize the sensors to fit the user settings.
@@ -1931,7 +1932,7 @@ sensors_plugin_construct (XfcePanelPlugin *plugin)
 
     g_signal_connect (plugin, "free-data", G_CALLBACK (sensors_free), sensors);
 
-    sensors->plugin_config_file = xfce_panel_plugin_save_location (plugin, TRUE)
+    sensors->plugin_config_file = xfce_panel_plugin_save_location (plugin, TRUE);
     g_signal_connect (plugin, "save", G_CALLBACK (sensors_write_config),
                       sensors);
 

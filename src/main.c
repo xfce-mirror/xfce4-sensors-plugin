@@ -67,6 +67,9 @@ main (int argc, char **argv)
         return 0;
     }
 
+    /* start the Gtk engine */
+    gtk_init (&argc, &argv);
+
     /* initialize sensor stuff */
     sensors = sensors_new (NULL, NULL);
     sd = g_new0 (t_sensors_dialog, 1);
@@ -76,6 +79,7 @@ main (int argc, char **argv)
     window = create_main_window (sd);
 
     /* show window and run forever */
+    gtk_widget_show_all(window);
     gtk_main();
 
     /* do the cleaning? */

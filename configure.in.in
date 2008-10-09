@@ -6,6 +6,7 @@ dnl 2003,2004 Benedikt Meurer <benny@xfce.org>
 dnl 2007 Benedikt Meurer <benny@xfce.org>, Fabian Nowak <timystery@arcor.de>
 dnl
 
+m4_define([libxfce4sensors_verinfo], [1:0:0])
 m4_define([plugin_version],[0.10.99.6])
 
 AC_INIT([xfce4-sensors-plugin], [plugin_version], [timystery@arcor.de])
@@ -24,6 +25,7 @@ AC_MINIX
 
 dnl Check for basic programs
 AC_PROG_CC
+AC_PROG_LD
 AC_PROG_INSTALL
 AC_PROG_LIBTOOL
 AC_PROG_INTLTOOL
@@ -183,6 +185,12 @@ AC_CHECK_LIB(kstat, kstat_open, SOLLIBS="-lkstat -lsocket", SOLLIBS="")
 AC_CHECK_LIB(nsl, kstat_open, SOLLIBS="$SOLLIBS -linet_ntop", SOLLIBS="$SOLLIBS")
 AC_SUBST(SOLLIBS)
 
+dnl **************************************
+dnl *** Substitute version information ***
+dnl **************************************
+LIBXFCE4SENSORS_VERINFO=libxfce4sensors_verinfo()
+AC_SUBST([LIBXFCE4SENSORS_VERINFO])
+
 XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.10.0])
 XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.6.0])
 dnl XDT_CHECK_PACKAGE([GTHREAD], [gthread-2.0], [2.12.0])
@@ -198,10 +206,18 @@ XDT_I18N([@LINGUAS@])
 dnl Check for debugging support
 XDT_FEATURE_DEBUG()
 
+dnl *********************************
+dnl *** Substitute platform flags ***
+dnl *********************************
+AC_MSG_CHECKING([PLATFORM_LDFLAGS])
+AC_MSG_RESULT([$PLATFORM_LDFLAGS])
+AC_SUBST([PLATFORM_LDFLAGS])
+
 AC_OUTPUT([
 Makefile
 xfce4-sensors-plugin.spec
 lib/Makefile
+lib/libxfce4sensors-1.0.pc
 panel-plugin/Makefile
 src/Makefile
 icons/Makefile

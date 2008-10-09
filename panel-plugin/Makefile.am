@@ -1,3 +1,5 @@
+# $Id$
+
 plugindir = $(libexecdir)/xfce4/panel-plugins
 plugin_PROGRAMS = xfce4-sensors-plugin
 
@@ -25,8 +27,6 @@ xfce4_sensors_plugin_CFLAGS = \
 
 xfce4_sensors_plugin_LDFLAGS = 								\
 	$(top_builddir)/lib/libxfce4sensors.la
-
-xfce4_sensors_plugin_LDADD = \
 	@GTK_LIBS@ \
 	@GLIB_LIBS@ \
 	@LIBXFCE4PANEL_LIBS@											 \

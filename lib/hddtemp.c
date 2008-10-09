@@ -89,7 +89,7 @@ gboolean quick_message_with_checkbox (gchar *message, gchar *checkboxtext) {
     TRACE ("enters quick_message");
 
     dialog = gtk_message_dialog_new (NULL,
-                                  GTK_DIALOG_DESTROY_WITH_PARENT,
+                                  0, /* GTK_DIALOG_DESTROY_WITH_PARENT */
                                   GTK_MESSAGE_INFO,
                                   GTK_BUTTONS_CLOSE,
                                   message);
