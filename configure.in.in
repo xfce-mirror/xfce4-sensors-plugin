@@ -80,7 +80,7 @@ AC_ARG_ENABLE([hddtemp],
 
 if test x"$enable_hddtemp" = x"auto"; then
     AC_CHECK_PROG([hddtemp], [hddtemp], [yes], [], [$PATH:/sbin:/usr/sbin:/usr/local/sbin])
-    if test "$hddtemp" = "yes"; then
+    if test x"$hddtemp" = x"yes"; then
         enable_hddtemp=yes
     else
         enable_hddtemp=no
@@ -105,6 +105,59 @@ if test x"$enable_hddtemp" = x"yes"; then
 fi
 
 AM_CONDITIONAL([HAVE_HDDTEMP], [test x$enable_hddtemp = x"yes"])
+
+
+
+
+
+dnl Check for netcat for hddtemp to be used
+AC_ARG_ENABLE([netcat], [AC_HELP_STRING([--enable-netcat], [Use netcat to read your hddtemp temperature @<:@default=auto@:>@])],
+[],
+[
+    enable_netcat=auto
+])
+
+if test x"$enable_netcat" = x"auto"; then
+AC_CHECK_PROG([netcat], [netcat], [yes], [], [$PATH:/sbin:/usr/sbin:/usr/local/sbin])
+AC_CHECK_PROG([nc], [nc], [yes], [], [$PATH:/sbin:/usr/sbin:/usr/local/sbin])
+if test x"$netcat" = x"yes" -o x"$nc" = x"yes"; then
+        enable_netcat=yes
+    else
+        enable_netcat=no
+    fi
+fi
+
+if test x"$enable_netcat" = x"yes"; then
+    AC_DEFINE([HAVE_NETCAT], [1], [Define to 1 if hddtemp is desired])
+
+    AC_ARG_WITH([pathnetcat], [AC_HELP_STRING([--with-pathnetcat], [Specify path to netcat @<:@default=auto@:>@])],
+    [
+        NETCAT_PATH=$withval
+    ], [
+        AC_MSG_CHECKING([for netcat path])
+        NETCAT_PATH=([`whereis -b netcat | sed 's/.*\ \(\/[a-zA-Z0-9\-\/.]*bin[A-Za-z0-9\-\/.]*netcat\).*/\1/'`])
+        if test x"$NETCAT_PATH" = x"netcat:"; then
+            NETCAT_PATH=([`whereis -b nc | sed 's/.*\ \(\/[a-zA-Z0-9\-\/.]*bin[A-Za-z0-9\-\/.]*netcat\).*/\1/'`])
+        fi;
+
+        AC_MSG_RESULT([$NETCAT_PATH])
+    ])
+
+    AC_DEFINE_UNQUOTED([NETCAT_PATH], ["$NETCAT_PATH"], [Complete path to netcat])
+    AC_SUBST([NETCAT_PATH])
+
+    AC_DEFINE_UNQUOTED([NETCAT_HOST], ["localhost"], [Host for netcat])
+    AC_SUBST([NETCAT_HOST])
+
+    AC_DEFINE_UNQUOTED([HDDTEMP_PORT], ["7634"], [Port for hddtemp with netcat])
+    AC_SUBST([HDDTEMP_PORT])
+fi
+
+AM_CONDITIONAL([HAVE__NETCAT], [test x$enable_netcat = x"yes"])
+
+
+
+
 
 
 dnl Check for interface for /proc/acpi to be used
@@ -240,6 +293,11 @@ if test x"$enable_hddtemp" = x"yes"; then
 echo "*  hddtemp: $HDDTEMP (Make sure it is user-executable with UID bit set "
 echo "                      and user member of the respective group)"
 fi
+
+if test x"$enable_netcat" = x"yes"; then
+echo "   netcat: $NETCAT_PATH on $HDDTEMP_HOST:$HDDTEMP_PORT"
+fi
+
 if test x"$enable_libsensors" = x"yes"; then
 echo "*  libsensors"
 fi

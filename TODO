@@ -1,9 +1,6 @@
 TODO
 ======
 
-- Build separate application replacing recommendation for xsensors.
-  * Build libraries for backends that are used from both the plugin and the program
-  * Use a separate include folder for the building process
 
 - Add tooltip onto sensors items list: "You can change values, names and colours by double-clicking the entry, editing the content, and pressing »Return« or selecting a different field."
 
