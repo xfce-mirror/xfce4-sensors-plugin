@@ -18,6 +18,9 @@
 /* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
 
 /* Definitions */
+#ifdef HAVE_CONFIG_H
+# include <config.h>
+#endif
 
 /* Global includes */
 /* #include <stdlib.h> */

@@ -19,6 +19,10 @@
 
 /* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
 
+#ifdef HAVE_CONFIG_H
+# include <config.h>
+#endif
+
 /* Xfce includes */
 #include <libxfcegui4/libxfcegui4.h>
 

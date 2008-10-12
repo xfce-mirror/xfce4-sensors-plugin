@@ -19,6 +19,10 @@
 
 /* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
 
+#ifdef HAVE_CONFIG_H
+# include <config.h>
+#endif
+
 /* Package includes */
 #include <lmsensors.h>
 #include <middlelayer.h>
@@ -30,7 +34,6 @@
 #include <glib/gstrfuncs.h>
 #include <glib/gmem.h> */
 #include <glib/gprintf.h>
-
 
 /* Global includes */
 #include <errno.h>

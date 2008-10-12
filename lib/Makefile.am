@@ -44,6 +44,10 @@ libxfce4sensors_la_CFLAGS = \
 	@LIBSENSORS_CFLAGS@										\
 	@LIBXFCE4PANEL_CFLAGS@
 
+if HAVE_LIBNOTIFY
+libxfce4sensors_la_CFLAGS += @LIBNOTIFY_CFLAGS@
+endif
+
 #	@LIBXFCE4UTIL_CFLAGS@							\
 #	@LIBXFCEGUI4_CFLAGS@
 
@@ -63,6 +67,10 @@ libxfce4sensors_la_LIBADD = \
 	@GLIB_LIBS@ \
 	@LIBSENSORS_LDFLAGS@									\
 	@LIBXFCE4PANEL_LIBS@
+
+if HAVE_LIBNOTIFY
+libxfce4sensors_la_LIBADD += @LIBNOTIFY_LIBS@
+endif
 
 #	@LIBXFCE4UTIL_LIBS@								\
 #	@LIBXFCEGUI4_LIBS@

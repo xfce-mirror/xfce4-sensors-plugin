@@ -19,6 +19,10 @@
 
 /* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
 
+#ifdef HAVE_CONFIG_H
+# include <config.h>
+#endif
+
 /* Global includes */
 #include <stdlib.h>
 #include <unistd.h>
@@ -78,7 +82,6 @@ sensors_write_config (XfcePanelPlugin *plugin, t_sensors *sensors)
     unlink (file);
 
     rc = xfce_rc_simple_open (file, FALSE);
-    g_free (file);
 
     if (!rc) {
         TRACE ("leaves sensors_write_config: No rc file opened");

@@ -19,5 +19,9 @@
 
 /* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
 
+#ifdef HAVE_CONFIG_H
+# include <config.h>
+#endif
+
 /* Local includes */
 #include "actions.h"

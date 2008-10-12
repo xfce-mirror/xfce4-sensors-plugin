@@ -17,8 +17,11 @@
 
 /* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
 
+#ifdef HAVE_CONFIG_H
+# include <config.h>
+#endif
+
 /* Package includes */
-#include <config.h>
 #include <hddtemp.h>
 #include <middlelayer.h>
 #include <types.h>
@@ -40,6 +43,7 @@
 #include <gtk/gtkstock.h> */
 
 /* Global includes */
+#include <libnotify/notify.h>
 /* #include <stdio.h> */
 #include <stdlib.h>
 #include <string.h>
@@ -48,8 +52,26 @@
 
 #include <unistd.h>
 
+#ifdef HAVE_LIBNOTIFY
+void quick_message_notify (gchar *message)
+{
+    NotifyNotification *nn;
+    gchar *summary, *body, *icon;
+    GError *error = NULL;
 
-void quick_message (gchar *message) {
+    summary = "Hddtemp Information";
+    body = message;
+    icon = "xfce-sensors";
+
+    if (!notify_is_initted())
+        notify_init(PACKAGE); /* NOTIFY_APPNAME */
+
+    nn = notify_notification_new(summary, body, icon, NULL);
+    notify_notification_show(nn, &error);
+}
+#else
+void quick_message_dialog (gchar *message)
+{
 
     GtkWidget *dialog;  /*, *label; */
 
@@ -79,6 +101,18 @@ void quick_message (gchar *message) {
 
     TRACE ("leaves quick_message");
 }
+#endif
+
+
+void quick_message (gchar *message)
+{
+#ifdef HAVE_LIBNOTIFY
+    quick_message_notify (message);
+#else
+    quick_message_dialog (message);
+#endif
+}
+
 
 
 gboolean quick_message_with_checkbox (gchar *message, gchar *checkboxtext) {
@@ -365,8 +399,8 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
                             "Calling \"%s\" gave the following error:\n%s\nwith a return value of %d.\n"),
                             PATH_HDDTEMP, cmd_line, standard_error, exit_status);
             checktext = g_strdup(_("Suppress this message in future"));
-            /* quick_message (msg_text); */
-            nevershowagain = quick_message_with_checkbox(msg_text, checktext);
+            quick_message (msg_text);
+            nevershowagain = FALSE; //quick_message_with_checkbox(msg_text, checktext);
 
             if (suppressmessage!=NULL)
                 *suppressmessage = nevershowagain;
