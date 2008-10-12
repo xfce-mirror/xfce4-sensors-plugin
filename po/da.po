@@ -2,19 +2,24 @@
 # Copyright (C) 2007 THE xfce4-sensors-plugin'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
 # Jens Hyllegaard <jens.hyllegaard@gmail.com>, 2007.
+# Per Kongstad <p_kongstad@op.pl>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-sensors-plugin\n"
+"Project-Id-Version: xfce4-sensors-plugin 0.10.99.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-06-26 23:45+0200\n"
-"PO-Revision-Date: 2008-05-21 10:27+0100\n"
-"Last-Translator: Jens Hyllegaard <jens.hyllegaard@gmail.com>\n"
+"PO-Revision-Date: 2008-10-10 08:35+0100\n"
+"Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Danish\n"
+"X-Poedit-Country: DENMARK\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
-#: ../panel-plugin/sensors.c:204 ../panel-plugin/sensors.c:788
+#: ../panel-plugin/sensors.c:204
+#: ../panel-plugin/sensors.c:788
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Sensorer</b></span>"
 
@@ -27,7 +32,8 @@ msgstr "%5.1f °F"
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:444
+#: ../panel-plugin/sensors.c:562
+#: ../panel-plugin/hddtemp.c:444
 #, c-format
 msgid "%5.1f °C"
 msgstr "%5.1f °C"
@@ -44,11 +50,11 @@ msgstr "%.0f mWh"
 
 #: ../panel-plugin/sensors.c:576
 msgid "off"
-msgstr "fra"
+msgstr "slukket"
 
 #: ../panel-plugin/sensors.c:578
 msgid "on"
-msgstr "til"
+msgstr "tændt"
 
 #: ../panel-plugin/sensors.c:582
 #, c-format
@@ -61,16 +67,17 @@ msgstr "Ingen sensorer valgt!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors.c:651 ../panel-plugin/sensors.c:1162
+#: ../panel-plugin/sensors.c:651
+#: ../panel-plugin/sensors.c:1162
 #, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-"Xfce Hardwaresensorer-udvidelsesmodul:\n"
-"Det lader til at der var et problem med at læse en sensorværdi.\n"
-"Korrekt viderbehandling kan ikke garanteres.\n"
+"Udvidelsesmodul for Xfce-hardwaresensorer:\n"
+"Det lader til, at der var et problem med at læse en sensorværdi.\n"
+"Korrekt viderebehandling kan ikke garanteres.\n"
 
 #: ../panel-plugin/sensors.c:931
 msgid "No sensors found!"
@@ -78,7 +85,7 @@ msgstr "Ingen sensorer fundet!"
 
 #: ../panel-plugin/sensors.c:1632
 msgid "UI style:"
-msgstr "Brugerfladestil:"
+msgstr "Grafisk brugerfladestil:"
 
 #: ../panel-plugin/sensors.c:1633
 msgid "_text"
@@ -102,11 +109,11 @@ msgstr "Vi_s titel"
 
 #: ../panel-plugin/sensors.c:1758
 msgid "Sensors t_ype:"
-msgstr "Sensortype:"
+msgstr "Sensor_type:"
 
 #: ../panel-plugin/sensors.c:1783
 msgid "Description:"
-msgstr ""
+msgstr "Beskrivelse:"
 
 #: ../panel-plugin/sensors.c:1820
 msgid "Name"
@@ -134,7 +141,7 @@ msgstr "Maks."
 
 #: ../panel-plugin/sensors.c:1896
 msgid "F_ont size:"
-msgstr "Skrifttypestørrelse:"
+msgstr "_Skrifttypestørrelse:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors.c:1903
@@ -170,17 +177,16 @@ msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
 #: ../panel-plugin/sensors.c:1972
-#, fuzzy
 msgid "Show _Units"
-msgstr "Vi_s titel"
+msgstr "Vis _enheder"
 
 #: ../panel-plugin/sensors.c:1993
 msgid "Small horizontal s_pacing"
-msgstr ""
+msgstr "Små horisontale _mellemrum"
 
 #: ../panel-plugin/sensors.c:2015
 msgid "Suppress messages"
-msgstr ""
+msgstr "Undertryk beskeder"
 
 #: ../panel-plugin/sensors.c:2044
 msgid "U_pdate interval (seconds):"
@@ -188,7 +194,7 @@ msgstr "O_pdateringsinterval (sekunder):"
 
 #: ../panel-plugin/sensors.c:2074
 msgid "E_xecute on double click:"
-msgstr "U_dfør ved dobbeltklik:"
+msgstr "Kø_r ved dobbeltklik:"
 
 #: ../panel-plugin/sensors.c:2117
 msgid "_View"
@@ -206,21 +212,26 @@ msgstr "_Diverse"
 msgid "Edit Properties"
 msgstr "Redigér egenskaber"
 
-#: ../panel-plugin/sensors.c:2232 ../panel-plugin/sensors.h:41
+#: ../panel-plugin/sensors.c:2232
+#: ../panel-plugin/sensors.h:41
 msgid "Sensors Plugin"
-msgstr "Sensor-udvidelsesmodul"
+msgstr "Udvidelsesmodul for sensorer"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../panel-plugin/configuration.c:140 ../panel-plugin/configuration.c:317
-#: ../panel-plugin/configuration.c:324 ../panel-plugin/hddtemp.c:229
-#: ../panel-plugin/hddtemp.c:270 ../panel-plugin/hddtemp.c:275
+#: ../panel-plugin/configuration.c:140
+#: ../panel-plugin/configuration.c:317
+#: ../panel-plugin/configuration.c:324
+#: ../panel-plugin/hddtemp.c:229
+#: ../panel-plugin/hddtemp.c:270
+#: ../panel-plugin/hddtemp.c:275
 msgid "Hard disks"
 msgstr "Harddiske"
 
-#: ../panel-plugin/acpi.c:412 ../panel-plugin/acpi.c:420
+#: ../panel-plugin/acpi.c:412
+#: ../panel-plugin/acpi.c:420
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -236,9 +247,8 @@ msgid "<Unknown>"
 msgstr "<Ukendt>"
 
 #: ../panel-plugin/hddtemp.c:94
-#, fuzzy
 msgid "Xfce 4 Sensors Plugin"
-msgstr "Sensor-udvidelsesmodul"
+msgstr "Xfce 4 udvidelsesmodul for sensorer"
 
 #: ../panel-plugin/hddtemp.c:274
 msgid "S.M.A.R.T. harddisk temperatures"
@@ -247,31 +257,26 @@ msgstr "S.M.A.R.T. harddisk-temperaturer"
 #: ../panel-plugin/hddtemp.c:354
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" blev ikke afviklet korrekt, selv om den er eksekverbar. Dette "
-"skyldes nok at diskene kræver root-rettigheder for at læse deres "
-"temperaturer, og at \"hddtemp\" ikke er kørt som root.\n"
+"\"hddtemp\" blev ikke kørt korrekt, selv om den er eksekverbar. Dette skyldes nok, at diskene kræver root-rettigheder for at læse deres temperaturer, og at \"hddtemp\" ikke er kørt som root.\n"
 "\n"
-"En hurtig, men beskidt løsning er at køre \"chmod u+s %s\" som root-bruger, "
-"og genstarte dette udvidelsesmodul eller dets panel.\n"
+"En hurtig, men beskidt løsning er at køre \"chmod u+s %s\" som root-bruger, og genstarte dette udvidelsesmodul eller dets panel.\n"
 "\n"
 "Afvikling af \"%s\" gav følgende fejl:\n"
 "%s\n"
 "med returkoden %d.\n"
 
-#: ../panel-plugin/hddtemp.c:364 ../panel-plugin/hddtemp.c:390
+#: ../panel-plugin/hddtemp.c:364
+#: ../panel-plugin/hddtemp.c:390
 msgid "Suppress this message in future"
-msgstr ""
+msgstr "Undertryk denne besked for fremtiden"
 
 #: ../panel-plugin/hddtemp.c:388
 #, c-format
@@ -279,22 +284,24 @@ msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr ""
-"Der opstod en fejl ved afvikling af \"%s\":\n"
+"Der opstod en fejl ved kørsel af \"%s\":\n"
 "%s"
 
 #: ../panel-plugin/lmsensors.c:77
 msgid "LM Sensors"
-msgstr "LM Sensors"
+msgstr "LM-sensorer"
 
-#: ../panel-plugin/lmsensors.c:335 ../panel-plugin/lmsensors.c:382
+#: ../panel-plugin/lmsensors.c:335
+#: ../panel-plugin/lmsensors.c:382
 #, c-format
 msgid "Error: Could not connect to sensors!"
-msgstr "Fejl: Kunne ikke tilslutte til sensorer!"
+msgstr "Fejl: Kunne ikke forbinde til sensorer!"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
-msgstr "Sensor-udvidelsesmodul"
+msgstr "Sensor-udvidelsesmodul "
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "Vis sensorværdier."
+
