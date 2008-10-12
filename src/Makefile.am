@@ -20,14 +20,14 @@ xfce4_sensors_SOURCES =									   \
 	actions.c
 
 xfce4_sensors_CFLAGS = \
-	@GTK_CFLAGS@ 												\
-	@GLIB_CFLAGS@ 												\
 	@PLATFORM_CFLAGS@											\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"						\
 	@LIBSENSORS_CFLAGS@											\
 	@LIBXFCE4UTIL_CFLAGS@ \
 	@LIBXFCEGUI4_CFLAGS@
 
+# @GTK_CFLAGS@ 												\
+# @GLIB_CFLAGS@ 												\
 #	@LIBXFCE4PANEL_CFLAGS@
 
 xfce4_sensors_LDFLAGS = 								\
@@ -36,12 +36,12 @@ xfce4_sensors_LDFLAGS = 								\
 
 xfce4_sensors_LDADD = 								\
 	$(top_builddir)/lib/libxfce4sensors.la \
-	@GTK_LIBS@ 													\
-	@GLIB_LIBS@ 													\
 	@LIBSENSORS_LDFLAGS@ 								\
 	@LIBXFCE4UTIL_LIBS@									\
 	@LIBXFCEGUI4_LIBS@
 
+# @GTK_LIBS@ 													\
+# @GLIB_LIBS@ 													\
 #-L/usr/local/lib/xfce4/modules/ -L$(top_builddir)/lib -lxfce4sensors
 #	@LIBXFCE4PANEL_LIBS@
 

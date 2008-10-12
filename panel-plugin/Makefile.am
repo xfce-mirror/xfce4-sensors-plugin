@@ -18,20 +18,22 @@ xfce4_sensors_plugin_SOURCES =									   \
 # middlelayer.h
 
 xfce4_sensors_plugin_CFLAGS = \
-	@GTK_CFLAGS@ \
-	@GLIB_CFLAGS@ \
 	@LIBXFCE4PANEL_CFLAGS@										   \
 	@PLATFORM_CFLAGS@												\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"							\
 	@LIBSENSORS_CFLAGS@
 
+#	@GTK_CFLAGS@ \
+# @GLIB_CFLAGS@
+
 xfce4_sensors_plugin_LDFLAGS = 								\
 	$(top_builddir)/lib/libxfce4sensors.la
-	@GTK_LIBS@ \
-	@GLIB_LIBS@ \
 	@LIBXFCE4PANEL_LIBS@											 \
 	@SOLLIBS@														\
 	@LIBSENSORS_LDFLAGS@
+
+#	@GTK_LIBS@ \
+# @GLIB_LIBS@
 
 # .desktop file
 #

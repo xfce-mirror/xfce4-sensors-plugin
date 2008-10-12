@@ -37,8 +37,6 @@ libxfce4sensors_la_SOURCES =									   \
 # middlelayer.h
 
 libxfce4sensors_la_CFLAGS = \
-	@GTK_CFLAGS@ \
-	@GLIB_CFLAGS@ \
 	@PLATFORM_CFLAGS@												\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"							\
 	@LIBSENSORS_CFLAGS@										\
@@ -48,6 +46,8 @@ if HAVE_LIBNOTIFY
 libxfce4sensors_la_CFLAGS += @LIBNOTIFY_CFLAGS@
 endif
 
+# @GTK_CFLAGS@ \
+# @GLIB_CFLAGS@ \
 #	@LIBXFCE4UTIL_CFLAGS@							\
 #	@LIBXFCEGUI4_CFLAGS@
 
@@ -63,8 +63,6 @@ libxfce4sensors_la_LDFLAGS = \
 #	-module
 
 libxfce4sensors_la_LIBADD = \
-	@GTK_LIBS@ \
-	@GLIB_LIBS@ \
 	@LIBSENSORS_LDFLAGS@									\
 	@LIBXFCE4PANEL_LIBS@
 
@@ -72,6 +70,8 @@ if HAVE_LIBNOTIFY
 libxfce4sensors_la_LIBADD += @LIBNOTIFY_LIBS@
 endif
 
+# @GTK_LIBS@ \
+#	@GLIB_LIBS@ \
 #	@LIBXFCE4UTIL_LIBS@								\
 #	@LIBXFCEGUI4_LIBS@
 
