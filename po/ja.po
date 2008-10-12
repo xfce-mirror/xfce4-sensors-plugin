@@ -16,8 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors.c:204
-#: ../panel-plugin/sensors.c:788
+#: ../panel-plugin/sensors.c:204 ../panel-plugin/sensors.c:788
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>センサー</b></span>"
 
@@ -30,8 +29,7 @@ msgstr "華氏 %5.1f 度"
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#: ../panel-plugin/sensors.c:562
-#: ../panel-plugin/hddtemp.c:444
+#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:444
 #, c-format
 msgid "%5.1f °C"
 msgstr "摂氏 %5.1f 度"
@@ -65,8 +63,7 @@ msgstr "センサーが選択されていません！"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors.c:651
-#: ../panel-plugin/sensors.c:1162
+#: ../panel-plugin/sensors.c:651 ../panel-plugin/sensors.c:1162
 #, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -210,8 +207,7 @@ msgstr "その他(_M)"
 msgid "Edit Properties"
 msgstr "プロパティの編集"
 
-#: ../panel-plugin/sensors.c:2232
-#: ../panel-plugin/sensors.h:41
+#: ../panel-plugin/sensors.c:2232 ../panel-plugin/sensors.h:41
 msgid "Sensors Plugin"
 msgstr "センサープラグイン"
 
@@ -219,17 +215,13 @@ msgstr "センサープラグイン"
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../panel-plugin/configuration.c:140
-#: ../panel-plugin/configuration.c:317
-#: ../panel-plugin/configuration.c:324
-#: ../panel-plugin/hddtemp.c:229
-#: ../panel-plugin/hddtemp.c:270
-#: ../panel-plugin/hddtemp.c:275
+#: ../panel-plugin/configuration.c:140 ../panel-plugin/configuration.c:317
+#: ../panel-plugin/configuration.c:324 ../panel-plugin/hddtemp.c:229
+#: ../panel-plugin/hddtemp.c:270 ../panel-plugin/hddtemp.c:275
 msgid "Hard disks"
 msgstr "ハードディスク"
 
-#: ../panel-plugin/acpi.c:412
-#: ../panel-plugin/acpi.c:420
+#: ../panel-plugin/acpi.c:412 ../panel-plugin/acpi.c:420
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -255,22 +247,27 @@ msgstr "S.M.A.R.T. ハードディスク温度"
 #: ../panel-plugin/hddtemp.c:354
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is "
+"most probably due to the disks requiring root privileges to read their "
+"temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
+"restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" は実行可能ですが、正常に実行されませんでした。おそらく、それらの温度を読み込む root 権限を必要とするディスクか、hddtemp コマンドが root として setuidされていないからでしょう。\n"
-"簡単ではありますが、お勧めしない提案として、 root ユーザで、\"chmod u+s %s\"を実行し、本プラグインかパネルを再起動するという方法があります。\n"
+"\"hddtemp\" は実行可能ですが、正常に実行されませんでした。おそらく、それらの"
+"温度を読み込む root 権限を必要とするディスクか、hddtemp コマンドが root とし"
+"て setuidされていないからでしょう。\n"
+"簡単ではありますが、お勧めしない提案として、 root ユーザで、\"chmod u+s %s"
+"\"を実行し、本プラグインかパネルを再起動するという方法があります。\n"
 "\"%s\" を呼んだ際に以下のエラーを受けとりました:\n"
 "%s\n"
 "返り値: %d です。\n"
 
-#: ../panel-plugin/hddtemp.c:364
-#: ../panel-plugin/hddtemp.c:390
+#: ../panel-plugin/hddtemp.c:364 ../panel-plugin/hddtemp.c:390
 msgid "Suppress this message in future"
 msgstr "今後このメッセージを抑制する"
 
@@ -287,8 +284,7 @@ msgstr ""
 msgid "LM Sensors"
 msgstr "LM センサー"
 
-#: ../panel-plugin/lmsensors.c:335
-#: ../panel-plugin/lmsensors.c:382
+#: ../panel-plugin/lmsensors.c:335 ../panel-plugin/lmsensors.c:382
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "エラー: センサーに接続できませんでした！"
@@ -311,10 +307,12 @@ msgstr "センサーの値を表示します。"
 #~ "Xfce ハードウェアセンサー・プラグイン: \n"
 #~ "センサーの機能値の読み込みに問題があるようです。 \n"
 #~ "正確な値は保証されません。\n"
+
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>センサー</b></span>\n"
+
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>センサー</b></span>"
+
 #~ msgid "<b>View</b>"
 #~ msgstr "<b>表示</b>"
-

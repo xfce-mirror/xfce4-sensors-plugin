@@ -299,4 +299,3 @@ msgstr "Sentsore plugin-a "
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "Sentsore balioak bistarazi."
-

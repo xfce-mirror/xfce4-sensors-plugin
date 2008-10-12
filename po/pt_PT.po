@@ -15,8 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors.c:204
-#: ../panel-plugin/sensors.c:788
+#: ../panel-plugin/sensors.c:204 ../panel-plugin/sensors.c:788
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Sensores</b></span>"
 
@@ -29,8 +28,7 @@ msgstr "%5.1f °F"
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#: ../panel-plugin/sensors.c:562
-#: ../panel-plugin/hddtemp.c:444
+#: ../panel-plugin/sensors.c:562 ../panel-plugin/hddtemp.c:444
 #, c-format
 msgid "%5.1f °C"
 msgstr "%5.1f °C"
@@ -64,8 +62,7 @@ msgstr "Nenhum sensor seleccionado!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors.c:651
-#: ../panel-plugin/sensors.c:1162
+#: ../panel-plugin/sensors.c:651 ../panel-plugin/sensors.c:1162
 #, c-format
 msgid ""
 "Xfce Hardware Sensors Plugin:\n"
@@ -209,8 +206,7 @@ msgstr "_Variedades"
 msgid "Edit Properties"
 msgstr "Editar Propriedades"
 
-#: ../panel-plugin/sensors.c:2232
-#: ../panel-plugin/sensors.h:41
+#: ../panel-plugin/sensors.c:2232 ../panel-plugin/sensors.h:41
 msgid "Sensors Plugin"
 msgstr "Sensors Plugin"
 
@@ -218,17 +214,13 @@ msgstr "Sensors Plugin"
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../panel-plugin/configuration.c:140
-#: ../panel-plugin/configuration.c:317
-#: ../panel-plugin/configuration.c:324
-#: ../panel-plugin/hddtemp.c:229
-#: ../panel-plugin/hddtemp.c:270
-#: ../panel-plugin/hddtemp.c:275
+#: ../panel-plugin/configuration.c:140 ../panel-plugin/configuration.c:317
+#: ../panel-plugin/configuration.c:324 ../panel-plugin/hddtemp.c:229
+#: ../panel-plugin/hddtemp.c:270 ../panel-plugin/hddtemp.c:275
 msgid "Hard disks"
 msgstr "Discos rígidos"
 
-#: ../panel-plugin/acpi.c:412
-#: ../panel-plugin/acpi.c:420
+#: ../panel-plugin/acpi.c:412 ../panel-plugin/acpi.c:420
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -254,24 +246,29 @@ msgstr "Temperatura do disco rígido S.M.A.R.T."
 #: ../panel-plugin/hddtemp.c:354
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is "
+"most probably due to the disks requiring root privileges to read their "
+"temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
+"restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" não foi executado correctamente, apesar de ser executável. Isto é muito provavelmente devido ao disco requerer privilégios de root para ler a temperatura e \"hddtemp\" não está com setuid root.\n"
+"\"hddtemp\" não foi executado correctamente, apesar de ser executável. Isto "
+"é muito provavelmente devido ao disco requerer privilégios de root para ler "
+"a temperatura e \"hddtemp\" não está com setuid root.\n"
 "\n"
-"Uma maneira fácil mas suja é executar  \"chmod u+s %s\" como root e reiniciar este plugin ou o painel.\n"
+"Uma maneira fácil mas suja é executar  \"chmod u+s %s\" como root e "
+"reiniciar este plugin ou o painel.\n"
 "\n"
 "Chamada a \"%s\" deu o seguinte erro:\n"
 "%s\n"
 "com um retorno de erro de %d.\n"
 
-#: ../panel-plugin/hddtemp.c:364
-#: ../panel-plugin/hddtemp.c:390
+#: ../panel-plugin/hddtemp.c:364 ../panel-plugin/hddtemp.c:390
 msgid "Suppress this message in future"
 msgstr "Suprimir esta mensagem no futuro"
 
@@ -288,8 +285,7 @@ msgstr ""
 msgid "LM Sensors"
 msgstr "Sensores LM"
 
-#: ../panel-plugin/lmsensors.c:335
-#: ../panel-plugin/lmsensors.c:382
+#: ../panel-plugin/lmsensors.c:335 ../panel-plugin/lmsensors.c:382
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Erro: Impossível ligar aos sensores!"
@@ -304,8 +300,9 @@ msgstr "Mostrar valores de sensor."
 
 #~ msgid "<b>Sensors</b>"
 #~ msgstr "<b>Sensores</b>"
+
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensores</b></span>\n"
+
 #~ msgid "<b>View</b>"
 #~ msgstr "<b>Ver</b>"
-
