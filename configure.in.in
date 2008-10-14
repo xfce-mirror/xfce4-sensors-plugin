@@ -34,8 +34,8 @@ dnl ****************************
 dnl *** Intltool-update hack ***
 dnl ****************************
 AC_CONFIG_COMMANDS([intltool-update],
-    [(sed -e 's/^\("desktop.*".*\)/\1\n"rc(?:\\\\.in)+|"\./' intltool-update > intltool-update-tmp &&
-      mv intltool-update-tmp intltool-update && chmod 755 intltool-update)])
+    [(if test `stat --printf "%s" intltool-update` != "0"; then sed -e 's/^\("desktop.*".*\)/\1\n"rc(?:\\\\.in)+|"\./' intltool-update > intltool-update-tmp &&
+      mv intltool-update-tmp intltool-update && chmod 755 intltool-update; fi)])
 
 dnl Check for standard header files
 AC_HEADER_STDC

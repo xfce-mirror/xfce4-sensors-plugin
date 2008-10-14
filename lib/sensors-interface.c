@@ -23,6 +23,7 @@
 #endif
 
 /* Global includes */
+#include <libnotify/notify.h>
 /* #include <stdlib.h> */
 
 /* Glib/Gtk includes */
@@ -45,6 +46,15 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale)
     double sensorFeature;
     t_chipfeature *chipfeature;
     GtkTreeIter *iter;
+    NotifyNotification *nn;
+    gchar *summary, *body, *icon;
+    GError *error = NULL;
+
+    summary = "Xfce 4 Sensors Plugin Failure";
+    body = _("Seems like there was a problem reading a sensor "
+                    "feature value.\nProper proceeding cannot be "
+                    "guaranteed.");
+    icon = "xfce-sensors";
 
     TRACE ("enters fill_gtkTreeStore");
 
@@ -59,10 +69,13 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale)
             res = sensor_get_value
                     (chip, chipfeature->address, &sensorFeature);
             if ( res!=0) {
-                DBG ( _("Xfce Hardware Sensors Plugin:\n"
-                    "Seems like there was a problem reading a sensor "
-                    "feature value.\nProper proceeding cannot be "
-                    "guaranteed.\n") );
+
+                if (!notify_is_initted())
+                    notify_init(PACKAGE); /* NOTIFY_APPNAME */
+
+                nn = notify_notification_new(summary, body, icon, NULL);
+                notify_notification_show(nn, &error);
+
                 /* FIXME: Better popup a window or DBG message or quit plugin. */
                 break;
             }
