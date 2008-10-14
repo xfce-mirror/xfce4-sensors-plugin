@@ -46,9 +46,12 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale)
     double sensorFeature;
     t_chipfeature *chipfeature;
     GtkTreeIter *iter;
+    #ifdef HAVE_LIBNOTIFY
     NotifyNotification *nn;
-    gchar *summary, *body, *icon;
     GError *error = NULL;
+    #endif
+    gchar *summary, *body, *icon;
+
 
     summary = "Xfce 4 Sensors Plugin Failure";
     body = _("Seems like there was a problem reading a sensor "
@@ -70,11 +73,15 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale)
                     (chip, chipfeature->address, &sensorFeature);
             if ( res!=0) {
 
+                #ifdef HAVE_LIBNOTIFY
                 if (!notify_is_initted())
                     notify_init(PACKAGE); /* NOTIFY_APPNAME */
 
                 nn = notify_notification_new(summary, body, icon, NULL);
                 notify_notification_show(nn, &error);
+                #else
+                DBG("%s\n%s", summary, body);
+                #endif
 
                 /* FIXME: Better popup a window or DBG message or quit plugin. */
                 break;
