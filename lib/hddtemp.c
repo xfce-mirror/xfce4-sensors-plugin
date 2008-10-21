@@ -476,9 +476,9 @@ refresh_hddtemp (gpointer chip_feature, gpointer data)
     /* actually, that's done in the gui part */
     g_free (cf->formatted_value);
     /*  if (scale == FAHRENHEIT) {
-        cf->formatted_value = g_strdup_printf(_("%5.1f °F"), (float) (value * 9/5 + 32) );
+        cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
     } else { // Celsius  */
-        cf->formatted_value = g_strdup_printf(_("%5.1f °C"), value);
+        cf->formatted_value = g_strdup_printf(_("%.1f °C"), value);
     /* } */
     cf->raw_value = value;
 

@@ -1,9 +1,6 @@
 TODO
 ======
 
-
-- Add tooltip onto sensors items list: "You can change values, names and colours by double-clicking the entry, editing the content, and pressing »Return« or selecting a different field."
-
 - Use notfication messages when alert is on; when maximum is reached.
 
 - fix error: doesn't find all sensors when newly adding plugin to panel - sensors library problem?

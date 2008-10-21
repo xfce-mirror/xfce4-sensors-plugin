@@ -5,6 +5,8 @@ lib/acpi.c
 lib/hddtemp.c
 lib/lmsensors.c
 lib/middlelayer.c
+lib/sensors-interface.c
+lib/sensors-interface-common.c
 src/main.c
 src/interface.c
 src/callbacks.c

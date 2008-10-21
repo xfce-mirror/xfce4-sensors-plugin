@@ -1,12 +1,28 @@
+2008-10-21 timystery
+  * Added tooltip onto sensors items list: "You can change values, names and
+   colours by double-clicking the entry, editing the content, and pressing
+    »Return« or selecting a different field."
+  * Introduced separate handling of text labels for vertically aligned panels
+  * aligned text label centered when being in vertical panels
+  * Updated German translation
+  * Changed order how clicks in the settings dialog are handled --
+   remove old widget, update value, rebuild widget
+
+2008-10-19 timystery
+  * added own xfce4-sensors application to be used instead of xsensors
+  * split functionality into panel plugin, library and application
+  * began using libnotify for error messages where available
+  * introduced checking for netcat/nc to be used as a replacement for hddtemp
+
 2008-06-26 timystery
-	* also offer suppress-checkbox in other failure dialogs
-	* changed conditions for hddtemp error checking to check for valid pointer
-	as well
+    * also offer suppress-checkbox in other failure dialogs
+    * changed conditions for hddtemp error checking to check for valid pointer
+    as well
 
 2008-06-20/21 timystery
-	* renaming of hddtemp and acpi features available
-	* whitelist for sd and hd disks only
-	* Update of German translation
+    * renaming of hddtemp and acpi features available
+    * whitelist for sd and hd disks only
+    * Update of German translation
 
 2008-06-16 timystery
     * added switch to suppress hddtemp error dialog

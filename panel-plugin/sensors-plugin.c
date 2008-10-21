@@ -55,7 +55,7 @@
 /*
  * Tooltips to display for any part of this plugin
  */
-static GtkTooltips *tooltips = NULL;
+extern GtkTooltips *tooltips;
 
 
 static void
@@ -150,7 +150,7 @@ sensors_remove_graphical_panel (t_sensors *sensors)
             if (chipfeature->show == TRUE) {
                 panel = (t_barpanel*) sensors->panels[chipNum][feature];
 
-        if (sensors->show_labels == TRUE)
+        if (sensors->show_labels == TRUE) /* FN: FIXME; this value is already updated! */
                     gtk_widget_destroy (panel->label);
 
                 gtk_widget_destroy (panel->progressbar);
@@ -474,7 +474,11 @@ sensors_set_text_panel_label (t_sensors *sensors, gint numCols, gint itemsToDisp
 
                 myLabelText = tmpstring;
 
-                if (currentColumn < numCols-1) {
+                if (sensors->orientation == GTK_ORIENTATION_VERTICAL) {
+                    if (itemsToDisplay > 1)
+                        myLabelText = g_strconcat (myLabelText, "\n", NULL);
+                }
+                else if (currentColumn < numCols-1) {
                     if (sensors->show_smallspacings)
                         myLabelText = g_strconcat (myLabelText, "  ", NULL);
                     else
@@ -497,7 +501,11 @@ sensors_set_text_panel_label (t_sensors *sensors, gint numCols, gint itemsToDisp
         g_free(myLabelText);
     /* else: with sprintf, we cannot free the string. how bad. */
 
-    gtk_misc_set_alignment(GTK_MISC(sensors->panel_label_data), 0.0, 0.5);
+    if (sensors->orientation== GTK_ORIENTATION_HORIZONTAL)
+        gtk_misc_set_alignment(GTK_MISC(sensors->panel_label_data), 0.0, 0.5);
+    else
+        gtk_misc_set_alignment(GTK_MISC(sensors->panel_label_data), 0.5, 0.5);
+
     gtk_widget_show (sensors->panel_label_data);
 
     TRACE ("leaves sensors_set_text_panel_label");
@@ -886,11 +894,12 @@ show_title_toggled (GtkWidget *widget, t_sensors_dialog *sd)
 {
     TRACE ("enters show_title_toggled");
 
-    sd->sensors->show_title = gtk_toggle_button_get_active
-        ( GTK_TOGGLE_BUTTON(widget) );
     if (sd->sensors->display_values_graphically == TRUE) {
         sensors_remove_graphical_panel(sd->sensors);
     }
+    sd->sensors->show_title = gtk_toggle_button_get_active
+        ( GTK_TOGGLE_BUTTON(widget) );
+
     sensors_show_panel ((gpointer) sd->sensors);
 
     TRACE ("leaves show_title_toggled");
@@ -902,11 +911,13 @@ show_labels_toggled (GtkWidget *widget, t_sensors_dialog *sd)
 {
     TRACE ("enters show_labels_toggled");
 
-    sd->sensors->show_labels = gtk_toggle_button_get_active
-        ( GTK_TOGGLE_BUTTON(widget) );
     if (sd->sensors->display_values_graphically == TRUE) {
         sensors_remove_graphical_panel(sd->sensors);
     }
+
+    sd->sensors->show_labels = gtk_toggle_button_get_active
+        ( GTK_TOGGLE_BUTTON(widget) );
+
     sensors_show_panel ((gpointer) sd->sensors);
 
     TRACE ("leaves show_labels_toggled");
@@ -917,11 +928,13 @@ show_colored_bars_toggled (GtkWidget *widget, t_sensors_dialog *sd)
 {
     TRACE ("enters show_colored_bars_toggled");
 
-    sd->sensors->show_colored_bars = gtk_toggle_button_get_active
-        ( GTK_TOGGLE_BUTTON(widget) );
     if (sd->sensors->display_values_graphically == TRUE) {
         sensors_remove_graphical_panel(sd->sensors);
     }
+
+    sd->sensors->show_colored_bars = gtk_toggle_button_get_active
+        ( GTK_TOGGLE_BUTTON(widget) );
+
     sensors_show_panel ((gpointer) sd->sensors);
 
     TRACE ("leaves show_colored_bars_toggled");
@@ -1791,6 +1804,7 @@ sensors_create_options (XfcePanelPlugin *plugin, t_sensors *sensors)
 {
     GtkWidget *dlg, *header, *vbox, *notebook;
     t_sensors_dialog *sd;
+    gchar *myToolTipText;
 
     TRACE ("enters sensors_create_options");
 
@@ -1829,6 +1843,15 @@ sensors_create_options (XfcePanelPlugin *plugin, t_sensors *sensors)
     gtk_widget_show(notebook);
 
     add_sensors_frame (notebook, sd);
+
+    if (!tooltips)
+      tooltips = gtk_tooltips_new();
+
+    /* #if GTK_VERSION < 2.11 */
+    myToolTipText = g_strdup(_("You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field.."));
+    gtk_tooltips_set_tip (tooltips, GTK_WIDGET(sd->myTreeView),
+                          myToolTipText, NULL);
+    g_free (myToolTipText);
     /* g_signal_connect (G_OBJECT (sd->myComboBox), "changed",
                       //G_CALLBACK (sensor_entry_changed), sd ); */
 

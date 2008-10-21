@@ -39,6 +39,12 @@
 #include <middlelayer.h>
 
 
+/*
+ * Tooltips to display for any part of this plugin
+ */
+GtkTooltips *tooltips = NULL;
+
+
 void
 fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale)
 {
