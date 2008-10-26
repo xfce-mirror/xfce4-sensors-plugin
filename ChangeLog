@@ -1,3 +1,7 @@
+2008-10-26 timystery
+  * New Xfce-style header
+  * border around sensors scrolled window /  treeview
+
 2008-10-21 timystery
   * Added tooltip onto sensors items list: "You can change values, names and
    colours by double-clicking the entry, editing the content, and pressing

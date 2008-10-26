@@ -1810,19 +1810,25 @@ sensors_create_options (XfcePanelPlugin *plugin, t_sensors *sensors)
 
     xfce_panel_plugin_block_menu (plugin);
 
-    dlg = gtk_dialog_new_with_buttons (_("Edit Properties"),
+    //dlg = gtk_dialog_new_with_buttons (
+    dlg = xfce_titled_dialog_new_with_buttons(
+                _("Xfce 4 Sensors Plugin"),
                 GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
                 GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_NO_SEPARATOR,
-                GTK_STOCK_CLOSE, GTK_RESPONSE_OK, NULL);
+                GTK_STOCK_CLOSE,
+                GTK_RESPONSE_OK,
+                NULL
+            );
+    gtk_window_set_icon_name(GTK_WINDOW(dlg),"xfce-sensors");
 
     gtk_container_set_border_width (GTK_CONTAINER (dlg), 2);
 
-    header = xfce_create_header (NULL, _("Sensors Plugin"));
+    /*header = xfce_create_header (NULL, _("Sensors Plugin"));
     gtk_widget_set_size_request (GTK_BIN (header)->child, -1, 32);
     gtk_container_set_border_width (GTK_CONTAINER (header), BORDER-2);
     gtk_widget_show (header);
     gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dlg)->vbox), header,
-                        FALSE, TRUE, 0);
+                        FALSE, TRUE, 0);*/
 
     vbox = GTK_DIALOG (dlg)->vbox;
 

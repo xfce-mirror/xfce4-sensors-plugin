@@ -5,7 +5,12 @@ TODO
 
 - fix error: doesn't find all sensors when newly adding plugin to panel - sensors library problem?
 
+- read acpi fan state?
+
+- switch to sysfs completely?
+
 Known bugs or user requests
 ---------------------------
 - better support for hddtemp via nc/netcat
+- read /proc/acpi/battery or fan for changed linux kernel 2.4.24 oder 2.4.26 differently or use sysfs, whatever
 
