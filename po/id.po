@@ -8,14 +8,15 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-10-22 00:50+0200\n"
-"PO-Revision-Date: 2008-07-18 22:23+0700\n"
+"PO-Revision-Date: 2008-10-22 22:17+0700\n"
 "Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors-plugin.c:224 ../panel-plugin/sensors-plugin.c:773
+#: ../panel-plugin/sensors-plugin.c:224
+#: ../panel-plugin/sensors-plugin.c:773
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Sensor</b></span>"
 
@@ -117,29 +118,31 @@ msgstr "_Lainnya"
 msgid "Edit Properties"
 msgstr "Sunting Properti"
 
-#: ../panel-plugin/sensors-plugin.c:1815 ../panel-plugin/sensors-plugin.h:29
+#: ../panel-plugin/sensors-plugin.c:1815
+#: ../panel-plugin/sensors-plugin.h:29
 msgid "Sensors Plugin"
 msgstr "Plugin Sensor"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:1846
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field.."
-msgstr ""
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field.."
+msgstr "Anda dapat mengubah properti fitur seperti nama, warna, nilai min/maks dengan klik ganda pada entri, sunting isi, dan menekan \"Kembali\" atau memilih bidang yang lain..."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:151 ../lib/configuration.c:331
-#: ../lib/configuration.c:338 ../lib/hddtemp.c:266 ../lib/hddtemp.c:307
+#: ../lib/configuration.c:151
+#: ../lib/configuration.c:331
+#: ../lib/configuration.c:338
+#: ../lib/hddtemp.c:266
+#: ../lib/hddtemp.c:307
 #: ../lib/hddtemp.c:312
 msgid "Hard disks"
 msgstr "Cakram keras"
 
-#: ../lib/acpi.c:416 ../lib/acpi.c:424
+#: ../lib/acpi.c:416
+#: ../lib/acpi.c:424
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -165,29 +168,24 @@ msgstr "Temperatur cakram keras S.M.A.R.T."
 #: ../lib/hddtemp.c:391
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" tak tereksekusi dengan benar, meskipun dapat dieksekusi. Ini "
-"mungkin karena cakram memerlukan hak akses root untuk membaca temperaturnya, "
-"dan \"hddtemp\" tidak diatur menggunakan uid root.\n"
+"\"hddtemp\" tak tereksekusi dengan benar, meskipun dapat dieksekusi. Ini mungkin karena cakram memerlukan hak akses root untuk membaca temperaturnya, dan \"hddtemp\" tidak diatur menggunakan uid root.\n"
 "\n"
-"Cara yang mudah namun kotor adalah dengan menjalankan \"chmod u+s %s\" "
-"sebagai pengguna root kemudian start ulang plugin ini atau panelnya.\n"
+"Cara yang mudah namun kotor adalah dengan menjalankan \"chmod u+s %s\" sebagai pengguna root kemudian start ulang plugin ini atau panelnya.\n"
 "\n"
 "Memanggil \"%s\" memberikan galat berikut:\n"
 "%s\n"
 "dengan nilai kembali %d.\n"
 
-#: ../lib/hddtemp.c:401 ../lib/hddtemp.c:427
+#: ../lib/hddtemp.c:401
+#: ../lib/hddtemp.c:427
 msgid "Suppress this message in future"
 msgstr "Kecilkan pesan ini di masa depan"
 
@@ -204,32 +202,31 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:481 ../lib/sensors-interface-common.c:137
-#, fuzzy, c-format
+#: ../lib/hddtemp.c:481
+#: ../lib/sensors-interface-common.c:137
+#, c-format
 msgid "%.1f °C"
-msgstr "%5.1f °C"
+msgstr "%.1f °C"
 
 #: ../lib/lmsensors.c:103
 msgid "LM Sensors"
 msgstr "Sensor LM"
 
-#: ../lib/lmsensors.c:362 ../lib/lmsensors.c:409
+#: ../lib/lmsensors.c:362
+#: ../lib/lmsensors.c:409
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Galat: Tak dapat menghubungi sensor!"
 
 #: ../lib/sensors-interface.c:63
-#, fuzzy
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr ""
-"Plugin Sensor Peranti Keras Xfce:\n"
 "Kelihatannya terdapat masalah saat membaca nilai fitur sensor.\n"
-"Eksekusi yang normal tidak dijamin.\n"
+"Eksekusi yang normal tidak dijamin."
 
 #: ../lib/sensors-interface.c:131
-#, fuzzy
 msgid "Sensors t_ype:"
 msgstr "Tipe s_ensor:"
 
@@ -282,14 +279,14 @@ msgid "No sensors found!"
 msgstr "Tak ada sensor yang ditemukan!"
 
 #: ../lib/sensors-interface-common.c:134
-#, fuzzy, c-format
+#, c-format
 msgid "%.1f °F"
-msgstr "%5.1f °F"
+msgstr "%.1f °F"
 
 #: ../lib/sensors-interface-common.c:142
-#, fuzzy, c-format
+#, c-format
 msgid "%+.2f V"
-msgstr "%+5.2f V"
+msgstr "%+.2f V"
 
 #: ../lib/sensors-interface-common.c:146
 #, c-format
@@ -305,9 +302,9 @@ msgid "on"
 msgstr "hidup"
 
 #: ../lib/sensors-interface-common.c:157
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f rpm"
-msgstr "%5.0f rpm"
+msgstr "%.0f rpm"
 
 #: ../src/main.c:46
 #, c-format
@@ -321,31 +318,35 @@ msgid ""
 "\n"
 "This program is published under the GPL v2.\n"
 msgstr ""
+"Sensor Xfce4 %s\n"
+"Tampilkan informasi tentang sensor dan ACPI anda.\n"
+"Sinopsis: \n"
+"  xfce4-sensors opsi\n"
+"opsi merupakan satu atau beberapa opsi berikut:\n"
+"  -h, --help Cetak dialog bantuan ini.\n"
+"\n"
+"Program ini dipublikasikan di bawah GPL v2.\n"
 
 #. start and populate
 #: ../src/interface.c:45
-#, fuzzy
 msgid "Xfce 4 Sensors Viewer"
-msgstr "Plugin Sensor Xfce 4"
+msgstr "Penilik Sensor Xfce 4"
 
 #: ../src/interface.c:52
-#, fuzzy
 msgid "View sensor values"
-msgstr "Tampilkan nilai sensor."
+msgstr "Tampilkan nilai sensor"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Graphical Sensors Viewer for Xfce 4"
-msgstr ""
+msgstr "Penilik Sensor Grafis untuk Xfce 4"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
-#, fuzzy
 msgid "Sensors Viewer"
-msgstr "Tipe s_ensor:"
+msgstr "Penilik Sensor"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
-#, fuzzy
 msgid "Xfce 4 Sensors"
-msgstr "Plugin Sensor Xfce 4"
+msgstr "Sensor Xfce 4"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
@@ -354,3 +355,4 @@ msgstr "Plugin sensor"
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "Tampilkan nilai sensor."
+
