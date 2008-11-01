@@ -1,6 +1,7 @@
 # $Id$
 
 SUBDIRS = 					\
+	include					\
 	lib							\
 	panel-plugin		\
 	src							\

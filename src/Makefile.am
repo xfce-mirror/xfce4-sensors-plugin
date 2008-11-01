@@ -1,7 +1,8 @@
 # $Id:$
 
 INCLUDES = 			\
-	-I$(top_builddir)/include
+	-I$(top_srcdir)/include	\
+	-I$(top_srcdir)/lib
 
 bin_PROGRAMS = \
 	xfce4-sensors
@@ -16,8 +17,11 @@ bin_PROGRAMS = \
 xfce4_sensors_SOURCES =									   \
 	main.c \
 	interface.c \
+	interface.h \
 	callbacks.c \
-	actions.c
+	callbacks.h \
+	actions.c	\
+	actions.h
 
 xfce4_sensors_CFLAGS = \
 	@PLATFORM_CFLAGS@											\

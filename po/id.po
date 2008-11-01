@@ -15,8 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors-plugin.c:224
-#: ../panel-plugin/sensors-plugin.c:773
+#: ../panel-plugin/sensors-plugin.c:224 ../panel-plugin/sensors-plugin.c:773
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Sensor</b></span>"
 
@@ -118,31 +117,32 @@ msgstr "_Lainnya"
 msgid "Edit Properties"
 msgstr "Sunting Properti"
 
-#: ../panel-plugin/sensors-plugin.c:1815
-#: ../panel-plugin/sensors-plugin.h:29
+#: ../panel-plugin/sensors-plugin.c:1815 ../panel-plugin/sensors-plugin.h:29
 msgid "Sensors Plugin"
 msgstr "Plugin Sensor"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:1846
-msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field.."
-msgstr "Anda dapat mengubah properti fitur seperti nama, warna, nilai min/maks dengan klik ganda pada entri, sunting isi, dan menekan \"Kembali\" atau memilih bidang yang lain..."
+msgid ""
+"You can change a feature's properties such as name, colours, min/max value "
+"by double-clicking the entry, editing the content, and pressing \"Return\" "
+"or selecting a different field.."
+msgstr ""
+"Anda dapat mengubah properti fitur seperti nama, warna, nilai min/maks "
+"dengan klik ganda pada entri, sunting isi, dan menekan \"Kembali\" atau "
+"memilih bidang yang lain..."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:151
-#: ../lib/configuration.c:331
-#: ../lib/configuration.c:338
-#: ../lib/hddtemp.c:266
-#: ../lib/hddtemp.c:307
+#: ../lib/configuration.c:151 ../lib/configuration.c:331
+#: ../lib/configuration.c:338 ../lib/hddtemp.c:266 ../lib/hddtemp.c:307
 #: ../lib/hddtemp.c:312
 msgid "Hard disks"
 msgstr "Cakram keras"
 
-#: ../lib/acpi.c:416
-#: ../lib/acpi.c:424
+#: ../lib/acpi.c:416 ../lib/acpi.c:424
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -168,24 +168,29 @@ msgstr "Temperatur cakram keras S.M.A.R.T."
 #: ../lib/hddtemp.c:391
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is "
+"most probably due to the disks requiring root privileges to read their "
+"temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
+"restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" tak tereksekusi dengan benar, meskipun dapat dieksekusi. Ini mungkin karena cakram memerlukan hak akses root untuk membaca temperaturnya, dan \"hddtemp\" tidak diatur menggunakan uid root.\n"
+"\"hddtemp\" tak tereksekusi dengan benar, meskipun dapat dieksekusi. Ini "
+"mungkin karena cakram memerlukan hak akses root untuk membaca temperaturnya, "
+"dan \"hddtemp\" tidak diatur menggunakan uid root.\n"
 "\n"
-"Cara yang mudah namun kotor adalah dengan menjalankan \"chmod u+s %s\" sebagai pengguna root kemudian start ulang plugin ini atau panelnya.\n"
+"Cara yang mudah namun kotor adalah dengan menjalankan \"chmod u+s %s\" "
+"sebagai pengguna root kemudian start ulang plugin ini atau panelnya.\n"
 "\n"
 "Memanggil \"%s\" memberikan galat berikut:\n"
 "%s\n"
 "dengan nilai kembali %d.\n"
 
-#: ../lib/hddtemp.c:401
-#: ../lib/hddtemp.c:427
+#: ../lib/hddtemp.c:401 ../lib/hddtemp.c:427
 msgid "Suppress this message in future"
 msgstr "Kecilkan pesan ini di masa depan"
 
@@ -202,8 +207,7 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:481
-#: ../lib/sensors-interface-common.c:137
+#: ../lib/hddtemp.c:481 ../lib/sensors-interface-common.c:137
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -212,8 +216,7 @@ msgstr "%.1f °C"
 msgid "LM Sensors"
 msgstr "Sensor LM"
 
-#: ../lib/lmsensors.c:362
-#: ../lib/lmsensors.c:409
+#: ../lib/lmsensors.c:362 ../lib/lmsensors.c:409
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Galat: Tak dapat menghubungi sensor!"
@@ -355,4 +358,3 @@ msgstr "Plugin sensor"
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "Tampilkan nilai sensor."
-

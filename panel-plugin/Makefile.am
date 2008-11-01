@@ -4,14 +4,15 @@ plugindir = $(libexecdir)/xfce4/panel-plugins
 plugin_PROGRAMS = xfce4-sensors-plugin
 
 INCLUDES = 			\
-	-I$(top_builddir)/include 	\
-	-I$(top_builddir)/lib
+	-I$(top_srcdir)/include 	\
+	-I$(top_srcdir)/lib
 
 #	-DG_LOG_DOMAIN=\"xfce4-sensors-plugin\"						 \
 #	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
 
 xfce4_sensors_plugin_SOURCES =									   \
-	sensors-plugin.c
+	sensors-plugin.c															\
+	sensors-plugin.h
 
 # types.h
 # middlelayer.c													\
@@ -51,7 +52,6 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 
 EXTRA_DIST =														 \
 	$(desktop_in_in_files)
-
 
 DISTCLEANFILES =													 \
 	$(desktop_DATA) $(desktop_in_files)

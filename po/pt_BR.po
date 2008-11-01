@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-24 12:33-0400\n"
+"POT-Creation-Date: 2008-10-22 00:50+0200\n"
 "PO-Revision-Date: 2008-10-24 12:33-0400\n"
 "Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
@@ -39,101 +39,101 @@ msgstr ""
 "Parece ter ocorrido um problema durante a leitura de algum sensor.\n"
 "Não é possível garantir o procedimento apropriado.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1403
+#: ../panel-plugin/sensors-plugin.c:1398
 msgid "UI style:"
 msgstr "Estilo da interface:"
 
-#: ../panel-plugin/sensors-plugin.c:1404
+#: ../panel-plugin/sensors-plugin.c:1399
 msgid "_text"
 msgstr "_texto"
 
-#: ../panel-plugin/sensors-plugin.c:1406
+#: ../panel-plugin/sensors-plugin.c:1401
 msgid "g_raphical"
 msgstr "g_ráfico"
 
-#: ../panel-plugin/sensors-plugin.c:1443
+#: ../panel-plugin/sensors-plugin.c:1438
 msgid "Show _labels in graphical UI"
 msgstr "Mostrar rótu_los na interface gráfica"
 
-#: ../panel-plugin/sensors-plugin.c:1473
+#: ../panel-plugin/sensors-plugin.c:1468
 msgid "Show colored _bars"
 msgstr "Mostrar _barras coloridas"
 
-#: ../panel-plugin/sensors-plugin.c:1501
+#: ../panel-plugin/sensors-plugin.c:1496
 msgid "_Show title"
 msgstr "Mo_strar título"
 
-#: ../panel-plugin/sensors-plugin.c:1527
+#: ../panel-plugin/sensors-plugin.c:1522
 msgid "F_ont size:"
 msgstr "Tamanho de f_onte:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1534
+#: ../panel-plugin/sensors-plugin.c:1529
 msgid "x-small"
 msgstr "muito pequena"
 
-#: ../panel-plugin/sensors-plugin.c:1535
+#: ../panel-plugin/sensors-plugin.c:1530
 msgid "small"
 msgstr "pequena"
 
-#: ../panel-plugin/sensors-plugin.c:1536
+#: ../panel-plugin/sensors-plugin.c:1531
 msgid "medium"
 msgstr "média"
 
-#: ../panel-plugin/sensors-plugin.c:1537
+#: ../panel-plugin/sensors-plugin.c:1532
 msgid "large"
 msgstr "grande"
 
-#: ../panel-plugin/sensors-plugin.c:1538
+#: ../panel-plugin/sensors-plugin.c:1533
 msgid "x-large"
 msgstr "muito grande"
 
-#: ../panel-plugin/sensors-plugin.c:1566
+#: ../panel-plugin/sensors-plugin.c:1561
 msgid "Show _Units"
 msgstr "Mostrar _unidades"
 
-#: ../panel-plugin/sensors-plugin.c:1587
+#: ../panel-plugin/sensors-plugin.c:1582
 msgid "Small horizontal s_pacing"
 msgstr "Pequeno es_paço horizontal"
 
-#: ../panel-plugin/sensors-plugin.c:1609
+#: ../panel-plugin/sensors-plugin.c:1604
 msgid "Suppress messages"
 msgstr "Suprimir mensagens"
 
-#: ../panel-plugin/sensors-plugin.c:1638
+#: ../panel-plugin/sensors-plugin.c:1633
 msgid "U_pdate interval (seconds):"
 msgstr "Intervalo de atualização (em segundos):"
 
-#: ../panel-plugin/sensors-plugin.c:1668
+#: ../panel-plugin/sensors-plugin.c:1663
 msgid "E_xecute on double click:"
 msgstr "E_xecutar com clique duplo:"
 
-#: ../panel-plugin/sensors-plugin.c:1711
+#: ../panel-plugin/sensors-plugin.c:1706
 msgid "_View"
 msgstr "_Ver"
 
-#: ../panel-plugin/sensors-plugin.c:1743
+#: ../panel-plugin/sensors-plugin.c:1738
 msgid "_Miscellaneous"
 msgstr "_Miscelâneo"
 
-#: ../panel-plugin/sensors-plugin.c:1813
+#: ../panel-plugin/sensors-plugin.c:1808
 msgid "Edit Properties"
 msgstr "Editar Propriedades"
 
-#: ../panel-plugin/sensors-plugin.c:1820 ../panel-plugin/sensors-plugin.h:29
+#: ../panel-plugin/sensors-plugin.c:1815 ../panel-plugin/sensors-plugin.h:29
 msgid "Sensors Plugin"
 msgstr "Miniaplicativo de Sensores"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:1851
+#: ../panel-plugin/sensors-plugin.c:1846
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field.."
 msgstr ""
-"Você pode modificar as propriedades de um recurso como nome, cores, valor min/máx "
-"dando um clique duplo na entrada, editando o conteúdo, e pressionando \"Return\" "
-"ou selecionando um campo diferente."
+"Você pode modificar as propriedades de um recurso como nome, cores, valor "
+"min/máx dando um clique duplo na entrada, editando o conteúdo, e "
+"pressionando \"Return\" ou selecionando um campo diferente."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.

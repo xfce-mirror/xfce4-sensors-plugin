@@ -16,8 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors-plugin.c:224
-#: ../panel-plugin/sensors-plugin.c:773
+#: ../panel-plugin/sensors-plugin.c:224 ../panel-plugin/sensors-plugin.c:773
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>センサー</b></span>"
 
@@ -119,31 +118,32 @@ msgstr "その他(_M)"
 msgid "Edit Properties"
 msgstr "プロパティの編集"
 
-#: ../panel-plugin/sensors-plugin.c:1815
-#: ../panel-plugin/sensors-plugin.h:29
+#: ../panel-plugin/sensors-plugin.c:1815 ../panel-plugin/sensors-plugin.h:29
 msgid "Sensors Plugin"
 msgstr "センサープラグイン"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:1846
-msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field.."
-msgstr "エントリをダブルクリックして内容を編集し、「エンターキー」を押すか別のフィールドを選択する事で、名前、色、最小/最大値などの主要な機能のプロパティを変更できます。"
+msgid ""
+"You can change a feature's properties such as name, colours, min/max value "
+"by double-clicking the entry, editing the content, and pressing \"Return\" "
+"or selecting a different field.."
+msgstr ""
+"エントリをダブルクリックして内容を編集し、「エンターキー」を押すか別のフィー"
+"ルドを選択する事で、名前、色、最小/最大値などの主要な機能のプロパティを変更で"
+"きます。"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:151
-#: ../lib/configuration.c:331
-#: ../lib/configuration.c:338
-#: ../lib/hddtemp.c:266
-#: ../lib/hddtemp.c:307
+#: ../lib/configuration.c:151 ../lib/configuration.c:331
+#: ../lib/configuration.c:338 ../lib/hddtemp.c:266 ../lib/hddtemp.c:307
 #: ../lib/hddtemp.c:312
 msgid "Hard disks"
 msgstr "ハードディスク"
 
-#: ../lib/acpi.c:416
-#: ../lib/acpi.c:424
+#: ../lib/acpi.c:416 ../lib/acpi.c:424
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -169,22 +169,27 @@ msgstr "S.M.A.R.T. ハードディスク温度"
 #: ../lib/hddtemp.c:391
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is "
+"most probably due to the disks requiring root privileges to read their "
+"temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
+"restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"「hddtemp」 は実行可能ですが、正常に実行されませんでした。おそらく、それらの温度を読み込む root 権限を必要とするディスクか、hddtemp コマンドが root として setuidされていないからでしょう。\n"
-"簡単ではありますが、お勧めしない提案として、 root ユーザで、\"chmod u+s %s\"を実行し、本プラグインかパネルを再起動するという方法があります。\n"
+"「hddtemp」 は実行可能ですが、正常に実行されませんでした。おそらく、それらの"
+"温度を読み込む root 権限を必要とするディスクか、hddtemp コマンドが root とし"
+"て setuidされていないからでしょう。\n"
+"簡単ではありますが、お勧めしない提案として、 root ユーザで、\"chmod u+s %s"
+"\"を実行し、本プラグインかパネルを再起動するという方法があります。\n"
 "「%s」 を呼んだ際に以下のエラーを受けとりました:\n"
 "%s\n"
 "返り値: %d です。\n"
 
-#: ../lib/hddtemp.c:401
-#: ../lib/hddtemp.c:427
+#: ../lib/hddtemp.c:401 ../lib/hddtemp.c:427
 msgid "Suppress this message in future"
 msgstr "今後このメッセージを抑制する"
 
@@ -201,8 +206,7 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:481
-#: ../lib/sensors-interface-common.c:137
+#: ../lib/hddtemp.c:481 ../lib/sensors-interface-common.c:137
 #, c-format
 msgid "%.1f °C"
 msgstr "摂氏 %.1f 度"
@@ -211,8 +215,7 @@ msgstr "摂氏 %.1f 度"
 msgid "LM Sensors"
 msgstr "LM Sensors"
 
-#: ../lib/lmsensors.c:362
-#: ../lib/lmsensors.c:409
+#: ../lib/lmsensors.c:362 ../lib/lmsensors.c:409
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "エラー: センサーに接続できませんでした！"
@@ -365,10 +368,12 @@ msgstr "センサーの値を表示します。"
 #~ "Xfce ハードウェアセンサー・プラグイン: \n"
 #~ "センサーの機能値の読み込みに問題があるようです。 \n"
 #~ "正確な値は保証されません。\n"
+
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>センサー</b></span>\n"
+
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>センサー</b></span>"
+
 #~ msgid "<b>View</b>"
 #~ msgstr "<b>表示</b>"
-

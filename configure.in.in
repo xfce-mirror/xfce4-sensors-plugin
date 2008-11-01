@@ -291,6 +291,7 @@ AC_SUBST([PLATFORM_LDFLAGS])
 AC_OUTPUT([
 Makefile
 xfce4-sensors-plugin.spec
+include/Makefile
 lib/Makefile
 lib/libxfce4sensors-1.0.pc
 panel-plugin/Makefile
