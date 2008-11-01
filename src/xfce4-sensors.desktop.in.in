@@ -1,0 +1,8 @@
+[Xfce Panel]
+Type=X-XFCE-PanelPlugin
+Encoding=UTF-8
+_Name=Sensor plugin 
+_Comment=Show sensor values.
+Icon=xfce-sensors
+X-XFCE-Exec=@PLUGIN_PATH@/xfce4-sensors-plugin
+
