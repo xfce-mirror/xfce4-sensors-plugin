@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-22 00:50+0200\n"
+"POT-Creation-Date: 2008-11-02 16:46+0100\n"
 "PO-Revision-Date: 2005-12-11 02:20+0900\n"
 "Last-Translator: ByungHyun Choi <byunghyun.choi@debianusers.org>\n"
 "Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge."
@@ -39,101 +39,102 @@ msgstr ""
 "센서의 기능과 측정치를 읽는 도중 문제가 생긴 것 같습니다.\n"
 "따라서 정상적인 동작을 보장할 수 없습니다.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1398
+#: ../panel-plugin/sensors-plugin.c:1403
 #, fuzzy
 msgid "UI style:"
 msgstr "UI 스타일(_U):"
 
-#: ../panel-plugin/sensors-plugin.c:1399
+#: ../panel-plugin/sensors-plugin.c:1404
 msgid "_text"
 msgstr "글자(_t)"
 
-#: ../panel-plugin/sensors-plugin.c:1401
+#: ../panel-plugin/sensors-plugin.c:1406
 msgid "g_raphical"
 msgstr "그림(_r)"
 
-#: ../panel-plugin/sensors-plugin.c:1438
+#: ../panel-plugin/sensors-plugin.c:1443
 msgid "Show _labels in graphical UI"
 msgstr "GUI에 레이블 보이기(_l)"
 
-#: ../panel-plugin/sensors-plugin.c:1468
+#: ../panel-plugin/sensors-plugin.c:1473
 msgid "Show colored _bars"
 msgstr "색깔있는 막대 보이기(_b)"
 
-#: ../panel-plugin/sensors-plugin.c:1496
+#: ../panel-plugin/sensors-plugin.c:1501
 msgid "_Show title"
 msgstr "이름 보여주기(_S)"
 
-#: ../panel-plugin/sensors-plugin.c:1522
+#: ../panel-plugin/sensors-plugin.c:1527
 msgid "F_ont size:"
 msgstr "글꼴 크기(_o):"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1529
+#: ../panel-plugin/sensors-plugin.c:1534
 msgid "x-small"
 msgstr "아주 작게"
 
-#: ../panel-plugin/sensors-plugin.c:1530
+#: ../panel-plugin/sensors-plugin.c:1535
 msgid "small"
 msgstr "작게"
 
-#: ../panel-plugin/sensors-plugin.c:1531
+#: ../panel-plugin/sensors-plugin.c:1536
 msgid "medium"
 msgstr "중간"
 
-#: ../panel-plugin/sensors-plugin.c:1532
+#: ../panel-plugin/sensors-plugin.c:1537
 msgid "large"
 msgstr "크게"
 
-#: ../panel-plugin/sensors-plugin.c:1533
+#: ../panel-plugin/sensors-plugin.c:1538
 msgid "x-large"
 msgstr "아주 크게"
 
-#: ../panel-plugin/sensors-plugin.c:1561
+#: ../panel-plugin/sensors-plugin.c:1566
 #, fuzzy
 msgid "Show _Units"
 msgstr "이름 보여주기(_S)"
 
-#: ../panel-plugin/sensors-plugin.c:1582
+#: ../panel-plugin/sensors-plugin.c:1587
 msgid "Small horizontal s_pacing"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1604
+#: ../panel-plugin/sensors-plugin.c:1609
 msgid "Suppress messages"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1633
+#: ../panel-plugin/sensors-plugin.c:1638
 msgid "U_pdate interval (seconds):"
 msgstr "검사 간격 (초)(_p):"
 
-#: ../panel-plugin/sensors-plugin.c:1663
+#: ../panel-plugin/sensors-plugin.c:1668
 msgid "E_xecute on double click:"
 msgstr "따닥(더블클릭)하면 실행합니다(_x):"
 
-#: ../panel-plugin/sensors-plugin.c:1706
+#: ../panel-plugin/sensors-plugin.c:1711
 msgid "_View"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1738
+#: ../panel-plugin/sensors-plugin.c:1743
 #, fuzzy
 msgid "_Miscellaneous"
 msgstr "<b>기타</b>"
 
-#: ../panel-plugin/sensors-plugin.c:1808
-msgid "Edit Properties"
-msgstr "속성 변경"
-
-#: ../panel-plugin/sensors-plugin.c:1815 ../panel-plugin/sensors-plugin.h:29
-msgid "Sensors Plugin"
+#: ../panel-plugin/sensors-plugin.c:1815 ../lib/hddtemp.c:131
+#, fuzzy
+msgid "Xfce 4 Sensors Plugin"
 msgstr "센서 플러그인"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:1846
+#: ../panel-plugin/sensors-plugin.c:1857
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field.."
 msgstr ""
+
+#: ../panel-plugin/sensors-plugin.h:29
+msgid "Sensors Plugin"
+msgstr "센서 플러그인"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -159,11 +160,6 @@ msgstr ""
 #: ../lib/acpi.c:533
 msgid "<Unknown>"
 msgstr ""
-
-#: ../lib/hddtemp.c:131
-#, fuzzy
-msgid "Xfce 4 Sensors Plugin"
-msgstr "센서 플러그인"
 
 #: ../lib/hddtemp.c:311
 #, fuzzy
@@ -200,7 +196,7 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:481 ../lib/sensors-interface-common.c:137
+#: ../lib/hddtemp.c:481 ../lib/sensors-interface-common.c:138
 #, c-format
 msgid "%.1f °C"
 msgstr ""
@@ -259,52 +255,52 @@ msgstr "최소"
 msgid "Max"
 msgstr "최대"
 
-#: ../lib/sensors-interface.c:270
+#: ../lib/sensors-interface.c:272
 #, fuzzy
 msgid "Temperature scale:"
 msgstr "온도 단위(_e):"
 
-#: ../lib/sensors-interface.c:272
+#: ../lib/sensors-interface.c:274
 msgid "_Celsius"
 msgstr "섭씨(_C)"
 
-#: ../lib/sensors-interface.c:274
+#: ../lib/sensors-interface.c:276
 msgid "_Fahrenheit"
 msgstr "화씨(_F)"
 
-#: ../lib/sensors-interface.c:310
+#: ../lib/sensors-interface.c:312
 #, fuzzy
 msgid "_Sensors"
 msgstr "<b>센서</b>"
 
-#: ../lib/sensors-interface-common.c:67
+#: ../lib/sensors-interface-common.c:68
 msgid "No sensors found!"
 msgstr "센서를 못 찾았습니다!"
 
-#: ../lib/sensors-interface-common.c:134
+#: ../lib/sensors-interface-common.c:135
 #, c-format
 msgid "%.1f °F"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:142
+#: ../lib/sensors-interface-common.c:143
 #, c-format
 msgid "%+.2f V"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:146
+#: ../lib/sensors-interface-common.c:147
 #, fuzzy, c-format
 msgid "%.0f mWh"
 msgstr "%5.0f RPM"
 
-#: ../lib/sensors-interface-common.c:151
+#: ../lib/sensors-interface-common.c:152
 msgid "off"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:153
+#: ../lib/sensors-interface-common.c:154
 msgid "on"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:157
+#: ../lib/sensors-interface-common.c:158
 #, fuzzy, c-format
 msgid "%.0f rpm"
 msgstr "%5.0f RPM"
@@ -322,40 +318,42 @@ msgid ""
 "This program is published under the GPL v2.\n"
 msgstr ""
 
-#. start and populate
-#: ../src/interface.c:45
+#: ../src/interface.c:61
 #, fuzzy
 msgid "Xfce 4 Sensors Viewer"
 msgstr "센서 플러그인"
 
-#: ../src/interface.c:52
-#, fuzzy
-msgid "View sensor values"
-msgstr "센서 값 보이기"
-
 #: ../src/xfce4-sensors.desktop.in.h:1
-msgid "Graphical Sensors Viewer for Xfce 4"
-msgstr ""
+#, fuzzy
+msgid "Sensor Viewer"
+msgstr "센서 종류(_t):"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
 #, fuzzy
-msgid "Sensors Viewer"
+msgid "Sensors Values Viewer"
 msgstr "센서 종류(_t):"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 #, fuzzy
-msgid "Xfce 4 Sensors"
-msgstr "센서 플러그인"
+msgid "Show sensor values."
+msgstr "센서 값 보이기"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 #, fuzzy
 msgid "Sensor plugin "
 msgstr "센서 플러그인"
 
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
+#~ msgid "Edit Properties"
+#~ msgstr "속성 변경"
+
 #, fuzzy
-msgid "Show sensor values."
-msgstr "센서 값 보이기"
+#~ msgid "View sensor values"
+#~ msgstr "센서 값 보이기"
+
+#, fuzzy
+#~ msgid "Xfce 4 Sensors"
+#~ msgstr "센서 플러그인"
 
 #, fuzzy
 #~ msgid ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-22 00:50+0200\n"
+"POT-Creation-Date: 2008-11-02 16:46+0100\n"
 "PO-Revision-Date: 2008-10-24 00:12+0900\n"
 "Last-Translator: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>\n"
 "Language-Team: xfce-users-jp <xfce-users-jp@ml.fdiary.net>\n"
@@ -37,93 +37,89 @@ msgstr ""
 "センサーの機能値の読み込みに問題があるようです。 \n"
 "正確な値は保証されません。\n"
 
-#: ../panel-plugin/sensors-plugin.c:1398
+#: ../panel-plugin/sensors-plugin.c:1403
 msgid "UI style:"
 msgstr "UIのスタイル:"
 
-#: ../panel-plugin/sensors-plugin.c:1399
+#: ../panel-plugin/sensors-plugin.c:1404
 msgid "_text"
 msgstr "テキスト(_T)"
 
-#: ../panel-plugin/sensors-plugin.c:1401
+#: ../panel-plugin/sensors-plugin.c:1406
 msgid "g_raphical"
 msgstr "グラフィック(_R)"
 
-#: ../panel-plugin/sensors-plugin.c:1438
+#: ../panel-plugin/sensors-plugin.c:1443
 msgid "Show _labels in graphical UI"
 msgstr "グラフィック UI にラベルを表示する(_L)"
 
-#: ../panel-plugin/sensors-plugin.c:1468
+#: ../panel-plugin/sensors-plugin.c:1473
 msgid "Show colored _bars"
 msgstr "色付けされたバーを表示する(_B)"
 
-#: ../panel-plugin/sensors-plugin.c:1496
+#: ../panel-plugin/sensors-plugin.c:1501
 msgid "_Show title"
 msgstr "タイトルを表示する(_S)"
 
-#: ../panel-plugin/sensors-plugin.c:1522
+#: ../panel-plugin/sensors-plugin.c:1527
 msgid "F_ont size:"
 msgstr "フォントのサイズ(_O):"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1529
+#: ../panel-plugin/sensors-plugin.c:1534
 msgid "x-small"
 msgstr "極小"
 
-#: ../panel-plugin/sensors-plugin.c:1530
+#: ../panel-plugin/sensors-plugin.c:1535
 msgid "small"
 msgstr "小"
 
-#: ../panel-plugin/sensors-plugin.c:1531
+#: ../panel-plugin/sensors-plugin.c:1536
 msgid "medium"
 msgstr "普通"
 
-#: ../panel-plugin/sensors-plugin.c:1532
+#: ../panel-plugin/sensors-plugin.c:1537
 msgid "large"
 msgstr "大"
 
-#: ../panel-plugin/sensors-plugin.c:1533
+#: ../panel-plugin/sensors-plugin.c:1538
 msgid "x-large"
 msgstr "巨大"
 
-#: ../panel-plugin/sensors-plugin.c:1561
+#: ../panel-plugin/sensors-plugin.c:1566
 msgid "Show _Units"
 msgstr "ユニットを表示(_U)"
 
-#: ../panel-plugin/sensors-plugin.c:1582
+#: ../panel-plugin/sensors-plugin.c:1587
 msgid "Small horizontal s_pacing"
 msgstr "小さな横幅間隔(_P)"
 
-#: ../panel-plugin/sensors-plugin.c:1604
+#: ../panel-plugin/sensors-plugin.c:1609
 msgid "Suppress messages"
 msgstr "メッセージを抑制する"
 
-#: ../panel-plugin/sensors-plugin.c:1633
+#: ../panel-plugin/sensors-plugin.c:1638
 msgid "U_pdate interval (seconds):"
 msgstr "更新間隔(秒)(_P):"
 
-#: ../panel-plugin/sensors-plugin.c:1663
+#: ../panel-plugin/sensors-plugin.c:1668
 msgid "E_xecute on double click:"
 msgstr "ダブルクリックで実行(_X):"
 
-#: ../panel-plugin/sensors-plugin.c:1706
+#: ../panel-plugin/sensors-plugin.c:1711
 msgid "_View"
 msgstr "表示(_V)"
 
-#: ../panel-plugin/sensors-plugin.c:1738
+#: ../panel-plugin/sensors-plugin.c:1743
 msgid "_Miscellaneous"
 msgstr "その他(_M)"
 
-#: ../panel-plugin/sensors-plugin.c:1808
-msgid "Edit Properties"
-msgstr "プロパティの編集"
-
-#: ../panel-plugin/sensors-plugin.c:1815 ../panel-plugin/sensors-plugin.h:29
-msgid "Sensors Plugin"
-msgstr "センサープラグイン"
+#: ../panel-plugin/sensors-plugin.c:1815 ../lib/hddtemp.c:131
+msgid "Xfce 4 Sensors Plugin"
+msgstr "Xfce 4 センサープラグイン"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:1846
+#: ../panel-plugin/sensors-plugin.c:1857
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -132,6 +128,10 @@ msgstr ""
 "エントリをダブルクリックして内容を編集し、「エンターキー」を押すか別のフィー"
 "ルドを選択する事で、名前、色、最小/最大値などの主要な機能のプロパティを変更で"
 "きます。"
+
+#: ../panel-plugin/sensors-plugin.h:29
+msgid "Sensors Plugin"
+msgstr "センサープラグイン"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -157,10 +157,6 @@ msgstr "ACPI v%s ゾーン"
 #: ../lib/acpi.c:533
 msgid "<Unknown>"
 msgstr "＜不明＞"
-
-#: ../lib/hddtemp.c:131
-msgid "Xfce 4 Sensors Plugin"
-msgstr "Xfce 4 センサープラグイン"
 
 #: ../lib/hddtemp.c:311
 msgid "S.M.A.R.T. harddisk temperatures"
@@ -206,7 +202,7 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:481 ../lib/sensors-interface-common.c:137
+#: ../lib/hddtemp.c:481 ../lib/sensors-interface-common.c:138
 #, c-format
 msgid "%.1f °C"
 msgstr "摂氏 %.1f 度"
@@ -260,50 +256,50 @@ msgstr "最小"
 msgid "Max"
 msgstr "最大"
 
-#: ../lib/sensors-interface.c:270
+#: ../lib/sensors-interface.c:272
 msgid "Temperature scale:"
 msgstr "温度の目盛:"
 
-#: ../lib/sensors-interface.c:272
+#: ../lib/sensors-interface.c:274
 msgid "_Celsius"
 msgstr "摂氏(_C)"
 
-#: ../lib/sensors-interface.c:274
+#: ../lib/sensors-interface.c:276
 msgid "_Fahrenheit"
 msgstr "華氏(_F)"
 
-#: ../lib/sensors-interface.c:310
+#: ../lib/sensors-interface.c:312
 msgid "_Sensors"
 msgstr "センサー(_S)"
 
-#: ../lib/sensors-interface-common.c:67
+#: ../lib/sensors-interface-common.c:68
 msgid "No sensors found!"
 msgstr "センサーが見つかりません！"
 
-#: ../lib/sensors-interface-common.c:134
+#: ../lib/sensors-interface-common.c:135
 #, c-format
 msgid "%.1f °F"
 msgstr "華氏 %.1f 度"
 
-#: ../lib/sensors-interface-common.c:142
+#: ../lib/sensors-interface-common.c:143
 #, c-format
 msgid "%+.2f V"
 msgstr "%+.2f V"
 
-#: ../lib/sensors-interface-common.c:146
+#: ../lib/sensors-interface-common.c:147
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.c:151
+#: ../lib/sensors-interface-common.c:152
 msgid "off"
 msgstr "オフ"
 
-#: ../lib/sensors-interface-common.c:153
+#: ../lib/sensors-interface-common.c:154
 msgid "on"
 msgstr "オン"
 
-#: ../lib/sensors-interface-common.c:157
+#: ../lib/sensors-interface-common.c:158
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f rpm"
@@ -329,34 +325,40 @@ msgstr ""
 "\n"
 "このプログラムは GPL v2 ライセンスの元で公開されます。\n"
 
-#. start and populate
-#: ../src/interface.c:45
+#: ../src/interface.c:61
 msgid "Xfce 4 Sensors Viewer"
 msgstr "Xfce 4 センサービューワ"
 
-#: ../src/interface.c:52
-msgid "View sensor values"
-msgstr "センサーの値を表示する"
-
 #: ../src/xfce4-sensors.desktop.in.h:1
-msgid "Graphical Sensors Viewer for Xfce 4"
-msgstr "Xfce4 用 グラフィカルセンサービューワ"
+#, fuzzy
+msgid "Sensor Viewer"
+msgstr "センサービューワ"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
-msgid "Sensors Viewer"
+#, fuzzy
+msgid "Sensors Values Viewer"
 msgstr "センサービューワ"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Xfce 4 Sensors"
-msgstr "Xfce 4 センサー"
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
+msgid "Show sensor values."
+msgstr "センサーの値を表示します。"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "センサープラグイン"
 
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
-msgid "Show sensor values."
-msgstr "センサーの値を表示します。"
+#~ msgid "Edit Properties"
+#~ msgstr "プロパティの編集"
+
+#~ msgid "View sensor values"
+#~ msgstr "センサーの値を表示する"
+
+#~ msgid "Graphical Sensors Viewer for Xfce 4"
+#~ msgstr "Xfce4 用 グラフィカルセンサービューワ"
+
+#~ msgid "Xfce 4 Sensors"
+#~ msgstr "Xfce 4 センサー"
 
 #, fuzzy
 #~ msgid ""

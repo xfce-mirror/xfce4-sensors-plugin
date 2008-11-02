@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-22 00:50+0200\n"
+"POT-Creation-Date: 2008-11-02 16:46+0100\n"
 "PO-Revision-Date: 2008-10-21 22:35+0200\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German <de@li.org>\n"
@@ -36,93 +36,89 @@ msgstr ""
 "Anscheinend gab es ein Problem beim Auslesen eines Wertes.\n"
 "Sauberes Weiterlaufen kann nicht gewährleistet werden.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1398
+#: ../panel-plugin/sensors-plugin.c:1403
 msgid "UI style:"
 msgstr "Darstellung:"
 
-#: ../panel-plugin/sensors-plugin.c:1399
+#: ../panel-plugin/sensors-plugin.c:1404
 msgid "_text"
 msgstr "_textuell"
 
-#: ../panel-plugin/sensors-plugin.c:1401
+#: ../panel-plugin/sensors-plugin.c:1406
 msgid "g_raphical"
 msgstr "_graphisch"
 
-#: ../panel-plugin/sensors-plugin.c:1438
+#: ../panel-plugin/sensors-plugin.c:1443
 msgid "Show _labels in graphical UI"
 msgstr "_Beschriftungen im graphischen Modus anzeigen"
 
-#: ../panel-plugin/sensors-plugin.c:1468
+#: ../panel-plugin/sensors-plugin.c:1473
 msgid "Show colored _bars"
 msgstr "Bal_ken farbig darstellen"
 
-#: ../panel-plugin/sensors-plugin.c:1496
+#: ../panel-plugin/sensors-plugin.c:1501
 msgid "_Show title"
 msgstr "T_itel anzeigen"
 
-#: ../panel-plugin/sensors-plugin.c:1522
+#: ../panel-plugin/sensors-plugin.c:1527
 msgid "F_ont size:"
 msgstr "Sc_hriftgröße:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1529
+#: ../panel-plugin/sensors-plugin.c:1534
 msgid "x-small"
 msgstr "extra-klein"
 
-#: ../panel-plugin/sensors-plugin.c:1530
+#: ../panel-plugin/sensors-plugin.c:1535
 msgid "small"
 msgstr "klein"
 
-#: ../panel-plugin/sensors-plugin.c:1531
+#: ../panel-plugin/sensors-plugin.c:1536
 msgid "medium"
 msgstr "normal"
 
-#: ../panel-plugin/sensors-plugin.c:1532
+#: ../panel-plugin/sensors-plugin.c:1537
 msgid "large"
 msgstr "groß"
 
-#: ../panel-plugin/sensors-plugin.c:1533
+#: ../panel-plugin/sensors-plugin.c:1538
 msgid "x-large"
 msgstr "extra-groß"
 
-#: ../panel-plugin/sensors-plugin.c:1561
+#: ../panel-plugin/sensors-plugin.c:1566
 msgid "Show _Units"
 msgstr "_Einheiten anzeigen"
 
-#: ../panel-plugin/sensors-plugin.c:1582
+#: ../panel-plugin/sensors-plugin.c:1587
 msgid "Small horizontal s_pacing"
 msgstr "K_leine horizontale Abstände"
 
-#: ../panel-plugin/sensors-plugin.c:1604
+#: ../panel-plugin/sensors-plugin.c:1609
 msgid "Suppress messages"
 msgstr "Nachrichtendialoge unterbinden"
 
-#: ../panel-plugin/sensors-plugin.c:1633
+#: ../panel-plugin/sensors-plugin.c:1638
 msgid "U_pdate interval (seconds):"
 msgstr "A_uffrischungsintervall (Sekunden):"
 
-#: ../panel-plugin/sensors-plugin.c:1663
+#: ../panel-plugin/sensors-plugin.c:1668
 msgid "E_xecute on double click:"
 msgstr "Bei _Doppelklick ausführen:"
 
-#: ../panel-plugin/sensors-plugin.c:1706
+#: ../panel-plugin/sensors-plugin.c:1711
 msgid "_View"
 msgstr "_Aussehen"
 
-#: ../panel-plugin/sensors-plugin.c:1738
+#: ../panel-plugin/sensors-plugin.c:1743
 msgid "_Miscellaneous"
 msgstr "S_onstige Einstellungen"
 
-#: ../panel-plugin/sensors-plugin.c:1808
-msgid "Edit Properties"
-msgstr "Eigenschaften einstellen"
-
-#: ../panel-plugin/sensors-plugin.c:1815 ../panel-plugin/sensors-plugin.h:29
-msgid "Sensors Plugin"
-msgstr "Sensorüberwachung"
+#: ../panel-plugin/sensors-plugin.c:1815 ../lib/hddtemp.c:131
+msgid "Xfce 4 Sensors Plugin"
+msgstr "Sensorüberwachung für Xfce4"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:1846
+#: ../panel-plugin/sensors-plugin.c:1857
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -131,6 +127,10 @@ msgstr ""
 "Die Eigenschaften eines Merkmals wie Name, Farbe, Minimum/Maximum können "
 "verändert werden, indem man den Eintrag doppelklickt, den Inhalt ändert und "
 "»Return« drückt oder ein anderes Feld wählt."
+
+#: ../panel-plugin/sensors-plugin.h:29
+msgid "Sensors Plugin"
+msgstr "Sensorüberwachung"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -156,10 +156,6 @@ msgstr "ACPI v%s"
 #: ../lib/acpi.c:533
 msgid "<Unknown>"
 msgstr "<Unbekannt>"
-
-#: ../lib/hddtemp.c:131
-msgid "Xfce 4 Sensors Plugin"
-msgstr "Sensorüberwachung für Xfce4"
 
 #: ../lib/hddtemp.c:311
 msgid "S.M.A.R.T. harddisk temperatures"
@@ -208,7 +204,7 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:481 ../lib/sensors-interface-common.c:137
+#: ../lib/hddtemp.c:481 ../lib/sensors-interface-common.c:138
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -262,50 +258,50 @@ msgstr "Min"
 msgid "Max"
 msgstr "Max"
 
-#: ../lib/sensors-interface.c:270
+#: ../lib/sensors-interface.c:272
 msgid "Temperature scale:"
 msgstr "Temperaturskala"
 
-#: ../lib/sensors-interface.c:272
+#: ../lib/sensors-interface.c:274
 msgid "_Celsius"
 msgstr "C_elsius"
 
-#: ../lib/sensors-interface.c:274
+#: ../lib/sensors-interface.c:276
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../lib/sensors-interface.c:310
+#: ../lib/sensors-interface.c:312
 msgid "_Sensors"
 msgstr "_Sensoren"
 
-#: ../lib/sensors-interface-common.c:67
+#: ../lib/sensors-interface-common.c:68
 msgid "No sensors found!"
 msgstr "Keine Sensoren gefunden!"
 
-#: ../lib/sensors-interface-common.c:134
+#: ../lib/sensors-interface-common.c:135
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
-#: ../lib/sensors-interface-common.c:142
+#: ../lib/sensors-interface-common.c:143
 #, c-format
 msgid "%+.2f V"
 msgstr "%+.2f V"
 
-#: ../lib/sensors-interface-common.c:146
+#: ../lib/sensors-interface-common.c:147
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.c:151
+#: ../lib/sensors-interface-common.c:152
 msgid "off"
 msgstr "aus"
 
-#: ../lib/sensors-interface-common.c:153
+#: ../lib/sensors-interface-common.c:154
 msgid "on"
 msgstr "an"
 
-#: ../lib/sensors-interface-common.c:157
+#: ../lib/sensors-interface-common.c:158
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f U/min"
@@ -331,34 +327,40 @@ msgstr ""
 "\n"
 "Dieses Programm ist unter der GPL v2 veröffentlicht.\n"
 
-#. start and populate
-#: ../src/interface.c:45
+#: ../src/interface.c:61
 msgid "Xfce 4 Sensors Viewer"
 msgstr "Sensorbetrachter für Xfce4"
 
-#: ../src/interface.c:52
-msgid "View sensor values"
-msgstr "Sensorwerte betrachten"
-
 #: ../src/xfce4-sensors.desktop.in.h:1
-msgid "Graphical Sensors Viewer for Xfce 4"
-msgstr "Grafischer Betrachter für Sensorwerte unter Xfce 4"
+#, fuzzy
+msgid "Sensor Viewer"
+msgstr "Sensorbetrachter"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
-msgid "Sensors Viewer"
+#, fuzzy
+msgid "Sensors Values Viewer"
 msgstr "Sensorbetrachter"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Xfce 4 Sensors"
-msgstr "Xfce4-Sensoren"
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
+msgid "Show sensor values."
+msgstr "Sensorwerte erkannter Sensoren überwachen."
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "Sensor-Plugin"
 
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
-msgid "Show sensor values."
-msgstr "Sensorwerte erkannter Sensoren überwachen."
+#~ msgid "Edit Properties"
+#~ msgstr "Eigenschaften einstellen"
+
+#~ msgid "View sensor values"
+#~ msgstr "Sensorwerte betrachten"
+
+#~ msgid "Graphical Sensors Viewer for Xfce 4"
+#~ msgstr "Grafischer Betrachter für Sensorwerte unter Xfce 4"
+
+#~ msgid "Xfce 4 Sensors"
+#~ msgstr "Xfce4-Sensoren"
 
 #~ msgid ""
 #~ "You can modify most of a feature's properties, i.e name, color, and min/"

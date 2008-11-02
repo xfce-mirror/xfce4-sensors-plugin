@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-22 00:50+0200\n"
+"POT-Creation-Date: 2008-11-02 16:46+0100\n"
 "PO-Revision-Date: 2008-10-22 22:17+0700\n"
 "Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
@@ -36,93 +36,89 @@ msgstr ""
 "Kelihatannya terdapat masalah saat membaca nilai fitur sensor.\n"
 "Eksekusi yang normal tidak dijamin.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1398
+#: ../panel-plugin/sensors-plugin.c:1403
 msgid "UI style:"
 msgstr "Gaya UI:"
 
-#: ../panel-plugin/sensors-plugin.c:1399
+#: ../panel-plugin/sensors-plugin.c:1404
 msgid "_text"
 msgstr "_teks"
 
-#: ../panel-plugin/sensors-plugin.c:1401
+#: ../panel-plugin/sensors-plugin.c:1406
 msgid "g_raphical"
 msgstr "g_rafik"
 
-#: ../panel-plugin/sensors-plugin.c:1438
+#: ../panel-plugin/sensors-plugin.c:1443
 msgid "Show _labels in graphical UI"
 msgstr "Tampilkan _label dalam grafik UI"
 
-#: ../panel-plugin/sensors-plugin.c:1468
+#: ../panel-plugin/sensors-plugin.c:1473
 msgid "Show colored _bars"
 msgstr "Tampilkan batang _berwarna"
 
-#: ../panel-plugin/sensors-plugin.c:1496
+#: ../panel-plugin/sensors-plugin.c:1501
 msgid "_Show title"
 msgstr "_Tampilkan judul"
 
-#: ../panel-plugin/sensors-plugin.c:1522
+#: ../panel-plugin/sensors-plugin.c:1527
 msgid "F_ont size:"
 msgstr "U_kuran fonta:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1529
+#: ../panel-plugin/sensors-plugin.c:1534
 msgid "x-small"
 msgstr "sangat kecil"
 
-#: ../panel-plugin/sensors-plugin.c:1530
+#: ../panel-plugin/sensors-plugin.c:1535
 msgid "small"
 msgstr "kecil"
 
-#: ../panel-plugin/sensors-plugin.c:1531
+#: ../panel-plugin/sensors-plugin.c:1536
 msgid "medium"
 msgstr "sedang"
 
-#: ../panel-plugin/sensors-plugin.c:1532
+#: ../panel-plugin/sensors-plugin.c:1537
 msgid "large"
 msgstr "besar"
 
-#: ../panel-plugin/sensors-plugin.c:1533
+#: ../panel-plugin/sensors-plugin.c:1538
 msgid "x-large"
 msgstr "sangat besar"
 
-#: ../panel-plugin/sensors-plugin.c:1561
+#: ../panel-plugin/sensors-plugin.c:1566
 msgid "Show _Units"
 msgstr "Tampilkan _Unit"
 
-#: ../panel-plugin/sensors-plugin.c:1582
+#: ../panel-plugin/sensors-plugin.c:1587
 msgid "Small horizontal s_pacing"
 msgstr "P_emisah horizontal kecil"
 
-#: ../panel-plugin/sensors-plugin.c:1604
+#: ../panel-plugin/sensors-plugin.c:1609
 msgid "Suppress messages"
 msgstr "Kecilkan pesan"
 
-#: ../panel-plugin/sensors-plugin.c:1633
+#: ../panel-plugin/sensors-plugin.c:1638
 msgid "U_pdate interval (seconds):"
 msgstr "I_nterval pemutakhiran (detik):"
 
-#: ../panel-plugin/sensors-plugin.c:1663
+#: ../panel-plugin/sensors-plugin.c:1668
 msgid "E_xecute on double click:"
 msgstr "E_ksekusi pada klik ganda:"
 
-#: ../panel-plugin/sensors-plugin.c:1706
+#: ../panel-plugin/sensors-plugin.c:1711
 msgid "_View"
 msgstr "_Tampilan"
 
-#: ../panel-plugin/sensors-plugin.c:1738
+#: ../panel-plugin/sensors-plugin.c:1743
 msgid "_Miscellaneous"
 msgstr "_Lainnya"
 
-#: ../panel-plugin/sensors-plugin.c:1808
-msgid "Edit Properties"
-msgstr "Sunting Properti"
-
-#: ../panel-plugin/sensors-plugin.c:1815 ../panel-plugin/sensors-plugin.h:29
-msgid "Sensors Plugin"
-msgstr "Plugin Sensor"
+#: ../panel-plugin/sensors-plugin.c:1815 ../lib/hddtemp.c:131
+msgid "Xfce 4 Sensors Plugin"
+msgstr "Plugin Sensor Xfce 4"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:1846
+#: ../panel-plugin/sensors-plugin.c:1857
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -131,6 +127,10 @@ msgstr ""
 "Anda dapat mengubah properti fitur seperti nama, warna, nilai min/maks "
 "dengan klik ganda pada entri, sunting isi, dan menekan \"Kembali\" atau "
 "memilih bidang yang lain..."
+
+#: ../panel-plugin/sensors-plugin.h:29
+msgid "Sensors Plugin"
+msgstr "Plugin Sensor"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -156,10 +156,6 @@ msgstr "Zona v%s ACPI"
 #: ../lib/acpi.c:533
 msgid "<Unknown>"
 msgstr "<Tak diketahui>"
-
-#: ../lib/hddtemp.c:131
-msgid "Xfce 4 Sensors Plugin"
-msgstr "Plugin Sensor Xfce 4"
 
 #: ../lib/hddtemp.c:311
 msgid "S.M.A.R.T. harddisk temperatures"
@@ -207,7 +203,7 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:481 ../lib/sensors-interface-common.c:137
+#: ../lib/hddtemp.c:481 ../lib/sensors-interface-common.c:138
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -261,50 +257,50 @@ msgstr "Min"
 msgid "Max"
 msgstr "Maks"
 
-#: ../lib/sensors-interface.c:270
+#: ../lib/sensors-interface.c:272
 msgid "Temperature scale:"
 msgstr "Skala temperatur:"
 
-#: ../lib/sensors-interface.c:272
+#: ../lib/sensors-interface.c:274
 msgid "_Celsius"
 msgstr "_Celsius"
 
-#: ../lib/sensors-interface.c:274
+#: ../lib/sensors-interface.c:276
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../lib/sensors-interface.c:310
+#: ../lib/sensors-interface.c:312
 msgid "_Sensors"
 msgstr "_Sensor"
 
-#: ../lib/sensors-interface-common.c:67
+#: ../lib/sensors-interface-common.c:68
 msgid "No sensors found!"
 msgstr "Tak ada sensor yang ditemukan!"
 
-#: ../lib/sensors-interface-common.c:134
+#: ../lib/sensors-interface-common.c:135
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
-#: ../lib/sensors-interface-common.c:142
+#: ../lib/sensors-interface-common.c:143
 #, c-format
 msgid "%+.2f V"
 msgstr "%+.2f V"
 
-#: ../lib/sensors-interface-common.c:146
+#: ../lib/sensors-interface-common.c:147
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWj"
 
-#: ../lib/sensors-interface-common.c:151
+#: ../lib/sensors-interface-common.c:152
 msgid "off"
 msgstr "padam"
 
-#: ../lib/sensors-interface-common.c:153
+#: ../lib/sensors-interface-common.c:154
 msgid "on"
 msgstr "hidup"
 
-#: ../lib/sensors-interface-common.c:157
+#: ../lib/sensors-interface-common.c:158
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f rpm"
@@ -330,31 +326,37 @@ msgstr ""
 "\n"
 "Program ini dipublikasikan di bawah GPL v2.\n"
 
-#. start and populate
-#: ../src/interface.c:45
+#: ../src/interface.c:61
 msgid "Xfce 4 Sensors Viewer"
 msgstr "Penilik Sensor Xfce 4"
 
-#: ../src/interface.c:52
-msgid "View sensor values"
-msgstr "Tampilkan nilai sensor"
-
 #: ../src/xfce4-sensors.desktop.in.h:1
-msgid "Graphical Sensors Viewer for Xfce 4"
-msgstr "Penilik Sensor Grafis untuk Xfce 4"
+#, fuzzy
+msgid "Sensor Viewer"
+msgstr "Penilik Sensor"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
-msgid "Sensors Viewer"
+#, fuzzy
+msgid "Sensors Values Viewer"
 msgstr "Penilik Sensor"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Xfce 4 Sensors"
-msgstr "Sensor Xfce 4"
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
+msgid "Show sensor values."
+msgstr "Tampilkan nilai sensor."
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "Plugin sensor"
 
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
-msgid "Show sensor values."
-msgstr "Tampilkan nilai sensor."
+#~ msgid "Edit Properties"
+#~ msgstr "Sunting Properti"
+
+#~ msgid "View sensor values"
+#~ msgstr "Tampilkan nilai sensor"
+
+#~ msgid "Graphical Sensors Viewer for Xfce 4"
+#~ msgstr "Penilik Sensor Grafis untuk Xfce 4"
+
+#~ msgid "Xfce 4 Sensors"
+#~ msgstr "Sensor Xfce 4"

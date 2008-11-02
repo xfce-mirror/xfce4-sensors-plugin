@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.10.99.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-22 00:50+0200\n"
+"POT-Creation-Date: 2008-11-02 16:46+0100\n"
 "PO-Revision-Date: 2008-10-10 08:35+0100\n"
 "Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -39,98 +39,98 @@ msgstr ""
 "Det lader til, at der var et problem med at læse en sensorværdi.\n"
 "Korrekt viderebehandling kan ikke garanteres.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1398
+#: ../panel-plugin/sensors-plugin.c:1403
 msgid "UI style:"
 msgstr "Grafisk brugerfladestil:"
 
-#: ../panel-plugin/sensors-plugin.c:1399
+#: ../panel-plugin/sensors-plugin.c:1404
 msgid "_text"
 msgstr "_tekst"
 
-#: ../panel-plugin/sensors-plugin.c:1401
+#: ../panel-plugin/sensors-plugin.c:1406
 msgid "g_raphical"
 msgstr "g_rafisk"
 
-#: ../panel-plugin/sensors-plugin.c:1438
+#: ../panel-plugin/sensors-plugin.c:1443
 msgid "Show _labels in graphical UI"
 msgstr "Vis _mærkater i grafisk brugerflade"
 
-#: ../panel-plugin/sensors-plugin.c:1468
+#: ../panel-plugin/sensors-plugin.c:1473
 msgid "Show colored _bars"
 msgstr "Vis farvede _bjælker"
 
-#: ../panel-plugin/sensors-plugin.c:1496
+#: ../panel-plugin/sensors-plugin.c:1501
 msgid "_Show title"
 msgstr "Vi_s titel"
 
-#: ../panel-plugin/sensors-plugin.c:1522
+#: ../panel-plugin/sensors-plugin.c:1527
 msgid "F_ont size:"
 msgstr "_Skrifttypestørrelse:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1529
+#: ../panel-plugin/sensors-plugin.c:1534
 msgid "x-small"
 msgstr "ekstra lille"
 
-#: ../panel-plugin/sensors-plugin.c:1530
+#: ../panel-plugin/sensors-plugin.c:1535
 msgid "small"
 msgstr "lille"
 
-#: ../panel-plugin/sensors-plugin.c:1531
+#: ../panel-plugin/sensors-plugin.c:1536
 msgid "medium"
 msgstr "mellem"
 
-#: ../panel-plugin/sensors-plugin.c:1532
+#: ../panel-plugin/sensors-plugin.c:1537
 msgid "large"
 msgstr "stor"
 
-#: ../panel-plugin/sensors-plugin.c:1533
+#: ../panel-plugin/sensors-plugin.c:1538
 msgid "x-large"
 msgstr "ekstra stor"
 
-#: ../panel-plugin/sensors-plugin.c:1561
+#: ../panel-plugin/sensors-plugin.c:1566
 msgid "Show _Units"
 msgstr "Vis _enheder"
 
-#: ../panel-plugin/sensors-plugin.c:1582
+#: ../panel-plugin/sensors-plugin.c:1587
 msgid "Small horizontal s_pacing"
 msgstr "Små horisontale _mellemrum"
 
-#: ../panel-plugin/sensors-plugin.c:1604
+#: ../panel-plugin/sensors-plugin.c:1609
 msgid "Suppress messages"
 msgstr "Undertryk beskeder"
 
-#: ../panel-plugin/sensors-plugin.c:1633
+#: ../panel-plugin/sensors-plugin.c:1638
 msgid "U_pdate interval (seconds):"
 msgstr "O_pdateringsinterval (sekunder):"
 
-#: ../panel-plugin/sensors-plugin.c:1663
+#: ../panel-plugin/sensors-plugin.c:1668
 msgid "E_xecute on double click:"
 msgstr "Kø_r ved dobbeltklik:"
 
-#: ../panel-plugin/sensors-plugin.c:1706
+#: ../panel-plugin/sensors-plugin.c:1711
 msgid "_View"
 msgstr "_Vis"
 
-#: ../panel-plugin/sensors-plugin.c:1738
+#: ../panel-plugin/sensors-plugin.c:1743
 msgid "_Miscellaneous"
 msgstr "_Diverse"
 
-#: ../panel-plugin/sensors-plugin.c:1808
-msgid "Edit Properties"
-msgstr "Redigér egenskaber"
-
-#: ../panel-plugin/sensors-plugin.c:1815 ../panel-plugin/sensors-plugin.h:29
-msgid "Sensors Plugin"
-msgstr "Udvidelsesmodul for sensorer"
+#: ../panel-plugin/sensors-plugin.c:1815 ../lib/hddtemp.c:131
+msgid "Xfce 4 Sensors Plugin"
+msgstr "Xfce 4 udvidelsesmodul for sensorer"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:1846
+#: ../panel-plugin/sensors-plugin.c:1857
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field.."
 msgstr ""
+
+#: ../panel-plugin/sensors-plugin.h:29
+msgid "Sensors Plugin"
+msgstr "Udvidelsesmodul for sensorer"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -156,10 +156,6 @@ msgstr "ACPI v%s zoner"
 #: ../lib/acpi.c:533
 msgid "<Unknown>"
 msgstr "<Ukendt>"
-
-#: ../lib/hddtemp.c:131
-msgid "Xfce 4 Sensors Plugin"
-msgstr "Xfce 4 udvidelsesmodul for sensorer"
 
 #: ../lib/hddtemp.c:311
 msgid "S.M.A.R.T. harddisk temperatures"
@@ -207,7 +203,7 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:481 ../lib/sensors-interface-common.c:137
+#: ../lib/hddtemp.c:481 ../lib/sensors-interface-common.c:138
 #, fuzzy, c-format
 msgid "%.1f °C"
 msgstr "%5.1f °C"
@@ -264,50 +260,50 @@ msgstr "Min."
 msgid "Max"
 msgstr "Maks."
 
-#: ../lib/sensors-interface.c:270
+#: ../lib/sensors-interface.c:272
 msgid "Temperature scale:"
 msgstr "Temperaturskala:"
 
-#: ../lib/sensors-interface.c:272
+#: ../lib/sensors-interface.c:274
 msgid "_Celsius"
 msgstr "_Celsius"
 
-#: ../lib/sensors-interface.c:274
+#: ../lib/sensors-interface.c:276
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../lib/sensors-interface.c:310
+#: ../lib/sensors-interface.c:312
 msgid "_Sensors"
 msgstr "_Sensorer"
 
-#: ../lib/sensors-interface-common.c:67
+#: ../lib/sensors-interface-common.c:68
 msgid "No sensors found!"
 msgstr "Ingen sensorer fundet!"
 
-#: ../lib/sensors-interface-common.c:134
+#: ../lib/sensors-interface-common.c:135
 #, fuzzy, c-format
 msgid "%.1f °F"
 msgstr "%5.1f °F"
 
-#: ../lib/sensors-interface-common.c:142
+#: ../lib/sensors-interface-common.c:143
 #, fuzzy, c-format
 msgid "%+.2f V"
 msgstr "%+5.2f V"
 
-#: ../lib/sensors-interface-common.c:146
+#: ../lib/sensors-interface-common.c:147
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.c:151
+#: ../lib/sensors-interface-common.c:152
 msgid "off"
 msgstr "slukket"
 
-#: ../lib/sensors-interface-common.c:153
+#: ../lib/sensors-interface-common.c:154
 msgid "on"
 msgstr "tændt"
 
-#: ../lib/sensors-interface-common.c:157
+#: ../lib/sensors-interface-common.c:158
 #, fuzzy, c-format
 msgid "%.0f rpm"
 msgstr "%5.0f o/m."
@@ -325,35 +321,37 @@ msgid ""
 "This program is published under the GPL v2.\n"
 msgstr ""
 
-#. start and populate
-#: ../src/interface.c:45
+#: ../src/interface.c:61
 #, fuzzy
 msgid "Xfce 4 Sensors Viewer"
 msgstr "Xfce 4 udvidelsesmodul for sensorer"
 
-#: ../src/interface.c:52
-#, fuzzy
-msgid "View sensor values"
-msgstr "Vis sensorværdier."
-
 #: ../src/xfce4-sensors.desktop.in.h:1
-msgid "Graphical Sensors Viewer for Xfce 4"
-msgstr ""
+#, fuzzy
+msgid "Sensor Viewer"
+msgstr "Sensor_type:"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
 #, fuzzy
-msgid "Sensors Viewer"
+msgid "Sensors Values Viewer"
 msgstr "Sensor_type:"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
-#, fuzzy
-msgid "Xfce 4 Sensors"
-msgstr "Xfce 4 udvidelsesmodul for sensorer"
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
+msgid "Show sensor values."
+msgstr "Vis sensorværdier."
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "Sensor-udvidelsesmodul "
 
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
-msgid "Show sensor values."
-msgstr "Vis sensorværdier."
+#~ msgid "Edit Properties"
+#~ msgstr "Redigér egenskaber"
+
+#, fuzzy
+#~ msgid "View sensor values"
+#~ msgstr "Vis sensorværdier."
+
+#, fuzzy
+#~ msgid "Xfce 4 Sensors"
+#~ msgstr "Xfce 4 udvidelsesmodul for sensorer"
