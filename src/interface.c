@@ -31,6 +31,7 @@
 #include <sensors-interface-common.h>
 
 /* Local includes */
+#include "callbacks.h"
 #include "interface.h"
 
 
@@ -42,19 +43,32 @@ create_main_window (t_sensors_dialog *sd)
 
 
     /* start and populate */
-    dlg = (GtkWidget *) gtk_dialog_new_with_buttons (_("Xfce 4 Sensors Viewer"),
+    /* dlg = (GtkWidget *) gtk_dialog_new_with_buttons (_("Xfce 4 Sensors Viewer"),
                 NULL, // anciently: GTK_WINDOW(gtk_get_toplevel(plugin));
                 GTK_DIALOG_NO_SEPARATOR, // anciently: | GTK_DIALOG_DESTROY_WITH_PARENT
                 GTK_STOCK_CLOSE, GTK_RESPONSE_OK, NULL);
 
     gtk_container_set_border_width (GTK_CONTAINER (dlg), 2);
 
-    header = (GtkWidget *) xfce_create_header (NULL, _("View sensor values"));
-    gtk_widget_set_size_request (GTK_BIN (header)->child, -1, 32);
-    gtk_container_set_border_width (GTK_CONTAINER (header), BORDER-2);
-    gtk_widget_show (header);
+    header = (GtkWidget *) xfce_create_framebox (_("View sensor values"), dlg); */
+/*    gtk_widget_set_size_request (GTK_BIN (header)->child, -1, 32);
+    gtk_container_set_border_width (GTK_CONTAINER (header), BORDER-2); */
+    /* gtk_widget_show (header);
     gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dlg)->vbox), header,
-                        FALSE, TRUE, 0);
+                        FALSE, TRUE, 0); */
+
+    dlg = xfce_titled_dialog_new_with_buttons(
+                _("Xfce 4 Sensors Viewer"),
+                NULL, //GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
+                GTK_DIALOG_NO_SEPARATOR,
+                GTK_STOCK_CLOSE,
+                GTK_RESPONSE_OK,
+                NULL
+            );
+
+    gtk_window_set_icon_name(GTK_WINDOW(dlg),"xfce-sensors");
+
+    gtk_container_set_border_width (GTK_CONTAINER (dlg), 2);
 
     vbox = GTK_DIALOG (dlg)->vbox;
 
@@ -72,6 +86,9 @@ create_main_window (t_sensors_dialog *sd)
     gtk_widget_show(notebook);
 
     add_sensors_frame (notebook, sd);
+
+    g_signal_connect (dlg, "response",
+            G_CALLBACK(on_main_window_response), sd);
 
     return dlg;
 }

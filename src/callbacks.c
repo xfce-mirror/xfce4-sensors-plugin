@@ -35,6 +35,39 @@
 /* Local includes */
 #include "callbacks.h"
 
+
+
+void
+on_main_window_response (GtkWidget *dlg, int response, t_sensors_dialog *sd)
+{
+    TRACE ("enters on_main_window_response");
+
+    if (response==GTK_RESPONSE_OK)
+    {
+        //g_free(sd->sensors->command_name);
+        //g_free(sd->coloredBars_Box);
+        //g_free(sd->font_Box);
+        //g_free(sd->labels_Box);
+        //g_free(sd->myComboBox);
+        //g_free(sd->myCommandName_Entry);
+        //g_free(sd->myExecCommand_CheckBox);
+        //g_free(sd->mySensorLabel);
+        //gtk_widget_destroy (sd->dialog);
+        //g_free(sd->smallspacing_checkbox);
+        //g_free(sd->suppressmessage_checkbox);
+        //g_free(sd->temperature_radio_group);
+        //g_free(sd->unit_checkbox);
+
+        g_free(sd);
+
+        //gtk_widget_destroy (sd->dialog);
+        gtk_main_quit();
+    }
+
+    TRACE ("leaves on_main_window_response");
+}
+
+
 void
 sensor_entry_changed (GtkWidget *widget, t_sensors_dialog *sd)
 {

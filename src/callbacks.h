@@ -38,4 +38,6 @@ void list_cell_text_edited (GtkCellRendererText *cellrenderertext,
  */
 void close_window_requested ();
 
+void on_main_window_response (GtkWidget *dlg, int response, t_sensors_dialog *sd);
+
 

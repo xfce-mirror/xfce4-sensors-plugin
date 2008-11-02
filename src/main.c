@@ -61,6 +61,8 @@ main (int argc, char **argv)
     t_sensors_dialog *sd;
     t_sensors *sensors;
 
+    xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
+
     if ( argc > 1 && (strcmp(argv[1], "--help")==0 || strcmp(argv[1], "-h")==0) )
     {
         print_usage ();
