@@ -23,7 +23,9 @@
 #endif
 
 /* Global includes */
+#ifdef HAVE_LIBNOTIFY
 #include <libnotify/notify.h>
+#endif
 /* #include <stdlib.h> */
 
 /* Glib/Gtk includes */

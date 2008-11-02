@@ -23,6 +23,7 @@
 
 /* Xfce includes */
 // #include <libxfce4panel/xfce-panel-enums.h>
+#include <gtk/gtk.h>
 #include <libxfce4panel/xfce-panel-plugin.h>
 
 /* Local/package includes */

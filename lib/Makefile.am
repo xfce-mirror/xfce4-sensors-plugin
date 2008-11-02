@@ -1,6 +1,6 @@
 # $Id:$
 
-INCLUDES =														  \
+INCLUDES =														  	\
 	-I$(top_srcdir)/include
 
 plugindir = $(libdir)/xfce4/modules
@@ -22,67 +22,75 @@ ACPI_SOURCES = acpi.c
 #acpi.h
 endif
 
-libxfce4sensors_la_SOURCES =									   \
+libxfce4sensors_la_SOURCES =										\
 	middlelayer.c													\
 	configuration.c													\
-	sensors-interface-common.c						\
-	sensors-interface.c										\
+	sensors-interface-common.c										\
+	sensors-interface.c												\
 	$(SENSORS_SOURCES)												\
 	$(HDDTEMP_SOURCES)												\
 	$(ACPI_SOURCES)
 
 # configuration.h													\
-# sensors-plugin.h
-# types.h																	\
+# sensors-plugin.h													\
+# types.h															\
 # middlelayer.h
 
-libxfce4sensors_la_CFLAGS = \
+libxfce4sensors_la_CFLAGS = 										\
 	@PLATFORM_CFLAGS@												\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"							\
-	@LIBSENSORS_CFLAGS@										\
-	@LIBXFCE4PANEL_CFLAGS@
+	@GTK_CFLAGS@													\
+	@GLIB_CFLAGS@													\
+	@LIBXFCEGUI4_CFLAGS@											\
+	@LIBXFCE4UTIL_CFLAGS@											\
+	@LIBXFCE4PANEL_CFLAGS@											\
+	@LIBSENSORS_CFLAGS@	
 
 if HAVE_LIBNOTIFY
 libxfce4sensors_la_CFLAGS += @LIBNOTIFY_CFLAGS@
 endif
 
-# @GTK_CFLAGS@ \
-# @GLIB_CFLAGS@ \
-#	@LIBXFCE4UTIL_CFLAGS@							\
+# @GTK_CFLAGS@ 														\
+# @GLIB_CFLAGS@ 													\
+#	@LIBXFCE4UTIL_CFLAGS@											\
 #	@LIBXFCEGUI4_CFLAGS@
 
-libxfce4sensors_la_LDFLAGS = \
-	-export-dynamic							\
-	-export-symbols-regex "^[^_].*"					\
+libxfce4sensors_la_LDFLAGS = 										\
+	-export-dynamic													\
+	-export-symbols-regex "^[^_].*"									\
 	-version-info $(LIBXFCE4SENSORS_VERINFO)
 
 #	@PLATFORM_LDFLAGS@
 
-#	-export-dynamic \
-#	-avoid-version \
+#	-export-dynamic 												\
+#	-avoid-version 													\
 #	-module
 
-libxfce4sensors_la_LIBADD = \
-	@LIBSENSORS_LDFLAGS@									\
-	@LIBXFCE4PANEL_LIBS@
+libxfce4sensors_la_LIBADD = 										\
+	@GTK_LIBS@														\
+	@GLIB_LIBS@														\
+	@LIBXFCE4UTIL_LIBS@												\
+	@LIBXFCEGUI4_LIBS@												\
+	@LIBXFCE4PANEL_LIBS@											\
+	@LIBSENSORS_LDFLAGS@
 
 if HAVE_LIBNOTIFY
 libxfce4sensors_la_LIBADD += @LIBNOTIFY_LIBS@
 endif
 
-# @GTK_LIBS@ \
-#	@GLIB_LIBS@ \
-#	@LIBXFCE4UTIL_LIBS@								\
+# @GTK_LIBS@ 														\
+#	@GLIB_LIBS@ 													\
+#	@LIBXFCE4UTIL_LIBS@												\
 #	@LIBXFCEGUI4_LIBS@
 
 #@SOLLIBS@
 
 # -fPIC -shared
 
-#	-DG_LOG_DOMAIN=\"xfce4-sensors-plugin\"						 \
+#	-DG_LOG_DOMAIN=\"xfce4-sensors-plugin\"						 	\
 #	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
 
-EXTRA_DIST =			\
+EXTRA_DIST =														\
 	helpers.c
 
 DISTCLEANFILES =
