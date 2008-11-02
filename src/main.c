@@ -1,4 +1,4 @@
-/* $Id$ */
+/* $Id:$ */
 
 /*  Copyright 2008 Fabian Nowak (timystery@arcor.de)
  *
@@ -41,6 +41,18 @@
 #include "interface.h"
 
 void
+print_license ()
+{
+    printf (_("Xfce4 Sensors %s\n"
+                      "This program is published under the GPL v2.\n"
+                      "The license text can be found inside the program's source archive "
+                      "or under /usr/share/apps/LICENSES/GPL_V2 or at "
+                      "http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n" ), PACKAGE_VERSION
+                );
+}
+
+
+void
 print_usage ()
 {
     printf (_("Xfce4 Sensors %s\n"
@@ -48,10 +60,19 @@ print_usage ()
                       "Synopsis: \n"
                       "  xfce4-sensors options\n"
                       "where options are one or more of the following:\n"
-                      "  -h, --help Print this help dialog.\n"
+                      "  -h, --help    Print this help dialog.\n"
+                      "  -l, --license Print license information.\n"
+                      "  -v, --version Print version information.\n"
                       "\n"
                       "This program is published under the GPL v2.\n"), PACKAGE_VERSION
                 );
+}
+
+
+void
+print_version ()
+{
+    printf (_("Xfce4 Sensors %s\n"), PACKAGE_VERSION);
 }
 
 int
@@ -66,6 +87,16 @@ main (int argc, char **argv)
     if ( argc > 1 && (strcmp(argv[1], "--help")==0 || strcmp(argv[1], "-h")==0) )
     {
         print_usage ();
+        return 0;
+    }
+    else if ( argc > 1 && (strcmp(argv[1], "--license")==0 || strcmp(argv[1], "-l")==0) )
+    {
+        print_license ();
+        return 0;
+    }
+    else if ( argc > 1 && (strcmp(argv[1], "--version")==0 || strcmp(argv[1], "-v")==0) )
+    {
+        print_version ();
         return 0;
     }
 

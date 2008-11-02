@@ -28,6 +28,7 @@ EXTRA_DIST =							\
 	COPYING								\
 	ChangeLog							\
 	INSTALL								\
+	LICENSE								\
 	NEWS									\
 	README								\
 	TODO									\

@@ -1,4 +1,4 @@
-/* $Id$ */
+/* $Id:$ */
 
 /*  Copyright 2008 Fabian Nowak (timystery@arcor.de)
  *
@@ -80,12 +80,16 @@ create_main_window (t_sensors_dialog *sd)
 
     gtk_combo_box_set_active (GTK_COMBO_BOX(sd->myComboBox), 0);
 
-    notebook = gtk_notebook_new ();
+    /* notebook = gtk_notebook_new ();
 
     gtk_box_pack_start (GTK_BOX(vbox), notebook, TRUE, TRUE, 0);
     gtk_widget_show(notebook);
 
-    add_sensors_frame (notebook, sd);
+    add_sensors_frame (notebook, sd); */
+    add_type_box(vbox, sd);
+    add_sensor_settings_box(vbox, sd);
+    add_temperature_unit_box(vbox, sd);
+    gtk_widget_show_all (vbox);
 
     g_signal_connect (dlg, "response",
             G_CALLBACK(on_main_window_response), sd);

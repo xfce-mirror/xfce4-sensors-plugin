@@ -82,6 +82,9 @@ endif
 #	-DG_LOG_DOMAIN=\"xfce4-sensors-plugin\"						 \
 #	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
 
+EXTRA_DIST =			\
+	helpers.c
+
 DISTCLEANFILES =
 
 ##

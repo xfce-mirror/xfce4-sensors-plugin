@@ -160,5 +160,20 @@ void
 maximum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
             gchar *new_value, t_sensors_dialog *sd) {}
 
+
 void
-temperature_unit_change (GtkWidget *widget, t_sensors_dialog *sd) {}
+temperature_unit_change (GtkWidget *widget, t_sensors_dialog *sd)
+{
+    TRACE ("enters temperature_unit_change ");
+
+    /* toggle celsius-fahrenheit by use of mathematics ;) */
+    sd->sensors->scale = 1 - sd->sensors->scale;
+
+    /* refresh the panel content */
+
+    reload_listbox (sd);
+
+    TRACE ("laeves temperature_unit_change ");
+}
+
+

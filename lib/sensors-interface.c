@@ -386,3 +386,28 @@ init_widgets (t_sensors_dialog *sd)
     TRACE ("leaves init_widgets");
 }
 
+
+
+void
+reload_listbox (t_sensors_dialog *sd)
+{
+    int chipindex;
+    t_chip *chip;
+    GtkTreeStore *model;
+    t_sensors *sensors;
+
+    TRACE ("enters reload_listbox");
+
+    sensors = sd->sensors;
+
+    for (chipindex=0; chipindex < sensors->num_sensorchips; chipindex++) {
+        chip = (t_chip *) g_ptr_array_index (sensors->chips, chipindex);
+
+        model = sd->myListStore[chipindex];
+        gtk_tree_store_clear (model);
+
+        fill_gtkTreeStore (model, chip, sensors->scale);
+
+    }
+    TRACE ("leaves reload_listbox");
+}

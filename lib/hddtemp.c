@@ -43,7 +43,9 @@
 #include <gtk/gtkstock.h> */
 
 /* Global includes */
+#ifdef HAVE_LIBNOTIFY
 #include <libnotify/notify.h>
+#endif
 /* #include <stdio.h> */
 #include <stdlib.h>
 #include <string.h>
@@ -52,7 +54,31 @@
 
 #include <unistd.h>
 
+#ifdef HAVE_NETCAT
+#include "helpers.c"
+# ifndef NETCAT_PATH
+#  define NETCAT_PATH "/bin/netcat"
+# endif
+
+# ifndef HDDTEMP_PORT
+#  define HDDTEMP_PORT "7634"
+# endif
+
+# define DOUBLE_DELIMITER "||"
+# define SINGLE_DELIMITER "|"
+#endif
+
 #ifdef HAVE_LIBNOTIFY
+void
+notification_suppress_messages (NotifyNotification *n, gchar *action, gpointer *data)
+{
+    if (strcmp(action, "confirmed")!=0)
+        return;
+
+    /* FIXME: Use channels or propagate private object or use static global variable */
+}
+
+
 void quick_message_notify (gchar *message)
 {
     NotifyNotification *nn;
@@ -66,7 +92,13 @@ void quick_message_notify (gchar *message)
     if (!notify_is_initted())
         notify_init(PACKAGE); /* NOTIFY_APPNAME */
 
-    nn = notify_notification_new(summary, body, icon, NULL);
+    nn = notify_notification_new (summary, body, icon, NULL);
+    /* FIXME: Use channels or propagate private object or use static global variable */
+    //notify_notification_add_action (nn,
+                            //"confirmed",
+                            //_("Don't show this message again"),
+                            //(NotifyActionCallback) notification_suppress_messages,
+                            //NULL);
     notify_notification_show(nn, &error);
 }
 #else
@@ -101,19 +133,6 @@ void quick_message_dialog (gchar *message)
 
     TRACE ("leaves quick_message");
 }
-#endif
-
-
-void quick_message (gchar *message)
-{
-#ifdef HAVE_LIBNOTIFY
-    quick_message_notify (message);
-#else
-    quick_message_dialog (message);
-#endif
-}
-
-
 
 gboolean quick_message_with_checkbox (gchar *message, gchar *checkboxtext) {
 
@@ -145,8 +164,63 @@ gboolean quick_message_with_checkbox (gchar *message, gchar *checkboxtext) {
 
     return is_active;
 }
+#endif
 
 
+void quick_message (gchar *message)
+{
+#ifdef HAVE_LIBNOTIFY
+    quick_message_notify (message);
+#else
+    quick_message_dialog (message);
+#endif
+}
+
+
+#ifdef HAVE_NETCAT
+void
+read_disks_netcat (t_chip *chip)
+{
+    char *stdoutput, *stderrput, *cmdline, *tmp, *tmp2, *tmp3;
+    gboolean result;
+    gint exit_status = 0;
+    GError *error = NULL;
+
+    t_chipfeature *cf;
+
+    cmdline = g_strdup_printf ("%s localhost %s", NETCAT_PATH, HDDTEMP_PORT);
+    //g_printf("cmdline=%s\n", cmdline);
+
+    result = g_spawn_command_line_sync ( (const gchar*) cmdline,
+                &stdoutput, &stderrput, &exit_status, &error);
+
+    if (!result)
+        return;
+
+    //g_printf("stdouput=%s\n", stdoutput);
+
+    tmp = str_split (stdoutput, DOUBLE_DELIMITER);
+    do {
+        //g_printf ("Found token: %s\n", tmp);
+        cf = g_new(t_chipfeature, 1);
+
+        tmp2 = g_strdup (tmp);
+        tmp3 = strtok (tmp2, SINGLE_DELIMITER);
+        cf->devicename = g_strdup(tmp3);
+        tmp3 = strtok (NULL, SINGLE_DELIMITER);
+        cf->name = g_strdup(tmp3);
+
+        g_ptr_array_add(chip->chip_features, cf);
+        chip->num_features++;
+
+        g_free (tmp2);
+    }
+    while ( (tmp = str_split(NULL, DOUBLE_DELIMITER)) );
+
+    g_free (stdoutput);
+}
+
+#else
 void
 read_disks_fallback (t_chip *chip)
 {
@@ -213,7 +287,7 @@ read_disks_linux26 (t_chip *chip)
 
     TRACE ("leaves read_disks_linux26");
 }
-
+#endif
 
 void
 remove_unmonitored_drives (t_chip *chip, gboolean *suppressmessage)
@@ -326,10 +400,14 @@ initialize_hddtemp (GPtrArray *chips, gboolean *suppressmessage)
 
     /* Note: This is actually supposed to be carried out by ifdef HAVE_LINUX
      and major/minor number stuff from compile time*/
+#ifdef HAVE_NETCAT
+    read_disks_netcat (chip);
+#else
     if (strcmp(p_uname->sysname, "Linux")==0 && major>=5)
         read_disks_linux26 (chip);
     else
         read_disks_fallback (chip); /* hopefully, that's a safe variant */
+#endif
 
     g_free(p_uname);
 
@@ -355,11 +433,16 @@ double
 get_hddtemp_value (char* disk, gboolean *suppressmessage)
 {
     gchar *standard_output, *standard_error;
-    gchar *cmd_line, *msg_text, *checktext;
+    gchar *cmd_line, *msg_text;
+#ifndef HAVE_LIBNOTIFY
+    gchar *checktext;
+#endif
     gint exit_status=0;
     double value;
     gboolean result, nevershowagain;
     GError *error;
+
+    gchar *tmp, *tmp2, *tmp3;
 
     if (suppressmessage!=NULL)
         nevershowagain = *suppressmessage;
@@ -368,13 +451,44 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
 
     TRACE ("enters get_hddtemp_value for %s with suppress=%d", disk, nevershowagain); /* *suppressmessage); */
 
-    cmd_line = g_strdup_printf ( "%s -n -q %s", PATH_HDDTEMP, disk);
+#ifdef HAVE_NETCAT
+    exit_status = 1; // assume error by default
+    cmd_line = g_strdup_printf ( "%s localhost %s", NETCAT_PATH, HDDTEMP_PORT);
+    result = g_spawn_command_line_sync ( (const gchar*) cmd_line,
+            &standard_output, &standard_error, &exit_status, NULL);
+    error = g_new(GError, 1);
+    tmp3 = "-255";
+    tmp = str_split (standard_output, DOUBLE_DELIMITER);
+    do {
+        //g_printf ("Found token: %s for disk %s\n", tmp, disk);
+        tmp2 = g_strdup (tmp);
+        tmp3 = strtok (tmp2, SINGLE_DELIMITER); // device name
+        if (strcmp(tmp3, disk)==0)
+        {
+            tmp3 = strtok(NULL, SINGLE_DELIMITER); // name
+            tmp3 = strdup(strtok(NULL, SINGLE_DELIMITER)); // value
+            // tmp3 = strtok(NULL, SINGLE_DELIMITER); // temperature unit
+            exit_status = 0;
+            g_free(error);
+            error = NULL;
+            g_free (tmp2);
+            break;
+        }
+        g_free (tmp2);
+    }
+    while ( (tmp = str_split(NULL, DOUBLE_DELIMITER)) );
 
-    msg_text = NULL;
+    g_free(standard_output);
+    standard_output = tmp3;
 
+#else
     error = NULL;
+    cmd_line = g_strdup_printf ( "%s -n -q %s", PATH_HDDTEMP, disk);
     result = g_spawn_command_line_sync ( (const gchar*) cmd_line,
             &standard_output, &standard_error, &exit_status, &error);
+#endif
+
+    msg_text = NULL; // wonder if this is still necessary
 
     DBG ("Exit code %d on %s with stdout of %s.\n", exit_status, disk, standard_output);
 
@@ -398,9 +512,14 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
                             "or its panel.\n\n"
                             "Calling \"%s\" gave the following error:\n%s\nwith a return value of %d.\n"),
                             PATH_HDDTEMP, cmd_line, standard_error, exit_status);
+
+#ifdef HAVE_LIBNOTIFY
+            quick_message_notify (msg_text);
+            nevershowagain = FALSE;
+#else
             checktext = g_strdup(_("Suppress this message in future"));
-            quick_message (msg_text);
-            nevershowagain = FALSE; //quick_message_with_checkbox(msg_text, checktext);
+            nevershowagain = quick_message_with_checkbox(msg_text, checktext);
+#endif
 
             if (suppressmessage!=NULL)
                 *suppressmessage = nevershowagain;
@@ -424,8 +543,13 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
         if (!nevershowagain) {
             msg_text = g_strdup_printf (_("An error occurred when executing"
                                       " \"%s\":\n%s"), cmd_line, error->message);
+#ifdef HAVE_LIBNOTIFY
+            quick_message_notify (msg_text);
+            nevershowagain = FALSE;
+#else
             checktext = g_strdup(_("Suppress this message in future"));
             nevershowagain = quick_message_with_checkbox (msg_text, checktext);
+#endif
 
              if (suppressmessage!=NULL)
                 *suppressmessage = nevershowagain;
@@ -452,6 +576,9 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
     g_free (standard_output);
     g_free (standard_error);
     g_free (msg_text);
+#ifndef HAVE_LIBNOTIFY
+    g_free (checktext);
+#endif
 
     TRACE ("leaves get_hddtemp_value");
 
