@@ -457,29 +457,32 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
     result = g_spawn_command_line_sync ( (const gchar*) cmd_line,
             &standard_output, &standard_error, &exit_status, NULL);
     error = g_new(GError, 1);
-    tmp3 = "-255";
-    tmp = str_split (standard_output, DOUBLE_DELIMITER);
-    do {
-        //g_printf ("Found token: %s for disk %s\n", tmp, disk);
-        tmp2 = g_strdup (tmp);
-        tmp3 = strtok (tmp2, SINGLE_DELIMITER); // device name
-        if (strcmp(tmp3, disk)==0)
-        {
-            tmp3 = strtok(NULL, SINGLE_DELIMITER); // name
-            tmp3 = strdup(strtok(NULL, SINGLE_DELIMITER)); // value
-            // tmp3 = strtok(NULL, SINGLE_DELIMITER); // temperature unit
-            exit_status = 0;
-            g_free(error);
-            error = NULL;
+    if (exit_status==0)
+    {
+        tmp3 = "-255";
+        tmp = str_split (standard_output, DOUBLE_DELIMITER);
+        do {
+            //g_printf ("Found token: %s for disk %s\n", tmp, disk);
+            tmp2 = g_strdup (tmp);
+            tmp3 = strtok (tmp2, SINGLE_DELIMITER); // device name
+            if (strcmp(tmp3, disk)==0)
+            {
+                tmp3 = strtok(NULL, SINGLE_DELIMITER); // name
+                tmp3 = strdup(strtok(NULL, SINGLE_DELIMITER)); // value
+                // tmp3 = strtok(NULL, SINGLE_DELIMITER); // temperature unit
+                exit_status = 0;
+                g_free(error);
+                error = NULL;
+                g_free (tmp2);
+                break;
+            }
             g_free (tmp2);
-            break;
         }
-        g_free (tmp2);
-    }
-    while ( (tmp = str_split(NULL, DOUBLE_DELIMITER)) );
+        while ( (tmp = str_split(NULL, DOUBLE_DELIMITER)) );
 
-    g_free(standard_output);
-    standard_output = tmp3;
+        g_free(standard_output);
+        standard_output = tmp3;
+    }
 
 #else
     error = NULL;

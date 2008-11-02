@@ -153,6 +153,8 @@ if test x"$enable_netcat" = x"yes"; then
     HDDTEMP_PORT=7634
     AC_DEFINE_UNQUOTED([HDDTEMP_PORT], ["$HDDTEMP_PORT"], [Port for hddtemp with netcat])
     AC_SUBST([HDDTEMP_PORT])
+
+
 fi
 
 AM_CONDITIONAL([HAVE__NETCAT], [test x$enable_netcat = x"yes"])
