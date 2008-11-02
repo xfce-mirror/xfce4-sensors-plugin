@@ -1,3 +1,10 @@
+2008-11-02 timystery
+  * Stand-alone application with temperature-unit-choser and all sensor values
+  at a glance
+  * libnotify support for error messages
+  * Netcat support for hddtemp
+  * hard disk name swhen used with netcat
+
 2008-10-26 timystery
   * New Xfce-style header
   * border around sensors scrolled window /  treeview

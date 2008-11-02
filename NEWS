@@ -15,5 +15,7 @@
         Added po/LINGUAS.
         Separate application replacing recommendation for xsensors.
         Build libraries for backends that are used from both the plugin and the program
-        Plans: libnotify, netcat for hddtemp
+        Libnotify supported for messages.
+        Netcat usable in favour of hddtemp directly
+        Stand-alone sensors application
 

@@ -514,6 +514,7 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
                             PATH_HDDTEMP, cmd_line, standard_error, exit_status);
 
 #ifdef HAVE_LIBNOTIFY
+            //msg_text = g_strconcat(msg_text, _("\nYou can disable these notifications in the settings dialog.\n");
             quick_message_notify (msg_text);
             nevershowagain = FALSE;
 #else
