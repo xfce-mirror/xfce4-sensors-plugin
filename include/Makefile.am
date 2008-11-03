@@ -1,4 +1,4 @@
-# $Id: $
+# $Id$
 
 EXTRA_DIST = 									\
 	acpi.h											\

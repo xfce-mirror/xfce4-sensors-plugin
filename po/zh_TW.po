@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-02 16:46+0100\n"
+"POT-Creation-Date: 2008-11-03 21:54+0100\n"
 "PO-Revision-Date: 2006-06-26 22:37+0800\n"
 "Last-Translator: Hydonsingore Cia <hydonsingore@educities.edu.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -38,100 +38,100 @@ msgstr ""
 "在讀取感測器數值時似乎有點問題。\n"
 "無法保證能夠正常運作。\n"
 
-#: ../panel-plugin/sensors-plugin.c:1403
+#: ../panel-plugin/sensors-plugin.c:1376
 #, fuzzy
 msgid "UI style:"
 msgstr "使用介面風格"
 
-#: ../panel-plugin/sensors-plugin.c:1404
+#: ../panel-plugin/sensors-plugin.c:1377
 #, fuzzy
 msgid "_text"
 msgstr "文字"
 
-#: ../panel-plugin/sensors-plugin.c:1406
+#: ../panel-plugin/sensors-plugin.c:1379
 #, fuzzy
 msgid "g_raphical"
 msgstr "圖形"
 
-#: ../panel-plugin/sensors-plugin.c:1443
+#: ../panel-plugin/sensors-plugin.c:1416
 #, fuzzy
 msgid "Show _labels in graphical UI"
 msgstr "在圖形介面中顯示標籤"
 
-#: ../panel-plugin/sensors-plugin.c:1473
+#: ../panel-plugin/sensors-plugin.c:1446
 msgid "Show colored _bars"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1501
+#: ../panel-plugin/sensors-plugin.c:1474
 #, fuzzy
 msgid "_Show title"
 msgstr "顯示標題"
 
-#: ../panel-plugin/sensors-plugin.c:1527
+#: ../panel-plugin/sensors-plugin.c:1500
 #, fuzzy
 msgid "F_ont size:"
 msgstr "字型大小："
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1534
+#: ../panel-plugin/sensors-plugin.c:1507
 msgid "x-small"
 msgstr "極小"
 
-#: ../panel-plugin/sensors-plugin.c:1535
+#: ../panel-plugin/sensors-plugin.c:1508
 msgid "small"
 msgstr "小"
 
-#: ../panel-plugin/sensors-plugin.c:1536
+#: ../panel-plugin/sensors-plugin.c:1509
 msgid "medium"
 msgstr "普通"
 
-#: ../panel-plugin/sensors-plugin.c:1537
+#: ../panel-plugin/sensors-plugin.c:1510
 msgid "large"
 msgstr "大"
 
-#: ../panel-plugin/sensors-plugin.c:1538
+#: ../panel-plugin/sensors-plugin.c:1511
 msgid "x-large"
 msgstr "巨大"
 
-#: ../panel-plugin/sensors-plugin.c:1566
+#: ../panel-plugin/sensors-plugin.c:1539
 #, fuzzy
 msgid "Show _Units"
 msgstr "顯示標題"
 
-#: ../panel-plugin/sensors-plugin.c:1587
+#: ../panel-plugin/sensors-plugin.c:1560
 msgid "Small horizontal s_pacing"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1609
+#: ../panel-plugin/sensors-plugin.c:1582
 msgid "Suppress messages"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1638
+#: ../panel-plugin/sensors-plugin.c:1611
 #, fuzzy
 msgid "U_pdate interval (seconds):"
 msgstr "更新間隔時間(秒)："
 
-#: ../panel-plugin/sensors-plugin.c:1668
+#: ../panel-plugin/sensors-plugin.c:1641
 #, fuzzy
 msgid "E_xecute on double click:"
 msgstr "於雙擊時執行："
 
-#: ../panel-plugin/sensors-plugin.c:1711
+#: ../panel-plugin/sensors-plugin.c:1684
 msgid "_View"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1743
+#: ../panel-plugin/sensors-plugin.c:1716
 #, fuzzy
 msgid "_Miscellaneous"
 msgstr "<b>雜項</b>"
 
-#: ../panel-plugin/sensors-plugin.c:1815 ../lib/hddtemp.c:131
+#: ../panel-plugin/sensors-plugin.c:1788 ../lib/hddtemp.c:150
 #, fuzzy
 msgid "Xfce 4 Sensors Plugin"
 msgstr "感測器外掛程式"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:1857
+#: ../panel-plugin/sensors-plugin.c:1830
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -147,8 +147,8 @@ msgstr "感測器外掛程式"
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
 #: ../lib/configuration.c:151 ../lib/configuration.c:331
-#: ../lib/configuration.c:338 ../lib/hddtemp.c:266 ../lib/hddtemp.c:307
-#: ../lib/hddtemp.c:312
+#: ../lib/configuration.c:338 ../lib/hddtemp.c:340 ../lib/hddtemp.c:381
+#: ../lib/hddtemp.c:386
 msgid "Hard disks"
 msgstr ""
 
@@ -167,11 +167,15 @@ msgstr ""
 msgid "<Unknown>"
 msgstr ""
 
-#: ../lib/hddtemp.c:311
+#: ../lib/hddtemp.c:385
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr ""
 
-#: ../lib/hddtemp.c:391
+#: ../lib/hddtemp.c:460
+msgid "No concrete error detected.\n"
+msgstr ""
+
+#: ../lib/hddtemp.c:513
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is "
@@ -186,11 +190,11 @@ msgid ""
 "with a return value of %d.\n"
 msgstr ""
 
-#: ../lib/hddtemp.c:401 ../lib/hddtemp.c:427
+#: ../lib/hddtemp.c:529 ../lib/hddtemp.c:559
 msgid "Suppress this message in future"
 msgstr ""
 
-#: ../lib/hddtemp.c:425
+#: ../lib/hddtemp.c:553
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
@@ -201,7 +205,7 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:481 ../lib/sensors-interface-common.c:138
+#: ../lib/hddtemp.c:617 ../lib/sensors-interface-common.c:139
 #, c-format
 msgid "%.1f °C"
 msgstr ""
@@ -216,7 +220,7 @@ msgstr "感測器類型："
 msgid "Error: Could not connect to sensors!"
 msgstr "錯誤：無法連線至感測器！"
 
-#: ../lib/sensors-interface.c:63
+#: ../lib/sensors-interface.c:65
 #, fuzzy
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
@@ -227,87 +231,87 @@ msgstr ""
 "在讀取感測器數值時似乎有點問題。\n"
 "無法保證能夠正常運作。\n"
 
-#: ../lib/sensors-interface.c:131
+#: ../lib/sensors-interface.c:133
 #, fuzzy
 msgid "Sensors t_ype:"
 msgstr "感測器類型："
 
-#: ../lib/sensors-interface.c:156
+#: ../lib/sensors-interface.c:158
 msgid "Description:"
 msgstr ""
 
-#: ../lib/sensors-interface.c:193
+#: ../lib/sensors-interface.c:195
 msgid "Name"
 msgstr "名稱"
 
-#: ../lib/sensors-interface.c:202
+#: ../lib/sensors-interface.c:204
 msgid "Value"
 msgstr "數值"
 
-#: ../lib/sensors-interface.c:208
+#: ../lib/sensors-interface.c:210
 msgid "Show"
 msgstr "顯示"
 
-#: ../lib/sensors-interface.c:217
+#: ../lib/sensors-interface.c:219
 msgid "Color"
 msgstr "顏色"
 
-#: ../lib/sensors-interface.c:227
+#: ../lib/sensors-interface.c:229
 msgid "Min"
 msgstr "最小"
 
-#: ../lib/sensors-interface.c:236
+#: ../lib/sensors-interface.c:238
 msgid "Max"
 msgstr "最大"
 
-#: ../lib/sensors-interface.c:272
+#: ../lib/sensors-interface.c:274
 #, fuzzy
 msgid "Temperature scale:"
 msgstr "温標："
 
-#: ../lib/sensors-interface.c:274
+#: ../lib/sensors-interface.c:276
 #, fuzzy
 msgid "_Celsius"
 msgstr "攝氏"
 
-#: ../lib/sensors-interface.c:276
+#: ../lib/sensors-interface.c:278
 #, fuzzy
 msgid "_Fahrenheit"
 msgstr "華氏"
 
-#: ../lib/sensors-interface.c:312
+#: ../lib/sensors-interface.c:314
 #, fuzzy
 msgid "_Sensors"
 msgstr "感測器類型："
 
-#: ../lib/sensors-interface-common.c:68
+#: ../lib/sensors-interface-common.c:69
 msgid "No sensors found!"
 msgstr "找不到感測器！"
 
-#: ../lib/sensors-interface-common.c:135
+#: ../lib/sensors-interface-common.c:136
 #, c-format
 msgid "%.1f °F"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:143
+#: ../lib/sensors-interface-common.c:144
 #, c-format
 msgid "%+.2f V"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:147
+#: ../lib/sensors-interface-common.c:148
 #, fuzzy, c-format
 msgid "%.0f mWh"
 msgstr "%5.0f rpm"
 
-#: ../lib/sensors-interface-common.c:152
+#: ../lib/sensors-interface-common.c:153
 msgid "off"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:154
+#: ../lib/sensors-interface-common.c:155
 msgid "on"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:158
+#: ../lib/sensors-interface-common.c:159
 #, fuzzy, c-format
 msgid "%.0f rpm"
 msgstr "%5.0f rpm"
@@ -316,14 +320,31 @@ msgstr "%5.0f rpm"
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
+"This program is published under the GPL v2.\n"
+"The license text can be found inside the program's source archive or under /"
+"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.txt\n"
+msgstr ""
+
+#: ../src/main.c:58
+#, c-format
+msgid ""
+"Xfce4 Sensors %s\n"
 "Displays information about your sensors and ACPI.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
-"  -h, --help Print this help dialog.\n"
+"  -h, --help    Print this help dialog.\n"
+"  -l, --license Print license information.\n"
+"  -v, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
 msgstr ""
+
+#: ../src/main.c:75
+#, fuzzy, c-format
+msgid "Xfce4 Sensors %s\n"
+msgstr "感測器外掛程式"
 
 #: ../src/interface.c:61
 #, fuzzy
@@ -357,10 +378,6 @@ msgstr "感測器外掛程式"
 #, fuzzy
 #~ msgid "View sensor values"
 #~ msgstr "顯示感測器數值。"
-
-#, fuzzy
-#~ msgid "Xfce 4 Sensors"
-#~ msgstr "感測器外掛程式"
 
 #, fuzzy
 #~ msgid ""

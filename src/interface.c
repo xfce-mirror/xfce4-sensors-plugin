@@ -1,4 +1,4 @@
-/* $Id:$ */
+/* $Id$ */
 
 /*  Copyright 2008 Fabian Nowak (timystery@arcor.de)
  *
