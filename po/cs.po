@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-02 16:46+0100\n"
-"PO-Revision-Date: 2008-11-01 23:43+0100\n"
+"PO-Revision-Date: 2008-11-03 01:31+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: ../panel-plugin/sensors-plugin.c:224 ../panel-plugin/sensors-plugin.c:773
+#: ../panel-plugin/sensors-plugin.c:224
+#: ../panel-plugin/sensors-plugin.c:773
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Senzory</b></span>"
 
@@ -114,20 +115,15 @@ msgstr "_Zobrazit"
 msgid "_Miscellaneous"
 msgstr "_Ostatní"
 
-#: ../panel-plugin/sensors-plugin.c:1815 ../lib/hddtemp.c:131
+#: ../panel-plugin/sensors-plugin.c:1815
+#: ../lib/hddtemp.c:131
 msgid "Xfce 4 Sensors Plugin"
 msgstr "Zásuvný modul Senzory pro Xfce 4"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:1857
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field.."
-msgstr ""
-"Vlastnosti, jako například název, barvy, nejnižší a nejvyšší hodnota, můžete "
-"změnit dvojitým kliknutím na položku, úpravou obsahu a stiskem klávesy "
-"\"Return\" nebo výběrem jiného pole."
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field.."
+msgstr "Vlastnosti, jako například název, barvy, nejnižší a nejvyšší hodnota, můžete změnit dvojitým kliknutím na položku, úpravou obsahu a stiskem klávesy \"Return\" nebo výběrem jiného pole."
 
 #: ../panel-plugin/sensors-plugin.h:29
 msgid "Sensors Plugin"
@@ -137,13 +133,17 @@ msgstr "Zásuvný modul senzory"
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:151 ../lib/configuration.c:331
-#: ../lib/configuration.c:338 ../lib/hddtemp.c:266 ../lib/hddtemp.c:307
+#: ../lib/configuration.c:151
+#: ../lib/configuration.c:331
+#: ../lib/configuration.c:338
+#: ../lib/hddtemp.c:266
+#: ../lib/hddtemp.c:307
 #: ../lib/hddtemp.c:312
 msgid "Hard disks"
 msgstr "Pevné disky"
 
-#: ../lib/acpi.c:416 ../lib/acpi.c:424
+#: ../lib/acpi.c:416
+#: ../lib/acpi.c:424
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -165,30 +165,24 @@ msgstr "Teploty pevných disků ze systému S.M.A.R.T."
 #: ../lib/hddtemp.c:391
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"Aplikace \"hddtemp\" nebyla korektně spuštěna, přestože je spustitelná. "
-"Disky obvykle ke čtení teploty vyžadují oprávnění uživatele root, ale "
-"aplikace  \"hddtemp\" nemá nastaven bit suid.\n"
+"Aplikace \"hddtemp\" nebyla korektně spuštěna, přestože je spustitelná. Disky obvykle ke čtení teploty vyžadují oprávnění uživatele root, ale aplikace  \"hddtemp\" nemá nastaven bit suid.\n"
 "\n"
-"Jednoduchým, ale nečistým řešením je spuštění příkazu \"chmod u+s %s\" pod "
-"uživatelem root a následné opětovné spuštění tohoto zásuvného modulu nebo "
-"jeho panelu.\n"
+"Jednoduchým, ale nečistým řešením je spuštění příkazu \"chmod u+s %s\" pod uživatelem root a následné opětovné spuštění tohoto zásuvného modulu nebo jeho panelu.\n"
 "\n"
 "Volání \"%s\" vrátilo tuto chybu:\n"
 "%s\n"
 "with a return value of %d.\n"
 
-#: ../lib/hddtemp.c:401 ../lib/hddtemp.c:427
+#: ../lib/hddtemp.c:401
+#: ../lib/hddtemp.c:427
 msgid "Suppress this message in future"
 msgstr "Potlačit budoucí zprávy"
 
@@ -205,7 +199,8 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:481 ../lib/sensors-interface-common.c:138
+#: ../lib/hddtemp.c:481
+#: ../lib/sensors-interface-common.c:138
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -214,7 +209,8 @@ msgstr "%.1f °C"
 msgid "LM Sensors"
 msgstr "Senzory LM:"
 
-#: ../lib/lmsensors.c:362 ../lib/lmsensors.c:409
+#: ../lib/lmsensors.c:362
+#: ../lib/lmsensors.c:409
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Chyba: Nelze se připojit k senzorům!"
@@ -332,33 +328,28 @@ msgid "Xfce 4 Sensors Viewer"
 msgstr "Prohlížeč senzorů pro Xfce 4"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
-#, fuzzy
 msgid "Sensor Viewer"
 msgstr "Prohlížeč senzorů"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
-#, fuzzy
 msgid "Sensors Values Viewer"
-msgstr "Prohlížeč senzorů"
+msgstr "Prohlížeč hodnot senzorů"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
-msgstr "Zobrazovat hodnoty senzorů."
+msgstr "Zobrazuje hodnoty senzorů"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
-msgstr "Zásuvný modul senzor"
+msgstr "Senzory"
 
 #~ msgid "Edit Properties"
 #~ msgstr "Upravit vlastnosti"
-
 #~ msgid "View sensor values"
 #~ msgstr "Zobrazovat hodnoty senzorů"
-
 #~ msgid "Graphical Sensors Viewer for Xfce 4"
 #~ msgstr "Grafický prohlížeč senzorů pro Xfce 4"
-
 #~ msgid "Xfce 4 Sensors"
 #~ msgstr "Senzory pro Xfce 4"
 
@@ -372,15 +363,12 @@ msgstr "Zásuvný modul senzor"
 #~ "Zásuvný modul Senzory hardwaru pro Xfce: \n"
 #~ "Došlo k potížím při čtení hodnoty senzoru. \n"
 #~ "Správná funkčnost nemůže být zaručena.\n"
-
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Senzory</b></span>\n"
-
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Senzory</b></span>"
-
 #~ msgid "<b>Sensors</b>"
 #~ msgstr "<b>Senzory</b>"
-
 #~ msgid "<b>View</b>"
 #~ msgstr "<b>Zobrazit</b>"
+
