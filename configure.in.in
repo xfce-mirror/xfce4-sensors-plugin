@@ -88,7 +88,6 @@ if test x"$enable_hddtemp" = x"auto"; then
 fi
 
 if test x"$enable_hddtemp" = x"yes"; then
-    AC_DEFINE([HAVE_HDDTEMP], [1], [Define to 1 if hddtemp is desired])
 
     AC_ARG_WITH([pathhddtemp], [AC_HELP_STRING([--with-pathhddtemp], [Specify path to hddtemp @<:@default=auto@:>@])],
     [
@@ -96,18 +95,19 @@ if test x"$enable_hddtemp" = x"yes"; then
     ], [
         AC_MSG_CHECKING([for hddtemp path])
         HDDTEMP=([`whereis -b hddtemp | sed 's/.*\ \(\/[a-zA-Z0-9\-\/.]*bin[A-Za-z0-9\-\/.]*hddtemp\).*/\1/'`])
-
         AC_MSG_RESULT([$HDDTEMP])
     ])
 
-    AC_DEFINE_UNQUOTED([PATH_HDDTEMP], ["$HDDTEMP"], [Complete path to hddtemp])
-    AC_SUBST([PATH_HDDTEMP])
+    if test x"$HDDTEMP" = x"hddtemp:"; then
+        enable_hddtemp=no
+    else
+        AC_DEFINE([HAVE_HDDTEMP], [1], [Define to 1 if hddtemp is desired])
+        AC_DEFINE_UNQUOTED([PATH_HDDTEMP], ["$HDDTEMP"], [Complete path to hddtemp])
+        AC_SUBST([PATH_HDDTEMP])
+    fi
 fi
 
 AM_CONDITIONAL([HAVE_HDDTEMP], [test x$enable_hddtemp = x"yes"])
-
-
-
 
 
 dnl Check for netcat for hddtemp to be used
@@ -128,8 +128,6 @@ if test x"$netcat" = x"yes" -o x"$nc" = x"yes"; then
 fi
 
 if test x"$enable_netcat" = x"yes"; then
-    AC_DEFINE([HAVE_NETCAT], [1], [Define to 1 if hddtemp is desired])
-
     AC_ARG_WITH([pathnetcat], [AC_HELP_STRING([--with-pathnetcat], [Specify path to netcat @<:@default=auto@:>@])],
     [
         NETCAT_PATH=$withval
@@ -143,25 +141,28 @@ if test x"$enable_netcat" = x"yes"; then
         AC_MSG_RESULT([$NETCAT_PATH])
     ])
 
-    AC_DEFINE_UNQUOTED([NETCAT_PATH], ["$NETCAT_PATH"], [Complete path to netcat])
-    AC_SUBST([NETCAT_PATH])
-
     NETCAT_HOST=localhost
-    AC_DEFINE_UNQUOTED([NETCAT_HOST], ["$NETCAT_HOST"], [Host for netcat])
-    AC_SUBST([NETCAT_HOST])
-
     HDDTEMP_PORT=7634
-    AC_DEFINE_UNQUOTED([HDDTEMP_PORT], ["$HDDTEMP_PORT"], [Port for hddtemp with netcat])
-    AC_SUBST([HDDTEMP_PORT])
 
+    AC_MSG_CHECKING([for hddtemp being queryable via netcat])
+    NETCAT_RUN=([`"$NETCAT_PATH" "$NETCAT_HOST" "$HDDTEMP_PORT" 2> /dev/null`])
+    AC_MSG_RESULT([$NETCAT_RUN])
+    if test x"$NETCAT_RUN" = x""; then
+        enable_netcat=no
+        dnl AC_DEFINE([HAVE_NETCAT], [0], [Define to 1 if hddtemp daemon is queried via netcat])
+    else
+        AC_DEFINE([HAVE_NETCAT], [1], [Define to 1 if hddtemp daemon is queried via netcat])
+        AC_DEFINE_UNQUOTED([NETCAT_PATH], ["$NETCAT_PATH"], [Complete path to netcat])
+        AC_SUBST([NETCAT_PATH])
+        AC_DEFINE_UNQUOTED([NETCAT_HOST], ["$NETCAT_HOST"], [Host for netcat])
+        AC_SUBST([NETCAT_HOST])
+        AC_DEFINE_UNQUOTED([HDDTEMP_PORT], ["$HDDTEMP_PORT"], [Port for hddtemp with netcat])
+        AC_SUBST([HDDTEMP_PORT])
+    fi
 
 fi
 
 AM_CONDITIONAL([HAVE__NETCAT], [test x$enable_netcat = x"yes"])
-
-
-
-
 
 
 dnl Check for interface for /proc/acpi to be used

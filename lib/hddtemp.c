@@ -457,6 +457,7 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
     result = g_spawn_command_line_sync ( (const gchar*) cmd_line,
             &standard_output, &standard_error, &exit_status, NULL);
     error = g_new(GError, 1);
+    error->message = g_strdup (_("No concrete error detected.\n"));
     if (exit_status==0)
     {
         tmp3 = "-255";
@@ -482,6 +483,10 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
 
         g_free(standard_output);
         standard_output = tmp3;
+    }
+    else
+    {
+        error->message = g_strdup (standard_error);
     }
 
 #else

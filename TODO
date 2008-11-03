@@ -1,6 +1,8 @@
 TODO
 ======
 
+- when moving from vertical to horizontal panel or vice versa, the orientation is not regarded for aligning the labels
+
 - Use notfication messages when alert is on; when maximum is reached.
 
 - fix error: doesn't find all sensors when newly adding plugin to panel - sensors library problem?

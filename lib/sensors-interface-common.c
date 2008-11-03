@@ -110,7 +110,7 @@ sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
 
     /* double-click improvement */
     sensors->exec_command = TRUE;
-    sensors->command_name = g_strdup("xsensors");
+    sensors->command_name = g_strdup("xfce4-sensors");
     sensors->doubleclick_id = 0;
 
     /* show units */
