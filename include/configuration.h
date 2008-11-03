@@ -1,3 +1,4 @@
+/* $Id$ */
 /* File configuration.h
  *
  *  Copyright 2004-2007 Fabian Nowak (timystery@arcor.de)

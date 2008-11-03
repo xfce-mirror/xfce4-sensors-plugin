@@ -1,3 +1,4 @@
+/* $Id$ */
 /*  Copyright 2004-2008 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify

@@ -1,3 +1,4 @@
+/* $Id$ */
 /*  Copyright 2004-2007 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -306,9 +307,13 @@ get_battery_max_value (char *name, t_chipfeature *chipfeature)
 
     TRACE ("enters get_battery_max_value");
 
+#ifdef HAVE_SYSFSACPI
+    filename = g_strdup_printf ("/sys/class/power_supply/%s/energy_full", name);
+#else
     filename = g_strdup_printf ("%s/%s/%s/%s", ACPI_PATH,
                                             ACPI_DIR_BATTERY, name,
                                             ACPI_FILE_BATTERY_INFO);
+#endif
     file = fopen (filename, "r");
     if (file)
     {
@@ -317,7 +322,11 @@ get_battery_max_value (char *name, t_chipfeature *chipfeature)
             if (strncmp (buf, "last full capacity:", 19)==0)
             {
 
+#ifndef HAVE_SYSFSACPI
                 tmp = strip_key_colon_spaces(buf);
+#else
+                tmp = buf;
+#endif
                 chipfeature->max_value = strtod (tmp, NULL);
             }
         }
