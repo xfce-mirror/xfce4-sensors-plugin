@@ -1,3 +1,5 @@
+# $Id$
+
 hicolor64dir = $(datadir)/icons/hicolor/64x64/apps
 hicolor48dir = $(datadir)/icons/hicolor/48x48/apps
 hicolor32dir = $(datadir)/icons/hicolor/32x32/apps
