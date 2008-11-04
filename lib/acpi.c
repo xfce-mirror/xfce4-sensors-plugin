@@ -216,7 +216,11 @@ int read_battery_zone (t_chip *chip)
 {
     DIR *d;
     FILE *file;
-    char *filename, *tmp, buf[1024];
+    char *filename;
+#ifndef HAVE_SYSFS_ACPI
+    char *tmp;
+#endif
+    char buf[1024];
     struct dirent *de;
     t_chipfeature *chipfeature;
 
@@ -234,22 +238,57 @@ int read_battery_zone (t_chip *chip)
             if (strncmp(de->d_name, "BAT", 3)==0)
             { /* have a battery subdirectory */
 
+#ifdef HAVE_SYSFS_ACPI
+                filename = g_strdup_printf ("/sys/class/power_supply/%s/model_name", de->d_name);
+#else
                 filename = g_strdup_printf ("%s/%s/%s/%s", ACPI_PATH,
                                             ACPI_DIR_BATTERY, de->d_name,
                                             ACPI_FILE_BATTERY_STATE);
+#endif
                 DBG ("filename=%s\n", filename);
                 file = fopen (filename, "r");
                 if (file) {
                     chipfeature = g_new0 (t_chipfeature, 1);
                     chipfeature->address = chip->chip_features->len;
                     chipfeature->devicename = g_strdup (de->d_name);
+
+#ifdef HAVE_SYSFS_ACPI
+                    if (fgets (buf, 1024, file)!=NULL)
+                    {
+                        chipfeature->name = g_strdup (buf);
+                    }
+#else
                     chipfeature->name = g_strdup (chipfeature->devicename);
+#endif
+
                     chipfeature->valid = TRUE;
                     chipfeature->min_value = 0.0;
                     chipfeature->raw_value = 0.0;
                     chipfeature->class = ENERGY;
                     chipfeature->formatted_value = NULL;
                     chipfeature->color = g_strdup("#0000B0");
+
+#ifdef HAVE_SYSFS_ACPI
+                    fclose (file);
+                }
+                file = fopen (filename, "r");
+                if (file) {
+                    filename = g_strdup_printf ("/sys/class/power_supply/%s/energy_now", de->d_name);
+
+                    if (fgets (buf, 1024, file)!=NULL)
+                    {
+                        chipfeature->raw_value = strtod (buf, NULL);
+                    }
+                    fclose (file);
+                }
+                file = fopen (filename, "r");
+                if (file) {
+                    filename = g_strdup_printf ("/sys/class/power_supply/%s/alarm", de->d_name);
+                    if (fgets (buf, 1024, file)!=NULL)
+                    {
+                        chipfeature->min_value = strtod (buf, NULL);
+                    }
+#else
                     while (fgets (buf, 1024, file)!=NULL)
                     {
                         if (strncmp (buf, "design capacity low:", 20)==0)
@@ -263,6 +302,8 @@ int read_battery_zone (t_chip *chip)
                             chipfeature->raw_value = strtod (tmp, NULL);
                         }
                     }
+#endif
+
                     /* g_free (tmp); */ /* points to inside of the buffer */
                     fclose (file);
 
