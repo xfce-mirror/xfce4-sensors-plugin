@@ -208,7 +208,7 @@ double get_battery_zone_value (char *zone)
 
     value = 0.0;
 
-#ifdef HAVE_SYSFSACPI
+#ifdef HAVE_SYSFS_ACPI
     filename = g_strdup_printf ("/sys/class/power_supply/%s/energy_now", name);
 #else
     filename = g_strdup_printf ("%s/%s/%s/%s", ACPI_PATH, ACPI_DIR_BATTERY,
@@ -216,7 +216,7 @@ double get_battery_zone_value (char *zone)
 #endif
     file = fopen (filename, "r");
     if (file) {
-#ifdef HAVE_SYSFSACPI
+#ifdef HAVE_SYSFS_ACPI
         if (fgets (buf, 1024, file)!=NULL)
         {
             cut_newline (buf);
@@ -388,13 +388,13 @@ get_battery_max_value (char *name, t_chipfeature *chipfeature)
 {
     FILE *file;
     char *filename, buf[1024];
-#ifndef HAVE_SYSFSACPI
+#ifndef HAVE_SYSFS_ACPI
     char *tmp;
 #endif
 
     TRACE ("enters get_battery_max_value");
 
-#ifdef HAVE_SYSFSACPI
+#ifdef HAVE_SYSFS_ACPI
     filename = g_strdup_printf ("/sys/class/power_supply/%s/energy_full", name);
 #else
     filename = g_strdup_printf ("%s/%s/%s/%s", ACPI_PATH,
@@ -405,7 +405,7 @@ get_battery_max_value (char *name, t_chipfeature *chipfeature)
     file = fopen (filename, "r");
     if (file)
     {
-#ifdef HAVE_SYSFSACPI
+#ifdef HAVE_SYSFS_ACPI
         if (fgets (buf, 1024, file)!=NULL)
         {
             cut_newline (buf);
