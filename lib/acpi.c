@@ -223,7 +223,7 @@ double get_battery_zone_value (char *zone)
         if (fgets (buf, 1024, file)!=NULL)
         {
             cut_newline (buf);
-            value = strtod (buf, NULL);
+            value = strtod (buf, NULL) / 1000.0;
         }
 #else
         while (fgets (buf, 1024, file)!=NULL)
@@ -331,7 +331,7 @@ int read_battery_zone (t_chip *chip)
                     if (fgets (buf, 1024, file)!=NULL)
                     {
                         cut_newline (buf);
-                        chipfeature->min_value = strtod (buf, NULL);
+                        chipfeature->min_value = strtod (buf, NULL) / 1000.0;
                         DBG ("Min-Value=%f\n", chipfeature->min_value);
                     }
 #else
@@ -412,7 +412,7 @@ get_battery_max_value (char *name, t_chipfeature *chipfeature)
         if (fgets (buf, 1024, file)!=NULL)
         {
             cut_newline (buf);
-            chipfeature->max_value = strtod (buf, NULL);
+            chipfeature->max_value = strtod (buf, NULL) / 1000.0;
             DBG ("Max-Value=%f\n", chipfeature->max_value);
         }
 #else
