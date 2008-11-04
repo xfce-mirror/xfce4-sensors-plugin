@@ -183,16 +183,29 @@ double get_battery_zone_value (char *zone)
     double value;
 
     FILE *file;
-    char buf [1024], *filename, *tmp;
+    char buf [1024], *filename;
+#ifndef HAVE_SYSFSACPI
+    char *tmp;
+#endif
 
     TRACE ("enters get_battery_zone_value for %s", zone);
 
     value = 0.0;
 
+#ifdef HAVE_SYSFSACPI
+    filename = g_strdup_printf ("/sys/class/power_supply/%s/energy_full", name);
+#else
     filename = g_strdup_printf ("%s/%s/%s/%s", ACPI_PATH, ACPI_DIR_BATTERY,
                                 zone, ACPI_FILE_BATTERY_STATE);
+#endif
     file = fopen (filename, "r");
     if (file) {
+#ifdef HAVE_SYSFSACPI
+        if (fgets (buf, 1024, file)!=NULL)
+        {
+            value = strtod (buf, NULL);
+        }
+#else
         while (fgets (buf, 1024, file)!=NULL)
         {
             if (strncmp (buf, "remaining capacity:", 19)==0)
@@ -202,6 +215,7 @@ double get_battery_zone_value (char *zone)
                 break;
             }
         }
+#endif
         /*  g_free (tmp); */ /* points to inside the buffer! */
         fclose (file);
     }
