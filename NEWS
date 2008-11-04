@@ -18,4 +18,5 @@
         Libnotify supported for messages.
         Netcat usable in favour of hddtemp directly
         Stand-alone sensors application
+        Battery settings read from sysfs as well
 

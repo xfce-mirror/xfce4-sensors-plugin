@@ -9,10 +9,8 @@ TODO
 
 - read acpi fan state?
 
-- switch to sysfs completely?
+- switch to sysfs completely for everythin?
 
 Known bugs or user requests
 ---------------------------
-- better support for hddtemp via nc/netcat
-- read /proc/acpi/battery or fan for changed linux kernel 2.4.24 oder 2.4.26 differently or use sysfs, whatever
 

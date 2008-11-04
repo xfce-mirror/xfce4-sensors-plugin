@@ -1,3 +1,8 @@
+2008-11-03 timystery
+  * Addded support for sysfs for linux 2.6.24++ but still without good checks
+  in configure.in.in
+  * Some translations updated by various people
+
 2008-11-02 timystery
   * Stand-alone application with temperature-unit-choser and all sensor values
   at a glance
