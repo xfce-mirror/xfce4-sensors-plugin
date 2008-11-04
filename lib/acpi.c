@@ -62,7 +62,7 @@ strip_key_colon_spaces (char *buf)
 
 
 #ifdef HAVE_SYSFSACPI
-void cut_newline (char *buf)
+static void cut_newline (char *buf)
 {
     int i;
     char *p;
