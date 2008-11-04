@@ -61,6 +61,23 @@ strip_key_colon_spaces (char *buf)
 }
 
 
+#ifdef HAVE_SYSFSACPI
+void cut_newline (char *buf)
+{
+    int i;
+    char *p;
+
+    for (i=0; buf[i]!='\0'; i++)
+    {
+        if (buf[i]=='\n')
+        {
+            buf[i] = '\0';
+            break;
+        }
+    }
+}
+#endif
+
 int
 read_thermal_zone (t_chip *chip)
 {
@@ -184,16 +201,15 @@ double get_battery_zone_value (char *zone)
 
     FILE *file;
     char buf [1024], *filename;
-#ifndef HAVE_SYSFSACPI
+
     char *tmp;
-#endif
 
     TRACE ("enters get_battery_zone_value for %s", zone);
 
     value = 0.0;
 
 #ifdef HAVE_SYSFSACPI
-    filename = g_strdup_printf ("/sys/class/power_supply/%s/energy_full", name);
+    filename = g_strdup_printf ("/sys/class/power_supply/%s/energy_now", name);
 #else
     filename = g_strdup_printf ("%s/%s/%s/%s", ACPI_PATH, ACPI_DIR_BATTERY,
                                 zone, ACPI_FILE_BATTERY_STATE);
@@ -203,6 +219,7 @@ double get_battery_zone_value (char *zone)
 #ifdef HAVE_SYSFSACPI
         if (fgets (buf, 1024, file)!=NULL)
         {
+            cut_newline (buf);
             value = strtod (buf, NULL);
         }
 #else
@@ -273,6 +290,7 @@ int read_battery_zone (t_chip *chip)
 #ifdef HAVE_SYSFS_ACPI
                     if (fgets (buf, 1024, file)!=NULL)
                     {
+                        cut_newline (buf);
                         chipfeature->name = g_strdup (buf);
                     }
 #else
@@ -289,21 +307,23 @@ int read_battery_zone (t_chip *chip)
 #ifdef HAVE_SYSFS_ACPI
                     fclose (file);
                 }
+                filename = g_strdup_printf ("/sys/class/power_supply/%s/energy_now", de->d_name);
                 file = fopen (filename, "r");
                 if (file) {
-                    filename = g_strdup_printf ("/sys/class/power_supply/%s/energy_now", de->d_name);
 
                     if (fgets (buf, 1024, file)!=NULL)
                     {
+                        cut_newline (buf);
                         chipfeature->raw_value = strtod (buf, NULL);
                     }
                     fclose (file);
                 }
+                filename = g_strdup_printf ("/sys/class/power_supply/%s/alarm", de->d_name);
                 file = fopen (filename, "r");
                 if (file) {
-                    filename = g_strdup_printf ("/sys/class/power_supply/%s/alarm", de->d_name);
                     if (fgets (buf, 1024, file)!=NULL)
                     {
+                        cut_newline (buf);
                         chipfeature->min_value = strtod (buf, NULL);
                     }
 #else
@@ -362,7 +382,10 @@ void
 get_battery_max_value (char *name, t_chipfeature *chipfeature)
 {
     FILE *file;
-    char *filename, *tmp, buf[1024];
+    char *filename, buf[1024];
+#ifndef HAVE_SYSFSACPI
+    char *tmp;
+#endif
 
     TRACE ("enters get_battery_max_value");
 
@@ -376,19 +399,23 @@ get_battery_max_value (char *name, t_chipfeature *chipfeature)
     file = fopen (filename, "r");
     if (file)
     {
+#ifdef HAVE_SYSFSACPI
+        if (fgets (buf, 1024, file)!=NULL)
+        {
+            cut_newline (buf);
+            chipfeature->max_value = strtod (buf, NULL);
+        }
+#else
         while (fgets (buf, 1024, file)!=NULL)
         {
             if (strncmp (buf, "last full capacity:", 19)==0)
             {
-
-#ifndef HAVE_SYSFSACPI
                 tmp = strip_key_colon_spaces(buf);
-#else
-                tmp = buf;
-#endif
                 chipfeature->max_value = strtod (tmp, NULL);
+                break;
             }
         }
+#endif
         fclose (file);
     }
 
