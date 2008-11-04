@@ -11,6 +11,8 @@ TODO
 
 - switch to sysfs completely for everythin?
 
+- decrease size of entries in min/max valu fields
+
 Known bugs or user requests
 ---------------------------
 
