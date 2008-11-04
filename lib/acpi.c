@@ -226,7 +226,11 @@ int read_battery_zone (t_chip *chip)
 
     TRACE ("enters read_battery_zone");
 
+#ifdef HAVE_SYSFS_ACPI
+    if ((chdir ("/sys/class") == 0) && (chdir ("power_supply") == 0)) {
+#else
     if ((chdir (ACPI_PATH) == 0) && (chdir (ACPI_DIR_BATTERY) == 0)) {
+#endif
         d = opendir (".");
         if (!d) {
             closedir (d);
