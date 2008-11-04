@@ -202,18 +202,21 @@ double get_battery_zone_value (char *zone)
     FILE *file;
     char buf [1024], *filename;
 
+#ifndef HAVE_SYSFS_ACPI
     char *tmp;
+#endif
 
     TRACE ("enters get_battery_zone_value for %s", zone);
 
     value = 0.0;
 
 #ifdef HAVE_SYSFS_ACPI
-    filename = g_strdup_printf ("/sys/class/power_supply/%s/energy_now", name);
+    filename = g_strdup_printf ("/sys/class/power_supply/%s/energy_now", zone);
 #else
     filename = g_strdup_printf ("%s/%s/%s/%s", ACPI_PATH, ACPI_DIR_BATTERY,
                                 zone, ACPI_FILE_BATTERY_STATE);
 #endif
+    DBG("filename=%s\n", filename);
     file = fopen (filename, "r");
     if (file) {
 #ifdef HAVE_SYSFS_ACPI
