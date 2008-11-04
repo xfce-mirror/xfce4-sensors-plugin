@@ -292,6 +292,7 @@ int read_battery_zone (t_chip *chip)
                     {
                         cut_newline (buf);
                         chipfeature->name = g_strdup (buf);
+                        DBG ("Name=%s\n", buf);
                     }
 #else
                     chipfeature->name = g_strdup (chipfeature->devicename);
@@ -316,6 +317,7 @@ int read_battery_zone (t_chip *chip)
                     {
                         cut_newline (buf);
                         chipfeature->raw_value = strtod (buf, NULL);
+                        DBG ("Raw-Value=%f\n", chipfeature->raw_value);
                     }
                     fclose (file);
                 }
@@ -327,6 +329,7 @@ int read_battery_zone (t_chip *chip)
                     {
                         cut_newline (buf);
                         chipfeature->min_value = strtod (buf, NULL);
+                        DBG ("Min-Value=%f\n", chipfeature->min_value);
                     }
 #else
                     while (fgets (buf, 1024, file)!=NULL)
@@ -398,6 +401,7 @@ get_battery_max_value (char *name, t_chipfeature *chipfeature)
                                             ACPI_DIR_BATTERY, name,
                                             ACPI_FILE_BATTERY_INFO);
 #endif
+    DBG ("filename=%s\n", filename);
     file = fopen (filename, "r");
     if (file)
     {
@@ -406,6 +410,7 @@ get_battery_max_value (char *name, t_chipfeature *chipfeature)
         {
             cut_newline (buf);
             chipfeature->max_value = strtod (buf, NULL);
+            DBG ("Max-Value=%f\n", chipfeature->max_value);
         }
 #else
         while (fgets (buf, 1024, file)!=NULL)
