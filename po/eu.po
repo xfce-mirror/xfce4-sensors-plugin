@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-03 21:54+0100\n"
-"PO-Revision-Date: 2008-09-11 22:18+0200\n"
+"PO-Revision-Date: 2008-11-04 22:49+0100\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: Euskara <debian-l10n-basque@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-"Xfce Hardware Sentsore Plugin-a: \n"
+"Xfce Hardware Sentsore Plugina: \n"
 "Dirudienez arazo bat dago sentsore ezaugarri balioa irakurtzerakoan. \n"
 "Ezin da behar ebazlea ibiliko den ziurtatu.\n"
 
@@ -117,7 +117,7 @@ msgstr "_Bestelakoak"
 
 #: ../panel-plugin/sensors-plugin.c:1788 ../lib/hddtemp.c:150
 msgid "Xfce 4 Sensors Plugin"
-msgstr "Xfce 4 sentsore plugin-a"
+msgstr "Xfce 4 sentsore plugina"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:1830
@@ -126,10 +126,13 @@ msgid ""
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field.."
 msgstr ""
+"Izena, koloreak, geh/gut balioa bezalako propietateak aldatu ditzakezu"
+"sarreran klik bikoitza eginez, eduki editatu, eta \"Return\" sakatu edo beste "
+"eremu bat hautatuaz."
 
 #: ../panel-plugin/sensors-plugin.h:29
 msgid "Sensors Plugin"
-msgstr "Sentsore Plugin-a"
+msgstr "Sentsore Plugina"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -162,7 +165,7 @@ msgstr "S.M.A.R.T. diska gogor tenperaturak"
 
 #: ../lib/hddtemp.c:460
 msgid "No concrete error detected.\n"
-msgstr ""
+msgstr "Ez da errore zehatzik atzeman.\n"
 
 #: ../lib/hddtemp.c:513
 #, c-format
@@ -207,9 +210,9 @@ msgstr ""
 #. } else { // Celsius
 #. Celsius
 #: ../lib/hddtemp.c:617 ../lib/sensors-interface-common.c:139
-#, fuzzy, c-format
+#, c-format
 msgid "%.1f °C"
-msgstr "%5.1f °C"
+msgstr "%1f °C"
 
 #: ../lib/lmsensors.c:103
 msgid "LM Sensors"
@@ -221,17 +224,14 @@ msgid "Error: Could not connect to sensors!"
 msgstr "Errorea: Ezin da sentsoreetara konektatu!"
 
 #: ../lib/sensors-interface.c:65
-#, fuzzy
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr ""
-"Xfce Hardware Sentsore Plugin-a: \n"
 "Dirudienez arazo bat dago sentsore ezaugarri balioa irakurtzerakoan. \n"
-"Ezin da behar ebazlea ibiliko den ziurtatu.\n"
+"Ezin da behar ebazlea ibiliko den ziurtatu."
 
 #: ../lib/sensors-interface.c:133
-#, fuzzy
 msgid "Sensors t_ype:"
 msgstr "Sentsore m_ota:"
 
@@ -284,14 +284,14 @@ msgid "No sensors found!"
 msgstr "Ez da sentsorerik aurkitu!"
 
 #: ../lib/sensors-interface-common.c:136
-#, fuzzy, c-format
+#, c-format
 msgid "%.1f °F"
-msgstr "%5.1f °F"
+msgstr "%.1f °F"
 
 #: ../lib/sensors-interface-common.c:144
-#, fuzzy, c-format
+#, c-format
 msgid "%+.2f V"
-msgstr "%+5.2f V"
+msgstr "%+.2f V"
 
 #: ../lib/sensors-interface-common.c:148
 #, c-format
@@ -307,9 +307,9 @@ msgid "on"
 msgstr "aktibo"
 
 #: ../lib/sensors-interface-common.c:159
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f rpm"
-msgstr "%5.0f b/min"
+msgstr "%.0f rpm"
 
 #: ../src/main.c:46
 #, c-format
@@ -320,6 +320,11 @@ msgid ""
 "usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
 "licenses/gpl-2.0.txt\n"
 msgstr ""
+"Xfce4 Sentsoreak %s\n"
+"This program is published under the GPL v2.\n"
+"The license text can be found inside the program's source archive or under /"
+"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:58
 #, c-format
@@ -335,26 +340,33 @@ msgid ""
 "\n"
 "This program is published under the GPL v2.\n"
 msgstr ""
+"Xfce4 sentsoreak %s\n"
+"Sentsore eta ACPI-ren informazio  bistaratzen du.\n"
+"Sinopsia: \n"
+"  xfce4-sensors aukerak\n"
+"non aukerak hurrengoetako bat edo gehiago diren:\n"
+"  -h, --help    Laguntza hau inprimatu.\n"
+"  -l, --license Lizentzia argibideak inprimatu.\n"
+"  -v, --version Bertsio argibideak inprimatu.\n"
+"\n"
+"Programa hau GPL v2 lizentzipean kaleratu da.\n"
 
 #: ../src/main.c:75
-#, fuzzy, c-format
+#, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr "Xfce 4 sentsore plugin-a"
+msgstr "Xfce 4 sentsore %s\n"
 
 #: ../src/interface.c:61
-#, fuzzy
 msgid "Xfce 4 Sensors Viewer"
-msgstr "Xfce 4 sentsore plugin-a"
+msgstr "Xfce 4 sentsore ikustatzailea"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
-#, fuzzy
 msgid "Sensor Viewer"
-msgstr "Sentsore m_ota:"
+msgstr "Sentsore ikustatzailea"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
-#, fuzzy
 msgid "Sensors Values Viewer"
-msgstr "Sentsore m_ota:"
+msgstr "Sentsore balio ikustatzailea"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
@@ -363,11 +375,5 @@ msgstr "Sentsore balioak bistarazi."
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
-msgstr "Sentsore plugin-a "
+msgstr "Sentsore plugina "
 
-#~ msgid "Edit Properties"
-#~ msgstr "Editatu propietateak"
-
-#, fuzzy
-#~ msgid "View sensor values"
-#~ msgstr "Sentsore balioak bistarazi."
