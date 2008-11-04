@@ -1776,7 +1776,7 @@ on_optionsDialog_response (GtkWidget *dlg, int response, t_sensors_dialog *sd)
 static void
 sensors_create_options (XfcePanelPlugin *plugin, t_sensors *sensors)
 {
-    GtkWidget *dlg, *header, *vbox, *notebook;
+    GtkWidget *dlg, *vbox, *notebook;
     t_sensors_dialog *sd;
     gchar *myToolTipText;
 

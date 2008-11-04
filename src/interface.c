@@ -39,7 +39,7 @@ GtkWidget *
 create_main_window (t_sensors_dialog *sd)
 {
 
-    GtkWidget *dlg, *header, *vbox, *notebook;
+    GtkWidget *dlg, *vbox;
 
 
     /* start and populate */

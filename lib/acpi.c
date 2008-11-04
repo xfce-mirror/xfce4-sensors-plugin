@@ -65,7 +65,7 @@ strip_key_colon_spaces (char *buf)
 static void cut_newline (char *buf)
 {
     int i;
-    char *p;
+    //char *p;
 
     for (i=0; buf[i]!='\0'; i++)
     {
@@ -253,7 +253,7 @@ int read_battery_zone (t_chip *chip)
 #endif
     char buf[1024];
     struct dirent *de;
-    t_chipfeature *chipfeature;
+    t_chipfeature *chipfeature = NULL;
 
     TRACE ("enters read_battery_zone");
 
@@ -307,6 +307,7 @@ int read_battery_zone (t_chip *chip)
 #ifdef HAVE_SYSFS_ACPI
                     fclose (file);
                 }
+                g_free (filename);
                 filename = g_strdup_printf ("/sys/class/power_supply/%s/energy_now", de->d_name);
                 file = fopen (filename, "r");
                 if (file) {
@@ -318,6 +319,7 @@ int read_battery_zone (t_chip *chip)
                     }
                     fclose (file);
                 }
+                g_free (filename);
                 filename = g_strdup_printf ("/sys/class/power_supply/%s/alarm", de->d_name);
                 file = fopen (filename, "r");
                 if (file) {
