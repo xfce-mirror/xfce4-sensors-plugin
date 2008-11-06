@@ -13,6 +13,10 @@ TODO
 
 - decrease size of entries in min/max valu fields
 
+- switch -v, --version to -V, --version
+
 Known bugs or user requests
 ---------------------------
+- Respect "suppress messages" for error dialogs with acpi/sysfs
 
+- Remove invalid columns such as color and "show" from application's treeview
