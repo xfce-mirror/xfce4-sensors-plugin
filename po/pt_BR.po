@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-03 21:54+0100\n"
-"PO-Revision-Date: 2008-10-24 12:33-0400\n"
+"PO-Revision-Date: 2008-11-06 22:06-0400\n"
 "Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
@@ -35,7 +35,7 @@ msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-"Miniaplicativo de Sensores de Hardware do Xfce:\n"
+"Plug-in de sensores de hardware do Xfce:\n"
 "Parece ter ocorrido um problema durante a leitura de algum sensor.\n"
 "Não é possível garantir o procedimento apropriado.\n"
 
@@ -118,7 +118,7 @@ msgstr "_Miscelâneo"
 
 #: ../panel-plugin/sensors-plugin.c:1788 ../lib/hddtemp.c:150
 msgid "Xfce 4 Sensors Plugin"
-msgstr "Miniaplicativo de sensores do Xfce"
+msgstr "Plug-in de sensores do Xfce"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:1830
@@ -133,7 +133,7 @@ msgstr ""
 
 #: ../panel-plugin/sensors-plugin.h:29
 msgid "Sensors Plugin"
-msgstr "Miniaplicativo de Sensores"
+msgstr "Plug-in de sensores"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -166,7 +166,7 @@ msgstr "Temperatura do disco rígido S.M.A.R.T."
 
 #: ../lib/hddtemp.c:460
 msgid "No concrete error detected.\n"
-msgstr ""
+msgstr "Nenhum erro concreto foi detectado.\n"
 
 #: ../lib/hddtemp.c:513
 #, c-format
@@ -188,7 +188,7 @@ msgstr ""
 "setuid de root.\n"
 "\n"
 "Um jeito fácil de resolver isso é executar \"chmod u+s %s\" como usuário "
-"root e reiniciar este miniaplicativo ou seu painel.\n"
+"root e reiniciar este Plug-in ou seu painel.\n"
 "\n"
 "Chamando \"%s\" apresentou o seguinte erro:\n"
 "%s\n"
@@ -218,7 +218,7 @@ msgstr "%.1f °C"
 
 #: ../lib/lmsensors.c:103
 msgid "LM Sensors"
-msgstr "Tipos de Sensores"
+msgstr "Sensores LM"
 
 #: ../lib/lmsensors.c:362 ../lib/lmsensors.c:409
 #, c-format
@@ -322,9 +322,14 @@ msgid ""
 "usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
 "licenses/gpl-2.0.txt\n"
 msgstr ""
+"Sensores do Xfce4 %s\n"
+"Este programa é publicado sob a GPL v2.\n"
+"O texto da licença pode ser encontrado dentro do pacote fonte do programa ou em /"
+"usr/share/apps/LICENSES/GPL_V2 ou em http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:58
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
 "Displays information about your sensors and ACPI.\n"
@@ -340,30 +345,30 @@ msgstr ""
 "Sensores do Xfce4 %s\n"
 "Exibe informação sobre os seus sensores e ACPI.\n"
 "Sinopse: \n"
-"  xfce4-sensors opções\n"
+" opções do xfce4-sensors\n"
 "onde opções são um ou mais dos seguintes:\n"
-"  -h, --help Imprime este diálogo de ajuda.\n"
+"  -h, --help    Imprime este diálogo de ajuda.\n"
+"  -l, --license Imprime informação sobre a licença.\n"
+"  -v, --version Imprime informação sobre a versão.\n"
 "\n"
 "Este programa é publicado sob a GPL v2.\n"
 
 #: ../src/main.c:75
-#, fuzzy, c-format
+#, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr "Sensores do Xfce 4"
+msgstr "Sensores do Xfce %s\n"
 
 #: ../src/interface.c:61
 msgid "Xfce 4 Sensors Viewer"
 msgstr "Visualizador de sensores do Xfce"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
-#, fuzzy
 msgid "Sensor Viewer"
 msgstr "Visualizador de sensores"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
-#, fuzzy
 msgid "Sensors Values Viewer"
-msgstr "Visualizador de sensores"
+msgstr "Visualizador de valores dos sensores"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
@@ -372,7 +377,7 @@ msgstr "Mostrar valores do sensor."
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
-msgstr "Miniaplicativo de sensores"
+msgstr "Plug-in de sensores"
 
 #~ msgid "Edit Properties"
 #~ msgstr "Editar Propriedades"
