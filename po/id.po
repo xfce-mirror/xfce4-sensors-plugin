@@ -8,14 +8,15 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-03 21:54+0100\n"
-"PO-Revision-Date: 2008-10-22 22:17+0700\n"
+"PO-Revision-Date: 2008-11-07 05:46+0700\n"
 "Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors-plugin.c:224 ../panel-plugin/sensors-plugin.c:773
+#: ../panel-plugin/sensors-plugin.c:224
+#: ../panel-plugin/sensors-plugin.c:773
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Sensor</b></span>"
 
@@ -113,20 +114,15 @@ msgstr "_Tampilan"
 msgid "_Miscellaneous"
 msgstr "_Lainnya"
 
-#: ../panel-plugin/sensors-plugin.c:1788 ../lib/hddtemp.c:150
+#: ../panel-plugin/sensors-plugin.c:1788
+#: ../lib/hddtemp.c:150
 msgid "Xfce 4 Sensors Plugin"
 msgstr "Plugin Sensor Xfce 4"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:1830
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field.."
-msgstr ""
-"Anda dapat mengubah properti fitur seperti nama, warna, nilai min/maks "
-"dengan klik ganda pada entri, sunting isi, dan menekan \"Kembali\" atau "
-"memilih bidang yang lain..."
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field.."
+msgstr "Anda dapat mengubah properti fitur seperti nama, warna, nilai min/maks dengan klik ganda pada entri, sunting isi, dan menekan \"Kembali\" atau memilih bidang yang lain..."
 
 #: ../panel-plugin/sensors-plugin.h:29
 msgid "Sensors Plugin"
@@ -136,13 +132,17 @@ msgstr "Plugin Sensor"
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:151 ../lib/configuration.c:331
-#: ../lib/configuration.c:338 ../lib/hddtemp.c:340 ../lib/hddtemp.c:381
+#: ../lib/configuration.c:151
+#: ../lib/configuration.c:331
+#: ../lib/configuration.c:338
+#: ../lib/hddtemp.c:340
+#: ../lib/hddtemp.c:381
 #: ../lib/hddtemp.c:386
 msgid "Hard disks"
 msgstr "Cakram keras"
 
-#: ../lib/acpi.c:416 ../lib/acpi.c:424
+#: ../lib/acpi.c:416
+#: ../lib/acpi.c:424
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -163,34 +163,29 @@ msgstr "Temperatur cakram keras S.M.A.R.T."
 
 #: ../lib/hddtemp.c:460
 msgid "No concrete error detected.\n"
-msgstr ""
+msgstr "Tak ada galat konkrit terdeteksi.\n"
 
 #: ../lib/hddtemp.c:513
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" tak tereksekusi dengan benar, meskipun dapat dieksekusi. Ini "
-"mungkin karena cakram memerlukan hak akses root untuk membaca temperaturnya, "
-"dan \"hddtemp\" tidak diatur menggunakan uid root.\n"
+"\"hddtemp\" tak tereksekusi dengan benar, meskipun dapat dieksekusi. Ini mungkin karena cakram memerlukan hak akses root untuk membaca temperaturnya, dan \"hddtemp\" tidak diatur menggunakan uid root.\n"
 "\n"
-"Cara yang mudah namun kotor adalah dengan menjalankan \"chmod u+s %s\" "
-"sebagai pengguna root kemudian start ulang plugin ini atau panelnya.\n"
+"Cara yang mudah namun kotor adalah dengan menjalankan \"chmod u+s %s\" sebagai pengguna root kemudian start ulang plugin ini atau panelnya.\n"
 "\n"
 "Memanggil \"%s\" memberikan galat berikut:\n"
 "%s\n"
 "dengan nilai kembali %d.\n"
 
-#: ../lib/hddtemp.c:529 ../lib/hddtemp.c:559
+#: ../lib/hddtemp.c:529
+#: ../lib/hddtemp.c:559
 msgid "Suppress this message in future"
 msgstr "Kecilkan pesan ini di masa depan"
 
@@ -207,7 +202,8 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:617 ../lib/sensors-interface-common.c:139
+#: ../lib/hddtemp.c:617
+#: ../lib/sensors-interface-common.c:139
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -216,7 +212,8 @@ msgstr "%.1f °C"
 msgid "LM Sensors"
 msgstr "Sensor LM"
 
-#: ../lib/lmsensors.c:362 ../lib/lmsensors.c:409
+#: ../lib/lmsensors.c:362
+#: ../lib/lmsensors.c:409
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Galat: Tak dapat menghubungi sensor!"
@@ -314,13 +311,14 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
+"Sensor Xfce4 %s\n"
+"Program ini dipublikasikan di bawah GPL v2.\n"
+"Teks lisensi dapat ditemukan di dalam arsip sumber program atau di bawah /usr/share/apps/LICENSES/GPL_V2 atau di http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:58
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
 "Displays information about your sensors and ACPI.\n"
@@ -339,27 +337,27 @@ msgstr ""
 "  xfce4-sensors opsi\n"
 "opsi merupakan satu atau beberapa opsi berikut:\n"
 "  -h, --help Cetak dialog bantuan ini.\n"
+"  -l, --license Cetak informasi lisensi.\n"
+"  -v, --version Cetak informasi versi.\n"
 "\n"
 "Program ini dipublikasikan di bawah GPL v2.\n"
 
 #: ../src/main.c:75
-#, fuzzy, c-format
+#, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr "Sensor Xfce 4"
+msgstr "Sensor Xfce4 %s\n"
 
 #: ../src/interface.c:61
 msgid "Xfce 4 Sensors Viewer"
 msgstr "Penilik Sensor Xfce 4"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
-#, fuzzy
 msgid "Sensor Viewer"
-msgstr "Penilik Sensor"
+msgstr "Penampil Sensor"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
-#, fuzzy
 msgid "Sensors Values Viewer"
-msgstr "Penilik Sensor"
+msgstr "Penampil Nilai Sensor"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
@@ -372,9 +370,8 @@ msgstr "Plugin sensor"
 
 #~ msgid "Edit Properties"
 #~ msgstr "Sunting Properti"
-
 #~ msgid "View sensor values"
 #~ msgstr "Tampilkan nilai sensor"
-
 #~ msgid "Graphical Sensors Viewer for Xfce 4"
 #~ msgstr "Penilik Sensor Grafis untuk Xfce 4"
+
