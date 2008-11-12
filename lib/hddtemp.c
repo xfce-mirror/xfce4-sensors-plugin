@@ -148,7 +148,7 @@ gboolean quick_message_with_checkbox (gchar *message, gchar *checkboxtext) {
                                   GTK_BUTTONS_CLOSE,
                                   message);
 
-    gtk_window_set_title(GTK_WINDOW(dialog), _("Xfce 4 Sensors Plugin"));
+    gtk_window_set_title(GTK_WINDOW(dialog), _("Sensors Plugin"));
 
     checkbox = gtk_check_button_new_with_mnemonic (checkboxtext);
 

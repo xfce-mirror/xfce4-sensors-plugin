@@ -634,7 +634,7 @@ sensors_create_tooltip (gpointer data)
                 if ( res!=0 ) {
                     /* FIXME: either print nothing, or undertake appropriate action,
                      * or pop up a message box. */
-                    g_printf ( _("Xfce Hardware Sensors Plugin:\n"
+                    g_printf ( _("Sensors Plugin:\n"
                     "Seems like there was a problem reading a sensor feature "
                     "value.\nProper proceeding cannot be guaranteed.\n") );
                     break;
@@ -1786,7 +1786,7 @@ sensors_create_options (XfcePanelPlugin *plugin, t_sensors *sensors)
 
     //dlg = gtk_dialog_new_with_buttons (
     dlg = xfce_titled_dialog_new_with_buttons(
-                _("Xfce 4 Sensors Plugin"),
+                _("Sensors Plugin"),
                 GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
                 GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_NO_SEPARATOR,
                 GTK_STOCK_CLOSE,

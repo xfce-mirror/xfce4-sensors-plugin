@@ -62,7 +62,7 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale)
     gchar *summary, *body, *icon;
 
 
-    summary = "Xfce 4 Sensors Plugin Failure";
+    summary = _("Sensors Plugin Failure");
     body = _("Seems like there was a problem reading a sensor "
                     "feature value.\nProper proceeding cannot be "
                     "guaranteed.");

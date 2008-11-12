@@ -62,7 +62,7 @@ print_usage ()
                       "where options are one or more of the following:\n"
                       "  -h, --help    Print this help dialog.\n"
                       "  -l, --license Print license information.\n"
-                      "  -v, --version Print version information.\n"
+                      "  -V, --version Print version information.\n"
                       "\n"
                       "This program is published under the GPL v2.\n"), PACKAGE_VERSION
                 );
@@ -94,7 +94,7 @@ main (int argc, char **argv)
         print_license ();
         return 0;
     }
-    else if ( argc > 1 && (strcmp(argv[1], "--version")==0 || strcmp(argv[1], "-v")==0) )
+    else if ( argc > 1 && (strcmp(argv[1], "--version")==0 || strcmp(argv[1], "-V")==0) )
     {
         print_version ();
         return 0;

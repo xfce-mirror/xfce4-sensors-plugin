@@ -43,7 +43,7 @@ create_main_window (t_sensors_dialog *sd)
 
 
     /* start and populate */
-    /* dlg = (GtkWidget *) gtk_dialog_new_with_buttons (_("Xfce 4 Sensors Viewer"),
+    /* dlg = (GtkWidget *) gtk_dialog_new_with_buttons (_("Sensors Viewer"),
                 NULL, // anciently: GTK_WINDOW(gtk_get_toplevel(plugin));
                 GTK_DIALOG_NO_SEPARATOR, // anciently: | GTK_DIALOG_DESTROY_WITH_PARENT
                 GTK_STOCK_CLOSE, GTK_RESPONSE_OK, NULL);
@@ -58,7 +58,7 @@ create_main_window (t_sensors_dialog *sd)
                         FALSE, TRUE, 0); */
 
     dlg = xfce_titled_dialog_new_with_buttons(
-                _("Xfce 4 Sensors Viewer"),
+                _("Sensors Viewer"),
                 NULL, //GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
                 GTK_DIALOG_NO_SEPARATOR,
                 GTK_STOCK_CLOSE,
