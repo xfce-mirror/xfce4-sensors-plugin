@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-03 21:54+0100\n"
+"POT-Creation-Date: 2008-11-13 00:18+0100\n"
 "PO-Revision-Date: 2006-02-19 22:51+0300\n"
 "Last-Translator: Phan Vĩnh Thịnh <teppi@vnlinux.org>\n"
 "Language-Team: Vietnamese <none@li.org>\n"
@@ -15,21 +15,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
 
-#: ../panel-plugin/sensors-plugin.c:224 ../panel-plugin/sensors-plugin.c:773
+#: ../panel-plugin/sensors-plugin.c:225 ../panel-plugin/sensors-plugin.c:774
 #, fuzzy
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Cảm ứng</b></span>\n"
 
-#: ../panel-plugin/sensors-plugin.c:599
+#: ../panel-plugin/sensors-plugin.c:600
 msgid "No sensors selected!"
 msgstr "Chưa chọn bộ cảm ứng nào!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:636
+#: ../panel-plugin/sensors-plugin.c:637
 #, fuzzy, c-format
 msgid ""
-"Xfce Hardware Sensors Plugin:\n"
+"Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
@@ -38,144 +38,140 @@ msgstr ""
 "Có vẻ như có vấn đề đọc một giá trị cảm ứng. \n"
 "Không có bảo đảm cho sự thực hiện.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1376
+#: ../panel-plugin/sensors-plugin.c:1377
 #, fuzzy
 msgid "UI style:"
 msgstr "Dạng giao diện:"
 
-#: ../panel-plugin/sensors-plugin.c:1377
+#: ../panel-plugin/sensors-plugin.c:1378
 #, fuzzy
 msgid "_text"
 msgstr "văn bản"
 
-#: ../panel-plugin/sensors-plugin.c:1379
+#: ../panel-plugin/sensors-plugin.c:1380
 #, fuzzy
 msgid "g_raphical"
 msgstr "đồ hoạ"
 
-#: ../panel-plugin/sensors-plugin.c:1416
+#: ../panel-plugin/sensors-plugin.c:1417
 #, fuzzy
 msgid "Show _labels in graphical UI"
 msgstr "Hiển thị nhãn trong giao diện đồ hoạ"
 
-#: ../panel-plugin/sensors-plugin.c:1446
+#: ../panel-plugin/sensors-plugin.c:1447
 msgid "Show colored _bars"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1474
+#: ../panel-plugin/sensors-plugin.c:1475
 #, fuzzy
 msgid "_Show title"
 msgstr "Hiển thị tiêu đề"
 
-#: ../panel-plugin/sensors-plugin.c:1500
+#: ../panel-plugin/sensors-plugin.c:1501
 #, fuzzy
 msgid "F_ont size:"
 msgstr "Kích cỡ phông:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1507
+#: ../panel-plugin/sensors-plugin.c:1508
 msgid "x-small"
 msgstr "rất nhỏ"
 
-#: ../panel-plugin/sensors-plugin.c:1508
+#: ../panel-plugin/sensors-plugin.c:1509
 msgid "small"
 msgstr "nhỏ"
 
-#: ../panel-plugin/sensors-plugin.c:1509
+#: ../panel-plugin/sensors-plugin.c:1510
 msgid "medium"
 msgstr "trung bình"
 
-#: ../panel-plugin/sensors-plugin.c:1510
+#: ../panel-plugin/sensors-plugin.c:1511
 msgid "large"
 msgstr "lớn"
 
-#: ../panel-plugin/sensors-plugin.c:1511
+#: ../panel-plugin/sensors-plugin.c:1512
 msgid "x-large"
 msgstr "rất lớn"
 
-#: ../panel-plugin/sensors-plugin.c:1539
+#: ../panel-plugin/sensors-plugin.c:1540
 #, fuzzy
 msgid "Show _Units"
 msgstr "Hiển thị tiêu đề"
 
-#: ../panel-plugin/sensors-plugin.c:1560
+#: ../panel-plugin/sensors-plugin.c:1561
 msgid "Small horizontal s_pacing"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1582
+#: ../panel-plugin/sensors-plugin.c:1583
 msgid "Suppress messages"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1611
+#: ../panel-plugin/sensors-plugin.c:1612
 #, fuzzy
 msgid "U_pdate interval (seconds):"
 msgstr "Cập nhật sau (giây):"
 
-#: ../panel-plugin/sensors-plugin.c:1641
+#: ../panel-plugin/sensors-plugin.c:1642
 #, fuzzy
 msgid "E_xecute on double click:"
 msgstr "Thực hiện khi nháy kép:"
 
-#: ../panel-plugin/sensors-plugin.c:1684
+#: ../panel-plugin/sensors-plugin.c:1685
 msgid "_View"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1716
+#: ../panel-plugin/sensors-plugin.c:1717
 #, fuzzy
 msgid "_Miscellaneous"
 msgstr "<b>Khác</b>"
 
-#: ../panel-plugin/sensors-plugin.c:1788 ../lib/hddtemp.c:150
-#, fuzzy
-msgid "Xfce 4 Sensors Plugin"
+#: ../panel-plugin/sensors-plugin.c:1789 ../panel-plugin/sensors-plugin.h:30
+#: ../lib/hddtemp.c:151
+msgid "Sensors Plugin"
 msgstr "Plugin cảm ứng"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:1830
+#: ../panel-plugin/sensors-plugin.c:1831
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field.."
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.h:29
-msgid "Sensors Plugin"
-msgstr "Plugin cảm ứng"
-
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:151 ../lib/configuration.c:331
-#: ../lib/configuration.c:338 ../lib/hddtemp.c:340 ../lib/hddtemp.c:381
-#: ../lib/hddtemp.c:386
+#: ../lib/configuration.c:152 ../lib/configuration.c:332
+#: ../lib/configuration.c:339 ../lib/hddtemp.c:341 ../lib/hddtemp.c:382
+#: ../lib/hddtemp.c:387
 msgid "Hard disks"
 msgstr ""
 
-#: ../lib/acpi.c:416 ../lib/acpi.c:424
+#: ../lib/acpi.c:521 ../lib/acpi.c:529
 msgid "ACPI"
 msgstr ""
 
 #. to be displayed
 #. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
-#: ../lib/acpi.c:418
+#: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
 msgstr ""
 
-#: ../lib/acpi.c:533
+#: ../lib/acpi.c:638
 msgid "<Unknown>"
 msgstr ""
 
-#: ../lib/hddtemp.c:385
+#: ../lib/hddtemp.c:386
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr ""
 
-#: ../lib/hddtemp.c:460
+#: ../lib/hddtemp.c:461
 msgid "No concrete error detected.\n"
 msgstr ""
 
-#: ../lib/hddtemp.c:513
+#: ../lib/hddtemp.c:514
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is "
@@ -190,11 +186,11 @@ msgid ""
 "with a return value of %d.\n"
 msgstr ""
 
-#: ../lib/hddtemp.c:529 ../lib/hddtemp.c:559
+#: ../lib/hddtemp.c:530 ../lib/hddtemp.c:560
 msgid "Suppress this message in future"
 msgstr ""
 
-#: ../lib/hddtemp.c:553
+#: ../lib/hddtemp.c:554
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
@@ -205,7 +201,7 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:617 ../lib/sensors-interface-common.c:139
+#: ../lib/hddtemp.c:618 ../lib/sensors-interface-common.c:140
 #, c-format
 msgid "%.1f °C"
 msgstr ""
@@ -222,6 +218,11 @@ msgstr "Lỗi: Không thể kết nối tới bộ cảm ứng!"
 
 #: ../lib/sensors-interface.c:65
 #, fuzzy
+msgid "Sensors Plugin Failure"
+msgstr "Plugin cảm ứng"
+
+#: ../lib/sensors-interface.c:66
+#, fuzzy
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
@@ -231,87 +232,87 @@ msgstr ""
 "Có vẻ như có vấn đề đọc một giá trị cảm ứng. \n"
 "Không có bảo đảm cho sự thực hiện.\n"
 
-#: ../lib/sensors-interface.c:133
+#: ../lib/sensors-interface.c:134
 #, fuzzy
 msgid "Sensors t_ype:"
 msgstr "Dạng cảm ứng:"
 
-#: ../lib/sensors-interface.c:158
+#: ../lib/sensors-interface.c:159
 msgid "Description:"
 msgstr ""
 
-#: ../lib/sensors-interface.c:195
+#: ../lib/sensors-interface.c:196
 msgid "Name"
 msgstr "Tên"
 
-#: ../lib/sensors-interface.c:204
+#: ../lib/sensors-interface.c:205
 msgid "Value"
 msgstr "Giá trị"
 
-#: ../lib/sensors-interface.c:210
+#: ../lib/sensors-interface.c:211
 msgid "Show"
 msgstr "Hiện"
 
-#: ../lib/sensors-interface.c:219
+#: ../lib/sensors-interface.c:220
 msgid "Color"
 msgstr "Màu"
 
-#: ../lib/sensors-interface.c:229
+#: ../lib/sensors-interface.c:230
 msgid "Min"
 msgstr "Min"
 
-#: ../lib/sensors-interface.c:238
+#: ../lib/sensors-interface.c:239
 msgid "Max"
 msgstr "Max"
 
-#: ../lib/sensors-interface.c:274
+#: ../lib/sensors-interface.c:275
 #, fuzzy
 msgid "Temperature scale:"
 msgstr "Thang nhiệt độ:"
 
-#: ../lib/sensors-interface.c:276
+#: ../lib/sensors-interface.c:277
 #, fuzzy
 msgid "_Celsius"
 msgstr "Độ C"
 
-#: ../lib/sensors-interface.c:278
+#: ../lib/sensors-interface.c:279
 #, fuzzy
 msgid "_Fahrenheit"
 msgstr "Độ F"
 
-#: ../lib/sensors-interface.c:314
+#: ../lib/sensors-interface.c:315
 #, fuzzy
 msgid "_Sensors"
 msgstr "<b>Cảm ứng</b>"
 
-#: ../lib/sensors-interface-common.c:69
+#: ../lib/sensors-interface-common.c:70
 msgid "No sensors found!"
 msgstr "Không tìm thấy bộ cảm ứng!"
 
-#: ../lib/sensors-interface-common.c:136
+#: ../lib/sensors-interface-common.c:137
 #, c-format
 msgid "%.1f °F"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:144
+#: ../lib/sensors-interface-common.c:145
 #, c-format
 msgid "%+.2f V"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:148
+#: ../lib/sensors-interface-common.c:149
 #, fuzzy, c-format
 msgid "%.0f mWh"
 msgstr "%5.0f rpm"
 
-#: ../lib/sensors-interface-common.c:153
+#: ../lib/sensors-interface-common.c:154
 msgid "off"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:155
+#: ../lib/sensors-interface-common.c:156
 msgid "on"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:159
+#: ../lib/sensors-interface-common.c:160
 #, fuzzy, c-format
 msgid "%.0f rpm"
 msgstr "%5.0f rpm"
@@ -336,7 +337,7 @@ msgid ""
 "where options are one or more of the following:\n"
 "  -h, --help    Print this help dialog.\n"
 "  -l, --license Print license information.\n"
-"  -v, --version Print version information.\n"
+"  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
 msgstr ""
@@ -348,8 +349,8 @@ msgstr "Plugin cảm ứng"
 
 #: ../src/interface.c:61
 #, fuzzy
-msgid "Xfce 4 Sensors Viewer"
-msgstr "Plugin cảm ứng"
+msgid "Sensors Viewer"
+msgstr "Dạng cảm ứng:"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 #, fuzzy
@@ -371,6 +372,14 @@ msgstr "Hiển thị các giá trị cảm ứng."
 #, fuzzy
 msgid "Sensor plugin "
 msgstr "Plugin cảm ứng "
+
+#, fuzzy
+#~ msgid "Xfce 4 Sensors Plugin"
+#~ msgstr "Plugin cảm ứng"
+
+#, fuzzy
+#~ msgid "Xfce 4 Sensors Viewer"
+#~ msgstr "Plugin cảm ứng"
 
 #~ msgid "Edit Properties"
 #~ msgstr "Sửa thuộc tính"

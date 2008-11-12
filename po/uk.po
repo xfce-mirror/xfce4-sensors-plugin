@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-03 21:54+0100\n"
+"POT-Creation-Date: 2008-11-13 00:18+0100\n"
 "PO-Revision-Date: 2008-07-09 12:15+0300\n"
 "Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
 "Language-Team: Ukrainian <xfce4-dev@xfce.org>\n"
@@ -16,20 +16,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: ../panel-plugin/sensors-plugin.c:224 ../panel-plugin/sensors-plugin.c:773
+#: ../panel-plugin/sensors-plugin.c:225 ../panel-plugin/sensors-plugin.c:774
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Сенсори</b></span>"
 
-#: ../panel-plugin/sensors-plugin.c:599
+#: ../panel-plugin/sensors-plugin.c:600
 msgid "No sensors selected!"
 msgstr "Не вибрано сенсорів!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:636
-#, c-format
+#: ../panel-plugin/sensors-plugin.c:637
+#, fuzzy, c-format
 msgid ""
-"Xfce Hardware Sensors Plugin:\n"
+"Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
@@ -37,133 +37,130 @@ msgstr ""
 "Здається існують проблеми читання значень опцій сенсора.\n"
 "Правильна обробка не може бути гарантована.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1376
+#: ../panel-plugin/sensors-plugin.c:1377
 msgid "UI style:"
 msgstr "Стиль UI:"
 
-#: ../panel-plugin/sensors-plugin.c:1377
+#: ../panel-plugin/sensors-plugin.c:1378
 msgid "_text"
 msgstr "_текстовий"
 
-#: ../panel-plugin/sensors-plugin.c:1379
+#: ../panel-plugin/sensors-plugin.c:1380
 msgid "g_raphical"
 msgstr "г_рафічний"
 
-#: ../panel-plugin/sensors-plugin.c:1416
+#: ../panel-plugin/sensors-plugin.c:1417
 msgid "Show _labels in graphical UI"
 msgstr "Показувати _мітки в графічному UI"
 
-#: ../panel-plugin/sensors-plugin.c:1446
+#: ../panel-plugin/sensors-plugin.c:1447
 msgid "Show colored _bars"
 msgstr "Поазувати кольорові _панелі"
 
-#: ../panel-plugin/sensors-plugin.c:1474
+#: ../panel-plugin/sensors-plugin.c:1475
 msgid "_Show title"
 msgstr "_Показувати назву"
 
-#: ../panel-plugin/sensors-plugin.c:1500
+#: ../panel-plugin/sensors-plugin.c:1501
 msgid "F_ont size:"
 msgstr "Розмір _шрифту:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1507
+#: ../panel-plugin/sensors-plugin.c:1508
 msgid "x-small"
 msgstr "найменші"
 
-#: ../panel-plugin/sensors-plugin.c:1508
+#: ../panel-plugin/sensors-plugin.c:1509
 msgid "small"
 msgstr "малі"
 
-#: ../panel-plugin/sensors-plugin.c:1509
+#: ../panel-plugin/sensors-plugin.c:1510
 msgid "medium"
 msgstr "середні"
 
-#: ../panel-plugin/sensors-plugin.c:1510
+#: ../panel-plugin/sensors-plugin.c:1511
 msgid "large"
 msgstr "великі"
 
-#: ../panel-plugin/sensors-plugin.c:1511
+#: ../panel-plugin/sensors-plugin.c:1512
 msgid "x-large"
 msgstr "найбільші"
 
-#: ../panel-plugin/sensors-plugin.c:1539
+#: ../panel-plugin/sensors-plugin.c:1540
 msgid "Show _Units"
 msgstr "Показувати _значення"
 
-#: ../panel-plugin/sensors-plugin.c:1560
+#: ../panel-plugin/sensors-plugin.c:1561
 msgid "Small horizontal s_pacing"
 msgstr "Малі горизонтальні про_міжки"
 
-#: ../panel-plugin/sensors-plugin.c:1582
+#: ../panel-plugin/sensors-plugin.c:1583
 msgid "Suppress messages"
 msgstr "Додаткові повідомлення"
 
-#: ../panel-plugin/sensors-plugin.c:1611
+#: ../panel-plugin/sensors-plugin.c:1612
 msgid "U_pdate interval (seconds):"
 msgstr "Інтер_вал оновлення (секунд):"
 
-#: ../panel-plugin/sensors-plugin.c:1641
+#: ../panel-plugin/sensors-plugin.c:1642
 msgid "E_xecute on double click:"
 msgstr "В_иконати при подвійному клацінні:"
 
-#: ../panel-plugin/sensors-plugin.c:1684
+#: ../panel-plugin/sensors-plugin.c:1685
 msgid "_View"
 msgstr "_Перегляд"
 
-#: ../panel-plugin/sensors-plugin.c:1716
+#: ../panel-plugin/sensors-plugin.c:1717
 msgid "_Miscellaneous"
 msgstr "_Різне"
 
-#: ../panel-plugin/sensors-plugin.c:1788 ../lib/hddtemp.c:150
-msgid "Xfce 4 Sensors Plugin"
-msgstr "Плагін сенсорів для Xfce 4"
+#: ../panel-plugin/sensors-plugin.c:1789 ../panel-plugin/sensors-plugin.h:30
+#: ../lib/hddtemp.c:151
+msgid "Sensors Plugin"
+msgstr "Плагін сенсорів"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:1830
+#: ../panel-plugin/sensors-plugin.c:1831
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field.."
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.h:29
-msgid "Sensors Plugin"
-msgstr "Плагін сенсорів"
-
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:151 ../lib/configuration.c:331
-#: ../lib/configuration.c:338 ../lib/hddtemp.c:340 ../lib/hddtemp.c:381
-#: ../lib/hddtemp.c:386
+#: ../lib/configuration.c:152 ../lib/configuration.c:332
+#: ../lib/configuration.c:339 ../lib/hddtemp.c:341 ../lib/hddtemp.c:382
+#: ../lib/hddtemp.c:387
 msgid "Hard disks"
 msgstr "Жорсткі диски"
 
-#: ../lib/acpi.c:416 ../lib/acpi.c:424
+#: ../lib/acpi.c:521 ../lib/acpi.c:529
 msgid "ACPI"
 msgstr "Інтерфейс ACPI"
 
 #. to be displayed
 #. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
-#: ../lib/acpi.c:418
+#: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ACPI v%s зони"
 
-#: ../lib/acpi.c:533
+#: ../lib/acpi.c:638
 msgid "<Unknown>"
 msgstr "<Невідомо>"
 
-#: ../lib/hddtemp.c:385
+#: ../lib/hddtemp.c:386
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "Температура жорстких дисків із S.M.A.R.T."
 
-#: ../lib/hddtemp.c:460
+#: ../lib/hddtemp.c:461
 msgid "No concrete error detected.\n"
 msgstr ""
 
-#: ../lib/hddtemp.c:513
+#: ../lib/hddtemp.c:514
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is "
@@ -188,11 +185,11 @@ msgstr ""
 "%s\n"
 "і повернув значення    %d.\n"
 
-#: ../lib/hddtemp.c:529 ../lib/hddtemp.c:559
+#: ../lib/hddtemp.c:530 ../lib/hddtemp.c:560
 msgid "Suppress this message in future"
 msgstr "Доповнювати це повідомлення в майбутньому"
 
-#: ../lib/hddtemp.c:553
+#: ../lib/hddtemp.c:554
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
@@ -205,7 +202,7 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:617 ../lib/sensors-interface-common.c:139
+#: ../lib/hddtemp.c:618 ../lib/sensors-interface-common.c:140
 #, fuzzy, c-format
 msgid "%.1f °C"
 msgstr "%5.1f °C градусів Цельсія"
@@ -221,6 +218,11 @@ msgstr "Помилка: Неможливо отримати доступ до с
 
 #: ../lib/sensors-interface.c:65
 #, fuzzy
+msgid "Sensors Plugin Failure"
+msgstr "Плагін сенсорів"
+
+#: ../lib/sensors-interface.c:66
+#, fuzzy
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
@@ -229,83 +231,83 @@ msgstr ""
 "Здається існують проблеми читання значень опцій сенсора.\n"
 "Правильна обробка не може бути гарантована.\n"
 
-#: ../lib/sensors-interface.c:133
+#: ../lib/sensors-interface.c:134
 #, fuzzy
 msgid "Sensors t_ype:"
 msgstr "Тип с_енсорів:"
 
-#: ../lib/sensors-interface.c:158
+#: ../lib/sensors-interface.c:159
 msgid "Description:"
 msgstr "Опис:"
 
-#: ../lib/sensors-interface.c:195
+#: ../lib/sensors-interface.c:196
 msgid "Name"
 msgstr "Назва"
 
-#: ../lib/sensors-interface.c:204
+#: ../lib/sensors-interface.c:205
 msgid "Value"
 msgstr "Значення"
 
-#: ../lib/sensors-interface.c:210
+#: ../lib/sensors-interface.c:211
 msgid "Show"
 msgstr "Відображення"
 
-#: ../lib/sensors-interface.c:219
+#: ../lib/sensors-interface.c:220
 msgid "Color"
 msgstr "Колір"
 
-#: ../lib/sensors-interface.c:229
+#: ../lib/sensors-interface.c:230
 msgid "Min"
 msgstr "Мінімум"
 
-#: ../lib/sensors-interface.c:238
+#: ../lib/sensors-interface.c:239
 msgid "Max"
 msgstr "Максимум"
 
-#: ../lib/sensors-interface.c:274
+#: ../lib/sensors-interface.c:275
 msgid "Temperature scale:"
 msgstr "Шкала температури:"
 
-#: ../lib/sensors-interface.c:276
+#: ../lib/sensors-interface.c:277
 msgid "_Celsius"
 msgstr "_Цельсія"
 
-#: ../lib/sensors-interface.c:278
+#: ../lib/sensors-interface.c:279
 msgid "_Fahrenheit"
 msgstr "_Фаренгейта"
 
-#: ../lib/sensors-interface.c:314
+#: ../lib/sensors-interface.c:315
 msgid "_Sensors"
 msgstr "_Сенсори"
 
-#: ../lib/sensors-interface-common.c:69
+#: ../lib/sensors-interface-common.c:70
 msgid "No sensors found!"
 msgstr "Не знайдено сенсорів!"
 
-#: ../lib/sensors-interface-common.c:136
+#: ../lib/sensors-interface-common.c:137
 #, fuzzy, c-format
 msgid "%.1f °F"
 msgstr "%5.1f °F градусів Фаренгейта"
 
-#: ../lib/sensors-interface-common.c:144
+#: ../lib/sensors-interface-common.c:145
 #, fuzzy, c-format
 msgid "%+.2f V"
 msgstr "%+5.2f V вольт"
 
-#: ../lib/sensors-interface-common.c:148
+#: ../lib/sensors-interface-common.c:149
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.c:153
+#: ../lib/sensors-interface-common.c:154
 msgid "off"
 msgstr "вимкнуто"
 
-#: ../lib/sensors-interface-common.c:155
+#: ../lib/sensors-interface-common.c:156
 msgid "on"
 msgstr "увімкнуто"
 
-#: ../lib/sensors-interface-common.c:159
+#: ../lib/sensors-interface-common.c:160
 #, fuzzy, c-format
 msgid "%.0f rpm"
 msgstr "%5.0f обертів за хвилину"
@@ -330,7 +332,7 @@ msgid ""
 "where options are one or more of the following:\n"
 "  -h, --help    Print this help dialog.\n"
 "  -l, --license Print license information.\n"
-"  -v, --version Print version information.\n"
+"  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
 msgstr ""
@@ -342,8 +344,8 @@ msgstr "Плагін сенсорів для Xfce 4"
 
 #: ../src/interface.c:61
 #, fuzzy
-msgid "Xfce 4 Sensors Viewer"
-msgstr "Плагін сенсорів для Xfce 4"
+msgid "Sensors Viewer"
+msgstr "Тип с_енсорів:"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 #, fuzzy
@@ -363,6 +365,13 @@ msgstr "Поазувати значення сенсорів."
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "Плагін сенсорів "
+
+#~ msgid "Xfce 4 Sensors Plugin"
+#~ msgstr "Плагін сенсорів для Xfce 4"
+
+#, fuzzy
+#~ msgid "Xfce 4 Sensors Viewer"
+#~ msgstr "Плагін сенсорів для Xfce 4"
 
 #~ msgid "Edit Properties"
 #~ msgstr "Редагувати властивості"
