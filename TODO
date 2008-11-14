@@ -17,6 +17,8 @@ TODO
 
 Known bugs or user requests
 ---------------------------
+- Switching from horizontal to vertical panel does not change layout
+
 - Respect "suppress messages" for error dialogs with acpi/sysfs
 
 - Remove invalid columns such as color and "show" from application's treeview
