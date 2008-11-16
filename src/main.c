@@ -114,8 +114,9 @@ main (int argc, char **argv)
 
     /* show window and run forever */
     gtk_widget_show_all(window);
-    /* gtk_window_set_default_size(GTK_WINDOW(window), 480, 640); */
-    gtk_widget_set_size_request(window, 480,640);
+    //gtk_window_set_default_size(GTK_WINDOW(window), 400, 500);
+    gtk_window_resize(GTK_WINDOW(window), 400, 500);
+    /*gtk_widget_set_size_request(window, 400,600); */
     gtk_main();
 
 

@@ -5,6 +5,8 @@
   * version bump to 0.10.99.7
   * switched -v to -V for version information
   * Tried to hide dialogs completely on desired settings
+  * unset size request for application; resize application. default-size din't
+  work.
 
 2008-11-03 timystery
   * Addded support for sysfs for linux 2.6.24++ but still without good checks

@@ -18,8 +18,6 @@ Known bugs or user requests
 
 - Respect "suppress messages" for error dialogs with acpi/sysfs
 
-- smaller application window size
-
 - store last window sizes
 
 - common settings for both application and plugin wrt. sensor names etc.
