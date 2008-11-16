@@ -26,6 +26,7 @@
 #include <hddtemp.h>
 #include <middlelayer.h>
 #include <types.h>
+#include <sensors-interface-common.h>
 
 /* Gtk/Glib includes */
 #include <glib.h>
@@ -601,14 +602,22 @@ refresh_hddtemp (gpointer chip_feature, gpointer data)
 {
     t_chipfeature *cf;
     double value;
+    t_sensors *sensors;
+    gboolean *suppress = NULL;
 
     g_assert (chip_feature!=NULL);
 
     TRACE ("enters refresh_hddtemp");
 
+    if (data != NULL)
+    {
+        sensors = (t_sensors *) data;
+        suppress = &(sensors->suppressmessage);
+    }
+
     cf = (t_chipfeature *) chip_feature;
 
-    value = get_hddtemp_value (cf->devicename, NULL);
+    value = get_hddtemp_value (cf->devicename, suppress);
 
     /* actually, that's done in the gui part */
     g_free (cf->formatted_value);

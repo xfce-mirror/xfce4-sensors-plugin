@@ -28,18 +28,19 @@
 #define ZERO_KELVIN -273 /*.15 */
 
 
-/*
+/**
  * Initialize hddtemp by finding disks to monitor
- * @Return: Number of initialized chips
- * @Param: Pointer to array of chips
+ * @Param Pointer to array of chips
+ * @Return Number of initialized chips
  */
 int initialize_hddtemp (GPtrArray *chips, gboolean *suppressmessage);
 
 
-/*
+/**
  * Refreshs a hddtemp chip's feature in sense of raw and formatted value
 
  * @Param chip_feature: Pointer to feature
+ * @Param data: Pointer to t_sensors or NULL
  */
 void refresh_hddtemp (gpointer chip_feature, gpointer data);
 

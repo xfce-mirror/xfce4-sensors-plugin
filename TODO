@@ -1,8 +1,6 @@
 TODO
 ======
 
-- when moving from vertical to horizontal panel or vice versa, the orientation is not regarded for aligning the labels
-
 - Use notfication messages when alert is on; when maximum is reached.
 
 - fix error: doesn't find all sensors when newly adding plugin to panel - sensors library problem?
@@ -11,9 +9,8 @@ TODO
 
 - switch to sysfs completely for everythin?
 
-- decrease size of entries in min/max valu fields
+- decrease size of entries in min/max value fields... would have to change renderer for double values...
 
-- switch -v, --version to -V, --version
 
 Known bugs or user requests
 ---------------------------
@@ -21,4 +18,3 @@ Known bugs or user requests
 
 - Respect "suppress messages" for error dialogs with acpi/sysfs
 
-- Remove invalid columns such as color and "show" from application's treeview

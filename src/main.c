@@ -107,6 +107,7 @@ main (int argc, char **argv)
     sensors = sensors_new (NULL, NULL);
     sd = g_new0 (t_sensors_dialog, 1);
     sd->sensors = sensors;
+    sd->plugin_dialog = FALSE;
 
     /* build main application */
     window = create_main_window (sd);

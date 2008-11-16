@@ -629,7 +629,8 @@ sensors_create_tooltip (gpointer data)
                 }
 
                 res = sensor_get_value (chip, chipfeature->address,
-                                                    &sensorFeature);
+                                                    &sensorFeature,
+                                                    &(sensors->suppressmessage));
 
                 if ( res!=0 ) {
                     /* FIXME: either print nothing, or undertake appropriate action,
@@ -706,49 +707,57 @@ sensors_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
     t_chipfeature *chipfeature;
     t_barpanel *panel;
 
-    TRACE ("enters sensors_set_orientation");
+    TRACE ("enters sensors_set_orientation: %d", orientation);
 
-    if (orientation == sensors->orientation || !sensors->display_values_graphically)
+    if (orientation == sensors->orientation) // || !sensors->display_values_graphically)
         return;
 
     sensors->orientation = orientation; /* now assign the new orientation */
 
-    if (orientation == GTK_ORIENTATION_HORIZONTAL)
-        newBox = gtk_hbox_new(FALSE, 0);
-    else
-        newBox = gtk_vbox_new(FALSE, 0);
-
+    newBox = orientation==GTK_ORIENTATION_HORIZONTAL ? gtk_hbox_new(FALSE, 0) : gtk_vbox_new(FALSE, 0);
     gtk_widget_show (newBox);
 
     gtk_widget_reparent (sensors->panel_label_text, newBox);
     gtk_widget_reparent (sensors->panel_label_data, newBox);
 
-    for (i=0; i < sensors->num_sensorchips; i++) {
-        chip = (t_chip *) g_ptr_array_index (sensors->chips, i);
-        g_assert (chip!=NULL);
+    if (sensors->display_values_graphically)
+    {
+        for (i=0; i < sensors->num_sensorchips; i++) {
+            chip = (t_chip *) g_ptr_array_index (sensors->chips, i);
+            g_assert (chip!=NULL);
 
-        for (feature = 0; feature<chip->num_features; feature++) {
-            chipfeature = g_ptr_array_index (chip->chip_features, feature);
-            g_assert (chipfeature!=NULL);
+            for (feature = 0; feature<chip->num_features; feature++)
+            {
+                chipfeature = g_ptr_array_index (chip->chip_features, feature);
+                g_assert (chipfeature!=NULL);
 
-            if (chipfeature->show == TRUE) {
-                panel = (t_barpanel*) sensors->panels[i][feature];
-                gtk_widget_reparent (panel->databox, newBox);
+                if (chipfeature->show == TRUE) {
+                    panel = (t_barpanel*) sensors->panels[i][feature];
+                    gtk_widget_reparent (panel->databox, newBox);
+                }
             }
         }
+    }
+    else
+    {
+        /* we don't need a separate function for just one call. */
     }
 
     gtk_widget_destroy (sensors->widget_sensors);
     sensors->widget_sensors = newBox;
 
     gtk_container_add (GTK_CONTAINER (sensors->eventbox),
-                       sensors->widget_sensors);
+                   sensors->widget_sensors);
 
-    sensors_remove_graphical_panel (sensors);
+    if (sensors->display_values_graphically)
+        sensors_remove_graphical_panel (sensors);
+
     sensors_show_panel (sensors);
 
     TRACE ("leaves sensors_set_orientation");
 }
+
+
 
 
 /* initialize box and label to pack them together */
@@ -1810,6 +1819,7 @@ sensors_create_options (XfcePanelPlugin *plugin, t_sensors *sensors)
 
     sd->sensors = sensors;
     sd->dialog = dlg;
+    sd->plugin_dialog = TRUE;
 
     sd->myComboBox = gtk_combo_box_new_text();
 

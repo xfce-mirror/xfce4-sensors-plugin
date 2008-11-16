@@ -33,8 +33,8 @@
 
 /**
  * Initialize all sensors detected by iterating and calling init-routines
- * @Return: Number of initialized features
- * @Param: Double-pointer to array of chips
+ * @Param chips: Double-pointer to array of chips
+ * @Return Number of initialized features
  */
 int initialize_all (GPtrArray **chips, gboolean *suppressmessage);
 
@@ -43,20 +43,23 @@ int initialize_all (GPtrArray **chips, gboolean *suppressmessage);
  * Refresh all features of a chip
  *
  * @Param chip: Pointer to chip
+ * @Param data: pointer to t_sensors or NULL;
  */
 void refresh_chip (gpointer chip, gpointer data);
 
 
 /**
  * Refresh all features of a chip
- * @Param: Pointer to chip pointers
+ * @Param chips: Pointer to chip pointers
+ * @Param sensors: valid pointer to sensors structure or NULL
  */
-void refresh_all_chips (GPtrArray *chips);
+/* seems to be pretty unused meanwhile ... */
+/* void refresh_all_chips (GPtrArray *chips, t_sensors *sensors ); */
 
 
 /**
  * Classifies sensor type
- * @Param: Pointer to feature
+ * @Param chipfeature: Pointer to feature
  */
 void categorize_sensor_type (t_chipfeature *chipfeature);
 
@@ -67,9 +70,11 @@ void categorize_sensor_type (t_chipfeature *chipfeature);
  * the sensors chip feature
  * @Param number: number of chipfeature to look for
  * @Param value: address where double value can be stored
- * @Return: 0 on success, >0 else.
+ * @Param suppressmessage: valid pointer to boolean indicating suppression of
+ *                         messages, or NULL.
+ * @Return 0 on success, >0 else.
  */
-int sensor_get_value (t_chip *chip, int number, double *value);
+int sensor_get_value (t_chip *chip, int number, double *value, gboolean *suppressmessage);
 
 
 /**

@@ -28,7 +28,7 @@
 #include "sensors-interface-common.h"
 
 /* Initializing and filling functions */
-void fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale);
+void fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale, t_sensors_dialog *sd);
 
 void init_widgets (t_sensors_dialog *sd);
 

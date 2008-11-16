@@ -49,11 +49,12 @@ GtkTooltips *tooltips = NULL;
 
 
 void
-fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale)
+fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale, t_sensors_dialog *sd)
 {
     int featureindex, res;
     double sensorFeature;
     t_chipfeature *chipfeature;
+    gboolean *suppress;
     GtkTreeIter *iter;
     #ifdef HAVE_LIBNOTIFY
     NotifyNotification *nn;
@@ -70,6 +71,8 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale)
 
     TRACE ("enters fill_gtkTreeStore");
 
+    suppress = &(sd->sensors->suppressmessage);
+
     for (featureindex=0; featureindex < chip->num_features; featureindex++)
     {
         chipfeature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, featureindex);
@@ -79,8 +82,8 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale)
 
         if ( chipfeature->valid == TRUE ) {
             res = sensor_get_value
-                    (chip, chipfeature->address, &sensorFeature);
-            if ( res!=0) {
+                    (chip, chipfeature->address, &sensorFeature, suppress);
+            if ( res!=0 && !suppress) {
 
                 #ifdef HAVE_LIBNOTIFY
                 if (!notify_is_initted())
@@ -101,13 +104,21 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale)
                                  &(chipfeature->formatted_value));
             chipfeature->raw_value = sensorFeature;
             gtk_tree_store_append (model, iter, NULL);
-            gtk_tree_store_set ( model, iter,
+            if (sd->plugin_dialog)
+                gtk_tree_store_set ( model, iter,
                                  0, chipfeature->name,
                                 1, chipfeature->formatted_value,
                                 2, chipfeature->show,
                                 3, chipfeature->color,
                                 4, chipfeature->min_value,
                                 5, chipfeature->max_value,
+                                 -1);
+            else
+                gtk_tree_store_set ( model, iter,
+                                 0, chipfeature->name,
+                                1, chipfeature->formatted_value,
+                                2, chipfeature->min_value,
+                                3, chipfeature->max_value,
                                  -1);
         } /* end if sensors-valid */
         /* g_free(iter); ??? */
@@ -191,11 +202,13 @@ add_sensor_settings_box ( GtkWidget * vbox, t_sensors_dialog * sd)
         ( GTK_TREE_MODEL ( sd->myListStore[ gtk_combo_box_active ] ) );
 
     myCellRendererText = gtk_cell_renderer_text_new ();
-    g_object_set ( (gpointer*) myCellRendererText, "editable", TRUE, NULL );
+    if (sd->plugin_dialog)
+        g_object_set ( (gpointer*) myCellRendererText, "editable", TRUE, NULL );
 
     aTreeViewColumn = gtk_tree_view_column_new_with_attributes (_("Name"),
                         myCellRendererText, "text", 0, NULL);
-    g_signal_connect    (G_OBJECT (myCellRendererText), "edited",
+    if (sd->plugin_dialog)
+        g_signal_connect    (G_OBJECT (myCellRendererText), "edited",
                         G_CALLBACK (list_cell_text_edited), sd);
     gtk_tree_view_column_set_expand (aTreeViewColumn, TRUE);
     gtk_tree_view_append_column (GTK_TREE_VIEW (sd->myTreeView),
@@ -207,38 +220,56 @@ add_sensor_settings_box ( GtkWidget * vbox, t_sensors_dialog * sd)
     gtk_tree_view_append_column (GTK_TREE_VIEW (sd->myTreeView),
                         GTK_TREE_VIEW_COLUMN (aTreeViewColumn));
 
-    myCellRendererToggle = gtk_cell_renderer_toggle_new();
-    aTreeViewColumn = gtk_tree_view_column_new_with_attributes (_("Show"),
-                        myCellRendererToggle, "active", 2, NULL);
-    g_signal_connect    (G_OBJECT (myCellRendererToggle), "toggled",
-                        G_CALLBACK (list_cell_toggle), sd );
-    gtk_tree_view_append_column (GTK_TREE_VIEW (sd->myTreeView),
-                        GTK_TREE_VIEW_COLUMN (aTreeViewColumn));
+    if (sd->plugin_dialog)
+    {
+        myCellRendererToggle = gtk_cell_renderer_toggle_new();
+        aTreeViewColumn = gtk_tree_view_column_new_with_attributes (_("Show"),
+                            myCellRendererToggle, "active", 2, NULL);
+        g_signal_connect    (G_OBJECT (myCellRendererToggle), "toggled",
+                            G_CALLBACK (list_cell_toggle), sd );
+        gtk_tree_view_append_column (GTK_TREE_VIEW (sd->myTreeView),
+                            GTK_TREE_VIEW_COLUMN (aTreeViewColumn));
+
+        myCellRendererText = gtk_cell_renderer_text_new ();
+        g_object_set ( (gpointer*) myCellRendererText, "editable", TRUE, NULL );
+        aTreeViewColumn = gtk_tree_view_column_new_with_attributes (_("Color"),
+                            myCellRendererText, "text", 3, NULL);
+        g_signal_connect    (G_OBJECT (myCellRendererText), "edited",
+                            G_CALLBACK (list_cell_color_edited), sd);
+        gtk_tree_view_append_column (GTK_TREE_VIEW (sd->myTreeView),
+                            GTK_TREE_VIEW_COLUMN (aTreeViewColumn));
+    }
 
     myCellRendererText = gtk_cell_renderer_text_new ();
-    g_object_set ( (gpointer*) myCellRendererText, "editable", TRUE, NULL );
-    aTreeViewColumn = gtk_tree_view_column_new_with_attributes (_("Color"),
-                        myCellRendererText, "text", 3, NULL);
-    g_signal_connect    (G_OBJECT (myCellRendererText), "edited",
-                        G_CALLBACK (list_cell_color_edited), sd);
-    gtk_tree_view_append_column (GTK_TREE_VIEW (sd->myTreeView),
-                        GTK_TREE_VIEW_COLUMN (aTreeViewColumn));
-
-    myCellRendererText = gtk_cell_renderer_text_new ();
-    g_object_set ( (gpointer*) myCellRendererText, "editable", TRUE, NULL );
-    aTreeViewColumn = gtk_tree_view_column_new_with_attributes
+    if (sd->plugin_dialog)
+    {
+        g_object_set ( (gpointer*) myCellRendererText, "editable", TRUE, NULL );
+        aTreeViewColumn = gtk_tree_view_column_new_with_attributes
                     (_("Min"), myCellRendererText, "text", 4, NULL);
-    g_signal_connect(G_OBJECT(myCellRendererText), "edited",
+        g_signal_connect(G_OBJECT(myCellRendererText), "edited",
                         G_CALLBACK(minimum_changed), sd);
+    }
+    else
+        aTreeViewColumn = gtk_tree_view_column_new_with_attributes
+                    (_("Min"), myCellRendererText, "text", 2, NULL);
+
+
     gtk_tree_view_append_column(GTK_TREE_VIEW(sd->myTreeView),
                         GTK_TREE_VIEW_COLUMN(aTreeViewColumn));
 
     myCellRendererText = gtk_cell_renderer_text_new ();
-    g_object_set ( (gpointer*) myCellRendererText, "editable", TRUE, NULL );
-    aTreeViewColumn = gtk_tree_view_column_new_with_attributes
+    if (sd->plugin_dialog)
+    {
+        g_object_set ( (gpointer*) myCellRendererText, "editable", TRUE, NULL );
+        aTreeViewColumn = gtk_tree_view_column_new_with_attributes
                     (_("Max"), myCellRendererText, "text", 5, NULL);
-    g_signal_connect(G_OBJECT(myCellRendererText), "edited",
+        g_signal_connect(G_OBJECT(myCellRendererText), "edited",
                         G_CALLBACK(maximum_changed), sd);
+    }
+    else
+        aTreeViewColumn = gtk_tree_view_column_new_with_attributes
+                    (_("Max"), myCellRendererText, "text", 3, NULL);
+
     gtk_tree_view_append_column(GTK_TREE_VIEW(sd->myTreeView),
                         GTK_TREE_VIEW_COLUMN(aTreeViewColumn));
 
@@ -344,8 +375,13 @@ init_widgets (t_sensors_dialog *sd)
     sensors = sd->sensors;
 
     for (chipindex=0; chipindex < sensors->num_sensorchips; chipindex++) {
-        sd->myListStore[chipindex] = gtk_tree_store_new (6, G_TYPE_STRING,
+        if (sd->plugin_dialog)
+            sd->myListStore[chipindex] = gtk_tree_store_new (6, G_TYPE_STRING,
                         G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_STRING,
+                        G_TYPE_FLOAT, G_TYPE_FLOAT);
+        else
+            sd->myListStore[chipindex] = gtk_tree_store_new (4, G_TYPE_STRING,
+                        G_TYPE_STRING,
                         G_TYPE_FLOAT, G_TYPE_FLOAT);
 
         chip = (t_chip *) g_ptr_array_index (sensors->chips, chipindex);
@@ -353,7 +389,7 @@ init_widgets (t_sensors_dialog *sd)
                                     chip->sensorId );
         model = GTK_TREE_STORE (sd->myListStore[chipindex]);
 
-        fill_gtkTreeStore (model, chip, sensors->scale);
+        fill_gtkTreeStore (model, chip, sensors->scale,  sd);
     }
 
     if(sd->sensors->num_sensorchips == 0) {
@@ -361,9 +397,15 @@ init_widgets (t_sensors_dialog *sd)
         g_assert (chip!=NULL);
         gtk_combo_box_append_text ( GTK_COMBO_BOX(sd->myComboBox),
                                 chip->sensorId );
-        sd->myListStore[0] = gtk_tree_store_new (6, G_TYPE_STRING,
+        if (sd->plugin_dialog)
+            sd->myListStore[0] = gtk_tree_store_new (6, G_TYPE_STRING,
                                                 G_TYPE_STRING, G_TYPE_BOOLEAN,
                                                 G_TYPE_STRING, G_TYPE_DOUBLE,
+                                                G_TYPE_DOUBLE);
+        else
+            sd->myListStore[0] = gtk_tree_store_new (4, G_TYPE_STRING,
+                                                G_TYPE_STRING,
+                                                G_TYPE_DOUBLE,
                                                 G_TYPE_DOUBLE);
         chipfeature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, 0);
         g_assert (chipfeature!=NULL);
@@ -375,15 +417,23 @@ init_widgets (t_sensors_dialog *sd)
         iter = g_new0 (GtkTreeIter, 1);
         gtk_tree_store_append ( GTK_TREE_STORE (sd->myListStore[0]),
                             iter, NULL);
-        gtk_tree_store_set ( GTK_TREE_STORE (sd->myListStore[0]),
+        if (sd->plugin_dialog)
+            gtk_tree_store_set ( GTK_TREE_STORE (sd->myListStore[0]),
                             iter,
                             0, chipfeature->name,
                             1, "0.0",        /* chipfeature->formatted_value */
                             2, False,        /* chipfeature->show */
                             3, "#000000",    /* chipfeature->color */
-                            3, "#000000",    /* chipfeature->color */
                             4, 0.0,            /* chipfeature->min_value */
                             5, 0.0,            /* chipfeature->max_value */
+                            -1);
+        else
+            gtk_tree_store_set ( GTK_TREE_STORE (sd->myListStore[0]),
+                            iter,
+                            0, chipfeature->name,
+                            1, "0.0",        /* chipfeature->formatted_value */
+                            2, 0.0,            /* chipfeature->min_value */
+                            3, 0.0,            /* chipfeature->max_value */
                             -1);
     }
     TRACE ("leaves init_widgets");
@@ -409,7 +459,7 @@ reload_listbox (t_sensors_dialog *sd)
         model = sd->myListStore[chipindex];
         gtk_tree_store_clear (model);
 
-        fill_gtkTreeStore (model, chip, sensors->scale);
+        fill_gtkTreeStore (model, chip, sensors->scale, sd);
 
     }
     TRACE ("leaves reload_listbox");

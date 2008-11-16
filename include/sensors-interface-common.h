@@ -116,7 +116,7 @@ typedef struct {
     /* use the progress-bar UI */
     gboolean display_values_graphically;
 
-    /* suppress the Hddtemp message in case of failure */
+    /* suppress Hddtemp failure messages and any other messages */
     gboolean suppressmessage;
 
     /* sensor update time */
@@ -198,6 +198,8 @@ t_sensors;
 typedef struct {
     /* the sensors structure */
     t_sensors *sensors;
+
+    gboolean plugin_dialog;
 
     /* controls dialog */
     GtkWidget *dialog;

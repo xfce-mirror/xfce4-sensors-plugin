@@ -40,6 +40,7 @@
 
 /* Package includes */
 #include <middlelayer.h>
+#include <sensors-interface-common.h>
 
 #ifdef HAVE_LIBSENSORS
     #include <lmsensors.h>
@@ -105,7 +106,7 @@ refresh_chip (gpointer chip, gpointer data)
 
     #ifdef HAVE_HDDTEMP
         if (c->type==HDD) {
-            g_ptr_array_foreach (c->chip_features, refresh_hddtemp, NULL );
+            g_ptr_array_foreach (c->chip_features, refresh_hddtemp, data ); /* note that data is of *t_sensors! */
         return;
         }
     #endif
@@ -115,11 +116,11 @@ refresh_chip (gpointer chip, gpointer data)
 
 
 void
-refresh_all_chips (GPtrArray *chips )
+refresh_all_chips (GPtrArray *chips, t_sensors *sensors )
 {
     TRACE ("enters refresh_all_chips");
 
-    g_ptr_array_foreach (chips, refresh_chip, NULL );
+    g_ptr_array_foreach (chips, refresh_chip, sensors);
 
     TRACE ("leaves refresh_all_chips");
 }
@@ -163,9 +164,10 @@ categorize_sensor_type (t_chipfeature* chipfeature)
 
 
 int
-sensor_get_value (t_chip *chip, int number, double *value)
+sensor_get_value (t_chip *chip, int number, double *value, gboolean *suppressmessage)
 {
     t_chipfeature *feature;
+    gboolean *suppress = suppressmessage;
     /* TRACE ("enters sensor_get_value %d", number); */
 
     g_assert (chip!=NULL);
@@ -182,7 +184,7 @@ sensor_get_value (t_chip *chip, int number, double *value)
             g_assert (number<chip->num_features);
             feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, number);
             g_assert (feature!=NULL);
-            *value = get_hddtemp_value (feature->devicename, NULL);
+            *value = get_hddtemp_value (feature->devicename, suppress);
             if (*value==ZERO_KELVIN) {
                 return NO_VALID_HDDTEMP;
             }
