@@ -80,9 +80,8 @@ sensor_entry_changed (GtkWidget *widget, t_sensors_dialog *sd)
 
     chip = (t_chip *) g_ptr_array_index (sd->sensors->chips,
                                          gtk_combo_box_active);
-    /*
+
     gtk_label_set_label (GTK_LABEL(sd->mySensorLabel), chip->description);
-    * */
 
     gtk_tree_view_set_model (GTK_TREE_VIEW (sd->myTreeView),
                     GTK_TREE_MODEL ( sd->myListStore[gtk_combo_box_active] ) );
