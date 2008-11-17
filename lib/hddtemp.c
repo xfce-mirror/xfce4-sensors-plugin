@@ -444,7 +444,9 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
     gboolean result, nevershowagain;
     GError *error;
 
+#ifdef HAVE_NETCAT
     gchar *tmp, *tmp2, *tmp3;
+#endif
 
     if (suppressmessage!=NULL)
         nevershowagain = *suppressmessage;
