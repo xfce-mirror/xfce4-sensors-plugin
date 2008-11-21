@@ -12,10 +12,10 @@ msgstr ""
 "PO-Revision-Date: 2008-11-09 15:52+0200\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: Euskara <debian-l10n-basque@lists.debian.org>\n"
+"Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: eu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 1.2.0\n"
 
@@ -30,15 +30,15 @@ msgstr "Ez da sentsorerik hautatu!"
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
 #: ../panel-plugin/sensors-plugin.c:637
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-"Xfce Hardware Sentsore Plugina: \n"
+"Sentsore Plugina: \n"
 "Dirudienez arazo bat dago sentsore ezaugarri balioa irakurtzerakoan. \n"
-"Ezin da behar ebazlea ibiliko den ziurtatu.\n"
+"Ezin da behar bezela ibiliko den ziurtatu.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1377
 msgid "UI style:"
@@ -224,9 +224,8 @@ msgid "Error: Could not connect to sensors!"
 msgstr "Errorea: Ezin da sentsoreetara konektatu!"
 
 #: ../lib/sensors-interface.c:65
-#, fuzzy
 msgid "Sensors Plugin Failure"
-msgstr "Sentsore Plugina"
+msgstr "Sentsore plugina hutsa"
 
 #: ../lib/sensors-interface.c:66
 msgid ""
@@ -332,7 +331,7 @@ msgstr ""
 "licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:58
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
 "Displays information about your sensors and ACPI.\n"
@@ -354,7 +353,7 @@ msgstr ""
 "  -l, --license Lizentzia argibideak inprimatu.\n"
 "  -v, --version Bertsio argibideak inprimatu.\n"
 "\n"
-"Programa hau GPL v2 lizentzipean kaleratu da.\n"
+"Programa hau GPL v2 lizentziapean kaleratu da.\n"
 
 #: ../src/main.c:75
 #, c-format
@@ -362,17 +361,16 @@ msgid "Xfce4 Sensors %s\n"
 msgstr "Xfce 4 sentsore %s\n"
 
 #: ../src/interface.c:61
-#, fuzzy
 msgid "Sensors Viewer"
-msgstr "Sentsore ikustatzailea"
+msgstr "Sentsore ikustailea"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
-msgstr "Sentsore ikustatzailea"
+msgstr "Sentsore ikustailea"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
 msgid "Sensors Values Viewer"
-msgstr "Sentsore balio ikustatzailea"
+msgstr "Sentsore balio ikustailea"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
