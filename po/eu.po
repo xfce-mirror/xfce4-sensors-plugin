@@ -212,7 +212,7 @@ msgstr ""
 #: ../lib/hddtemp.c:618 ../lib/sensors-interface-common.c:140
 #, c-format
 msgid "%.1f °C"
-msgstr "%1f °C"
+msgstr "%.1f °C"
 
 #: ../lib/lmsensors.c:103
 msgid "LM Sensors"
