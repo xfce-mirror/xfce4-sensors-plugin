@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-13 00:18+0100\n"
-"PO-Revision-Date: 2008-07-09 12:15+0300\n"
+"PO-Revision-Date: 2008-11-17 13:48+0200\n"
 "Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
 "Language-Team: Ukrainian <xfce4-dev@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,13 +27,13 @@ msgstr "Не вибрано сенсорів!"
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
 #: ../panel-plugin/sensors-plugin.c:637
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-"Плагін сенсорів обладнання для Xfce:\n"
+"Плагін сенсорів:\n"
 "Здається існують проблеми читання значень опцій сенсора.\n"
 "Правильна обробка не може бути гарантована.\n"
 
@@ -126,6 +126,9 @@ msgid ""
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field.."
 msgstr ""
+"Ви можете вибрати опції властивостей такі як назва, кольори, мін/макс "
+"значення через подвійне клацання на елементі, редагування змісту і "
+"натиснути\"Ввід\" aбо вибрати різні поля.."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -158,7 +161,7 @@ msgstr "Температура жорстких дисків із S.M.A.R.T."
 
 #: ../lib/hddtemp.c:461
 msgid "No concrete error detected.\n"
-msgstr ""
+msgstr "Отримано невідому помилку.\n"
 
 #: ../lib/hddtemp.c:514
 #, c-format
@@ -174,16 +177,16 @@ msgid ""
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" не було виконано коректно, хоча це є виконуваним. Можливо це   "
-"потребує для дисків прав адміністратора для того, щоб зчитати їх       "
-"температури, і    \"hddtemp\" не має UID root.      \n"
+"\"hddtemp\" не було коректно виконано, хоча він виконуваний. Можливо це    "
+"потребує прав адміністратора для перегляду інформації про температуру  "
+"дисків але \"hddtemp\" не має адміністративних прав.\n"
 "\n"
-"Простіше, але неправильне рішення є \"chmod u+s %s\" під root а також  "
-"перезавантаження плагіна чи панелі.\n"
+"Простіше але брудне рішення запустити \"chmod u+s %s\" як root і       "
+"перезапустити цей плагін або панель.\n"
 "\n"
-"Виклик  \"%s\" дав наступні помилки:    \n"
+"Виклик \"%s\" дає наступну помилку:\n"
 "%s\n"
-"і повернув значення    %d.\n"
+"з поверненням значення %d.\n"
 
 #: ../lib/hddtemp.c:530 ../lib/hddtemp.c:560
 msgid "Suppress this message in future"
@@ -203,9 +206,9 @@ msgstr ""
 #. } else { // Celsius
 #. Celsius
 #: ../lib/hddtemp.c:618 ../lib/sensors-interface-common.c:140
-#, fuzzy, c-format
+#, c-format
 msgid "%.1f °C"
-msgstr "%5.1f °C градусів Цельсія"
+msgstr "%.1f градусів по Цельсію"
 
 #: ../lib/lmsensors.c:103
 msgid "LM Sensors"
@@ -217,24 +220,20 @@ msgid "Error: Could not connect to sensors!"
 msgstr "Помилка: Неможливо отримати доступ до сенсорів!"
 
 #: ../lib/sensors-interface.c:65
-#, fuzzy
 msgid "Sensors Plugin Failure"
-msgstr "Плагін сенсорів"
+msgstr "Невдача плагіна сенсорів"
 
 #: ../lib/sensors-interface.c:66
-#, fuzzy
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr ""
-"Плагін сенсорів обладнання для Xfce:\n"
-"Здається існують проблеми читання значень опцій сенсора.\n"
-"Правильна обробка не може бути гарантована.\n"
+"Можливо це проблема перегляду значень опцій сенсорів.\n"
+"Правильна обробка не гарантована."
 
 #: ../lib/sensors-interface.c:134
-#, fuzzy
 msgid "Sensors t_ype:"
-msgstr "Тип с_енсорів:"
+msgstr "_Тип сенсорів:"
 
 #: ../lib/sensors-interface.c:159
 msgid "Description:"
@@ -285,14 +284,14 @@ msgid "No sensors found!"
 msgstr "Не знайдено сенсорів!"
 
 #: ../lib/sensors-interface-common.c:137
-#, fuzzy, c-format
+#, c-format
 msgid "%.1f °F"
-msgstr "%5.1f °F градусів Фаренгейта"
+msgstr "%.1f градусів по Фаренгейту"
 
 #: ../lib/sensors-interface-common.c:145
-#, fuzzy, c-format
+#, c-format
 msgid "%+.2f V"
-msgstr "%+5.2f V вольт"
+msgstr "%+.2f Вольт"
 
 #: ../lib/sensors-interface-common.c:149
 #, c-format
@@ -308,9 +307,9 @@ msgid "on"
 msgstr "увімкнуто"
 
 #: ../lib/sensors-interface-common.c:160
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f rpm"
-msgstr "%5.0f обертів за хвилину"
+msgstr "%.0f обертів за хвилину"
 
 #: ../src/main.c:46
 #, c-format
@@ -321,6 +320,11 @@ msgid ""
 "usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
 "licenses/gpl-2.0.txt\n"
 msgstr ""
+"Сенсори Xfce4 %s\n"
+"Цю програму опубліковано під ліцензією GPL v2.\n"
+"Текст ліцензії можна знайти всередині архіву з джерельними кодами "
+"програми або нижче /usr/share/apps/LICENSES/GPL_V2 або на сайті "
+"http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:58
 #, c-format
@@ -336,46 +340,40 @@ msgid ""
 "\n"
 "This program is published under the GPL v2.\n"
 msgstr ""
+"СенсориXfce4 %s\n"
+"Показують інформацію про ваші сенсори і ACPI.\n"
+"Підсумок: \n"
+"  опції xfce4-sensors\n"
+"де опції обна або більше з наступних:\n"
+"  -h, --help    Надрукувати це діалог. \n"
+"  -l, --license Надрукувати ліцензію.     \n"
+"  -V, --version Надрукувати версію.       \n"
+"\n"
+"Ця програма опублікована під ліцензією GPL v2.\n"
 
 #: ../src/main.c:75
-#, fuzzy, c-format
+#, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr "Плагін сенсорів для Xfce 4"
+msgstr "Сенсори Xfce4 %s\n"
 
 #: ../src/interface.c:61
-#, fuzzy
 msgid "Sensors Viewer"
-msgstr "Тип с_енсорів:"
+msgstr "Переглядач сенсорів"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
-#, fuzzy
 msgid "Sensor Viewer"
-msgstr "Тип с_енсорів:"
+msgstr "Переглядач сенсора"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
-#, fuzzy
 msgid "Sensors Values Viewer"
-msgstr "Тип с_енсорів:"
+msgstr "Переглядач значень сенсорів"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
-msgstr "Поазувати значення сенсорів."
+msgstr "Показувати значення сенсорів."
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "Плагін сенсорів "
 
-#~ msgid "Xfce 4 Sensors Plugin"
-#~ msgstr "Плагін сенсорів для Xfce 4"
-
-#, fuzzy
-#~ msgid "Xfce 4 Sensors Viewer"
-#~ msgstr "Плагін сенсорів для Xfce 4"
-
-#~ msgid "Edit Properties"
-#~ msgstr "Редагувати властивості"
-
-#, fuzzy
-#~ msgid "View sensor values"
-#~ msgstr "Поазувати значення сенсорів."

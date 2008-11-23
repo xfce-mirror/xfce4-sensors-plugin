@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-13 00:18+0100\n"
-"PO-Revision-Date: 2007-01-30 21:21+0200\n"
+"PO-Revision-Date: 2008-11-04 23:27+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: Albanian <translation-team-sq@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -16,9 +16,8 @@ msgstr ""
 "X-Generator: KBabel 1.11.1\n"
 
 #: ../panel-plugin/sensors-plugin.c:225 ../panel-plugin/sensors-plugin.c:774
-#, fuzzy
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
-msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Ndijuesa</b></span>\n"
+msgstr "<span foreground=\"#000000\"><b>Ndijuesa</b></span>"
 
 #: ../panel-plugin/sensors-plugin.c:600
 msgid "No sensors selected!"
@@ -36,41 +35,35 @@ msgstr ""
 " \n"
 "Shtojcë Xfce për Ndijuesa \"Hardware\": \n"
 "Duket se ka problem me leximin e vlerës së një ndijuesi. \n"
-"Nuk garantoj dot ecurinë e duhur.\n"
+"Nuk garantohet dot ecuria e duhur.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1377
-#, fuzzy
 msgid "UI style:"
-msgstr "Stil UI-je:"
+msgstr "Stil UI:"
 
 #: ../panel-plugin/sensors-plugin.c:1378
-#, fuzzy
 msgid "_text"
-msgstr "tekst"
+msgstr "_tekst"
 
 #: ../panel-plugin/sensors-plugin.c:1380
-#, fuzzy
 msgid "g_raphical"
-msgstr "grafik"
+msgstr "_grafik"
 
 #: ../panel-plugin/sensors-plugin.c:1417
-#, fuzzy
 msgid "Show _labels in graphical UI"
-msgstr "Shfaq etiketa në UI grafike"
+msgstr "Shfaq _etiketa në UI grafike"
 
 #: ../panel-plugin/sensors-plugin.c:1447
 msgid "Show colored _bars"
-msgstr ""
+msgstr "Shfaq _shtylla me ngjyra"
 
 #: ../panel-plugin/sensors-plugin.c:1475
-#, fuzzy
 msgid "_Show title"
-msgstr "Shfaq titull"
+msgstr "_Shfaq titull"
 
 #: ../panel-plugin/sensors-plugin.c:1501
-#, fuzzy
 msgid "F_ont size:"
-msgstr "Madhësi gërmash:"
+msgstr "Madhësi _gërmash:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1508
@@ -94,36 +87,32 @@ msgid "x-large"
 msgstr "shumë të mëdha"
 
 #: ../panel-plugin/sensors-plugin.c:1540
-#, fuzzy
 msgid "Show _Units"
 msgstr "Shfaq titull"
 
 #: ../panel-plugin/sensors-plugin.c:1561
 msgid "Small horizontal s_pacing"
-msgstr ""
+msgstr "_Hapësirë horizontale e vogël"
 
 #: ../panel-plugin/sensors-plugin.c:1583
 msgid "Suppress messages"
-msgstr ""
+msgstr "Ndaloji mesazhet"
 
 #: ../panel-plugin/sensors-plugin.c:1612
-#, fuzzy
 msgid "U_pdate interval (seconds):"
-msgstr "Interval përditësimi (sekonda):"
+msgstr "Interval _përditësimi (sekonda):"
 
 #: ../panel-plugin/sensors-plugin.c:1642
-#, fuzzy
 msgid "E_xecute on double click:"
-msgstr "Veprim kur dyklikohet:"
+msgstr "Për_mbushe kur dyklikohet:"
 
 #: ../panel-plugin/sensors-plugin.c:1685
 msgid "_View"
-msgstr ""
+msgstr "_Parje"
 
 #: ../panel-plugin/sensors-plugin.c:1717
-#, fuzzy
 msgid "_Miscellaneous"
-msgstr "<b>Të ndryshme</b>"
+msgstr "Të _ndryshme"
 
 #: ../panel-plugin/sensors-plugin.c:1789 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:151
@@ -132,11 +121,15 @@ msgstr "Shtojcë Ndijuesish"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:1831
+#, fuzzy
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field.."
 msgstr ""
+"Vetitë e një karakteristike, si emri, ngjyra, vlera minimale/maksimale, mund "
+"t'i ndryshoni duke dyklikuar mbi zërin përkatës, përpunuar përmbajtjen dhe "
+"duke shtypur \"Kthehu\" ose duke përzgjedhur një fushë tjetër."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -150,23 +143,22 @@ msgstr "Hard disqe"
 
 #: ../lib/acpi.c:521 ../lib/acpi.c:529
 msgid "ACPI"
-msgstr ""
+msgstr "ACPI"
 
 #. to be displayed
 #. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
-msgstr ""
+msgstr "Zona ACPI v%s"
 
 #: ../lib/acpi.c:638
 msgid "<Unknown>"
-msgstr ""
+msgstr "<I/e panjohur>"
 
 #: ../lib/hddtemp.c:386
-#, fuzzy
 msgid "S.M.A.R.T. harddisk temperatures"
-msgstr "Nidjuesa temperature hard disku"
+msgstr "Temperatura hard disku S.M.A.R.T."
 
 #: ../lib/hddtemp.c:461
 msgid "No concrete error detected.\n"
@@ -186,10 +178,20 @@ msgid ""
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
+"\"hddtemp\" nuk u përmbush si duhej, edhe pse është i ekzekutueshëm. Kjo ka "
+"shumë të ngjarë të vijë nga që disqet lypin privilegje rrënje për të lejuar "
+"leximin e temperaturës së tyre, dhe \"hddtemp\" nuk ka setuid root hëpërhë.\n"
+"\n"
+"Një zgjidhje e lehtë, por e pistë, do të ishte të xhirohej \"chmod u+s %s\" "
+"si përdorues rrënjë dhe të rinisej shtojca apo paneli i saj.\n"
+"\n"
+"Thirrja e \"%s\" mori si përgjigje gabimin vijues:\n"
+"%s\n"
+"me vlerë përgjigje %d.\n"
 
 #: ../lib/hddtemp.c:530 ../lib/hddtemp.c:560
 msgid "Suppress this message in future"
-msgstr ""
+msgstr "Ndaloje këtë mesazh në të ardhmen"
 
 #: ../lib/hddtemp.c:554
 #, c-format
@@ -197,6 +199,8 @@ msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr ""
+"Ndodhi një gabimgjatë përmbushjes së \"%s\":\n"
+"%s"
 
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
@@ -205,17 +209,16 @@ msgstr ""
 #: ../lib/hddtemp.c:618 ../lib/sensors-interface-common.c:140
 #, c-format
 msgid "%.1f °C"
-msgstr ""
+msgstr "%.1f °C"
 
 #: ../lib/lmsensors.c:103
-#, fuzzy
 msgid "LM Sensors"
-msgstr "Tip ndijuesish:"
+msgstr "Ndijuesa LM"
 
 #: ../lib/lmsensors.c:362 ../lib/lmsensors.c:409
 #, c-format
 msgid "Error: Could not connect to sensors!"
-msgstr "Gabim: Nuk u lidha dot me ndijuesat!"
+msgstr "Gabim: Nuk u lidh dot me ndijuesat!"
 
 #: ../lib/sensors-interface.c:65
 #, fuzzy
@@ -223,24 +226,20 @@ msgid "Sensors Plugin Failure"
 msgstr "Shtojcë Ndijuesish"
 
 #: ../lib/sensors-interface.c:66
-#, fuzzy
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr ""
-" \n"
-"Shtojcë Xfce për Ndijuesa \"Hardware\": \n"
-"Duket se ka problem me leximin e vlerës së një ndijuesi. \n"
-"Nuk garantoj dot ecurinë e duhur.\n"
+"Duket se ka problem me leximin e vlerës së një ndijuesi.\n"
+"Nuk garantohet dot ecuria e duhur."
 
 #: ../lib/sensors-interface.c:134
-#, fuzzy
 msgid "Sensors t_ype:"
-msgstr "Tip ndijuesish:"
+msgstr "_Lloj ndijuesish:"
 
 #: ../lib/sensors-interface.c:159
 msgid "Description:"
-msgstr ""
+msgstr "Përshkrim:"
 
 #: ../lib/sensors-interface.c:196
 msgid "Name"
@@ -267,24 +266,20 @@ msgid "Max"
 msgstr "Maks."
 
 #: ../lib/sensors-interface.c:275
-#, fuzzy
 msgid "Temperature scale:"
 msgstr "Shkallë temperature:"
 
 #: ../lib/sensors-interface.c:277
-#, fuzzy
 msgid "_Celsius"
-msgstr "Celsius"
+msgstr "_Celsius"
 
 #: ../lib/sensors-interface.c:279
-#, fuzzy
 msgid "_Fahrenheit"
-msgstr "Fahrenheit"
+msgstr "_Fahrenheit"
 
 #: ../lib/sensors-interface.c:315
-#, fuzzy
 msgid "_Sensors"
-msgstr "Tip ndijuesish:"
+msgstr "_Ndijuesa"
 
 #: ../lib/sensors-interface-common.c:70
 msgid "No sensors found!"
@@ -293,30 +288,30 @@ msgstr "S'u gjetën ndijuesa!"
 #: ../lib/sensors-interface-common.c:137
 #, c-format
 msgid "%.1f °F"
-msgstr ""
+msgstr "%.1f °F"
 
 #: ../lib/sensors-interface-common.c:145
 #, c-format
 msgid "%+.2f V"
-msgstr ""
+msgstr "%+.2f V"
 
 #: ../lib/sensors-interface-common.c:149
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f mWh"
-msgstr "%5.0f rpm"
+msgstr "%.0f mWh"
 
 #: ../lib/sensors-interface-common.c:154
 msgid "off"
-msgstr ""
+msgstr "off"
 
 #: ../lib/sensors-interface-common.c:156
 msgid "on"
-msgstr ""
+msgstr "on"
 
 #: ../lib/sensors-interface-common.c:160
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f rpm"
-msgstr "%5.0f rpm"
+msgstr "%.0f rpm"
 
 #: ../src/main.c:46
 #, c-format
@@ -329,7 +324,7 @@ msgid ""
 msgstr ""
 
 #: ../src/main.c:58
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
 "Displays information about your sensors and ACPI.\n"
@@ -342,52 +337,57 @@ msgid ""
 "\n"
 "This program is published under the GPL v2.\n"
 msgstr ""
+"Ndijuesa Xfce4 %s\n"
+"Shfaq të dhëna rreth ndijuesave tuaj dhe ACPI.\n"
+"Përmbledhtas: \n"
+"  mundësi për xfce4-sensors\n"
+"ku mundësitë mund të jenë një ose disa nga vijueset:\n"
+"  -h, --help Shtyp këtë dialog ndihme.\n"
+"\n"
+"Ky program qarkullon sipas GPL v2.\n"
 
 #: ../src/main.c:75
 #, fuzzy, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr "Shtojcë Ndijuesish"
+msgstr "Ndijuesa Xfce 4"
 
 #: ../src/interface.c:61
-#, fuzzy
 msgid "Sensors Viewer"
-msgstr "Tip ndijuesish:"
+msgstr "Parës Ndijuesish"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 #, fuzzy
 msgid "Sensor Viewer"
-msgstr "Tip ndijuesish:"
+msgstr "Parës Ndijuesish"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
 #, fuzzy
 msgid "Sensors Values Viewer"
-msgstr "Tip ndijuesish:"
+msgstr "Parës Ndijuesish"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
-#, fuzzy
 msgid "Show sensor values."
 msgstr "Shfaq vlera ndijuesish."
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Sensor plugin "
-msgstr "Shtojcë ndijuesi"
+msgstr "Shtojcë ndijuesish"
 
-#, fuzzy
+msgid "<b>View</b>"
+msgstr "<b>Parje</b>"
+
 #~ msgid "Xfce 4 Sensors Plugin"
 #~ msgstr "Shtojcë Ndijuesish"
 
-#, fuzzy
 #~ msgid "Xfce 4 Sensors Viewer"
-#~ msgstr "Shtojcë Ndijuesish"
+#~ msgstr "Parës Ndijuesish Xfce4"
 
 #~ msgid "Edit Properties"
 #~ msgstr "Përpunoni Veti"
 
-#, fuzzy
 #~ msgid "View sensor values"
-#~ msgstr "Shfaq vlera ndijuesish."
+#~ msgstr "Shihni vlera ndijuesish"
 
 #, fuzzy
 #~ msgid ""
@@ -398,16 +398,31 @@ msgstr "Shtojcë ndijuesi"
 #~ " \n"
 #~ "Shtojcë Xfce për Ndijuesa \"Hardware\": \n"
 #~ "Duket se ka problem me leximin e vlerës së një ndijuesi. \n"
-#~ "Nuk garantoj dot ecurinë e duhur.\n"
+#~ "Nuk garantohet dot ecuria e duhur.\n"
 
+#, fuzzy
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
-#~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Ndijuesa</b></span>\n"
+#~ msgstr "<span foreground=\"#000000\"><b>Ndijuesa</b></span>"
 
+#, fuzzy
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
-#~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Ndijuesa</b></span>"
+#~ msgstr "<span foreground=\"#000000\"><b>Ndijuesa</b></span>"
 
+#, fuzzy
 #~ msgid "<b>Sensors</b>"
-#~ msgstr "<b>Ndijuesa</b>"
+#~ msgstr "_Ndijuesa"
 
-#~ msgid "<b>View</b>"
-#~ msgstr "<b>Parje</b>"
+#~ msgid "%5.1f °F"
+#~ msgstr "%5.1f °F"
+
+#~ msgid "%5.1f °C"
+#~ msgstr "%5.1f °C"
+
+#~ msgid "%+5.2f V"
+#~ msgstr "%+5.2f V"
+
+#~ msgid "%5.0f rpm"
+#~ msgstr "%5.0f rpm"
+
+#~ msgid "Graphical Sensors Viewer for Xfce 4"
+#~ msgstr "Parës Grafik Ndijuesish për Xfce 4-n"
