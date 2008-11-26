@@ -41,25 +41,10 @@ create_main_window (t_sensors_dialog *sd)
 
     GtkWidget *dlg, *vbox;
 
-
     /* start and populate */
-    /* dlg = (GtkWidget *) gtk_dialog_new_with_buttons (_("Sensors Viewer"),
-                NULL, // anciently: GTK_WINDOW(gtk_get_toplevel(plugin));
-                GTK_DIALOG_NO_SEPARATOR, // anciently: | GTK_DIALOG_DESTROY_WITH_PARENT
-                GTK_STOCK_CLOSE, GTK_RESPONSE_OK, NULL);
-
-    gtk_container_set_border_width (GTK_CONTAINER (dlg), 2);
-
-    header = (GtkWidget *) xfce_create_framebox (_("View sensor values"), dlg); */
-/*    gtk_widget_set_size_request (GTK_BIN (header)->child, -1, 32);
-    gtk_container_set_border_width (GTK_CONTAINER (header), BORDER-2); */
-    /* gtk_widget_show (header);
-    gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dlg)->vbox), header,
-                        FALSE, TRUE, 0); */
-
     dlg = xfce_titled_dialog_new_with_buttons(
                 _("Sensors Viewer"),
-                NULL, //GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
+                NULL,
                 GTK_DIALOG_NO_SEPARATOR,
                 GTK_STOCK_CLOSE,
                 GTK_RESPONSE_OK,
@@ -68,9 +53,10 @@ create_main_window (t_sensors_dialog *sd)
 
     gtk_window_set_icon_name(GTK_WINDOW(dlg),"xfce-sensors");
 
-    gtk_container_set_border_width (GTK_CONTAINER (dlg), 2);
+    gtk_container_set_border_width (GTK_CONTAINER (dlg), BORDER>>1);
 
     vbox = GTK_DIALOG (dlg)->vbox;
+    gtk_box_set_spacing(GTK_BOX(vbox), BORDER>>1);
 
     sd->dialog = dlg;
 
@@ -80,12 +66,6 @@ create_main_window (t_sensors_dialog *sd)
 
     gtk_combo_box_set_active (GTK_COMBO_BOX(sd->myComboBox), 0);
 
-    /* notebook = gtk_notebook_new ();
-
-    gtk_box_pack_start (GTK_BOX(vbox), notebook, TRUE, TRUE, 0);
-    gtk_widget_show(notebook);
-
-    add_sensors_frame (notebook, sd); */
     add_type_box(vbox, sd);
     add_sensor_settings_box(vbox, sd);
     add_temperature_unit_box(vbox, sd);

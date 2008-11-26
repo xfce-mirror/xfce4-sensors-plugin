@@ -1838,7 +1838,7 @@ sensors_create_options (XfcePanelPlugin *plugin, t_sensors *sensors)
       tooltips = gtk_tooltips_new();
 
     /* #if GTK_VERSION < 2.11 */
-    myToolTipText = g_strdup(_("You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field.."));
+    myToolTipText = g_strdup(_("You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."));
     gtk_tooltips_set_tip (tooltips, GTK_WIDGET(sd->myTreeView),
                           myToolTipText, NULL);
     g_free (myToolTipText);

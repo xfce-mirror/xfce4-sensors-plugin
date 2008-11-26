@@ -274,15 +274,15 @@ add_sensor_settings_box ( GtkWidget * vbox, t_sensors_dialog * sd)
                         GTK_TREE_VIEW_COLUMN(aTreeViewColumn));
 
     myScrolledWindow = gtk_scrolled_window_new (NULL, NULL);
-        gtk_scrolled_window_set_policy (
-            GTK_SCROLLED_WINDOW (myScrolledWindow), GTK_POLICY_AUTOMATIC,
-            GTK_POLICY_AUTOMATIC);
-        gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (myScrolledWindow),
-                                           GTK_SHADOW_ETCHED_IN);
-        gtk_container_set_border_width (GTK_CONTAINER (myScrolledWindow), 0);
-        /* gtk_scrolled_window_add_with_viewport (
-            GTK_SCROLLED_WINDOW (myScrolledWindow), sd->myTreeView); */
-        gtk_container_add (GTK_CONTAINER (myScrolledWindow), sd->myTreeView);
+    gtk_scrolled_window_set_policy (
+        GTK_SCROLLED_WINDOW (myScrolledWindow), GTK_POLICY_AUTOMATIC,
+        GTK_POLICY_AUTOMATIC);
+    gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (myScrolledWindow),
+                                       GTK_SHADOW_ETCHED_IN);
+    gtk_container_set_border_width (GTK_CONTAINER (myScrolledWindow), 0);
+    /* gtk_scrolled_window_add_with_viewport (
+        GTK_SCROLLED_WINDOW (myScrolledWindow), sd->myTreeView); */
+    gtk_container_add (GTK_CONTAINER (myScrolledWindow), sd->myTreeView);
 
     gtk_box_pack_start (GTK_BOX (vbox), myScrolledWindow, TRUE, TRUE, BORDER);
 
