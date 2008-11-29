@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-13 00:18+0100\n"
-"PO-Revision-Date: 2008-11-06 22:06-0400\n"
+"PO-Revision-Date: 2008-11-28 21:49-0500\n"
 "Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
@@ -29,13 +29,13 @@ msgstr "Nenhum sensor selecionado!"
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
 #: ../panel-plugin/sensors-plugin.c:637
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-"Plug-in de sensores de hardware do Xfce:\n"
+"Plug-in de sensores:\n"
 "Parece ter ocorrido um problema durante a leitura de algum sensor.\n"
 "Não é possível garantir o procedimento apropriado.\n"
 
@@ -223,9 +223,8 @@ msgid "Error: Could not connect to sensors!"
 msgstr "Erro: Não foi possível conectar-se aos sensores!"
 
 #: ../lib/sensors-interface.c:65
-#, fuzzy
 msgid "Sensors Plugin Failure"
-msgstr "Plug-in de sensores"
+msgstr "Falha do plug-in de sensores"
 
 #: ../lib/sensors-interface.c:66
 msgid ""
@@ -331,7 +330,7 @@ msgstr ""
 "licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:58
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
 "Displays information about your sensors and ACPI.\n"
@@ -351,7 +350,7 @@ msgstr ""
 "onde opções são um ou mais dos seguintes:\n"
 "  -h, --help    Imprime este diálogo de ajuda.\n"
 "  -l, --license Imprime informação sobre a licença.\n"
-"  -v, --version Imprime informação sobre a versão.\n"
+"  -V, --version Imprime informação sobre a versão.\n"
 "\n"
 "Este programa é publicado sob a GPL v2.\n"
 
@@ -361,7 +360,6 @@ msgid "Xfce4 Sensors %s\n"
 msgstr "Sensores do Xfce %s\n"
 
 #: ../src/interface.c:61
-#, fuzzy
 msgid "Sensors Viewer"
 msgstr "Visualizador de sensores"
 
