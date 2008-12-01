@@ -10,7 +10,6 @@ bin_PROGRAMS = \
 #	-DG_LOG_DOMAIN=\"xfce4-sensors-plugin\"						 \
 #	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
 
-
 # LIBS = @LIBS@ @SOLLIBS@
 # CFLAGS = @CFLAGS@
 
@@ -35,7 +34,7 @@ xfce4_sensors_CFLAGS = \
 #	@LIBXFCE4PANEL_CFLAGS@
 
 xfce4_sensors_LDFLAGS = 								\
-	-no-undefined								\
+	--no-undefined								\
 	@PLATFORM_LDFLAGS@
 
 xfce4_sensors_LDADD = 								\
