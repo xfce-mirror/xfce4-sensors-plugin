@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.10.99.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-13 00:18+0100\n"
-"PO-Revision-Date: 2008-10-10 08:35+0100\n"
+"PO-Revision-Date: 2008-11-26 13:54+0100\n"
 "Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,8 @@ msgstr ""
 "X-Poedit-Country: DENMARK\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../panel-plugin/sensors-plugin.c:225 ../panel-plugin/sensors-plugin.c:774
+#: ../panel-plugin/sensors-plugin.c:225
+#: ../panel-plugin/sensors-plugin.c:774
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Sensorer</b></span>"
 
@@ -29,14 +30,14 @@ msgstr "Ingen sensorer valgt!"
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
 #: ../panel-plugin/sensors-plugin.c:637
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-"Udvidelsesmodul for Xfce-hardwaresensorer:\n"
-"Det lader til, at der var et problem med at læse en sensorværdi.\n"
+"Udvidelsesmodul for sensorer:\n"
+"Det lader til, at der var et problem med at læse en sensors funktionsværdi.\n"
 "Korrekt viderebehandling kan ikke garanteres.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1377
@@ -94,7 +95,7 @@ msgstr "Vis _enheder"
 
 #: ../panel-plugin/sensors-plugin.c:1561
 msgid "Small horizontal s_pacing"
-msgstr "Små horisontale _mellemrum"
+msgstr "Små vandrette _mellemrum"
 
 #: ../panel-plugin/sensors-plugin.c:1583
 msgid "Suppress messages"
@@ -116,30 +117,32 @@ msgstr "_Vis"
 msgid "_Miscellaneous"
 msgstr "_Diverse"
 
-#: ../panel-plugin/sensors-plugin.c:1789 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:1789
+#: ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:151
 msgid "Sensors Plugin"
 msgstr "Udvidelsesmodul for sensorer"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:1831
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field.."
-msgstr ""
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field.."
+msgstr "Du kan ændre en funktions egenskaber såsom navn, farver, minimum-/maksimumværdier ved at dobbeltklikke elementet, redigering af indhold og trykke \"Return\" eller vælge et andet felt."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:152 ../lib/configuration.c:332
-#: ../lib/configuration.c:339 ../lib/hddtemp.c:341 ../lib/hddtemp.c:382
+#: ../lib/configuration.c:152
+#: ../lib/configuration.c:332
+#: ../lib/configuration.c:339
+#: ../lib/hddtemp.c:341
+#: ../lib/hddtemp.c:382
 #: ../lib/hddtemp.c:387
 msgid "Hard disks"
 msgstr "Harddiske"
 
-#: ../lib/acpi.c:521 ../lib/acpi.c:529
+#: ../lib/acpi.c:521
+#: ../lib/acpi.c:529
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -160,34 +163,29 @@ msgstr "S.M.A.R.T. harddisk-temperaturer"
 
 #: ../lib/hddtemp.c:461
 msgid "No concrete error detected.\n"
-msgstr ""
+msgstr "Ingen konkret fejl fundet.\n"
 
 #: ../lib/hddtemp.c:514
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" blev ikke kørt korrekt, selv om den er eksekverbar. Dette "
-"skyldes nok, at diskene kræver root-rettigheder for at læse deres "
-"temperaturer, og at \"hddtemp\" ikke er kørt som root.\n"
+"\"hddtemp\" blev ikke kørt korrekt, selvom denne er kørselbar. Dette skyldes mest sandsynligt, at diskene kræver rodrettigheder for at aflæse deres temperaturer, og \"hddtemp\" er ikke setuid-rod.\n"
 "\n"
-"En hurtig, men beskidt løsning er at køre \"chmod u+s %s\" som root-bruger, "
-"og genstarte dette udvidelsesmodul eller dets panel.\n"
+"En let men ikke pæn løsning er at køre \"chmod u+s %s\" som rod-bruger og genstarte dette udvidelsesmodul eller dets paneler.\n"
 "\n"
-"Afvikling af \"%s\" gav følgende fejl:\n"
+"Kaldet \"%s\" gav følgende fejl:\n"
 "%s\n"
-"med returkoden %d.\n"
+"med en svarværdi %d.\n"
 
-#: ../lib/hddtemp.c:530 ../lib/hddtemp.c:560
+#: ../lib/hddtemp.c:530
+#: ../lib/hddtemp.c:560
 msgid "Suppress this message in future"
 msgstr "Undertryk denne besked for fremtiden"
 
@@ -204,37 +202,35 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:618 ../lib/sensors-interface-common.c:140
-#, fuzzy, c-format
+#: ../lib/hddtemp.c:618
+#: ../lib/sensors-interface-common.c:140
+#, c-format
 msgid "%.1f °C"
-msgstr "%5.1f °C"
+msgstr "%.1f °C"
 
 #: ../lib/lmsensors.c:103
 msgid "LM Sensors"
 msgstr "LM-sensorer"
 
-#: ../lib/lmsensors.c:362 ../lib/lmsensors.c:409
+#: ../lib/lmsensors.c:362
+#: ../lib/lmsensors.c:409
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Fejl: Kunne ikke forbinde til sensorer!"
 
 #: ../lib/sensors-interface.c:65
-#, fuzzy
 msgid "Sensors Plugin Failure"
-msgstr "Udvidelsesmodul for sensorer"
+msgstr "Udvidelsesmodul for sensorer fejlede"
 
 #: ../lib/sensors-interface.c:66
-#, fuzzy
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr ""
-"Udvidelsesmodul for Xfce-hardwaresensorer:\n"
-"Det lader til, at der var et problem med at læse en sensorværdi.\n"
-"Korrekt viderebehandling kan ikke garanteres.\n"
+"Det lader til, at der var et problem med at læse en sensors funktionsværdi.\n"
+"Korrekt viderebehandling kan ikke garanteres."
 
 #: ../lib/sensors-interface.c:134
-#, fuzzy
 msgid "Sensors t_ype:"
 msgstr "Sensor_type:"
 
@@ -287,14 +283,14 @@ msgid "No sensors found!"
 msgstr "Ingen sensorer fundet!"
 
 #: ../lib/sensors-interface-common.c:137
-#, fuzzy, c-format
+#, c-format
 msgid "%.1f °F"
-msgstr "%5.1f °F"
+msgstr "%.1f °F"
 
 #: ../lib/sensors-interface-common.c:145
-#, fuzzy, c-format
+#, c-format
 msgid "%+.2f V"
-msgstr "%+5.2f V"
+msgstr "%+.2f V"
 
 #: ../lib/sensors-interface-common.c:149
 #, c-format
@@ -310,19 +306,20 @@ msgid "on"
 msgstr "tændt"
 
 #: ../lib/sensors-interface-common.c:160
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f rpm"
-msgstr "%5.0f o/m."
+msgstr "%.0f o/m."
 
 #: ../src/main.c:46
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
+"Sensorer %s til Xfce4\n"
+"Dette program er udgivet under GPL v2.\n"
+"Licensteksten kan findes i programmets kildearkiv eller under /usr/share/apps/LICENSES/GPL_V2 eller på http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:58
 #, c-format
@@ -338,26 +335,33 @@ msgid ""
 "\n"
 "This program is published under the GPL v2.\n"
 msgstr ""
+"Sensorer %s til Xfce4\n"
+"Viser information om dine sensorer og ACPI.\n"
+"Synopsis: \n"
+"  xfce4-sensorer tilvalg\n"
+"hvor tilvalg er en eller flere af de følgende:\n"
+"  -h, --help    Viser denne hjælpedialog.\n"
+"  -l, --license Viser licensinformation.\n"
+"  -V, --version Viser versionsinformation.\n"
+"\n"
+"Dette program er udgivet under GPL v2.\n"
 
 #: ../src/main.c:75
-#, fuzzy, c-format
+#, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr "Xfce 4 udvidelsesmodul for sensorer"
+msgstr "Sensorer %s til Xfce4\n"
 
 #: ../src/interface.c:61
-#, fuzzy
 msgid "Sensors Viewer"
-msgstr "Sensor_type:"
+msgstr "Sensorviser"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
-#, fuzzy
 msgid "Sensor Viewer"
-msgstr "Sensor_type:"
+msgstr "Sensorviser"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
-#, fuzzy
 msgid "Sensors Values Viewer"
-msgstr "Sensor_type:"
+msgstr "Sensorværdiviser"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
@@ -368,16 +372,6 @@ msgstr "Vis sensorværdier."
 msgid "Sensor plugin "
 msgstr "Sensor-udvidelsesmodul "
 
-#~ msgid "Xfce 4 Sensors Plugin"
-#~ msgstr "Xfce 4 udvidelsesmodul for sensorer"
-
-#, fuzzy
-#~ msgid "Xfce 4 Sensors Viewer"
-#~ msgstr "Xfce 4 udvidelsesmodul for sensorer"
-
 #~ msgid "Edit Properties"
 #~ msgstr "Redigér egenskaber"
 
-#, fuzzy
-#~ msgid "View sensor values"
-#~ msgstr "Vis sensorværdier."
