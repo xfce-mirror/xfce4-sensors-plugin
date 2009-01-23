@@ -1,9 +1,9 @@
 # $Id$
 
-SUBDIRS = 					\
-	include					\
+SUBDIRS = 						\
+	include						\
 	lib							\
-	panel-plugin		\
+	panel-plugin				\
 	src							\
 	po							\
 	icons
@@ -29,10 +29,10 @@ EXTRA_DIST =							\
 	ChangeLog							\
 	INSTALL								\
 	LICENSE								\
-	NEWS									\
+	NEWS								\
 	README								\
-	TODO									\
-	NOTES									\
+	TODO								\
+	NOTES								\
 	xfce4-sensors-plugin.spec.in		\
 	intltool-extract.in                 \
 	intltool-merge.in                   \
@@ -44,10 +44,12 @@ DISTCLEANFILES =						\
 	intltool-update						\
 	xfce4-sensors-plugin.spec
 
-DISTCHECK_CONFIGURE_FLAGS =						\
-	--with-libsensors						\
-	--with-hddtemp							\
-	--with-acpi
+DISTCHECK_CONFIGURE_FLAGS =				\
+	--with-libnotify					\
+	--with-libsensors					\
+	--with-hddtemp						\
+	--with-netcat						\
+	--with-procacpi
 
 checksums: distcheck
 	sha1sum $(PACKAGE)-$(VERSION).tar.bz2 > $(PACKAGE)-$(VERSION).tar.bz2.sha1.asc
@@ -60,4 +62,3 @@ release: gpg-sign
 	mv $(PACKAGE)-$(VERSION).tar.bz2* releases/
 	-rm $(PACKAGE)-$(VERSION).tar.gz
 
-# vi:set ts=4 sw=4 noet ai nocindent syntax=automake:
