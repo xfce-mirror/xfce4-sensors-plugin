@@ -22,5 +22,5 @@ Installation: ./configure && make && [sudo] make install
 Bugs: Refer to TODO file
 
 Thanks to: Xfce Team and Enrico Tröger for additional help; 
-           Raphael Grohner for bug-hunting, usability reports, feature requests.
+           Raphael Groner for bug-hunting, usability reports, feature requests.
 
