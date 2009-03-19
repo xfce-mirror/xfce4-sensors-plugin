@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-17 16:52+0200\n"
+"POT-Creation-Date: 2009-03-19 21:00+0100\n"
 "PO-Revision-Date: 2008-12-17 17:12+0200\n"
 "Last-Translator: Jari Rahkonen <jari.rahkonen@pp1.inet.fi>\n"
 "Language-Team: Finnish\n"
@@ -137,8 +137,7 @@ msgstr ""
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
 #: ../lib/configuration.c:152 ../lib/configuration.c:332
-#: ../lib/configuration.c:339 ../lib/hddtemp.c:342 ../lib/hddtemp.c:383
-#: ../lib/hddtemp.c:388
+#: ../lib/configuration.c:339 ../lib/hddtemp.c:342 ../lib/hddtemp.c:388
 msgid "Hard disks"
 msgstr "Kiintolevyt"
 

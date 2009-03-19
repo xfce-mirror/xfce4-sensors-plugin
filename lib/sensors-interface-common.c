@@ -70,10 +70,10 @@ sensors_new (XfcePanelPlugin *plugin, gchar *plugin_config_file)
         chip->sensorId = g_strdup(_("No sensors found!"));
         chip->num_features = 1;
         chipfeature->color = g_strdup("#000000");
-        g_free (chipfeature->name);
+        /* g_free (chipfeature->name); */
         chipfeature->name = g_strdup("No sensor");
         chipfeature->valid = TRUE;
-        g_free (chipfeature->formatted_value);
+        /* g_free (chipfeature->formatted_value); */
         chipfeature->formatted_value = g_strdup("0.0");
         chipfeature->raw_value = 0.0;
         chipfeature->min_value = 0;

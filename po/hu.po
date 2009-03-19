@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-13 00:18+0100\n"
+"POT-Creation-Date: 2009-03-19 21:00+0100\n"
 "PO-Revision-Date: 2008-07-11 17:37+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: hu\n"
@@ -12,7 +12,7 @@ msgstr ""
 "X-Poedit-Language: Hungarian\n"
 "X-Poedit-Country: HUNGARY\n"
 
-#: ../panel-plugin/sensors-plugin.c:225 ../panel-plugin/sensors-plugin.c:774
+#: ../panel-plugin/sensors-plugin.c:225 ../panel-plugin/sensors-plugin.c:783
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Érzékelők</b></span>"
 
@@ -22,7 +22,7 @@ msgstr "Nincsenek érzékelők!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:637
+#: ../panel-plugin/sensors-plugin.c:638
 #, fuzzy, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -33,94 +33,94 @@ msgstr ""
 "Úgy tűnik, gond van egy érzékelő értékeinek kiolvasásával. \n"
 "A helyes működés nem szavatolt.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1377
+#: ../panel-plugin/sensors-plugin.c:1386
 msgid "UI style:"
 msgstr "UI stílus:"
 
-#: ../panel-plugin/sensors-plugin.c:1378
+#: ../panel-plugin/sensors-plugin.c:1387
 msgid "_text"
 msgstr "s_zöveg"
 
-#: ../panel-plugin/sensors-plugin.c:1380
+#: ../panel-plugin/sensors-plugin.c:1389
 msgid "g_raphical"
 msgstr "g_rafikus"
 
-#: ../panel-plugin/sensors-plugin.c:1417
+#: ../panel-plugin/sensors-plugin.c:1426
 msgid "Show _labels in graphical UI"
 msgstr "Címkék a grafikus UI-ben"
 
-#: ../panel-plugin/sensors-plugin.c:1447
+#: ../panel-plugin/sensors-plugin.c:1456
 msgid "Show colored _bars"
 msgstr "Színes sá_vok mutatása"
 
-#: ../panel-plugin/sensors-plugin.c:1475
+#: ../panel-plugin/sensors-plugin.c:1484
 msgid "_Show title"
 msgstr "Cím mutatá_sa"
 
-#: ../panel-plugin/sensors-plugin.c:1501
+#: ../panel-plugin/sensors-plugin.c:1510
 msgid "F_ont size:"
 msgstr "_Betű mérete:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1508
+#: ../panel-plugin/sensors-plugin.c:1517
 msgid "x-small"
 msgstr "törpe"
 
-#: ../panel-plugin/sensors-plugin.c:1509
+#: ../panel-plugin/sensors-plugin.c:1518
 msgid "small"
 msgstr "kicsi"
 
-#: ../panel-plugin/sensors-plugin.c:1510
+#: ../panel-plugin/sensors-plugin.c:1519
 msgid "medium"
 msgstr "közepes"
 
-#: ../panel-plugin/sensors-plugin.c:1511
+#: ../panel-plugin/sensors-plugin.c:1520
 msgid "large"
 msgstr "nagy"
 
-#: ../panel-plugin/sensors-plugin.c:1512
+#: ../panel-plugin/sensors-plugin.c:1521
 msgid "x-large"
 msgstr "óriás"
 
-#: ../panel-plugin/sensors-plugin.c:1540
+#: ../panel-plugin/sensors-plugin.c:1549
 msgid "Show _Units"
 msgstr "Egységek mutatása"
 
-#: ../panel-plugin/sensors-plugin.c:1561
+#: ../panel-plugin/sensors-plugin.c:1570
 msgid "Small horizontal s_pacing"
 msgstr "Kis vízszintes térközök"
 
-#: ../panel-plugin/sensors-plugin.c:1583
+#: ../panel-plugin/sensors-plugin.c:1592
 msgid "Suppress messages"
 msgstr "Üzenetek rejtése"
 
-#: ../panel-plugin/sensors-plugin.c:1612
+#: ../panel-plugin/sensors-plugin.c:1621
 msgid "U_pdate interval (seconds):"
 msgstr "Frissítési időközök (másodpercben):"
 
-#: ../panel-plugin/sensors-plugin.c:1642
+#: ../panel-plugin/sensors-plugin.c:1651
 msgid "E_xecute on double click:"
 msgstr "Futtatás dupla kattintásra:"
 
-#: ../panel-plugin/sensors-plugin.c:1685
+#: ../panel-plugin/sensors-plugin.c:1694
 msgid "_View"
 msgstr "_Nézet"
 
-#: ../panel-plugin/sensors-plugin.c:1717
+#: ../panel-plugin/sensors-plugin.c:1726
 msgid "_Miscellaneous"
 msgstr "Egyebek"
 
-#: ../panel-plugin/sensors-plugin.c:1789 ../panel-plugin/sensors-plugin.h:30
-#: ../lib/hddtemp.c:151
+#: ../panel-plugin/sensors-plugin.c:1798 ../panel-plugin/sensors-plugin.h:30
+#: ../lib/hddtemp.c:152
 msgid "Sensors Plugin"
 msgstr "Érzékelők"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:1831
+#: ../panel-plugin/sensors-plugin.c:1841
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field.."
+"or selecting a different field."
 msgstr ""
 
 #. only use this if no hddtemp sensor
@@ -128,8 +128,7 @@ msgstr ""
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
 #: ../lib/configuration.c:152 ../lib/configuration.c:332
-#: ../lib/configuration.c:339 ../lib/hddtemp.c:341 ../lib/hddtemp.c:382
-#: ../lib/hddtemp.c:387
+#: ../lib/configuration.c:339 ../lib/hddtemp.c:342 ../lib/hddtemp.c:388
 msgid "Hard disks"
 msgstr "Merevlemezek"
 
@@ -148,15 +147,15 @@ msgstr "ACPI v%s zónák"
 msgid "<Unknown>"
 msgstr "<Ismeretlen>"
 
-#: ../lib/hddtemp.c:386
+#: ../lib/hddtemp.c:387
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "S.M.A.R.T. merevlemez hőmérséklet"
 
-#: ../lib/hddtemp.c:461
+#: ../lib/hddtemp.c:464
 msgid "No concrete error detected.\n"
 msgstr ""
 
-#: ../lib/hddtemp.c:514
+#: ../lib/hddtemp.c:517
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is "
@@ -171,11 +170,11 @@ msgid ""
 "with a return value of %d.\n"
 msgstr ""
 
-#: ../lib/hddtemp.c:530 ../lib/hddtemp.c:560
+#: ../lib/hddtemp.c:533 ../lib/hddtemp.c:563
 msgid "Suppress this message in future"
 msgstr "Ezen üzenet rejtése a jövőben"
 
-#: ../lib/hddtemp.c:554
+#: ../lib/hddtemp.c:557
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
@@ -188,7 +187,7 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:618 ../lib/sensors-interface-common.c:140
+#: ../lib/hddtemp.c:629 ../lib/sensors-interface-common.c:140
 #, fuzzy, c-format
 msgid "%.1f °C"
 msgstr "%5.1f °C"
@@ -202,12 +201,12 @@ msgstr "LM érzékelők"
 msgid "Error: Could not connect to sensors!"
 msgstr "Hiba: nem lehet érzékelőkhöz kapcsolódni!"
 
-#: ../lib/sensors-interface.c:65
+#: ../lib/sensors-interface.c:66
 #, fuzzy
 msgid "Sensors Plugin Failure"
 msgstr "Érzékelők"
 
-#: ../lib/sensors-interface.c:66
+#: ../lib/sensors-interface.c:67
 #, fuzzy
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
@@ -217,52 +216,52 @@ msgstr ""
 "Úgy tűnik, gond van egy érzékelő értékeinek kiolvasásával. \n"
 "A helyes működés nem szavatolt.\n"
 
-#: ../lib/sensors-interface.c:134
+#: ../lib/sensors-interface.c:145
 #, fuzzy
 msgid "Sensors t_ype:"
 msgstr "Érzékelők tí_pusa:"
 
-#: ../lib/sensors-interface.c:159
+#: ../lib/sensors-interface.c:170
 msgid "Description:"
 msgstr "Leírás:"
 
-#: ../lib/sensors-interface.c:196
+#: ../lib/sensors-interface.c:208
 msgid "Name"
 msgstr "Név"
 
-#: ../lib/sensors-interface.c:205
+#: ../lib/sensors-interface.c:218
 msgid "Value"
 msgstr "Érték"
 
-#: ../lib/sensors-interface.c:211
+#: ../lib/sensors-interface.c:226
 msgid "Show"
 msgstr "Megjelenítés"
 
-#: ../lib/sensors-interface.c:220
+#: ../lib/sensors-interface.c:235
 msgid "Color"
 msgstr "Szín"
 
-#: ../lib/sensors-interface.c:230
+#: ../lib/sensors-interface.c:248 ../lib/sensors-interface.c:254
 msgid "Min"
 msgstr "Min"
 
-#: ../lib/sensors-interface.c:239
+#: ../lib/sensors-interface.c:265 ../lib/sensors-interface.c:271
 msgid "Max"
 msgstr "Max"
 
-#: ../lib/sensors-interface.c:275
+#: ../lib/sensors-interface.c:306
 msgid "Temperature scale:"
 msgstr "Hőfok skála:"
 
-#: ../lib/sensors-interface.c:277
+#: ../lib/sensors-interface.c:308
 msgid "_Celsius"
 msgstr "_Celsius"
 
-#: ../lib/sensors-interface.c:279
+#: ../lib/sensors-interface.c:310
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../lib/sensors-interface.c:315
+#: ../lib/sensors-interface.c:346
 msgid "_Sensors"
 msgstr "Érzékelők"
 
@@ -328,7 +327,7 @@ msgstr ""
 msgid "Xfce4 Sensors %s\n"
 msgstr "Xfce 4 érzékelő beillesztés"
 
-#: ../src/interface.c:61
+#: ../src/interface.c:46
 #, fuzzy
 msgid "Sensors Viewer"
 msgstr "Érzékelők tí_pusa:"

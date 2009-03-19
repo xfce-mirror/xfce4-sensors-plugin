@@ -379,8 +379,8 @@ initialize_hddtemp (GPtrArray *chips, gboolean *suppressmessage)
 
     chip = g_new (t_chip, 1);
 
-    chip->chip_name = (const sensors_chip_name *)
-            ( _("Hard disks"), 0, 0, _("Hard disks") );
+/*    chip->chip_name = (const sensors_chip_name *)
+            ( _("Hard disks"), 0, 0, _("Hard disks") ); */
 
     chip->chip_features = g_ptr_array_new ();
     chip->num_features = 0;
