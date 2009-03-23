@@ -437,7 +437,7 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
     gchar *standard_output, *standard_error;
     gchar *cmd_line, *msg_text;
 #ifndef HAVE_LIBNOTIFY
-    gchar *checktext;
+    gchar *checktext = NULL;
 #endif
     gint exit_status=0;
     double value;
