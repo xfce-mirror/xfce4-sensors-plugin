@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-19 21:00+0100\n"
-"PO-Revision-Date: 2008-12-19 22:26+0700\n"
+"PO-Revision-Date: 2009-04-09 21:46-0400\n"
 "Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -120,7 +120,6 @@ msgstr "Plugin Sensor"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:1841
-#, fuzzy
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -128,7 +127,7 @@ msgid ""
 msgstr ""
 "Anda dapat mengubah properti fitur seperti nama, warna, nilai min/maks "
 "dengan klik ganda pada entri, sunting isi, dan menekan \"Kembali\" atau "
-"memilih bidang yang lain..."
+"memilih bidang yang lain."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
