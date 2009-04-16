@@ -12,15 +12,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-19 21:00+0100\n"
-"PO-Revision-Date: 2009-03-07 20:56+0100\n"
-"Last-Translator: Leandro Regueiro <leandro DOT regueiro AT gmail DOT com>\n"
+"PO-Revision-Date: 2009-04-14 21:24+0100\n"
+"Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: ../panel-plugin/sensors-plugin.c:225 ../panel-plugin/sensors-plugin.c:783
+#: ../panel-plugin/sensors-plugin.c:225
+#: ../panel-plugin/sensors-plugin.c:783
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Sensores</b></span>"
 
@@ -121,29 +122,31 @@ msgstr "_Ver"
 msgid "_Miscellaneous"
 msgstr "_Miscelánea"
 
-#: ../panel-plugin/sensors-plugin.c:1798 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:1798
+#: ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:152
 msgid "Sensors Plugin"
 msgstr "Engadido de sensores"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:1841
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field."
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
 msgstr ""
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:152 ../lib/configuration.c:332
-#: ../lib/configuration.c:339 ../lib/hddtemp.c:342 ../lib/hddtemp.c:388
+#: ../lib/configuration.c:152
+#: ../lib/configuration.c:332
+#: ../lib/configuration.c:339
+#: ../lib/hddtemp.c:342
+#: ../lib/hddtemp.c:388
 msgid "Hard disks"
 msgstr "Discos duros"
 
-#: ../lib/acpi.c:521 ../lib/acpi.c:529
+#: ../lib/acpi.c:521
+#: ../lib/acpi.c:529
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -160,7 +163,7 @@ msgstr "<Descoñecido>"
 
 #: ../lib/hddtemp.c:387
 msgid "S.M.A.R.T. harddisk temperatures"
-msgstr ""
+msgstr "temperaturas do disco duro S.M.A.R.T."
 
 #: ../lib/hddtemp.c:464
 msgid "No concrete error detected.\n"
@@ -169,19 +172,17 @@ msgstr "Non se detectou ningún erro concreto.\n"
 #: ../lib/hddtemp.c:517
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
 
-#: ../lib/hddtemp.c:533 ../lib/hddtemp.c:563
+#: ../lib/hddtemp.c:533
+#: ../lib/hddtemp.c:563
 msgid "Suppress this message in future"
 msgstr "Suprimir esta mensaxe no futuro"
 
@@ -198,7 +199,8 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:629 ../lib/sensors-interface-common.c:140
+#: ../lib/hddtemp.c:629
+#: ../lib/sensors-interface-common.c:140
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -207,7 +209,8 @@ msgstr "%.1f °C"
 msgid "LM Sensors"
 msgstr "LM Sensors"
 
-#: ../lib/lmsensors.c:362 ../lib/lmsensors.c:409
+#: ../lib/lmsensors.c:362
+#: ../lib/lmsensors.c:409
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Erro: Non se puido contactar cos sensores!"
@@ -246,11 +249,13 @@ msgstr "Mostrar"
 msgid "Color"
 msgstr "Cor"
 
-#: ../lib/sensors-interface.c:248 ../lib/sensors-interface.c:254
+#: ../lib/sensors-interface.c:248
+#: ../lib/sensors-interface.c:254
 msgid "Min"
 msgstr "Mín"
 
-#: ../lib/sensors-interface.c:265 ../lib/sensors-interface.c:271
+#: ../lib/sensors-interface.c:265
+#: ../lib/sensors-interface.c:271
 msgid "Max"
 msgstr "Máx"
 
@@ -309,15 +314,11 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
 "Xfce4 Sensors %s\n"
 "Este programa publicouse baixo a GPL v2.\n"
-"O texto da licena pódese atopar no arquivo do código fonte do programa ou "
-"en /usr/share/apps/LICENSES/GPL_V2 ou en http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"O texto da licena pódese atopar no arquivo do código fonte do programa ou en /usr/share/apps/LICENSES/GPL_V2 ou en http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:58
 #, c-format
@@ -359,3 +360,4 @@ msgstr "Mostrar os valores do sensor."
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "Engadido de sensores"
+
