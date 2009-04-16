@@ -2,7 +2,7 @@
 # Copyright (C) 2004-2006 Fabian Nowak
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
 # Pau Rul·lan Ferragut <paurullan@bulma.net>, 2006.
-# Carles Muñoz Gorriz <carlesmu@internautas.org>, 2008
+# Carles Muñoz Gorriz <carlesmu@internautas.org>, 2008-2009.
 #
 #
 msgid ""
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-19 21:00+0100\n"
-"PO-Revision-Date: 2008-11-16 16:39+0100\n"
+"PO-Revision-Date: 2009-04-06 18:17+0100\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: Catalan\n"
 "MIME-Version: 1.0\n"
@@ -124,15 +124,15 @@ msgstr "Connector de sensors"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:1841
-#, fuzzy
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr ""
-"Podeu canviar la propietat d'alguna característica (com nom, colors, valor "
-"mínim o màxim…) al fer doble clic a l'entrada, modificant el contingut, i "
-"pitjant la tecla de retorn o seleccionant un altre camp."
+"Podeu canviar la propietat d'alguna característica com ara el nom, els "
+"colors o els valors màxims o mínims al fer doble clic al camp d'entrada, "
+"editant el contingut, i pitjant la tecla de retorn o seleccionant un altre "
+"camp."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
