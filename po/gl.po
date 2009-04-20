@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-19 21:00+0100\n"
-"PO-Revision-Date: 2009-04-14 21:24+0100\n"
+"PO-Revision-Date: 2009-04-20 15:46+0200\n"
 "Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
@@ -38,6 +38,9 @@ msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
+"Engadido de sensores:\n"
+"Parece que houbo un problema ao ler o valor dunha funcionalidade dun sensor.\n"
+"Non se pode garantir o correcto funcionamento.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1386
 msgid "UI style:"
@@ -69,38 +72,32 @@ msgstr "_Tamaño da letra:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1517
-#, fuzzy
 msgid "x-small"
-msgstr "Pequeno"
+msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:1518
-#, fuzzy
 msgid "small"
-msgstr "pequeno"
+msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:1519
-#, fuzzy
 msgid "medium"
-msgstr "mediana"
+msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:1520
-#, fuzzy
 msgid "large"
-msgstr "grande"
+msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:1521
-#, fuzzy
 msgid "x-large"
-msgstr "Grande"
+msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:1549
 msgid "Show _Units"
 msgstr "Mostrar as _unidades"
 
 #: ../panel-plugin/sensors-plugin.c:1570
-#, fuzzy
 msgid "Small horizontal s_pacing"
-msgstr "Coordenada horizontal da selección"
+msgstr "Pequeno es_pazamento horizontal"
 
 #: ../panel-plugin/sensors-plugin.c:1592
 msgid "Suppress messages"
@@ -131,7 +128,7 @@ msgstr "Engadido de sensores"
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:1841
 msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
-msgstr ""
+msgstr "Pode cambiar as propiedades dunha funcionalidade, por exemplo o nome, as cores, o valor mín/máx facendo dobre clic na entrada, modificando o contido, e premendo \"Intro\" ou seleccionando un campo diferente."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -153,9 +150,9 @@ msgstr "ACPI"
 #. to be displayed
 #. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
 #: ../lib/acpi.c:523
-#, fuzzy, c-format
+#, c-format
 msgid "ACPI v%s zones"
-msgstr "<b>Fusos horarios</b>"
+msgstr ""
 
 #: ../lib/acpi.c:638
 msgid "<Unknown>"
@@ -169,8 +166,9 @@ msgstr "temperaturas do disco duro S.M.A.R.T."
 msgid "No concrete error detected.\n"
 msgstr "Non se detectou ningún erro concreto.\n"
 
+# falta o de traducir setuid
 #: ../lib/hddtemp.c:517
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
@@ -180,6 +178,13 @@ msgid ""
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
+"Non se executou correctamente \"hddtemp\", aínda que é executable. O máis probable é que sexa debido a que os discos requiren privilexios de root para ler as súas temperaturas, e \"hddtemp\" non            .\n"
+"\n"
+"Unha solución fácil pero trapalleira é executar \"chmod u+s %s\" co usuario root e reiniciar este engadido ou o panel.\n"
+"\n"
+"A chamada de  \"%s\" devolveu o seguinte erro:\n"
+"%s\n"
+"co valor de retorno %d.\n"
 
 #: ../lib/hddtemp.c:533
 #: ../lib/hddtemp.c:563
@@ -224,6 +229,8 @@ msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr ""
+"Parece que houbo un problema ao ler o valor dunha funcionalidade dun sensor.\n"
+"Non se pode garantir o correcto funcionamento."
 
 #: ../lib/sensors-interface.c:145
 msgid "Sensors t_ype:"
@@ -295,14 +302,12 @@ msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
 #: ../lib/sensors-interface-common.c:154
-#, fuzzy
 msgid "off"
 msgstr "desactivado"
 
 #: ../lib/sensors-interface-common.c:156
-#, fuzzy
 msgid "on"
-msgstr "en"
+msgstr "activado"
 
 #: ../lib/sensors-interface-common.c:160
 #, c-format
@@ -334,6 +339,16 @@ msgid ""
 "\n"
 "This program is published under the GPL v2.\n"
 msgstr ""
+"Xfce4 Sensors %s\n"
+"Mostra información sobre os sensores e ACPI.\n"
+"Sinopse: \n"
+"  xfce4-sensors opcións\n"
+"onde opcións é unha ou máis das seguintes:\n"
+"  -h, --help    Mostra este diálogo de axuda.\n"
+"  -l, --license Mostra a información da licenza.\n"
+"  -V, --version Mostra a información da versión.\n"
+"\n"
+"Este programa publicouse baixo a GPL v2.\n"
 
 #: ../src/main.c:75
 #, c-format
