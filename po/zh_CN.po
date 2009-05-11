@@ -1,24 +1,27 @@
+# Chinese translations for xfce package.
+# Copyright (C) 2009 THE xfce'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce package.
+# Hunt Xu <huntxu@live.cn>, 2009.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4 sensors plugin\n"
+"Project-Id-Version: xfce 4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-19 21:00+0100\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Samed Beyribey <ras0ir@eventualis.org>\n"
-"Language-Team: Xfce-TR <xfce-tr@googlegroups.com>\n"
+"PO-Revision-Date: 2009-05-09 13:38+0800\n"
+"Last-Translator: Hunt Xu <huntxu@live.cn>\n"
+"Language-Team: Chinese (simplified)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Country: TURKEY\n"
 
-#: ../panel-plugin/sensors-plugin.c:225
-#: ../panel-plugin/sensors-plugin.c:783
+#: ../panel-plugin/sensors-plugin.c:225 ../panel-plugin/sensors-plugin.c:783
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
-msgstr "<span foreground=\"#000000\"><b>Algılayıcılar</b></span>"
+msgstr "<span foreground=\"#000000\"><b>传感器</b></span>"
 
 #: ../panel-plugin/sensors-plugin.c:600
 msgid "No sensors selected!"
-msgstr "Algılayıcı seçilmedi!"
+msgstr "未选择传感器！"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
@@ -29,112 +32,113 @@ msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-"Sensors Eklentisi:\n"
-"Algılayıcı değerleri okunurken sorun oluştu.\n"
-"Düzgün çalışma garantisi bulunmamaktadır.\n"
+"传感器插件:\n"
+"读取传感器内容时出现问题。\n"
+"无法保证相应操作将被执行。\n"
 
 #: ../panel-plugin/sensors-plugin.c:1386
 msgid "UI style:"
-msgstr "Kullanıcı arabirimi stili:"
+msgstr "界面风格:"
 
 #: ../panel-plugin/sensors-plugin.c:1387
 msgid "_text"
-msgstr "_yazı"
+msgstr "文本(_T)"
 
 #: ../panel-plugin/sensors-plugin.c:1389
 msgid "g_raphical"
-msgstr "gör_sel"
+msgstr "图形(_R)"
 
 #: ../panel-plugin/sensors-plugin.c:1426
 msgid "Show _labels in graphical UI"
-msgstr "Görsel arabirimde etike_tleri görüntüle"
+msgstr "在图形界面显示标签(_L)"
 
 #: ../panel-plugin/sensors-plugin.c:1456
 msgid "Show colored _bars"
-msgstr "Renkli çu_bukları görüntüle"
+msgstr "使用界面颜色(_B)"
 
 #: ../panel-plugin/sensors-plugin.c:1484
 msgid "_Show title"
-msgstr "_Başlığı görüntüle"
+msgstr "显示标题(_S)"
 
 #: ../panel-plugin/sensors-plugin.c:1510
 msgid "F_ont size:"
-msgstr "Yazıtipi b_oyutu: "
+msgstr "字体大小(_O):"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1517
 msgid "x-small"
-msgstr "çok küçük"
+msgstr "很小"
 
 #: ../panel-plugin/sensors-plugin.c:1518
 msgid "small"
-msgstr "küçük"
+msgstr "小"
 
 #: ../panel-plugin/sensors-plugin.c:1519
 msgid "medium"
-msgstr "normal"
+msgstr "中等"
 
 #: ../panel-plugin/sensors-plugin.c:1520
 msgid "large"
-msgstr "büyük"
+msgstr "大"
 
 #: ../panel-plugin/sensors-plugin.c:1521
 msgid "x-large"
-msgstr "çok büyük"
+msgstr "很大"
 
 #: ../panel-plugin/sensors-plugin.c:1549
 msgid "Show _Units"
-msgstr "Birimleri Göst_er"
+msgstr "显示单位(_U)"
 
 #: ../panel-plugin/sensors-plugin.c:1570
 msgid "Small horizontal s_pacing"
-msgstr "Küçük yatay ara_lık"
+msgstr "水平间隔(_P)"
 
 #: ../panel-plugin/sensors-plugin.c:1592
 msgid "Suppress messages"
-msgstr "Mesajları gizle"
+msgstr "不显示信息"
 
 #: ../panel-plugin/sensors-plugin.c:1621
 msgid "U_pdate interval (seconds):"
-msgstr "Güncelle_me aralığı (saniye):"
+msgstr "更新时间间隔(秒)(_P):"
 
 #: ../panel-plugin/sensors-plugin.c:1651
 msgid "E_xecute on double click:"
-msgstr "Çift tıklandığında çalıştı_r:"
+msgstr "在双击时执行(_X):"
 
 #: ../panel-plugin/sensors-plugin.c:1694
 msgid "_View"
-msgstr "_Görünüm"
+msgstr "查看(_V)"
 
 #: ../panel-plugin/sensors-plugin.c:1726
 msgid "_Miscellaneous"
-msgstr "_Muhtelif"
+msgstr "杂项(_M)"
 
-#: ../panel-plugin/sensors-plugin.c:1798
-#: ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:1798 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:152
 msgid "Sensors Plugin"
-msgstr "Sensors Eklentisi"
+msgstr "传感器插件"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:1841
-msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
-msgstr "Bir özelliğin ismini, rengini, minimum/maksimum değerini o değerin üzerine çift tıklayarak, o değeri istediğiniz gibi biçimlendirip, \"Enter\" tuşuna basarak  değiştirebilirsiniz."
+msgid ""
+"You can change a feature's properties such as name, colours, min/max value "
+"by double-clicking the entry, editing the content, and pressing \"Return\" "
+"or selecting a different field."
+msgstr ""
+"您可以通过在项目上双击然后输入内容并回车"
+"改变一个组件的名称，颜色，最小/最大值等首选项，"
+"或者选择其他栏目。"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:152
-#: ../lib/configuration.c:332
-#: ../lib/configuration.c:339
-#: ../lib/hddtemp.c:342
-#: ../lib/hddtemp.c:388
+#: ../lib/configuration.c:152 ../lib/configuration.c:332
+#: ../lib/configuration.c:339 ../lib/hddtemp.c:342 ../lib/hddtemp.c:388
 msgid "Hard disks"
-msgstr "Sabit diskler "
+msgstr "硬盘"
 
-#: ../lib/acpi.c:521
-#: ../lib/acpi.c:529
+#: ../lib/acpi.c:521 ../lib/acpi.c:529
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -143,43 +147,47 @@ msgstr "ACPI"
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
-msgstr "ACPI v%s alanları"
+msgstr "ACPI v%s 区域"
 
 #: ../lib/acpi.c:638
 msgid "<Unknown>"
-msgstr "<Bilinmiyor>"
+msgstr "<未知>"
 
 #: ../lib/hddtemp.c:387
 msgid "S.M.A.R.T. harddisk temperatures"
-msgstr "S.M.A.R.T. sabit disk ısı dereceleri"
+msgstr "S.M.A.R.T. 硬盘温度"
 
 #: ../lib/hddtemp.c:464
 msgid "No concrete error detected.\n"
-msgstr "Somut bir hata algılanamadı.\n"
+msgstr "未知错误。\n"
 
 #: ../lib/hddtemp.c:517
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is "
+"most probably due to the disks requiring root privileges to read their "
+"temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
+"restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" çalıştırılabilir olmasına rağmen çalıştırılamadı. Bu genellikle disklerin ısı derecelerini okumak için root yetkisine ihtiyacından kaynaklanmaktadır ve bu yüzden \"hddtemp\" çalışmamaktadır.\n"
+"虽然 \"hddtemp\" 是可执行的但并未被正确执行。这很可能是由于读取硬盘"
+"温度需要 root 权限，且 \"hddtemp\" 不是 setuid root权限。\n"
 "\n"
-"Bu sorunu çözmek için root kullanıcısı ile \"chmod u+s %s\" komutunu verip, eklentiyi veya paneli tekrar başlatın.\n"
+"一个简单但可能给您带来危险的做法是以root用户运行"
+"\"chmod u+s %s\" 并重新启动此插件或者此面板。"
 "\n"
-"\"%s\" şu hatayı verdi:\n"
+"执行 \"%s\" 返回如下错误:\n"
 "%s\n"
-"%d değeri dönüşü.\n"
+"返回值为 %d。\n"
 
-#: ../lib/hddtemp.c:533
-#: ../lib/hddtemp.c:563
+#: ../lib/hddtemp.c:533 ../lib/hddtemp.c:563
 msgid "Suppress this message in future"
-msgstr "Bu mesajı ileride gizle"
+msgstr "不让此信息显示"
 
 #: ../lib/hddtemp.c:557
 #, c-format
@@ -187,94 +195,90 @@ msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr ""
-"\"%s\" çalıştırılırken bir hata meydana geldi:\n"
+"执行 \"%s\" 时发生一个错误:\n"
 "%s"
 
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:629
-#: ../lib/sensors-interface-common.c:140
+#: ../lib/hddtemp.c:629 ../lib/sensors-interface-common.c:140
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #: ../lib/lmsensors.c:103
 msgid "LM Sensors"
-msgstr "LM Sensors"
+msgstr "LM 传感器"
 
-#: ../lib/lmsensors.c:362
-#: ../lib/lmsensors.c:409
+#: ../lib/lmsensors.c:362 ../lib/lmsensors.c:409
 #, c-format
 msgid "Error: Could not connect to sensors!"
-msgstr "Hata: Algılayacılara bağlanılamadı!"
+msgstr "错误: 无法连接至传感器！"
 
 #: ../lib/sensors-interface.c:66
 msgid "Sensors Plugin Failure"
-msgstr "Sensors Eklentisi Çalışmıyor"
+msgstr "启动传感器插件失败"
 
 #: ../lib/sensors-interface.c:67
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr ""
-"Algılayıcı değerleri okunurken sorun meydana geldi.\n"
-"Düzgün çalışma garantisi bulunmamaktadır."
+"读取传感器内容时出现问题。\n"
+"无法保证相应操作将被执行。"
 
 #: ../lib/sensors-interface.c:145
 msgid "Sensors t_ype:"
-msgstr "Algıla_yıcı türü:"
+msgstr "传感器类型(_Y)"
 
 #: ../lib/sensors-interface.c:170
 msgid "Description:"
-msgstr "Açıklama"
+msgstr "描述:"
 
 #: ../lib/sensors-interface.c:208
 msgid "Name"
-msgstr "İsim"
+msgstr "名称"
 
 #: ../lib/sensors-interface.c:218
 msgid "Value"
-msgstr "Değer"
+msgstr "值"
 
 #: ../lib/sensors-interface.c:226
 msgid "Show"
-msgstr "Göster"
+msgstr "显示"
 
 #: ../lib/sensors-interface.c:235
 msgid "Color"
-msgstr "Renk"
+msgstr "颜色"
 
-#: ../lib/sensors-interface.c:248
-#: ../lib/sensors-interface.c:254
+#: ../lib/sensors-interface.c:248 ../lib/sensors-interface.c:254
 msgid "Min"
-msgstr "Min"
+msgstr "最小值"
 
-#: ../lib/sensors-interface.c:265
-#: ../lib/sensors-interface.c:271
+#: ../lib/sensors-interface.c:265 ../lib/sensors-interface.c:271
 msgid "Max"
-msgstr "Maks"
+msgstr "最大值"
 
 #: ../lib/sensors-interface.c:306
 msgid "Temperature scale:"
-msgstr "Derece Ölçüsü:"
+msgstr "温度单位:"
 
 #: ../lib/sensors-interface.c:308
 msgid "_Celsius"
-msgstr "_Santigrat"
+msgstr "摄氏度(_C)"
 
 #: ../lib/sensors-interface.c:310
 msgid "_Fahrenheit"
-msgstr "_Fahrenhayt"
+msgstr "华氏度(_F)"
 
 #: ../lib/sensors-interface.c:346
 msgid "_Sensors"
-msgstr "_Algılayıcı"
+msgstr "传感器(_S)"
 
 #: ../lib/sensors-interface-common.c:70
 msgid "No sensors found!"
-msgstr "Algılayıcı bulunamadı!"
+msgstr "未发现传感器"
 
 #: ../lib/sensors-interface-common.c:137
 #, c-format
@@ -293,28 +297,30 @@ msgstr "%.0f mWh"
 
 #: ../lib/sensors-interface-common.c:154
 msgid "off"
-msgstr "kapalı"
+msgstr "关闭"
 
 #: ../lib/sensors-interface-common.c:156
 msgid "on"
-msgstr "açık"
+msgstr "打开"
 
 #: ../lib/sensors-interface-common.c:160
 #, c-format
 msgid "%.0f rpm"
-msgstr "%.0f devir"
+msgstr "%.0f rpm"
 
 #: ../src/main.c:46
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /"
+"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.txt\n"
 msgstr ""
-"Xfce4 Sensors %s\n"
-"Bu uygulama GPL v2 hükümleri çerçevesinde yayınlanmaktadır.\n"
-"Lisans metnine programın kaynak kodlarının bulunduğu arşivden ve /usr/share/apps/LICENSES/GPL_V2 dosyasından veya http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-"adresinden ulaşabilirsiniz\n"
+"Xfce4 传感器 %s\n"
+"这个软件在 GPL v2 授权协议下发布。\n"
+"协议文件可以在软件源代码中或者系统中的/usr/share/apps/LICENSES/GPL_V2"
+"目录或者在http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt找到\n"
 
 #: ../src/main.c:58
 #, c-format
@@ -330,40 +336,39 @@ msgid ""
 "\n"
 "This program is published under the GPL v2.\n"
 msgstr ""
-"Xfce4 Sensors %s\n"
-"Sisteminizdeki algılayıcılar ve ACPI hakkındaki bilgileri gösterir.\n"
-"Özet: \n"
-"  xfce4-sensors seçenekleri\n"
-"aşağıdaki seçeneklerden biri veya daha fazlasıdır:\n"
-"  -h, --help    Yardım menüsünü gösterir.\n"
-"  -l, --license  Lisans bilgisini gösterir.\n"
-"  -V, --version Sürüm bilgisini gösterir.\n"
+"Xfce4 传感器 %s\n"
+"显示传感器及ACPI信息。\n"
+"用法: \n"
+"  xfce4-sensors 选项\n"
+"选项可以是下列一个或者多个:\n"
+"  -h, --help    打印帮助信息。\n"
+"  -l, --license 打印协议信息。\n"
+"  -V, --version 打印版本信息。\n"
 "\n"
-"Bu yazılım GNU GPLv2 hükümleri çerçevesinde yayınlanmaktadır.\n"
+"这个软件在 GPL v2 授权协议下发布。\n"
 
 #: ../src/main.c:75
 #, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr "Xfce4 Sensors %s\n"
+msgstr "Xfce4 传感器 %s\n"
 
 #: ../src/interface.c:46
 msgid "Sensors Viewer"
-msgstr "Algılayıcı Görüntüleyici"
+msgstr "传感器查看器"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
-msgstr "Algılayıcı Görüntüleyici"
+msgstr "传感器查看器"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
 msgid "Sensors Values Viewer"
-msgstr "Algılayıcı Değerleri Görüntüleyici"
+msgstr "传感器查看器"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
-msgstr "Algılayıcı değerlerini gösterir."
+msgstr "显示传感器值。"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
-msgstr "Algılayıcı eklentisi"
-
+msgstr "传感器插件"
