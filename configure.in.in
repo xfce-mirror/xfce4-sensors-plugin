@@ -136,7 +136,7 @@ if test x"$enable_netcat" = x"yes"; then
         AC_MSG_CHECKING([for netcat path])
         NETCAT_PATH=([`whereis -b netcat | sed 's/.*\ \(\/[a-zA-Z0-9\-\/.]*bin[A-Za-z0-9\-\/.]*netcat\).*/\1/'`])
         if test x"$NETCAT_PATH" = x"netcat:"; then
-            NETCAT_PATH=([`whereis -b nc | sed 's/.*\ \(\/[a-zA-Z0-9\-\/.]*bin[A-Za-z0-9\-\/.]*netcat\).*/\1/'`])
+            NETCAT_PATH=([`whereis -b nc | sed 's/.*\ \(\/[a-zA-Z0-9\-\/.]*bin[A-Za-z0-9\-\/.]*nc\).*/\1/'`])
         fi;
 
         AC_MSG_RESULT([$NETCAT_PATH])
