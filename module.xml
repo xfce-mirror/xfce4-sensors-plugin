@@ -1,0 +1,13 @@
+<Project>
+ <name xml:lang="en">xfce4-sensors-plugin</name>
+ <shortdesc xml:lang="en">Sensors plugin for the Xfce Panel</shortdesc>
+ <homepage rdf:resource="http://goodies.xfce.org/projects/panel-plugins/xfce4-sensors-plugin"/>
+ <mailing-list rdf:resource="http://foo-projects.org/mailman/listinfo/xfce"/>
+ <maintainer>
+ <foaf:Person>
+ <foaf:name>Fabian Nowak</foaf:name>
+ <foaf:mbox>mailto:timystery@arcor.de</foaf:mbox>
+ </foaf:Person>
+ </maintainer>
+</Project>
+
