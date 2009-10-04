@@ -9,10 +9,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-19 21:00+0100\n"
-"PO-Revision-Date: 2009-08-08 15:39+0200\n"
+"PO-Revision-Date: 2009-10-04 14:28+0100\n"
 "Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
@@ -72,24 +72,29 @@ msgstr "_Tamaño da letra:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1517
+#, fuzzy
 msgid "x-small"
-msgstr ""
+msgstr "Pequeno"
 
 #: ../panel-plugin/sensors-plugin.c:1518
+#, fuzzy
 msgid "small"
-msgstr ""
+msgstr "pequeno"
 
 #: ../panel-plugin/sensors-plugin.c:1519
+#, fuzzy
 msgid "medium"
-msgstr ""
+msgstr "Media"
 
 #: ../panel-plugin/sensors-plugin.c:1520
+#, fuzzy
 msgid "large"
-msgstr ""
+msgstr "grande"
 
 #: ../panel-plugin/sensors-plugin.c:1521
+#, fuzzy
 msgid "x-large"
-msgstr ""
+msgstr "Lonxitude"
 
 #: ../panel-plugin/sensors-plugin.c:1549
 msgid "Show _Units"
@@ -150,9 +155,9 @@ msgstr "ACPI"
 #. to be displayed
 #. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
 #: ../lib/acpi.c:523
-#, c-format
+#, fuzzy, c-format
 msgid "ACPI v%s zones"
-msgstr ""
+msgstr "<b>Fusos horarios</b>"
 
 #: ../lib/acpi.c:638
 msgid "<Unknown>"
@@ -225,11 +230,9 @@ msgid "Sensors Plugin Failure"
 msgstr "Fallo do engadido de sensores"
 
 #: ../lib/sensors-interface.c:67
-msgid ""
-"Seems like there was a problem reading a sensor feature value.\n"
+msgid "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr ""
-"Parece que houbo un problema ao ler o valor dunha funcionalidade dun sensor.\n"
+msgstr "Parece que houbo un problema ao ler o valor dunha funcionalidade dun sensor.\n"
 "Non se pode garantir o correcto funcionamento."
 
 #: ../lib/sensors-interface.c:145
