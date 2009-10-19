@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-19 21:00+0100\n"
+"POT-Creation-Date: 2009-10-19 23:21+0200\n"
 "PO-Revision-Date: 2008-11-04 23:27+0200\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: Albanian <translation-team-sq@lists.sourceforge.net>\n"
@@ -15,17 +15,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.1\n"
 
-#: ../panel-plugin/sensors-plugin.c:225 ../panel-plugin/sensors-plugin.c:783
+#: ../panel-plugin/sensors-plugin.c:225 ../panel-plugin/sensors-plugin.c:787
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Ndijuesa</b></span>"
 
-#: ../panel-plugin/sensors-plugin.c:600
+#: ../panel-plugin/sensors-plugin.c:604
 msgid "No sensors selected!"
 msgstr "Pa ndijuesa të përzgjedhur!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:638
+#: ../panel-plugin/sensors-plugin.c:642
 #, fuzzy, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -37,90 +37,95 @@ msgstr ""
 "Duket se ka problem me leximin e vlerës së një ndijuesi. \n"
 "Nuk garantohet dot ecuria e duhur.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1386
+#: ../panel-plugin/sensors-plugin.c:1414
 msgid "UI style:"
 msgstr "Stil UI:"
 
-#: ../panel-plugin/sensors-plugin.c:1387
+#: ../panel-plugin/sensors-plugin.c:1415
 msgid "_text"
 msgstr "_tekst"
 
-#: ../panel-plugin/sensors-plugin.c:1389
+#: ../panel-plugin/sensors-plugin.c:1417
 msgid "g_raphical"
 msgstr "_grafik"
 
-#: ../panel-plugin/sensors-plugin.c:1426
-msgid "Show _labels in graphical UI"
-msgstr "Shfaq _etiketa në UI grafike"
+#: ../panel-plugin/sensors-plugin.c:1454
+#, fuzzy
+msgid "Show _labels"
+msgstr "_Shfaq titull"
 
-#: ../panel-plugin/sensors-plugin.c:1456
+#: ../panel-plugin/sensors-plugin.c:1484
 msgid "Show colored _bars"
 msgstr "Shfaq _shtylla me ngjyra"
 
-#: ../panel-plugin/sensors-plugin.c:1484
+#: ../panel-plugin/sensors-plugin.c:1512
 msgid "_Show title"
 msgstr "_Shfaq titull"
 
-#: ../panel-plugin/sensors-plugin.c:1510
+#: ../panel-plugin/sensors-plugin.c:1536
+msgid "_Number of text lines:"
+msgstr ""
+
+#: ../panel-plugin/sensors-plugin.c:1571
 msgid "F_ont size:"
 msgstr "Madhësi _gërmash:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1517
+#: ../panel-plugin/sensors-plugin.c:1578
 msgid "x-small"
 msgstr "x-small"
 
-#: ../panel-plugin/sensors-plugin.c:1518
+#: ../panel-plugin/sensors-plugin.c:1579
 msgid "small"
 msgstr "të vogla"
 
-#: ../panel-plugin/sensors-plugin.c:1519
+#: ../panel-plugin/sensors-plugin.c:1580
 msgid "medium"
 msgstr "të mesme"
 
-#: ../panel-plugin/sensors-plugin.c:1520
+#: ../panel-plugin/sensors-plugin.c:1581
 msgid "large"
 msgstr "të mëdha"
 
-#: ../panel-plugin/sensors-plugin.c:1521
+#: ../panel-plugin/sensors-plugin.c:1582
 msgid "x-large"
 msgstr "shumë të mëdha"
 
-#: ../panel-plugin/sensors-plugin.c:1549
+#: ../panel-plugin/sensors-plugin.c:1610
 msgid "Show _Units"
 msgstr "Shfaq titull"
 
-#: ../panel-plugin/sensors-plugin.c:1570
+#: ../panel-plugin/sensors-plugin.c:1631
 msgid "Small horizontal s_pacing"
 msgstr "_Hapësirë horizontale e vogël"
 
-#: ../panel-plugin/sensors-plugin.c:1592
+#: ../panel-plugin/sensors-plugin.c:1653
 msgid "Suppress messages"
 msgstr "Ndaloji mesazhet"
 
-#: ../panel-plugin/sensors-plugin.c:1621
+#: ../panel-plugin/sensors-plugin.c:1682
 msgid "U_pdate interval (seconds):"
 msgstr "Interval _përditësimi (sekonda):"
 
-#: ../panel-plugin/sensors-plugin.c:1651
+#: ../panel-plugin/sensors-plugin.c:1712
 msgid "E_xecute on double click:"
 msgstr "Për_mbushe kur dyklikohet:"
 
-#: ../panel-plugin/sensors-plugin.c:1694
+#: ../panel-plugin/sensors-plugin.c:1755
 msgid "_View"
 msgstr "_Parje"
 
-#: ../panel-plugin/sensors-plugin.c:1726
+#: ../panel-plugin/sensors-plugin.c:1788
 msgid "_Miscellaneous"
 msgstr "Të _ndryshme"
 
-#: ../panel-plugin/sensors-plugin.c:1798 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:1860 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:152
 msgid "Sensors Plugin"
 msgstr "Shtojcë Ndijuesish"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:1841
+#: ../panel-plugin/sensors-plugin.c:1903
 #, fuzzy
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
@@ -205,7 +210,7 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:629 ../lib/sensors-interface-common.c:140
+#: ../lib/hddtemp.c:629 ../lib/sensors-interface-common.c:141
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -219,12 +224,12 @@ msgstr "Ndijuesa LM"
 msgid "Error: Could not connect to sensors!"
 msgstr "Gabim: Nuk u lidh dot me ndijuesat!"
 
-#: ../lib/sensors-interface.c:66
+#: ../lib/sensors-interface.c:80
 #, fuzzy
 msgid "Sensors Plugin Failure"
 msgstr "Shtojcë Ndijuesish"
 
-#: ../lib/sensors-interface.c:67
+#: ../lib/sensors-interface.c:81
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
@@ -232,51 +237,51 @@ msgstr ""
 "Duket se ka problem me leximin e vlerës së një ndijuesi.\n"
 "Nuk garantohet dot ecuria e duhur."
 
-#: ../lib/sensors-interface.c:145
+#: ../lib/sensors-interface.c:162
 msgid "Sensors t_ype:"
 msgstr "_Lloj ndijuesish:"
 
-#: ../lib/sensors-interface.c:170
+#: ../lib/sensors-interface.c:187
 msgid "Description:"
 msgstr "Përshkrim:"
 
-#: ../lib/sensors-interface.c:208
+#: ../lib/sensors-interface.c:225
 msgid "Name"
 msgstr "Emër"
 
-#: ../lib/sensors-interface.c:218
+#: ../lib/sensors-interface.c:235
 msgid "Value"
 msgstr "Vlerë"
 
-#: ../lib/sensors-interface.c:226
+#: ../lib/sensors-interface.c:243
 msgid "Show"
 msgstr "Shfaq"
 
-#: ../lib/sensors-interface.c:235
+#: ../lib/sensors-interface.c:252
 msgid "Color"
 msgstr "Ngjyrë"
 
-#: ../lib/sensors-interface.c:248 ../lib/sensors-interface.c:254
+#: ../lib/sensors-interface.c:265 ../lib/sensors-interface.c:271
 msgid "Min"
 msgstr "Min."
 
-#: ../lib/sensors-interface.c:265 ../lib/sensors-interface.c:271
+#: ../lib/sensors-interface.c:282 ../lib/sensors-interface.c:288
 msgid "Max"
 msgstr "Maks."
 
-#: ../lib/sensors-interface.c:306
+#: ../lib/sensors-interface.c:323
 msgid "Temperature scale:"
 msgstr "Shkallë temperature:"
 
-#: ../lib/sensors-interface.c:308
+#: ../lib/sensors-interface.c:325
 msgid "_Celsius"
 msgstr "_Celsius"
 
-#: ../lib/sensors-interface.c:310
+#: ../lib/sensors-interface.c:327
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../lib/sensors-interface.c:346
+#: ../lib/sensors-interface.c:363
 msgid "_Sensors"
 msgstr "_Ndijuesa"
 
@@ -284,30 +289,30 @@ msgstr "_Ndijuesa"
 msgid "No sensors found!"
 msgstr "S'u gjetën ndijuesa!"
 
-#: ../lib/sensors-interface-common.c:137
+#: ../lib/sensors-interface-common.c:138
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
-#: ../lib/sensors-interface-common.c:145
+#: ../lib/sensors-interface-common.c:146
 #, c-format
 msgid "%+.2f V"
 msgstr "%+.2f V"
 
-#: ../lib/sensors-interface-common.c:149
+#: ../lib/sensors-interface-common.c:150
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.c:154
+#: ../lib/sensors-interface-common.c:155
 msgid "off"
 msgstr "off"
 
-#: ../lib/sensors-interface-common.c:156
+#: ../lib/sensors-interface-common.c:157
 msgid "on"
 msgstr "on"
 
-#: ../lib/sensors-interface-common.c:160
+#: ../lib/sensors-interface-common.c:161
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f rpm"
@@ -372,6 +377,9 @@ msgstr "Shfaq vlera ndijuesish."
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "Shtojcë ndijuesish"
+
+#~ msgid "Show _labels in graphical UI"
+#~ msgstr "Shfaq _etiketa në UI grafike"
 
 #~ msgid "<b>View</b>"
 #~ msgstr "<b>Parje</b>"

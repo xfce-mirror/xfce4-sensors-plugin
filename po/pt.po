@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-19 21:00+0100\n"
+"POT-Creation-Date: 2009-10-19 23:21+0200\n"
 "PO-Revision-Date: 2009-03-28 15:59+0100\n"
 "Last-Translator: Nuno Miguel <nunis@netcabo.pt>\n"
 "Language-Team: \n"
@@ -15,18 +15,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors-plugin.c:225
-#: ../panel-plugin/sensors-plugin.c:783
+#: ../panel-plugin/sensors-plugin.c:225 ../panel-plugin/sensors-plugin.c:787
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Sensores</b></span>"
 
-#: ../panel-plugin/sensors-plugin.c:600
+#: ../panel-plugin/sensors-plugin.c:604
 msgid "No sensors selected!"
 msgstr "Nenhum sensor seleccionado!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:638
+#: ../panel-plugin/sensors-plugin.c:642
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -37,108 +36,114 @@ msgstr ""
 "Parece ter ocorrido um problema durante a leitura de um sensor.\n"
 "Não é possível garantir o procedimento apropriado.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1386
+#: ../panel-plugin/sensors-plugin.c:1414
 msgid "UI style:"
 msgstr "Estilo da interface:"
 
-#: ../panel-plugin/sensors-plugin.c:1387
+#: ../panel-plugin/sensors-plugin.c:1415
 msgid "_text"
 msgstr "_texto"
 
-#: ../panel-plugin/sensors-plugin.c:1389
+#: ../panel-plugin/sensors-plugin.c:1417
 msgid "g_raphical"
 msgstr "g_ráfico"
 
-#: ../panel-plugin/sensors-plugin.c:1426
-msgid "Show _labels in graphical UI"
-msgstr "Mostrar rótu_los na interface gráfica"
+#: ../panel-plugin/sensors-plugin.c:1454
+#, fuzzy
+msgid "Show _labels"
+msgstr "_Mostrar título"
 
-#: ../panel-plugin/sensors-plugin.c:1456
+#: ../panel-plugin/sensors-plugin.c:1484
 msgid "Show colored _bars"
 msgstr "Mostrar _barras coloridas"
 
-#: ../panel-plugin/sensors-plugin.c:1484
+#: ../panel-plugin/sensors-plugin.c:1512
 msgid "_Show title"
 msgstr "_Mostrar título"
 
-#: ../panel-plugin/sensors-plugin.c:1510
+#: ../panel-plugin/sensors-plugin.c:1536
+msgid "_Number of text lines:"
+msgstr ""
+
+#: ../panel-plugin/sensors-plugin.c:1571
 msgid "F_ont size:"
 msgstr "Tamanho de f_onte:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1517
+#: ../panel-plugin/sensors-plugin.c:1578
 msgid "x-small"
 msgstr "x-pequeno"
 
-#: ../panel-plugin/sensors-plugin.c:1518
+#: ../panel-plugin/sensors-plugin.c:1579
 msgid "small"
 msgstr "pequeno"
 
-#: ../panel-plugin/sensors-plugin.c:1519
+#: ../panel-plugin/sensors-plugin.c:1580
 msgid "medium"
 msgstr "médio"
 
-#: ../panel-plugin/sensors-plugin.c:1520
+#: ../panel-plugin/sensors-plugin.c:1581
 msgid "large"
 msgstr "grande"
 
-#: ../panel-plugin/sensors-plugin.c:1521
+#: ../panel-plugin/sensors-plugin.c:1582
 msgid "x-large"
 msgstr "x-grande"
 
-#: ../panel-plugin/sensors-plugin.c:1549
+#: ../panel-plugin/sensors-plugin.c:1610
 msgid "Show _Units"
 msgstr "Mostrar _Unidades"
 
-#: ../panel-plugin/sensors-plugin.c:1570
+#: ../panel-plugin/sensors-plugin.c:1631
 msgid "Small horizontal s_pacing"
 msgstr "E_spaçamento horizontal pequeno"
 
-#: ../panel-plugin/sensors-plugin.c:1592
+#: ../panel-plugin/sensors-plugin.c:1653
 msgid "Suppress messages"
 msgstr "Suprimir mensagens"
 
-#: ../panel-plugin/sensors-plugin.c:1621
+#: ../panel-plugin/sensors-plugin.c:1682
 msgid "U_pdate interval (seconds):"
 msgstr "Intervalo de _actualização (segundos):"
 
-#: ../panel-plugin/sensors-plugin.c:1651
+#: ../panel-plugin/sensors-plugin.c:1712
 msgid "E_xecute on double click:"
 msgstr "E_xecutar com duplo clique:"
 
-#: ../panel-plugin/sensors-plugin.c:1694
+#: ../panel-plugin/sensors-plugin.c:1755
 msgid "_View"
 msgstr "_Ver"
 
-#: ../panel-plugin/sensors-plugin.c:1726
+#: ../panel-plugin/sensors-plugin.c:1788
 msgid "_Miscellaneous"
 msgstr "_Variedades"
 
-#: ../panel-plugin/sensors-plugin.c:1798
-#: ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:1860 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:152
 msgid "Sensors Plugin"
 msgstr "Plugin Sensores"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:1841
-msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
-msgstr "Pode mudar a funcionalidade das propriedades como: nome, cores, valores min/max ao fazer duplo clique na entrada, editar o conteúdo e pressionando \"Enter\" ou seleccionar um campo diferente."
+#: ../panel-plugin/sensors-plugin.c:1903
+msgid ""
+"You can change a feature's properties such as name, colours, min/max value "
+"by double-clicking the entry, editing the content, and pressing \"Return\" "
+"or selecting a different field."
+msgstr ""
+"Pode mudar a funcionalidade das propriedades como: nome, cores, valores min/"
+"max ao fazer duplo clique na entrada, editar o conteúdo e pressionando "
+"\"Enter\" ou seleccionar um campo diferente."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:152
-#: ../lib/configuration.c:332
-#: ../lib/configuration.c:339
-#: ../lib/hddtemp.c:342
-#: ../lib/hddtemp.c:388
+#: ../lib/configuration.c:152 ../lib/configuration.c:332
+#: ../lib/configuration.c:339 ../lib/hddtemp.c:342 ../lib/hddtemp.c:388
 msgid "Hard disks"
 msgstr "Discos rígidos"
 
-#: ../lib/acpi.c:521
-#: ../lib/acpi.c:529
+#: ../lib/acpi.c:521 ../lib/acpi.c:529
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -164,24 +169,29 @@ msgstr "Erro concreto não detectado.\n"
 #: ../lib/hddtemp.c:517
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is "
+"most probably due to the disks requiring root privileges to read their "
+"temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
+"restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" não foi executado correctamente, apesar de ser executável. Isto é muito provavelmente devido ao disco requerer privilégios de root para ler a temperatura e \"hddtemp\" não está com setuid root.\n"
+"\"hddtemp\" não foi executado correctamente, apesar de ser executável. Isto "
+"é muito provavelmente devido ao disco requerer privilégios de root para ler "
+"a temperatura e \"hddtemp\" não está com setuid root.\n"
 "\n"
-"Uma maneira fácil mas suja é executar  \"chmod u+s %s\" como root e reiniciar este plugin ou o painel.\n"
+"Uma maneira fácil mas suja é executar  \"chmod u+s %s\" como root e "
+"reiniciar este plugin ou o painel.\n"
 "\n"
 "Chamada a \"%s\" deu o seguinte erro:\n"
 "%s\n"
 "com um retorno de erro de %d.\n"
 
-#: ../lib/hddtemp.c:533
-#: ../lib/hddtemp.c:563
+#: ../lib/hddtemp.c:533 ../lib/hddtemp.c:563
 msgid "Suppress this message in future"
 msgstr "Suprimir esta mensagem no futuro"
 
@@ -198,8 +208,7 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:629
-#: ../lib/sensors-interface-common.c:140
+#: ../lib/hddtemp.c:629 ../lib/sensors-interface-common.c:141
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -208,17 +217,16 @@ msgstr "%.1f °C"
 msgid "LM Sensors"
 msgstr "Sensores LM"
 
-#: ../lib/lmsensors.c:362
-#: ../lib/lmsensors.c:409
+#: ../lib/lmsensors.c:362 ../lib/lmsensors.c:409
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Erro: Impossível ligar aos sensores!"
 
-#: ../lib/sensors-interface.c:66
+#: ../lib/sensors-interface.c:80
 msgid "Sensors Plugin Failure"
 msgstr "Falha no Sensors Plugin"
 
-#: ../lib/sensors-interface.c:67
+#: ../lib/sensors-interface.c:81
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
@@ -226,53 +234,51 @@ msgstr ""
 "Parece ter ocorrido um problema durante a leitura de um sensor.\n"
 "Não é possível garantir o procedimento apropriado."
 
-#: ../lib/sensors-interface.c:145
+#: ../lib/sensors-interface.c:162
 msgid "Sensors t_ype:"
 msgstr "_Tipos de sensores:"
 
-#: ../lib/sensors-interface.c:170
+#: ../lib/sensors-interface.c:187
 msgid "Description:"
 msgstr "Descrição:"
 
-#: ../lib/sensors-interface.c:208
+#: ../lib/sensors-interface.c:225
 msgid "Name"
 msgstr "Nome"
 
-#: ../lib/sensors-interface.c:218
+#: ../lib/sensors-interface.c:235
 msgid "Value"
 msgstr "Valor"
 
-#: ../lib/sensors-interface.c:226
+#: ../lib/sensors-interface.c:243
 msgid "Show"
 msgstr "Mostrar"
 
-#: ../lib/sensors-interface.c:235
+#: ../lib/sensors-interface.c:252
 msgid "Color"
 msgstr "Cor"
 
-#: ../lib/sensors-interface.c:248
-#: ../lib/sensors-interface.c:254
+#: ../lib/sensors-interface.c:265 ../lib/sensors-interface.c:271
 msgid "Min"
 msgstr "Min"
 
-#: ../lib/sensors-interface.c:265
-#: ../lib/sensors-interface.c:271
+#: ../lib/sensors-interface.c:282 ../lib/sensors-interface.c:288
 msgid "Max"
 msgstr "Max"
 
-#: ../lib/sensors-interface.c:306
+#: ../lib/sensors-interface.c:323
 msgid "Temperature scale:"
 msgstr "Escala de temperatura:"
 
-#: ../lib/sensors-interface.c:308
+#: ../lib/sensors-interface.c:325
 msgid "_Celsius"
 msgstr "_Celsius"
 
-#: ../lib/sensors-interface.c:310
+#: ../lib/sensors-interface.c:327
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../lib/sensors-interface.c:346
+#: ../lib/sensors-interface.c:363
 msgid "_Sensors"
 msgstr "_Sensores"
 
@@ -280,30 +286,30 @@ msgstr "_Sensores"
 msgid "No sensors found!"
 msgstr "Nenhum sensor encontrado!"
 
-#: ../lib/sensors-interface-common.c:137
+#: ../lib/sensors-interface-common.c:138
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
-#: ../lib/sensors-interface-common.c:145
+#: ../lib/sensors-interface-common.c:146
 #, c-format
 msgid "%+.2f V"
 msgstr "%+.2f V"
 
-#: ../lib/sensors-interface-common.c:149
+#: ../lib/sensors-interface-common.c:150
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.c:154
+#: ../lib/sensors-interface-common.c:155
 msgid "off"
 msgstr "desligado"
 
-#: ../lib/sensors-interface-common.c:156
+#: ../lib/sensors-interface-common.c:157
 msgid "on"
 msgstr "ligado"
 
-#: ../lib/sensors-interface-common.c:160
+#: ../lib/sensors-interface-common.c:161
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f rpm"
@@ -313,11 +319,15 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /"
+"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.txt\n"
 msgstr ""
 "Xfce4 Sensors %s\n"
 "Este programa é publicado sob a GPL v2.\n"
-"O texto da licença pode ser encontrado no arquivo fonte do programa ou em /usr/share/apps/LICENSES/GPL_V2 ou em http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+"O texto da licença pode ser encontrado no arquivo fonte do programa ou em /"
+"usr/share/apps/LICENSES/GPL_V2 ou em http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:58
 #, c-format
@@ -370,20 +380,29 @@ msgstr "Mostrar valores de sensor."
 msgid "Sensor plugin "
 msgstr "Sensor plugin"
 
+#~ msgid "Show _labels in graphical UI"
+#~ msgstr "Mostrar rótu_los na interface gráfica"
+
 #~ msgid "Edit Properties"
 #~ msgstr "Editar Propriedades"
+
 #~ msgid "Xfce 4 Sensors Plugin"
 #~ msgstr "Plugin Sensores Xfce 4"
+
 #~ msgid "Xfce 4 Sensors Viewer"
 #~ msgstr "Visualizador de Sensores Xfce 4"
+
 #~ msgid "View sensor values"
 #~ msgstr "Mostrar valores de sensor"
+
 #~ msgid "Graphical Sensors Viewer for Xfce 4"
 #~ msgstr "Visualizador Gráfico de Sensores para Xfce 4"
+
 #~ msgid "<b>Sensors</b>"
 #~ msgstr "<b>Sensores</b>"
+
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensores</b></span>\n"
+
 #~ msgid "<b>View</b>"
 #~ msgstr "<b>Ver</b>"
-

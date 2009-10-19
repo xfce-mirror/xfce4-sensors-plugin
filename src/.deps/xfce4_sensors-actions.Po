@@ -1,5 +1,0 @@
-xfce4_sensors-actions.o: actions.c ../config.h actions.h
-
-../config.h:
-
-actions.h:

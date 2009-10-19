@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pxfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-19 21:00+0100\n"
+"POT-Creation-Date: 2009-10-19 23:21+0200\n"
 "PO-Revision-Date: 2009-09-18 23:12+0100\n"
 "Last-Translator: Rihards Prieditis <rprieditis@gmail.com>\n"
 "Language-Team: Latvian <translation-team-lv@lists.sourceforge.net>\n"
@@ -16,21 +16,21 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 1.0\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
 
-#: ../panel-plugin/sensors-plugin.c:225
-#: ../panel-plugin/sensors-plugin.c:783
+#: ../panel-plugin/sensors-plugin.c:225 ../panel-plugin/sensors-plugin.c:787
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Sensors</b></span>"
 
-#: ../panel-plugin/sensors-plugin.c:600
+#: ../panel-plugin/sensors-plugin.c:604
 msgid "No sensors selected!"
 msgstr "Neviens sensors nav izvēlēts!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:638,
-#: c-format
+#: ../panel-plugin/sensors-plugin.c:642
+#, c-format
 msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
@@ -40,108 +40,114 @@ msgstr ""
 "Liekas, ka radās problēma lasot sensora iespēju vērtību.\n"
 "Darba spējīga turpināšana netiek garantēta.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1386
+#: ../panel-plugin/sensors-plugin.c:1414
 msgid "UI style:"
 msgstr "UI stils:"
 
-#: ../panel-plugin/sensors-plugin.c:1387
+#: ../panel-plugin/sensors-plugin.c:1415
 msgid "_text"
 msgstr "_teksts"
 
-#: ../panel-plugin/sensors-plugin.c:1389
+#: ../panel-plugin/sensors-plugin.c:1417
 msgid "g_raphical"
 msgstr "g_rafisks"
 
-#: ../panel-plugin/sensors-plugin.c:1426
-msgid "Show _labels in graphical UI"
-msgstr "Rādīt _etiķetes grafiskajā UI"
+#: ../panel-plugin/sensors-plugin.c:1454
+#, fuzzy
+msgid "Show _labels"
+msgstr "_Rādīt virsrakstu"
 
-#: ../panel-plugin/sensors-plugin.c:1456
+#: ../panel-plugin/sensors-plugin.c:1484
 msgid "Show colored _bars"
 msgstr "Rādīt krāsainas _joslas"
 
-#: ../panel-plugin/sensors-plugin.c:1484
+#: ../panel-plugin/sensors-plugin.c:1512
 msgid "_Show title"
 msgstr "_Rādīt virsrakstu"
 
-#: ../panel-plugin/sensors-plugin.c:1510
+#: ../panel-plugin/sensors-plugin.c:1536
+msgid "_Number of text lines:"
+msgstr ""
+
+#: ../panel-plugin/sensors-plugin.c:1571
 msgid "F_ont size:"
 msgstr "F_onta izmērs:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1517
+#: ../panel-plugin/sensors-plugin.c:1578
 msgid "x-small"
 msgstr "viss mazākais"
 
-#: ../panel-plugin/sensors-plugin.c:1518
+#: ../panel-plugin/sensors-plugin.c:1579
 msgid "small"
 msgstr "mazs"
 
-#: ../panel-plugin/sensors-plugin.c:1519
+#: ../panel-plugin/sensors-plugin.c:1580
 msgid "medium"
 msgstr "vidējs"
 
-#: ../panel-plugin/sensors-plugin.c:1520
+#: ../panel-plugin/sensors-plugin.c:1581
 msgid "large"
 msgstr "liels"
 
-#: ../panel-plugin/sensors-plugin.c:1521
+#: ../panel-plugin/sensors-plugin.c:1582
 msgid "x-large"
 msgstr "viss lielākais"
 
-#: ../panel-plugin/sensors-plugin.c:1549
+#: ../panel-plugin/sensors-plugin.c:1610
 msgid "Show _Units"
 msgstr "_Rādīt vienību"
 
-#: ../panel-plugin/sensors-plugin.c:1570
+#: ../panel-plugin/sensors-plugin.c:1631
 msgid "Small horizontal s_pacing"
 msgstr "Mazas horizontālās atstar_ptes"
 
-#: ../panel-plugin/sensors-plugin.c:1592
+#: ../panel-plugin/sensors-plugin.c:1653
 msgid "Suppress messages"
 msgstr "Apspiest ziņas"
 
-#: ../panel-plugin/sensors-plugin.c:1621
+#: ../panel-plugin/sensors-plugin.c:1682
 msgid "U_pdate interval (seconds):"
 msgstr "At_jaunināšanas intervāls (sekundes):"
 
-#: ../panel-plugin/sensors-plugin.c:1651
+#: ../panel-plugin/sensors-plugin.c:1712
 msgid "E_xecute on double click:"
 msgstr "I_zpildīt uz dubultklikšķi:"
 
-#: ../panel-plugin/sensors-plugin.c:1694
+#: ../panel-plugin/sensors-plugin.c:1755
 msgid "_View"
 msgstr "_Skats"
 
-#: ../panel-plugin/sensors-plugin.c:1726
+#: ../panel-plugin/sensors-plugin.c:1788
 msgid "_Miscellaneous"
 msgstr "_Dažādi"
 
-#: ../panel-plugin/sensors-plugin.c:1798
-#: ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:1860 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:152
 msgid "Sensors Plugin"
 msgstr "Sensoru spraudnis"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:1841
-msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
-msgstr "Jūs varat mainīt iespējas rekvizītus, tādus kā nosaukums, krāsas, mini/maks vērtības, dubultklikšķinot uz ieraksta, rediģējot saturu un spiežot enter, vai atlasot citu lauku."
+#: ../panel-plugin/sensors-plugin.c:1903
+msgid ""
+"You can change a feature's properties such as name, colours, min/max value "
+"by double-clicking the entry, editing the content, and pressing \"Return\" "
+"or selecting a different field."
+msgstr ""
+"Jūs varat mainīt iespējas rekvizītus, tādus kā nosaukums, krāsas, mini/maks "
+"vērtības, dubultklikšķinot uz ieraksta, rediģējot saturu un spiežot enter, "
+"vai atlasot citu lauku."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:152
-#: ../lib/configuration.c:332
-#: ../lib/configuration.c:339
-#: ../lib/hddtemp.c:342
-#: ../lib/hddtemp.c:388
+#: ../lib/configuration.c:152 ../lib/configuration.c:332
+#: ../lib/configuration.c:339 ../lib/hddtemp.c:342 ../lib/hddtemp.c:388
 msgid "Hard disks"
 msgstr "Cietie diski"
 
-#: ../lib/acpi.c:521
-#: ../lib/acpi.c:529
+#: ../lib/acpi.c:521 ../lib/acpi.c:529
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -167,24 +173,29 @@ msgstr "Nevienas konkrētas kļūdas nav noteiktas.\n"
 #: ../lib/hddtemp.c:517
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is "
+"most probably due to the disks requiring root privileges to read their "
+"temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
+"restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" netika izpildīts korekti, lai arī tas ir izpildāms. Iemesls tam var būt, ka diskam ir nepieciešamas root tiesības, lai nolasītu temperatūru un \"hddtemp\" netiek izpildīts ar setuid root.\n"
+"\"hddtemp\" netika izpildīts korekti, lai arī tas ir izpildāms. Iemesls tam "
+"var būt, ka diskam ir nepieciešamas root tiesības, lai nolasītu temperatūru "
+"un \"hddtemp\" netiek izpildīts ar setuid root.\n"
 "\n"
-"Viegls, bet nejauks, risinājums ir palaist \"chmod u+s %s\", kā root lietotājam vai pārstartēt spraudni, vai paneli.\n"
+"Viegls, bet nejauks, risinājums ir palaist \"chmod u+s %s\", kā root "
+"lietotājam vai pārstartēt spraudni, vai paneli.\n"
 "\n"
 "Izsaucot \"%s\" izdeva sekojošu kļūdu:\n"
 "%s\n"
 "un atgrieza vērtību %d\n"
 
-#: ../lib/hddtemp.c:533
-#: ../lib/hddtemp.c:563
+#: ../lib/hddtemp.c:533 ../lib/hddtemp.c:563
 msgid "Suppress this message in future"
 msgstr "Apspiest šo ziņu turpmāk"
 
@@ -201,8 +212,7 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:629
-#: ../lib/sensors-interface-common.c:140
+#: ../lib/hddtemp.c:629 ../lib/sensors-interface-common.c:141
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -211,17 +221,16 @@ msgstr "%.1f °C"
 msgid "LM Sensors"
 msgstr "LM sensors"
 
-#: ../lib/lmsensors.c:362
-#: ../lib/lmsensors.c:409
+#: ../lib/lmsensors.c:362 ../lib/lmsensors.c:409
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Kļūda: Nevarēju savienoties ar sensoru!"
 
-#: ../lib/sensors-interface.c:66
+#: ../lib/sensors-interface.c:80
 msgid "Sensors Plugin Failure"
 msgstr "Sensora spraudņa kļūda"
 
-#: ../lib/sensors-interface.c:67
+#: ../lib/sensors-interface.c:81
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
@@ -229,53 +238,51 @@ msgstr ""
 "Liekas bija problēma ar sensora iespēju nolasīšanu.\n"
 "Normāla darbība nevar tikt garantēta."
 
-#: ../lib/sensors-interface.c:145
+#: ../lib/sensors-interface.c:162
 msgid "Sensors t_ype:"
 msgstr "Sensoru _tips:"
 
-#: ../lib/sensors-interface.c:170
+#: ../lib/sensors-interface.c:187
 msgid "Description:"
 msgstr "Apraksts:"
 
-#: ../lib/sensors-interface.c:208
+#: ../lib/sensors-interface.c:225
 msgid "Name"
 msgstr "Nosaukums"
 
-#: ../lib/sensors-interface.c:218
+#: ../lib/sensors-interface.c:235
 msgid "Value"
 msgstr "Vērtība"
 
-#: ../lib/sensors-interface.c:226
+#: ../lib/sensors-interface.c:243
 msgid "Show"
 msgstr "Rādīt"
 
-#: ../lib/sensors-interface.c:235
+#: ../lib/sensors-interface.c:252
 msgid "Color"
 msgstr "Krāsa"
 
-#: ../lib/sensors-interface.c:248
-#: ../lib/sensors-interface.c:254
+#: ../lib/sensors-interface.c:265 ../lib/sensors-interface.c:271
 msgid "Min"
 msgstr "Min"
 
-#: ../lib/sensors-interface.c:265
-#: ../lib/sensors-interface.c:271
+#: ../lib/sensors-interface.c:282 ../lib/sensors-interface.c:288
 msgid "Max"
 msgstr "Maks"
 
-#: ../lib/sensors-interface.c:306
+#: ../lib/sensors-interface.c:323
 msgid "Temperature scale:"
 msgstr "Temperatūras skala:"
 
-#: ../lib/sensors-interface.c:308
+#: ../lib/sensors-interface.c:325
 msgid "_Celsius"
 msgstr "_Celsija"
 
-#: ../lib/sensors-interface.c:310
+#: ../lib/sensors-interface.c:327
 msgid "_Fahrenheit"
 msgstr "_Fārenheita"
 
-#: ../lib/sensors-interface.c:346
+#: ../lib/sensors-interface.c:363
 msgid "_Sensors"
 msgstr "S_ensori"
 
@@ -283,31 +290,31 @@ msgstr "S_ensori"
 msgid "No sensors found!"
 msgstr "Netika atrasts neviens sensors!"
 
-#: ../lib/sensors-interface-common.c:137
+#: ../lib/sensors-interface-common.c:138
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
-#: ../lib/sensors-interface-common.c:145
+#: ../lib/sensors-interface-common.c:146
 #, c-format
 msgid "%+.2f V"
 msgstr "%+.2f V"
 
-#: ../lib/sensors-interface-common.c:149,
-#: c-format
+#: ../lib/sensors-interface-common.c:150
+#, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.c:154
+#: ../lib/sensors-interface-common.c:155
 msgid "off"
 msgstr "izslēgts"
 
-#: ../lib/sensors-interface-common.c:156
+#: ../lib/sensors-interface-common.c:157
 msgid "on"
 msgstr "ieslēgts"
 
-#: ../lib/sensors-interface-common.c:160,
-#: c-format
+#: ../lib/sensors-interface-common.c:161
+#, c-format
 msgid "%.0f rpm"
 msgstr "%.0f apgriezieni min"
 
@@ -316,11 +323,15 @@ msgstr "%.0f apgriezieni min"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /"
+"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.txt\n"
 msgstr ""
 "Xfce 4 sensori %s\n"
 "Programma publicēta zem GPL v2.\n"
-"Licences teksts var tikt atrast iekš programmas pirmkoda vai zem /usr/share/apps/LICENSES/GPL_V2 vai http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+"Licences teksts var tikt atrast iekš programmas pirmkoda vai zem /usr/share/"
+"apps/LICENSES/GPL_V2 vai http://www.gnu.org/licenses/old-licenses/gpl-2.0."
+"txt\n"
 
 #: ../src/main.c:58
 #, c-format
@@ -347,8 +358,8 @@ msgstr ""
 "\n"
 "Programma publicēta zem GPL v2.\n"
 
-#: ../src/main.c:75,
-#: c-format
+#: ../src/main.c:75
+#, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Xfce 4 sensori %s\n"
 
@@ -373,6 +384,9 @@ msgstr "Rādīt sensora vērtības."
 msgid "Sensor plugin "
 msgstr "Sensoru spraudnis"
 
+#~ msgid "Show _labels in graphical UI"
+#~ msgstr "Rādīt _etiķetes grafiskajā UI"
+
 #, fuzzy
 #~ msgid "Xfce 4 Sensors Plugin"
 #~ msgstr "Sensoru Spraudnis"
@@ -380,12 +394,13 @@ msgstr "Sensoru spraudnis"
 #, fuzzy
 #~ msgid "Xfce 4 Sensors Viewer"
 #~ msgstr "Sensoru Spraudnis"
+
 #~ msgid "Edit Properties"
 #~ msgstr "Rediģēt Rekvizītus"
 
 #, fuzzy
 #~ msgid "View sensor values"
 #~ msgstr "Rādīt sensora vērtības."
+
 #~ msgid "Advanced Configuration and Power Interface"
 #~ msgstr "Paplašināta Konfigurācija un Enerģijas Saskarsne"
-
