@@ -47,6 +47,19 @@
  */
 GtkTooltips *tooltips = NULL;
 
+void
+produce_min_max_values (t_chipfeature *chipfeature, t_tempscale scale, float *minval, float *maxval)
+{
+  /* assume that min and max values are read from the hddtemp/lmsensors/acpi as 
+   * degree celsius per default -- very sorry for the non-metric peoples */
+   if (chipfeature->class==TEMPERATURE && scale == FAHRENHEIT) {
+      *minval = chipfeature->min_value * 9/5 + 32;
+      *maxval = chipfeature->max_value * 9/5 + 32;
+   } else { 
+      *minval = chipfeature->min_value;
+      *maxval = chipfeature->max_value;
+   } 
+}
 
 void
 fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale, t_sensors_dialog *sd)
@@ -61,6 +74,7 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale, t_senso
     GError *error = NULL;
     #endif
     gchar *summary, *body, *icon;
+    float minval, maxval;
 
 
     summary = _("Sensors Plugin Failure");
@@ -102,6 +116,9 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale, t_senso
             chipfeature->formatted_value = g_new (gchar, 0);
             format_sensor_value (scale, chipfeature, sensorFeature,
                                  &(chipfeature->formatted_value));
+            
+            produce_min_max_values (chipfeature, scale, &minval, &maxval);
+            
             chipfeature->raw_value = sensorFeature;
             gtk_tree_store_append (model, iter, NULL);
             if (sd->plugin_dialog)
@@ -110,15 +127,15 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale, t_senso
                                 1, chipfeature->formatted_value,
                                 2, chipfeature->show,
                                 3, chipfeature->color,
-                                4, chipfeature->min_value,
-                                5, chipfeature->max_value,
+                                4, minval,
+                                5, maxval,
                                  -1);
             else
                 gtk_tree_store_set ( model, iter,
                                  0, chipfeature->name,
                                 1, chipfeature->formatted_value,
-                                2, chipfeature->min_value,
-                                3, chipfeature->max_value,
+                                2, minval,
+                                3, maxval,
                                  -1);
         } /* end if sensors-valid */
         /* g_free(iter); ??? */

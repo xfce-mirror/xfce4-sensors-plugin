@@ -1145,11 +1145,13 @@ minimum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
     /* get model iterator */
     gtk_tree_model_get_iter (model, &iter, path);
 
-    /* set new value */
+    /* set new value according to chosen scale */
     gtk_tree_store_set (GTK_TREE_STORE (model), &iter, 4, value, -1);
     chip = (t_chip *) g_ptr_array_index(sd->sensors->chips, gtk_combo_box_active);
 
     chipfeature = (t_chipfeature *) g_ptr_array_index(chip->chip_features, atoi(path_str));
+    if (sd->sensors->scale==FAHRENHEIT)
+      value = (value -32 ) * 5/9;
     chipfeature->min_value = value;
 
     /* clean up */
@@ -1193,11 +1195,13 @@ maximum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
     /* get model iterator */
     gtk_tree_model_get_iter (model, &iter, path);
 
-    /* set new value */
+    /* set new value according to chosen scale */
     gtk_tree_store_set (GTK_TREE_STORE (model), &iter, 5, value, -1);
     chip = (t_chip *) g_ptr_array_index(sd->sensors->chips, gtk_combo_box_active);
 
     chipfeature = (t_chipfeature *) g_ptr_array_index(chip->chip_features, atoi(path_str));
+    if (sd->sensors->scale==FAHRENHEIT)
+      value = (value -32 ) * 5/9;
     chipfeature->max_value = value;
 
     /* clean up */
