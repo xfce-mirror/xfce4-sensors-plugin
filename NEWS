@@ -19,4 +19,7 @@
         Netcat usable in favour of hddtemp directly
         Stand-alone sensors application
         Battery settings read from sysfs as well
+        Min/Max values for Fahrenheit work as well
+        Maximum number of lines specifiable for text view
+        Labels in text view possible
 
