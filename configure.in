@@ -1,0 +1,376 @@
+dnl $Id$
+dnl configure.in.in
+dnl
+dnl xfce4-sensors-plugin - Sensors plugin for xfce4-panel
+dnl
+dnl 2003,2004 Benedikt Meurer <benny@xfce.org>
+dnl 2007 Benedikt Meurer <benny@xfce.org>, Fabian Nowak <timystery@arcor.de>
+dnl
+
+m4_define([libxfce4sensors_verinfo], [1:0:0])
+m4_define([plugin_version],[0.10.99.7])
+
+AC_INIT([xfce4-sensors-plugin], [plugin_version], [timystery@arcor.de])
+AC_PREREQ([2.50])
+AC_CANONICAL_TARGET()
+
+PLUGIN_VERSION=plugin_version()
+AM_INIT_AUTOMAKE([AC_PACKAGE_TARNAME], [AC_PACKAGE_VERSION])
+AM_CONFIG_HEADER([config.h])
+AM_MAINTAINER_MODE
+
+dnl Check for UNIX variants
+AC_AIX
+AC_ISC_POSIX
+AC_MINIX
+
+dnl Check for basic programs
+AC_PROG_CC
+AC_PROG_LD
+AC_PROG_INSTALL
+AC_PROG_LIBTOOL
+AC_PROG_INTLTOOL
+
+dnl ****************************
+dnl *** Intltool-update hack ***
+dnl ****************************
+AC_CONFIG_COMMANDS([intltool-update],
+    [(if test `stat --printf "%s" intltool-update` != "0"; then sed -e 's/^\("desktop.*".*\)/\1\n"rc(?:\\\\.in)+|"\./' intltool-update > intltool-update-tmp &&
+      mv intltool-update-tmp intltool-update && chmod 755 intltool-update; fi)])
+
+dnl Check for standard header files
+AC_HEADER_STDC
+
+dnl Check for libsensors depending on whether it is disabled upon user request
+AC_ARG_ENABLE([libsensors],
+            AC_HELP_STRING([--enable-libsensors=auto|yes|no],
+                    [Use LM-sensors to read a vast amount of sensors on your mainboards @<:@default=auto@:>@]),
+            [],
+            [enable_libsensors=auto])
+
+if test x"$enable_libsensors" = x"auto"; then
+    AC_CHECK_LIB([sensors], [sensors_get_detected_chips],
+    [
+        enable_libsensors=yes
+    ],
+    [
+        enable_libsensors=no
+    ])
+fi
+
+if test x"$enable_libsensors" = x"yes"; then
+    AC_DEFINE([HAVE_LIBSENSORS], [1], [Define to 1 if libsensors is found])
+    dnl FIXME:  make that dynamic in case of auto
+    LIBSENSORS_CFLAGS="-I/usr/include"
+    LIBSENSORS_LDFLAGS="-lsensors"
+fi
+
+AC_SUBST([LIBSENSORS_CFLAGS])
+AC_SUBST([LIBSENSORS_LDFLAGS])
+AM_CONDITIONAL([HAVE_LIBSENSORS], [test x$enable_libsensors = x"yes"])
+
+
+dnl Check for hddtemp depending on whether it is disabled upon user request
+AC_ARG_ENABLE([hddtemp],
+        [AC_HELP_STRING([--enable-hddtemp=auto|yes|no],
+                [Use hddtemp to read your harddisk temperature @<:@default=auto@:>@])],
+        [],
+        [
+        enable_hddtemp=auto
+        ])
+
+if test x"$enable_hddtemp" = x"auto"; then
+    AC_CHECK_PROG([hddtemp], [hddtemp], [yes], [], [$PATH:/sbin:/usr/sbin:/usr/local/sbin])
+    if test x"$hddtemp" = x"yes"; then
+        enable_hddtemp=yes
+    else
+        enable_hddtemp=no
+    fi
+fi
+
+if test x"$enable_hddtemp" = x"yes"; then
+
+    AC_ARG_WITH([pathhddtemp], [AC_HELP_STRING([--with-pathhddtemp], [Specify path to hddtemp @<:@default=auto@:>@])],
+    [
+        HDDTEMP=$withval
+    ], [
+        AC_MSG_CHECKING([for hddtemp path])
+        HDDTEMP=([`whereis -b hddtemp | sed 's/.*\ \(\/[a-zA-Z0-9\-\/.]*bin[A-Za-z0-9\-\/.]*hddtemp\).*/\1/'`])
+        AC_MSG_RESULT([$HDDTEMP])
+    ])
+
+    if test x"$HDDTEMP" = x"hddtemp:"; then
+        enable_hddtemp=no
+    else
+        AC_DEFINE([HAVE_HDDTEMP], [1], [Define to 1 if hddtemp is desired])
+        AC_DEFINE_UNQUOTED([PATH_HDDTEMP], ["$HDDTEMP"], [Complete path to hddtemp])
+        AC_SUBST([PATH_HDDTEMP])
+    fi
+fi
+
+AM_CONDITIONAL([HAVE_HDDTEMP], [test x$enable_hddtemp = x"yes"])
+
+
+dnl Check for netcat for hddtemp to be used
+AC_ARG_ENABLE([netcat], [AC_HELP_STRING([--enable-netcat], [Use netcat to read your hddtemp temperature @<:@default=auto@:>@])],
+[],
+[
+    enable_netcat=auto
+])
+
+if test x"$enable_netcat" = x"auto"; then
+AC_CHECK_PROG([netcat], [netcat], [yes], [], [$PATH:/sbin:/usr/sbin:/usr/local/sbin])
+AC_CHECK_PROG([nc], [nc], [yes], [], [$PATH:/sbin:/usr/sbin:/usr/local/sbin])
+if test x"$netcat" = x"yes" -o x"$nc" = x"yes"; then
+        enable_netcat=yes
+    else
+        enable_netcat=no
+    fi
+fi
+
+if test x"$enable_netcat" = x"yes"; then
+    AC_ARG_WITH([pathnetcat], [AC_HELP_STRING([--with-pathnetcat], [Specify path to netcat @<:@default=auto@:>@])],
+    [
+        NETCAT_PATH=$withval
+    ], [
+        AC_MSG_CHECKING([for netcat path])
+        NETCAT_PATH=([`whereis -b netcat | sed 's/.*\ \(\/[a-zA-Z0-9\-\/.]*bin[A-Za-z0-9\-\/.]*netcat\).*/\1/'`])
+        if test x"$NETCAT_PATH" = x"netcat:"; then
+            NETCAT_PATH=([`whereis -b nc | sed 's/.*\ \(\/[a-zA-Z0-9\-\/.]*bin[A-Za-z0-9\-\/.]*nc\).*/\1/'`])
+        fi;
+
+        AC_MSG_RESULT([$NETCAT_PATH])
+    ])
+
+    NETCAT_HOST=localhost
+    HDDTEMP_PORT=7634
+
+    AC_MSG_CHECKING([for hddtemp being queryable via netcat])
+    NETCAT_RUN=([`"$NETCAT_PATH" "$NETCAT_HOST" "$HDDTEMP_PORT" 2> /dev/null`])
+    AC_MSG_RESULT([$NETCAT_RUN])
+    if test x"$NETCAT_RUN" = x""; then
+        enable_netcat=no
+        dnl AC_DEFINE([HAVE_NETCAT], [0], [Define to 1 if hddtemp daemon is queried via netcat])
+    else
+        AC_DEFINE([HAVE_NETCAT], [1], [Define to 1 if hddtemp daemon is queried via netcat])
+        AC_DEFINE_UNQUOTED([NETCAT_PATH], ["$NETCAT_PATH"], [Complete path to netcat])
+        AC_SUBST([NETCAT_PATH])
+        AC_DEFINE_UNQUOTED([NETCAT_HOST], ["$NETCAT_HOST"], [Host for netcat])
+        AC_SUBST([NETCAT_HOST])
+        AC_DEFINE_UNQUOTED([HDDTEMP_PORT], ["$HDDTEMP_PORT"], [Port for hddtemp with netcat])
+        AC_SUBST([HDDTEMP_PORT])
+    fi
+
+fi
+
+AM_CONDITIONAL([HAVE__NETCAT], [test x$enable_netcat = x"yes"])
+
+
+dnl Check for interface for /proc/acpi to be used
+AC_ARG_ENABLE([procacpi], [AC_HELP_STRING([--enable-procacpi], [Use /proc/acpi to read your CPU temperature @<:@default=yes@:>@])],
+[],
+[
+    enable_procacpi=auto
+])
+
+if test x"$enable_procacpi" = x"auto"; then
+    AC_CHECK_FILE([/proc/acpi/info],
+    [
+        enable_procacpi=yes
+    ],
+    [
+        enable_procacpi=no
+    ])
+fi
+
+if test x"$enable_procacpi" = x"yes"; then
+    AC_DEFINE([HAVE_ACPI], [1], [Define to 1 if /proc/acpi is found])
+fi
+
+dnl Check for interface for /sys/class/power_supply to be used
+AC_ARG_ENABLE([sysfsacpi], [AC_HELP_STRING([--enable-sysfsacpi], [Use /sys/class/power_supply to read your battery value @<:@default=yes@:>@])],
+[],
+[
+    enable_sysfsacpi=auto
+])
+
+if test x"$enable_sysfsacpi" = x"auto"; then
+    AC_CHECK_FILE([/sys/class/power_supply],
+    [
+        enable_sysfsacpi=yes
+    ],
+    [
+        enable_sysfsacpi=no
+    ])
+fi
+
+if test x"$enable_sysfsacpi" = x"yes"; then
+    AC_DEFINE([HAVE_SYSFS_ACPI], [1], [Define to 1 if /sys/class/power_supply is found])
+    enable_procacpi=yes
+fi
+
+AM_CONDITIONAL([HAVE_ACPI], [test x$enable_procacpi = x"yes"])
+AM_CONDITIONAL([HAVE_SYSFS_ACPI], [test x$enable_sysfsacpi = x"yes"])
+
+
+dnl Check for full debugging
+AC_ARG_ENABLE([debug], [AC_HELP_STRING([--enable-debug], [Allow full debugging. @<:@default=no@:>@])],
+[],
+[
+    enable_debug=no
+])
+
+if test x"$enable_debug" = x"yes"; then
+    AC_DEFINE([DEBUG], [1], [Set this to 1 to enable full debugging.])
+    AC_DEFINE([DEBUG_TRACE], [1],
+        [Set this to 1 to enable full trace debugging.]
+    )
+    PLATFORM_CFLAGS="-Wall -Werror $PLATFORM_CFLAGS"
+fi
+
+AC_SUBST([PLATFORM_CFLAGS])
+
+
+dnl Get operating system information
+KERNEL=`uname -s`
+if test "$KERNEL" = "Linux"; then
+    AC_DEFINE([HAVE_LINUX], [1], [Set this to 1 if using Linux or newer])
+dnl    KERNELVERSION=`uname -r`
+dnl    if test $KERNELVERSION -ge 2.6.24; then
+dnl        AC_DEFINE([HAVE_LINUX2624], [1], [Set this to 1 if using Linux or newer])
+dnl    fi
+fi
+dnl OS="$KERNEL"
+dnl AC_DEFINE([OS], ["$OS"], [Set this to the name of the operating system.])
+
+dnl Substitute in Makefile
+dnl AC_SUBST(OS)
+dnl where is that crap from?
+
+AC_CHECK_FUNCS([gethostname])
+AC_CHECK_FUNCS([memset])
+AC_CHECK_FUNCS([socket])
+AC_CHECK_FUNCS([strstr])
+AC_CHECK_FUNCS([malloc])
+AC_CHECK_FUNCS([bzero])
+AC_CHECK_HEADERS([arpa/inet.h])
+AC_CHECK_HEADERS([netinet/in.h])
+AC_CHECK_HEADERS([stdlib.h])
+AC_CHECK_HEADERS([string.h])
+AC_CHECK_HEADERS([sys/ioctl.h])
+AC_CHECK_HEADERS([sys/param.h])
+AC_CHECK_HEADERS([sys/socket.h])
+AC_CHECK_HEADERS([sys/time.h])
+AC_CHECK_HEADERS([unistd.h])
+AC_CHECK_HEADERS([sys/sockio.h])
+AC_HEADER_SYS_WAIT
+AC_PROG_GCC_TRADITIONAL
+AC_TYPE_SIZE_T
+
+AC_CHECK_LIB(kstat, kstat_open, SOLLIBS="-lkstat -lsocket", SOLLIBS="")
+AC_CHECK_LIB(nsl, kstat_open, SOLLIBS="$SOLLIBS -linet_ntop", SOLLIBS="$SOLLIBS")
+AC_SUBST(SOLLIBS)
+
+dnl **************************************
+dnl *** Substitute version information ***
+dnl **************************************
+LIBXFCE4SENSORS_VERINFO=libxfce4sensors_verinfo()
+AC_SUBST([LIBXFCE4SENSORS_VERINFO])
+
+dnl **************************************
+dnl *** Check for Gtk/Glib packages  ***
+dnl **************************************
+XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.10.0])
+XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.6.0])
+dnl XDT_CHECK_PACKAGE([GTHREAD], [gthread-2.0], [2.12.0])
+
+
+dnl **************************************
+dnl *** Check for notification library ***
+dnl **************************************
+dnl XDT_CHECK_PACKAGE([LIBNOTIFY], [libnotify], [0.4.0])
+XDT_CHECK_OPTIONAL_PACKAGE([LIBNOTIFY],
+                           [libnotify],
+                           [0.4], [notification],
+                           [notification message library])
+
+
+dnl **************************************
+dnl *** Check for Xfce packages ***
+dnl **************************************
+XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.4.0])
+XDT_CHECK_PACKAGE([LIBXFCEGUI4], [libxfcegui4-1.0], [4.4.0])
+
+dnl configure the panel plugin
+XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.4.0])
+
+
+dnl I18n support
+XDT_I18N([ar ast ca cs da de el en_GB es eu fi fr gl hu id it ja ko lt lv pl pt pt_BR ru sq sv tr uk ur ur_PK vi zh_CN zh_TW ])
+
+
+dnl Check for debugging support
+XDT_FEATURE_DEBUG()
+
+dnl *********************************
+dnl *** Substitute platform flags ***
+dnl *********************************
+AC_MSG_CHECKING([PLATFORM_LDFLAGS])
+AC_MSG_RESULT([$PLATFORM_LDFLAGS])
+AC_SUBST([PLATFORM_LDFLAGS])
+
+AC_OUTPUT([
+Makefile
+xfce4-sensors-plugin.spec
+include/Makefile
+lib/Makefile
+lib/libxfce4sensors-1.0.pc
+panel-plugin/Makefile
+src/Makefile
+icons/Makefile
+po/Makefile.in
+])
+
+
+dnl ***************************
+dnl *** Print configuration ***
+dnl ***************************
+echo
+echo "==============================================================="
+echo "Build Configuration"
+echo "==============================================================="
+dnl echo
+dnl echo "Host system:  $OS"
+echo
+echo "The following sensor interfaces will be built into the plugin:"
+if test x"$enable_hddtemp" = x"yes"; then
+echo "*  hddtemp: $HDDTEMP (Make sure it is user-executable with UID bit set "
+echo "                      and user member of the respective group)"
+fi
+
+if test x"$enable_netcat" = x"yes"; then
+echo "   netcat: $NETCAT_PATH on $NETCAT_HOST:$HDDTEMP_PORT"
+fi
+
+if test x"$enable_libsensors" = x"yes"; then
+echo "*  libsensors"
+fi
+if test x"$enable_procacpi" = x"yes"; then
+echo "*  /proc/acpi"
+fi
+if test x"$enable_sysfsacpi" = x"yes"; then
+echo "   /sys/class/power_supply"
+fi
+echo
+if test x"$LIBNOTIFY_FOUND" = x"yes"; then
+echo "Support for libnotify will be built in."
+echo
+fi
+if test x"$enable_debug" = x"yes"; then
+echo "Full debug is enabled"
+else
+echo "Full debug is disabled"
+fi
+echo
+echo "==============================================================="
+

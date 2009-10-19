@@ -454,8 +454,12 @@ sensors_set_text_panel_label (t_sensors *sensors, gint numCols, gint itemsToDisp
         for (feature=0; feature<chip->num_features; feature++) {
             chipfeature = g_ptr_array_index (chip->chip_features, feature);
             g_assert (chipfeature != NULL);
-
+            
             if (chipfeature->show == TRUE) {
+                if(sensors->show_labels==TRUE) {
+                  myLabelText = g_strconcat (myLabelText, "<span size=\"", sensors->font_size, "\">",chipfeature->name, ":</span> ", NULL);
+                }
+                
                 if (sensors->show_units) {
                     tmpstring = g_strconcat (myLabelText,
                                             "<span foreground=\"",
@@ -468,7 +472,7 @@ sensors_set_text_panel_label (t_sensors *sensors, gint numCols, gint itemsToDisp
                     tmpstring = g_strdup_printf("%s<span foreground=\"%s\" size=\"%s\">%.1f</span>", myLabelText,
                             chipfeature->color, sensors->font_size,
                             chipfeature->raw_value);
-                    myLabelText = g_strconcat (myLabelText, tmpstring, NULL);
+                    //myLabelText = g_strconcat (myLabelText, tmpstring, NULL);
                 }
 
                 g_free (myLabelText);
@@ -560,7 +564,7 @@ sensors_show_text_display (t_sensors *sensors)
        by putting this variable into t_sensors */
     itemsToDisplay = count_number_checked_sensor_features (sensors);
 
-    numRows = determine_number_of_rows (sensors);
+    numRows = sensors->lines_size; /* determine_number_of_rows (sensors); */
 
     if (sensors->show_title == TRUE || itemsToDisplay==0)
         gtk_widget_show (sensors->panel_label_text);
@@ -957,16 +961,18 @@ display_style_changed (GtkWidget *widget, t_sensors_dialog *sd)
 
     if (sd->sensors->display_values_graphically == TRUE) {
         sensors_remove_graphical_panel(sd->sensors);
-        gtk_widget_hide(sd->labels_Box);
+        //gtk_widget_hide(sd->labels_Box);
         gtk_widget_hide(sd->coloredBars_Box);
         gtk_widget_show(sd->font_Box);
+        gtk_widget_show(sd->Lines_Box);
         gtk_widget_show (sd->unit_checkbox);
         gtk_widget_show (sd->smallspacing_checkbox);
     }
     else {
-        gtk_widget_show(sd->labels_Box);
+        //gtk_widget_show(sd->labels_Box);
         gtk_widget_show(sd->coloredBars_Box);
         gtk_widget_hide(sd->font_Box);
+        gtk_widget_hide(sd->Lines_Box);
         gtk_widget_hide (sd->unit_checkbox);
         gtk_widget_hide (sd->smallspacing_checkbox);
     }
@@ -1004,6 +1010,7 @@ sensor_entry_changed (GtkWidget *widget, t_sensors_dialog *sd)
 static void
 font_size_change (GtkWidget *widget, t_sensors_dialog *sd)
 {
+    int rows;
     TRACE ("enters font_size_change");
 
     switch ( gtk_combo_box_get_active(GTK_COMBO_BOX(widget)) ) {
@@ -1017,6 +1024,23 @@ font_size_change (GtkWidget *widget, t_sensors_dialog *sd)
 
     sd->sensors->font_size_numerical =
         gtk_combo_box_get_active(GTK_COMBO_BOX(widget));
+
+    rows = determine_number_of_rows (sd->sensors);
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(sd->Lines_Spin_Box), (gdouble) rows);
+
+    /* refresh the panel content */
+    sensors_show_panel ((gpointer) sd->sensors);
+
+    TRACE ("leaves font_size_change");
+}
+
+
+static void
+lines_size_change (GtkWidget *widget, t_sensors_dialog *sd)
+{
+    TRACE ("enters font_size_change");
+
+    sd->sensors->lines_size = (int) gtk_spin_button_get_value(GTK_SPIN_BUTTON(widget));
 
     /* refresh the panel content */
     sensors_show_panel ((gpointer) sd->sensors);
@@ -1427,7 +1451,7 @@ add_labels_box (GtkWidget * vbox, t_sensors_dialog * sd)
     /* gtk_widget_set_sensitive(hbox, sd->sensors->display_values_graphically); */
 
     checkButton = gtk_check_button_new_with_mnemonic (
-         _("Show _labels in graphical UI"));
+         _("Show _labels"));
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(checkButton),
                                   sd->sensors->show_labels);
     gtk_widget_show (checkButton);
@@ -1435,8 +1459,8 @@ add_labels_box (GtkWidget * vbox, t_sensors_dialog * sd)
     gtk_box_pack_start (GTK_BOX (hbox), checkButton, FALSE, FALSE, 0);
     gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, TRUE, 0);
 
-    if (sd->sensors->display_values_graphically==FALSE)
-        gtk_widget_hide(sd->labels_Box);
+    //if (sd->sensors->display_values_graphically==FALSE)
+        //gtk_widget_hide(sd->labels_Box);
 
     g_signal_connect (G_OBJECT (checkButton), "toggled",
                       G_CALLBACK (show_labels_toggled), sd );
@@ -1500,7 +1524,40 @@ add_title_box (GtkWidget * vbox, t_sensors_dialog * sd)
 }
 
 
+static void
+add_lines_box (GtkWidget * vbox, t_sensors_dialog * sd)
+{
+    GtkWidget *myLinesLabel;
+    GtkWidget *myLinesBox;
+    GtkWidget *myLinesSizeSpinBox;
 
+    TRACE ("enters add_Lines_size_box");
+
+    myLinesLabel = gtk_label_new_with_mnemonic (_("_Number of text lines:"));
+    myLinesBox = gtk_hbox_new(FALSE, BORDER);
+    myLinesSizeSpinBox = gtk_spin_button_new_with_range  (1.0, 10.0, 1.0);
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(myLinesSizeSpinBox), (gdouble) sd->sensors->lines_size);
+
+    sd->Lines_Box = myLinesBox;
+    sd->Lines_Spin_Box = myLinesSizeSpinBox;
+
+    gtk_box_pack_start (GTK_BOX (myLinesBox), myLinesLabel, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (myLinesBox), myLinesSizeSpinBox, FALSE, FALSE,
+        0);
+    gtk_box_pack_start (GTK_BOX (vbox), myLinesBox, FALSE, FALSE, 0);
+
+    gtk_widget_show (myLinesLabel);
+    gtk_widget_show (myLinesSizeSpinBox);
+    gtk_widget_show (myLinesBox);
+
+    if (sd->sensors->display_values_graphically==TRUE)
+        gtk_widget_hide(sd->Lines_Box);
+
+    g_signal_connect   (G_OBJECT (myLinesSizeSpinBox), "value-changed",
+                        G_CALLBACK (lines_size_change), sd );
+
+    TRACE ("leaves add_Lines_size_box");
+}
 
 static void
 add_font_size_box (GtkWidget * vbox, t_sensors_dialog * sd)
@@ -1706,8 +1763,9 @@ add_view_frame (GtkWidget * notebook, t_sensors_dialog * sd)
 
     add_ui_style_box (_vbox, sd);
     add_labels_box (_vbox, sd);
-    add_colored_bars_box (_vbox, sd);
     add_font_size_box (_vbox, sd);
+    add_lines_box (_vbox, sd);
+    add_colored_bars_box (_vbox, sd);
     add_units_box (_vbox, sd);
     add_smallspacings_box(_vbox, sd);
 

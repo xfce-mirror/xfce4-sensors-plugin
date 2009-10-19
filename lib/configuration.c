@@ -106,6 +106,8 @@ sensors_write_config (XfcePanelPlugin *plugin, t_sensors *sensors)
     xfce_rc_write_int_entry (rc, "Font_Size_Numerical",
                                 sensors->font_size_numerical);
 
+    xfce_rc_write_int_entry (rc, "Lines_Size", sensors->lines_size);
+
     xfce_rc_write_int_entry (rc, "Update_Interval", sensors->sensors_refresh_time);
 
     xfce_rc_write_bool_entry (rc, "Exec_Command", sensors->exec_command);
@@ -207,6 +209,8 @@ sensors_read_general_config (XfceRc *rc, t_sensors *sensors)
 
         sensors->font_size_numerical = xfce_rc_read_int_entry (rc,
                                                  "Font_Size_Numerical", 2);
+                                                 
+        sensors->lines_size = xfce_rc_read_int_entry (rc, "Lines_Size", 3);
 
         sensors->sensors_refresh_time = xfce_rc_read_int_entry (rc, "Update_Interval",
                                                   60);

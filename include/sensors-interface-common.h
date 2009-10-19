@@ -91,6 +91,8 @@ typedef struct {
 
     /* panel size to compute number of cols/columns */
     gint panel_size;
+    
+    gint lines_size;
 
     /* panel orientation */
     gint orientation;
@@ -215,6 +217,8 @@ typedef struct {
     GtkTreeStore *myListStore[10]; /* replace by GPtrArray as well */
     GtkWidget *font_Box; /* used to disable font size option when using graphical view */
     GtkWidget *unit_checkbox;
+    GtkWidget *Lines_Box;
+    GtkWidget *Lines_Spin_Box;
     GtkWidget *suppressmessage_checkbox;
     GtkWidget *smallspacing_checkbox;
     GtkWidget *labels_Box; /* used to enable 'show labels' option when using graphical view */
