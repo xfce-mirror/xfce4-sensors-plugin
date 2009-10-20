@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-19 23:21+0200\n"
-"PO-Revision-Date: 2009-03-16 17:32+0900\n"
+"POT-Creation-Date: 2009-10-20 23:54+0900\n"
+"PO-Revision-Date: 2009-10-20 23:53+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: xfce-users-jp <xfce-users-jp@ml.fdiary.net>\n"
 "MIME-Version: 1.0\n"
@@ -50,13 +50,12 @@ msgid "g_raphical"
 msgstr "グラフィック(_R)"
 
 #: ../panel-plugin/sensors-plugin.c:1454
-#, fuzzy
 msgid "Show _labels"
-msgstr "タイトルを表示する(_S)"
+msgstr "ラベルを表示する(_L)"
 
 #: ../panel-plugin/sensors-plugin.c:1484
 msgid "Show colored _bars"
-msgstr "色付けされたバーを表示する(_B)"
+msgstr "色付きバーで表示する(_B)"
 
 #: ../panel-plugin/sensors-plugin.c:1512
 msgid "_Show title"
@@ -64,7 +63,7 @@ msgstr "タイトルを表示する(_S)"
 
 #: ../panel-plugin/sensors-plugin.c:1536
 msgid "_Number of text lines:"
-msgstr ""
+msgstr "表示行数(_N)"
 
 #: ../panel-plugin/sensors-plugin.c:1571
 msgid "F_ont size:"
@@ -139,8 +138,8 @@ msgstr ""
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:152 ../lib/configuration.c:332
-#: ../lib/configuration.c:339 ../lib/hddtemp.c:342 ../lib/hddtemp.c:388
+#: ../lib/configuration.c:154 ../lib/configuration.c:336
+#: ../lib/configuration.c:343 ../lib/hddtemp.c:342 ../lib/hddtemp.c:388
 msgid "Hard disks"
 msgstr "ハードディスク"
 
