@@ -19,7 +19,9 @@
         Netcat usable in favour of hddtemp directly
         Stand-alone sensors application
         Battery settings read from sysfs as well
-        Min/Max values for Fahrenheit work as well
+1.0.0   Min/Max values for Fahrenheit work as well
         Maximum number of lines specifiable for text view
         Labels in text view possible
+        Remember window size of configuration dialog
+        Respect "suppress messages" for error dialogs with acpi/sysfs
 

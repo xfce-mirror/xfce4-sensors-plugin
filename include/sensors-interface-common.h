@@ -190,6 +190,9 @@ typedef struct {
     gint num_acpi_zones; */
 
     gchar *plugin_config_file;
+    
+    gint preferred_width;
+    gint preferred_height;
 }
 t_sensors;
 

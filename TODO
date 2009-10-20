@@ -7,18 +7,20 @@ TODO
 
 - read acpi fan state?
 
-- switch to sysfs completely for everythin?
+- switch to sysfs completely for everything?
 
 - decrease size of entries in min/max value fields... would have to change renderer for double values...
 
 
 Known bugs or user requests
 ---------------------------
-- Switching from horizontal to vertical panel does not change layout
-
-- Respect "suppress messages" for error dialogs with acpi/sysfs
-
-- store last window sizes
-
 - common settings for both application and plugin wrt. sensor names etc.
+
+Plans
+-----
+- use D-bus to send messages with new settings from xfce4-sensors application to panel plugin
+
+- have someone implement kde and gnome plugins based on library/API
+
+- have someone implement some BSD backends and integrate them into project
 

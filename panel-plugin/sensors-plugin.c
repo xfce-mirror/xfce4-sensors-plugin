@@ -1821,6 +1821,7 @@ on_optionsDialog_response (GtkWidget *dlg, int response, t_sensors_dialog *sd)
             if (sd->sensors->plugin_config_file)
                 sensors_write_config (sd->sensors->plugin, sd->sensors);
     }
+    gtk_window_get_size ( GTK_WINDOW(dlg), &(sd->sensors->preferred_width), &(sd->sensors->preferred_height));
     gtk_widget_destroy (sd->dialog);
 
     xfce_panel_plugin_unblock_menu (sd->sensors->plugin);
@@ -1910,7 +1911,8 @@ sensors_create_options (XfcePanelPlugin *plugin, t_sensors *sensors)
     add_view_frame (notebook, sd);
     add_miscellaneous_frame (notebook, sd);
 
-    gtk_widget_set_size_request (vbox, 400, 400);
+    //gtk_widget_set_size_request (vbox, 400, 400);
+    gtk_window_set_default_size (GTK_WINDOW(dlg), sensors->preferred_width, sensors->preferred_height);
 
     g_signal_connect (dlg, "response",
             G_CALLBACK(on_optionsDialog_response), sd);

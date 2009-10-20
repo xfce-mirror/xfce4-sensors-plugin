@@ -57,6 +57,9 @@ on_main_window_response (GtkWidget *dlg, int response, t_sensors_dialog *sd)
         //g_free(sd->suppressmessage_checkbox);
         //g_free(sd->temperature_radio_group);
         //g_free(sd->unit_checkbox);
+        
+        // we don't save any values until now
+        //gtk_window_get_size ( GTK_WINDOW(dlg), &(sd->sensors->preferred_width), &(sd->sensors->preferred_height));
 
         g_free(sd);
 

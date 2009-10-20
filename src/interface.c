@@ -70,6 +70,8 @@ create_main_window (t_sensors_dialog *sd)
     add_sensor_settings_box(vbox, sd);
     add_temperature_unit_box(vbox, sd);
     gtk_widget_show_all (vbox);
+    
+    gtk_window_set_default_size (GTK_WINDOW(dlg), sd->sensors->preferred_width, sd->sensors->preferred_height);
 
     g_signal_connect (dlg, "response",
             G_CALLBACK(on_main_window_response), sd);
