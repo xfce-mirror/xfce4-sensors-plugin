@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Pxfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-10-20 19:58+0200\n"
-"PO-Revision-Date: 2009-09-18 23:12+0100\n"
+"PO-Revision-Date: 2009-10-21 13:18+0100\n"
 "Last-Translator: Rihards Prieditis <rprieditis@gmail.com>\n"
 "Language-Team: Latvian <translation-team-lv@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -53,9 +53,8 @@ msgid "g_raphical"
 msgstr "g_rafisks"
 
 #: ../panel-plugin/sensors-plugin.c:1454
-#, fuzzy
 msgid "Show _labels"
-msgstr "_Rādīt virsrakstu"
+msgstr "_Rādīt etiķetes"
 
 #: ../panel-plugin/sensors-plugin.c:1484
 msgid "Show colored _bars"
@@ -67,7 +66,7 @@ msgstr "_Rādīt virsrakstu"
 
 #: ../panel-plugin/sensors-plugin.c:1536
 msgid "_Number of text lines:"
-msgstr ""
+msgstr "_Teksta rindiņu skaits"
 
 #: ../panel-plugin/sensors-plugin.c:1571
 msgid "F_ont size:"
