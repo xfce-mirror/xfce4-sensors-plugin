@@ -51,9 +51,8 @@ msgid "g_raphical"
 msgstr "g_raphique"
 
 #: ../panel-plugin/sensors-plugin.c:1454
-#, fuzzy
 msgid "Show _labels"
-msgstr "Affi_cher le titre"
+msgstr "Affi_cher les étiquettes"
 
 #: ../panel-plugin/sensors-plugin.c:1484
 msgid "Show colored _bars"
@@ -65,7 +64,7 @@ msgstr "Affi_cher le titre"
 
 #: ../panel-plugin/sensors-plugin.c:1536
 msgid "_Number of text lines:"
-msgstr ""
+msgstr "_Nombre de lignes de texte :"
 
 #: ../panel-plugin/sensors-plugin.c:1571
 msgid "F_ont size:"
