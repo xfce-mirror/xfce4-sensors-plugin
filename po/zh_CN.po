@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: xfce 4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-10-20 19:58+0200\n"
-"PO-Revision-Date: 2009-05-09 13:38+0800\n"
+"PO-Revision-Date: 2009-11-09 19:43+0800\n"
 "Last-Translator: Hunt Xu <huntxu@live.cn>\n"
-"Language-Team: Chinese (simplified)\n"
+"Language-Team: Chinese (simplified) <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -49,9 +49,8 @@ msgid "g_raphical"
 msgstr "图形(_R)"
 
 #: ../panel-plugin/sensors-plugin.c:1454
-#, fuzzy
 msgid "Show _labels"
-msgstr "显示标题(_S)"
+msgstr "显示标签(_L)"
 
 #: ../panel-plugin/sensors-plugin.c:1484
 msgid "Show colored _bars"
@@ -63,7 +62,7 @@ msgstr "显示标题(_S)"
 
 #: ../panel-plugin/sensors-plugin.c:1536
 msgid "_Number of text lines:"
-msgstr ""
+msgstr "文本行数(_N):"
 
 #: ../panel-plugin/sensors-plugin.c:1571
 msgid "F_ont size:"
