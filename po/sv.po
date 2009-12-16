@@ -8,14 +8,15 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-10-20 19:58+0200\n"
-"PO-Revision-Date: 2009-01-18 13:08+0100\n"
+"PO-Revision-Date: 2009-12-16 17:48+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors-plugin.c:225 ../panel-plugin/sensors-plugin.c:787
+#: ../panel-plugin/sensors-plugin.c:225
+#: ../panel-plugin/sensors-plugin.c:787
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Sensorer</b></span>"
 
@@ -46,9 +47,8 @@ msgid "g_raphical"
 msgstr "g_rafisk"
 
 #: ../panel-plugin/sensors-plugin.c:1454
-#, fuzzy
 msgid "Show _labels"
-msgstr "_Visa titel"
+msgstr "Visa _etiketter"
 
 #: ../panel-plugin/sensors-plugin.c:1484
 msgid "Show colored _bars"
@@ -60,7 +60,7 @@ msgstr "_Visa titel"
 
 #: ../panel-plugin/sensors-plugin.c:1536
 msgid "_Number of text lines:"
-msgstr ""
+msgstr "A_ntal textrader:"
 
 #: ../panel-plugin/sensors-plugin.c:1571
 msgid "F_ont size:"
@@ -97,7 +97,7 @@ msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:1653
 msgid "Suppress messages"
-msgstr ""
+msgstr "Visa inte meddelanden"
 
 #: ../panel-plugin/sensors-plugin.c:1682
 msgid "U_pdate interval (seconds):"
@@ -115,29 +115,31 @@ msgstr "_Visa"
 msgid "_Miscellaneous"
 msgstr "_Diverse"
 
-#: ../panel-plugin/sensors-plugin.c:1860 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:1860
+#: ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:152
 msgid "Sensors Plugin"
 msgstr ""
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:1903
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field."
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
 msgstr ""
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:154 ../lib/configuration.c:336
-#: ../lib/configuration.c:343 ../lib/hddtemp.c:342 ../lib/hddtemp.c:388
+#: ../lib/configuration.c:154
+#: ../lib/configuration.c:336
+#: ../lib/configuration.c:343
+#: ../lib/hddtemp.c:342
+#: ../lib/hddtemp.c:388
 msgid "Hard disks"
 msgstr "Hårddiskar"
 
-#: ../lib/acpi.c:521 ../lib/acpi.c:529
+#: ../lib/acpi.c:521
+#: ../lib/acpi.c:529
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -163,21 +165,19 @@ msgstr ""
 #: ../lib/hddtemp.c:517
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
 
-#: ../lib/hddtemp.c:533 ../lib/hddtemp.c:563
+#: ../lib/hddtemp.c:533
+#: ../lib/hddtemp.c:563
 msgid "Suppress this message in future"
-msgstr ""
+msgstr "Visa inte detta meddelande igen"
 
 #: ../lib/hddtemp.c:557
 #, c-format
@@ -192,7 +192,8 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:629 ../lib/sensors-interface-common.c:141
+#: ../lib/hddtemp.c:629
+#: ../lib/sensors-interface-common.c:141
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -201,7 +202,8 @@ msgstr "%.1f °C"
 msgid "LM Sensors"
 msgstr ""
 
-#: ../lib/lmsensors.c:362 ../lib/lmsensors.c:409
+#: ../lib/lmsensors.c:362
+#: ../lib/lmsensors.c:409
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Fel: Kunde inte ansluta till sensorer!"
@@ -218,7 +220,7 @@ msgstr ""
 
 #: ../lib/sensors-interface.c:162
 msgid "Sensors t_ype:"
-msgstr ""
+msgstr "Sensort_yp:"
 
 #: ../lib/sensors-interface.c:187
 msgid "Description:"
@@ -240,11 +242,13 @@ msgstr "Visa"
 msgid "Color"
 msgstr "Färg"
 
-#: ../lib/sensors-interface.c:265 ../lib/sensors-interface.c:271
+#: ../lib/sensors-interface.c:265
+#: ../lib/sensors-interface.c:271
 msgid "Min"
 msgstr "Min"
 
-#: ../lib/sensors-interface.c:282 ../lib/sensors-interface.c:288
+#: ../lib/sensors-interface.c:282
+#: ../lib/sensors-interface.c:288
 msgid "Max"
 msgstr "Max"
 
@@ -301,9 +305,7 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
 
 #: ../src/main.c:58
@@ -324,15 +326,15 @@ msgstr ""
 #: ../src/main.c:75
 #, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr ""
+msgstr "Xfce4-sensorer %s\n"
 
 #: ../src/interface.c:46
 msgid "Sensors Viewer"
-msgstr ""
+msgstr "Sensorvisare"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
-msgstr ""
+msgstr "Sensorvisare"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
 msgid "Sensors Values Viewer"
@@ -349,3 +351,4 @@ msgstr ""
 
 #~ msgid "Show _labels in graphical UI"
 #~ msgstr "Visa _etiketter i grafiskt gränssnitt"
+
