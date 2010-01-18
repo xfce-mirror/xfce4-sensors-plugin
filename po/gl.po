@@ -152,7 +152,7 @@ msgstr "ACPI"
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
-msgstr ""
+msgstr "Zonas ACPI v%s"
 
 #: ../lib/acpi.c:638
 msgid "<Unknown>"
@@ -168,7 +168,7 @@ msgstr "Non se detectou ningún erro concreto.\n"
 
 # falta o de traducir setuid
 #: ../lib/hddtemp.c:517
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
@@ -178,7 +178,7 @@ msgid ""
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"Non se executou correctamente \"hddtemp\", aínda que é executable. O máis probable é que sexa debido a que os discos requiren privilexios de root para ler as súas temperaturas, e \"hddtemp\" non            .\n"
+"Non se executou correctamente \"hddtemp\", aínda que é executable. O máis probable é que sexa debido a que os discos requiren privilexios de root para ler as súas temperaturas, e \"hddtemp\" non se asignou o id de root (setuid).\n"
 "\n"
 "Unha solución fácil pero trapalleira é executar \"chmod u+s %s\" co usuario root e reiniciar este engadido ou o panel.\n"
 "\n"
