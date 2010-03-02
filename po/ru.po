@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-10-20 19:58+0200\n"
-"PO-Revision-Date: 2010-03-01 10:33+0200\n"
+"PO-Revision-Date: 2010-03-02 18:47+0300\n"
 "Last-Translator: Dima Smirnov <arch@cnc-parts.info>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,9 +17,8 @@ msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:225
 #: ../panel-plugin/sensors-plugin.c:787
-#, fuzzy
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
-msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Сенсоры</b></span>\n"
+msgstr "<span foreground=\"#000000\"><b>Сенсоры</b></span>"
 
 #: ../panel-plugin/sensors-plugin.c:604
 msgid "No sensors selected!"
@@ -39,31 +38,26 @@ msgstr ""
 "Отображаемые данные могут быть не верны.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1414
-#, fuzzy
 msgid "UI style:"
-msgstr "Стиль отображения"
+msgstr "Стиль отображения:"
 
 #: ../panel-plugin/sensors-plugin.c:1415
-#, fuzzy
 msgid "_text"
-msgstr "текстовый"
+msgstr "_текст"
 
 #: ../panel-plugin/sensors-plugin.c:1417
-#, fuzzy
 msgid "g_raphical"
-msgstr "графический"
+msgstr "г_рафический"
 
 #: ../panel-plugin/sensors-plugin.c:1454
-#, fuzzy
 msgid "Show _labels"
-msgstr "Отображать заголовок"
+msgstr "Отображать заголовки"
 
 #: ../panel-plugin/sensors-plugin.c:1484
 msgid "Show colored _bars"
 msgstr "Показать цветные _заголовки"
 
 #: ../panel-plugin/sensors-plugin.c:1512
-#, fuzzy
 msgid "_Show title"
 msgstr "Отображать заголовок"
 
@@ -72,9 +66,8 @@ msgid "_Number of text lines:"
 msgstr "_Количество строк текста:"
 
 #: ../panel-plugin/sensors-plugin.c:1571
-#, fuzzy
 msgid "F_ont size:"
-msgstr "Размер шрифта:"
+msgstr "Р_азмер шрифта:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1578
@@ -98,9 +91,8 @@ msgid "x-large"
 msgstr "огромный"
 
 #: ../panel-plugin/sensors-plugin.c:1610
-#, fuzzy
 msgid "Show _Units"
-msgstr "Отображать заголовок"
+msgstr "Отображать части"
 
 #: ../panel-plugin/sensors-plugin.c:1631
 msgid "Small horizontal s_pacing"
@@ -111,12 +103,10 @@ msgid "Suppress messages"
 msgstr "Подавление сообщений"
 
 #: ../panel-plugin/sensors-plugin.c:1682
-#, fuzzy
 msgid "U_pdate interval (seconds):"
 msgstr "Интервал обновления (сек.):"
 
 #: ../panel-plugin/sensors-plugin.c:1712
-#, fuzzy
 msgid "E_xecute on double click:"
 msgstr "Выполнить по двойному щелчку:"
 
@@ -125,9 +115,8 @@ msgid "_View"
 msgstr "_Вид"
 
 #: ../panel-plugin/sensors-plugin.c:1788
-#, fuzzy
 msgid "_Miscellaneous"
-msgstr "<b>Дополнительно</b>"
+msgstr "_Разное"
 
 #: ../panel-plugin/sensors-plugin.c:1860
 #: ../panel-plugin/sensors-plugin.h:30
@@ -138,7 +127,7 @@ msgstr "Сенсоры"
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:1903
 msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
-msgstr "Вы можете изменять свойства, такие как имя, цвета, минимальное/максимальное значение двойным щелчком мыши по пареметру, редактировать содержимое и нажать Enter или выбрать другое поле. "
+msgstr "Вы можете изменять свойства, такие как имя, цвета, минимальное или максимальное значение двойным щелчком мыши по пареметру, редактировать содержимое и нажать \"Return\" или выбрать другое поле. "
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -213,9 +202,8 @@ msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #: ../lib/lmsensors.c:103
-#, fuzzy
 msgid "LM Sensors"
-msgstr "<b>Сенсоры</b>"
+msgstr "Сенсоры"
 
 #: ../lib/lmsensors.c:362
 #: ../lib/lmsensors.c:409
@@ -224,9 +212,8 @@ msgid "Error: Could not connect to sensors!"
 msgstr "Ошибка: Не удается соединиться с сенсорами!"
 
 #: ../lib/sensors-interface.c:80
-#, fuzzy
 msgid "Sensors Plugin Failure"
-msgstr "Сенсоры"
+msgstr "Сбой плагина"
 
 #: ../lib/sensors-interface.c:81
 msgid ""
@@ -237,7 +224,6 @@ msgstr ""
 "Отображаемые данные могут быть не верны."
 
 #: ../lib/sensors-interface.c:162
-#, fuzzy
 msgid "Sensors t_ype:"
 msgstr "Тип сенсоров:"
 
@@ -272,24 +258,20 @@ msgid "Max"
 msgstr "Макс."
 
 #: ../lib/sensors-interface.c:323
-#, fuzzy
 msgid "Temperature scale:"
 msgstr "Температурная шкала:"
 
 #: ../lib/sensors-interface.c:325
-#, fuzzy
 msgid "_Celsius"
 msgstr "По Цельсию"
 
 #: ../lib/sensors-interface.c:327
-#, fuzzy
 msgid "_Fahrenheit"
 msgstr "По Фаренгейту"
 
 #: ../lib/sensors-interface.c:363
-#, fuzzy
 msgid "_Sensors"
-msgstr "<b>Сенсоры</b>"
+msgstr "Сенсоры"
 
 #: ../lib/sensors-interface-common.c:70
 msgid "No sensors found!"
@@ -306,9 +288,9 @@ msgid "%+.2f V"
 msgstr "%+.2f V"
 
 #: ../lib/sensors-interface-common.c:150
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f mWh"
-msgstr "%5.0f оборотов/мин"
+msgstr "%5.0f оборотов в мин"
 
 #: ../lib/sensors-interface-common.c:155
 msgid "off"
@@ -319,9 +301,9 @@ msgid "on"
 msgstr "включить"
 
 #: ../lib/sensors-interface-common.c:161
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f rpm"
-msgstr "%5.0f оборотов/мин"
+msgstr "%5.0f оборотов в мин"
 
 #: ../src/main.c:46
 #, c-format
@@ -348,37 +330,42 @@ msgid ""
 "\n"
 "This program is published under the GPL v2.\n"
 msgstr ""
+"Xfce4 Sensors %s\n"
+"Displays information about your sensors and ACPI.\n"
+"Synopsis: \n"
+"  xfce4-sensors options\n"
+"where options are one or more of the following:\n"
+"  -h, --help    Print this help dialog.\n"
+"  -l, --license Print license information.\n"
+"  -V, --version Print version information.\n"
+"\n"
+"This program is published under the GPL v2.\n"
 
 #: ../src/main.c:75
-#, fuzzy, c-format
+#, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr "Сенсоры"
+msgstr "Сенсоры Xfce4 %s\n"
 
 #: ../src/interface.c:46
-#, fuzzy
 msgid "Sensors Viewer"
-msgstr "Тип сенсоров:"
+msgstr "Просмотр сенсоров"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
-#, fuzzy
 msgid "Sensor Viewer"
-msgstr "Тип сенсоров:"
+msgstr "Просмотр сенсоров"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
-#, fuzzy
 msgid "Sensors Values Viewer"
-msgstr "Тип сенсоров:"
+msgstr "Просмотр значений сенсоров"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
-#, fuzzy
 msgid "Show sensor values."
-msgstr "Отображает значения сенсоров."
+msgstr "Отображать значения сенсоров."
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Sensor plugin "
-msgstr "Сенсоры"
+msgstr "Плагин сенсоров"
 
 #, fuzzy
 #~ msgid "Show _labels in graphical UI"
@@ -391,19 +378,16 @@ msgstr "Сенсоры"
 #, fuzzy
 #~ msgid "Xfce 4 Sensors Viewer"
 #~ msgstr "Сенсоры"
-
 #~ msgid "Edit Properties"
 #~ msgstr "Свойства"
 
 #, fuzzy
 #~ msgid "View sensor values"
 #~ msgstr "Отображает значения сенсоров."
-
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Сенсоры</b></span>\n"
-
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Сенсоры</b></span>"
-
 #~ msgid "<b>View</b>"
 #~ msgstr "<b>Вид</b>"
+
