@@ -8,14 +8,15 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-10-20 19:58+0200\n"
-"PO-Revision-Date: 2006-04-09 17:07+0600\n"
-"Last-Translator: Andrey Fedoseev <andrey.fedoseev@gmail.com>\n"
+"PO-Revision-Date: 2010-03-01 10:33+0200\n"
+"Last-Translator: Dima Smirnov <arch@cnc-parts.info>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors-plugin.c:225 ../panel-plugin/sensors-plugin.c:787
+#: ../panel-plugin/sensors-plugin.c:225
+#: ../panel-plugin/sensors-plugin.c:787
 #, fuzzy
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Сенсоры</b></span>\n"
@@ -33,6 +34,9 @@ msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
+"Сообщение:\n"
+"Невозможно считать показания системы.\n"
+"Отображаемые данные могут быть не верны.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1414
 #, fuzzy
@@ -56,7 +60,7 @@ msgstr "Отображать заголовок"
 
 #: ../panel-plugin/sensors-plugin.c:1484
 msgid "Show colored _bars"
-msgstr ""
+msgstr "Показать цветные _заголовки"
 
 #: ../panel-plugin/sensors-plugin.c:1512
 #, fuzzy
@@ -65,7 +69,7 @@ msgstr "Отображать заголовок"
 
 #: ../panel-plugin/sensors-plugin.c:1536
 msgid "_Number of text lines:"
-msgstr ""
+msgstr "_Количество строк текста:"
 
 #: ../panel-plugin/sensors-plugin.c:1571
 #, fuzzy
@@ -100,11 +104,11 @@ msgstr "Отображать заголовок"
 
 #: ../panel-plugin/sensors-plugin.c:1631
 msgid "Small horizontal s_pacing"
-msgstr ""
+msgstr "Маленький горизонтальный п_робел"
 
 #: ../panel-plugin/sensors-plugin.c:1653
 msgid "Suppress messages"
-msgstr ""
+msgstr "Подавление сообщений"
 
 #: ../panel-plugin/sensors-plugin.c:1682
 #, fuzzy
@@ -118,76 +122,76 @@ msgstr "Выполнить по двойному щелчку:"
 
 #: ../panel-plugin/sensors-plugin.c:1755
 msgid "_View"
-msgstr ""
+msgstr "_Вид"
 
 #: ../panel-plugin/sensors-plugin.c:1788
 #, fuzzy
 msgid "_Miscellaneous"
 msgstr "<b>Дополнительно</b>"
 
-#: ../panel-plugin/sensors-plugin.c:1860 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:1860
+#: ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:152
 msgid "Sensors Plugin"
 msgstr "Сенсоры"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:1903
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field."
-msgstr ""
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
+msgstr "Вы можете изменять свойства, такие как имя, цвета, минимальное/максимальное значение двойным щелчком мыши по пареметру, редактировать содержимое и нажать Enter или выбрать другое поле. "
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:154 ../lib/configuration.c:336
-#: ../lib/configuration.c:343 ../lib/hddtemp.c:342 ../lib/hddtemp.c:388
+#: ../lib/configuration.c:154
+#: ../lib/configuration.c:336
+#: ../lib/configuration.c:343
+#: ../lib/hddtemp.c:342
+#: ../lib/hddtemp.c:388
 msgid "Hard disks"
-msgstr ""
+msgstr "Жесткие диски"
 
-#: ../lib/acpi.c:521 ../lib/acpi.c:529
+#: ../lib/acpi.c:521
+#: ../lib/acpi.c:529
 msgid "ACPI"
-msgstr ""
+msgstr "ACPI"
 
 #. to be displayed
 #. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
-msgstr ""
+msgstr "ACPI v%s зоны"
 
 #: ../lib/acpi.c:638
 msgid "<Unknown>"
-msgstr ""
+msgstr "<Неизвестно>"
 
 #: ../lib/hddtemp.c:387
 msgid "S.M.A.R.T. harddisk temperatures"
-msgstr ""
+msgstr "Температура диска по S.M.A.R.T."
 
 #: ../lib/hddtemp.c:464
 msgid "No concrete error detected.\n"
-msgstr ""
+msgstr "Нет конкретной ошибки.\n"
 
 #: ../lib/hddtemp.c:517
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
 
-#: ../lib/hddtemp.c:533 ../lib/hddtemp.c:563
+#: ../lib/hddtemp.c:533
+#: ../lib/hddtemp.c:563
 msgid "Suppress this message in future"
-msgstr ""
+msgstr "Не показывать это сообщение в дальнейшем"
 
 #: ../lib/hddtemp.c:557
 #, c-format
@@ -195,22 +199,26 @@ msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr ""
+"Ошибка при выполнении \"%s\":\n"
+"%s"
 
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:629 ../lib/sensors-interface-common.c:141
+#: ../lib/hddtemp.c:629
+#: ../lib/sensors-interface-common.c:141
 #, c-format
 msgid "%.1f °C"
-msgstr ""
+msgstr "%.1f °C"
 
 #: ../lib/lmsensors.c:103
 #, fuzzy
 msgid "LM Sensors"
 msgstr "<b>Сенсоры</b>"
 
-#: ../lib/lmsensors.c:362 ../lib/lmsensors.c:409
+#: ../lib/lmsensors.c:362
+#: ../lib/lmsensors.c:409
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Ошибка: Не удается соединиться с сенсорами!"
@@ -225,6 +233,8 @@ msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr ""
+"Похоже что возникла проблема при чтении показаний сенсоров.\n"
+"Отображаемые данные могут быть не верны."
 
 #: ../lib/sensors-interface.c:162
 #, fuzzy
@@ -233,7 +243,7 @@ msgstr "Тип сенсоров:"
 
 #: ../lib/sensors-interface.c:187
 msgid "Description:"
-msgstr ""
+msgstr "Описание:"
 
 #: ../lib/sensors-interface.c:225
 msgid "Name"
@@ -251,11 +261,13 @@ msgstr "Отображать"
 msgid "Color"
 msgstr "Цвет"
 
-#: ../lib/sensors-interface.c:265 ../lib/sensors-interface.c:271
+#: ../lib/sensors-interface.c:265
+#: ../lib/sensors-interface.c:271
 msgid "Min"
 msgstr "Мин."
 
-#: ../lib/sensors-interface.c:282 ../lib/sensors-interface.c:288
+#: ../lib/sensors-interface.c:282
+#: ../lib/sensors-interface.c:288
 msgid "Max"
 msgstr "Макс."
 
@@ -286,12 +298,12 @@ msgstr "Сенсоры на найдены!"
 #: ../lib/sensors-interface-common.c:138
 #, c-format
 msgid "%.1f °F"
-msgstr ""
+msgstr "%.1f °F"
 
 #: ../lib/sensors-interface-common.c:146
 #, c-format
 msgid "%+.2f V"
-msgstr ""
+msgstr "%+.2f V"
 
 #: ../lib/sensors-interface-common.c:150
 #, fuzzy, c-format
@@ -300,11 +312,11 @@ msgstr "%5.0f оборотов/мин"
 
 #: ../lib/sensors-interface-common.c:155
 msgid "off"
-msgstr ""
+msgstr "выключить"
 
 #: ../lib/sensors-interface-common.c:157
 msgid "on"
-msgstr ""
+msgstr "включить"
 
 #: ../lib/sensors-interface-common.c:161
 #, fuzzy, c-format
@@ -316,10 +328,11 @@ msgstr "%5.0f оборотов/мин"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
+"Xfce4 Sensors %s\n"
+"Эта программа выпущена под лицензией GPL v2.\n"
+"Текст лицензии может быть найден внутри архива с исходным кодом или в /usr/share/apps/LICENSES/GPL_V2, а также http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:58
 #, c-format
