@@ -1,5 +1,5 @@
 /* $Id$ */
-/*  Copyright 2008 Fabian Nowak (timystery@arcor.de)
+/*  Copyright 2008-2010 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -42,6 +42,8 @@ void add_type_box (GtkWidget * vbox, t_sensors_dialog * sd);
 void add_temperature_unit_box (GtkWidget *vbox, t_sensors_dialog *sd);
 
 void add_sensors_frame (GtkWidget * notebook, t_sensors_dialog * sd);
+
+void add_update_time_box (GtkWidget * vbox, t_sensors_dialog * sd);
 
 /* Callbacks */
 //void temperature_unit_change (GtkWidget *widget, t_sensors_dialog *sd);

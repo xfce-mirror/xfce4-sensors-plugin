@@ -1,7 +1,7 @@
 /* $Id$ */
 /* File configuration.c
  *
- *  Copyright 2004-2007 Fabian Nowak (timystery@arcor.de)
+ *  Copyright 2004-2010 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -95,7 +95,7 @@ sensors_write_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 
     xfce_rc_write_bool_entry (rc, "Show_Labels", sensors->show_labels);
 
-    xfce_rc_write_bool_entry (rc, "Use_Bar_UI", sensors->display_values_graphically);
+    xfce_rc_write_int_entry (rc, "Use_Bar_UI", sensors->display_values_type);
 
     xfce_rc_write_bool_entry (rc, "Show_Colored_Bars", sensors->show_colored_bars);
 
@@ -199,7 +199,7 @@ sensors_read_general_config (XfceRc *rc, t_sensors *sensors)
 
         sensors->show_labels = xfce_rc_read_bool_entry (rc, "Show_Labels", TRUE);
 
-        sensors->display_values_graphically = xfce_rc_read_bool_entry (rc, "Use_Bar_UI", FALSE);
+        sensors->display_values_type = xfce_rc_read_int_entry (rc, "Use_Bar_UI", 0);
 
         sensors->show_colored_bars = xfce_rc_read_bool_entry (rc, "Show_Colored_Bars", FALSE);
 

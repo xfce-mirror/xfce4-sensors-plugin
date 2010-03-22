@@ -1,6 +1,6 @@
 /* $Id$ */
 
-/*  Copyright 2008 Fabian Nowak (timystery@arcor.de)
+/*  Copyright 2008-2010 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -40,8 +40,14 @@
 #include "callbacks.h"
 #include "interface.h"
 
+/* forward declarations for -Wall */
+void print_license (void);
+void print_usage (void);
+void print_version (void);
+t_sensors_dialog * initialize_sensors_struct (void);
+
 void
-print_license ()
+print_license (void)
 {
     printf (_("Xfce4 Sensors %s\n"
                       "This program is published under the GPL v2.\n"
@@ -53,7 +59,7 @@ print_license ()
 
 
 void
-print_usage ()
+print_usage (void)
 {
     printf (_("Xfce4 Sensors %s\n"
                       "Displays information about your sensors and ACPI.\n"
@@ -70,9 +76,37 @@ print_usage ()
 
 
 void
-print_version ()
+print_version (void)
 {
     printf (_("Xfce4 Sensors %s\n"), PACKAGE_VERSION);
+}
+
+
+t_sensors_dialog *
+initialize_sensors_struct (void)
+{
+    t_sensors *sensors;
+    t_sensors_dialog *sd;
+    int i, j;
+    
+    sensors = sensors_new (NULL, NULL);
+    sd = g_new0 (t_sensors_dialog, 1);
+    sd->sensors = sensors;
+    sd->plugin_dialog = FALSE;
+    
+    for (i=0; i<10; i++)
+      for (j=0; j<256; j++)
+      {
+        sensors->tachos[i][j] = NULL;
+      }
+      
+    return sd;
+}
+
+static void
+on_window_destroy_event (GtkWidget *widget, GdkEvent *event, gpointer user_data)
+{
+  DBG("on_window_destroy_event\n");
 }
 
 int
@@ -80,7 +114,6 @@ main (int argc, char **argv)
 {
     GtkWidget *window;
     t_sensors_dialog *sd;
-    t_sensors *sensors;
 
     xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
@@ -104,27 +137,34 @@ main (int argc, char **argv)
     gtk_init (&argc, &argv);
 
     /* initialize sensor stuff */
-    sensors = sensors_new (NULL, NULL);
-    sd = g_new0 (t_sensors_dialog, 1);
-    sd->sensors = sensors;
-    sd->plugin_dialog = FALSE;
+    sd = initialize_sensors_struct ();
 
     /* build main application */
     window = create_main_window (sd);
+        
+    /* automatic refresh callback */
+    sd->sensors->timeout_id  = g_timeout_add (
+        sd->sensors->sensors_refresh_time * 1000,
+        (GtkFunction) refresh_view, (gpointer) sd
+    );
 
     /* show window and run forever */
-    gtk_widget_show_all(window);
-    //gtk_window_set_default_size(GTK_WINDOW(window), 400, 500);
+    gtk_widget_show_all(window); /* to make sure everything is shown */
     gtk_window_resize(GTK_WINDOW(window), 400, 500);
-    /*gtk_widget_set_size_request(window, 400,600); */
+    gtk_widget_realize(sd->sensors->widget_sensors); /* without this call, the table will only be realized when the tab is shown and hence, toggled tachos are not drawn as they lack a drawable window. */
+    
+    g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(on_window_destroy_event), NULL);
+    
     gtk_main();
-
 
     /* do the cleaning? */
     /*
     gtk_widget_destroy(window);
     g_free (window);
-    */
+    g_free (sd->sensors);
+    g_free (sd);
+  */
+    
 
     return 0;
 }

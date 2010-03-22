@@ -1,6 +1,6 @@
 /* $Id$ */
 
-/*  Copyright 2008 Fabian Nowak (timystery@arcor.de)
+/*  Copyright 2008-2010 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -24,13 +24,18 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* forward declarations for GCC 4.3 -Wall */
+void * memset2 (void *s, char c, size_t n);
+char * str_split (char *string, char *delim);
+
+
 /**
  * This function behaves exactly as memset.
  * Memset is broken; it fails when writing an arbitrary number of chars to a valid pointer.
  */
 void *memset2 (void *s, char c, size_t n)
 {
-    int i;
+    unsigned int i;
     char *p;
 
     if (s==NULL)

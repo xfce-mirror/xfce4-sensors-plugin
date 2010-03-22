@@ -1,3 +1,11 @@
+2010-03-22 timystery
+  * check-in corrected check for netcat.
+	* version bump to 0.10.99.8
+
+2010-01-05 timystery
+  * updated xfce4-sensors by new tab with tachometer-like widgets
+  * regularly and customizably update sensor data in xfce4-sensors
+
 2008-11-16 timystery
   * 
   * Removed invalid columns such as color and "show" from application's treeview
@@ -18,7 +26,7 @@
   at a glance
   * libnotify support for error messages
   * Netcat support for hddtemp
-  * hard disk name swhen used with netcat
+  * hard disk names when used with netcat
 
 2008-10-26 timystery
   * New Xfce-style header

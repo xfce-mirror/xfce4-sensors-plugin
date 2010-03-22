@@ -1,5 +1,5 @@
 /* $Id$ */
-/*  Copyright 2004-2008 Fabian Nowak (timystery@arcor.de)
+/*  Copyright 2004-2010 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -60,6 +60,12 @@ typedef struct {
 } t_barpanel;
 
 
+typedef enum {
+  DISPLAY_TEXT = 1,
+  DISPLAY_BARS,
+  DISPLAY_TACHO
+} display_t;
+
 /**
  * Sensors module
  */
@@ -95,10 +101,13 @@ typedef struct {
     gint lines_size;
 
     /* panel orientation */
-    gint orientation;
+    GtkOrientation orientation;
 
     /* if the bars have been initialized */
     gboolean bars_created;
+    
+    /* if the tachos have been initialized */
+    gboolean tachos_created;
 
     /* show title in panel */
     gboolean show_title;
@@ -116,7 +125,8 @@ typedef struct {
     gboolean show_colored_bars;
 
     /* use the progress-bar UI */
-    gboolean display_values_graphically;
+    //gboolean display_values_graphically;
+    display_t display_values_type;
 
     /* suppress Hddtemp failure messages and any other messages */
     gboolean suppressmessage;
@@ -135,6 +145,10 @@ typedef struct {
     /* FIXME:    Might be replaced by GPtrArray as well */
     GtkWidget* panels[10][256];
     /*    GArray *panels_array; */
+    
+    /* contains the tacho panels */
+    /* FIXME:    Might be replaced by GPtrArray as well */
+    GtkWidget* tachos[10][256];
 
     /* contains structure from libsensors */
     /* const sensors_chip_name *chipName[SENSORS]; */
@@ -219,6 +233,8 @@ typedef struct {
     GtkWidget *myTreeView;
     GtkTreeStore *myListStore[10]; /* replace by GPtrArray as well */
     GtkWidget *font_Box; /* used to disable font size option when using graphical view */
+    GtkWidget *fontSettings_Box;
+    GtkWidget *fontSettings_Button;
     GtkWidget *unit_checkbox;
     GtkWidget *Lines_Box;
     GtkWidget *Lines_Spin_Box;
@@ -238,6 +254,9 @@ t_sensors_dialog;
 
 /* Extern functions that need to be re-implemented in the sensors-viewer and
  * the panel code. */
+extern void
+adjustment_value_changed  (GtkWidget *widget, t_sensors_dialog *sd); // for update timer box
+
 extern void
 sensor_entry_changed (GtkWidget *widget, t_sensors_dialog *sd);
 

@@ -1,6 +1,6 @@
 /* $Id$ */
 
-/*  Copyright 2007,2008 Fabian Nowak (timystery@arcor.de)
+/*  Copyright 2007-2010 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -39,6 +39,13 @@
 #include <errno.h>
 #include <stdio.h>
 #include <string.h>
+
+/* internal forward declaration so that GCC 4.4 does not complain */
+t_chip * setup_chip (GPtrArray *chips, const sensors_chip_name *name, int num_sensorchips);
+void categorize_sensor_type_libsensors4 (t_chipfeature *chipfeature, const sensors_feature *feature, const sensors_chip_name *name, int number);
+void setup_chipfeature_common (t_chipfeature *chipfeature, int number, double sensorFeature);
+void setup_chipfeature_libsensors4 (t_chipfeature *chipfeature, const sensors_feature *feature, int number, double sensorFeature, const sensors_chip_name *name);
+t_chipfeature * find_chipfeature (const sensors_chip_name *name, t_chip *chip, const sensors_feature *feature);
 
 /* Unused
 int get_number_chip_features (const sensors_chip_name *name)

@@ -1,7 +1,7 @@
 /* $Id$ */
 /* File configuration.h
  *
- *  Copyright 2004-2007 Fabian Nowak (timystery@arcor.de)
+ *  Copyright 2004-2010 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

@@ -2,7 +2,7 @@
 /*
  *      middlelayer.h
  *
- *      Copyright 2006, 2007 Fabian Nowak <timytery@arcor.de>
+ *      Copyright 2006-2010 Fabian Nowak <timytery@arcor.de>
  *
  *      This program is free software; you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by

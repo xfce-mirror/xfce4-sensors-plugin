@@ -2,7 +2,7 @@
 /*
  *      middlelayer.h
  *
- *      Copyright 2006, 2007 Fabian Nowak <timytery@arcor.de>
+ *      Copyright 2006-2010 Fabian Nowak <timytery@arcor.de>
  *
  *      This program is free software; you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by
@@ -23,8 +23,9 @@
 #ifndef XFCE4_SENSORS_MIDDLELAYER_H
 #define XFCE4_SENSORS_MIDDLELAYER_H
 
-/* Package/Local includes */
+/* Package/Local includes in same folder */
 #include "types.h"
+#include "sensors-interface-common.h"
 
 /* Gtk/Glib includes */
 #include <glib.h>
@@ -84,7 +85,7 @@ void free_chipfeature (gpointer chipfeature, gpointer data);
 
 
 /**
- * Free reamining structures in chips and associated chipfeatures
+ * Free remaining structures in chips and associated chipfeatures
  */
 void free_chip (gpointer chip, gpointer data);
 
@@ -93,5 +94,10 @@ void free_chip (gpointer chip, gpointer data);
  * Clean up structures and call library routines for ending "session".
  */
 void sensor_interface_cleanup ();
+
+/**
+ * Refreshes all chips at once.
+ */
+void refresh_all_chips (GPtrArray *chips, t_sensors *sensors );
 
 #endif /* XFCE4_SENSORS_MIDDLELAYER_H */

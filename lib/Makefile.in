@@ -64,16 +64,17 @@ LTLIBRARIES = $(plugin_LTLIBRARIES)
 am__DEPENDENCIES_1 =
 libxfce4sensors_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
 am__libxfce4sensors_la_SOURCES_DIST = middlelayer.c configuration.c \
-	sensors-interface-common.c sensors-interface.c lmsensors.c \
-	hddtemp.c acpi.c
+	sensors-interface-common.c sensors-interface.c cpu.c \
+	lmsensors.c hddtemp.c acpi.c
 @HAVE_LIBSENSORS_TRUE@am__objects_1 = libxfce4sensors_la-lmsensors.lo
 @HAVE_HDDTEMP_TRUE@am__objects_2 = libxfce4sensors_la-hddtemp.lo
 @HAVE_ACPI_TRUE@am__objects_3 = libxfce4sensors_la-acpi.lo
 am_libxfce4sensors_la_OBJECTS = libxfce4sensors_la-middlelayer.lo \
 	libxfce4sensors_la-configuration.lo \
 	libxfce4sensors_la-sensors-interface-common.lo \
-	libxfce4sensors_la-sensors-interface.lo $(am__objects_1) \
-	$(am__objects_2) $(am__objects_3)
+	libxfce4sensors_la-sensors-interface.lo \
+	libxfce4sensors_la-cpu.lo $(am__objects_1) $(am__objects_2) \
+	$(am__objects_3)
 libxfce4sensors_la_OBJECTS = $(am_libxfce4sensors_la_OBJECTS)
 DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
@@ -312,6 +313,7 @@ libxfce4sensors_la_SOURCES = \
 	configuration.c													\
 	sensors-interface-common.c										\
 	sensors-interface.c												\
+	cpu.c																			\
 	$(SENSORS_SOURCES)												\
 	$(HDDTEMP_SOURCES)												\
 	$(ACPI_SOURCES)
@@ -435,6 +437,7 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libxfce4sensors_la-acpi.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libxfce4sensors_la-configuration.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libxfce4sensors_la-cpu.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libxfce4sensors_la-hddtemp.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libxfce4sensors_la-lmsensors.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libxfce4sensors_la-middlelayer.Plo@am__quote@
@@ -489,6 +492,13 @@ libxfce4sensors_la-sensors-interface.lo: sensors-interface.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='sensors-interface.c' object='libxfce4sensors_la-sensors-interface.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4sensors_la_CFLAGS) $(CFLAGS) -c -o libxfce4sensors_la-sensors-interface.lo `test -f 'sensors-interface.c' || echo '$(srcdir)/'`sensors-interface.c
+
+libxfce4sensors_la-cpu.lo: cpu.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4sensors_la_CFLAGS) $(CFLAGS) -MT libxfce4sensors_la-cpu.lo -MD -MP -MF "$(DEPDIR)/libxfce4sensors_la-cpu.Tpo" -c -o libxfce4sensors_la-cpu.lo `test -f 'cpu.c' || echo '$(srcdir)/'`cpu.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libxfce4sensors_la-cpu.Tpo" "$(DEPDIR)/libxfce4sensors_la-cpu.Plo"; else rm -f "$(DEPDIR)/libxfce4sensors_la-cpu.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cpu.c' object='libxfce4sensors_la-cpu.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4sensors_la_CFLAGS) $(CFLAGS) -c -o libxfce4sensors_la-cpu.lo `test -f 'cpu.c' || echo '$(srcdir)/'`cpu.c
 
 libxfce4sensors_la-lmsensors.lo: lmsensors.c
 @am__fastdepCC_TRUE@	if $(LIBTOOL) --tag=CC --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4sensors_la_CFLAGS) $(CFLAGS) -MT libxfce4sensors_la-lmsensors.lo -MD -MP -MF "$(DEPDIR)/libxfce4sensors_la-lmsensors.Tpo" -c -o libxfce4sensors_la-lmsensors.lo `test -f 'lmsensors.c' || echo '$(srcdir)/'`lmsensors.c; \

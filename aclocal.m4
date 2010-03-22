@@ -2646,7 +2646,7 @@ linux*oldld* | linux*aout* | linux*coff*)
   ;;
 
 # This must be Linux ELF.
-linux* | k*bsd*-gnu)
+linux* | k*bsd*-gnu | kopensolaris*-gnu)
   version_type=linux
   need_lib_prefix=no
   need_version=no
@@ -3285,7 +3285,7 @@ irix5* | irix6* | nonstopux*)
   ;;
 
 # This must be Linux ELF.
-linux* | k*bsd*-gnu)
+linux* | k*bsd*-gnu | kopensolaris*-gnu)
   lt_cv_deplibs_check_method=pass_all
   ;;
 
@@ -3906,7 +3906,7 @@ m4_if([$1], [CXX], [
 	    ;;
 	esac
 	;;
-      linux* | k*bsd*-gnu)
+      linux* | k*bsd*-gnu | kopensolaris*-gnu)
 	case $cc_basename in
 	  KCC*)
 	    # KAI C++ Compiler
@@ -4190,7 +4190,7 @@ m4_if([$1], [CXX], [
       _LT_TAGVAR(lt_prog_compiler_static, $1)='-non_shared'
       ;;
 
-    linux* | k*bsd*-gnu)
+    linux* | k*bsd*-gnu | kopensolaris*-gnu)
       case $cc_basename in
       # old Intel for x86_64 which still supported -KPIC.
       ecc*)
@@ -4486,6 +4486,7 @@ dnl Note also adjust exclude_expsyms for C++ above.
     fi
     supports_anon_versioning=no
     case `$LD -v 2>&1` in
+      *GNU\ gold*) supports_anon_versioning=yes ;;
       *\ [[01]].* | *\ 2.[[0-9]].* | *\ 2.10.*) ;; # catch versions < 2.11
       *\ 2.11.93.0.2\ *) supports_anon_versioning=yes ;; # RH7.3 ...
       *\ 2.11.92.0.12\ *) supports_anon_versioning=yes ;; # Mandrake 8.2 ...
@@ -4577,7 +4578,7 @@ _LT_EOF
       _LT_TAGVAR(archive_expsym_cmds, $1)='sed "s,^,_," $export_symbols >$output_objdir/$soname.expsym~$CC -shared $pic_flag $libobjs $deplibs $compiler_flags ${wl}-h,$soname ${wl}--retain-symbols-file,$output_objdir/$soname.expsym ${wl}--image-base,`expr ${RANDOM-$$} % 4096 / 2 \* 262144 + 1342177280` -o $lib'
       ;;
 
-    gnu* | linux* | tpf* | k*bsd*-gnu)
+    gnu* | linux* | tpf* | k*bsd*-gnu | kopensolaris*-gnu)
       tmp_diet=no
       if test "$host_os" = linux-dietlibc; then
 	case $cc_basename in
@@ -6057,7 +6058,7 @@ if test "$_lt_caught_CXX_error" != yes; then
         _LT_TAGVAR(inherit_rpath, $1)=yes
         ;;
 
-      linux* | k*bsd*-gnu)
+      linux* | k*bsd*-gnu | kopensolaris*-gnu)
         case $cc_basename in
           KCC*)
 	    # Kuck and Associates, Inc. (KAI) C++ Compiler
@@ -8064,15 +8065,15 @@ m4_define([lt_dict_filter],
 
 # Generated from ltversion.in.
 
-# serial 3012 ltversion.m4
+# serial 3017 ltversion.m4
 # This file is part of GNU Libtool
 
-m4_define([LT_PACKAGE_VERSION], [2.2.6])
-m4_define([LT_PACKAGE_REVISION], [1.3012])
+m4_define([LT_PACKAGE_VERSION], [2.2.6b])
+m4_define([LT_PACKAGE_REVISION], [1.3017])
 
 AC_DEFUN([LTVERSION_VERSION],
-[macro_version='2.2.6'
-macro_revision='1.3012'
+[macro_version='2.2.6b'
+macro_revision='1.3017'
 _LT_DECL(, macro_version, 0, [Which release of libtool.m4 was used?])
 _LT_DECL(, macro_revision, 0)
 ])
@@ -9461,7 +9462,7 @@ AC_DEFUN([AM_GLIB_GNU_GETTEXT],[GLIB_GNU_GETTEXT($@)])
 AC_DEFUN([AM_GLIB_DEFINE_LOCALEDIR],[GLIB_DEFINE_LOCALEDIR($@)])
 ])dnl
 
-dnl $Id: xdt-depends.m4 21591 2006-05-08 09:10:26Z benny $
+dnl $Id$
 dnl
 dnl Copyright (c) 2002-2006
 dnl         The Xfce development team. All rights reserved.
@@ -9891,7 +9892,7 @@ AC_DEFUN([BM_LIBXPM_REQUIRE],
 ])
 
 
-dnl $Id: xdt-features.m4 22990 2006-09-02 11:33:28Z benny $
+dnl $Id$
 dnl
 dnl Copyright (c) 2002-2006
 dnl         The Xfce development team. All rights reserved.
@@ -9924,46 +9925,180 @@ dnl We need recent a autoconf version
 AC_PREREQ([2.53])
 
 
+dnl XDT_SUPPORTED_FLAGS(VAR, FLAGS)
+dnl
+dnl For each token in FLAGS, checks to be sure the compiler supports
+dnl the flag, and if so, adds each one to VAR.
+dnl
+AC_DEFUN([XDT_SUPPORTED_FLAGS],
+[
+  for flag in $2; do
+    AC_MSG_CHECKING([if $CC supports $flag])
+    saved_CFLAGS="$CFLAGS"
+    CFLAGS="$CFLAGS $flag"
+    AC_COMPILE_IFELSE([ ], [flag_supported=yes], [flag_supported=no])
+    CFLAGS="$saved_CFLAGS"
+    AC_MSG_RESULT([$flag_supported])
 
-dnl XDT_FEATURE_DEBUG()
+    if test "x$flag_supported" = "xyes"; then
+      $1="$$1 $flag"
+    fi
+  done
+])
+
+
+
+dnl XDT_FEATURE_DEBUG(default_level=minimum)
 dnl
 AC_DEFUN([XDT_FEATURE_DEBUG],
 [
+  dnl weird indentation to keep output indentation correct
   AC_ARG_ENABLE([debug],
-AC_HELP_STRING([--enable-debug[=yes|no|full]], [Build with debugging support])
-AC_HELP_STRING([--disable-debug], [Include no debugging support [default]]),
-  [], [enable_debug=no])
+                AC_HELP_STRING([--enable-debug@<:@=no|minimum|yes|full@:>@],
+                               [Build with debugging support @<:@default=m4_default([$1], [minimum])@:>@])
+AC_HELP_STRING([--disable-debug], [Include no debugging support]),
+                [enable_debug=$enableval], [enable_debug=m4_default([$1], [minimum])])
 
   AC_MSG_CHECKING([whether to build with debugging support])
-  if test x"$enable_debug" != x"no"; then
+  if test x"$enable_debug" = x"full" -o x"$enable_debug" = x"yes"; then
     AC_DEFINE([DEBUG], [1], [Define for debugging support])
 
-    if test x"$GCC" = x"yes"; then
-      xdt_cv_additional_CFLAGS="-Wall"
-    fi
-    xdt_cv_additional_CFLAGS="$xdt_cv_additional_CFLAGS -DXFCE_DISABLE_DEPRECATED"
+    xdt_cv_additional_CFLAGS="-DXFCE_DISABLE_DEPRECATED \
+                              -Wall -Wextra \
+                              -Wno-missing-field-initializers \
+                              -Wno-unused-parameter -Wold-style-definition \
+                              -Wdeclaration-after-statement \
+                              -Wmissing-declarations -Wredundant-decls \
+                              -Wmissing-noreturn -Wshadow -Wpointer-arith \
+                              -Wcast-align -Wformat-security \
+                              -Winit-self -Wmissing-include-dirs -Wundef \
+                              -Wmissing-format-attribute -Wnested-externs \
+                              -fstack-protector"
+    CPPFLAGS="$CPPFLAGS -D_FORTIFY_SOURCE=2"
     
     if test x"$enable_debug" = x"full"; then
       AC_DEFINE([DEBUG_TRACE], [1], [Define for tracing support])
-      if test x"$GCC" = x"yes"; then
-        xdt_cv_additional_CFLAGS="-g3 -Werror $xdt_cv_additional_CFLAGS"
-      fi
+      xdt_cv_additional_CFLAGS="$xdt_cv_additional_CFLAGS -O0 -g3 -Werror"
+      CPPFLAGS="$CPPFLAGS -DG_ENABLE_DEBUG"
       AC_MSG_RESULT([full])
     else
-      if test x"$GCC" = x"yes"; then
-        xdt_cv_additional_CFLAGS="-g $xdt_cv_additional_CFLAGS"
-      fi
+      xdt_cv_additional_CFLAGS="$xdt_cv_additional_CFLAGS -g"
       AC_MSG_RESULT([yes])
     fi
 
-    CFLAGS="$CFLAGS $xdt_cv_additional_CFLAGS"
-    CXXFLAGS="$CXXFLAGS $xdt_cv_additional_CFLAGS"
+    XDT_SUPPORTED_FLAGS([supported_CFLAGS], [$xdt_cv_additional_CFLAGS])
+
+    ifelse([$CXX], , , [
+      dnl FIXME: should test on c++ compiler, but the following line causes
+      dnl        autoconf errors for projects that don't check for a
+      dnl        c++ compiler at all.
+      dnl AC_LANG_PUSH([C++])
+      dnl XDT_SUPPORTED_FLAGS([supported_CXXFLAGS], [$xdt_cv_additional_CFLAGS])
+      dnl AC_LANG_POP()
+      dnl        instead, just use supported_CFLAGS...
+      supported_CXXFLAGS="$supported_CFLAGS"
+    ])
+
+    CFLAGS="$CFLAGS $supported_CFLAGS"
+    CXXFLAGS="$CXXFLAGS $supported_CXXFLAGS"
   else
-    AC_MSG_RESULT([no])
+    CPPFLAGS="$CPPFLAGS -DNDEBUG"
+
+    if test x"$enable_debug" = x"no"; then
+      CPPFLAGS="$CPPFLAGS -DG_DISABLE_CAST_CHECKS -DG_DISABLE_ASSERT -DG_DISABLE_CHECKS"
+      AC_MSG_RESULT([no])
+    else
+      AC_MSG_RESULT([minimum])
+    fi
   fi
 ])
 
 
+dnl XDT_FEATURE_VISIBILITY()
+dnl
+dnl Checks to see if the compiler supports the 'visibility' attribute
+dnl If so, adds -DHAVE_GNUC_VISIBILTY to CPPFLAGS.  Also sets the
+dnl automake conditional HAVE_GNUC_VISIBILITY.
+dnl
+AC_DEFUN([XDT_FEATURE_VISIBILITY],
+[
+  AC_ARG_ENABLE([visibility],
+                AC_HELP_STRING([--disable-visibility],
+                               [Don't use ELF visibility attributes]),
+                [enable_visibility=$enableval], [enable_visibility=yes])
+  have_gnuc_visibility=no
+  if test "x$enable_visibility" != "xno"; then
+    XDT_SUPPORTED_FLAGS([xdt_vis_test_cflags], [-Wall -Werror -Wno-unused-parameter])
+    saved_CFLAGS="$CFLAGS"
+    CFLAGS="$CFLAGS $xdt_vis_test_cflags"
+    AC_MSG_CHECKING([whether $CC supports the GNUC visibility attribute])
+    AC_COMPILE_IFELSE(AC_LANG_SOURCE(
+    [
+      void test_default (void);
+      void test_hidden (void);
+
+      void __attribute__ ((visibility("default"))) test_default (void) {}
+      void __attribute__ ((visibility("hidden"))) test_hidden (void) {}
+
+      int main (int argc, char **argv) {
+        test_default ();
+        test_hidden ();
+        return 0;
+      }
+    ]),
+    [
+      have_gnuc_visibility=yes
+      AC_MSG_RESULT([yes])
+    ],
+    [
+      AC_MSG_RESULT([no])
+    ])
+    CFLAGS="$saved_CFLAGS"
+  fi
+
+  if test "x$have_gnuc_visibility" = "xyes"; then
+    CPPFLAGS="$CPPFLAGS -DHAVE_GNUC_VISIBILITY"
+    XDT_SUPPORTED_FLAGS([xdt_vis_hidden_cflags], [-fvisibility=hidden])
+    CFLAGS="$CFLAGS $xdt_vis_hidden_cflags"
+  fi
+
+  AM_CONDITIONAL([HAVE_GNUC_VISIBILITY], [test "x$have_gnuc_visibility" = "xyes"])
+])
+
+dnl XDT_FEATURE_LINKER_OPTS
+dnl
+dnl Checks for and enables any special linker optimizations.
+dnl
+AC_DEFUN([XDT_FEATURE_LINKER_OPTS],
+[
+  AC_ARG_ENABLE([linker-opts],
+                AC_HELP_STRING([--disable-linker-opts],
+                               [Disable linker optimizations]),
+                [enable_linker_opts=$enableval], [enable_linker_opts=yes])
+
+  if test "x$enable_linker_opts" != "xno"; then
+    AC_MSG_CHECKING([whether $LD accepts --as-needed])
+    case `$LD --as-needed -v 2>&1 </dev/null` in
+    *GNU* | *'with BFD'*)
+      LDFLAGS="$LDFLAGS -Wl,--as-needed"
+      AC_MSG_RESULT([yes])
+      ;;
+    *)
+      AC_MSG_RESULT([no])
+      ;;
+    esac
+    AC_MSG_CHECKING([whether $LD accepts -O1])
+    case `$LD -O1 -v 2>&1 </dev/null` in
+    *GNU* | *'with BFD'*)
+      LDFLAGS="$LDFLAGS -Wl,-O1"
+      AC_MSG_RESULT([yes])
+      ;;
+    *)
+      AC_MSG_RESULT([no])
+      ;;
+    esac
+  fi
+])
 
 dnl BM_DEBUG_SUPPORT()
 dnl
@@ -10043,7 +10178,7 @@ AC_HELP_STRING([--enable-final], [Build final version]),
   fi
 ])
 
-dnl $Id: xdt-i18n.m4 24486 2007-01-15 17:47:49Z benny $
+dnl $Id$
 dnl
 dnl Copyright (c) 2002-2006
 dnl         The Xfce development team. All rights reserved.

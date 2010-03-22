@@ -27,6 +27,7 @@ libxfce4sensors_la_SOURCES =										\
 	configuration.c													\
 	sensors-interface-common.c										\
 	sensors-interface.c												\
+	cpu.c																			\
 	$(SENSORS_SOURCES)												\
 	$(HDDTEMP_SOURCES)												\
 	$(ACPI_SOURCES)

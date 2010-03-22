@@ -1,6 +1,6 @@
 /* $Id$ */
 
-/*  Copyright 2008 Fabian Nowak (timystery@arcor.de)
+/*  Copyright 2008-2010 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -18,6 +18,9 @@
  */
 
 /* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
+
+#ifndef __CALLBACKS_H
+#define __CALLBACKS_H
 
 /* Package includes */
 #include <sensors-interface-common.h>
@@ -40,4 +43,7 @@ void close_window_requested ();
 
 void on_main_window_response (GtkWidget *dlg, int response, t_sensors_dialog *sd);
 
+void on_font_set (GtkWidget *widget, gpointer data);
+
+#endif /* __CALLBACKS_H */
 

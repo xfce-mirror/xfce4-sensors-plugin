@@ -1,5 +1,5 @@
 /* $Id$ */
-/*  Copyright 2004-2007 Fabian Nowak (timystery@arcor.de)
+/*  Copyright 2004-2010 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -620,7 +620,7 @@ acpi_ignore_directory_entry (struct dirent *de)
 
 
 char *
-get_acpi_info ()
+get_acpi_info (void)
 {
     char *filename, *version;
 
@@ -682,7 +682,7 @@ get_acpi_value (char *filename)
     if (!file)
         return NULL;
 
-    (void) fgets (buf, 1024, file);
+    p = fgets (buf, 1024, file);
     fclose (file);
 
     p = strip_key_colon_spaces (buf);

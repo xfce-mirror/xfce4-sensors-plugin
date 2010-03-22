@@ -1,6 +1,6 @@
 /* $Id$ */
 
-/*  Copyright 2008 Fabian Nowak (timystery@arcor.de)
+/*  Copyright 2008-2010 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -18,3 +18,18 @@
  */
 
 /* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
+
+#ifndef ACTIONS_H
+#define ACTIONS_H
+
+/* Glib includes */
+#include <glib.h>
+
+/* Package includes */
+#include <sensors-interface-common.h>
+#include <cpu.h>
+
+gboolean refresh_view (gpointer data);
+void refresh_tacho_view (t_sensors_dialog *sd);
+
+#endif /* ACTIONS_H */

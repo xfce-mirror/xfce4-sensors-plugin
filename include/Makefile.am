@@ -3,6 +3,7 @@
 EXTRA_DIST = 									\
 	acpi.h											\
 	hddtemp.h										\
+	cpu.h												\
 	Makefile.am									\
 	sensors-interface-common.h	\
 	types.h											\

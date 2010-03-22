@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-20 19:58+0200\n"
+"POT-Creation-Date: 2010-01-07 16:35+0100\n"
 "PO-Revision-Date: 2005-02-04 21:07+0200\n"
 "Last-Translator: Rimas Kudelis <rq@akl.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
@@ -15,18 +15,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors-plugin.c:225 ../panel-plugin/sensors-plugin.c:787
+#: ../panel-plugin/sensors-plugin.c:290 ../panel-plugin/sensors-plugin.c:387
+#: ../panel-plugin/sensors-plugin.c:952
 #, fuzzy
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensoriai</b></span> \n"
 
-#: ../panel-plugin/sensors-plugin.c:604
+#: ../panel-plugin/sensors-plugin.c:761
 msgid "No sensors selected!"
 msgstr "Nepasirinkti jokie sensoriai!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:642
+#: ../panel-plugin/sensors-plugin.c:799
 #, fuzzy, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -39,99 +40,103 @@ msgstr ""
 "savybės                         reikšmę. \n"
 "Tvarkingas tolesnis darbas negali būti užtikrinamas. \n"
 
-#: ../panel-plugin/sensors-plugin.c:1414
+#: ../panel-plugin/sensors-plugin.c:1657
 msgid "UI style:"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1415
+#: ../panel-plugin/sensors-plugin.c:1658
 msgid "_text"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1417
-msgid "g_raphical"
+#: ../panel-plugin/sensors-plugin.c:1660
+msgid "_progress bars"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1454
+#: ../panel-plugin/sensors-plugin.c:1662
+msgid "_tachos"
+msgstr ""
+
+#: ../panel-plugin/sensors-plugin.c:1707
 #, fuzzy
 msgid "Show _labels"
 msgstr "Rodyti pavadinimą"
 
-#: ../panel-plugin/sensors-plugin.c:1484
+#: ../panel-plugin/sensors-plugin.c:1737
 msgid "Show colored _bars"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1512
+#: ../panel-plugin/sensors-plugin.c:1765
 #, fuzzy
 msgid "_Show title"
 msgstr "Rodyti pavadinimą"
 
-#: ../panel-plugin/sensors-plugin.c:1536
+#: ../panel-plugin/sensors-plugin.c:1789
 msgid "_Number of text lines:"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1571
+#: ../panel-plugin/sensors-plugin.c:1824
 #, fuzzy
 msgid "F_ont size:"
 msgstr "Šrifto dydis:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1578
+#: ../panel-plugin/sensors-plugin.c:1831
 msgid "x-small"
 msgstr "labai mažas"
 
-#: ../panel-plugin/sensors-plugin.c:1579
+#: ../panel-plugin/sensors-plugin.c:1832
 msgid "small"
 msgstr "mažas"
 
-#: ../panel-plugin/sensors-plugin.c:1580
+#: ../panel-plugin/sensors-plugin.c:1833
 msgid "medium"
 msgstr "vidutinis"
 
-#: ../panel-plugin/sensors-plugin.c:1581
+#: ../panel-plugin/sensors-plugin.c:1834
 msgid "large"
 msgstr "didelis"
 
-#: ../panel-plugin/sensors-plugin.c:1582
+#: ../panel-plugin/sensors-plugin.c:1835
 msgid "x-large"
 msgstr "labai didelis"
 
-#: ../panel-plugin/sensors-plugin.c:1610
+#: ../panel-plugin/sensors-plugin.c:1866
+#, fuzzy
+msgid "F_ont:"
+msgstr "Šrifto dydis:"
+
+#: ../panel-plugin/sensors-plugin.c:1898
 #, fuzzy
 msgid "Show _Units"
 msgstr "Rodyti pavadinimą"
 
-#: ../panel-plugin/sensors-plugin.c:1631
+#: ../panel-plugin/sensors-plugin.c:1919
 msgid "Small horizontal s_pacing"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1653
+#: ../panel-plugin/sensors-plugin.c:1941
 msgid "Suppress messages"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1682
-#, fuzzy
-msgid "U_pdate interval (seconds):"
-msgstr "Atnaujinimo dažnumas (sek.):"
-
-#: ../panel-plugin/sensors-plugin.c:1712
+#: ../panel-plugin/sensors-plugin.c:1966
 msgid "E_xecute on double click:"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1755
+#: ../panel-plugin/sensors-plugin.c:2009
 msgid "_View"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1788
+#: ../panel-plugin/sensors-plugin.c:2043
 msgid "_Miscellaneous"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1860 ../panel-plugin/sensors-plugin.h:30
-#: ../lib/hddtemp.c:152
+#: ../panel-plugin/sensors-plugin.c:2116 ../panel-plugin/sensors-plugin.h:30
+#: ../lib/hddtemp.c:160
 msgid "Sensors Plugin"
 msgstr ""
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:1903
+#: ../panel-plugin/sensors-plugin.c:2159
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -142,8 +147,8 @@ msgstr ""
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:154 ../lib/configuration.c:336
-#: ../lib/configuration.c:343 ../lib/hddtemp.c:342 ../lib/hddtemp.c:388
+#: ../lib/configuration.c:156 ../lib/configuration.c:341
+#: ../lib/configuration.c:348 ../lib/hddtemp.c:351 ../lib/hddtemp.c:397
 msgid "Hard disks"
 msgstr ""
 
@@ -162,16 +167,16 @@ msgstr ""
 msgid "<Unknown>"
 msgstr ""
 
-#: ../lib/hddtemp.c:387
+#: ../lib/hddtemp.c:396
 #, fuzzy
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "Aparatiniai sensoriai"
 
-#: ../lib/hddtemp.c:464
+#: ../lib/hddtemp.c:473
 msgid "No concrete error detected.\n"
 msgstr ""
 
-#: ../lib/hddtemp.c:517
+#: ../lib/hddtemp.c:526
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is "
@@ -186,11 +191,11 @@ msgid ""
 "with a return value of %d.\n"
 msgstr ""
 
-#: ../lib/hddtemp.c:533 ../lib/hddtemp.c:563
+#: ../lib/hddtemp.c:542 ../lib/hddtemp.c:572
 msgid "Suppress this message in future"
 msgstr ""
 
-#: ../lib/hddtemp.c:557
+#: ../lib/hddtemp.c:566
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
@@ -201,27 +206,27 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:629 ../lib/sensors-interface-common.c:141
+#: ../lib/hddtemp.c:638 ../lib/sensors-interface-common.c:144
 #, c-format
 msgid "%.1f °C"
 msgstr ""
 
-#: ../lib/lmsensors.c:103
+#: ../lib/lmsensors.c:110
 #, fuzzy
 msgid "LM Sensors"
 msgstr "Sensorių tipas:"
 
-#: ../lib/lmsensors.c:362 ../lib/lmsensors.c:409
+#: ../lib/lmsensors.c:369 ../lib/lmsensors.c:416
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr ""
 
-#: ../lib/sensors-interface.c:80
+#: ../lib/sensors-interface.c:82
 #, fuzzy
 msgid "Sensors Plugin Failure"
 msgstr "Sensorių tipas:"
 
-#: ../lib/sensors-interface.c:81
+#: ../lib/sensors-interface.c:83
 #, fuzzy
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
@@ -233,89 +238,94 @@ msgstr ""
 "savybės                         reikšmę. \n"
 "Tvarkingas tolesnis darbas negali būti užtikrinamas. \n"
 
-#: ../lib/sensors-interface.c:162
+#: ../lib/sensors-interface.c:164
 #, fuzzy
 msgid "Sensors t_ype:"
 msgstr "Sensorių tipas:"
 
-#: ../lib/sensors-interface.c:187
+#: ../lib/sensors-interface.c:189
 msgid "Description:"
 msgstr ""
 
-#: ../lib/sensors-interface.c:225
+#: ../lib/sensors-interface.c:223
+#, fuzzy
+msgid "U_pdate interval (seconds):"
+msgstr "Atnaujinimo dažnumas (sek.):"
+
+#: ../lib/sensors-interface.c:263
 msgid "Name"
 msgstr ""
 
-#: ../lib/sensors-interface.c:235
+#: ../lib/sensors-interface.c:275
 msgid "Value"
 msgstr ""
 
-#: ../lib/sensors-interface.c:243
+#: ../lib/sensors-interface.c:283
 msgid "Show"
 msgstr ""
 
-#: ../lib/sensors-interface.c:252
+#: ../lib/sensors-interface.c:292
 msgid "Color"
 msgstr ""
 
-#: ../lib/sensors-interface.c:265 ../lib/sensors-interface.c:271
+#: ../lib/sensors-interface.c:305
 msgid "Min"
 msgstr ""
 
-#: ../lib/sensors-interface.c:282 ../lib/sensors-interface.c:288
+#: ../lib/sensors-interface.c:322
 msgid "Max"
 msgstr ""
 
-#: ../lib/sensors-interface.c:323
+#: ../lib/sensors-interface.c:363
 msgid "Temperature scale:"
 msgstr ""
 
-#: ../lib/sensors-interface.c:325
+#: ../lib/sensors-interface.c:365
 msgid "_Celsius"
 msgstr ""
 
-#: ../lib/sensors-interface.c:327
+#: ../lib/sensors-interface.c:367
 msgid "_Fahrenheit"
 msgstr ""
 
-#: ../lib/sensors-interface.c:363
+#: ../lib/sensors-interface.c:403
 #, fuzzy
 msgid "_Sensors"
 msgstr "Sensorių tipas:"
 
-#: ../lib/sensors-interface-common.c:70
+#: ../lib/sensors-interface-common.c:71
 msgid "No sensors found!"
 msgstr "Jokių sensorių nerasta!"
 
-#: ../lib/sensors-interface-common.c:138
+#: ../lib/sensors-interface-common.c:141
 #, c-format
 msgid "%.1f °F"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:146
+#: ../lib/sensors-interface-common.c:149
 #, c-format
 msgid "%+.2f V"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:150
+#: ../lib/sensors-interface-common.c:153
 #, c-format
 msgid "%.0f mWh"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:155
+#: ../lib/sensors-interface-common.c:158
 msgid "off"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:157
+#: ../lib/sensors-interface-common.c:160
 msgid "on"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:161
+#: ../lib/sensors-interface-common.c:164
 #, c-format
 msgid "%.0f rpm"
 msgstr ""
 
-#: ../src/main.c:46
+#: ../src/main.c:52
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -325,7 +335,7 @@ msgid ""
 "licenses/gpl-2.0.txt\n"
 msgstr ""
 
-#: ../src/main.c:58
+#: ../src/main.c:64
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -340,15 +350,38 @@ msgid ""
 "This program is published under the GPL v2.\n"
 msgstr ""
 
-#: ../src/main.c:75
+#: ../src/main.c:81
 #, fuzzy, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Sensorių tipas:"
 
-#: ../src/interface.c:46
+#: ../src/interface.c:75
+msgid "_Overview"
+msgstr ""
+
+#: ../src/interface.c:95
+msgid "_Tachometers"
+msgstr ""
+
+#: ../src/interface.c:111
 #, fuzzy
 msgid "Sensors Viewer"
 msgstr "Sensorių tipas:"
+
+#. FIXME: either print nothing, or undertake appropriate action,
+#. * or pop up a message box.
+#: ../src/actions.c:78
+#, fuzzy, c-format
+msgid ""
+"Sensors Viewer:\n"
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr ""
+" \n"
+"Xfce aparatinių sensorių įskiepis: \n"
+"                       Atrodo, jog buvo problemų nuskaitant sensoriaus "
+"savybės                         reikšmę. \n"
+"Tvarkingas tolesnis darbas negali būti užtikrinamas. \n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 #, fuzzy

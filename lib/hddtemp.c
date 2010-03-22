@@ -1,5 +1,5 @@
 /* $Id$ */
-/*  Copyright 2004-2007 Fabian Nowak (timystery@arcor.de)
+/*  Copyright 2004-2010 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -70,6 +70,15 @@
 # define SINGLE_DELIMITER "|"
 #endif
 
+/* forward declaration for GCC 4.3 -Wall */
+
+void notification_suppress_messages (NotifyNotification *n, gchar *action, gpointer *data);
+void quick_message_notify (gchar *message);
+void quick_message (gchar *message);
+void read_disks_netcat (t_chip *chip);
+void remove_unmonitored_drives (t_chip *chip, gboolean *suppressmessage);
+void populate_detected_drives (t_chip *chip);
+
 #ifdef HAVE_LIBNOTIFY
 void
 notification_suppress_messages (NotifyNotification *n, gchar *action, gpointer *data)
@@ -79,7 +88,6 @@ notification_suppress_messages (NotifyNotification *n, gchar *action, gpointer *
 
     /* FIXME: Use channels or propagate private object or use static global variable */
 }
-
 
 void quick_message_notify (gchar *message)
 {
@@ -180,6 +188,7 @@ void quick_message (gchar *message)
 
 
 #ifdef HAVE_NETCAT
+
 void
 read_disks_netcat (t_chip *chip)
 {
@@ -204,7 +213,7 @@ read_disks_netcat (t_chip *chip)
     tmp = str_split (stdoutput, DOUBLE_DELIMITER);
     do {
         //g_printf ("Found token: %s\n", tmp);
-        cf = g_new(t_chipfeature, 1);
+        cf = g_new0(t_chipfeature, 1);
 
         tmp2 = g_strdup (tmp);
         tmp3 = strtok (tmp2, SINGLE_DELIMITER);
@@ -377,7 +386,7 @@ initialize_hddtemp (GPtrArray *chips, gboolean *suppressmessage)
 
     TRACE ("enters initialize_hddtemp");
 
-    chip = g_new (t_chip, 1);
+    chip = g_new0 (t_chip, 1);
 
 /*    chip->chip_name = (const sensors_chip_name *)
             ( _("Hard disks"), 0, 0, _("Hard disks") ); */

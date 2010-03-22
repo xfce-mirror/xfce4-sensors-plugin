@@ -2,7 +2,7 @@
 /*
  *      middlelayer.c
  *
- *      Copyright 2006, 2007 Fabian Nowak <timytery@arcor.de>
+ *      Copyright 2006-2010 Fabian Nowak <timytery@arcor.de>
  *
  *      This program is free software; you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by
@@ -233,21 +233,20 @@ free_chip (gpointer chip, gpointer data)
 
     g_free (c->sensorId);
     g_free (c->description);
-    #ifdef HAVE_LIBSENSORS
+#ifdef HAVE_LIBSENSORS
     if (c->type==LMSENSOR) {
         free_lmsensors_chip (chip);
     }
-    #endif
+#endif
     /* g_free (c->chip_name); */   /* is a _copied_ structure of libsensors */
     g_ptr_array_foreach (c->chip_features, free_chipfeature, NULL);
     g_ptr_array_free (c->chip_features, TRUE);
 }
 
 
-void
-sensor_interface_cleanup()
+void sensor_interface_cleanup (void)
 {
-    #ifdef HAVE_LIBSENSORS
+#ifdef HAVE_LIBSENSORS
         sensors_cleanup();
-    #endif
+#endif
 }

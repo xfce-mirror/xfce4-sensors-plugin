@@ -1,5 +1,5 @@
 /* $Id$ */
-/*  Copyright 2004-2008 Fabian Nowak (timystery@arcor.de)
+/*  Copyright 2004-2010 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -31,6 +31,7 @@
 #include <configuration.h>
 #include <sensors-interface-common.h>
 #include <middlelayer.h>
+#include <cpu.h>
 
 t_sensors *
 sensors_new (XfcePanelPlugin *plugin, gchar *plugin_config_file)
@@ -97,7 +98,7 @@ sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
 
     sensors->show_title = TRUE;
     sensors->show_labels = TRUE;
-    sensors->display_values_graphically = FALSE;
+    sensors->display_values_type = DISPLAY_TEXT;
     sensors->bars_created = FALSE;
     sensors->font_size = "medium";
     sensors->font_size_numerical = 2;
@@ -121,6 +122,8 @@ sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
     sensors->suppressmessage = FALSE;
 
     sensors->show_smallspacings = FALSE;
+
+    font = NULL;
 
     TRACE ("leaves sensors_init_default_values");
 }
