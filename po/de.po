@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-07 16:35+0100\n"
+"POT-Creation-Date: 2010-03-25 23:30+0100\n"
 "PO-Revision-Date: 2010-01-05 22:55+0100\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German <de@li.org>\n"
@@ -15,18 +15,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors-plugin.c:290 ../panel-plugin/sensors-plugin.c:387
-#: ../panel-plugin/sensors-plugin.c:952
+#: ../panel-plugin/sensors-plugin.c:291 ../panel-plugin/sensors-plugin.c:388
+#: ../panel-plugin/sensors-plugin.c:970
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Sensoren</b></span>"
 
-#: ../panel-plugin/sensors-plugin.c:761
+#: ../panel-plugin/sensors-plugin.c:774
 msgid "No sensors selected!"
 msgstr "Keine Sensoren ausgewählt!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:799
+#: ../panel-plugin/sensors-plugin.c:813
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -37,98 +37,98 @@ msgstr ""
 "Anscheinend gab es ein Problem beim Auslesen eines Wertes.\n"
 "Sauberes Weiterlaufen kann nicht gewährleistet werden.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1657
+#: ../panel-plugin/sensors-plugin.c:1684
 msgid "UI style:"
 msgstr "Darstellung:"
 
-#: ../panel-plugin/sensors-plugin.c:1658
+#: ../panel-plugin/sensors-plugin.c:1685
 msgid "_text"
 msgstr "_textuell"
 
-#: ../panel-plugin/sensors-plugin.c:1660
+#: ../panel-plugin/sensors-plugin.c:1687
 msgid "_progress bars"
 msgstr "_Fortschrittsleisten"
 
-#: ../panel-plugin/sensors-plugin.c:1662
+#: ../panel-plugin/sensors-plugin.c:1689
 msgid "_tachos"
 msgstr "_Tachoanzeigen"
 
-#: ../panel-plugin/sensors-plugin.c:1707
+#: ../panel-plugin/sensors-plugin.c:1734
 msgid "Show _labels"
 msgstr "_Beschriftungen anzeigen"
 
-#: ../panel-plugin/sensors-plugin.c:1737
+#: ../panel-plugin/sensors-plugin.c:1764
 msgid "Show colored _bars"
 msgstr "Bal_ken farbig darstellen"
 
-#: ../panel-plugin/sensors-plugin.c:1765
+#: ../panel-plugin/sensors-plugin.c:1792
 msgid "_Show title"
 msgstr "T_itel anzeigen"
 
-#: ../panel-plugin/sensors-plugin.c:1789
+#: ../panel-plugin/sensors-plugin.c:1816
 msgid "_Number of text lines:"
 msgstr "A_nzahl Textzeilen:"
 
-#: ../panel-plugin/sensors-plugin.c:1824
+#: ../panel-plugin/sensors-plugin.c:1851
 msgid "F_ont size:"
 msgstr "Sc_hriftgröße:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1831
+#: ../panel-plugin/sensors-plugin.c:1858
 msgid "x-small"
 msgstr "extra-klein"
 
-#: ../panel-plugin/sensors-plugin.c:1832
+#: ../panel-plugin/sensors-plugin.c:1859
 msgid "small"
 msgstr "klein"
 
-#: ../panel-plugin/sensors-plugin.c:1833
+#: ../panel-plugin/sensors-plugin.c:1860
 msgid "medium"
 msgstr "normal"
 
-#: ../panel-plugin/sensors-plugin.c:1834
+#: ../panel-plugin/sensors-plugin.c:1861
 msgid "large"
 msgstr "groß"
 
-#: ../panel-plugin/sensors-plugin.c:1835
+#: ../panel-plugin/sensors-plugin.c:1862
 msgid "x-large"
 msgstr "extra-groß"
 
-#: ../panel-plugin/sensors-plugin.c:1866
+#: ../panel-plugin/sensors-plugin.c:1893
 msgid "F_ont:"
 msgstr "Sc_hrift:"
 
-#: ../panel-plugin/sensors-plugin.c:1898
+#: ../panel-plugin/sensors-plugin.c:1925
 msgid "Show _Units"
 msgstr "_Einheiten anzeigen"
 
-#: ../panel-plugin/sensors-plugin.c:1919
+#: ../panel-plugin/sensors-plugin.c:1946
 msgid "Small horizontal s_pacing"
 msgstr "K_leine horizontale Abstände"
 
-#: ../panel-plugin/sensors-plugin.c:1941
+#: ../panel-plugin/sensors-plugin.c:1968
 msgid "Suppress messages"
 msgstr "Nachrichtendialoge unterbinden"
 
-#: ../panel-plugin/sensors-plugin.c:1966
+#: ../panel-plugin/sensors-plugin.c:1993
 msgid "E_xecute on double click:"
 msgstr "Bei _Doppelklick ausführen:"
 
-#: ../panel-plugin/sensors-plugin.c:2009
+#: ../panel-plugin/sensors-plugin.c:2036
 msgid "_View"
 msgstr "_Aussehen"
 
-#: ../panel-plugin/sensors-plugin.c:2043
+#: ../panel-plugin/sensors-plugin.c:2070
 msgid "_Miscellaneous"
 msgstr "S_onstige Einstellungen"
 
-#: ../panel-plugin/sensors-plugin.c:2116 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2143 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:160
 msgid "Sensors Plugin"
 msgstr "Sensorüberwachung"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2159
+#: ../panel-plugin/sensors-plugin.c:2186
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -368,15 +368,15 @@ msgstr ""
 msgid "Xfce4 Sensors %s\n"
 msgstr "Xfce4-Sensoren %s\n"
 
-#: ../src/interface.c:75
+#: ../src/interface.c:77
 msgid "_Overview"
 msgstr "Ü_bersicht"
 
-#: ../src/interface.c:95
+#: ../src/interface.c:97
 msgid "_Tachometers"
 msgstr "_Tachoanzeigen"
 
-#: ../src/interface.c:111
+#: ../src/interface.c:113
 msgid "Sensors Viewer"
 msgstr "Sensorbetrachter"
 

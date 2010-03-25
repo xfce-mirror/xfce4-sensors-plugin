@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce 4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-07 16:35+0100\n"
+"POT-Creation-Date: 2010-03-25 23:30+0100\n"
 "PO-Revision-Date: 2009-11-09 19:43+0800\n"
 "Last-Translator: Hunt Xu <huntxu@live.cn>\n"
 "Language-Team: Chinese (simplified) <xfce-i18n@xfce.org>\n"
@@ -15,18 +15,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors-plugin.c:290 ../panel-plugin/sensors-plugin.c:387
-#: ../panel-plugin/sensors-plugin.c:952
+#: ../panel-plugin/sensors-plugin.c:291 ../panel-plugin/sensors-plugin.c:388
+#: ../panel-plugin/sensors-plugin.c:970
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>传感器</b></span>"
 
-#: ../panel-plugin/sensors-plugin.c:761
+#: ../panel-plugin/sensors-plugin.c:774
 msgid "No sensors selected!"
 msgstr "未选择传感器！"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:799
+#: ../panel-plugin/sensors-plugin.c:813
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -37,99 +37,99 @@ msgstr ""
 "读取传感器内容时出现问题。\n"
 "无法保证相应操作将被执行。\n"
 
-#: ../panel-plugin/sensors-plugin.c:1657
+#: ../panel-plugin/sensors-plugin.c:1684
 msgid "UI style:"
 msgstr "界面风格:"
 
-#: ../panel-plugin/sensors-plugin.c:1658
+#: ../panel-plugin/sensors-plugin.c:1685
 msgid "_text"
 msgstr "文本(_T)"
 
-#: ../panel-plugin/sensors-plugin.c:1660
+#: ../panel-plugin/sensors-plugin.c:1687
 msgid "_progress bars"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1662
+#: ../panel-plugin/sensors-plugin.c:1689
 msgid "_tachos"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1707
+#: ../panel-plugin/sensors-plugin.c:1734
 msgid "Show _labels"
 msgstr "显示标签(_L)"
 
-#: ../panel-plugin/sensors-plugin.c:1737
+#: ../panel-plugin/sensors-plugin.c:1764
 msgid "Show colored _bars"
 msgstr "使用界面颜色(_B)"
 
-#: ../panel-plugin/sensors-plugin.c:1765
+#: ../panel-plugin/sensors-plugin.c:1792
 msgid "_Show title"
 msgstr "显示标题(_S)"
 
-#: ../panel-plugin/sensors-plugin.c:1789
+#: ../panel-plugin/sensors-plugin.c:1816
 msgid "_Number of text lines:"
 msgstr "文本行数(_N):"
 
-#: ../panel-plugin/sensors-plugin.c:1824
+#: ../panel-plugin/sensors-plugin.c:1851
 msgid "F_ont size:"
 msgstr "字体大小(_O):"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1831
+#: ../panel-plugin/sensors-plugin.c:1858
 msgid "x-small"
 msgstr "很小"
 
-#: ../panel-plugin/sensors-plugin.c:1832
+#: ../panel-plugin/sensors-plugin.c:1859
 msgid "small"
 msgstr "小"
 
-#: ../panel-plugin/sensors-plugin.c:1833
+#: ../panel-plugin/sensors-plugin.c:1860
 msgid "medium"
 msgstr "中等"
 
-#: ../panel-plugin/sensors-plugin.c:1834
+#: ../panel-plugin/sensors-plugin.c:1861
 msgid "large"
 msgstr "大"
 
-#: ../panel-plugin/sensors-plugin.c:1835
+#: ../panel-plugin/sensors-plugin.c:1862
 msgid "x-large"
 msgstr "很大"
 
-#: ../panel-plugin/sensors-plugin.c:1866
+#: ../panel-plugin/sensors-plugin.c:1893
 #, fuzzy
 msgid "F_ont:"
 msgstr "字体大小(_O):"
 
-#: ../panel-plugin/sensors-plugin.c:1898
+#: ../panel-plugin/sensors-plugin.c:1925
 msgid "Show _Units"
 msgstr "显示单位(_U)"
 
-#: ../panel-plugin/sensors-plugin.c:1919
+#: ../panel-plugin/sensors-plugin.c:1946
 msgid "Small horizontal s_pacing"
 msgstr "水平间隔(_P)"
 
-#: ../panel-plugin/sensors-plugin.c:1941
+#: ../panel-plugin/sensors-plugin.c:1968
 msgid "Suppress messages"
 msgstr "不显示信息"
 
-#: ../panel-plugin/sensors-plugin.c:1966
+#: ../panel-plugin/sensors-plugin.c:1993
 msgid "E_xecute on double click:"
 msgstr "在双击时执行(_X):"
 
-#: ../panel-plugin/sensors-plugin.c:2009
+#: ../panel-plugin/sensors-plugin.c:2036
 msgid "_View"
 msgstr "查看(_V)"
 
-#: ../panel-plugin/sensors-plugin.c:2043
+#: ../panel-plugin/sensors-plugin.c:2070
 msgid "_Miscellaneous"
 msgstr "杂项(_M)"
 
-#: ../panel-plugin/sensors-plugin.c:2116 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2143 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:160
 msgid "Sensors Plugin"
 msgstr "传感器插件"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2159
+#: ../panel-plugin/sensors-plugin.c:2186
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -364,15 +364,15 @@ msgstr ""
 msgid "Xfce4 Sensors %s\n"
 msgstr "Xfce4 传感器 %s\n"
 
-#: ../src/interface.c:75
+#: ../src/interface.c:77
 msgid "_Overview"
 msgstr ""
 
-#: ../src/interface.c:95
+#: ../src/interface.c:97
 msgid "_Tachometers"
 msgstr ""
 
-#: ../src/interface.c:111
+#: ../src/interface.c:113
 msgid "Sensors Viewer"
 msgstr "传感器查看器"
 

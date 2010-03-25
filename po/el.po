@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-07 16:35+0100\n"
+"POT-Creation-Date: 2010-03-25 23:30+0100\n"
 "PO-Revision-Date: 2006-10-14 19:59+0200\n"
 "Last-Translator: Stavros Giannouris <stavrosg@serverhive.com>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -16,19 +16,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Country: GREECE\n"
 
-#: ../panel-plugin/sensors-plugin.c:290 ../panel-plugin/sensors-plugin.c:387
-#: ../panel-plugin/sensors-plugin.c:952
+#: ../panel-plugin/sensors-plugin.c:291 ../panel-plugin/sensors-plugin.c:388
+#: ../panel-plugin/sensors-plugin.c:970
 #, fuzzy
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Αισθητήρες</b></span> \n"
 
-#: ../panel-plugin/sensors-plugin.c:761
+#: ../panel-plugin/sensors-plugin.c:774
 msgid "No sensors selected!"
 msgstr "Δεν επιλέχθηκαν αισθητήρες!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:799
+#: ../panel-plugin/sensors-plugin.c:813
 #, fuzzy, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -40,107 +40,107 @@ msgstr ""
 "Από οτι φαίνεται υπήρξε πρόβλημα κατά την ανάγνωση κάποιου αισθητήρα. \n"
 "Δεν είναι εγγυημένη η κανονική συνέχεια.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1657
+#: ../panel-plugin/sensors-plugin.c:1684
 #, fuzzy
 msgid "UI style:"
 msgstr "Στυλ UI:"
 
-#: ../panel-plugin/sensors-plugin.c:1658
+#: ../panel-plugin/sensors-plugin.c:1685
 #, fuzzy
 msgid "_text"
 msgstr "κείμενο"
 
-#: ../panel-plugin/sensors-plugin.c:1660
+#: ../panel-plugin/sensors-plugin.c:1687
 msgid "_progress bars"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1662
+#: ../panel-plugin/sensors-plugin.c:1689
 msgid "_tachos"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1707
+#: ../panel-plugin/sensors-plugin.c:1734
 #, fuzzy
 msgid "Show _labels"
 msgstr "Εμφάνιση τίτλου"
 
-#: ../panel-plugin/sensors-plugin.c:1737
+#: ../panel-plugin/sensors-plugin.c:1764
 msgid "Show colored _bars"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1765
+#: ../panel-plugin/sensors-plugin.c:1792
 #, fuzzy
 msgid "_Show title"
 msgstr "Εμφάνιση τίτλου"
 
-#: ../panel-plugin/sensors-plugin.c:1789
+#: ../panel-plugin/sensors-plugin.c:1816
 msgid "_Number of text lines:"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1824
+#: ../panel-plugin/sensors-plugin.c:1851
 #, fuzzy
 msgid "F_ont size:"
 msgstr "Μέγεθος γραμματοσειράς:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1831
+#: ../panel-plugin/sensors-plugin.c:1858
 msgid "x-small"
 msgstr "πολύ μικρό"
 
-#: ../panel-plugin/sensors-plugin.c:1832
+#: ../panel-plugin/sensors-plugin.c:1859
 msgid "small"
 msgstr "Μικρό"
 
-#: ../panel-plugin/sensors-plugin.c:1833
+#: ../panel-plugin/sensors-plugin.c:1860
 msgid "medium"
 msgstr "μεσαίο"
 
-#: ../panel-plugin/sensors-plugin.c:1834
+#: ../panel-plugin/sensors-plugin.c:1861
 msgid "large"
 msgstr "μεγάλο"
 
-#: ../panel-plugin/sensors-plugin.c:1835
+#: ../panel-plugin/sensors-plugin.c:1862
 msgid "x-large"
 msgstr "πολύ μεγάλο"
 
-#: ../panel-plugin/sensors-plugin.c:1866
+#: ../panel-plugin/sensors-plugin.c:1893
 #, fuzzy
 msgid "F_ont:"
 msgstr "Μέγεθος γραμματοσειράς:"
 
-#: ../panel-plugin/sensors-plugin.c:1898
+#: ../panel-plugin/sensors-plugin.c:1925
 #, fuzzy
 msgid "Show _Units"
 msgstr "Εμφάνιση τίτλου"
 
-#: ../panel-plugin/sensors-plugin.c:1919
+#: ../panel-plugin/sensors-plugin.c:1946
 msgid "Small horizontal s_pacing"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1941
+#: ../panel-plugin/sensors-plugin.c:1968
 msgid "Suppress messages"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1966
+#: ../panel-plugin/sensors-plugin.c:1993
 #, fuzzy
 msgid "E_xecute on double click:"
 msgstr "Εκτέλεση στο διπλό κλικ:"
 
-#: ../panel-plugin/sensors-plugin.c:2009
+#: ../panel-plugin/sensors-plugin.c:2036
 msgid "_View"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:2043
+#: ../panel-plugin/sensors-plugin.c:2070
 #, fuzzy
 msgid "_Miscellaneous"
 msgstr "<b>Διάφορα</b>"
 
-#: ../panel-plugin/sensors-plugin.c:2116 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2143 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:160
 msgid "Sensors Plugin"
 msgstr "Πρόσθετο αισθητήρων"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2159
+#: ../panel-plugin/sensors-plugin.c:2186
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -361,15 +361,15 @@ msgstr ""
 msgid "Xfce4 Sensors %s\n"
 msgstr "Πρόσθετο αισθητήρων"
 
-#: ../src/interface.c:75
+#: ../src/interface.c:77
 msgid "_Overview"
 msgstr ""
 
-#: ../src/interface.c:95
+#: ../src/interface.c:97
 msgid "_Tachometers"
 msgstr ""
 
-#: ../src/interface.c:111
+#: ../src/interface.c:113
 #, fuzzy
 msgid "Sensors Viewer"
 msgstr "Τύπος αισθητήρα:"

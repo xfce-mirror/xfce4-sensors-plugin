@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-07 16:35+0100\n"
+"POT-Creation-Date: 2010-03-25 23:30+0100\n"
 "PO-Revision-Date: 2009-10-21 13:50+0200\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: Basque <debian-l10n-eu@debian.lists.org>\n"
@@ -19,18 +19,18 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
 
-#: ../panel-plugin/sensors-plugin.c:290 ../panel-plugin/sensors-plugin.c:387
-#: ../panel-plugin/sensors-plugin.c:952
+#: ../panel-plugin/sensors-plugin.c:291 ../panel-plugin/sensors-plugin.c:388
+#: ../panel-plugin/sensors-plugin.c:970
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Sentsoreak</b></span>"
 
-#: ../panel-plugin/sensors-plugin.c:761
+#: ../panel-plugin/sensors-plugin.c:774
 msgid "No sensors selected!"
 msgstr "Ez da sentsorerik hautatu!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:799
+#: ../panel-plugin/sensors-plugin.c:813
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -41,99 +41,99 @@ msgstr ""
 "Dirudienez arazo bat dago sentsore ezaugarri balioa irakurtzerakoan. \n"
 "Ezin da behar bezala ibiliko denik ziurtatu.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1657
+#: ../panel-plugin/sensors-plugin.c:1684
 msgid "UI style:"
 msgstr "UI estiloa:"
 
-#: ../panel-plugin/sensors-plugin.c:1658
+#: ../panel-plugin/sensors-plugin.c:1685
 msgid "_text"
 msgstr "_testua"
 
-#: ../panel-plugin/sensors-plugin.c:1660
+#: ../panel-plugin/sensors-plugin.c:1687
 msgid "_progress bars"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1662
+#: ../panel-plugin/sensors-plugin.c:1689
 msgid "_tachos"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1707
+#: ../panel-plugin/sensors-plugin.c:1734
 msgid "Show _labels"
 msgstr "Ikusi _etiketak"
 
-#: ../panel-plugin/sensors-plugin.c:1737
+#: ../panel-plugin/sensors-plugin.c:1764
 msgid "Show colored _bars"
 msgstr "Ikusi koloretako _barrak "
 
-#: ../panel-plugin/sensors-plugin.c:1765
+#: ../panel-plugin/sensors-plugin.c:1792
 msgid "_Show title"
 msgstr "Ikusi _izenburua"
 
-#: ../panel-plugin/sensors-plugin.c:1789
+#: ../panel-plugin/sensors-plugin.c:1816
 msgid "_Number of text lines:"
 msgstr "_Testu lerro kopurua:"
 
-#: ../panel-plugin/sensors-plugin.c:1824
+#: ../panel-plugin/sensors-plugin.c:1851
 msgid "F_ont size:"
 msgstr "Letra-tip_o tamaina:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1831
+#: ../panel-plugin/sensors-plugin.c:1858
 msgid "x-small"
 msgstr "oso txikia"
 
-#: ../panel-plugin/sensors-plugin.c:1832
+#: ../panel-plugin/sensors-plugin.c:1859
 msgid "small"
 msgstr "txikia"
 
-#: ../panel-plugin/sensors-plugin.c:1833
+#: ../panel-plugin/sensors-plugin.c:1860
 msgid "medium"
 msgstr "ertaina"
 
-#: ../panel-plugin/sensors-plugin.c:1834
+#: ../panel-plugin/sensors-plugin.c:1861
 msgid "large"
 msgstr "handia"
 
-#: ../panel-plugin/sensors-plugin.c:1835
+#: ../panel-plugin/sensors-plugin.c:1862
 msgid "x-large"
 msgstr "oso handia"
 
-#: ../panel-plugin/sensors-plugin.c:1866
+#: ../panel-plugin/sensors-plugin.c:1893
 #, fuzzy
 msgid "F_ont:"
 msgstr "Letra-tip_o tamaina:"
 
-#: ../panel-plugin/sensors-plugin.c:1898
+#: ../panel-plugin/sensors-plugin.c:1925
 msgid "Show _Units"
 msgstr "Ikusi _unitateak"
 
-#: ../panel-plugin/sensors-plugin.c:1919
+#: ../panel-plugin/sensors-plugin.c:1946
 msgid "Small horizontal s_pacing"
 msgstr "Ikusi _zuriune horizontala"
 
-#: ../panel-plugin/sensors-plugin.c:1941
+#: ../panel-plugin/sensors-plugin.c:1968
 msgid "Suppress messages"
 msgstr "Ezabatu mezuak"
 
-#: ../panel-plugin/sensors-plugin.c:1966
+#: ../panel-plugin/sensors-plugin.c:1993
 msgid "E_xecute on double click:"
 msgstr "Klik bikoitzarekin e_xekutatu:"
 
-#: ../panel-plugin/sensors-plugin.c:2009
+#: ../panel-plugin/sensors-plugin.c:2036
 msgid "_View"
 msgstr "_Ikusi"
 
-#: ../panel-plugin/sensors-plugin.c:2043
+#: ../panel-plugin/sensors-plugin.c:2070
 msgid "_Miscellaneous"
 msgstr "_Bestelakoak"
 
-#: ../panel-plugin/sensors-plugin.c:2116 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2143 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:160
 msgid "Sensors Plugin"
 msgstr "Sentsore Plugina"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2159
+#: ../panel-plugin/sensors-plugin.c:2186
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -373,15 +373,15 @@ msgstr ""
 msgid "Xfce4 Sensors %s\n"
 msgstr "Xfce 4 sentsore %s\n"
 
-#: ../src/interface.c:75
+#: ../src/interface.c:77
 msgid "_Overview"
 msgstr ""
 
-#: ../src/interface.c:95
+#: ../src/interface.c:97
 msgid "_Tachometers"
 msgstr ""
 
-#: ../src/interface.c:111
+#: ../src/interface.c:113
 msgid "Sensors Viewer"
 msgstr "Sentsore ikustailea"
 

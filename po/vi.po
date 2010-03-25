@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-07 16:35+0100\n"
+"POT-Creation-Date: 2010-03-25 23:30+0100\n"
 "PO-Revision-Date: 2006-02-19 22:51+0300\n"
 "Last-Translator: Phan Vĩnh Thịnh <teppi@vnlinux.org>\n"
 "Language-Team: Vietnamese <none@li.org>\n"
@@ -15,19 +15,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
 
-#: ../panel-plugin/sensors-plugin.c:290 ../panel-plugin/sensors-plugin.c:387
-#: ../panel-plugin/sensors-plugin.c:952
+#: ../panel-plugin/sensors-plugin.c:291 ../panel-plugin/sensors-plugin.c:388
+#: ../panel-plugin/sensors-plugin.c:970
 #, fuzzy
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Cảm ứng</b></span>\n"
 
-#: ../panel-plugin/sensors-plugin.c:761
+#: ../panel-plugin/sensors-plugin.c:774
 msgid "No sensors selected!"
 msgstr "Chưa chọn bộ cảm ứng nào!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:799
+#: ../panel-plugin/sensors-plugin.c:813
 #, fuzzy, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -39,107 +39,107 @@ msgstr ""
 "Có vẻ như có vấn đề đọc một giá trị cảm ứng. \n"
 "Không có bảo đảm cho sự thực hiện.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1657
+#: ../panel-plugin/sensors-plugin.c:1684
 #, fuzzy
 msgid "UI style:"
 msgstr "Dạng giao diện:"
 
-#: ../panel-plugin/sensors-plugin.c:1658
+#: ../panel-plugin/sensors-plugin.c:1685
 #, fuzzy
 msgid "_text"
 msgstr "văn bản"
 
-#: ../panel-plugin/sensors-plugin.c:1660
+#: ../panel-plugin/sensors-plugin.c:1687
 msgid "_progress bars"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1662
+#: ../panel-plugin/sensors-plugin.c:1689
 msgid "_tachos"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1707
+#: ../panel-plugin/sensors-plugin.c:1734
 #, fuzzy
 msgid "Show _labels"
 msgstr "Hiển thị tiêu đề"
 
-#: ../panel-plugin/sensors-plugin.c:1737
+#: ../panel-plugin/sensors-plugin.c:1764
 msgid "Show colored _bars"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1765
+#: ../panel-plugin/sensors-plugin.c:1792
 #, fuzzy
 msgid "_Show title"
 msgstr "Hiển thị tiêu đề"
 
-#: ../panel-plugin/sensors-plugin.c:1789
+#: ../panel-plugin/sensors-plugin.c:1816
 msgid "_Number of text lines:"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1824
+#: ../panel-plugin/sensors-plugin.c:1851
 #, fuzzy
 msgid "F_ont size:"
 msgstr "Kích cỡ phông:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1831
+#: ../panel-plugin/sensors-plugin.c:1858
 msgid "x-small"
 msgstr "rất nhỏ"
 
-#: ../panel-plugin/sensors-plugin.c:1832
+#: ../panel-plugin/sensors-plugin.c:1859
 msgid "small"
 msgstr "nhỏ"
 
-#: ../panel-plugin/sensors-plugin.c:1833
+#: ../panel-plugin/sensors-plugin.c:1860
 msgid "medium"
 msgstr "trung bình"
 
-#: ../panel-plugin/sensors-plugin.c:1834
+#: ../panel-plugin/sensors-plugin.c:1861
 msgid "large"
 msgstr "lớn"
 
-#: ../panel-plugin/sensors-plugin.c:1835
+#: ../panel-plugin/sensors-plugin.c:1862
 msgid "x-large"
 msgstr "rất lớn"
 
-#: ../panel-plugin/sensors-plugin.c:1866
+#: ../panel-plugin/sensors-plugin.c:1893
 #, fuzzy
 msgid "F_ont:"
 msgstr "Kích cỡ phông:"
 
-#: ../panel-plugin/sensors-plugin.c:1898
+#: ../panel-plugin/sensors-plugin.c:1925
 #, fuzzy
 msgid "Show _Units"
 msgstr "Hiển thị tiêu đề"
 
-#: ../panel-plugin/sensors-plugin.c:1919
+#: ../panel-plugin/sensors-plugin.c:1946
 msgid "Small horizontal s_pacing"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1941
+#: ../panel-plugin/sensors-plugin.c:1968
 msgid "Suppress messages"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1966
+#: ../panel-plugin/sensors-plugin.c:1993
 #, fuzzy
 msgid "E_xecute on double click:"
 msgstr "Thực hiện khi nháy kép:"
 
-#: ../panel-plugin/sensors-plugin.c:2009
+#: ../panel-plugin/sensors-plugin.c:2036
 msgid "_View"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:2043
+#: ../panel-plugin/sensors-plugin.c:2070
 #, fuzzy
 msgid "_Miscellaneous"
 msgstr "<b>Khác</b>"
 
-#: ../panel-plugin/sensors-plugin.c:2116 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2143 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:160
 msgid "Sensors Plugin"
 msgstr "Plugin cảm ứng"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2159
+#: ../panel-plugin/sensors-plugin.c:2186
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -359,15 +359,15 @@ msgstr ""
 msgid "Xfce4 Sensors %s\n"
 msgstr "Plugin cảm ứng"
 
-#: ../src/interface.c:75
+#: ../src/interface.c:77
 msgid "_Overview"
 msgstr ""
 
-#: ../src/interface.c:95
+#: ../src/interface.c:97
 msgid "_Tachometers"
 msgstr ""
 
-#: ../src/interface.c:111
+#: ../src/interface.c:113
 #, fuzzy
 msgid "Sensors Viewer"
 msgstr "Dạng cảm ứng:"

@@ -1,14 +1,14 @@
 # Hungarian translation of xfce4-sensors-plugin
 # Copyright 2009. Free Software Foundation, Inc.
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
-# 
+#
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2009.
 # SZERVÁC Attila <sas@321.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-20 19:58+0200\n"
+"POT-Creation-Date: 2010-03-25 23:30+0100\n"
 "PO-Revision-Date: 2009-07-24 18:10+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
 "Language-Team: Hungarian <gnome at gnome dot hu>\n"
@@ -18,17 +18,18 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: ../panel-plugin/sensors-plugin.c:225 ../panel-plugin/sensors-plugin.c:787
+#: ../panel-plugin/sensors-plugin.c:291 ../panel-plugin/sensors-plugin.c:388
+#: ../panel-plugin/sensors-plugin.c:970
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Érzékelők</b></span>"
 
-#: ../panel-plugin/sensors-plugin.c:604
+#: ../panel-plugin/sensors-plugin.c:774
 msgid "No sensors selected!"
 msgstr "Nincsenek kiválasztva érzékelők"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:642
+#: ../panel-plugin/sensors-plugin.c:813
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -39,104 +40,115 @@ msgstr ""
 "Úgy tűnik, hiba történt egy érzékelőszolgáltatás értékének olvasásakor.\n"
 "A megfelelő folytatás nem garantálható.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1414
+#: ../panel-plugin/sensors-plugin.c:1684
 msgid "UI style:"
 msgstr "Felület stílusa:"
 
-#: ../panel-plugin/sensors-plugin.c:1415
+#: ../panel-plugin/sensors-plugin.c:1685
 msgid "_text"
 msgstr "S_zöveg"
 
-#: ../panel-plugin/sensors-plugin.c:1417
-msgid "g_raphical"
-msgstr "_Grafikus"
+#: ../panel-plugin/sensors-plugin.c:1687
+msgid "_progress bars"
+msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1454
+#: ../panel-plugin/sensors-plugin.c:1689
+msgid "_tachos"
+msgstr ""
+
+#: ../panel-plugin/sensors-plugin.c:1734
 msgid "Show _labels"
 msgstr "_Címkék megjelenítése"
 
-#: ../panel-plugin/sensors-plugin.c:1484
+#: ../panel-plugin/sensors-plugin.c:1764
 msgid "Show colored _bars"
 msgstr "Színes sá_vok megjelenítése"
 
-#: ../panel-plugin/sensors-plugin.c:1512
+#: ../panel-plugin/sensors-plugin.c:1792
 msgid "_Show title"
 msgstr "Cí_m megjelenítése"
 
-#: ../panel-plugin/sensors-plugin.c:1536
+#: ../panel-plugin/sensors-plugin.c:1816
 msgid "_Number of text lines:"
 msgstr "Szö_vegsorok száma:"
 
-#: ../panel-plugin/sensors-plugin.c:1571
+#: ../panel-plugin/sensors-plugin.c:1851
 msgid "F_ont size:"
 msgstr "B_etűméret:"
 
-#. gtk_widget_set_sensitive(myFontBox,
-#. !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1578
+#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#: ../panel-plugin/sensors-plugin.c:1858
 msgid "x-small"
 msgstr "Nagyon kicsi"
 
-#: ../panel-plugin/sensors-plugin.c:1579
+#: ../panel-plugin/sensors-plugin.c:1859
 msgid "small"
 msgstr "Kicsi"
 
-#: ../panel-plugin/sensors-plugin.c:1580
+#: ../panel-plugin/sensors-plugin.c:1860
 msgid "medium"
 msgstr "Közepes"
 
-#: ../panel-plugin/sensors-plugin.c:1581
+#: ../panel-plugin/sensors-plugin.c:1861
 msgid "large"
 msgstr "Nagy"
 
-#: ../panel-plugin/sensors-plugin.c:1582
+#: ../panel-plugin/sensors-plugin.c:1862
 msgid "x-large"
 msgstr "Nagyon nagy"
 
-#: ../panel-plugin/sensors-plugin.c:1610
+#: ../panel-plugin/sensors-plugin.c:1893
+#, fuzzy
+msgid "F_ont:"
+msgstr "B_etűméret:"
+
+#: ../panel-plugin/sensors-plugin.c:1925
 msgid "Show _Units"
 msgstr "_Egységek megjelenítés"
 
-#: ../panel-plugin/sensors-plugin.c:1631
+#: ../panel-plugin/sensors-plugin.c:1946
 msgid "Small horizontal s_pacing"
 msgstr "Kis _vízszintes térköz"
 
-#: ../panel-plugin/sensors-plugin.c:1653
+#: ../panel-plugin/sensors-plugin.c:1968
 msgid "Suppress messages"
 msgstr "Üzenetek elnyomása"
 
-#: ../panel-plugin/sensors-plugin.c:1682
-msgid "U_pdate interval (seconds):"
-msgstr "_Frissítési időköz (mp):"
-
-#: ../panel-plugin/sensors-plugin.c:1712
+#: ../panel-plugin/sensors-plugin.c:1993
 msgid "E_xecute on double click:"
 msgstr "Végrehajtás _dupla kattintásra:"
 
-#: ../panel-plugin/sensors-plugin.c:1755
+#: ../panel-plugin/sensors-plugin.c:2036
 msgid "_View"
 msgstr "_Nézet"
 
-#: ../panel-plugin/sensors-plugin.c:1788
+#: ../panel-plugin/sensors-plugin.c:2070
 msgid "_Miscellaneous"
 msgstr "_Egyéb"
 
-#: ../panel-plugin/sensors-plugin.c:1860 ../panel-plugin/sensors-plugin.h:30
-#: ../lib/hddtemp.c:152
+#: ../panel-plugin/sensors-plugin.c:2143 ../panel-plugin/sensors-plugin.h:30
+#: ../lib/hddtemp.c:160
 msgid "Sensors Plugin"
 msgstr "Érzékelők bővítmény"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:1903
-msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
-msgstr "A bejegyzésre kattintva megváltoztathatja egy szolgáltatás tulajdonságait, például nevét, színeit, minimális/maximális értékeit a tartalom szerkesztésével és az Enter billentyű megnyomásával vagy másik mező kiválasztásával."
+#: ../panel-plugin/sensors-plugin.c:2186
+msgid ""
+"You can change a feature's properties such as name, colours, min/max value "
+"by double-clicking the entry, editing the content, and pressing \"Return\" "
+"or selecting a different field."
+msgstr ""
+"A bejegyzésre kattintva megváltoztathatja egy szolgáltatás tulajdonságait, "
+"például nevét, színeit, minimális/maximális értékeit a tartalom "
+"szerkesztésével és az Enter billentyű megnyomásával vagy másik mező "
+"kiválasztásával."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:154 ../lib/configuration.c:336
-#: ../lib/configuration.c:343 ../lib/hddtemp.c:342 ../lib/hddtemp.c:388
+#: ../lib/configuration.c:156 ../lib/configuration.c:341
+#: ../lib/configuration.c:348 ../lib/hddtemp.c:351 ../lib/hddtemp.c:397
 msgid "Hard disks"
 msgstr "Merevlemezek"
 
@@ -145,8 +157,7 @@ msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power
-#. Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
@@ -156,38 +167,44 @@ msgstr "ACPI v%s zónák"
 msgid "<Unknown>"
 msgstr "<Ismeretlen>"
 
-#: ../lib/hddtemp.c:387
+#: ../lib/hddtemp.c:396
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "S.M.A.R.T. merevlemez-hőmérsékletek"
 
-#: ../lib/hddtemp.c:464
+#: ../lib/hddtemp.c:473
 msgid "No concrete error detected.\n"
 msgstr "Nem észlelhető konkrét hiba.\n"
 
-#: ../lib/hddtemp.c:517
+#: ../lib/hddtemp.c:526
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is "
+"most probably due to the disks requiring root privileges to read their "
+"temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
+"restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"A „hddtemp” nem futott le megfelelően, noha végrehajtható. Ezt valószínűleg a hőmérsékleteik kiolvasásához rendszergazdai hozzáférést igénylő merevlemezek okozzák és a „hddtemp” setuid bitje nincs beállítva.\n"
+"A „hddtemp” nem futott le megfelelően, noha végrehajtható. Ezt valószínűleg "
+"a hőmérsékleteik kiolvasásához rendszergazdai hozzáférést igénylő "
+"merevlemezek okozzák és a „hddtemp” setuid bitje nincs beállítva.\n"
 "\n"
-"Egyszerű megoldás a „chmod u+s %s” futtatása rendszergazdaként és ezen bővítmény vagy panel újraindítása.\n"
+"Egyszerű megoldás a „chmod u+s %s” futtatása rendszergazdaként és ezen "
+"bővítmény vagy panel újraindítása.\n"
 "\n"
 "A(z) „%s” hívása a következő hibát adta vissza:\n"
 "%s\n"
 "a visszatérési érték: %d.\n"
 
-#: ../lib/hddtemp.c:533 ../lib/hddtemp.c:563
+#: ../lib/hddtemp.c:542 ../lib/hddtemp.c:572
 msgid "Suppress this message in future"
 msgstr "Ne jelenjen meg újra"
 
-#: ../lib/hddtemp.c:557
+#: ../lib/hddtemp.c:566
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
@@ -197,29 +214,28 @@ msgstr ""
 "%s"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
-#. 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:629 ../lib/sensors-interface-common.c:141
+#: ../lib/hddtemp.c:638 ../lib/sensors-interface-common.c:144
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
-#: ../lib/lmsensors.c:103
+#: ../lib/lmsensors.c:110
 msgid "LM Sensors"
 msgstr "LM érzékelők"
 
-#: ../lib/lmsensors.c:362 ../lib/lmsensors.c:409
+#: ../lib/lmsensors.c:369 ../lib/lmsensors.c:416
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Hiba: nem sikerült az érzékelőkhöz csatlakozni"
 
-#: ../lib/sensors-interface.c:80
+#: ../lib/sensors-interface.c:82
 msgid "Sensors Plugin Failure"
 msgstr "Érzékelőbővítmény-hiba"
 
-#: ../lib/sensors-interface.c:81
+#: ../lib/sensors-interface.c:83
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
@@ -227,98 +243,106 @@ msgstr ""
 "Hiba történt az érzékelő szolgáltatásértékének olvasásakor.\n"
 "A megfelelő folytatás nem garantálható."
 
-#: ../lib/sensors-interface.c:162
+#: ../lib/sensors-interface.c:164
 msgid "Sensors t_ype:"
 msgstr "Érzékelők _típusa:"
 
-#: ../lib/sensors-interface.c:187
+#: ../lib/sensors-interface.c:189
 msgid "Description:"
 msgstr "Leírás:"
 
-#: ../lib/sensors-interface.c:225
+#: ../lib/sensors-interface.c:223
+msgid "U_pdate interval (seconds):"
+msgstr "_Frissítési időköz (mp):"
+
+#: ../lib/sensors-interface.c:263
 msgid "Name"
 msgstr "Név"
 
-#: ../lib/sensors-interface.c:235
+#: ../lib/sensors-interface.c:275
 msgid "Value"
 msgstr "Érték"
 
-#: ../lib/sensors-interface.c:243
+#: ../lib/sensors-interface.c:283
 msgid "Show"
 msgstr "Megjelenítés"
 
-#: ../lib/sensors-interface.c:252
+#: ../lib/sensors-interface.c:292
 msgid "Color"
 msgstr "Szín"
 
-#: ../lib/sensors-interface.c:265 ../lib/sensors-interface.c:271
+#: ../lib/sensors-interface.c:305
 msgid "Min"
 msgstr "Minimum"
 
-#: ../lib/sensors-interface.c:282 ../lib/sensors-interface.c:288
+#: ../lib/sensors-interface.c:322
 msgid "Max"
 msgstr "Maximum"
 
-#: ../lib/sensors-interface.c:323
+#: ../lib/sensors-interface.c:363
 msgid "Temperature scale:"
 msgstr "Hőmérsékleti skála:"
 
-#: ../lib/sensors-interface.c:325
+#: ../lib/sensors-interface.c:365
 msgid "_Celsius"
 msgstr "_Celsius"
 
-#: ../lib/sensors-interface.c:327
+#: ../lib/sensors-interface.c:367
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../lib/sensors-interface.c:363
+#: ../lib/sensors-interface.c:403
 msgid "_Sensors"
 msgstr "É_rzékelők"
 
-#: ../lib/sensors-interface-common.c:70
+#: ../lib/sensors-interface-common.c:71
 msgid "No sensors found!"
 msgstr "Nem találhatók érzékelők"
 
-#: ../lib/sensors-interface-common.c:138
+#: ../lib/sensors-interface-common.c:141
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
-#: ../lib/sensors-interface-common.c:146
+#: ../lib/sensors-interface-common.c:149
 #, c-format
 msgid "%+.2f V"
 msgstr "%+.2f V"
 
-#: ../lib/sensors-interface-common.c:150
+#: ../lib/sensors-interface-common.c:153
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.c:155
+#: ../lib/sensors-interface-common.c:158
 msgid "off"
 msgstr "ki"
 
-#: ../lib/sensors-interface-common.c:157
+#: ../lib/sensors-interface-common.c:160
 msgid "on"
 msgstr "be"
 
-#: ../lib/sensors-interface-common.c:161
+#: ../lib/sensors-interface-common.c:164
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f rpm"
 
-#: ../src/main.c:46
+#: ../src/main.c:52
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /"
+"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.txt\n"
 msgstr ""
 "Xfce4 érzékelők %s\n"
 "Ez a program a GPL v2 alatt érhető el.\n"
-"A licencszöveg megtalálható a program forrásában vagy a /usr/share/apps/LICENSES/GPL_V2 fájlban vagy a http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt oldalon\n"
+"A licencszöveg megtalálható a program forrásában vagy a /usr/share/apps/"
+"LICENSES/GPL_V2 fájlban vagy a http://www.gnu.org/licenses/old-licenses/gpl-"
+"2.0.txt oldalon\n"
 
-#: ../src/main.c:58
+#: ../src/main.c:64
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -343,14 +367,35 @@ msgstr ""
 "\n"
 "A program a GPL v2 alatt érhető el.\n"
 
-#: ../src/main.c:75
+#: ../src/main.c:81
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Xfce4 érzékelők %s\n"
 
-#: ../src/interface.c:46
+#: ../src/interface.c:77
+msgid "_Overview"
+msgstr ""
+
+#: ../src/interface.c:97
+msgid "_Tachometers"
+msgstr ""
+
+#: ../src/interface.c:113
 msgid "Sensors Viewer"
 msgstr "Érzékelőmegjelenítő"
+
+#. FIXME: either print nothing, or undertake appropriate action,
+#. * or pop up a message box.
+#: ../src/actions.c:78
+#, fuzzy, c-format
+msgid ""
+"Sensors Viewer:\n"
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr ""
+"Érzékelő bővítmény:\n"
+"Úgy tűnik, hiba történt egy érzékelőszolgáltatás értékének olvasásakor.\n"
+"A megfelelő folytatás nem garantálható.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
@@ -368,6 +413,9 @@ msgstr "Érzékelőértékek megjelenítése"
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "Érzékelőbővítmény"
+
+#~ msgid "g_raphical"
+#~ msgstr "_Grafikus"
 
 #~ msgid "Show _labels in graphical UI"
 #~ msgstr "_Címkék megjelenítése a grafikus felületen"

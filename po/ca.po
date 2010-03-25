@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
 # Pau Rul·lan Ferragut <paurullan@bulma.net>, 2006.
 # Carles Muñoz Gorriz <carlesmu@internautas.org>, 2008-2009.
-# 
-# 
+#
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-07 16:35+0100\n"
+"POT-Creation-Date: 2010-03-25 23:30+0100\n"
 "PO-Revision-Date: 2009-10-24 00:46+0100\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: Catalan\n"
@@ -21,18 +21,18 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Country: ANDORRA\n"
 
-#: ../panel-plugin/sensors-plugin.c:290 ../panel-plugin/sensors-plugin.c:387
-#: ../panel-plugin/sensors-plugin.c:952
+#: ../panel-plugin/sensors-plugin.c:291 ../panel-plugin/sensors-plugin.c:388
+#: ../panel-plugin/sensors-plugin.c:970
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Sensors</b></span>"
 
-#: ../panel-plugin/sensors-plugin.c:761
+#: ../panel-plugin/sensors-plugin.c:774
 msgid "No sensors selected!"
 msgstr "No s’ha seleccionat cap sensor"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:799
+#: ../panel-plugin/sensors-plugin.c:813
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -40,104 +40,111 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
 "Connector de sensorts:\n"
-"Sembla com si hi hagués un problema al llegir el valor d'alguna característica del sensor.\n"
+"Sembla com si hi hagués un problema al llegir el valor d'alguna "
+"característica del sensor.\n"
 "No podem garantir que funcioni correctament.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1657
+#: ../panel-plugin/sensors-plugin.c:1684
 msgid "UI style:"
 msgstr "Estil de la UI:"
 
-#: ../panel-plugin/sensors-plugin.c:1658
+#: ../panel-plugin/sensors-plugin.c:1685
 msgid "_text"
 msgstr "_text"
 
-#: ../panel-plugin/sensors-plugin.c:1660
+#: ../panel-plugin/sensors-plugin.c:1687
 msgid "_progress bars"
 msgstr "Barres de _progrés"
 
-#: ../panel-plugin/sensors-plugin.c:1662
+#: ../panel-plugin/sensors-plugin.c:1689
 msgid "_tachos"
 msgstr "_instruments"
 
-#: ../panel-plugin/sensors-plugin.c:1707
+#: ../panel-plugin/sensors-plugin.c:1734
 msgid "Show _labels"
 msgstr "Mostra _etiquetes"
 
-#: ../panel-plugin/sensors-plugin.c:1737
+#: ../panel-plugin/sensors-plugin.c:1764
 msgid "Show colored _bars"
 msgstr "Mostra _barres colorejades"
 
-#: ../panel-plugin/sensors-plugin.c:1765
+#: ../panel-plugin/sensors-plugin.c:1792
 msgid "_Show title"
 msgstr "_Mostra títol"
 
-#: ../panel-plugin/sensors-plugin.c:1789
+#: ../panel-plugin/sensors-plugin.c:1816
 msgid "_Number of text lines:"
 msgstr "_Número de línies de text:"
 
-#: ../panel-plugin/sensors-plugin.c:1824
+#: ../panel-plugin/sensors-plugin.c:1851
 msgid "F_ont size:"
 msgstr "Mida de la _lletra:"
 
-#. gtk_widget_set_sensitive(myFontBox,
-#. !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1831
+#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#: ../panel-plugin/sensors-plugin.c:1858
 msgid "x-small"
 msgstr "molt petit"
 
-#: ../panel-plugin/sensors-plugin.c:1832
+#: ../panel-plugin/sensors-plugin.c:1859
 msgid "small"
 msgstr "petit"
 
-#: ../panel-plugin/sensors-plugin.c:1833
+#: ../panel-plugin/sensors-plugin.c:1860
 msgid "medium"
 msgstr "mitjà"
 
-#: ../panel-plugin/sensors-plugin.c:1834
+#: ../panel-plugin/sensors-plugin.c:1861
 msgid "large"
 msgstr "gran"
 
-#: ../panel-plugin/sensors-plugin.c:1835
+#: ../panel-plugin/sensors-plugin.c:1862
 msgid "x-large"
 msgstr "extra gran"
 
-#: ../panel-plugin/sensors-plugin.c:1866
+#: ../panel-plugin/sensors-plugin.c:1893
 msgid "F_ont:"
 msgstr "Tipus de _lletra:"
 
-#: ../panel-plugin/sensors-plugin.c:1898
+#: ../panel-plugin/sensors-plugin.c:1925
 msgid "Show _Units"
 msgstr "Mostra _unitats"
 
-#: ../panel-plugin/sensors-plugin.c:1919
+#: ../panel-plugin/sensors-plugin.c:1946
 msgid "Small horizontal s_pacing"
 msgstr "_Espaiat petit horitzontal"
 
-#: ../panel-plugin/sensors-plugin.c:1941
+#: ../panel-plugin/sensors-plugin.c:1968
 msgid "Suppress messages"
 msgstr "Suprimeix els missatges"
 
-#: ../panel-plugin/sensors-plugin.c:1966
+#: ../panel-plugin/sensors-plugin.c:1993
 msgid "E_xecute on double click:"
 msgstr "E_xecuta amb doble clic:"
 
-#: ../panel-plugin/sensors-plugin.c:2009
+#: ../panel-plugin/sensors-plugin.c:2036
 msgid "_View"
 msgstr "_Mostra"
 
-#: ../panel-plugin/sensors-plugin.c:2043
+#: ../panel-plugin/sensors-plugin.c:2070
 msgid "_Miscellaneous"
 msgstr "_Misceŀlània"
 
-#: ../panel-plugin/sensors-plugin.c:2116 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2143 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:160
 msgid "Sensors Plugin"
 msgstr "Connector de sensors"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2159
-msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
-msgstr "Podeu canviar la propietat d'alguna característica com ara el nom, els colors o els valors màxims o mínims al fer doble clic al camp d'entrada, editant el contingut, i pitjant la tecla de retorn o seleccionant un altre camp."
+#: ../panel-plugin/sensors-plugin.c:2186
+msgid ""
+"You can change a feature's properties such as name, colours, min/max value "
+"by double-clicking the entry, editing the content, and pressing \"Return\" "
+"or selecting a different field."
+msgstr ""
+"Podeu canviar la propietat d'alguna característica com ara el nom, els "
+"colors o els valors màxims o mínims al fer doble clic al camp d'entrada, "
+"editant el contingut, i pitjant la tecla de retorn o seleccionant un altre "
+"camp."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -153,8 +160,7 @@ msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power
-#. Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
@@ -175,17 +181,24 @@ msgstr "Cap error concret detectat.\n"
 #: ../lib/hddtemp.c:526
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is "
+"most probably due to the disks requiring root privileges to read their "
+"temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
+"restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"«hddtemp» no s'ha executat correctament, tot i que és executable. Probablement es deu a que els discs requereixen privilegis de super usuari per llegir llurs temperatures i a que «hddtemp» no te «setuid» de super usuari.\n"
+"«hddtemp» no s'ha executat correctament, tot i que és executable. "
+"Probablement es deu a que els discs requereixen privilegis de super usuari "
+"per llegir llurs temperatures i a que «hddtemp» no te «setuid» de super "
+"usuari.\n"
 "\n"
-"Una solució fàcil però lletja és executar l'ordre «chmod u+s %s» com super usuari i reiniciar el connector o el quadre.\n"
+"Una solució fàcil però lletja és executar l'ordre «chmod u+s %s» com super "
+"usuari i reiniciar el connector o el quadre.\n"
 "\n"
 "L'ordre «%s» ha tornat aquest error:\n"
 "%s\n"
@@ -205,8 +218,7 @@ msgstr ""
 "%s"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
-#. 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
 #: ../lib/hddtemp.c:638 ../lib/sensors-interface-common.c:144
@@ -232,7 +244,8 @@ msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr ""
-"Sembla com si hi hagués un problema al llegir el valor d'alguna característica del sensor.\n"
+"Sembla com si hi hagués un problema al llegir el valor d'alguna "
+"característica del sensor.\n"
 "No podem garantir que funcioni correctament."
 
 #: ../lib/sensors-interface.c:164
@@ -324,11 +337,15 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /"
+"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.txt\n"
 msgstr ""
 "Sensors Xfce4 %s\n"
 "Aquest pograma es distribueix amb llicència GPL v2.\n"
-"El text de la llicència el podeu trobar dins de l'arxiu font del programa o a «/usr/share/apps/LICENSES/GPL_V2» o a http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+"El text de la llicència el podeu trobar dins de l'arxiu font del programa o "
+"a «/usr/share/apps/LICENSES/GPL_V2» o a http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
 #, c-format
@@ -360,15 +377,15 @@ msgstr ""
 msgid "Xfce4 Sensors %s\n"
 msgstr "Sensors Xfce4 %s\n"
 
-#: ../src/interface.c:75
+#: ../src/interface.c:77
 msgid "_Overview"
 msgstr "_VIsió general"
 
-#: ../src/interface.c:95
+#: ../src/interface.c:97
 msgid "_Tachometers"
 msgstr "_Tacòmetres"
 
-#: ../src/interface.c:111
+#: ../src/interface.c:113
 msgid "Sensors Viewer"
 msgstr "Visor de sensors"
 
