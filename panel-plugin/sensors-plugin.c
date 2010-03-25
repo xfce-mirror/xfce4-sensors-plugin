@@ -189,6 +189,7 @@ sensors_remove_tacho_panel (t_sensors *sensors)
 
             if (chipfeature->show == TRUE) 
             {
+                gtk_widget_hide (sensors->tachos[chipNum][feature]);
                 gtk_widget_destroy (sensors->tachos[chipNum][feature]); /* automatically frees structure as I find it much more sensible for widget-destroy to behave that way */
                 sensors->tachos[chipNum][feature] = NULL;
             }
@@ -221,7 +222,7 @@ sensors_update_graphical_panel (t_sensors *sensors)
             g_assert (chipfeature != NULL);
 
             if (chipfeature->show == TRUE) {
-                panel = (t_barpanel*) sensors->tachos[chipNum][feature];
+                panel = (t_barpanel*) sensors->panels[chipNum][feature];
 
                 bar = panel->progressbar;
                 g_return_if_fail (G_IS_OBJECT(bar));
@@ -479,7 +480,7 @@ sensors_show_tacho_display (t_sensors *sensors)
 {
     TRACE ("enters sensors_show_tacho_display");
 
-    if (sensors->bars_created == TRUE)
+    if (sensors->tachos_created == TRUE)
         sensors_update_tacho_panel (sensors);
     else
         sensors_add_tacho_display (sensors);
@@ -1090,10 +1091,10 @@ show_title_toggled (GtkWidget *widget, t_sensors_dialog *sd)
 {
     TRACE ("enters show_title_toggled");
 
-    if (sd->sensors->display_values_type== DISPLAY_BARS) {
+    if (sd->sensors->display_values_type == DISPLAY_BARS) {
         sensors_remove_graphical_panel (sd->sensors);
     }
-    else if (sd->sensors->display_values_type== DISPLAY_TACHO) {
+    else if (sd->sensors->display_values_type == DISPLAY_TACHO) {
         sensors_remove_tacho_panel (sd->sensors);
     }
     sd->sensors->show_title = gtk_toggle_button_get_active
@@ -1110,12 +1111,12 @@ show_labels_toggled (GtkWidget *widget, t_sensors_dialog *sd)
 {
     TRACE ("enters show_labels_toggled");
 
-     if (sd->sensors->display_values_type== DISPLAY_BARS) {
+     if (sd->sensors->display_values_type == DISPLAY_BARS) {
         sensors_remove_graphical_panel (sd->sensors);
     }
-    else if (sd->sensors->display_values_type== DISPLAY_TACHO) {
-        sensors_remove_tacho_panel (sd->sensors);
-    }
+    //else if (sd->sensors->display_values_type == DISPLAY_TACHO) {
+        //sensors_remove_tacho_panel (sd->sensors);
+    //}
 
     sd->sensors->show_labels = gtk_toggle_button_get_active
         ( GTK_TOGGLE_BUTTON(widget) );
@@ -1130,12 +1131,12 @@ show_colored_bars_toggled (GtkWidget *widget, t_sensors_dialog *sd)
 {
     TRACE ("enters show_colored_bars_toggled");
 
-     if (sd->sensors->display_values_type== DISPLAY_BARS) {
+    if (sd->sensors->display_values_type == DISPLAY_BARS) {
         sensors_remove_graphical_panel (sd->sensors);
     }
-    else if (sd->sensors->display_values_type== DISPLAY_TACHO) {
-        sensors_remove_tacho_panel (sd->sensors);
-    }
+    //else if (sd->sensors->display_values_type == DISPLAY_TACHO) {
+        //sensors_remove_tacho_panel (sd->sensors);
+    //}
 
     sd->sensors->show_colored_bars = gtk_toggle_button_get_active
         ( GTK_TOGGLE_BUTTON(widget) );
