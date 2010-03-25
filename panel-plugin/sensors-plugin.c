@@ -267,6 +267,7 @@ sensors_update_tacho_panel (t_sensors *sensors)
 
                 fraction = sensors_get_percentage (chipfeature);
                 gtk_cpu_set_value(GTK_CPU(tacho), fraction);
+                gtk_cpu_set_color(GTK_CPU(tacho), chipfeature->color);
             }
         }
     }
