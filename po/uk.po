@@ -97,9 +97,8 @@ msgid "x-large"
 msgstr "найбільші"
 
 #: ../panel-plugin/sensors-plugin.c:1893
-#, fuzzy
 msgid "F_ont:"
-msgstr "Розмір _шрифту:"
+msgstr "_Шрифт:"
 
 #: ../panel-plugin/sensors-plugin.c:1925
 msgid "Show _Units"
