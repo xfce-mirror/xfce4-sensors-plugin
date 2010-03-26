@@ -1,7 +1,7 @@
 # Ukrainian translation of xfce4-sensors-plugin.
 # Copyright (C) 2008 Dmitry Nikitin
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
-#
+# 
 # Dmitry Nikitin <luckas_fb@mail.ru>, 2008.
 msgid ""
 msgstr ""
@@ -48,11 +48,11 @@ msgstr "_текстовий"
 
 #: ../panel-plugin/sensors-plugin.c:1687
 msgid "_progress bars"
-msgstr ""
+msgstr "панель _поступу"
 
 #: ../panel-plugin/sensors-plugin.c:1689
 msgid "_tachos"
-msgstr ""
+msgstr "Інструм_енти"
 
 #: ../panel-plugin/sensors-plugin.c:1734
 msgid "Show _labels"
@@ -74,7 +74,8 @@ msgstr "Кількіс_ть тектових стрічок:"
 msgid "F_ont size:"
 msgstr "Розмір _шрифту:"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1858
 msgid "x-small"
 msgstr "найменші"
@@ -131,14 +132,8 @@ msgstr "Плагін сенсорів"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2186
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field."
-msgstr ""
-"Ви можете вибрати опції властивостей такі як назва, кольори, мін/макс "
-"значення через подвійне клацання на елементі, редагування змісту і натиснути"
-"\"Ввід\" aбо вибрати різні поля."
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
+msgstr "Ви можете вибрати опції властивостей такі як назва, кольори, мін/макс значення через подвійне клацання на елементі, редагування змісту і натиснути\"Ввід\" aбо вибрати різні поля."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -154,7 +149,8 @@ msgid "ACPI"
 msgstr "Інтерфейс ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
@@ -175,23 +171,17 @@ msgstr "Отримано невідому помилку.\n"
 #: ../lib/hddtemp.c:526
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" не було коректно виконано, хоча він виконуваний. Можливо це    "
-"потребує прав адміністратора для перегляду інформації про температуру  "
-"дисків але \"hddtemp\" не має адміністративних прав.\n"
+"\"hddtemp\" не було коректно виконано, хоча він виконуваний. Можливо це    потребує прав адміністратора для перегляду інформації про температуру  дисків але \"hddtemp\" не має адміністративних прав.\n"
 "\n"
-"Простіше але брудне рішення запустити \"chmod u+s %s\" як root і       "
-"перезапустити цей плагін або панель.\n"
+"Простіше але брудне рішення запустити \"chmod u+s %s\" як root і       перезапустити цей плагін або панель.\n"
 "\n"
 "Виклик \"%s\" дає наступну помилку:\n"
 "%s\n"
@@ -211,7 +201,8 @@ msgstr ""
 "%s"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
 #. } else { // Celsius
 #. Celsius
 #: ../lib/hddtemp.c:638 ../lib/sensors-interface-common.c:144
@@ -329,15 +320,11 @@ msgstr "%.0f обертів за хвилину"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
 "Сенсори Xfce4 %s\n"
 "Цю програму опубліковано під ліцензією GPL v2.\n"
-"Текст ліцензії можна знайти всередині архіву з джерельними кодами програми "
-"або нижче /usr/share/apps/LICENSES/GPL_V2 або на сайті http://www.gnu.org/"
-"licenses/old-licenses/gpl-2.0.txt\n"
+"Текст ліцензії можна знайти всередині архіву з джерельними кодами програми або нижче /usr/share/apps/LICENSES/GPL_V2 або на сайті http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
 #, c-format
@@ -371,11 +358,11 @@ msgstr "Сенсори Xfce4 %s\n"
 
 #: ../src/interface.c:77
 msgid "_Overview"
-msgstr ""
+msgstr "_Огляд"
 
 #: ../src/interface.c:97
 msgid "_Tachometers"
-msgstr ""
+msgstr "Таксом_етри"
 
 #: ../src/interface.c:113
 msgid "Sensors Viewer"
@@ -384,7 +371,7 @@ msgstr "Переглядач сенсорів"
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
 #: ../src/actions.c:78
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
@@ -392,7 +379,7 @@ msgid ""
 msgstr ""
 "Плагін сенсорів:\n"
 "Здається існують проблеми читання значень опцій сенсора.\n"
-"Правильна обробка не може бути гарантована.\n"
+"Правильна обробка не гарантована.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
