@@ -213,7 +213,7 @@ msgstr "Ошибка: Не удается соединиться с сенсор
 
 #: ../lib/sensors-interface.c:82
 msgid "Sensors Plugin Failure"
-msgstr "Сбой плагина"
+msgstr "Сбой модуля"
 
 #: ../lib/sensors-interface.c:83
 msgid ""
