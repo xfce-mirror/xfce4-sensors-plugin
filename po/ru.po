@@ -2,7 +2,7 @@
 # Copyright (C) 2004-2005 Fabian Nowak.
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
 # Andrey Fedoseev <andrey.fedoseev@gmail.com>, 2006.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
@@ -73,7 +73,8 @@ msgstr "_Количество строк текста:"
 msgid "F_ont size:"
 msgstr "Р_азмер шрифта:"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1858
 msgid "x-small"
 msgstr "крошечный"
@@ -130,14 +131,8 @@ msgstr "Сенсоры"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2186
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field."
-msgstr ""
-"Вы можете изменять свойства, такие как имя, цвета, минимальное или "
-"максимальное значение двойным щелчком мыши по пареметру, редактировать "
-"содержимое и нажать \"Return\" или выбрать другое поле. "
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
+msgstr "Вы можете изменять свойства, такие как имя, цвета, минимальное или максимальное значение двойным щелчком мыши по пареметру, редактировать содержимое и нажать \"Return\" или выбрать другое поле. "
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -153,7 +148,8 @@ msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
@@ -174,12 +170,9 @@ msgstr "Нет конкретной ошибки.\n"
 #: ../lib/hddtemp.c:526
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
@@ -200,7 +193,8 @@ msgstr ""
 "%s"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
 #. } else { // Celsius
 #. Celsius
 #: ../lib/hddtemp.c:638 ../lib/sensors-interface-common.c:144
@@ -318,15 +312,11 @@ msgstr "%5.0f оборотов в мин"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
 "Xfce4 Sensors %s\n"
 "Эта программа выпущена под лицензией GPL v2.\n"
-"Текст лицензии может быть найден внутри архива с исходным кодом или в /usr/"
-"share/apps/LICENSES/GPL_V2, а также http://www.gnu.org/licenses/old-licenses/"
-"gpl-2.0.txt\n"
+"Текст лицензии может быть найден внутри архива с исходным кодом или в /usr/share/apps/LICENSES/GPL_V2, а также http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
 #, c-format
@@ -359,8 +349,9 @@ msgid "Xfce4 Sensors %s\n"
 msgstr "Сенсоры Xfce4 %s\n"
 
 #: ../src/interface.c:77
+#, fuzzy
 msgid "_Overview"
-msgstr ""
+msgstr "Обзор"
 
 #: ../src/interface.c:97
 msgid "_Tachometers"
@@ -403,22 +394,18 @@ msgstr "Плагин сенсоров"
 #~ msgid "g_raphical"
 #~ msgstr "г_рафический"
 
-#, fuzzy
 #~ msgid "Show _labels in graphical UI"
 #~ msgstr "Отображать метки"
 
-#, fuzzy
 #~ msgid "Xfce 4 Sensors Plugin"
 #~ msgstr "Сенсоры"
 
-#, fuzzy
 #~ msgid "Xfce 4 Sensors Viewer"
 #~ msgstr "Сенсоры"
 
 #~ msgid "Edit Properties"
 #~ msgstr "Свойства"
 
-#, fuzzy
 #~ msgid "View sensor values"
 #~ msgstr "Отображает значения сенсоров."
 
