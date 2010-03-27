@@ -389,7 +389,7 @@ msgstr "Отображать значения сенсоров."
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
-msgstr "Плагин сенсоров"
+msgstr "Модуль сенсоров"
 
 #~ msgid "g_raphical"
 #~ msgstr "г_рафический"
