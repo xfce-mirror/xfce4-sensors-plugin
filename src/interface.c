@@ -90,7 +90,7 @@ add_notebook (GtkWidget *box, t_sensors_dialog *sd)
     add_tachos_box (scr_win, sd);
     
     fontbutton = gtk_font_button_new();
-    g_signal_connect (G_OBJECT(fontbutton), "font-set", G_CALLBACK(on_font_set), NULL);
+    g_signal_connect (G_OBJECT(fontbutton), "font-set", G_CALLBACK(on_font_set), sd);
     gtk_widget_show (fontbutton); 
     gtk_box_pack_end (GTK_BOX(child), fontbutton, FALSE, FALSE, 0);
     

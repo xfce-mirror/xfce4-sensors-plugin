@@ -97,6 +97,8 @@ gtk_cpu_set_text (GtkCpu *cpu, gchar *text)
   }
     
   cpu->text = g_strdup(text);
+  gdk_gc_destroy(cpu->gc);
+  cpu->gc = NULL;
   gtk_cpu_paint(GTK_WIDGET(cpu));
 }
 
@@ -108,6 +110,8 @@ gtk_cpu_unset_text (GtkCpu *cpu)
     g_free (cpu->text);
     
   cpu->text = NULL;
+  gdk_gc_destroy(cpu->gc);
+  cpu->gc = NULL;
   gtk_cpu_paint(GTK_WIDGET(cpu));
 }
 
@@ -287,6 +291,7 @@ gtk_cpu_paint (GtkWidget *widget)
   gchar *text;
   GdkGC *gc;
   GdkColor *color;
+  GdkGCValues gcvalues;
   int i;
   double percent;
   PangoFontDescription *desc ;
@@ -301,6 +306,18 @@ gtk_cpu_paint (GtkWidget *widget)
       return;
       
     GTK_CPU(widget)->gc = gdk_gc_new(widget->window);
+  }
+  else // clear graphics context!
+  {
+    //gdk_gc_get_values(GDK_GC(GTK_CPU(widget)->gc), &gcvalues);
+    //gcvalues.function = GDK_CLEAR;
+    //gdk_draw_rectangle (widget->window,
+                        //GTK_CPU(widget)->gc,
+                        //TRUE,
+                        //0, 0,
+                        //widget->allocation.width, widget->allocation.height
+    //);
+    //gcvalues.function = GDK_NOOP;
   }
   
   gc = GTK_CPU(widget)->gc;

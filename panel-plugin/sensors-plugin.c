@@ -1115,9 +1115,9 @@ show_labels_toggled (GtkWidget *widget, t_sensors_dialog *sd)
      if (sd->sensors->display_values_type == DISPLAY_BARS) {
         sensors_remove_graphical_panel (sd->sensors);
     }
-    //else if (sd->sensors->display_values_type == DISPLAY_TACHO) {
-        //sensors_remove_tacho_panel (sd->sensors);
-    //}
+    else if (sd->sensors->display_values_type == DISPLAY_TACHO) {
+        sensors_remove_tacho_panel (sd->sensors);
+    }
 
     sd->sensors->show_labels = gtk_toggle_button_get_active
         ( GTK_TOGGLE_BUTTON(widget) );
@@ -1215,7 +1215,7 @@ display_style_changed_tacho (GtkWidget *widget, t_sensors_dialog *sd)
       sensors_remove_graphical_panel(sd->sensors);
 
     //gtk_widget_show(sd->labels_Box);
-    gtk_widget_show(sd->coloredBars_Box);
+    gtk_widget_hide(sd->coloredBars_Box);
     gtk_widget_show(sd->fontSettings_Box);
     gtk_widget_hide(sd->font_Box);
     gtk_widget_hide(sd->Lines_Box);
@@ -1665,10 +1665,21 @@ list_cell_toggle (GtkCellRendererToggle *cell, gchar *path_str,
 static void
 on_font_set (GtkWidget *widget, gpointer data)
 {
-  if (font)
-    g_free (font);
-  
-  font = g_strdup(gtk_font_button_get_font_name(GTK_FONT_BUTTON(widget)));
+        t_sensors *sensors;
+        sensors = (t_sensors *) data;
+        g_assert (sensors!=NULL);
+        
+        if (font)
+                g_free (font);
+        
+        font = g_strdup(gtk_font_button_get_font_name(GTK_FONT_BUTTON(widget)));
+        
+        if (sensors->display_values_type!=DISPLAY_TACHO)
+                return;
+
+        /* refresh the panel content */
+        //sensors_show_panel ((gpointer) sd->sensors);
+        sensors_update_tacho_panel (sensors);
 }
 
 
@@ -1873,7 +1884,7 @@ add_font_size_box (GtkWidget * vbox, t_sensors_dialog * sd)
     gtk_widget_show (myFontSizeComboBox);
     gtk_widget_show (myFontBox);
 
-    if (sd->sensors->display_values_type != DISPLAY_BARS)
+    if (sd->sensors->display_values_type != DISPLAY_TEXT)
         gtk_widget_hide(sd->font_Box);
 
     g_signal_connect   (G_OBJECT (myFontSizeComboBox), "changed",
@@ -1893,7 +1904,9 @@ add_font_settings_box (GtkWidget * vbox, t_sensors_dialog * sd)
 
     myFontLabel = gtk_label_new_with_mnemonic (_("F_ont:"));
     myFontSettingsBox = gtk_hbox_new (FALSE, BORDER);
-    myFontSettingsButton = gtk_font_button_new();
+    myFontSettingsButton = gtk_font_button_new_with_font(font);
+    //gtk_font_button_set_font_name(GTK_FONT_BUTTON(myFontSettingsButton), font);
+    gtk_font_button_set_use_font(GTK_FONT_BUTTON(myFontSettingsButton), TRUE);
 
     sd->fontSettings_Box = myFontSettingsBox;
     /* gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically); */
@@ -1910,7 +1923,7 @@ add_font_settings_box (GtkWidget * vbox, t_sensors_dialog * sd)
     if (sd->sensors->display_values_type != DISPLAY_TACHO)
         gtk_widget_hide(sd->fontSettings_Box);
 
-    g_signal_connect (G_OBJECT(myFontSettingsButton), "font-set", G_CALLBACK(on_font_set), NULL);
+    g_signal_connect (G_OBJECT(myFontSettingsButton), "font-set", G_CALLBACK(on_font_set), sd->sensors);
     //g_signal_connect   (G_OBJECT (myFontSettingsComboBox), "changed",
                         //G_CALLBACK (font_settings_change), sd );
 

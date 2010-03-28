@@ -47,7 +47,7 @@ msgstr "_textuell"
 
 #: ../panel-plugin/sensors-plugin.c:1687
 msgid "_progress bars"
-msgstr "_Fortschrittsleisten"
+msgstr "_Balken"
 
 #: ../panel-plugin/sensors-plugin.c:1689
 msgid "_tachos"
