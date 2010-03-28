@@ -277,7 +277,7 @@ msgstr "Max"
 
 #: ../lib/sensors-interface.c:363
 msgid "Temperature scale:"
-msgstr "Temperaturskala"
+msgstr "Temperaturskala:"
 
 #: ../lib/sensors-interface.c:365
 msgid "_Celsius"

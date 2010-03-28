@@ -201,7 +201,7 @@ gtk_cpu_size_request (GtkWidget *widget, GtkRequisition *requisition)
 static void
 gtk_cpu_size_allocate (GtkWidget *widget, GtkAllocation *allocation)
 {
-  int minwh;
+  //int minwh;
   
   TRACE("enter gtk_cpu_size_allocate\n");
   DBG ("width x height = %d x %d\n", allocation->width, allocation->height);
@@ -209,19 +209,23 @@ gtk_cpu_size_allocate (GtkWidget *widget, GtkAllocation *allocation)
   g_return_if_fail(GTK_IS_CPU(widget));
   g_return_if_fail(allocation != NULL);
 
-  minwh = min(allocation->width, allocation->height);
+  //minwh = min(allocation->width, allocation->height);
+  //DBG("minimum is %d\n", minwh);
   
-  allocation->width = minwh;
-  allocation->height = minwh;
-  DBG ("width x height = %d x %d\n", allocation->width, allocation->height);
+  allocation->width = allocation->height;
+  //allocation->height = minwh;
+  //DBG ("width x height = %d x %d\n", allocation->width, allocation->height);
   widget->allocation = *allocation;
+  
+  gtk_widget_set_size_request(widget, allocation->height, allocation->height);
 
   if (GTK_WIDGET_REALIZED(widget)) {
      gdk_window_move_resize(
          widget->window,
          allocation->x, allocation->y,
-         minwh, minwh // determines width and height of the drawn area
+         allocation->height, allocation->height // determines width and height of the drawn area
      );
+     //gtk_window_resize(widget->window, minwh, minwh);
   }
   DBG ("width x height = %d x %d\n", widget->allocation.width, widget->allocation.height);
   TRACE("leave gtk_cpu_size_allocate\n");
@@ -291,7 +295,7 @@ gtk_cpu_paint (GtkWidget *widget)
   gchar *text;
   GdkGC *gc;
   GdkColor *color;
-  GdkGCValues gcvalues;
+  //GdkGCValues gcvalues;
   int i;
   double percent;
   PangoFontDescription *desc ;
