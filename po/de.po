@@ -241,7 +241,7 @@ msgstr ""
 
 #: ../lib/sensors-interface.c:164
 msgid "Sensors t_ype:"
-msgstr "Sensort_yp"
+msgstr "Sensort_yp:"
 
 #: ../lib/sensors-interface.c:189
 msgid "Description:"

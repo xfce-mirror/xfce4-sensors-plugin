@@ -317,7 +317,8 @@ gtk_cpu_paint (GtkWidget *widget)
                         //0, 0,
                         //widget->allocation.width, widget->allocation.height
     //);
-    //gcvalues.function = GDK_NOOP;
+    //gcvalues.function = GDK_NOOP
+    gdk_window_clear(widget->window);
   }
   
   gc = GTK_CPU(widget)->gc;
