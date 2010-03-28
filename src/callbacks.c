@@ -40,8 +40,11 @@
 
 void on_font_set (GtkWidget *widget, gpointer data)
 {
-  font = g_strdup(gtk_font_button_get_font_name(GTK_FONT_BUTTON(widget)));
-  refresh_view(data); /* data is pointer to sensors_dialog */
+    if (font!=NULL)
+        g_free (font);
+        
+    font = g_strdup(gtk_font_button_get_font_name(GTK_FONT_BUTTON(widget)));
+    refresh_view(data); /* data is pointer to sensors_dialog */
 }
 
 

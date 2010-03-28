@@ -34,6 +34,7 @@
 
 /* Package includes */
 #include <configuration.h>
+#include <cpu.h>
 #include <sensors-interface.h>
 #include <types.h>
 
@@ -105,6 +106,8 @@ sensors_write_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 
     xfce_rc_write_int_entry (rc, "Font_Size_Numerical",
                                 sensors->font_size_numerical);
+
+    xfce_rc_write_entry (rc, "Font", font);
 
     xfce_rc_write_int_entry (rc, "Lines_Size", sensors->lines_size);
 
@@ -207,6 +210,10 @@ sensors_read_general_config (XfceRc *rc, t_sensors *sensors)
 
         if ((value = xfce_rc_read_entry (rc, "Font_Size", NULL)) && *value) {
             sensors->font_size = g_strdup(value);
+        }
+        
+        if ((value = xfce_rc_read_entry (rc, "Font", NULL)) && *value) {
+            font = g_strdup(value);
         }
 
         sensors->font_size_numerical = xfce_rc_read_int_entry (rc,

@@ -47,7 +47,7 @@ static void gtk_cpu_destroy(GtkObject *object);
 
 
 //extern gchar *font;
-gchar *font;
+gchar *font = NULL;
 
 
 GtkType
@@ -165,7 +165,8 @@ gtk_cpu_class_init (GtkCpuClass *klass)
 
   object_class->destroy = gtk_cpu_destroy;
   
-  font = g_strdup("Sans 12");
+  if (font==NULL)
+    font = g_strdup("Sans 12");
   TRACE("leave gtk_cpu_class_init\n");
 }
 

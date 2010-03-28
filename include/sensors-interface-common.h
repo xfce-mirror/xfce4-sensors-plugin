@@ -89,8 +89,9 @@ typedef struct {
     gint timeout_id;
 
     /* font size for display in panel */
-    gchar* font_size;
+    gchar *font_size;
     gint font_size_numerical;
+    gchar *font;
 
     /* temperature scale for display in panel */
     t_tempscale scale;

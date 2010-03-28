@@ -2297,6 +2297,10 @@ sensors_plugin_construct (XfcePanelPlugin *plugin)
 
     sensors->plugin_config_file = xfce_panel_plugin_lookup_rc_file(plugin);
     sensors_read_config (plugin, sensors);
+    
+    //if (font)
+            //g_free (font);
+    //font = g_strdup(sensors->font);
 
     /* Try to resize the sensors to fit the user settings.
        Do also modify the tooltip text. */
