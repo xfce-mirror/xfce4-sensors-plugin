@@ -71,8 +71,10 @@
 #endif
 
 /* forward declaration for GCC 4.3 -Wall */
-
+#ifdef HAVE_LIBNOTIFY
 void notification_suppress_messages (NotifyNotification *n, gchar *action, gpointer *data);
+#endif
+
 void quick_message_notify (gchar *message);
 void quick_message (gchar *message);
 void read_disks_netcat (t_chip *chip);
