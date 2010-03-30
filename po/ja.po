@@ -8,26 +8,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-25 23:30+0100\n"
-"PO-Revision-Date: 2009-10-20 23:53+0900\n"
+"POT-Creation-Date: 2010-03-30 22:08+0900\n"
+"PO-Revision-Date: 2010-03-30 22:08+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: xfce-users-jp <xfce-users-jp@ml.fdiary.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors-plugin.c:291 ../panel-plugin/sensors-plugin.c:388
-#: ../panel-plugin/sensors-plugin.c:970
+#: ../panel-plugin/sensors-plugin.c:292 ../panel-plugin/sensors-plugin.c:389
+#: ../panel-plugin/sensors-plugin.c:971
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>センサ</b></span>"
 
-#: ../panel-plugin/sensors-plugin.c:774
+#: ../panel-plugin/sensors-plugin.c:775
 msgid "No sensors selected!"
 msgstr "センサが選択されていません!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:813
+#: ../panel-plugin/sensors-plugin.c:814
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -38,99 +38,98 @@ msgstr ""
 "センサ機能値の読み込みに問題があるようです。\n"
 "正確な値は保証されません。\n"
 
-#: ../panel-plugin/sensors-plugin.c:1684
+#: ../panel-plugin/sensors-plugin.c:1696
 msgid "UI style:"
-msgstr "UI のスタイル:"
+msgstr "UI スタイル:"
 
-#: ../panel-plugin/sensors-plugin.c:1685
+#: ../panel-plugin/sensors-plugin.c:1697
 msgid "_text"
 msgstr "テキスト(_T)"
 
-#: ../panel-plugin/sensors-plugin.c:1687
+#: ../panel-plugin/sensors-plugin.c:1699
 msgid "_progress bars"
-msgstr ""
+msgstr "プログレスバー(_P)"
 
-#: ../panel-plugin/sensors-plugin.c:1689
+#: ../panel-plugin/sensors-plugin.c:1701
 msgid "_tachos"
-msgstr ""
+msgstr "タコメータ(_T)"
 
-#: ../panel-plugin/sensors-plugin.c:1734
+#: ../panel-plugin/sensors-plugin.c:1746
 msgid "Show _labels"
 msgstr "ラベルを表示する(_L)"
 
-#: ../panel-plugin/sensors-plugin.c:1764
+#: ../panel-plugin/sensors-plugin.c:1776
 msgid "Show colored _bars"
 msgstr "色付きバーで表示する(_B)"
 
-#: ../panel-plugin/sensors-plugin.c:1792
+#: ../panel-plugin/sensors-plugin.c:1804
 msgid "_Show title"
 msgstr "タイトルを表示する(_S)"
 
-#: ../panel-plugin/sensors-plugin.c:1816
+#: ../panel-plugin/sensors-plugin.c:1828
 msgid "_Number of text lines:"
 msgstr "表示行数(_N)"
 
-#: ../panel-plugin/sensors-plugin.c:1851
+#: ../panel-plugin/sensors-plugin.c:1863
 msgid "F_ont size:"
-msgstr "フォントのサイズ(_O):"
+msgstr "フォントサイズ(_O):"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1858
+#: ../panel-plugin/sensors-plugin.c:1870
 msgid "x-small"
-msgstr "極小"
+msgstr "とても小さい"
 
-#: ../panel-plugin/sensors-plugin.c:1859
+#: ../panel-plugin/sensors-plugin.c:1871
 msgid "small"
-msgstr "小"
+msgstr "小さい"
 
-#: ../panel-plugin/sensors-plugin.c:1860
+#: ../panel-plugin/sensors-plugin.c:1872
 msgid "medium"
 msgstr "普通"
 
-#: ../panel-plugin/sensors-plugin.c:1861
+#: ../panel-plugin/sensors-plugin.c:1873
 msgid "large"
-msgstr "大"
+msgstr "大きい"
 
-#: ../panel-plugin/sensors-plugin.c:1862
+#: ../panel-plugin/sensors-plugin.c:1874
 msgid "x-large"
-msgstr "巨大"
+msgstr "とても大きい"
 
-#: ../panel-plugin/sensors-plugin.c:1893
-#, fuzzy
+#: ../panel-plugin/sensors-plugin.c:1905
 msgid "F_ont:"
-msgstr "フォントのサイズ(_O):"
+msgstr "フォント(_O):"
 
-#: ../panel-plugin/sensors-plugin.c:1925
+#: ../panel-plugin/sensors-plugin.c:1939
 msgid "Show _Units"
 msgstr "単位を表示する(_U)"
 
-#: ../panel-plugin/sensors-plugin.c:1946
+#: ../panel-plugin/sensors-plugin.c:1960
 msgid "Small horizontal s_pacing"
 msgstr "小さな横幅間隔(_P)"
 
-#: ../panel-plugin/sensors-plugin.c:1968
+#: ../panel-plugin/sensors-plugin.c:1982
 msgid "Suppress messages"
 msgstr "メッセージを抑止する"
 
-#: ../panel-plugin/sensors-plugin.c:1993
+#: ../panel-plugin/sensors-plugin.c:2007
 msgid "E_xecute on double click:"
 msgstr "ダブルクリックで実行(_X):"
 
-#: ../panel-plugin/sensors-plugin.c:2036
+#: ../panel-plugin/sensors-plugin.c:2050
 msgid "_View"
 msgstr "表示(_V)"
 
-#: ../panel-plugin/sensors-plugin.c:2070
+#: ../panel-plugin/sensors-plugin.c:2084
 msgid "_Miscellaneous"
 msgstr "その他(_M)"
 
-#: ../panel-plugin/sensors-plugin.c:2143 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2157 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:160
 msgid "Sensors Plugin"
 msgstr "センサプラグイン"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2186
+#: ../panel-plugin/sensors-plugin.c:2200
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -144,8 +143,8 @@ msgstr ""
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:156 ../lib/configuration.c:341
-#: ../lib/configuration.c:348 ../lib/hddtemp.c:351 ../lib/hddtemp.c:397
+#: ../lib/configuration.c:159 ../lib/configuration.c:348
+#: ../lib/configuration.c:355 ../lib/hddtemp.c:351 ../lib/hddtemp.c:397
 msgid "Hard disks"
 msgstr "ハードディスク"
 
@@ -371,11 +370,11 @@ msgstr "Xfce 4 センサ %s\n"
 
 #: ../src/interface.c:77
 msgid "_Overview"
-msgstr ""
+msgstr "全般(_O)"
 
 #: ../src/interface.c:97
 msgid "_Tachometers"
-msgstr ""
+msgstr "タコメータ(_T)"
 
 #: ../src/interface.c:113
 msgid "Sensors Viewer"
@@ -384,14 +383,14 @@ msgstr "センサビューア"
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
 #: ../src/actions.c:78
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
 "センサプラグイン:\n"
-"センサ機能値の読み込みに問題があるようです。\n"
+"センサ機能値の読み込みに問題があったようです。\n"
 "正確な値は保証されません。\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
