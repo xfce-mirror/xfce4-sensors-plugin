@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Nuno Miguel <nunis@netcabo.pt>, 2007.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
@@ -47,7 +47,7 @@ msgstr "_texto"
 
 #: ../panel-plugin/sensors-plugin.c:1687
 msgid "_progress bars"
-msgstr ""
+msgstr "barras de _progresso"
 
 #: ../panel-plugin/sensors-plugin.c:1689
 msgid "_tachos"
@@ -73,7 +73,8 @@ msgstr "_Número de linhas de texto:"
 msgid "F_ont size:"
 msgstr "Tamanho de f_onte:"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1858
 msgid "x-small"
 msgstr "x-pequeno"
@@ -95,9 +96,8 @@ msgid "x-large"
 msgstr "x-grande"
 
 #: ../panel-plugin/sensors-plugin.c:1893
-#, fuzzy
 msgid "F_ont:"
-msgstr "Tamanho de f_onte:"
+msgstr "F_onte:"
 
 #: ../panel-plugin/sensors-plugin.c:1925
 msgid "Show _Units"
@@ -130,14 +130,8 @@ msgstr "Plugin Sensores"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2186
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field."
-msgstr ""
-"Pode mudar a funcionalidade das propriedades como: nome, cores, valores min/"
-"max ao fazer duplo clique na entrada, editar o conteúdo e pressionando "
-"\"Enter\" ou seleccionar um campo diferente."
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
+msgstr "Pode mudar a funcionalidade das propriedades como: nome, cores, valores min/max ao fazer duplo clique na entrada, editar o conteúdo e pressionando \"Enter\" ou seleccionar um campo diferente."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -153,7 +147,8 @@ msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
@@ -174,23 +169,17 @@ msgstr "Erro concreto não detectado.\n"
 #: ../lib/hddtemp.c:526
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" não foi executado correctamente, apesar de ser executável. Isto "
-"é muito provavelmente devido ao disco requerer privilégios de root para ler "
-"a temperatura e \"hddtemp\" não está com setuid root.\n"
+"\"hddtemp\" não foi executado correctamente, apesar de ser executável. Isto é muito provavelmente devido ao disco requerer privilégios de root para ler a temperatura e \"hddtemp\" não está com setuid root.\n"
 "\n"
-"Uma maneira fácil mas suja é executar  \"chmod u+s %s\" como root e "
-"reiniciar este plugin ou o painel.\n"
+"Uma maneira fácil mas suja é executar  \"chmod u+s %s\" como root e reiniciar este plugin ou o painel.\n"
 "\n"
 "Chamada a \"%s\" deu o seguinte erro:\n"
 "%s\n"
@@ -210,7 +199,8 @@ msgstr ""
 "%s"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
 #. } else { // Celsius
 #. Celsius
 #: ../lib/hddtemp.c:638 ../lib/sensors-interface-common.c:144
@@ -328,15 +318,11 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
 "Xfce4 Sensors %s\n"
 "Este programa é publicado sob a GPL v2.\n"
-"O texto da licença pode ser encontrado no arquivo fonte do programa ou em /"
-"usr/share/apps/LICENSES/GPL_V2 ou em http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"O texto da licença pode ser encontrado no arquivo fonte do programa ou em /usr/share/apps/LICENSES/GPL_V2 ou em http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
 #, c-format
@@ -370,7 +356,7 @@ msgstr "Sensores Xfce4 %s\n"
 
 #: ../src/interface.c:77
 msgid "_Overview"
-msgstr ""
+msgstr "Visã_o Geral"
 
 #: ../src/interface.c:97
 msgid "_Tachometers"
@@ -383,15 +369,15 @@ msgstr "Visualizador de Sensores:"
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
 #: ../src/actions.c:78
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-"Plugin Sensores:\n"
-"Parece ter ocorrido um problema durante a leitura de um sensor.\n"
-"Não é possível garantir o procedimento apropriado.\n"
+"Sensors Viewer:\n"
+"Parece que ocorreu um problema ao ler o valor do sensor.\n"
+"Não é possível assegurar o procedimento correcto.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
