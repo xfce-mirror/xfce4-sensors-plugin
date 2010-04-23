@@ -47,11 +47,11 @@ msgstr "_текст"
 
 #: ../panel-plugin/sensors-plugin.c:1687
 msgid "_progress bars"
-msgstr ""
+msgstr "_индикаторы выполнения"
 
 #: ../panel-plugin/sensors-plugin.c:1689
 msgid "_tachos"
-msgstr ""
+msgstr "_тахометры"
 
 #: ../panel-plugin/sensors-plugin.c:1734
 msgid "Show _labels"
@@ -337,16 +337,16 @@ msgid ""
 "\n"
 "This program is published under the GPL v2.\n"
 msgstr ""
-"Xfce4 Sensors %s\n"
-"Displays information about your sensors and ACPI.\n"
-"Synopsis: \n"
-"  xfce4-sensors options\n"
-"where options are one or more of the following:\n"
-"  -h, --help    Print this help dialog.\n"
-"  -l, --license Print license information.\n"
-"  -V, --version Print version information.\n"
+"Сенсоры Xfce4 %s\n"
+"Отображают информацию о сенсорах и ACPI.\n"
+"Синтаксис: \n"
+"  Опции xfce4-sensors\n"
+"выберите один из следующих параметров:\n"
+"  -h, --help    Выводит этот диалог помощи.\n"
+"  -l, --license Выводит информацию о лицензии.\n"
+"  -V, --version Выводит информацию о версии.\n"
 "\n"
-"This program is published under the GPL v2.\n"
+"Эта программа публикуется под лицензией GPL v2.\n"
 
 #: ../src/main.c:81
 #, c-format
