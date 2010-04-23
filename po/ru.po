@@ -96,7 +96,6 @@ msgid "x-large"
 msgstr "огромный"
 
 #: ../panel-plugin/sensors-plugin.c:1893
-#, fuzzy
 msgid "F_ont:"
 msgstr "Р_азмер шрифта:"
 
@@ -178,6 +177,12 @@ msgid ""
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
+"Команда \"hddtemp\" выполнена неккоректно. Это может случиться в том случае, если для получения доступа к измерению температуры дисков нужны права суперпользователя.\n"
+"Самое простое, но нежелательное решение выполнить команду \"chmod u+s %s\" от имени суперпользователя и перезапустить модуль, или панель.\n"
+"\n"
+"Вывод \"%s\" сообщает о следующей ошибке:\n"
+"%s\n"
+"с кодом завершения %d.\n"
 
 #: ../lib/hddtemp.c:542 ../lib/hddtemp.c:572
 msgid "Suppress this message in future"
@@ -349,13 +354,12 @@ msgid "Xfce4 Sensors %s\n"
 msgstr "Сенсоры Xfce4 %s\n"
 
 #: ../src/interface.c:77
-#, fuzzy
 msgid "_Overview"
 msgstr "Обзор"
 
 #: ../src/interface.c:97
 msgid "_Tachometers"
-msgstr ""
+msgstr "Тахометры"
 
 #: ../src/interface.c:113
 msgid "Sensors Viewer"
@@ -364,7 +368,7 @@ msgstr "Просмотр сенсоров"
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
 #: ../src/actions.c:78
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
