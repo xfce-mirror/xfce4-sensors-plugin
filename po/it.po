@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-25 23:30+0100\n"
-"PO-Revision-Date: 2009-03-21 07:40+0100\n"
+"PO-Revision-Date: 2010-04-24 08:39+0100\n"
 "Last-Translator: Cristian Marchi <cri.penta@gmail.com>\n"
 "Language-Team: Italian <xfce-it-translators@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -47,19 +47,19 @@ msgstr "_testo"
 
 #: ../panel-plugin/sensors-plugin.c:1687
 msgid "_progress bars"
-msgstr ""
+msgstr "_barre di progressione"
 
 #: ../panel-plugin/sensors-plugin.c:1689
 msgid "_tachos"
-msgstr ""
+msgstr "tac_himetri"
 
 #: ../panel-plugin/sensors-plugin.c:1734
 msgid "Show _labels"
-msgstr "_Mostra nomi sensori"
+msgstr "M_ostra i nomi dei sensori"
 
 #: ../panel-plugin/sensors-plugin.c:1764
 msgid "Show colored _bars"
-msgstr "Mostra le _barre colorate"
+msgstr "Mostra le b_arre colorate"
 
 #: ../panel-plugin/sensors-plugin.c:1792
 msgid "_Show title"
@@ -95,9 +95,8 @@ msgid "x-large"
 msgstr "molto grande"
 
 #: ../panel-plugin/sensors-plugin.c:1893
-#, fuzzy
 msgid "F_ont:"
-msgstr "_Dimensione carattere"
+msgstr "C_arattere:"
 
 #: ../panel-plugin/sensors-plugin.c:1925
 msgid "Show _Units"
@@ -113,11 +112,11 @@ msgstr "Non visualizzare i messaggi"
 
 #: ../panel-plugin/sensors-plugin.c:1993
 msgid "E_xecute on double click:"
-msgstr "_Esegui con un doppio click"
+msgstr "Con un doppio clic _esegui:"
 
 #: ../panel-plugin/sensors-plugin.c:2036
 msgid "_View"
-msgstr "_Visualizza"
+msgstr "_Visualizzazione"
 
 #: ../panel-plugin/sensors-plugin.c:2070
 msgid "_Miscellaneous"
@@ -282,7 +281,7 @@ msgstr "Scala della temperatura"
 
 #: ../lib/sensors-interface.c:365
 msgid "_Celsius"
-msgstr "_Celsius"
+msgstr "C_elsius"
 
 #: ../lib/sensors-interface.c:367
 msgid "_Fahrenheit"
@@ -371,11 +370,11 @@ msgstr "Xfce4 Sensori %s\n"
 
 #: ../src/interface.c:77
 msgid "_Overview"
-msgstr ""
+msgstr "_Panoramica"
 
 #: ../src/interface.c:97
 msgid "_Tachometers"
-msgstr ""
+msgstr "_Tachimetri"
 
 #: ../src/interface.c:113
 msgid "Sensors Viewer"
@@ -384,13 +383,13 @@ msgstr "Visualizzatore di sensori"
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
 #: ../src/actions.c:78
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-"Plugin sensori:\n"
+"Visualizzatore di sensori:\n"
 "probabilmente si è verificato un problema leggendo il valore di un sensore.\n"
 "Non è garantito il funzionamento corretto.\n"
 
@@ -405,14 +404,15 @@ msgstr "Visualizzatore dei valori dei sensori"
 #: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
-msgstr "Mostra i valori del sensore."
+msgstr "Mostra i valori di un sensore"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "Plugin per i sensori"
 
-#~ msgid "g_raphical"
-#~ msgstr "g_rafico"
+msgid "g_raphical"
+msgstr "g_rafico"
 
+#, fuzzy
 #~ msgid "Show _labels in graphical UI"
-#~ msgstr "Mostra le _etichette nell'interfaccia grafica dell'utente"
+#~ msgstr "M_ostra i nomi dei sensori"
