@@ -1,12 +1,12 @@
 # Galician translation of xfce4-sensors-plugin
 # Copyright (C) 2008-2009 Leandro Regueiro
 # This file is distributed under the same license as the xfce package.
-#
+# 
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2008, 2009.
-#
+# 
 # Proxecto Trasno - Adaptación do software libre á lingua galega:  Se desexas
 # colaborar connosco, podes atopar máis información en <http://trasno.net>
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
@@ -39,8 +39,7 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
 "Engadido de sensores:\n"
-"Parece que houbo un problema ao ler o valor dunha funcionalidade dun "
-"sensor.\n"
+"Parece que houbo un problema ao ler o valor dunha funcionalidade dun sensor.\n"
 "Non se pode garantir o correcto funcionamento.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1684
@@ -79,7 +78,8 @@ msgstr "_Número de liñas de texto:"
 msgid "F_ont size:"
 msgstr "_Tamaño da letra:"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1858
 msgid "x-small"
 msgstr "extrapequeno"
@@ -101,9 +101,8 @@ msgid "x-large"
 msgstr "extragrande"
 
 #: ../panel-plugin/sensors-plugin.c:1893
-#, fuzzy
 msgid "F_ont:"
-msgstr "_Tamaño da letra:"
+msgstr "_Tipo de letra:"
 
 #: ../panel-plugin/sensors-plugin.c:1925
 msgid "Show _Units"
@@ -136,14 +135,8 @@ msgstr "Engadido de sensores"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2186
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field."
-msgstr ""
-"Pode cambiar as propiedades dunha funcionalidade, por exemplo o nome, as "
-"cores, o valor mín/máx facendo dobre clic na entrada, modificando o contido, "
-"e premendo \"Intro\" ou seleccionando un campo diferente."
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
+msgstr "Pode cambiar as propiedades dunha funcionalidade, por exemplo o nome, as cores, o valor mín/máx facendo dobre clic na entrada, modificando o contido, e premendo \"Intro\" ou seleccionando un campo diferente."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -159,7 +152,8 @@ msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
@@ -181,24 +175,17 @@ msgstr "Non se detectou ningún erro concreto.\n"
 #: ../lib/hddtemp.c:526
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"Non se executou correctamente \"hddtemp\", aínda que é executable. O máis "
-"probable é que sexa debido a que os discos requiren privilexios de root para "
-"ler as súas temperaturas, e \"hddtemp\" non se asignou o id de root "
-"(setuid).\n"
+"Non se executou correctamente \"hddtemp\", aínda que é executable. O máis probable é que sexa debido a que os discos requiren privilexios de root para ler as súas temperaturas, e \"hddtemp\" non se asignou o id de root (setuid).\n"
 "\n"
-"Unha solución fácil pero trapalleira é executar \"chmod u+s %s\" co usuario "
-"root e reiniciar este engadido ou o panel.\n"
+"Unha solución fácil pero trapalleira é executar \"chmod u+s %s\" co usuario root e reiniciar este engadido ou o panel.\n"
 "\n"
 "A chamada de  \"%s\" devolveu o seguinte erro:\n"
 "%s\n"
@@ -218,7 +205,8 @@ msgstr ""
 "%s"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
 #. } else { // Celsius
 #. Celsius
 #: ../lib/hddtemp.c:638 ../lib/sensors-interface-common.c:144
@@ -244,8 +232,7 @@ msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr ""
-"Parece que houbo un problema ao ler o valor dunha funcionalidade dun "
-"sensor.\n"
+"Parece que houbo un problema ao ler o valor dunha funcionalidade dun sensor.\n"
 "Non se pode garantir o correcto funcionamento."
 
 #: ../lib/sensors-interface.c:164
@@ -337,15 +324,11 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
 "Xfce4 Sensors %s\n"
 "Este programa publicouse baixo a GPL v2.\n"
-"O texto da licena pódese atopar no arquivo do código fonte do programa ou "
-"en /usr/share/apps/LICENSES/GPL_V2 ou en http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"O texto da licena pódese atopar no arquivo do código fonte do programa ou en /usr/share/apps/LICENSES/GPL_V2 ou en http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
 #, c-format
@@ -399,8 +382,7 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
 "Engadido de sensores:\n"
-"Parece que houbo un problema ao ler o valor dunha funcionalidade dun "
-"sensor.\n"
+"Parece que houbo un problema ao ler o valor dunha funcionalidade dun sensor.\n"
 "Non se pode garantir o correcto funcionamento.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
