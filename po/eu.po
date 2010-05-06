@@ -2,7 +2,7 @@
 # Basque translations for PACKAGE package.
 # Copyright (C) 2006 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Piarres Beobide <pi@beobide.net>, 2006, 2008, 2009.
 msgid ""
 msgstr ""
@@ -51,11 +51,11 @@ msgstr "_testua"
 
 #: ../panel-plugin/sensors-plugin.c:1687
 msgid "_progress bars"
-msgstr ""
+msgstr "_aurrerapen  barra"
 
 #: ../panel-plugin/sensors-plugin.c:1689
 msgid "_tachos"
-msgstr ""
+msgstr "kon_tagailuak"
 
 #: ../panel-plugin/sensors-plugin.c:1734
 msgid "Show _labels"
@@ -77,7 +77,8 @@ msgstr "_Testu lerro kopurua:"
 msgid "F_ont size:"
 msgstr "Letra-tip_o tamaina:"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1858
 msgid "x-small"
 msgstr "oso txikia"
@@ -99,9 +100,8 @@ msgid "x-large"
 msgstr "oso handia"
 
 #: ../panel-plugin/sensors-plugin.c:1893
-#, fuzzy
 msgid "F_ont:"
-msgstr "Letra-tip_o tamaina:"
+msgstr "Letra-tip_oa:"
 
 #: ../panel-plugin/sensors-plugin.c:1925
 msgid "Show _Units"
@@ -134,14 +134,8 @@ msgstr "Sentsore Plugina"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2186
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field."
-msgstr ""
-"Izena, koloreak, geh/gut balioa bezalako propietateak aldatu ditzakezu "
-"sarreran klik bikoitza eginez, eduki editatu, eta \"Return\" sakatu edo "
-"beste eremu bat hautatuaz."
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
+msgstr "Izena, koloreak, geh/gut balioa bezalako propietateak aldatu ditzakezu sarreran klik bikoitza eginez, eduki editatu, eta \"Return\" sakatu edo beste eremu bat hautatuaz."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -157,7 +151,8 @@ msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
@@ -178,24 +173,17 @@ msgstr "Ez da errore zehatzik atzeman.\n"
 #: ../lib/hddtemp.c:526
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" ez da behar bezala exekutatu, nahiz exekutagarria den. Hau "
-"ziurrenik diskoak tenperatura eskuratzeko disko gogorrek root baimenak "
-"eskatzen dituztelako eta \"hddtemp\"-ek ez duelako root uid-a ezarririk "
-"izango da.\n"
+"\"hddtemp\" ez da behar bezala exekutatu, nahiz exekutagarria den. Hau ziurrenik diskoak tenperatura eskuratzeko disko gogorrek root baimenak eskatzen dituztelako eta \"hddtemp\"-ek ez duelako root uid-a ezarririk izango da.\n"
 "\n"
-"Konponbide erraz baina zatar bat root gisa \"chmod u+s %s\" exekutatzea eta "
-"plugina edo panela berrabiaraztea da.\n"
+"Konponbide erraz baina zatar bat root gisa \"chmod u+s %s\" exekutatzea eta plugina edo panela berrabiaraztea da.\n"
 "\n"
 "\"%s\" deitzean hurrengo errorea ematen du:\n"
 "%s\n"
@@ -215,7 +203,8 @@ msgstr ""
 "%s"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
 #. } else { // Celsius
 #. Celsius
 #: ../lib/hddtemp.c:638 ../lib/sensors-interface-common.c:144
@@ -333,15 +322,11 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
 "Xfce4 Sentsoreak %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
 #, c-format
@@ -375,11 +360,11 @@ msgstr "Xfce 4 sentsore %s\n"
 
 #: ../src/interface.c:77
 msgid "_Overview"
-msgstr ""
+msgstr "I_kuspegi orokorra"
 
 #: ../src/interface.c:97
 msgid "_Tachometers"
-msgstr ""
+msgstr "Kon_tagailuak"
 
 #: ../src/interface.c:113
 msgid "Sensors Viewer"
@@ -388,13 +373,13 @@ msgstr "Sentsore ikustailea"
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
 #: ../src/actions.c:78
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-"Sentsore plugina: \n"
+"Sentsore ikustatzailea: \n"
 "Dirudienez arazo bat dago sentsore ezaugarri balioa irakurtzerakoan. \n"
 "Ezin da behar bezala ibiliko denik ziurtatu.\n"
 
