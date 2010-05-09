@@ -631,6 +631,7 @@ get_acpi_info (void)
     TRACE ("leaves get_acpi_info");
 
     version = get_acpi_value (filename);
+    g_free (filename);
     if (version!=NULL)
         version = g_strchomp (version);
 
@@ -654,6 +655,7 @@ get_acpi_zone_value (char *zone, char *file)
 
     filename = g_strdup_printf ("%s/%s/%s", ACPI_PATH, zone, file);
     value = get_acpi_value (filename);
+    g_free(filename);
 
     TRACE ("leaves get_acpi_zone_value with correctly converted value");
 

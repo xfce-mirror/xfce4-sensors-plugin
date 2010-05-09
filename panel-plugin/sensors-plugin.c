@@ -627,7 +627,9 @@ sensors_set_text_panel_label (t_sensors *sensors, gint numCols, gint itemsToDisp
             
             if (chipfeature->show == TRUE) {
                 if(sensors->show_labels==TRUE) {
-                  myLabelText = g_strconcat (myLabelText, "<span size=\"", sensors->font_size, "\">",chipfeature->name, ":</span> ", NULL);
+                  tmpstring = g_strconcat (myLabelText, "<span size=\"", sensors->font_size, "\">",chipfeature->name, ":</span> ", NULL);
+                  g_free(myLabelText);
+                  myLabelText = tmpstring;
                 }
                 
                 if (sensors->show_units) {
@@ -650,18 +652,29 @@ sensors_set_text_panel_label (t_sensors *sensors, gint numCols, gint itemsToDisp
                 myLabelText = tmpstring;
 
                 if (sensors->orientation == GTK_ORIENTATION_VERTICAL) {
-                    if (itemsToDisplay > 1)
-                        myLabelText = g_strconcat (myLabelText, "\n", NULL);
+                    if (itemsToDisplay > 1) {
+                        tmpstring = g_strconcat (myLabelText, "\n", NULL);
+                        g_free(myLabelText);
+                        myLabelText = tmpstring;
+                    }
                 }
                 else if (currentColumn < numCols-1) {
-                    if (sensors->show_smallspacings)
-                        myLabelText = g_strconcat (myLabelText, "  ", NULL);
-                    else
-                        myLabelText = g_strconcat (myLabelText, " \t", NULL);
+                    if (sensors->show_smallspacings) {
+                        tmpstring = g_strconcat (myLabelText, "  ", NULL);
+                        g_free(myLabelText);
+                        myLabelText = tmpstring;
+                    }
+                    else {
+                        tmpstring = g_strconcat (myLabelText, " \t", NULL);
+                        g_free(myLabelText);
+                        myLabelText = tmpstring;
+                    }
                     currentColumn++;
                 }
                 else if (itemsToDisplay > 1) { /* do NOT add \n if last item */
-                    myLabelText = g_strconcat (myLabelText, " \n", NULL);
+                    tmpstring = g_strconcat (myLabelText, " \n", NULL);
+                    g_free(myLabelText);
+                    myLabelText = tmpstring;
                     currentColumn = 0;
                 }
                 itemsToDisplay--;
@@ -790,6 +803,7 @@ sensors_create_tooltip (gpointer data)
                 if (prependedChipName != TRUE) {
 
                     if (first == TRUE) {
+                        g_free (myToolTipText);
                         myToolTipText = g_strdup (chip->sensorId);
                         first = FALSE;
                     }
