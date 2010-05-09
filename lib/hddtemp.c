@@ -207,8 +207,16 @@ read_disks_netcat (t_chip *chip)
     result = g_spawn_command_line_sync ( (const gchar*) cmdline,
                 &stdoutput, &stderrput, &exit_status, &error);
 
+    g_free (cmdline);
+
     if (!result)
+    {
+        g_free (error);
         return;
+    }
+
+    if (stderrput)
+      g_free (stderrput);
 
     //g_printf("stdouput=%s\n", stdoutput);
 
@@ -603,6 +611,9 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
 #ifndef HAVE_LIBNOTIFY
     g_free (checktext);
 #endif
+
+    if (error) 
+      g_error_free(error);
 
     TRACE ("leaves get_hddtemp_value");
 
