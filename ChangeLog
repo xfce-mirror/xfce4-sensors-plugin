@@ -1,3 +1,6 @@
+2010-05-09 timystery
+  * Partly applied patch from reven@muub.net:
+	* Free more unused strings
 2010-03-22 timystery
   * check-in corrected check for netcat.
 	* version bump to 0.10.99.8
