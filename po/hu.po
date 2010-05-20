@@ -1,7 +1,7 @@
 # Hungarian translation of xfce4-sensors-plugin
 # Copyright 2009. Free Software Foundation, Inc.
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
-#
+# 
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2009.
 # SZERVÁC Attila <sas@321.hu>
 msgid ""
@@ -50,11 +50,11 @@ msgstr "S_zöveg"
 
 #: ../panel-plugin/sensors-plugin.c:1687
 msgid "_progress bars"
-msgstr ""
+msgstr "_Folyamatjelzők"
 
 #: ../panel-plugin/sensors-plugin.c:1689
 msgid "_tachos"
-msgstr ""
+msgstr "F_ordulatszámmérők"
 
 #: ../panel-plugin/sensors-plugin.c:1734
 msgid "Show _labels"
@@ -76,7 +76,8 @@ msgstr "Szö_vegsorok száma:"
 msgid "F_ont size:"
 msgstr "B_etűméret:"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1858
 msgid "x-small"
 msgstr "Nagyon kicsi"
@@ -98,9 +99,8 @@ msgid "x-large"
 msgstr "Nagyon nagy"
 
 #: ../panel-plugin/sensors-plugin.c:1893
-#, fuzzy
 msgid "F_ont:"
-msgstr "B_etűméret:"
+msgstr "B_etűkészlet:"
 
 #: ../panel-plugin/sensors-plugin.c:1925
 msgid "Show _Units"
@@ -133,15 +133,8 @@ msgstr "Érzékelők bővítmény"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2186
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field."
-msgstr ""
-"A bejegyzésre kattintva megváltoztathatja egy szolgáltatás tulajdonságait, "
-"például nevét, színeit, minimális/maximális értékeit a tartalom "
-"szerkesztésével és az Enter billentyű megnyomásával vagy másik mező "
-"kiválasztásával."
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
+msgstr "A bejegyzésre kattintva megváltoztathatja egy szolgáltatás tulajdonságait, például nevét, színeit, minimális/maximális értékeit a tartalom szerkesztésével és az Enter billentyű megnyomásával vagy másik mező kiválasztásával."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -157,7 +150,8 @@ msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
@@ -178,23 +172,17 @@ msgstr "Nem észlelhető konkrét hiba.\n"
 #: ../lib/hddtemp.c:526
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"A „hddtemp” nem futott le megfelelően, noha végrehajtható. Ezt valószínűleg "
-"a hőmérsékleteik kiolvasásához rendszergazdai hozzáférést igénylő "
-"merevlemezek okozzák és a „hddtemp” setuid bitje nincs beállítva.\n"
+"A „hddtemp” nem futott le megfelelően, noha végrehajtható. Ezt valószínűleg a hőmérsékleteik kiolvasásához rendszergazdai hozzáférést igénylő merevlemezek okozzák és a „hddtemp” setuid bitje nincs beállítva.\n"
 "\n"
-"Egyszerű megoldás a „chmod u+s %s” futtatása rendszergazdaként és ezen "
-"bővítmény vagy panel újraindítása.\n"
+"Egyszerű megoldás a „chmod u+s %s” futtatása rendszergazdaként és ezen bővítmény vagy panel újraindítása.\n"
 "\n"
 "A(z) „%s” hívása a következő hibát adta vissza:\n"
 "%s\n"
@@ -214,7 +202,8 @@ msgstr ""
 "%s"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
 #. } else { // Celsius
 #. Celsius
 #: ../lib/hddtemp.c:638 ../lib/sensors-interface-common.c:144
@@ -332,15 +321,11 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
 "Xfce4 érzékelők %s\n"
 "Ez a program a GPL v2 alatt érhető el.\n"
-"A licencszöveg megtalálható a program forrásában vagy a /usr/share/apps/"
-"LICENSES/GPL_V2 fájlban vagy a http://www.gnu.org/licenses/old-licenses/gpl-"
-"2.0.txt oldalon\n"
+"A licencszöveg megtalálható a program forrásában vagy a /usr/share/apps/LICENSES/GPL_V2 fájlban vagy a http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt oldalon\n"
 
 #: ../src/main.c:64
 #, c-format
@@ -374,11 +359,11 @@ msgstr "Xfce4 érzékelők %s\n"
 
 #: ../src/interface.c:77
 msgid "_Overview"
-msgstr ""
+msgstr "Á_ttekintés"
 
 #: ../src/interface.c:97
 msgid "_Tachometers"
-msgstr ""
+msgstr "_Fordulatszámmérők"
 
 #: ../src/interface.c:113
 msgid "Sensors Viewer"
@@ -387,13 +372,13 @@ msgstr "Érzékelőmegjelenítő"
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
 #: ../src/actions.c:78
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-"Érzékelő bővítmény:\n"
+"Érzékelőmegjelenítő:\n"
 "Úgy tűnik, hiba történt egy érzékelőszolgáltatás értékének olvasásakor.\n"
 "A megfelelő folytatás nem garantálható.\n"
 
