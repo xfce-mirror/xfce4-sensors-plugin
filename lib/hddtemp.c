@@ -52,6 +52,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <netdb.h>
+
 #include <sys/utsname.h>
 
 #include <unistd.h>
@@ -63,7 +68,7 @@
 # endif
 
 # ifndef HDDTEMP_PORT
-#  define HDDTEMP_PORT "7634"
+#  define HDDTEMP_PORT 7634
 # endif
 
 # define DOUBLE_DELIMITER "||"
@@ -238,7 +243,7 @@ read_disks_netcat (t_chip *chip)
     }
     while ( (tmp = str_split(NULL, DOUBLE_DELIMITER)) );
 
-    g_free (stdoutput);
+//    g_free (stdoutput);
 }
 
 #else
@@ -475,16 +480,19 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
     TRACE ("enters get_hddtemp_value for %s with suppress=%d", disk, nevershowagain); /* *suppressmessage); */
 
 #ifdef HAVE_NETCAT
-    exit_status = 1; // assume error by default
+/*    exit_status = 1; // assume error by default
     cmd_line = g_strdup_printf ( "%s localhost %s", NETCAT_PATH, HDDTEMP_PORT);
     result = g_spawn_command_line_sync ( (const gchar*) cmd_line,
             &standard_output, &standard_error, &exit_status, NULL);
     error = g_new(GError, 1);
     error->message = g_strdup (_("No concrete error detected.\n"));
     if (exit_status==0)
+*/
+    read_size = get_hddtemp_d_str(reply, REPLY_MAX_SIZE);
+
     {
         tmp3 = "-255";
-        tmp = str_split (standard_output, DOUBLE_DELIMITER);
+        tmp = str_split (reply, DOUBLE_DELIMITER);
         do {
             //g_printf ("Found token: %s for disk %s\n", tmp, disk);
             tmp2 = g_strdup (tmp);
@@ -504,13 +512,14 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
         }
         while ( (tmp = str_split(NULL, DOUBLE_DELIMITER)) );
 
-        g_free(standard_output);
+/*        g_free(standard_output);*/
         standard_output = tmp3;
+
     }
-    else
+/*    else
     {
         error->message = g_strdup (standard_error);
-    }
+    }*/
 
 #else
     error = NULL;
