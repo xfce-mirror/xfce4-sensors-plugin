@@ -1,21 +1,22 @@
 # European Portuguese translation of the xfce4-sensors-plugin package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Nuno Miguel <nunis@netcabo.pt>, 2007.
-# 
+# Nuno Miguel <nunis@netcabo.pt>, 2007-2010.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-25 23:30+0100\n"
-"PO-Revision-Date: 2009-10-19 23:48+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2010-06-03 16:08+0100\n"
+"Last-Translator: Nuno Miguel <nunis@netcabo.pt>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors-plugin.c:291 ../panel-plugin/sensors-plugin.c:388
+#: ../panel-plugin/sensors-plugin.c:291
+#: ../panel-plugin/sensors-plugin.c:388
 #: ../panel-plugin/sensors-plugin.c:970
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Sensores</b></span>"
@@ -51,11 +52,11 @@ msgstr "barras de _progresso"
 
 #: ../panel-plugin/sensors-plugin.c:1689
 msgid "_tachos"
-msgstr ""
+msgstr "_gráficos"
 
 #: ../panel-plugin/sensors-plugin.c:1734
 msgid "Show _labels"
-msgstr "Mo_strar rótulos"
+msgstr "Mostrar _rótulos"
 
 #: ../panel-plugin/sensors-plugin.c:1764
 msgid "Show colored _bars"
@@ -105,7 +106,7 @@ msgstr "Mostrar _Unidades"
 
 #: ../panel-plugin/sensors-plugin.c:1946
 msgid "Small horizontal s_pacing"
-msgstr "E_spaçamento horizontal pequeno"
+msgstr "Espaçamento hori_zontal pequeno"
 
 #: ../panel-plugin/sensors-plugin.c:1968
 msgid "Suppress messages"
@@ -121,9 +122,10 @@ msgstr "_Ver"
 
 #: ../panel-plugin/sensors-plugin.c:2070
 msgid "_Miscellaneous"
-msgstr "_Variedades"
+msgstr "Varie_dades"
 
-#: ../panel-plugin/sensors-plugin.c:2143 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2143
+#: ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:160
 msgid "Sensors Plugin"
 msgstr "Plugin Sensores"
@@ -137,12 +139,16 @@ msgstr "Pode mudar a funcionalidade das propriedades como: nome, cores, valores 
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:156 ../lib/configuration.c:341
-#: ../lib/configuration.c:348 ../lib/hddtemp.c:351 ../lib/hddtemp.c:397
+#: ../lib/configuration.c:156
+#: ../lib/configuration.c:341
+#: ../lib/configuration.c:348
+#: ../lib/hddtemp.c:351
+#: ../lib/hddtemp.c:397
 msgid "Hard disks"
 msgstr "Discos rígidos"
 
-#: ../lib/acpi.c:521 ../lib/acpi.c:529
+#: ../lib/acpi.c:521
+#: ../lib/acpi.c:529
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -152,7 +158,7 @@ msgstr "ACPI"
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
-msgstr "Zonas ACPI v%s"
+msgstr "Zonas v%s ACPI"
 
 #: ../lib/acpi.c:638
 msgid "<Unknown>"
@@ -185,7 +191,8 @@ msgstr ""
 "%s\n"
 "com um retorno de erro de %d.\n"
 
-#: ../lib/hddtemp.c:542 ../lib/hddtemp.c:572
+#: ../lib/hddtemp.c:542
+#: ../lib/hddtemp.c:572
 msgid "Suppress this message in future"
 msgstr "Suprimir esta mensagem no futuro"
 
@@ -203,7 +210,8 @@ msgstr ""
 #. 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:638 ../lib/sensors-interface-common.c:144
+#: ../lib/hddtemp.c:638
+#: ../lib/sensors-interface-common.c:144
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -212,7 +220,8 @@ msgstr "%.1f °C"
 msgid "LM Sensors"
 msgstr "Sensores LM"
 
-#: ../lib/lmsensors.c:369 ../lib/lmsensors.c:416
+#: ../lib/lmsensors.c:369
+#: ../lib/lmsensors.c:416
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Erro: Impossível ligar aos sensores!"
@@ -275,7 +284,7 @@ msgstr "_Celsius"
 
 #: ../lib/sensors-interface.c:367
 msgid "_Fahrenheit"
-msgstr "_Fahrenheit"
+msgstr "Fa_hrenheit"
 
 #: ../lib/sensors-interface.c:403
 msgid "_Sensors"
@@ -356,11 +365,11 @@ msgstr "Sensores Xfce4 %s\n"
 
 #: ../src/interface.c:77
 msgid "_Overview"
-msgstr "Visã_o Geral"
+msgstr "_Visão Geral"
 
 #: ../src/interface.c:97
 msgid "_Tachometers"
-msgstr ""
+msgstr "_Gráficos"
 
 #: ../src/interface.c:113
 msgid "Sensors Viewer"
@@ -396,32 +405,3 @@ msgstr "Mostrar valores de sensor."
 msgid "Sensor plugin "
 msgstr "Sensor plugin"
 
-#~ msgid "g_raphical"
-#~ msgstr "g_ráfico"
-
-#~ msgid "Show _labels in graphical UI"
-#~ msgstr "Mostrar rótu_los na interface gráfica"
-
-#~ msgid "Edit Properties"
-#~ msgstr "Editar Propriedades"
-
-#~ msgid "Xfce 4 Sensors Plugin"
-#~ msgstr "Plugin Sensores Xfce 4"
-
-#~ msgid "Xfce 4 Sensors Viewer"
-#~ msgstr "Visualizador de Sensores Xfce 4"
-
-#~ msgid "View sensor values"
-#~ msgstr "Mostrar valores de sensor"
-
-#~ msgid "Graphical Sensors Viewer for Xfce 4"
-#~ msgstr "Visualizador Gráfico de Sensores para Xfce 4"
-
-#~ msgid "<b>Sensors</b>"
-#~ msgstr "<b>Sensores</b>"
-
-#~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
-#~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensores</b></span>\n"
-
-#~ msgid "<b>View</b>"
-#~ msgstr "<b>Ver</b>"
