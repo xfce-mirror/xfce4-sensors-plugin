@@ -27,11 +27,13 @@ xfce4_sensors_plugin_CFLAGS = \
 #	@GTK_CFLAGS@ \
 # @GLIB_CFLAGS@
 
-xfce4_sensors_plugin_LDFLAGS = 								\
-	$(top_builddir)/lib/libxfce4sensors.la
-	@LIBXFCE4PANEL_LIBS@											 \
-	@SOLLIBS@														\
-	@LIBSENSORS_LDFLAGS@
+
+xfce4_sensors_plugin_LDFLAGS = 							\
+	$(top_builddir)/lib/libxfce4sensors.la		\
+	@LIBXFCE4PANEL_LIBS@											\
+	@SOLLIBS@																	\
+	@LIBSENSORS_LDFLAGS@											\
+	@LIBM@
 
 #	@GTK_LIBS@ \
 # @GLIB_LIBS@

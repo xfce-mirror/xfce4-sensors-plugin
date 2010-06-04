@@ -73,7 +73,8 @@ libxfce4sensors_la_LIBADD = 										\
 	@LIBXFCE4UTIL_LIBS@												\
 	@LIBXFCEGUI4_LIBS@												\
 	@LIBXFCE4PANEL_LIBS@											\
-	@LIBSENSORS_LDFLAGS@
+	@LIBSENSORS_LDFLAGS@											\
+	@LIBM@
 
 if HAVE_LIBNOTIFY
 libxfce4sensors_la_LIBADD += @LIBNOTIFY_LIBS@

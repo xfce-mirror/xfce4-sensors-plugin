@@ -42,7 +42,8 @@ xfce4_sensors_LDADD = \
 	$(top_builddir)/lib/libxfce4sensors.la \
 	@LIBSENSORS_LDFLAGS@ \
 	@LIBXFCE4UTIL_LIBS@	\
-	@LIBXFCEGUI4_LIBS@ 
+	@LIBXFCEGUI4_LIBS@ 											\
+	@LIBM@
 
 # @GTK_LIBS@ \
 # @GLIB_LIBS@ \

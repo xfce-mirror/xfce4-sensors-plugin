@@ -279,6 +279,9 @@ AC_CHECK_LIB(kstat, kstat_open, SOLLIBS="-lkstat -lsocket", SOLLIBS="")
 AC_CHECK_LIB(nsl, kstat_open, SOLLIBS="$SOLLIBS -linet_ntop", SOLLIBS="$SOLLIBS")
 AC_SUBST(SOLLIBS)
 
+AC_CHECK_LIB(m, ceilf, LIBM="-lm", AC_MSG_ERROR(Missing math library))
+AC_SUBST(LIBM)
+
 dnl **************************************
 dnl *** Substitute version information ***
 dnl **************************************
