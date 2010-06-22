@@ -52,11 +52,11 @@ msgstr "_texto"
 
 #: ../panel-plugin/sensors-plugin.c:1687
 msgid "_progress bars"
-msgstr ""
+msgstr "barras de _progreso"
 
 #: ../panel-plugin/sensors-plugin.c:1689
 msgid "_tachos"
-msgstr ""
+msgstr "_tacógrafos"
 
 #: ../panel-plugin/sensors-plugin.c:1734
 msgid "Show _labels"
@@ -362,11 +362,11 @@ msgstr "Xfce4 Sensors %s\n"
 
 #: ../src/interface.c:77
 msgid "_Overview"
-msgstr ""
+msgstr "_Resumo"
 
 #: ../src/interface.c:97
 msgid "_Tachometers"
-msgstr ""
+msgstr "_Tacómetros"
 
 #: ../src/interface.c:113
 msgid "Sensors Viewer"
@@ -375,14 +375,14 @@ msgstr "Visor de sensores"
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
 #: ../src/actions.c:78
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-"Engadido de sensores:\n"
-"Parece que houbo un problema ao ler o valor dunha funcionalidade dun sensor.\n"
+"Visor de sensores:\n"
+"Parece que houbo un problema ao ler o valor dunha característica dun sensor.\n"
 "Non se pode garantir o correcto funcionamento.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
