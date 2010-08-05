@@ -18,11 +18,11 @@ msgstr ""
 #: ../panel-plugin/sensors-plugin.c:292 ../panel-plugin/sensors-plugin.c:389
 #: ../panel-plugin/sensors-plugin.c:971
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
-msgstr ""
+msgstr "<span foreground=\"#000000\"><b>سەزگۈچ</b></span>"
 
 #: ../panel-plugin/sensors-plugin.c:775
 msgid "No sensors selected!"
-msgstr ""
+msgstr "سەزگۈچ تاللانمىغان!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
@@ -32,48 +32,50 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
+msgstr "سەزگۈچ قىستۇرمىسى:\n"
+"سەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\n"
+"نورمال بىر تەرەپ قىلىشقا كاپالەتلىك قىلغىلى بولمايدۇ.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1696
 msgid "UI style:"
-msgstr ""
+msgstr "UI ئۇسلۇبى:"
 
 #: ../panel-plugin/sensors-plugin.c:1697
 msgid "_text"
-msgstr ""
+msgstr "تېكىست(_T)"
 
 #: ../panel-plugin/sensors-plugin.c:1699
 msgid "_progress bars"
-msgstr ""
+msgstr "progress بالدىقى(_P)"
 
 #: ../panel-plugin/sensors-plugin.c:1701
 msgid "_tachos"
-msgstr ""
+msgstr "タコメータ(_T)"
 
 #: ../panel-plugin/sensors-plugin.c:1746
 msgid "Show _labels"
-msgstr ""
+msgstr "ئەن كۆرسەت(_L)"
 
 #: ../panel-plugin/sensors-plugin.c:1776
 msgid "Show colored _bars"
-msgstr ""
+msgstr "رەڭلىك ئەن كۆرسەت(_B)"
 
 #: ../panel-plugin/sensors-plugin.c:1804
 msgid "_Show title"
-msgstr ""
+msgstr "ماۋزۇ كۆرسەت(_S)"
 
 #: ../panel-plugin/sensors-plugin.c:1828
 msgid "_Number of text lines:"
-msgstr ""
+msgstr "قۇر سانىنى(_N)"
 
 #: ../panel-plugin/sensors-plugin.c:1863
 msgid "F_ont size:"
-msgstr ""
+msgstr "فونت چوڭلۇقى(_O):"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1870
 msgid "x-small"
-msgstr ""
+msgstr "بەك كىچىك"
 
 #: ../panel-plugin/sensors-plugin.c:1871
 msgid "small"
@@ -89,27 +91,27 @@ msgstr "چوڭ"
 
 #: ../panel-plugin/sensors-plugin.c:1874
 msgid "x-large"
-msgstr ""
+msgstr "بەك چوڭ"
 
 #: ../panel-plugin/sensors-plugin.c:1905
 msgid "F_ont:"
-msgstr ""
+msgstr "فونت(_O):"
 
 #: ../panel-plugin/sensors-plugin.c:1939
 msgid "Show _Units"
-msgstr ""
+msgstr "بىرلىكىنى كۆرسەت(_U)"
 
 #: ../panel-plugin/sensors-plugin.c:1960
 msgid "Small horizontal s_pacing"
-msgstr ""
+msgstr "كىچىكرەك يان بوشلۇق(_P)"
 
 #: ../panel-plugin/sensors-plugin.c:1982
 msgid "Suppress messages"
-msgstr ""
+msgstr "ئۇچۇرنى باستۇرۇپ قوي"
 
 #: ../panel-plugin/sensors-plugin.c:2007
 msgid "E_xecute on double click:"
-msgstr ""
+msgstr "قوش چەككەندە ئىجرا قىلسۇن(_X):"
 
 #: ../panel-plugin/sensors-plugin.c:2050
 msgid "_View"
@@ -117,12 +119,12 @@ msgstr "كۆرۈنۈش(_V)"
 
 #: ../panel-plugin/sensors-plugin.c:2084
 msgid "_Miscellaneous"
-msgstr ""
+msgstr "باشقىلار(_M)"
 
 #: ../panel-plugin/sensors-plugin.c:2157 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:160
 msgid "Sensors Plugin"
-msgstr ""
+msgstr "سەزگۈچ قىستۇرمىسى"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2200
@@ -130,7 +132,7 @@ msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr ""
+msgstr "エントリをダブルクリックして内容を編集し、\"Enter キー\" を押すか別のフィールドを選択する事で、名前、色、最小/最大値などの主要な機能のプロパティを変更できます。"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -139,7 +141,7 @@ msgstr ""
 #: ../lib/configuration.c:159 ../lib/configuration.c:348
 #: ../lib/configuration.c:355 ../lib/hddtemp.c:351 ../lib/hddtemp.c:397
 msgid "Hard disks"
-msgstr ""
+msgstr "قاتتىق دىسكا"
 
 #: ../lib/acpi.c:521 ../lib/acpi.c:529
 msgid "ACPI"
@@ -150,7 +152,7 @@ msgstr "ACPI"
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
-msgstr ""
+msgstr "ACPI v%s رايونى"
 
 #: ../lib/acpi.c:638
 msgid "<Unknown>"
@@ -158,11 +160,11 @@ msgstr "<نامەلۇم>"
 
 #: ../lib/hddtemp.c:396
 msgid "S.M.A.R.T. harddisk temperatures"
-msgstr ""
+msgstr "S.M.A.R.T. قاتتىق دىسكا تېمپېراتۇرىسى"
 
 #: ../lib/hddtemp.c:473
 msgid "No concrete error detected.\n"
-msgstr ""
+msgstr "ئېنىق بولغان خاتالىق بايقالمىدى.\n"
 
 #: ../lib/hddtemp.c:526
 #, c-format
@@ -177,18 +179,25 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr ""
+msgstr "\"hddtemp\" は実行可能ですが、正常に実行されませんでした。おそらく、それらの温度を読み込む root 権限を必要とするディスクか、\"hddtemp\" コマンドが root として setuid されていないからでしょう。\n"
+"\n"
+"簡単ではありますが、お勧めしない提案として、root ユーザで、\"chmod u+s %s\" を実行し、本プラグインかパネルを再起動するという方法があります。\n"
+"\n"
+"\"%s\" を呼んだ際に以下のエラーを受けとりました:\n"
+"%s\n"
+"返り値: %d\n"
 
 #: ../lib/hddtemp.c:542 ../lib/hddtemp.c:572
 msgid "Suppress this message in future"
-msgstr ""
+msgstr "بۇ ئۇچۇرنى بۇنىڭدىن كېيىن كۆرسەتمە"
 
 #: ../lib/hddtemp.c:566
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr ""
+msgstr "\"%s\" نى ئىجرا قىلىۋاتقاندا خاتالىق كۆرۈلدى:\n"
+"%s"
 
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
@@ -197,30 +206,31 @@ msgstr ""
 #: ../lib/hddtemp.c:638 ../lib/sensors-interface-common.c:144
 #, c-format
 msgid "%.1f °C"
-msgstr ""
+msgstr "%.1f °C"
 
 #: ../lib/lmsensors.c:110
 msgid "LM Sensors"
-msgstr ""
+msgstr "LM Sensors"
 
 #: ../lib/lmsensors.c:369 ../lib/lmsensors.c:416
 #, c-format
 msgid "Error: Could not connect to sensors!"
-msgstr ""
+msgstr "خاتالىق: سەزگۈچكە باغلىنالمىدى!"
 
 #: ../lib/sensors-interface.c:82
 msgid "Sensors Plugin Failure"
-msgstr ""
+msgstr "سەزگۈچ قىستۇرمىسى - مەغلۇپ بولدى"
 
 #: ../lib/sensors-interface.c:83
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr ""
+msgstr "سەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\n"
+"نورمال بىر تەرەپ قىلىشقا كاپالەتلىك قىلغىلى بولمايدۇ."
 
 #: ../lib/sensors-interface.c:164
 msgid "Sensors t_ype:"
-msgstr ""
+msgstr "سەزگۈچ تىپى(_Y):"
 
 #: ../lib/sensors-interface.c:189
 msgid "Description:"
@@ -228,7 +238,7 @@ msgstr "چۈشەندۈرۈش:"
 
 #: ../lib/sensors-interface.c:223
 msgid "U_pdate interval (seconds):"
-msgstr ""
+msgstr "يېڭىلاش ئىنتېرۋالى(سېكۇنت)(_P):"
 
 #: ../lib/sensors-interface.c:263
 msgid "Name"
@@ -256,38 +266,38 @@ msgstr "ئەڭ چوڭ قىممەت"
 
 #: ../lib/sensors-interface.c:363
 msgid "Temperature scale:"
-msgstr ""
+msgstr "تېمپېراتۇرا scale:"
 
 #: ../lib/sensors-interface.c:365
 msgid "_Celsius"
-msgstr ""
+msgstr "سېلسىيە(_C)"
 
 #: ../lib/sensors-interface.c:367
 msgid "_Fahrenheit"
-msgstr ""
+msgstr "فارېنھېيىت (_F)"
 
 #: ../lib/sensors-interface.c:403
 msgid "_Sensors"
-msgstr ""
+msgstr "سەزگۈچ(_S)"
 
 #: ../lib/sensors-interface-common.c:71
 msgid "No sensors found!"
-msgstr ""
+msgstr "سەزگۈچ تېپىلمىدى!"
 
 #: ../lib/sensors-interface-common.c:141
 #, c-format
 msgid "%.1f °F"
-msgstr ""
+msgstr "%.1f °F"
 
 #: ../lib/sensors-interface-common.c:149
 #, c-format
 msgid "%+.2f V"
-msgstr ""
+msgstr "%+.2f V"
 
 #: ../lib/sensors-interface-common.c:153
 #, c-format
 msgid "%.0f mWh"
-msgstr ""
+msgstr "%.0f mWh"
 
 #: ../lib/sensors-interface-common.c:158
 msgid "off"
@@ -300,7 +310,7 @@ msgstr "قوزغات"
 #: ../lib/sensors-interface-common.c:164
 #, c-format
 msgid "%.0f rpm"
-msgstr ""
+msgstr "%.0f rpm"
 
 #: ../src/main.c:52
 #, c-format
@@ -310,7 +320,9 @@ msgid ""
 "The license text can be found inside the program's source archive or under /"
 "usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
 "licenses/gpl-2.0.txt\n"
-msgstr ""
+msgstr "Xfce4 سەزگۈچ %s\n"
+"مەزكۇر پروگرامما GPL v2 ئىجازەتنامىسى بويىچە تارقىتىلدى.\n"
+"ئىجازەتنامە  /usr/share/apps/LICENSES/GPL_V2 نىڭ ئاستىدا بار. ياكى http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt  دىمۇ بار.\n"
 
 #: ../src/main.c:64
 #, c-format
@@ -325,24 +337,33 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr ""
+msgstr "Xfce4 سەزگۈچ %s\n"
+"سەزگۈچ ۋە ACPI ھەققىدە ئۇچۇرلار تۆۋەندىكىچە.\n"
+"ئۈزۈندى: \n"
+"  xfce4-sensors تاللانمىلىرى\n"
+"تاللانمىلار تۆۋەندىكىدەك بىر قانچە قىل:\n"
+"  -h, --help    ياردەم كۆنىكىنى كۆرسىتىدۇ\n"
+"  -l, --license ئىجازەتنامە ئۇچۇرلىرىنى كۆرسىتىدۇ\n"
+"  -v, --version نەشر ئۇچۇرىنى كۆرسىتىدۇ\n"
+"\n"
+"مەزكۇر پروگرامما GPL v2 ئىجازەتنامىسىگە ئاساسەن تارقىتىلدى.\n"
 
 #: ../src/main.c:81
 #, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr ""
+msgstr "Xfce 4 سەزگۈچ %s\n"
 
 #: ../src/interface.c:77
 msgid "_Overview"
-msgstr ""
+msgstr "ئورتاق(_O)"
 
 #: ../src/interface.c:97
 msgid "_Tachometers"
-msgstr ""
+msgstr "タコメータ(_T)"
 
 #: ../src/interface.c:113
 msgid "Sensors Viewer"
-msgstr ""
+msgstr "سەزگۈچ كۆرگۈ"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
@@ -352,24 +373,26 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
+msgstr "سەزگۈچ كۆرگۈ:\n"
+"سەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\n"
+"نورمال بىر تەرەپ قىلىشقا كاپالەتلىك قىلغىلى بولمايدۇ.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
-msgstr ""
+msgstr "سەزگۈچ كۆرگۈ"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
 msgid "Sensors Values Viewer"
-msgstr ""
+msgstr "سەزگۈچ قىممىتىنى كۆرگۈ"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
-msgstr ""
+msgstr "سەزگۈچنىڭ قىممىتىنى كۆرسىتىدۇ."
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
-msgstr ""
+msgstr "سەزگۈچ قىستۇرمىسى "
 
 #~ msgid "g_raphical"
 #~ msgstr "グラフィック(_R)"
