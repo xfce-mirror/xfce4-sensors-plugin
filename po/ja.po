@@ -161,7 +161,7 @@ msgstr "ACPI v%s ゾーン"
 
 #: ../lib/acpi.c:638
 msgid "<Unknown>"
-msgstr "＜不明＞"
+msgstr "<不明>"
 
 #: ../lib/hddtemp.c:396
 msgid "S.M.A.R.T. harddisk temperatures"
