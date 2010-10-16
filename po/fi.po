@@ -2,14 +2,14 @@
 # Copyright (C) 2004 - 2007 Fabian Nowak
 # This file is distributed under the same license as the xfce4-sensors-plugin.
 # Elias Julkunen <elias.julkunen@gmail.com>, 2008.
-# Jari Rahkonen <jari.rahkonen@pp1.inet.fi>, 2008.
+# Jari Rahkonen <jari.rahkonen@pp1.inet.fi>, 2008-2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-25 23:30+0100\n"
-"PO-Revision-Date: 2008-12-17 17:12+0200\n"
+"PO-Revision-Date: 2010-10-17 00:09+0300\n"
 "Last-Translator: Jari Rahkonen <jari.rahkonen@pp1.inet.fi>\n"
 "Language-Team: Finnish\n"
 "MIME-Version: 1.0\n"
@@ -48,16 +48,15 @@ msgstr "_Teksti"
 
 #: ../panel-plugin/sensors-plugin.c:1687
 msgid "_progress bars"
-msgstr ""
+msgstr "_Palkit"
 
 #: ../panel-plugin/sensors-plugin.c:1689
 msgid "_tachos"
-msgstr ""
+msgstr "_Analogimittarit"
 
 #: ../panel-plugin/sensors-plugin.c:1734
-#, fuzzy
 msgid "Show _labels"
-msgstr "_Näytä otsikko"
+msgstr "Näytä ni_mikkeet"
 
 #: ../panel-plugin/sensors-plugin.c:1764
 msgid "Show colored _bars"
@@ -69,7 +68,7 @@ msgstr "_Näytä otsikko"
 
 #: ../panel-plugin/sensors-plugin.c:1816
 msgid "_Number of text lines:"
-msgstr ""
+msgstr "Teksti_rivien määrä:"
 
 #: ../panel-plugin/sensors-plugin.c:1851
 msgid "F_ont size:"
@@ -97,9 +96,8 @@ msgid "x-large"
 msgstr "Hyvin suuri"
 
 #: ../panel-plugin/sensors-plugin.c:1893
-#, fuzzy
 msgid "F_ont:"
-msgstr "_Kirjasimen koko:"
+msgstr "_Kirjasin:"
 
 #: ../panel-plugin/sensors-plugin.c:1925
 msgid "Show _Units"
@@ -374,11 +372,11 @@ msgstr "Xfce4 Anturit %s\n"
 
 #: ../src/interface.c:77
 msgid "_Overview"
-msgstr ""
+msgstr "_Yleisnäkymä"
 
 #: ../src/interface.c:97
 msgid "_Tachometers"
-msgstr ""
+msgstr "_Analogimittarit"
 
 #: ../src/interface.c:113
 msgid "Sensors Viewer"
@@ -387,13 +385,13 @@ msgstr "Anturien näyttäjä"
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
 #: ../src/actions.c:78
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-"Anturiliitännäinen:\n"
+"Anturien näyttäjä:\n"
 "Ilmeisesti anturin arvon lukeminen ei onnistunut.\n"
 "Sovellus ei välttämättä toimi oikein.\n"
 
@@ -408,14 +406,8 @@ msgstr "Anturien arvojen näyttäjä"
 #: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
-msgstr "Näyttää anturien arvot"
+msgstr "Näyttää laiteanturien arvot"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "Anturiliitännäinen"
-
-#~ msgid "g_raphical"
-#~ msgstr "_Graafinen"
-
-#~ msgid "Show _labels in graphical UI"
-#~ msgstr "Näytä ni_met graafisessa käyttöliittymässä"
