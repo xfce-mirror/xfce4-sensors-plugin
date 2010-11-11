@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-25 23:30+0100\n"
-"PO-Revision-Date: 2010-11-11 23:02+0300\n"
+"PO-Revision-Date: 2010-11-11 23:10+0300\n"
 "Last-Translator: Ričardas V. <ricardas.v@inbox.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
@@ -51,8 +51,9 @@ msgid "_progress bars"
 msgstr "eigos juostos"
 
 #: ../panel-plugin/sensors-plugin.c:1689
+#, fuzzy
 msgid "_tachos"
-msgstr ""
+msgstr "_tachos"
 
 #: ../panel-plugin/sensors-plugin.c:1734
 msgid "Show _labels"
@@ -65,7 +66,7 @@ msgstr "Rodyti spalvotas juostas"
 
 #: ../panel-plugin/sensors-plugin.c:1792
 msgid "_Show title"
-msgstr "Rodyti pavadinimą"
+msgstr "Rodyti antraštę"
 
 #: ../panel-plugin/sensors-plugin.c:1816
 msgid "_Number of text lines:"
@@ -111,7 +112,7 @@ msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:1968
 msgid "Suppress messages"
-msgstr "Slėpti pranešimus"
+msgstr "Nerodyti pranešimų"
 
 #: ../panel-plugin/sensors-plugin.c:1993
 msgid "E_xecute on double click:"
@@ -222,7 +223,7 @@ msgstr "Klaida: nepavyko prisijungti prie jutiklių!"
 
 #: ../lib/sensors-interface.c:82
 msgid "Sensors Plugin Failure"
-msgstr "Jutiklių papildinio klaida"
+msgstr "Jutiklių įskiepio klaida"
 
 #: ../lib/sensors-interface.c:83
 msgid ""
@@ -270,7 +271,7 @@ msgstr ""
 
 #: ../lib/sensors-interface.c:363
 msgid "Temperature scale:"
-msgstr "Temperatūros skalė"
+msgstr "Temperatūros skalė:"
 
 #: ../lib/sensors-interface.c:365
 msgid "_Celsius"
@@ -286,7 +287,7 @@ msgstr "_Jutikliai"
 
 #: ../lib/sensors-interface-common.c:71
 msgid "No sensors found!"
-msgstr "Jokių sensorių nerasta!"
+msgstr "Jokių jutiklių nerasta!"
 
 #: ../lib/sensors-interface-common.c:141
 #, c-format
@@ -350,7 +351,7 @@ msgstr "Peržiūra"
 
 #: ../src/interface.c:97
 msgid "_Tachometers"
-msgstr ""
+msgstr "_Tachometras"
 
 #: ../src/interface.c:113
 msgid "Sensors Viewer"
@@ -384,7 +385,7 @@ msgstr "Parodyti jutiklio reikšmes."
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
-msgstr "Jutiklio papildinys"
+msgstr "Jutiklio įskiepis"
 
 #~ msgid "Xfce 4 Sensors Plugin"
 #~ msgstr "Sensorių tipas:"
