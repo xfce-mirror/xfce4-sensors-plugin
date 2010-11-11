@@ -17,9 +17,8 @@ msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:291 ../panel-plugin/sensors-plugin.c:388
 #: ../panel-plugin/sensors-plugin.c:970
-#, fuzzy
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
-msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensoriai</b></span> \n"
+msgstr "<span foreground=\"#000000\"><b>Jutikliai</b></span>"
 
 #: ../panel-plugin/sensors-plugin.c:774
 msgid "No sensors selected!"
@@ -28,16 +27,15 @@ msgstr "Nepasirinkti jokie sensoriai!"
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
 #: ../panel-plugin/sensors-plugin.c:813
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-" \n"
-"Xfce aparatinių sensorių įskiepis: \n"
-"                       Atrodo, jog buvo problemų nuskaitant sensoriaus savybės                         reikšmę. \n"
-"Tvarkingas tolesnis darbas negali būti užtikrinamas. \n"
+"Jutiklių įskiepis:\n"
+"Atrodo, jog buvo problemų nuskaitant jutiklio funkcijos reikšmę.\n"
+"Tvarkingas tolesnis darbas negali būti užtikrinamas.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1684
 msgid "UI style:"
@@ -218,15 +216,12 @@ msgid "Sensors Plugin Failure"
 msgstr "Jutiklių papildinio klaida"
 
 #: ../lib/sensors-interface.c:83
-#, fuzzy
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr ""
-" \n"
-"Xfce aparatinių sensorių įskiepis: \n"
-"                       Atrodo, jog buvo problemų nuskaitant sensoriaus savybės                         reikšmę. \n"
-"Tvarkingas tolesnis darbas negali būti užtikrinamas. \n"
+"Atrodo, jog buvo problemų nuskaitant jutiklio funkcijos reikšmę.\n"
+"Tvarkingas tolesnis darbas negali būti užtikrinamas.\n"
 
 #: ../lib/sensors-interface.c:164
 msgid "Sensors t_ype:"
@@ -295,9 +290,9 @@ msgid "%+.2f V"
 msgstr "%+.2f V"
 
 #: ../lib/sensors-interface-common.c:153
-#, c-format
+#, c-format, fuzzy
 msgid "%.0f mWh"
-msgstr ""
+msgstr "%.0f mWh"
 
 #: ../lib/sensors-interface-common.c:158
 msgid "off"
@@ -308,9 +303,9 @@ msgid "on"
 msgstr ""
 
 #: ../lib/sensors-interface-common.c:164
-#, c-format
+#, c-format, fuzzy
 msgid "%.0f rpm"
-msgstr ""
+msgstr "%.0f rpm"
 
 #: ../src/main.c:52
 #, c-format
@@ -336,9 +331,9 @@ msgid ""
 msgstr ""
 
 #: ../src/main.c:81
-#, fuzzy, c-format
+#, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr "Sensorių tipas:"
+msgstr "Xfce4 Jutikliai %s\n"
 
 #: ../src/interface.c:77
 msgid "_Overview"
@@ -355,16 +350,15 @@ msgstr "Jutiklių peržiūra"
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
 #: ../src/actions.c:78
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-" \n"
-"Xfce aparatinių sensorių įskiepis: \n"
-"                       Atrodo, jog buvo problemų nuskaitant sensoriaus savybės                         reikšmę. \n"
-"Tvarkingas tolesnis darbas negali būti užtikrinamas. \n"
+"Jutiklių peržiūra:\n"
+"Atrodo, jog buvo problemų nuskaitant jutiklio funkcijos reikšmę.\n"
+"Tvarkingas tolesnis darbas negali būti užtikrinamas.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
