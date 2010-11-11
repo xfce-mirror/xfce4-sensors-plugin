@@ -60,8 +60,9 @@ msgid "Show _labels"
 msgstr "Rodyti žymes"
 
 #: ../panel-plugin/sensors-plugin.c:1764
+#, fuzzy
 msgid "Show colored _bars"
-msgstr ""
+msgstr "Rodyti spalvotas juostas"
 
 #: ../panel-plugin/sensors-plugin.c:1792
 msgid "_Show title"
@@ -161,13 +162,12 @@ msgid "<Unknown>"
 msgstr ""
 
 #: ../lib/hddtemp.c:396
-#, fuzzy
 msgid "S.M.A.R.T. harddisk temperatures"
-msgstr "Aparatiniai sensoriai"
+msgstr "S.M.A.R.T. standžiojo disko temperatūros"
 
 #: ../lib/hddtemp.c:473
 msgid "No concrete error detected.\n"
-msgstr ""
+msgstr "Jokios konkrečios klaidos neaptikta. \n"
 
 #: ../lib/hddtemp.c:526
 #, c-format
@@ -183,7 +183,7 @@ msgstr ""
 
 #: ../lib/hddtemp.c:542 ../lib/hddtemp.c:572
 msgid "Suppress this message in future"
-msgstr ""
+msgstr "Nerodyti šios žinutės ateityje "
 
 #: ../lib/hddtemp.c:566
 #, c-format
@@ -191,6 +191,8 @@ msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr ""
+"Įvyko klaida vykdant \"%s\":\n"
+"%s"
 
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
@@ -200,12 +202,11 @@ msgstr ""
 #: ../lib/hddtemp.c:638 ../lib/sensors-interface-common.c:144
 #, c-format
 msgid "%.1f °C"
-msgstr ""
+msgstr "%.1f °C"
 
 #: ../lib/lmsensors.c:110
-#, fuzzy
 msgid "LM Sensors"
-msgstr "Sensorių tipas:"
+msgstr ""
 
 #: ../lib/lmsensors.c:369 ../lib/lmsensors.c:416
 #, c-format
@@ -213,9 +214,8 @@ msgid "Error: Could not connect to sensors!"
 msgstr "Klaida: nepavyko prisijungti prie jutiklių!"
 
 #: ../lib/sensors-interface.c:82
-#, fuzzy
 msgid "Sensors Plugin Failure"
-msgstr "Sensorių tipas:"
+msgstr "Jutiklių papildinio klaida"
 
 #: ../lib/sensors-interface.c:83
 #, fuzzy
@@ -287,12 +287,12 @@ msgstr "Jokių sensorių nerasta!"
 #: ../lib/sensors-interface-common.c:141
 #, c-format
 msgid "%.1f °F"
-msgstr ""
+msgstr "%.1f °F"
 
 #: ../lib/sensors-interface-common.c:149
 #, c-format
 msgid "%+.2f V"
-msgstr ""
+msgstr "%+.2f V"
 
 #: ../lib/sensors-interface-common.c:153
 #, c-format
@@ -342,7 +342,7 @@ msgstr "Sensorių tipas:"
 
 #: ../src/interface.c:77
 msgid "_Overview"
-msgstr ""
+msgstr "Peržiūra"
 
 #: ../src/interface.c:97
 msgid "_Tachometers"
