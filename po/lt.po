@@ -41,40 +41,37 @@ msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:1684
 msgid "UI style:"
-msgstr ""
+msgstr "Naudotojo sąsajos stilius:"
 
 #: ../panel-plugin/sensors-plugin.c:1685
 msgid "_text"
-msgstr ""
+msgstr "tekstas"
 
 #: ../panel-plugin/sensors-plugin.c:1687
 msgid "_progress bars"
-msgstr ""
+msgstr "eigos juostos"
 
 #: ../panel-plugin/sensors-plugin.c:1689
 msgid "_tachos"
 msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:1734
-#, fuzzy
 msgid "Show _labels"
-msgstr "Rodyti pavadinimą"
+msgstr "Rodyti žymes"
 
 #: ../panel-plugin/sensors-plugin.c:1764
 msgid "Show colored _bars"
 msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:1792
-#, fuzzy
 msgid "_Show title"
 msgstr "Rodyti pavadinimą"
 
 #: ../panel-plugin/sensors-plugin.c:1816
 msgid "_Number of text lines:"
-msgstr ""
+msgstr "Teksto eilučių skaičius:"
 
 #: ../panel-plugin/sensors-plugin.c:1851
-#, fuzzy
 msgid "F_ont size:"
 msgstr "Šrifto dydis:"
 
@@ -101,9 +98,8 @@ msgid "x-large"
 msgstr "labai didelis"
 
 #: ../panel-plugin/sensors-plugin.c:1893
-#, fuzzy
 msgid "F_ont:"
-msgstr "Šrifto dydis:"
+msgstr "Šriftas:"
 
 #: ../panel-plugin/sensors-plugin.c:1925
 #, fuzzy
@@ -116,11 +112,11 @@ msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:1968
 msgid "Suppress messages"
-msgstr ""
+msgstr "Slėpti pranešimus"
 
 #: ../panel-plugin/sensors-plugin.c:1993
 msgid "E_xecute on double click:"
-msgstr ""
+msgstr "Vykditi du kart paspaudus"
 
 #: ../panel-plugin/sensors-plugin.c:2036
 msgid "_View"
@@ -128,12 +124,12 @@ msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:2070
 msgid "_Miscellaneous"
-msgstr ""
+msgstr "Įvairus "
 
 #: ../panel-plugin/sensors-plugin.c:2143 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:160
 msgid "Sensors Plugin"
-msgstr ""
+msgstr "Jutiklio papildinys"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2186
@@ -147,7 +143,7 @@ msgstr ""
 #: ../lib/configuration.c:156 ../lib/configuration.c:341
 #: ../lib/configuration.c:348 ../lib/hddtemp.c:351 ../lib/hddtemp.c:397
 msgid "Hard disks"
-msgstr ""
+msgstr "Standusis diskas"
 
 #: ../lib/acpi.c:521 ../lib/acpi.c:529
 msgid "ACPI"
