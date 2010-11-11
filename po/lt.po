@@ -2,20 +2,21 @@
 # Copyright (C) 2004-2005 Fabian Nowak.
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
 # Rimas Kudelis <rq@akl.lt>, 2005.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-25 23:30+0100\n"
-"PO-Revision-Date: 2005-02-04 21:07+0200\n"
-"Last-Translator: Rimas Kudelis <rq@akl.lt>\n"
+"PO-Revision-Date: 2010-11-11 23:02+0300\n"
+"Last-Translator: Ričardas V. <ricardas.v@inbox.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors-plugin.c:291 ../panel-plugin/sensors-plugin.c:388
+#: ../panel-plugin/sensors-plugin.c:291
+#: ../panel-plugin/sensors-plugin.c:388
 #: ../panel-plugin/sensors-plugin.c:970
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Jutikliai</b></span>"
@@ -124,7 +125,8 @@ msgstr "_Rodymas"
 msgid "_Miscellaneous"
 msgstr "Įvairus "
 
-#: ../panel-plugin/sensors-plugin.c:2143 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2143
+#: ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:160
 msgid "Sensors Plugin"
 msgstr "Jutiklio papildinys"
@@ -138,12 +140,16 @@ msgstr ""
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:156 ../lib/configuration.c:341
-#: ../lib/configuration.c:348 ../lib/hddtemp.c:351 ../lib/hddtemp.c:397
+#: ../lib/configuration.c:156
+#: ../lib/configuration.c:341
+#: ../lib/configuration.c:348
+#: ../lib/hddtemp.c:351
+#: ../lib/hddtemp.c:397
 msgid "Hard disks"
 msgstr "Standusis diskas"
 
-#: ../lib/acpi.c:521 ../lib/acpi.c:529
+#: ../lib/acpi.c:521
+#: ../lib/acpi.c:529
 msgid "ACPI"
 msgstr ""
 
@@ -179,7 +185,8 @@ msgid ""
 "with a return value of %d.\n"
 msgstr ""
 
-#: ../lib/hddtemp.c:542 ../lib/hddtemp.c:572
+#: ../lib/hddtemp.c:542
+#: ../lib/hddtemp.c:572
 msgid "Suppress this message in future"
 msgstr "Nerodyti šios žinutės ateityje "
 
@@ -197,7 +204,8 @@ msgstr ""
 #. 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:638 ../lib/sensors-interface-common.c:144
+#: ../lib/hddtemp.c:638
+#: ../lib/sensors-interface-common.c:144
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -206,7 +214,8 @@ msgstr "%.1f °C"
 msgid "LM Sensors"
 msgstr ""
 
-#: ../lib/lmsensors.c:369 ../lib/lmsensors.c:416
+#: ../lib/lmsensors.c:369
+#: ../lib/lmsensors.c:416
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Klaida: nepavyko prisijungti prie jutiklių!"
@@ -221,7 +230,7 @@ msgid ""
 "Proper proceeding cannot be guaranteed."
 msgstr ""
 "Atrodo, jog buvo problemų nuskaitant jutiklio funkcijos reikšmę.\n"
-"Tvarkingas tolesnis darbas negali būti užtikrinamas.\n"
+"Tvarkingas tolesnis darbas negali būti užtikrinamas."
 
 #: ../lib/sensors-interface.c:164
 msgid "Sensors t_ype:"
@@ -290,7 +299,7 @@ msgid "%+.2f V"
 msgstr "%+.2f V"
 
 #: ../lib/sensors-interface-common.c:153
-#, c-format, fuzzy
+#, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
@@ -303,7 +312,7 @@ msgid "on"
 msgstr ""
 
 #: ../lib/sensors-interface-common.c:164
-#, c-format, fuzzy
+#, c-format
 msgid "%.0f rpm"
 msgstr "%.0f rpm"
 
