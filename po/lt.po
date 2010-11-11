@@ -102,9 +102,8 @@ msgid "F_ont:"
 msgstr "Šriftas:"
 
 #: ../panel-plugin/sensors-plugin.c:1925
-#, fuzzy
 msgid "Show _Units"
-msgstr "Rodyti pavadinimą"
+msgstr "Rodyti matavimo vienetus"
 
 #: ../panel-plugin/sensors-plugin.c:1946
 msgid "Small horizontal s_pacing"
@@ -120,7 +119,7 @@ msgstr "Vykditi du kart paspaudus"
 
 #: ../panel-plugin/sensors-plugin.c:2036
 msgid "_View"
-msgstr ""
+msgstr "_Rodymas"
 
 #: ../panel-plugin/sensors-plugin.c:2070
 msgid "_Miscellaneous"
@@ -211,7 +210,7 @@ msgstr "Sensorių tipas:"
 #: ../lib/lmsensors.c:369 ../lib/lmsensors.c:416
 #, c-format
 msgid "Error: Could not connect to sensors!"
-msgstr ""
+msgstr "Klaida: nepavyko prisijungti prie jutiklių!"
 
 #: ../lib/sensors-interface.c:82
 #, fuzzy
@@ -230,34 +229,32 @@ msgstr ""
 "Tvarkingas tolesnis darbas negali būti užtikrinamas. \n"
 
 #: ../lib/sensors-interface.c:164
-#, fuzzy
 msgid "Sensors t_ype:"
 msgstr "Sensorių tipas:"
 
 #: ../lib/sensors-interface.c:189
 msgid "Description:"
-msgstr ""
+msgstr "Aprašas"
 
 #: ../lib/sensors-interface.c:223
-#, fuzzy
 msgid "U_pdate interval (seconds):"
 msgstr "Atnaujinimo dažnumas (sek.):"
 
 #: ../lib/sensors-interface.c:263
 msgid "Name"
-msgstr ""
+msgstr "Pavadinimas"
 
 #: ../lib/sensors-interface.c:275
 msgid "Value"
-msgstr ""
+msgstr "Reikšmė"
 
 #: ../lib/sensors-interface.c:283
 msgid "Show"
-msgstr ""
+msgstr "Rodyti"
 
 #: ../lib/sensors-interface.c:292
 msgid "Color"
-msgstr ""
+msgstr "Spalva"
 
 #: ../lib/sensors-interface.c:305
 msgid "Min"
@@ -269,20 +266,19 @@ msgstr ""
 
 #: ../lib/sensors-interface.c:363
 msgid "Temperature scale:"
-msgstr ""
+msgstr "Temperatūros skalė"
 
 #: ../lib/sensors-interface.c:365
 msgid "_Celsius"
-msgstr ""
+msgstr "_Celsijus"
 
 #: ../lib/sensors-interface.c:367
 msgid "_Fahrenheit"
-msgstr ""
+msgstr "_Farenheitas"
 
 #: ../lib/sensors-interface.c:403
-#, fuzzy
 msgid "_Sensors"
-msgstr "Sensorių tipas:"
+msgstr "_Jutikliai"
 
 #: ../lib/sensors-interface-common.c:71
 msgid "No sensors found!"
