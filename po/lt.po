@@ -2,7 +2,7 @@
 # Copyright (C) 2004-2005 Fabian Nowak.
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
 # Rimas Kudelis <rq@akl.lt>, 2005.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
@@ -36,8 +36,7 @@ msgid ""
 msgstr ""
 " \n"
 "Xfce aparatinių sensorių įskiepis: \n"
-"                       Atrodo, jog buvo problemų nuskaitant sensoriaus "
-"savybės                         reikšmę. \n"
+"                       Atrodo, jog buvo problemų nuskaitant sensoriaus savybės                         reikšmę. \n"
 "Tvarkingas tolesnis darbas negali būti užtikrinamas. \n"
 
 #: ../panel-plugin/sensors-plugin.c:1684
@@ -79,7 +78,8 @@ msgstr ""
 msgid "F_ont size:"
 msgstr "Šrifto dydis:"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1858
 msgid "x-small"
 msgstr "labai mažas"
@@ -137,10 +137,7 @@ msgstr ""
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2186
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field."
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
 msgstr ""
 
 #. only use this if no hddtemp sensor
@@ -157,7 +154,8 @@ msgid "ACPI"
 msgstr ""
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
@@ -179,12 +177,9 @@ msgstr ""
 #: ../lib/hddtemp.c:526
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
@@ -203,7 +198,8 @@ msgid ""
 msgstr ""
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
 #. } else { // Celsius
 #. Celsius
 #: ../lib/hddtemp.c:638 ../lib/sensors-interface-common.c:144
@@ -234,8 +230,7 @@ msgid ""
 msgstr ""
 " \n"
 "Xfce aparatinių sensorių įskiepis: \n"
-"                       Atrodo, jog buvo problemų nuskaitant sensoriaus "
-"savybės                         reikšmę. \n"
+"                       Atrodo, jog buvo problemų nuskaitant sensoriaus savybės                         reikšmę. \n"
 "Tvarkingas tolesnis darbas negali būti užtikrinamas. \n"
 
 #: ../lib/sensors-interface.c:164
@@ -330,9 +325,7 @@ msgstr ""
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
 
 #: ../src/main.c:64
@@ -364,9 +357,8 @@ msgid "_Tachometers"
 msgstr ""
 
 #: ../src/interface.c:113
-#, fuzzy
 msgid "Sensors Viewer"
-msgstr "Sensorių tipas:"
+msgstr "Jutiklių peržiūra"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
@@ -379,39 +371,32 @@ msgid ""
 msgstr ""
 " \n"
 "Xfce aparatinių sensorių įskiepis: \n"
-"                       Atrodo, jog buvo problemų nuskaitant sensoriaus "
-"savybės                         reikšmę. \n"
+"                       Atrodo, jog buvo problemų nuskaitant sensoriaus savybės                         reikšmę. \n"
 "Tvarkingas tolesnis darbas negali būti užtikrinamas. \n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
-#, fuzzy
 msgid "Sensor Viewer"
-msgstr "Sensorių tipas:"
+msgstr "Jutiklio peržiūra"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
-#, fuzzy
 msgid "Sensors Values Viewer"
-msgstr "Sensorių tipas:"
+msgstr "Jutiklių reikšmių peržiūra"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
-msgstr ""
+msgstr "Parodyti jutiklio reikšmes."
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Sensor plugin "
-msgstr "Sensorių tipas:"
+msgstr "Jutiklio papildinys"
 
-#, fuzzy
 #~ msgid "Xfce 4 Sensors Plugin"
 #~ msgstr "Sensorių tipas:"
 
-#, fuzzy
 #~ msgid "Xfce 4 Sensors Viewer"
 #~ msgstr "Sensorių tipas:"
 
-#, fuzzy
 #~ msgid ""
 #~ "Xfce Hardware Sensors Plugin: \n"
 #~ "Seems like there was a problem reading a sensor feature value. \n"
@@ -419,27 +404,18 @@ msgstr "Sensorių tipas:"
 #~ msgstr ""
 #~ " \n"
 #~ "Xfce aparatinių sensorių įskiepis: \n"
-#~ "                       Atrodo, jog buvo problemų nuskaitant sensoriaus "
-#~ "savybės                         reikšmę. \n"
+#~ "                       Atrodo, jog buvo problemų nuskaitant sensoriaus savybės                         reikšmę. \n"
 #~ "Tvarkingas tolesnis darbas negali būti užtikrinamas. \n"
 
-#, fuzzy
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensoriai</b></span> \n"
 
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensoriai</b></span>"
 
-#, fuzzy
-#~ msgid ""
-#~ "A problem occured while trying to close the config file. Restart your "
-#~ "computer ... err ... restart the sensor daemon only :-) \n"
-#~ msgstr ""
-#~ "Bandant užverti konfigūracijos bylą, įvyko klaida."
-#~ "·····················Perleiskite savo kompiuterį … hmm …"
-#~ "······················ tiksliau, perleiskite tik sensorių tarnybą. :-) \n"
+#~ msgid "A problem occured while trying to close the config file. Restart your computer ... err ... restart the sensor daemon only :-) \n"
+#~ msgstr "Bandant užverti konfigūracijos bylą, įvyko klaida.·····················Perleiskite savo kompiuterį … hmm …······················ tiksliau, perleiskite tik sensorių tarnybą. :-) \n"
 
-#, fuzzy
 #~ msgid ""
 #~ " \n"
 #~ "Xfce Hardware Sensors Plugin: \n"
@@ -448,20 +424,16 @@ msgstr "Sensorių tipas:"
 #~ msgstr ""
 #~ " \n"
 #~ "Xfce aparatinių sensorių įskiepis: \n"
-#~ "                       Atrodo, jog buvo problemų nuskaitant sensoriaus "
-#~ "savybės                         reikšmę. \n"
+#~ "                       Atrodo, jog buvo problemų nuskaitant sensoriaus savybės                         reikšmę. \n"
 #~ "Tvarkingas tolesnis darbas negali būti užtikrinamas. \n"
 
 #~ msgid ""
 #~ " \n"
 #~ "Xfce Hardware Sensors Plugin:                         \n"
-#~ "Seems like there was a problem reading a sensor                         "
-#~ "feature value. \n"
+#~ "Seems like there was a problem reading a sensor                         feature value. \n"
 #~ "Proper proceeding cannot be                         guaranteed.\n"
 #~ msgstr ""
 #~ " \n"
 #~ "Xfce aparatinių sensorių įskiepis:                         \n"
-#~ "Panašu, jog buvo problemų nuskaitant sensoriaus                         "
-#~ "savybės reikšmę. \n"
-#~ "Tvarkingas tolesnis                         darbas negali būti "
-#~ "užtikrinamas. \n"
+#~ "Panašu, jog buvo problemų nuskaitant sensoriaus                         savybės reikšmę. \n"
+#~ "Tvarkingas tolesnis                         darbas negali būti užtikrinamas. \n"
