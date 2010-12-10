@@ -619,6 +619,10 @@ acpi_ignore_directory_entry (struct dirent *de)
 }
 
 
+/**
+ * Obtains ACPI version information.
+ * Might foget some space or tab bytes due to g_strchomp
+ **/
 char *
 get_acpi_info (void)
 {
@@ -627,16 +631,35 @@ get_acpi_info (void)
     TRACE ("enters get_acpi_info");
 
     filename = g_strdup_printf ("%s/%s", ACPI_PATH, ACPI_INFO);
-
-    TRACE ("leaves get_acpi_info");
-
     version = get_acpi_value (filename);
     g_free (filename);
+
     if (version!=NULL)
         version = g_strchomp (version);
 
-    if (version==NULL)
-        version = _("<Unknown>");
+		else // if (version==NULL)
+		{
+  	  filename = g_strdup_printf ("%s/%s_", ACPI_PATH, ACPI_INFO);
+      version = get_acpi_value (filename);
+      g_free (filename);
+		
+      if (version!=NULL)
+        version = g_strchomp (version);
+		
+  		else //if (version==NULL)
+  	
+  		{
+  			version = get_acpi_value ("/sys/module/acpi/parameters/acpica_version");
+  			if (version!=NULL)
+          version = g_strchomp (version);
+  		}
+		}
+  
+		// who knows, if we obtain non-NULL version at all...
+    if (version==NULL) // || g_strisempty(version))
+        version = g_strdup(_("<Unknown>"));
+
+    TRACE ("leaves get_acpi_info");
 
     return version;
 }

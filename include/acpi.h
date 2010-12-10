@@ -30,7 +30,7 @@
 #define ACPI_FILE_BATTERY_INFO  "info"
 #define ACPI_FILE_FAN           "state"
 
-#define ACPI_INFO               "info_"
+#define ACPI_INFO               "info"
 
 /* Gtk/Glib includes */
 #include <glib.h>
