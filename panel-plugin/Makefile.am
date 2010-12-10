@@ -20,6 +20,7 @@ xfce4_sensors_plugin_SOURCES =									   \
 
 xfce4_sensors_plugin_CFLAGS = \
 	@LIBXFCE4PANEL_CFLAGS@										   \
+	@LIBXFCEGUI4_CFLAGS@										   \
 	@PLATFORM_CFLAGS@												\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"							\
 	@LIBSENSORS_CFLAGS@
@@ -28,9 +29,10 @@ xfce4_sensors_plugin_CFLAGS = \
 # @GLIB_CFLAGS@
 
 
-xfce4_sensors_plugin_LDFLAGS = 							\
+xfce4_sensors_plugin_LDADD = 							\
 	$(top_builddir)/lib/libxfce4sensors.la		\
 	@LIBXFCE4PANEL_LIBS@											\
+	@LIBXFCEGUI4_LIBS@												\
 	@SOLLIBS@																	\
 	@LIBSENSORS_LDFLAGS@											\
 	@LIBM@

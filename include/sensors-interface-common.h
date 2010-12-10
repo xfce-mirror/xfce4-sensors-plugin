@@ -31,7 +31,7 @@
 /* #include <glib/gprintf.h>  */
 
 /* Xfce includes */
-#include <libxfce4panel/xfce-panel-plugin.h>
+#include <libxfce4panel/libxfce4panel.h>
 
 /* Package includes */
 #include <types.h>
