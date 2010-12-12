@@ -1,14 +1,14 @@
 # Czech translations for xfce4-sensors-plugin package.
 # Copyright (C) 2006 THE xfce4-sensors-plugin'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
-# Michal Várady <miko.vaji@gmail.com>, 2006-2008.
+# Michal Várady <miko.vaji@gmail.com>, 2006-2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-25 23:30+0100\n"
-"PO-Revision-Date: 2009-10-21 13:23+0100\n"
+"PO-Revision-Date: 2010-12-11 14:54+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: ../panel-plugin/sensors-plugin.c:291 ../panel-plugin/sensors-plugin.c:388
+#: ../panel-plugin/sensors-plugin.c:291
+#: ../panel-plugin/sensors-plugin.c:388
 #: ../panel-plugin/sensors-plugin.c:970
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Senzory</b></span>"
@@ -48,11 +49,11 @@ msgstr "_text"
 
 #: ../panel-plugin/sensors-plugin.c:1687
 msgid "_progress bars"
-msgstr ""
+msgstr "_Ukazatelé průběhu"
 
 #: ../panel-plugin/sensors-plugin.c:1689
 msgid "_tachos"
-msgstr ""
+msgstr "_tachos"
 
 #: ../panel-plugin/sensors-plugin.c:1734
 msgid "Show _labels"
@@ -96,9 +97,8 @@ msgid "x-large"
 msgstr "x-large"
 
 #: ../panel-plugin/sensors-plugin.c:1893
-#, fuzzy
 msgid "F_ont:"
-msgstr "Velikost _písma:"
+msgstr "_Písmo:"
 
 #: ../panel-plugin/sensors-plugin.c:1925
 msgid "Show _Units"
@@ -124,32 +124,31 @@ msgstr "_Zobrazit"
 msgid "_Miscellaneous"
 msgstr "_Ostatní"
 
-#: ../panel-plugin/sensors-plugin.c:2143 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2143
+#: ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:160
 msgid "Sensors Plugin"
 msgstr "Zásuvný modul senzory"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2186
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field."
-msgstr ""
-"Vlastnosti, jako například název, barvy, nejnižší a nejvyšší hodnota, můžete "
-"změnit dvojitým kliknutím na položku, úpravou obsahu a stiskem klávesy "
-"\"Return\" nebo výběrem jiného pole."
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
+msgstr "Vlastnosti, jako například název, barvy, nejnižší a nejvyšší hodnota, můžete změnit dvojitým kliknutím na položku, úpravou obsahu a stiskem klávesy \"Return\" nebo výběrem jiného pole."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:156 ../lib/configuration.c:341
-#: ../lib/configuration.c:348 ../lib/hddtemp.c:351 ../lib/hddtemp.c:397
+#: ../lib/configuration.c:156
+#: ../lib/configuration.c:341
+#: ../lib/configuration.c:348
+#: ../lib/hddtemp.c:351
+#: ../lib/hddtemp.c:397
 msgid "Hard disks"
 msgstr "Pevné disky"
 
-#: ../lib/acpi.c:521 ../lib/acpi.c:529
+#: ../lib/acpi.c:521
+#: ../lib/acpi.c:529
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -175,30 +174,24 @@ msgstr "Nebyla nalezena konkrétní chyba.\n"
 #: ../lib/hddtemp.c:526
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"Aplikace \"hddtemp\" se nespustila korektně, přestože je spustitelná. Disky "
-"obvykle ke čtení teploty vyžadují oprávnění uživatele root, avšak aplikace "
-"\"hddtemp\" nemá nastaven bit SUID.\n"
+"Aplikace \"hddtemp\" se nespustila korektně, přestože je spustitelná. Disky obvykle ke čtení teploty vyžadují oprávnění uživatele root, avšak aplikace \"hddtemp\" nemá nastaven bit SUID.\n"
 "\n"
-"Jednoduchým ale nečistým řešením je spuštění příkazu \"chmod u+s %s\" pod "
-"uživatelem root a následné opětovné spuštění tohoto zásuvného modulu nebo "
-"jeho panelu.\n"
+"Jednoduchým ale nečistým řešením je spuštění příkazu \"chmod u+s %s\" pod uživatelem root a následné opětovné spuštění tohoto zásuvného modulu nebo jeho panelu.\n"
 "\n"
 "Volání \"%s\" vrátilo tuto chybu:\n"
 "%s\n"
 "s návratovou hodnotou %d.\n"
 
-#: ../lib/hddtemp.c:542 ../lib/hddtemp.c:572
+#: ../lib/hddtemp.c:542
+#: ../lib/hddtemp.c:572
 msgid "Suppress this message in future"
 msgstr "Potlačit budoucí zprávy"
 
@@ -215,7 +208,8 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:638 ../lib/sensors-interface-common.c:144
+#: ../lib/hddtemp.c:638
+#: ../lib/sensors-interface-common.c:144
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -224,7 +218,8 @@ msgstr "%.1f °C"
 msgid "LM Sensors"
 msgstr "Senzory LM:"
 
-#: ../lib/lmsensors.c:369 ../lib/lmsensors.c:416
+#: ../lib/lmsensors.c:369
+#: ../lib/lmsensors.c:416
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Chyba: Nelze se připojit k senzorům!"
@@ -330,15 +325,11 @@ msgstr "%.0f otáček za minutu"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
 "Senzory %s pro Xfce4 \n"
 "Tento program byl vydán pod licencí GPL v2.\n"
-"Licenci naleznete v archivu zdrojového kódu tohoto programu nebo v adresáři /"
-"usr/share/apps/LICENSES/GPL_V2 nebo na adrese http://www.gnu.org/licenses/"
-"old-licenses/gpl-2.0.txt\n"
+"Licenci naleznete v archivu zdrojového kódu tohoto programu nebo v adresáři /usr/share/apps/LICENSES/GPL_V2 nebo na adrese http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
 #, c-format
@@ -372,11 +363,11 @@ msgstr "Senzory %s pro Xfce 4\n"
 
 #: ../src/interface.c:77
 msgid "_Overview"
-msgstr ""
+msgstr "_Přehled"
 
 #: ../src/interface.c:97
 msgid "_Tachometers"
-msgstr ""
+msgstr "_Tachometry"
 
 #: ../src/interface.c:113
 msgid "Sensors Viewer"
@@ -385,13 +376,13 @@ msgstr "Prohlížeč senzorů"
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
 #: ../src/actions.c:78
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-"Zásuvný modul Senzory:\n"
+"Prohlížeč senzorů:\n"
 "Došlo k potížím při čtení hodnoty senzoru. \n"
 "Nelze zaručit správné fungování.\n"
 
