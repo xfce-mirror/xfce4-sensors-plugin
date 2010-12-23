@@ -2,9 +2,9 @@
 # Copyright (C) 2007 THE xfce4-sensors-plugin'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
 # Jeff Bailes <thepizzaking@gmail.com>, 2007.
-# , fuzzy
-#
-#
+#, fuzzy
+# 
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
@@ -49,16 +49,15 @@ msgstr "_text"
 
 #: ../panel-plugin/sensors-plugin.c:1687
 msgid "_progress bars"
-msgstr ""
+msgstr "_progress bars"
 
 #: ../panel-plugin/sensors-plugin.c:1689
 msgid "_tachos"
-msgstr ""
+msgstr "_tachos"
 
 #: ../panel-plugin/sensors-plugin.c:1734
-#, fuzzy
 msgid "Show _labels"
-msgstr "_Show title"
+msgstr "Show _labels"
 
 #: ../panel-plugin/sensors-plugin.c:1764
 msgid "Show colored _bars"
@@ -70,13 +69,14 @@ msgstr "_Show title"
 
 #: ../panel-plugin/sensors-plugin.c:1816
 msgid "_Number of text lines:"
-msgstr ""
+msgstr "_Number of text lines:"
 
 #: ../panel-plugin/sensors-plugin.c:1851
 msgid "F_ont size:"
 msgstr "F_ont size:"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1858
 msgid "x-small"
 msgstr "x-small"
@@ -98,9 +98,8 @@ msgid "x-large"
 msgstr "x-large"
 
 #: ../panel-plugin/sensors-plugin.c:1893
-#, fuzzy
 msgid "F_ont:"
-msgstr "F_ont size:"
+msgstr "F_ont:"
 
 #: ../panel-plugin/sensors-plugin.c:1925
 msgid "Show _Units"
@@ -133,14 +132,8 @@ msgstr "Sensors Plugin"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2186
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field."
-msgstr ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field."
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
+msgstr "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -156,7 +149,8 @@ msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
@@ -177,23 +171,17 @@ msgstr "No concrete error detected.\n"
 #: ../lib/hddtemp.c:526
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
@@ -213,7 +201,8 @@ msgstr ""
 "%s"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
 #. } else { // Celsius
 #. Celsius
 #: ../lib/hddtemp.c:638 ../lib/sensors-interface-common.c:144
@@ -331,15 +320,11 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The licence text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The licence text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
 #, c-format
@@ -373,11 +358,11 @@ msgstr "Xfce4 Sensors %s\n"
 
 #: ../src/interface.c:77
 msgid "_Overview"
-msgstr ""
+msgstr "_Overview"
 
 #: ../src/interface.c:97
 msgid "_Tachometers"
-msgstr ""
+msgstr "_Tachometers"
 
 #: ../src/interface.c:113
 msgid "Sensors Viewer"
@@ -386,13 +371,13 @@ msgstr "Sensors Viewer"
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
 #: ../src/actions.c:78
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-"Sensors Plugin:\n"
+"Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 
@@ -419,22 +404,18 @@ msgstr "Sensor plugin "
 #~ msgid "Show _labels in graphical UI"
 #~ msgstr "Show _labels in graphical UI"
 
-#, fuzzy
 #~ msgid "Xfce 4 Sensors Plugin"
 #~ msgstr "Sensors Plugin"
 
-#, fuzzy
 #~ msgid "Xfce 4 Sensors Viewer"
 #~ msgstr "Sensors Plugin"
 
 #~ msgid "Edit Properties"
 #~ msgstr "Edit Properties"
 
-#, fuzzy
 #~ msgid "View sensor values"
 #~ msgstr "Show sensor values."
 
-#, fuzzy
 #~ msgid ""
 #~ "Xfce Hardware Sensors Plugin: \n"
 #~ "Seems like there was a problem reading a sensor feature value. \n"
