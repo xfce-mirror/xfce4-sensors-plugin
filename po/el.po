@@ -18,9 +18,8 @@ msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:291 ../panel-plugin/sensors-plugin.c:388
 #: ../panel-plugin/sensors-plugin.c:970
-#, fuzzy
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
-msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Αισθητήρες</b></span> \n"
+msgstr "<span foreground=\"#000000\"><b>Αισθητήρες</b></span>"
 
 #: ../panel-plugin/sensors-plugin.c:774
 msgid "No sensors selected!"
@@ -29,15 +28,15 @@ msgstr "Δεν επιλέχθηκαν αισθητήρες!"
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
 #: ../panel-plugin/sensors-plugin.c:813
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
 " \n"
-"Xfce Hardware Sensors Plugin: \n"
-"Από οτι φαίνεται υπήρξε πρόβλημα κατά την ανάγνωση κάποιου αισθητήρα. \n"
+"Πρόσθετο αισθητήρων: \n"
+"Όπως φαίνεται υπήρξε πρόβλημα κατά την ανάγνωση κάποιου αισθητήρα.\n"
 "Δεν είναι εγγυημένη η κανονική συνέχεια.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1684
@@ -54,7 +53,7 @@ msgstr "_μπάρα προόδου"
 
 #: ../panel-plugin/sensors-plugin.c:1689
 msgid "_tachos"
-msgstr ""
+msgstr "_κοντέρ"
 
 #: ../panel-plugin/sensors-plugin.c:1734
 msgid "Show _labels"
@@ -134,7 +133,7 @@ msgstr "Πρόσθετο αισθητήρων"
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2186
 msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
-msgstr ""
+msgstr "Μπορείτε να αλλάξετε τις ιδιότητες ενός χαρακτηριστικού όπως το όνομα, τα χρώματα, ελάχιστη / μέγιστη τιμή κάνοντας διπλό κλικ την εγγραφή, επεξεργάζοντας το περιεχομενο και πατώντας \"Enter\" ή επιλέγοντας ένα διαφορετικό πεδίο."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -146,7 +145,6 @@ msgid "Hard disks"
 msgstr "Σκληροί δίσκοι"
 
 #: ../lib/acpi.c:521 ../lib/acpi.c:529
-#, fuzzy
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -181,6 +179,13 @@ msgid ""
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
+"Το \"hddtemp\" δεν εκτελέστηκε σωστά, παρόλο που έιναι εκτελέσιμο. Πιθανότατα επειδή χρειάζονται δικαιώματα υπερχρήστη για να διαβαστούν οι θερμοκρασίες των σκληρών δίσκων, και το \"hddtemp\" δεν έχει ορίστεί με setuid root.\n"
+"\n"
+"Μια εύκολη αλλά βρώμικη λύση είναι να εκτελέσετε \"chmod u+s %s\" σαν υπερχρήστης και να επανεκκινήσετε το πρόσθετο ή το ταμπλό του.\n"
+"\n"
+"Καλώντας \"%s\" εμφανίστηκε το ακόλουθο σφάλμα:\n"
+"%s\n"
+"επιστρέφοντας την τιμή %d.\n"
 
 #: ../lib/hddtemp.c:542 ../lib/hddtemp.c:572
 msgid "Suppress this message in future"
@@ -201,12 +206,11 @@ msgstr ""
 #. } else { // Celsius
 #. Celsius
 #: ../lib/hddtemp.c:638 ../lib/sensors-interface-common.c:144
-#, c-format, fuzzy
+#, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
 #: ../lib/lmsensors.c:110
-#, fuzzy
 msgid "LM Sensors"
 msgstr "LM Sensors"
 
@@ -284,12 +288,12 @@ msgid "No sensors found!"
 msgstr "Δε βρέθηκαν αισθητήρες!"
 
 #: ../lib/sensors-interface-common.c:141
-#, c-format, fuzzy
+#, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
 #: ../lib/sensors-interface-common.c:149
-#, c-format, fuzzy
+#, c-format
 msgid "%+.2f V"
 msgstr "%+.2f V"
 
@@ -307,7 +311,7 @@ msgid "on"
 msgstr "ανενεργό"
 
 #: ../lib/sensors-interface-common.c:164
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f rpm"
 msgstr "%5.0f rpm"
 
@@ -318,6 +322,9 @@ msgid ""
 "This program is published under the GPL v2.\n"
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
+"Xfce4 Sensors %s\n"
+"ο παρόν πρόγραμμα δημοσιεύεται κάτω από την άδεια χρήσης GPL v2.\n"
+"Το κείμενο της άδειας χρήσης μπορεί να βρεθεί στο πακέτο πηγαίου κώδικα του προγράμματος ή στο /usr/share/apps/LICENSES/GPL_V2 ή στο http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
 #, c-format
@@ -333,6 +340,16 @@ msgid ""
 "\n"
 "This program is published under the GPL v2.\n"
 msgstr ""
+"Xfce4 Sensors %s\n"
+"Εμφανίζει πληροφορίες για τους αισθητήρες και το ACPI.\n"
+"Συνοπτικά: \n"
+"  xfce4-sensors επιλογές\n"
+"όπου επιλογές είναι μία ή περισσότερες από τις ακόλουθες:\n"
+"  -h, --help    Εμφάνιση του διαλόγου βοήθειας.\n"
+"  -l, --license Εμφάνιση πληροφοριών άδειας χρήσης.\n"
+"  -V, --version Εμφάνιση πληροφοριών έκδοσης.\n"
+"\n"
+"Το παρόν πρόγραμμα δημοσιεύεται κάτω από την άδεια χρήσης GPL v2.\n"
 
 #: ../src/main.c:81
 #, c-format
