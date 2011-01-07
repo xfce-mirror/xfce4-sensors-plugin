@@ -2,21 +2,22 @@
 # Copyright (C) 2004-2005 Fabian Nowak.
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
 # Stavros Giannouris <stavrosg@serverhive.com>, 2005.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-25 23:30+0100\n"
-"PO-Revision-Date: 2006-10-14 19:59+0200\n"
-"Last-Translator: Stavros Giannouris <stavrosg@serverhive.com>\n"
+"PO-Revision-Date: 2011-01-07 18:26+0200\n"
+"Last-Translator: Spiros Georgaras <sng@hellug.gr>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Country: GREECE\n"
 
-#: ../panel-plugin/sensors-plugin.c:291 ../panel-plugin/sensors-plugin.c:388
+#: ../panel-plugin/sensors-plugin.c:291
+#: ../panel-plugin/sensors-plugin.c:388
 #: ../panel-plugin/sensors-plugin.c:970
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Αισθητήρες</b></span>"
@@ -107,7 +108,7 @@ msgstr "Εμφάνιση _μονάδων"
 
 #: ../panel-plugin/sensors-plugin.c:1946
 msgid "Small horizontal s_pacing"
-msgstr "Μικρό οριζόντιο διάστημα"
+msgstr "Μικρό ορι_ζόντιο διάστημα"
 
 #: ../panel-plugin/sensors-plugin.c:1968
 msgid "Suppress messages"
@@ -125,7 +126,8 @@ msgstr "_Προβολή"
 msgid "_Miscellaneous"
 msgstr "_Διάφορα"
 
-#: ../panel-plugin/sensors-plugin.c:2143 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2143
+#: ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:160
 msgid "Sensors Plugin"
 msgstr "Πρόσθετο αισθητήρων"
@@ -139,12 +141,16 @@ msgstr "Μπορείτε να αλλάξετε τις ιδιότητες ενό�
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:156 ../lib/configuration.c:341
-#: ../lib/configuration.c:348 ../lib/hddtemp.c:351 ../lib/hddtemp.c:397
+#: ../lib/configuration.c:156
+#: ../lib/configuration.c:341
+#: ../lib/configuration.c:348
+#: ../lib/hddtemp.c:351
+#: ../lib/hddtemp.c:397
 msgid "Hard disks"
 msgstr "Σκληροί δίσκοι"
 
-#: ../lib/acpi.c:521 ../lib/acpi.c:529
+#: ../lib/acpi.c:521
+#: ../lib/acpi.c:529
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -187,7 +193,8 @@ msgstr ""
 "%s\n"
 "επιστρέφοντας την τιμή %d.\n"
 
-#: ../lib/hddtemp.c:542 ../lib/hddtemp.c:572
+#: ../lib/hddtemp.c:542
+#: ../lib/hddtemp.c:572
 msgid "Suppress this message in future"
 msgstr "Να μην εμφανιστεί ξανά αυτό το μήνυμα στο μέλλον"
 
@@ -205,7 +212,8 @@ msgstr ""
 #. 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:638 ../lib/sensors-interface-common.c:144
+#: ../lib/hddtemp.c:638
+#: ../lib/sensors-interface-common.c:144
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -214,7 +222,8 @@ msgstr "%.1f °C"
 msgid "LM Sensors"
 msgstr "LM Sensors"
 
-#: ../lib/lmsensors.c:369 ../lib/lmsensors.c:416
+#: ../lib/lmsensors.c:369
+#: ../lib/lmsensors.c:416
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Σφάλμα: Δεν ήταν δυνατή η σύνδεση με τους αισθητήρες!"
@@ -400,22 +409,16 @@ msgstr "Πρόσθετο αισθητήρων"
 
 #~ msgid "g_raphical"
 #~ msgstr "γραφικό"
-
 #~ msgid "Show _labels in graphical UI"
 #~ msgstr "Εμφάνιση ετικετών σε γραφικό UI"
-
 #~ msgid "Xfce 4 Sensors Plugin"
 #~ msgstr "Πρόσθετο αισθητήρων"
-
 #~ msgid "Xfce 4 Sensors Viewer"
 #~ msgstr "Πρόσθετο αισθητήρων"
-
 #~ msgid "Edit Properties"
 #~ msgstr "Ιδιότητες"
-
 #~ msgid "View sensor values"
 #~ msgstr "Εμφάνιση τιμών αισθητήρων."
-
 #~ msgid ""
 #~ "Xfce Hardware Sensors Plugin: \n"
 #~ "Seems like there was a problem reading a sensor feature value. \n"
@@ -425,15 +428,12 @@ msgstr "Πρόσθετο αισθητήρων"
 #~ "Xfce Hardware Sensors Plugin: \n"
 #~ "Από οτι φαίνεται υπήρξε πρόβλημα κατά την ανάγνωση κάποιου αισθητήρα. \n"
 #~ "Δεν είναι εγγυημένη η κανονική συνέχεια.\n"
-
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Αισθητήρες</b></span> \n"
-
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Αισθητήρες</b></span>"
-
 #~ msgid "<b>Sensors</b>"
 #~ msgstr "<b>Αισθητήρες</b>"
-
 #~ msgid "<b>View</b>"
 #~ msgstr "<b>Προβολή</b>"
+
