@@ -1,3 +1,4 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4 sensors plugin\n"
@@ -50,9 +51,8 @@ msgid "_tachos"
 msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:1734
-#, fuzzy
 msgid "Show _labels"
-msgstr "_Başlığı görüntüle"
+msgstr "_Etiketleri görüntüle"
 
 #: ../panel-plugin/sensors-plugin.c:1764
 msgid "Show colored _bars"
@@ -64,13 +64,14 @@ msgstr "_Başlığı görüntüle"
 
 #: ../panel-plugin/sensors-plugin.c:1816
 msgid "_Number of text lines:"
-msgstr ""
+msgstr "_Satır sayısı:"
 
 #: ../panel-plugin/sensors-plugin.c:1851
 msgid "F_ont size:"
 msgstr "Yazıtipi b_oyutu: "
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1858
 msgid "x-small"
 msgstr "çok küçük"
@@ -92,9 +93,8 @@ msgid "x-large"
 msgstr "çok büyük"
 
 #: ../panel-plugin/sensors-plugin.c:1893
-#, fuzzy
 msgid "F_ont:"
-msgstr "Yazıtipi b_oyutu: "
+msgstr "Yazı tipi:"
 
 #: ../panel-plugin/sensors-plugin.c:1925
 msgid "Show _Units"
@@ -127,14 +127,8 @@ msgstr "Sensors Eklentisi"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2186
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field."
-msgstr ""
-"Bir özelliğin ismini, rengini, minimum/maksimum değerini o değerin üzerine "
-"çift tıklayarak, o değeri istediğiniz gibi biçimlendirip, \"Enter\" tuşuna "
-"basarak  değiştirebilirsiniz."
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
+msgstr "Bir özelliğin ismini, rengini, minimum/maksimum değerini o değerin üzerine çift tıklayarak, o değeri istediğiniz gibi biçimlendirip, \"Enter\" tuşuna basarak  değiştirebilirsiniz."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -150,7 +144,8 @@ msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
@@ -171,23 +166,17 @@ msgstr "Somut bir hata algılanamadı.\n"
 #: ../lib/hddtemp.c:526
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" çalıştırılabilir olmasına rağmen çalıştırılamadı. Bu genellikle "
-"disklerin ısı derecelerini okumak için root yetkisine ihtiyacından "
-"kaynaklanmaktadır ve bu yüzden \"hddtemp\" çalışmamaktadır.\n"
+"\"hddtemp\" çalıştırılabilir olmasına rağmen çalıştırılamadı. Bu genellikle disklerin ısı derecelerini okumak için root yetkisine ihtiyacından kaynaklanmaktadır ve bu yüzden \"hddtemp\" çalışmamaktadır.\n"
 "\n"
-"Bu sorunu çözmek için root kullanıcısı ile \"chmod u+s %s\" komutunu verip, "
-"eklentiyi veya paneli tekrar başlatın.\n"
+"Bu sorunu çözmek için root kullanıcısı ile \"chmod u+s %s\" komutunu verip, eklentiyi veya paneli tekrar başlatın.\n"
 "\n"
 "\"%s\" şu hatayı verdi:\n"
 "%s\n"
@@ -207,7 +196,8 @@ msgstr ""
 "%s"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
 #. } else { // Celsius
 #. Celsius
 #: ../lib/hddtemp.c:638 ../lib/sensors-interface-common.c:144
@@ -325,15 +315,11 @@ msgstr "%.0f devir"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
 "Xfce4 Sensors %s\n"
 "Bu uygulama GPL v2 hükümleri çerçevesinde yayınlanmaktadır.\n"
-"Lisans metnine programın kaynak kodlarının bulunduğu arşivden ve /usr/share/"
-"apps/LICENSES/GPL_V2 dosyasından veya http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"Lisans metnine programın kaynak kodlarının bulunduğu arşivden ve /usr/share/apps/LICENSES/GPL_V2 dosyasından veya http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 "adresinden ulaşabilirsiniz\n"
 
 #: ../src/main.c:64
@@ -368,7 +354,7 @@ msgstr "Xfce4 Sensors %s\n"
 
 #: ../src/interface.c:77
 msgid "_Overview"
-msgstr ""
+msgstr "Ön izleme"
 
 #: ../src/interface.c:97
 msgid "_Tachometers"
