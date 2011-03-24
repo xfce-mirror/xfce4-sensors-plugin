@@ -22,6 +22,11 @@ ACPI_SOURCES = acpi.c
 #acpi.h
 endif
 
+if HAVE_NVIDIA
+NVIDIA_SOURCES = nvidia.c
+#nvidia.c
+endif
+
 libxfce4sensors_la_SOURCES =										\
 	middlelayer.c													\
 	configuration.c													\
@@ -30,7 +35,8 @@ libxfce4sensors_la_SOURCES =										\
 	cpu.c																			\
 	$(SENSORS_SOURCES)												\
 	$(HDDTEMP_SOURCES)												\
-	$(ACPI_SOURCES)
+	$(ACPI_SOURCES) \
+	$(NVIDIA_SOURCES)
 
 # configuration.h													\
 # sensors-plugin.h													\
@@ -44,8 +50,12 @@ libxfce4sensors_la_CFLAGS = 										\
 	@GLIB_CFLAGS@													\
 	@LIBXFCEGUI4_CFLAGS@											\
 	@LIBXFCE4UTIL_CFLAGS@											\
-	@LIBXFCE4PANEL_CFLAGS@											\
-	@LIBSENSORS_CFLAGS@	
+	@LIBXFCE4PANEL_CFLAGS@										\
+	@LIBSENSORS_CFLAGS@
+
+if HAVE_NVIDIA
+libxfce4sensors_la_CFLAGS += @NVIDIA_CFLAGS@
+endif
 
 if HAVE_LIBNOTIFY
 libxfce4sensors_la_CFLAGS += @LIBNOTIFY_CFLAGS@
@@ -75,6 +85,10 @@ libxfce4sensors_la_LIBADD = 										\
 	@LIBXFCE4PANEL_LIBS@											\
 	@LIBSENSORS_LDFLAGS@											\
 	@LIBM@
+
+if HAVE_NVIDIA
+libxfce4sensors_la_LIBADD += @NVIDIA_LIBS@
+endif
 
 if HAVE_LIBNOTIFY
 libxfce4sensors_la_LIBADD += @LIBNOTIFY_LIBS@

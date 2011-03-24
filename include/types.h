@@ -60,7 +60,8 @@ typedef enum {
 typedef enum {
     LMSENSOR,
     HDD,
-    ACPI
+    ACPI,
+    GPU
 } t_chiptype;
 
 /*

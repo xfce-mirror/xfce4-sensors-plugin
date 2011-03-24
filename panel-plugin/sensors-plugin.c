@@ -46,7 +46,7 @@
 /* Package includes */
 #include <configuration.h>
 #include <sensors-interface.h>
-#include <sensors-interface-common.h>
+#include <sensors-interface-plugin.h> // includes sensors-interface-common.h
 #include <middlelayer.h>
 #include <cpu.h>
 

@@ -75,6 +75,9 @@
 # define SINGLE_DELIMITER "|"
 #endif
 
+#define REPLY_MAX_SIZE 512
+
+
 /* forward declaration for GCC 4.3 -Wall */
 #ifdef HAVE_LIBNOTIFY
 void notification_suppress_messages (NotifyNotification *n, gchar *action, gpointer *data);
@@ -199,33 +202,15 @@ void quick_message (gchar *message)
 void
 read_disks_netcat (t_chip *chip)
 {
-    char *stdoutput, *stderrput, *cmdline, *tmp, *tmp2, *tmp3;
-    gboolean result;
-    gint exit_status = 0;
-    GError *error = NULL;
+    char reply[REPLY_MAX_SIZE], *tmp, *tmp2, *tmp3;
+    size_t result;
 
     t_chipfeature *cf;
 
-    cmdline = g_strdup_printf ("%s localhost %s", NETCAT_PATH, HDDTEMP_PORT);
-    //g_printf("cmdline=%s\n", cmdline);
+    result = get_hddtemp_d_str(reply, REPLY_MAX_SIZE);
+    DBG ("reply=%s\n", reply);
 
-    result = g_spawn_command_line_sync ( (const gchar*) cmdline,
-                &stdoutput, &stderrput, &exit_status, &error);
-
-    g_free (cmdline);
-
-    if (!result)
-    {
-        g_free (error);
-        return;
-    }
-
-    if (stderrput)
-      g_free (stderrput);
-
-    //g_printf("stdouput=%s\n", stdoutput);
-
-    tmp = str_split (stdoutput, DOUBLE_DELIMITER);
+    tmp = str_split (reply, DOUBLE_DELIMITER);
     do {
         //g_printf ("Found token: %s\n", tmp);
         cf = g_new0(t_chipfeature, 1);
@@ -455,18 +440,73 @@ initialize_hddtemp (GPtrArray *chips, gboolean *suppressmessage)
 }
 
 
+
+int 
+get_hddtemp_d_str (char *buffer, size_t bufsize)
+{
+    int sock;
+    struct sockaddr_in servername;
+    struct hostent *hostinfo;
+    int nbytes = 0, nchunk = 0;
+
+    /* Create the socket. */
+    sock = socket(PF_INET, SOCK_STREAM, 0);
+    if (sock < 0) {
+	    return -1;
+    }
+
+    /* Connect to the server. */
+    servername.sin_family = AF_INET;
+    servername.sin_port = htons(HDDTEMP_PORT);
+    hostinfo = gethostbyname("localhost");
+    if (hostinfo == NULL) {
+/*	fprintf (stderr, "Unknown host %s.\n", hostname);*/
+	    return -1;
+    }
+    servername.sin_addr = *(struct in_addr *) hostinfo->h_addr;
+
+    if (connect (sock, (struct sockaddr *) &servername, sizeof (servername)) < 0) {
+/*	perror ("connect (client)");*/
+	    return -1;
+    }
+
+    /* Read data from server. */
+    for (;;) {
+      nchunk = read(sock, buffer+nbytes, bufsize-nbytes-1);
+      if (nchunk < 0) {
+          /* Read error. */
+    /*	    perror ("read");*/
+          close (sock);
+          return -1;
+      } else if (nchunk == 0) {
+          /* End-of-file. */
+          break;
+      } else {
+          /* Data read. */
+          nbytes += nchunk;
+      }
+    }
+
+    buffer[nbytes] = 0;
+    close (sock);
+    return nbytes;
+}
+
+
 double
 get_hddtemp_value (char* disk, gboolean *suppressmessage)
 {
-    gchar *standard_output, *standard_error;
-    gchar *cmd_line, *msg_text;
+    gchar *standard_output=NULL, *standard_error=NULL;
+    gchar *cmd_line=NULL, *msg_text=NULL;
+    char reply[REPLY_MAX_SIZE];
+    size_t read_size;
 #ifndef HAVE_LIBNOTIFY
     gchar *checktext = NULL;
 #endif
     gint exit_status=0;
     double value;
-    gboolean result, nevershowagain;
-    GError *error;
+    gboolean result=FALSE, nevershowagain;
+    GError *error=NULL;
 
 #ifdef HAVE_NETCAT
     gchar *tmp, *tmp2, *tmp3;

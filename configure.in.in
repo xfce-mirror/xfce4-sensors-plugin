@@ -161,11 +161,11 @@ if test x"$enable_netcat" = x"yes"; then
         dnl AC_DEFINE([HAVE_NETCAT], [0], [Define to 1 if hddtemp daemon is queried via netcat])
     else
         AC_DEFINE([HAVE_NETCAT], [1], [Define to 1 if hddtemp daemon is queried via netcat])
-        AC_DEFINE_UNQUOTED([NETCAT_PATH], ["$NETCAT_PATH"], [Complete path to netcat])
+        AC_DEFINE_UNQUOTED([NETCAT_PATH], [$NETCAT_PATH], [Complete path to netcat])
         AC_SUBST([NETCAT_PATH])
-        AC_DEFINE_UNQUOTED([NETCAT_HOST], ["$NETCAT_HOST"], [Host for netcat])
+        AC_DEFINE_UNQUOTED([NETCAT_HOST], [$NETCAT_HOST], [Host for netcat])
         AC_SUBST([NETCAT_HOST])
-        AC_DEFINE_UNQUOTED([HDDTEMP_PORT], ["$HDDTEMP_PORT"], [Port for hddtemp with netcat])
+        AC_DEFINE_UNQUOTED([HDDTEMP_PORT], [$HDDTEMP_PORT], [Port for hddtemp with netcat])
         AC_SUBST([HDDTEMP_PORT])
     fi
 
@@ -217,8 +217,41 @@ if test x"$enable_sysfsacpi" = x"yes"; then
     enable_procacpi=yes
 fi
 
+dnl Check for nvidia blahblah to be used
+AC_ARG_ENABLE([xnvctrl], 
+	      AC_HELP_STRING([--enable-xnvctrl], 
+			     [Use nvctrl to obtain Nvidia GPU temperature value @<:@default=auto@:>@]),
+		[],
+[
+    enable_xnvctrl=auto
+])
+
+if test x"$enable_xnvctrl" = x"auto"; then
+ AC_CHECK_FILE([/usr/include/NVCtrl],
+    [
+        enable_xnvctrl=yes
+    ],
+    [
+        enable_xnvctrl=no
+    ])
+fi
+
+if test x"$enable_xnvctrl" = x"yes"; then
+    AC_DEFINE([HAVE_NVIDIA], [1], [Define to 1 if media-video/nvidia-drivers installed])
+    NVIDIA_CFLAGS="-I/usr/include/NVCtrl"
+    NVIDIA_LIBS="-lX11 -lXext -lXNVCtrl"
+    enable_xnvctrl=yes
+AC_SUBST([NVIDIA_CFLAGS])
+AC_SUBST([NVIDIA_LDFLAGS])
+fi
+
+
+
+
+
 AM_CONDITIONAL([HAVE_ACPI], [test x$enable_procacpi = x"yes"])
 AM_CONDITIONAL([HAVE_SYSFS_ACPI], [test x$enable_sysfsacpi = x"yes"])
+AM_CONDITIONAL([HAVE_NVIDIA], [test x$enable_xnvctrl = x"yes"])
 
 
 dnl Check for full debugging

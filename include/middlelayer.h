@@ -25,7 +25,7 @@
 
 /* Package/Local includes in same folder */
 #include "types.h"
-#include "sensors-interface-common.h"
+#include "sensors-interface-plugin.h" // includes ....common.h
 
 /* Gtk/Glib includes */
 #include <glib.h>

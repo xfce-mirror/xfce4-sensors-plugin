@@ -51,6 +51,9 @@
 #ifdef HAVE_ACPI
     #include <acpi.h>
 #endif
+#ifdef HAVE_NVIDIA
+	#include <nvidia.h>
+#endif	
 
 int
 initialize_all (GPtrArray **chips, gboolean *suppressmessage)
@@ -73,6 +76,10 @@ initialize_all (GPtrArray **chips, gboolean *suppressmessage)
     res += initialize_ACPI (*chips);
     #endif
 
+    #ifdef HAVE_NVIDIA
+    res += initialize_nvidia (*chips);
+	#endif
+	
     TRACE ("leaves initialize_all, chips->len=%d", (*chips)->len);
 
     return res;
@@ -111,6 +118,13 @@ refresh_chip (gpointer chip, gpointer data)
         }
     #endif
 
+	#ifdef HAVE_NVIDIA
+		if (c->type==GPU) {
+			g_ptr_array_foreach (c->chip_features, refresh_nvidia, NULL);
+		return;
+		}
+	#endif
+	
     TRACE ("leaves refresh_chip");
 }
 
@@ -205,6 +219,19 @@ sensor_get_value (t_chip *chip, int number, double *value, gboolean *suppressmes
             return -1;
         #endif
     }
+    if (chip->type==GPU ) {
+		#ifdef HAVE_NVIDIA
+			g_assert (number<chip->num_features);
+			feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, number);
+			g_assert (feature!=NULL);
+			refresh_nvidia ((gpointer) feature, NULL);
+			//*value = get_nvidia_value(feature->address);
+			*value = feature->raw_value;
+			return 0;
+		#else
+			return -1;
+		#endif
+	}
     else {
         feature = NULL;
         return -1;
