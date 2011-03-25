@@ -393,7 +393,7 @@ echo "                      and user member of the respective group)"
 fi
 
 if test x"$enable_netcat" = x"yes"; then
-echo "   netcat: $NETCAT_PATH on $NETCAT_HOST:$HDDTEMP_PORT"
+echo "   netcat for hddtemp: $NETCAT_PATH on $NETCAT_HOST:$HDDTEMP_PORT"
 fi
 
 if test x"$enable_libsensors" = x"yes"; then
@@ -403,7 +403,11 @@ if test x"$enable_procacpi" = x"yes"; then
 echo "*  /proc/acpi"
 fi
 if test x"$enable_sysfsacpi" = x"yes"; then
-echo "   /sys/class/power_supply"
+echo "*  /sys/class/power_supply"
+fi
+echo
+if test x"$enable_xnvctrl" = x"yes"; then
+echo "*  NVIDIA X CTRL"
 fi
 echo
 if test x"$LIBNOTIFY_FOUND" = x"yes"; then
