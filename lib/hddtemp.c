@@ -62,18 +62,18 @@
 #include <unistd.h>
 
 #ifdef HAVE_NETCAT
-#include "helpers.c"
+# include "helpers.c"
 # ifndef NETCAT_PATH
 #  define NETCAT_PATH "/bin/netcat"
 # endif
-
-# ifndef HDDTEMP_PORT
-#  define HDDTEMP_PORT 7634
-# endif
-
 # define DOUBLE_DELIMITER "||"
 # define SINGLE_DELIMITER "|"
 #endif
+
+#ifndef HDDTEMP_PORT
+# define HDDTEMP_PORT 7634
+#endif
+
 
 #define REPLY_MAX_SIZE 512
 
@@ -86,6 +86,9 @@ void notification_suppress_messages (NotifyNotification *n, gchar *action, gpoin
 void quick_message_notify (gchar *message);
 void quick_message (gchar *message);
 void read_disks_netcat (t_chip *chip);
+void read_disks_linux26 (t_chip *chip);
+int get_hddtemp_d_str (char *buffer, size_t bufsize);
+void read_disks_fallback (t_chip *chip);
 void remove_unmonitored_drives (t_chip *chip, gboolean *suppressmessage);
 void populate_detected_drives (t_chip *chip);
 
@@ -498,8 +501,7 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
 {
     gchar *standard_output=NULL, *standard_error=NULL;
     gchar *cmd_line=NULL, *msg_text=NULL;
-    char reply[REPLY_MAX_SIZE];
-    size_t read_size;
+
 #ifndef HAVE_LIBNOTIFY
     gchar *checktext = NULL;
 #endif
@@ -510,6 +512,8 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
 
 #ifdef HAVE_NETCAT
     gchar *tmp, *tmp2, *tmp3;
+		char reply[REPLY_MAX_SIZE];
+    size_t read_size;
 #endif
 
     if (suppressmessage!=NULL)

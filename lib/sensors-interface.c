@@ -175,6 +175,7 @@ add_type_box (GtkWidget * vbox, t_sensors_dialog * sd)
         gtk_combo_box_get_active(GTK_COMBO_BOX(sd->myComboBox));
 
     chip = g_ptr_array_index (sd->sensors->chips, gtk_combo_box_active);
+		DBG("index: %d, chip: %p\n", gtk_combo_box_active, chip);
 
     /* if (sd->sensors->num_sensorchips > 0)
         sd->mySensorLabel = gtk_label_new
@@ -191,8 +192,7 @@ add_type_box (GtkWidget * vbox, t_sensors_dialog * sd)
     gtk_misc_set_alignment (GTK_MISC (label), 0, 0.5);
     gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 0);
 
-    sd->mySensorLabel =
-            gtk_label_new (chip->description);
+    sd->mySensorLabel = gtk_label_new (chip->description);
 
     gtk_widget_show (sd->mySensorLabel);
     gtk_box_pack_start (GTK_BOX (hbox), sd->mySensorLabel, FALSE, FALSE, 0);
