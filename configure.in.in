@@ -242,7 +242,7 @@ if test x"$enable_xnvctrl" = x"yes"; then
     NVIDIA_LIBS="-lX11 -lXext -lXNVCtrl"
     enable_xnvctrl=yes
 AC_SUBST([NVIDIA_CFLAGS])
-AC_SUBST([NVIDIA_LDFLAGS])
+AC_SUBST([NVIDIA_LIBS])
 fi
 
 

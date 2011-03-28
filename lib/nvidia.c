@@ -105,7 +105,7 @@ double get_nvidia_value (int gpu) {
 
 	TRACE ("leaves get_nvidia_value for %d gpu", gpu);
 
-	return 1.d * temp;
+	return (double) (1.0 * temp);
 }
 
 void refresh_nvidia (gpointer chip_feature, gpointer data) {
