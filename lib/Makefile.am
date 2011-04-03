@@ -46,9 +46,7 @@ libxfce4sensors_la_SOURCES =										\
 libxfce4sensors_la_CFLAGS = 										\
 	@PLATFORM_CFLAGS@												\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"							\
-	@GTK_CFLAGS@													\
-	@GLIB_CFLAGS@													\
-	@LIBXFCEGUI4_CFLAGS@											\
+	@LIBXFCE4UI_CFLAGS@											\
 	@LIBXFCE4UTIL_CFLAGS@											\
 	@LIBXFCE4PANEL_CFLAGS@										\
 	@LIBSENSORS_CFLAGS@
@@ -61,9 +59,9 @@ if HAVE_LIBNOTIFY
 libxfce4sensors_la_CFLAGS += @LIBNOTIFY_CFLAGS@
 endif
 
-# @GTK_CFLAGS@ 														\
-# @GLIB_CFLAGS@ 													\
-#	@LIBXFCE4UTIL_CFLAGS@											\
+# @GTK_CFLAGS@ 														
+# @GLIB_CFLAGS@ 													
+#	@LIBXFCE4UTIL_CFLAGS@											
 #	@LIBXFCEGUI4_CFLAGS@
 
 libxfce4sensors_la_LDFLAGS = 										\
@@ -78,13 +76,14 @@ libxfce4sensors_la_LDFLAGS = 										\
 #	-module
 
 libxfce4sensors_la_LIBADD = 										\
-	@GTK_LIBS@														\
-	@GLIB_LIBS@														\
-	@LIBXFCE4UTIL_LIBS@												\
-	@LIBXFCEGUI4_LIBS@												\
+		@LIBXFCE4UTIL_LIBS@												\
+	@LIBXFCE4UI_LIBS@												\
 	@LIBXFCE4PANEL_LIBS@											\
 	@LIBSENSORS_LDFLAGS@											\
 	@LIBM@
+
+#@GTK_LIBS@														
+#@GLIB_LIBS@														
 
 if HAVE_NVIDIA
 libxfce4sensors_la_LIBADD += @NVIDIA_LIBS@
@@ -96,7 +95,6 @@ endif
 
 # @GTK_LIBS@ 														\
 #	@GLIB_LIBS@ 													\
-#	@LIBXFCE4UTIL_LIBS@												\
 #	@LIBXFCEGUI4_LIBS@
 
 #@SOLLIBS@
@@ -116,3 +114,4 @@ DISTCLEANFILES =
 ##
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = libxfce4sensors-1.0.pc
+

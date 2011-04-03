@@ -457,6 +457,8 @@ gtk_cpu_destroy (GtkObject *object)
 
   cpu = GTK_CPU(object);
   
+	/* gdk_gc_destroy(cpu->gc); */
+  
   if (cpu->text!=NULL)
   {
     g_free (cpu->text);

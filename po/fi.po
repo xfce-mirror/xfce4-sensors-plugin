@@ -8,26 +8,27 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-25 23:30+0100\n"
+"POT-Creation-Date: 2011-04-03 18:08+0200\n"
 "PO-Revision-Date: 2010-10-17 00:09+0300\n"
 "Last-Translator: Jari Rahkonen <jari.rahkonen@pp1.inet.fi>\n"
 "Language-Team: Finnish\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors-plugin.c:291 ../panel-plugin/sensors-plugin.c:388
-#: ../panel-plugin/sensors-plugin.c:970
+#: ../panel-plugin/sensors-plugin.c:293 ../panel-plugin/sensors-plugin.c:390
+#: ../panel-plugin/sensors-plugin.c:986
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Anturit</b></span>"
 
-#: ../panel-plugin/sensors-plugin.c:774
+#: ../panel-plugin/sensors-plugin.c:789
 msgid "No sensors selected!"
 msgstr "Antureita ei valittu!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:813
+#: ../panel-plugin/sensors-plugin.c:829
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -38,100 +39,100 @@ msgstr ""
 "Ilmeisesti anturin arvon lukeminen ei onnistunut.\n"
 "Sovellus ei välttämättä toimi oikein.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1684
+#: ../panel-plugin/sensors-plugin.c:1715
 msgid "UI style:"
 msgstr "Käyttöliittymän tyyli:"
 
-#: ../panel-plugin/sensors-plugin.c:1685
+#: ../panel-plugin/sensors-plugin.c:1716
 msgid "_text"
 msgstr "_Teksti"
 
-#: ../panel-plugin/sensors-plugin.c:1687
+#: ../panel-plugin/sensors-plugin.c:1718
 msgid "_progress bars"
 msgstr "_Palkit"
 
-#: ../panel-plugin/sensors-plugin.c:1689
+#: ../panel-plugin/sensors-plugin.c:1720
 msgid "_tachos"
 msgstr "_Analogimittarit"
 
-#: ../panel-plugin/sensors-plugin.c:1734
+#: ../panel-plugin/sensors-plugin.c:1765
 msgid "Show _labels"
 msgstr "Näytä ni_mikkeet"
 
-#: ../panel-plugin/sensors-plugin.c:1764
+#: ../panel-plugin/sensors-plugin.c:1795
 msgid "Show colored _bars"
 msgstr "Näytä _väritetyt palkit"
 
-#: ../panel-plugin/sensors-plugin.c:1792
+#: ../panel-plugin/sensors-plugin.c:1823
 msgid "_Show title"
 msgstr "_Näytä otsikko"
 
-#: ../panel-plugin/sensors-plugin.c:1816
+#: ../panel-plugin/sensors-plugin.c:1847
 msgid "_Number of text lines:"
 msgstr "Teksti_rivien määrä:"
 
-#: ../panel-plugin/sensors-plugin.c:1851
+#: ../panel-plugin/sensors-plugin.c:1882
 msgid "F_ont size:"
 msgstr "_Kirjasimen koko:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1858
+#: ../panel-plugin/sensors-plugin.c:1889
 msgid "x-small"
 msgstr "Hyvin pieni"
 
-#: ../panel-plugin/sensors-plugin.c:1859
+#: ../panel-plugin/sensors-plugin.c:1890
 msgid "small"
 msgstr "Pieni"
 
-#: ../panel-plugin/sensors-plugin.c:1860
+#: ../panel-plugin/sensors-plugin.c:1891
 msgid "medium"
 msgstr "Keskikokoinen"
 
-#: ../panel-plugin/sensors-plugin.c:1861
+#: ../panel-plugin/sensors-plugin.c:1892
 msgid "large"
 msgstr "Suuri"
 
-#: ../panel-plugin/sensors-plugin.c:1862
+#: ../panel-plugin/sensors-plugin.c:1893
 msgid "x-large"
 msgstr "Hyvin suuri"
 
-#: ../panel-plugin/sensors-plugin.c:1893
+#: ../panel-plugin/sensors-plugin.c:1924
 msgid "F_ont:"
 msgstr "_Kirjasin:"
 
-#: ../panel-plugin/sensors-plugin.c:1925
+#: ../panel-plugin/sensors-plugin.c:1958
 msgid "Show _Units"
 msgstr "Näytä _yksiköt"
 
-#: ../panel-plugin/sensors-plugin.c:1946
+#: ../panel-plugin/sensors-plugin.c:1979
 msgid "Small horizontal s_pacing"
 msgstr "Tiivistä _vaakasuunnassa"
 
-#: ../panel-plugin/sensors-plugin.c:1968
+#: ../panel-plugin/sensors-plugin.c:2001
 msgid "Suppress messages"
 msgstr "Älä näytä viestejä"
 
-#: ../panel-plugin/sensors-plugin.c:1993
+#: ../panel-plugin/sensors-plugin.c:2026
 msgid "E_xecute on double click:"
 msgstr ""
 "S_uorita, kun kuvaketta\n"
 "kaksoisnapsautetaan:"
 
-#: ../panel-plugin/sensors-plugin.c:2036
+#: ../panel-plugin/sensors-plugin.c:2069
 msgid "_View"
 msgstr "_Näytä"
 
-#: ../panel-plugin/sensors-plugin.c:2070
+#: ../panel-plugin/sensors-plugin.c:2103
 msgid "_Miscellaneous"
 msgstr "Se_kalaiset"
 
-#: ../panel-plugin/sensors-plugin.c:2143 ../panel-plugin/sensors-plugin.h:30
-#: ../lib/hddtemp.c:160
+#: ../panel-plugin/sensors-plugin.c:2176 ../panel-plugin/sensors-plugin.h:30
+#: ../lib/hddtemp.c:173
 msgid "Sensors Plugin"
 msgstr "Anturiliitännäinen"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2186
+#: ../panel-plugin/sensors-plugin.c:2219
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -145,8 +146,8 @@ msgstr ""
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:156 ../lib/configuration.c:341
-#: ../lib/configuration.c:348 ../lib/hddtemp.c:351 ../lib/hddtemp.c:397
+#: ../lib/configuration.c:159 ../lib/configuration.c:348
+#: ../lib/configuration.c:355 ../lib/hddtemp.c:354 ../lib/hddtemp.c:400
 msgid "Hard disks"
 msgstr "Kiintolevyt"
 
@@ -161,19 +162,17 @@ msgstr "ACPI"
 msgid "ACPI v%s zones"
 msgstr "ACPI versio %s vyöhykkeet"
 
-#: ../lib/acpi.c:638
+#. who knows, if we obtain non-NULL version at all...
+#. || g_strisempty(version))
+#: ../lib/acpi.c:660
 msgid "<Unknown>"
 msgstr "<Tuntematon>"
 
-#: ../lib/hddtemp.c:396
+#: ../lib/hddtemp.c:399
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "S.M.A.R.T. -kiintolevylämpötilat"
 
-#: ../lib/hddtemp.c:473
-msgid "No concrete error detected.\n"
-msgstr "Selkeää virhettä ei havaittu.\n"
-
-#: ../lib/hddtemp.c:526
+#: ../lib/hddtemp.c:589
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is "
@@ -200,11 +199,11 @@ msgstr ""
 "%s\n"
 "ja palautti arvon %d.\n"
 
-#: ../lib/hddtemp.c:542 ../lib/hddtemp.c:572
+#: ../lib/hddtemp.c:605 ../lib/hddtemp.c:635
 msgid "Suppress this message in future"
 msgstr "Älä näytä tätä viestiä jatkossa"
 
-#: ../lib/hddtemp.c:566
+#: ../lib/hddtemp.c:629
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
@@ -217,7 +216,7 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:638 ../lib/sensors-interface-common.c:144
+#: ../lib/hddtemp.c:704 ../lib/sensors-interface-common.c:144
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -247,7 +246,7 @@ msgstr ""
 msgid "Sensors t_ype:"
 msgstr "Antureiden _tyyppi:"
 
-#: ../lib/sensors-interface.c:189
+#: ../lib/sensors-interface.c:190
 msgid "Description:"
 msgstr "Kuvaus:"
 
@@ -343,10 +342,11 @@ msgstr ""
 "licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your sensors and ACPI.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk "
+"temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -365,7 +365,7 @@ msgstr ""
 "  -l, --license Näyttää lisenssitiedot.\n"
 "  -V, --version Näyttää versiotiedot.\n"
 
-#: ../src/main.c:81
+#: ../src/main.c:82
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Xfce4 Anturit %s\n"
@@ -396,12 +396,13 @@ msgstr ""
 "Sovellus ei välttämättä toimi oikein.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
-msgid "Sensor Viewer"
-msgstr "Anturien näyttäjä"
+#, fuzzy
+msgid "Sensor Values Viewer"
+msgstr "Anturien arvojen näyttäjä"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
-msgid "Sensors Values Viewer"
-msgstr "Anturien arvojen näyttäjä"
+msgid "Sensor Viewer"
+msgstr "Anturien näyttäjä"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
@@ -411,3 +412,6 @@ msgstr "Näyttää laiteanturien arvot"
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "Anturiliitännäinen"
+
+#~ msgid "No concrete error detected.\n"
+#~ msgstr "Selkeää virhettä ei havaittu.\n"

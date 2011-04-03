@@ -62,7 +62,8 @@ void
 print_usage (void)
 {
     printf (_("Xfce4 Sensors %s\n"
-                      "Displays information about your sensors and ACPI.\n"
+                      "Displays information about your hardware sensors, ACPI "
+											"status, harddisk temperatures and Nvidia GPU's temperature.\n"
                       "Synopsis: \n"
                       "  xfce4-sensors options\n"
                       "where options are one or more of the following:\n"
@@ -103,11 +104,13 @@ initialize_sensors_struct (void)
     return sd;
 }
 
+
 static void
 on_window_destroy_event (GtkWidget *widget, GdkEvent *event, gpointer user_data)
 {
   DBG("on_window_destroy_event\n");
 }
+
 
 int
 main (int argc, char **argv)
@@ -168,3 +171,4 @@ main (int argc, char **argv)
 
     return 0;
 }
+

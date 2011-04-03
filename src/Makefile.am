@@ -27,12 +27,13 @@ xfce4_sensors_CFLAGS = \
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\" \
 	@LIBSENSORS_CFLAGS@	\
 	@LIBXFCE4UTIL_CFLAGS@ \
-	@LIBXFCEGUI4_CFLAGS@ \
+	@LIBXFCE4UI_CFLAGS@ \
 	@LIBXFCE4PANEL_CFLAGS@
 
 # @GTK_CFLAGS@ 	\
 # @GLIB_CFLAGS@ \
 # @LIBXFCE4PANEL_CFLAGS@
+# @LIBXFCEGUI4_CFLAGS@ 
 
 xfce4_sensors_LDFLAGS = \
 	--no-undefined		\
@@ -41,14 +42,15 @@ xfce4_sensors_LDFLAGS = \
 xfce4_sensors_LDADD = \
 	$(top_builddir)/lib/libxfce4sensors.la \
 	@LIBSENSORS_LDFLAGS@ \
+	@LIBXFCE4UI_LIBS@	\
 	@LIBXFCE4UTIL_LIBS@	\
-	@LIBXFCEGUI4_LIBS@ 											\
 	@LIBM@
 
 # @GTK_LIBS@ \
 # @GLIB_LIBS@ \
 # -L/usr/local/lib/xfce4/modules/ -L$(top_builddir)/lib -lxfce4sensors
 # @LIBXFCE4PANEL_LIBS@
+#@LIBXFCEGUI4_LIBS@ 											
 
 xfce4_sensors_DEPENDENCIES = \
 	$(top_builddir)/lib/libxfce4sensors.la

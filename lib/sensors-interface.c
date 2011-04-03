@@ -140,7 +140,7 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale, t_senso
                                 //3, maxval,
                                  //-1);
         } /* end if sensors-valid */
-        /* g_free(iter); ??? */
+        /* gtk_tree_iter_free(iter); */
     }
 
     TRACE ("leaves fill_gtkTreeStore");

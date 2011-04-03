@@ -40,7 +40,8 @@
 
 /* Xfce includes */
 #include <libxfce4util/libxfce4util.h>
-#include <libxfcegui4/libxfcegui4.h>
+//#include <libxfcegui4/libxfcegui4.h>
+#include <libxfce4ui/libxfce4ui.h>
 #include <libxfce4panel/xfce-panel-plugin.h>
 
 /* Package includes */
@@ -1021,7 +1022,8 @@ execute_command (GtkWidget *widget, GdkEventButton *event, gpointer data)
 
         g_return_val_if_fail ( sensors->exec_command, FALSE);
 
-        xfce_exec (sensors->command_name, FALSE, FALSE, NULL);
+				// screen NULL, command, terminal=no, startup=yes, error=NULL
+        xfce_spawn_command_line_on_screen (NULL, sensors->command_name, FALSE, TRUE, NULL);
 
         TRACE ("leaves execute_command with TRUE");
 
@@ -1081,6 +1083,9 @@ sensors_free (XfcePanelPlugin *plugin, t_sensors *sensors)
     g_ptr_array_free (sensors->chips, TRUE);
 
     g_free (sensors->plugin_config_file);
+    g_free (sensors->command_name);
+    g_free (sensors->font);
+    g_free (sensors->font_size);
     g_free (sensors);
 
     TRACE ("leaves sensors_free");
@@ -2349,3 +2354,4 @@ sensors_plugin_construct (XfcePanelPlugin *plugin)
 }
 
 XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (sensors_plugin_construct);
+
