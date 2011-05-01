@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Nuno Miguel <nunis@netcabo.pt>, 2007-2010.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
@@ -11,10 +11,10 @@ msgstr ""
 "PO-Revision-Date: 2010-06-03 16:08+0100\n"
 "Last-Translator: Nuno Miguel <nunis@netcabo.pt>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 
 #: ../panel-plugin/sensors-plugin.c:293 ../panel-plugin/sensors-plugin.c:390
 #: ../panel-plugin/sensors-plugin.c:986
@@ -74,7 +74,8 @@ msgstr "_Número de linhas de texto:"
 msgid "F_ont size:"
 msgstr "Tamanho de f_onte:"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1889
 msgid "x-small"
 msgstr "x-pequeno"
@@ -130,14 +131,8 @@ msgstr "\"Plug-in\" Sensores"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2219
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field."
-msgstr ""
-"Pode mudar algumas propriedades como: nome, cores, valores min/max se fizer "
-"duplo clique no item, editar o conteúdo e premindo \"Return\" ou seleccionar "
-"um campo diferente."
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
+msgstr "Pode mudar algumas propriedades como: nome, cores, valores min/max se fizer duplo clique no item, editar o conteúdo e premindo \"Return\" ou seleccionar um campo diferente."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -153,7 +148,8 @@ msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
@@ -172,23 +168,17 @@ msgstr "Temperatura do disco rígido S.M.A.R.T."
 #: ../lib/hddtemp.c:589
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" não foi executado correctamente, apesar de ser executável. "
-"Provavelmente, o disco requer privilégios de \"root\" para ler a temperatura "
-"e \"hddtemp\" não está definido como tal.\n"
+"\"hddtemp\" não foi executado correctamente, apesar de ser executável. Provavelmente, o disco requer privilégios de \"root\" para ler a temperatura e \"hddtemp\" não está definido como tal.\n"
 "\n"
-"Uma maneira fácil mas incorrecta é executar \"chmod u+s %s\" como \"root\" e "
-"reiniciar este \"plug-in\" ou o painel.\n"
+"Uma maneira fácil mas incorrecta é executar \"chmod u+s %s\" como \"root\" e reiniciar este \"plug-in\" ou o painel.\n"
 "\n"
 "A invocação de \"%s\" deu o seguinte erro:\n"
 "%s\n"
@@ -208,7 +198,8 @@ msgstr ""
 "%s"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
 #. } else { // Celsius
 #. Celsius
 #: ../lib/hddtemp.c:704 ../lib/sensors-interface-common.c:144
@@ -326,22 +317,17 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
 "Xfce4 Sensors %s\n"
 "Este programa é disponibilizado nos termos da GPL v2.\n"
-"O texto da licença pode ser encontrado no arquivo fonte do programa, em /usr/"
-"share/apps/LICENSES/GPL_V2 ou em http://www.gnu.org/licenses/old-licenses/"
-"gpl-2.0.txt\n"
+"O texto da licença pode ser encontrado no arquivo fonte do programa, em /usr/share/apps/LICENSES/GPL_V2 ou em http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk "
-"temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -351,14 +337,14 @@ msgid ""
 "\n"
 "This program is published under the GPL v2.\n"
 msgstr ""
-"Sensores Xfce4 %s\n"
-"Mostra informações sobre os seus sensores e ACPI.\n"
-"Resumo: \n"
+"Xfce4 Sensors %s\n"
+"Exibe a s informações sobre os sensores do seu equipamento, estado ACPI, temperatura do disco e do GPU Nvidia.\n"
+"Sinopse: \n"
 "  xfce4-sensors opções\n"
-"onde opções são uma ou mais das seguintes:\n"
-"  -h, --help Mostra este diálogo de ajuda.\n"
-"  -l, --license Mostra informações de licença.\n"
-"  -V, --version Mostra informações da versão.\n"
+"em que opções são uma ou mais das seguintes:\n"
+"  -h, --help    Imprime o diálogo de ajuda.\n"
+"  -l, --license Imprime a informação da licença.\n"
+"  -V, --version Imprime a informação da versão.\n"
 "\n"
 "Este programa é disponibilizado nos termos da GPL v2.\n"
 
@@ -393,9 +379,8 @@ msgstr ""
 "Não é possível assegurar o procedimento correcto.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
-#, fuzzy
 msgid "Sensor Values Viewer"
-msgstr "Visualizador de valores do Sensores"
+msgstr "Sensor - Visualizador de valores"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
 msgid "Sensor Viewer"
