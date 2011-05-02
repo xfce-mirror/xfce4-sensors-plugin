@@ -123,7 +123,7 @@ void refresh_nvidia (gpointer chip_feature, gpointer data) {
 	if (value == ZERO_KELVIN) return; 
 
 	g_free (cf -> formatted_value);
-	cf -> formatted_value = g_strdup_printf(_("%ld °C"), (long int) value);
+	cf -> formatted_value = g_strdup_printf(_("%.1f °C"), value);
 	cf -> raw_value = value;
 
 	TRACE ("leaves refresh_nvidia");
