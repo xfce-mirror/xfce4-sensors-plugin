@@ -26,7 +26,6 @@ xfce4_sensors_CFLAGS = \
 	@PLATFORM_CFLAGS@ \
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\" \
 	@LIBSENSORS_CFLAGS@	\
-	@LIBXFCE4UTIL_CFLAGS@ \
 	@LIBXFCE4UI_CFLAGS@ \
 	@LIBXFCE4PANEL_CFLAGS@
 
@@ -43,7 +42,6 @@ xfce4_sensors_LDADD = \
 	$(top_builddir)/lib/libxfce4sensors.la \
 	@LIBSENSORS_LDFLAGS@ \
 	@LIBXFCE4UI_LIBS@	\
-	@LIBXFCE4UTIL_LIBS@	\
 	@LIBM@
 
 # @GTK_LIBS@ \

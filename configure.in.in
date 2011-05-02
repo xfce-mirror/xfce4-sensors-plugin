@@ -249,9 +249,6 @@ AC_SUBST([NVIDIA_LIBS])
 fi
 
 
-
-
-
 AM_CONDITIONAL([HAVE_ACPI], [test x$enable_procacpi = x"yes"])
 AM_CONDITIONAL([HAVE_SYSFS_ACPI], [test x$enable_sysfsacpi = x"yes"])
 AM_CONDITIONAL([HAVE_NVIDIA], [test x$enable_xnvctrl = x"yes"])
@@ -345,7 +342,7 @@ XDT_CHECK_OPTIONAL_PACKAGE([LIBNOTIFY],
 dnl **************************************
 dnl *** Check for Xfce packages ***
 dnl **************************************
-XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.4.0])
+dnl XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.4.0])
 XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-1], [4.6.0])
 
 dnl configure the panel plugin

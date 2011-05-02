@@ -1,5 +1,3 @@
-# $Id$
-
 INCLUDES =														  	\
 	-I$(top_srcdir)/include
 
@@ -38,16 +36,10 @@ libxfce4sensors_la_SOURCES =										\
 	$(ACPI_SOURCES) \
 	$(NVIDIA_SOURCES)
 
-# configuration.h													\
-# sensors-plugin.h													\
-# types.h															\
-# middlelayer.h
-
 libxfce4sensors_la_CFLAGS = 										\
 	@PLATFORM_CFLAGS@												\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"							\
 	@LIBXFCE4UI_CFLAGS@											\
-	@LIBXFCE4UTIL_CFLAGS@											\
 	@LIBXFCE4PANEL_CFLAGS@										\
 	@LIBSENSORS_CFLAGS@
 
@@ -59,11 +51,6 @@ if HAVE_LIBNOTIFY
 libxfce4sensors_la_CFLAGS += @LIBNOTIFY_CFLAGS@
 endif
 
-# @GTK_CFLAGS@ 														
-# @GLIB_CFLAGS@ 													
-#	@LIBXFCE4UTIL_CFLAGS@											
-#	@LIBXFCEGUI4_CFLAGS@
-
 libxfce4sensors_la_LDFLAGS = 										\
 	-export-dynamic													\
 	-export-symbols-regex "^[^_].*"									\
@@ -71,19 +58,11 @@ libxfce4sensors_la_LDFLAGS = 										\
 
 #	@PLATFORM_LDFLAGS@
 
-#	-export-dynamic 												\
-#	-avoid-version 													\
-#	-module
-
 libxfce4sensors_la_LIBADD = 										\
-		@LIBXFCE4UTIL_LIBS@												\
-	@LIBXFCE4UI_LIBS@												\
+	@LIBXFCE4UI_LIBS@											\
 	@LIBXFCE4PANEL_LIBS@											\
 	@LIBSENSORS_LDFLAGS@											\
 	@LIBM@
-
-#@GTK_LIBS@														
-#@GLIB_LIBS@														
 
 if HAVE_NVIDIA
 libxfce4sensors_la_LIBADD += @NVIDIA_LIBS@
@@ -92,17 +71,6 @@ endif
 if HAVE_LIBNOTIFY
 libxfce4sensors_la_LIBADD += @LIBNOTIFY_LIBS@
 endif
-
-# @GTK_LIBS@ 														\
-#	@GLIB_LIBS@ 													\
-#	@LIBXFCEGUI4_LIBS@
-
-#@SOLLIBS@
-
-# -fPIC -shared
-
-#	-DG_LOG_DOMAIN=\"xfce4-sensors-plugin\"						 	\
-#	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
 
 EXTRA_DIST =														\
 	helpers.c
