@@ -3,8 +3,8 @@ dnl configure.in.in
 dnl
 dnl xfce4-sensors-plugin - Sensors plugin for xfce4-panel
 dnl
-dnl 2003,2004 Benedikt Meurer <benny@xfce.org>
-dnl 2007 Benedikt Meurer <benny@xfce.org>, Fabian Nowak <timystery@arcor.de>
+dnl 2003,2004, 2007 Benedikt Meurer <benny@xfce.org>
+dnl 2007-2011 Fabian Nowak <timystery@arcor.de>
 dnl
 
 m4_define([libxfce4sensors_verinfo], [1:0:1])
@@ -36,7 +36,10 @@ dnl Check for basic programs
 AC_PROG_CC
 AC_PROG_LD
 AC_PROG_INSTALL
-AC_PROG_LIBTOOL
+
+LT_PREREQ([2.2.6])
+LT_INIT([disable-static])
+dnl AC_PROG_LIBTOOL
 AC_PROG_INTLTOOL
 
 dnl ****************************

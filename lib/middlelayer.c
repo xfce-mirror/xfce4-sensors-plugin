@@ -181,7 +181,9 @@ int
 sensor_get_value (t_chip *chip, int number, double *value, gboolean *suppressmessage)
 {
     t_chipfeature *feature;
+		#ifdef HAVE_HDDTEMP
     gboolean *suppress = suppressmessage;
+		#endif
     /* TRACE ("enters sensor_get_value %d", number); */
 
     g_assert (chip!=NULL);

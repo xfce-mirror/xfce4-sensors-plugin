@@ -43,7 +43,7 @@ sensors_new (XfcePanelPlugin *plugin, gchar *plugin_config_file)
 
     TRACE ("enters sensors_new");
 
-    sensors = g_new (t_sensors, 1);
+    sensors = g_new0 (t_sensors, 1);
     sensors->plugin_config_file = plugin_config_file; /* important as we check against NULL frequently */
 
     /* init xfce sensors stuff width default values */
@@ -69,6 +69,7 @@ sensors_new (XfcePanelPlugin *plugin, gchar *plugin_config_file)
 
         chipfeature->address = 0;
         chip->sensorId = g_strdup(_("No sensors found!"));
+        chip->description = g_strdup(_("No sensors found!"));
         chip->num_features = 1;
         chipfeature->color = g_strdup("#000000");
         /* g_free (chipfeature->name); */
