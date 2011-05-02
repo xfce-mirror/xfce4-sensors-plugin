@@ -11,9 +11,12 @@ TODO
 
 - decrease size of entries in min/max value fields... would have to change renderer for double values...
 
+- find reason why plugin crashes on exit
 
 Known bugs or user requests
 ---------------------------
+- enumerate sensors from libsensors in an arbitrary fashion so that the order in which libsensors delivers them does no longer matter
+
 - common settings for both application and plugin wrt. sensor names etc.
 
 Plans

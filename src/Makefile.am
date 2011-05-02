@@ -36,7 +36,7 @@ xfce4_sensors_CFLAGS = \
 # @LIBXFCEGUI4_CFLAGS@ 
 
 xfce4_sensors_LDFLAGS = \
-	--no-undefined		\
+	-Wl,--no-undefined		\
 	@PLATFORM_LDFLAGS@
 
 xfce4_sensors_LDADD = \

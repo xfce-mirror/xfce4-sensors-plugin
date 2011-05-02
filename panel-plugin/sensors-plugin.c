@@ -859,6 +859,7 @@ sensors_create_tooltip (gpointer data)
     /* #if GTK_VERSION < 2.11 */
     gtk_tooltips_set_tip (tooltips, GTK_WIDGET(sensors->eventbox),
                           myToolTipText, NULL);
+		DBG("tooltip text: %s.\n", myToolTipText);
     TRACE ("freeing myToolTipText");
     g_free (myToolTipText);
 

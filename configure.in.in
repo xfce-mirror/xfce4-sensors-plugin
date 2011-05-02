@@ -7,7 +7,7 @@ dnl 2003,2004 Benedikt Meurer <benny@xfce.org>
 dnl 2007 Benedikt Meurer <benny@xfce.org>, Fabian Nowak <timystery@arcor.de>
 dnl
 
-m4_define([libxfce4sensors_verinfo], [1:0:0])
+m4_define([libxfce4sensors_verinfo], [1:0:1])
 
 m4_define([sensors_version_major], [4])
 m4_define([sensors_version_minor], [6])
