@@ -47,8 +47,11 @@ if HAVE_NVIDIA
 libxfce4sensors_la_CFLAGS += @NVIDIA_CFLAGS@
 endif
 
-if HAVE_LIBNOTIFY
-libxfce4sensors_la_CFLAGS += @LIBNOTIFY_CFLAGS@
+if HAVE_LIBNOTIFY4
+libxfce4sensors_la_CFLAGS += @LIBNOTIFY4_CFLAGS@
+endif
+if HAVE_LIBNOTIFY7
+libxfce4sensors_la_CFLAGS += @LIBNOTIFY7_CFLAGS@
 endif
 
 libxfce4sensors_la_LDFLAGS = 										\
@@ -68,8 +71,11 @@ if HAVE_NVIDIA
 libxfce4sensors_la_LIBADD += @NVIDIA_LIBS@
 endif
 
-if HAVE_LIBNOTIFY
-libxfce4sensors_la_LIBADD += @LIBNOTIFY_LIBS@
+if HAVE_LIBNOTIFY4 
+libxfce4sensors_la_LIBADD += @LIBNOTIFY4_LIBS@
+endif
+if HAVE_LIBNOTIFY7 
+libxfce4sensors_la_LIBADD += @LIBNOTIFY7_LIBS@
 endif
 
 EXTRA_DIST =														\

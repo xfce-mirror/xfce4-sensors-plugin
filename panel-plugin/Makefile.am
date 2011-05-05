@@ -1,5 +1,3 @@
-# $Id$
-
 plugindir = $(libexecdir)/xfce4/panel-plugins
 plugin_PROGRAMS = xfce4-sensors-plugin
 
@@ -7,16 +5,9 @@ INCLUDES = 			\
 	-I$(top_srcdir)/include 	\
 	-I$(top_srcdir)/lib
 
-#	-DG_LOG_DOMAIN=\"xfce4-sensors-plugin\"						 \
-#	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
-
 xfce4_sensors_plugin_SOURCES =									   \
 	sensors-plugin.c															\
 	sensors-plugin.h
-
-# types.h
-# middlelayer.c													\
-# middlelayer.h
 
 xfce4_sensors_plugin_CFLAGS = \
 	@LIBXFCE4PANEL_CFLAGS@										   \
@@ -25,20 +16,13 @@ xfce4_sensors_plugin_CFLAGS = \
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"							\
 	@LIBSENSORS_CFLAGS@
 
-#	@GTK_CFLAGS@ \
-# @GLIB_CFLAGS@
-
-
 xfce4_sensors_plugin_LDADD = 							\
 	$(top_builddir)/lib/libxfce4sensors.la		\
 	@LIBXFCE4PANEL_LIBS@											\
 	@LIBXFCE4UI_LIBS@												\
 	@SOLLIBS@																	\
 	@LIBSENSORS_LDFLAGS@											\
-	@LIBM@
-
-#	@GTK_LIBS@ \
-# @GLIB_LIBS@
+	@LIBM@ 
 
 # .desktop file
 #

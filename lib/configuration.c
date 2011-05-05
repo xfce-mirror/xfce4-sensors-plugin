@@ -213,7 +213,7 @@ sensors_read_general_config (XfceRc *rc, t_sensors *sensors)
         }
         
         if ((value = xfce_rc_read_entry (rc, "Font", NULL)) && *value) {
-            font = g_strdup(value);
+            font = g_strdup(value); // in cpu.h for the tachometers
         }
 
         sensors->font_size_numerical = xfce_rc_read_int_entry (rc,

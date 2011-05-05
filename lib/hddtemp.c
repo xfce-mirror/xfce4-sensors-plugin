@@ -45,7 +45,7 @@
 #include <gtk/gtkstock.h> */
 
 /* Global includes */
-#ifdef HAVE_LIBNOTIFY
+#ifdef HAVE_LIBNOTIFY4 || HAVE_LIBNOTIFY7
 #include <libnotify/notify.h>
 #endif
 /* #include <stdio.h> */
@@ -79,7 +79,10 @@
 
 
 /* forward declaration for GCC 4.3 -Wall */
-#ifdef HAVE_LIBNOTIFY
+#ifdef HAVE_LIBNOTIFY4
+void notification_suppress_messages (NotifyNotification *n, gchar *action, gpointer *data);
+#endif
+#ifdef HAVE_LIBNOTIFY7
 void notification_suppress_messages (NotifyNotification *n, gchar *action, gpointer *data);
 #endif
 
@@ -92,7 +95,7 @@ void read_disks_fallback (t_chip *chip);
 void remove_unmonitored_drives (t_chip *chip, gboolean *suppressmessage);
 void populate_detected_drives (t_chip *chip);
 
-#ifdef HAVE_LIBNOTIFY
+#ifdef HAVE_LIBNOTIFY4 || HAVE_LIBNOTIFY7
 void
 notification_suppress_messages (NotifyNotification *n, gchar *action, gpointer *data)
 {
@@ -114,8 +117,12 @@ void quick_message_notify (gchar *message)
 
     if (!notify_is_initted())
         notify_init(PACKAGE); /* NOTIFY_APPNAME */
-
+#ifdef HAVE_LIBNOTIFY4
     nn = notify_notification_new (summary, body, icon, NULL);
+#endif
+#ifdef HAVE_LIBNOTIFY7
+    nn = notify_notification_new (summary, body, icon);
+#endif
     /* FIXME: Use channels or propagate private object or use static global variable */
     //notify_notification_add_action (nn,
                             //"confirmed",
@@ -192,7 +199,7 @@ gboolean quick_message_with_checkbox (gchar *message, gchar *checkboxtext) {
 
 void quick_message (gchar *message)
 {
-#ifdef HAVE_LIBNOTIFY
+#ifdef HAVE_LIBNOTIFY4 || HAVE_LIBNOTIFY7
     quick_message_notify (message);
 #else
     quick_message_dialog (message);
@@ -502,7 +509,7 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
     gchar *standard_output=NULL, *standard_error=NULL;
     gchar *cmd_line=NULL, *msg_text=NULL;
 
-#ifndef HAVE_LIBNOTIFY
+#ifndef HAVE_LIBNOTIFY4 || HAVE_LIBNOTIFY7
     gchar *checktext = NULL;
 #endif
     gint exit_status=0;
@@ -597,7 +604,7 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
                             "Calling \"%s\" gave the following error:\n%s\nwith a return value of %d.\n"),
                             PATH_HDDTEMP, cmd_line, standard_error, exit_status);
 
-#ifdef HAVE_LIBNOTIFY
+#ifdef HAVE_LIBNOTIFY4 || HAVE_LIBNOTIFY7
             //msg_text = g_strconcat(msg_text, _("\nYou can disable these notifications in the settings dialog.\n");
             quick_message_notify (msg_text);
             nevershowagain = FALSE;
@@ -628,7 +635,7 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
         if (!nevershowagain) {
             msg_text = g_strdup_printf (_("An error occurred when executing"
                                       " \"%s\":\n%s"), cmd_line, error->message);
-#ifdef HAVE_LIBNOTIFY
+#ifdef HAVE_LIBNOTIFY4 || HAVE_LIBNOTIFY7
             quick_message_notify (msg_text);
             nevershowagain = FALSE;
 #else
@@ -661,7 +668,7 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
     g_free (standard_output);
     g_free (standard_error);
     g_free (msg_text);
-#ifndef HAVE_LIBNOTIFY
+#ifndef HAVE_LIBNOTIFY4 || HAVE_LIBNOTIFY7
     g_free (checktext);
 #endif
 

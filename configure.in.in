@@ -334,11 +334,15 @@ dnl **************************************
 dnl *** Check for notification library ***
 dnl **************************************
 dnl XDT_CHECK_PACKAGE([LIBNOTIFY], [libnotify], [0.4.0])
-XDT_CHECK_OPTIONAL_PACKAGE([LIBNOTIFY],
+XDT_CHECK_OPTIONAL_PACKAGE([LIBNOTIFY4],
                            [libnotify],
                            [0.4], [notification],
-                           [notification message library])
+                           [notification message library < 0.7])
 
+XDT_CHECK_OPTIONAL_PACKAGE([LIBNOTIFY7],
+                           [libnotify],
+                           [0.7], [notification],
+                           [notification message library >= 0.7])
 
 dnl **************************************
 dnl *** Check for Xfce packages ***
@@ -410,8 +414,12 @@ if test x"$enable_xnvctrl" = x"yes"; then
 echo "*  NVIDIA X CTRL"
 fi
 echo
-if test x"$LIBNOTIFY_FOUND" = x"yes"; then
-echo "Support for libnotify will be built in."
+if test x"$LIBNOTIFY4_FOUND" = x"yes"; then
+echo "Support for libnotify < 0.7 will be built in."
+echo
+fi
+if test x"$LIBNOTIFY7_FOUND" = x"yes"; then
+echo "Support for libnotify >= 0.7 will be built in."
 echo
 fi
 if test x"$enable_debug" = x"yes"; then

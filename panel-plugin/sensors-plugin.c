@@ -1085,7 +1085,9 @@ sensors_free (XfcePanelPlugin *plugin, t_sensors *sensors)
 
     g_free (sensors->plugin_config_file);
     g_free (sensors->command_name);
+/*
     g_free (sensors->font);
+*/
     g_free (sensors->font_size);
     g_free (sensors);
 
