@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-03 18:08+0200\n"
+"POT-Creation-Date: 2011-05-05 15:15+0200\n"
 "PO-Revision-Date: 2005-12-11 02:20+0900\n"
 "Last-Translator: ByungHyun Choi <byunghyun.choi@debianusers.org>\n"
 "Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge."
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../panel-plugin/sensors-plugin.c:293 ../panel-plugin/sensors-plugin.c:390
-#: ../panel-plugin/sensors-plugin.c:986
+#: ../panel-plugin/sensors-plugin.c:987
 #, fuzzy
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\" size=\"%s\"><b>센서</b></span> \n"
@@ -41,103 +41,103 @@ msgstr ""
 "센서의 기능과 측정치를 읽는 도중 문제가 생긴 것 같습니다.\n"
 "따라서 정상적인 동작을 보장할 수 없습니다.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1715
+#: ../panel-plugin/sensors-plugin.c:1716
 #, fuzzy
 msgid "UI style:"
 msgstr "UI 스타일(_U):"
 
-#: ../panel-plugin/sensors-plugin.c:1716
+#: ../panel-plugin/sensors-plugin.c:1717
 msgid "_text"
 msgstr "글자(_t)"
 
-#: ../panel-plugin/sensors-plugin.c:1718
+#: ../panel-plugin/sensors-plugin.c:1719
 msgid "_progress bars"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1720
+#: ../panel-plugin/sensors-plugin.c:1721
 msgid "_tachos"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1765
+#: ../panel-plugin/sensors-plugin.c:1766
 #, fuzzy
 msgid "Show _labels"
 msgstr "이름 보여주기(_S)"
 
-#: ../panel-plugin/sensors-plugin.c:1795
+#: ../panel-plugin/sensors-plugin.c:1796
 msgid "Show colored _bars"
 msgstr "색깔있는 막대 보이기(_b)"
 
-#: ../panel-plugin/sensors-plugin.c:1823
+#: ../panel-plugin/sensors-plugin.c:1824
 msgid "_Show title"
 msgstr "이름 보여주기(_S)"
 
-#: ../panel-plugin/sensors-plugin.c:1847
+#: ../panel-plugin/sensors-plugin.c:1848
 msgid "_Number of text lines:"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1882
+#: ../panel-plugin/sensors-plugin.c:1883
 msgid "F_ont size:"
 msgstr "글꼴 크기(_o):"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1889
+#: ../panel-plugin/sensors-plugin.c:1890
 msgid "x-small"
 msgstr "아주 작게"
 
-#: ../panel-plugin/sensors-plugin.c:1890
+#: ../panel-plugin/sensors-plugin.c:1891
 msgid "small"
 msgstr "작게"
 
-#: ../panel-plugin/sensors-plugin.c:1891
+#: ../panel-plugin/sensors-plugin.c:1892
 msgid "medium"
 msgstr "중간"
 
-#: ../panel-plugin/sensors-plugin.c:1892
+#: ../panel-plugin/sensors-plugin.c:1893
 msgid "large"
 msgstr "크게"
 
-#: ../panel-plugin/sensors-plugin.c:1893
+#: ../panel-plugin/sensors-plugin.c:1894
 msgid "x-large"
 msgstr "아주 크게"
 
-#: ../panel-plugin/sensors-plugin.c:1924
+#: ../panel-plugin/sensors-plugin.c:1925
 #, fuzzy
 msgid "F_ont:"
 msgstr "글꼴 크기(_o):"
 
-#: ../panel-plugin/sensors-plugin.c:1958
+#: ../panel-plugin/sensors-plugin.c:1959
 #, fuzzy
 msgid "Show _Units"
 msgstr "이름 보여주기(_S)"
 
-#: ../panel-plugin/sensors-plugin.c:1979
+#: ../panel-plugin/sensors-plugin.c:1980
 msgid "Small horizontal s_pacing"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:2001
+#: ../panel-plugin/sensors-plugin.c:2002
 msgid "Suppress messages"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:2026
+#: ../panel-plugin/sensors-plugin.c:2027
 msgid "E_xecute on double click:"
 msgstr "따닥(더블클릭)하면 실행합니다(_x):"
 
-#: ../panel-plugin/sensors-plugin.c:2069
+#: ../panel-plugin/sensors-plugin.c:2070
 msgid "_View"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:2103
+#: ../panel-plugin/sensors-plugin.c:2104
 #, fuzzy
 msgid "_Miscellaneous"
 msgstr "<b>기타</b>"
 
-#: ../panel-plugin/sensors-plugin.c:2176 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2177 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:173
 msgid "Sensors Plugin"
 msgstr "센서 플러그인"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2219
+#: ../panel-plugin/sensors-plugin.c:2220
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -205,7 +205,7 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:704 ../lib/sensors-interface-common.c:144
+#: ../lib/hddtemp.c:704 ../lib/sensors-interface-common.c:145
 #, c-format
 msgid "%.1f °C"
 msgstr ""
@@ -291,34 +291,34 @@ msgstr "화씨(_F)"
 msgid "_Sensors"
 msgstr "<b>센서</b>"
 
-#: ../lib/sensors-interface-common.c:71
+#: ../lib/sensors-interface-common.c:71 ../lib/sensors-interface-common.c:72
 msgid "No sensors found!"
 msgstr "센서를 못 찾았습니다!"
 
-#: ../lib/sensors-interface-common.c:141
+#: ../lib/sensors-interface-common.c:142
 #, c-format
 msgid "%.1f °F"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:149
+#: ../lib/sensors-interface-common.c:150
 #, c-format
 msgid "%+.2f V"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:153
+#: ../lib/sensors-interface-common.c:154
 #, fuzzy, c-format
 msgid "%.0f mWh"
 msgstr "%5.0f RPM"
 
-#: ../lib/sensors-interface-common.c:158
+#: ../lib/sensors-interface-common.c:159
 msgid "off"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:160
+#: ../lib/sensors-interface-common.c:161
 msgid "on"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:164
+#: ../lib/sensors-interface-common.c:165
 #, fuzzy, c-format
 msgid "%.0f rpm"
 msgstr "%5.0f RPM"

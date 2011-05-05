@@ -34,6 +34,7 @@ AC_MINIX
 
 dnl Check for basic programs
 AC_PROG_CC
+AM_PROG_CC_C_O
 AC_PROG_LD
 AC_PROG_INSTALL
 

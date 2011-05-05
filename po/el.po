@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-03 18:08+0200\n"
+"POT-Creation-Date: 2011-05-05 15:15+0200\n"
 "PO-Revision-Date: 2011-01-07 18:26+0200\n"
 "Last-Translator: Spiros Georgaras <sng@hellug.gr>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Poedit-Country: GREECE\n"
 
 #: ../panel-plugin/sensors-plugin.c:293 ../panel-plugin/sensors-plugin.c:390
-#: ../panel-plugin/sensors-plugin.c:986
+#: ../panel-plugin/sensors-plugin.c:987
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Αισθητήρες</b></span>"
 
@@ -40,98 +40,98 @@ msgstr ""
 "Όπως φαίνεται υπήρξε πρόβλημα κατά την ανάγνωση κάποιου αισθητήρα.\n"
 "Δεν είναι εγγυημένη η κανονική συνέχεια.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1715
+#: ../panel-plugin/sensors-plugin.c:1716
 msgid "UI style:"
 msgstr "Στυλ διεπαφής:"
 
-#: ../panel-plugin/sensors-plugin.c:1716
+#: ../panel-plugin/sensors-plugin.c:1717
 msgid "_text"
 msgstr "_κείμενο"
 
-#: ../panel-plugin/sensors-plugin.c:1718
+#: ../panel-plugin/sensors-plugin.c:1719
 msgid "_progress bars"
 msgstr "_μπάρα προόδου"
 
-#: ../panel-plugin/sensors-plugin.c:1720
+#: ../panel-plugin/sensors-plugin.c:1721
 msgid "_tachos"
 msgstr "_κοντέρ"
 
-#: ../panel-plugin/sensors-plugin.c:1765
+#: ../panel-plugin/sensors-plugin.c:1766
 msgid "Show _labels"
 msgstr "Εμφάνιση _ετικετών"
 
-#: ../panel-plugin/sensors-plugin.c:1795
+#: ../panel-plugin/sensors-plugin.c:1796
 msgid "Show colored _bars"
 msgstr "Εμφάνιση χρωματιστών _μπαρών"
 
-#: ../panel-plugin/sensors-plugin.c:1823
+#: ../panel-plugin/sensors-plugin.c:1824
 msgid "_Show title"
 msgstr "Εμφάνιση _τίτλου"
 
-#: ../panel-plugin/sensors-plugin.c:1847
+#: ../panel-plugin/sensors-plugin.c:1848
 msgid "_Number of text lines:"
 msgstr "_Αριθμός γραμμών κειμένου:"
 
-#: ../panel-plugin/sensors-plugin.c:1882
+#: ../panel-plugin/sensors-plugin.c:1883
 msgid "F_ont size:"
 msgstr "_Μέγεθος γραμματοσειράς:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1889
+#: ../panel-plugin/sensors-plugin.c:1890
 msgid "x-small"
 msgstr "πολύ μικρό"
 
-#: ../panel-plugin/sensors-plugin.c:1890
+#: ../panel-plugin/sensors-plugin.c:1891
 msgid "small"
 msgstr "Μικρό"
 
-#: ../panel-plugin/sensors-plugin.c:1891
+#: ../panel-plugin/sensors-plugin.c:1892
 msgid "medium"
 msgstr "μεσαίο"
 
-#: ../panel-plugin/sensors-plugin.c:1892
+#: ../panel-plugin/sensors-plugin.c:1893
 msgid "large"
 msgstr "μεγάλο"
 
-#: ../panel-plugin/sensors-plugin.c:1893
+#: ../panel-plugin/sensors-plugin.c:1894
 msgid "x-large"
 msgstr "πολύ μεγάλο"
 
-#: ../panel-plugin/sensors-plugin.c:1924
+#: ../panel-plugin/sensors-plugin.c:1925
 msgid "F_ont:"
 msgstr "_Γραμματοσειρά:"
 
-#: ../panel-plugin/sensors-plugin.c:1958
+#: ../panel-plugin/sensors-plugin.c:1959
 msgid "Show _Units"
 msgstr "Εμφάνιση _μονάδων"
 
-#: ../panel-plugin/sensors-plugin.c:1979
+#: ../panel-plugin/sensors-plugin.c:1980
 msgid "Small horizontal s_pacing"
 msgstr "Μικρό ορι_ζόντιο διάστημα"
 
-#: ../panel-plugin/sensors-plugin.c:2001
+#: ../panel-plugin/sensors-plugin.c:2002
 msgid "Suppress messages"
 msgstr "Απόκρυψη μηνυμάτων"
 
-#: ../panel-plugin/sensors-plugin.c:2026
+#: ../panel-plugin/sensors-plugin.c:2027
 msgid "E_xecute on double click:"
 msgstr "Ε_κτέλεση στο διπλό κλικ:"
 
-#: ../panel-plugin/sensors-plugin.c:2069
+#: ../panel-plugin/sensors-plugin.c:2070
 msgid "_View"
 msgstr "_Προβολή"
 
-#: ../panel-plugin/sensors-plugin.c:2103
+#: ../panel-plugin/sensors-plugin.c:2104
 msgid "_Miscellaneous"
 msgstr "_Διάφορα"
 
-#: ../panel-plugin/sensors-plugin.c:2176 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2177 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:173
 msgid "Sensors Plugin"
 msgstr "Πρόσθετο αισθητήρων"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2219
+#: ../panel-plugin/sensors-plugin.c:2220
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -215,7 +215,7 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:704 ../lib/sensors-interface-common.c:144
+#: ../lib/hddtemp.c:704 ../lib/sensors-interface-common.c:145
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -293,34 +293,34 @@ msgstr "_Φαρενάιτ"
 msgid "_Sensors"
 msgstr "_Αισθητήρες:"
 
-#: ../lib/sensors-interface-common.c:71
+#: ../lib/sensors-interface-common.c:71 ../lib/sensors-interface-common.c:72
 msgid "No sensors found!"
 msgstr "Δε βρέθηκαν αισθητήρες!"
 
-#: ../lib/sensors-interface-common.c:141
+#: ../lib/sensors-interface-common.c:142
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
-#: ../lib/sensors-interface-common.c:149
+#: ../lib/sensors-interface-common.c:150
 #, c-format
 msgid "%+.2f V"
 msgstr "%+.2f V"
 
-#: ../lib/sensors-interface-common.c:153
+#: ../lib/sensors-interface-common.c:154
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.c:158
+#: ../lib/sensors-interface-common.c:159
 msgid "off"
 msgstr "ενεργό"
 
-#: ../lib/sensors-interface-common.c:160
+#: ../lib/sensors-interface-common.c:161
 msgid "on"
 msgstr "ανενεργό"
 
-#: ../lib/sensors-interface-common.c:164
+#: ../lib/sensors-interface-common.c:165
 #, c-format
 msgid "%.0f rpm"
 msgstr "%5.0f rpm"

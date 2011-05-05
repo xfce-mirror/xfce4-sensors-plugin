@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce 4-sensors-complementu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-03 18:08+0200\n"
+"POT-Creation-Date: 2011-05-05 15:15+0200\n"
 "PO-Revision-Date: 2009-07-13 19:55+0100\n"
 "Last-Translator: Marcos Antonio Alvarez Costales <marcoscostales@gmail.com>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../panel-plugin/sensors-plugin.c:293 ../panel-plugin/sensors-plugin.c:390
-#: ../panel-plugin/sensors-plugin.c:986
+#: ../panel-plugin/sensors-plugin.c:987
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Sensores</b></span>"
 
@@ -35,101 +35,101 @@ msgstr ""
 "Parez qu'hebo un problema lleendo'l valor d'una carauterística d'un sensor.\n"
 "Nun puede garantizase un furrulamientu adecuáu.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1715
+#: ../panel-plugin/sensors-plugin.c:1716
 msgid "UI style:"
 msgstr "Estilu d'UI:"
 
-#: ../panel-plugin/sensors-plugin.c:1716
+#: ../panel-plugin/sensors-plugin.c:1717
 msgid "_text"
 msgstr "_testu"
 
-#: ../panel-plugin/sensors-plugin.c:1718
+#: ../panel-plugin/sensors-plugin.c:1719
 msgid "_progress bars"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1720
+#: ../panel-plugin/sensors-plugin.c:1721
 msgid "_tachos"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1765
+#: ../panel-plugin/sensors-plugin.c:1766
 #, fuzzy
 msgid "Show _labels"
 msgstr "Amosar _títulu"
 
-#: ../panel-plugin/sensors-plugin.c:1795
+#: ../panel-plugin/sensors-plugin.c:1796
 msgid "Show colored _bars"
 msgstr "Amosar _barres con colores"
 
-#: ../panel-plugin/sensors-plugin.c:1823
+#: ../panel-plugin/sensors-plugin.c:1824
 msgid "_Show title"
 msgstr "Amosar _títulu"
 
-#: ../panel-plugin/sensors-plugin.c:1847
+#: ../panel-plugin/sensors-plugin.c:1848
 msgid "_Number of text lines:"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1882
+#: ../panel-plugin/sensors-plugin.c:1883
 msgid "F_ont size:"
 msgstr "Tamañu de _lletra:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1889
+#: ../panel-plugin/sensors-plugin.c:1890
 msgid "x-small"
 msgstr "perpequeña"
 
-#: ../panel-plugin/sensors-plugin.c:1890
+#: ../panel-plugin/sensors-plugin.c:1891
 msgid "small"
 msgstr "pequeña"
 
-#: ../panel-plugin/sensors-plugin.c:1891
+#: ../panel-plugin/sensors-plugin.c:1892
 msgid "medium"
 msgstr "media"
 
-#: ../panel-plugin/sensors-plugin.c:1892
+#: ../panel-plugin/sensors-plugin.c:1893
 msgid "large"
 msgstr "grande"
 
-#: ../panel-plugin/sensors-plugin.c:1893
+#: ../panel-plugin/sensors-plugin.c:1894
 msgid "x-large"
 msgstr "pergrande"
 
-#: ../panel-plugin/sensors-plugin.c:1924
+#: ../panel-plugin/sensors-plugin.c:1925
 #, fuzzy
 msgid "F_ont:"
 msgstr "Tamañu de _lletra:"
 
-#: ../panel-plugin/sensors-plugin.c:1958
+#: ../panel-plugin/sensors-plugin.c:1959
 msgid "Show _Units"
 msgstr "Amosar _unidaes"
 
-#: ../panel-plugin/sensors-plugin.c:1979
+#: ../panel-plugin/sensors-plugin.c:1980
 msgid "Small horizontal s_pacing"
 msgstr "Es_paciáu horizontal pequeñu"
 
-#: ../panel-plugin/sensors-plugin.c:2001
+#: ../panel-plugin/sensors-plugin.c:2002
 msgid "Suppress messages"
 msgstr "Suprimir mensaxes"
 
-#: ../panel-plugin/sensors-plugin.c:2026
+#: ../panel-plugin/sensors-plugin.c:2027
 msgid "E_xecute on double click:"
 msgstr "E_xecutar al facer duble clic:"
 
-#: ../panel-plugin/sensors-plugin.c:2069
+#: ../panel-plugin/sensors-plugin.c:2070
 msgid "_View"
 msgstr "_Ver"
 
-#: ../panel-plugin/sensors-plugin.c:2103
+#: ../panel-plugin/sensors-plugin.c:2104
 msgid "_Miscellaneous"
 msgstr "_Dellos"
 
-#: ../panel-plugin/sensors-plugin.c:2176 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2177 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:173
 #, fuzzy
 msgid "Sensors Plugin"
 msgstr "Visor de sensores"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2219
+#: ../panel-plugin/sensors-plugin.c:2220
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -211,7 +211,7 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/hddtemp.c:704 ../lib/sensors-interface-common.c:144
+#: ../lib/hddtemp.c:704 ../lib/sensors-interface-common.c:145
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -290,34 +290,34 @@ msgstr "_Fahrenheit"
 msgid "_Sensors"
 msgstr "_Sensores"
 
-#: ../lib/sensors-interface-common.c:71
+#: ../lib/sensors-interface-common.c:71 ../lib/sensors-interface-common.c:72
 msgid "No sensors found!"
 msgstr "¡Sensores non atopaos!"
 
-#: ../lib/sensors-interface-common.c:141
+#: ../lib/sensors-interface-common.c:142
 #, c-format
 msgid "%.1f °F"
 msgstr "%.1f °F"
 
-#: ../lib/sensors-interface-common.c:149
+#: ../lib/sensors-interface-common.c:150
 #, c-format
 msgid "%+.2f V"
 msgstr "%+.2f V"
 
-#: ../lib/sensors-interface-common.c:153
+#: ../lib/sensors-interface-common.c:154
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.c:158
+#: ../lib/sensors-interface-common.c:159
 msgid "off"
 msgstr "off"
 
-#: ../lib/sensors-interface-common.c:160
+#: ../lib/sensors-interface-common.c:161
 msgid "on"
 msgstr "on"
 
-#: ../lib/sensors-interface-common.c:164
+#: ../lib/sensors-interface-common.c:165
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f rpm"
