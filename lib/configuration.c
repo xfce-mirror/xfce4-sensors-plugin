@@ -276,13 +276,16 @@ sensors_read_preliminary_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 }
 
 /* Read the configuration file at init */
+// TODO: modify to store chipname as indicator and access features by acpitz-1_Feature0 etc.
+// this will require differently storing the stuff as well. 
+// targeted for 1.1 or 1.2 release
 void
 sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 {
     const char *value;
     char *file;
     XfceRc *rc;
-    int i, j;
+    int i, j, k;
     char rc_chip[8], feature[20];
     gchar* sensorName=NULL;
     gint num_sensorchip, id, address;
@@ -303,9 +306,6 @@ sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
     sensors_read_general_config (rc, sensors);
 
     for (i = 0; i<sensors->num_sensorchips; i++) {
-        chip = (t_chip *) g_ptr_array_index (sensors->chips, i);
-        if (chip==NULL)
-            break;
 
         g_snprintf (rc_chip, 8, "Chip%d", i);
 
@@ -327,8 +327,15 @@ sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
             g_return_if_fail (num_sensorchip < sensors->num_sensorchips);
 
             /* now featuring enhanced string comparison */
-            g_assert (chip!=NULL);
-            if ( strcmp(chip->sensorId, sensorName)==0 ) {
+            //g_assert (chip!=NULL);
+            k = 0;
+            do {
+              chip = (t_chip *) g_ptr_array_index (sensors->chips, k++);
+              if (chip==NULL)
+                  break;
+              }
+            while ( strcmp(chip->sensorId, sensorName) != 0 );
+            if ( chip!=NULL && strcmp(chip->sensorId, sensorName)==0 ) {
 
                 for (j=0; j<chip->num_features; j++) {
                     chipfeature = (t_chipfeature *) g_ptr_array_index (
@@ -396,9 +403,9 @@ sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
                             chipfeature->max_value = atof (value);
 
 
-                    } /* end if */
+                    } /* end if rc_grup has feature*/
 
-                } /* end for */
+                } /* end for features */
 
             } /* end if */
 
