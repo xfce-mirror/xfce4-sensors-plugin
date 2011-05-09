@@ -107,7 +107,8 @@ sensors_write_config (XfcePanelPlugin *plugin, t_sensors *sensors)
     xfce_rc_write_int_entry (rc, "Font_Size_Numerical",
                                 sensors->font_size_numerical);
 
-    xfce_rc_write_entry (rc, "Font", font);
+    if (font!=NULL)
+      xfce_rc_write_entry (rc, "Font", font); // the font for the tachometers exported from cpu.h
 
     xfce_rc_write_int_entry (rc, "Lines_Size", sensors->lines_size);
 

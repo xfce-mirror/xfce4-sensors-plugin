@@ -69,7 +69,7 @@ void gtk_cpu_unset_color (GtkCpu *cpu);
 
 void gtk_cpu_paint (GtkWidget *widget);
 
-extern gchar *font; // = NULL;
+extern gchar *font;
 
 G_END_DECLS
 

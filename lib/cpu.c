@@ -42,12 +42,10 @@ static void gtk_cpu_size_allocate(GtkWidget *widget,
 static void gtk_cpu_realize(GtkWidget *widget);
 static gboolean gtk_cpu_expose(GtkWidget *widget,
     GdkEventExpose *event);
-//static void gtk_cpu_paint(GtkWidget *widget);
 static void gtk_cpu_destroy(GtkObject *object);
 
 
-//extern gchar *font;
-gchar *font = NULL;
+gchar *font = NULL; // declared as extern in cpu.h
 
 
 GtkType
