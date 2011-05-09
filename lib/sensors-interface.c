@@ -24,7 +24,7 @@
 #endif
 
 /* Global includes */
-#ifdef HAVE_LIBNOTIFY4 || HAVE_LIBNOTIFY7
+#if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
 #include <libnotify/notify.h>
 #endif
 /* #include <stdlib.h> */
@@ -71,10 +71,10 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale, t_senso
     t_chipfeature *chipfeature;
     gboolean *suppress;
     GtkTreeIter *iter;
-    #ifdef HAVE_LIBNOTIFY4 || HAVE_LIBNOTIFY7
+#if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
     NotifyNotification *nn;
     GError *error = NULL;
-    #endif
+#endif
     gchar *summary, *body, *icon;
     float minval, maxval;
 
@@ -101,7 +101,7 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale, t_senso
                     (chip, chipfeature->address, &sensorFeature, suppress);
             if ( res!=0 && !suppress) {
 
-                #ifdef HAVE_LIBNOTIFY4 || HAVE_LIBNOTIFY7
+#if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
                 if (!notify_is_initted())
                     notify_init(PACKAGE); /* NOTIFY_APPNAME */
                     
@@ -112,9 +112,9 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale, t_senso
                 nn = notify_notification_new (summary, body, icon);
 #endif
                 notify_notification_show(nn, &error);
-                #else
+#else
                 DBG("%s\n%s", summary, body);
-                #endif
+#endif
 
                 /* FIXME: Better popup a window or DBG message or quit plugin. */
                 break;
