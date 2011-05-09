@@ -1,6 +1,18 @@
 /* 2010- timystery
   * Patch: Gtk-Theme-unaware colors for bars, sent in by ...
 */
+2011-05-xx timystery
+	* Build issues with gcc 4.6
+	* autotool stuff
+	* version 1.2.0
+	* nvidis sensor support
+	* libnotify support for version 0.7
+	* safer saving of font for tachometers
+	* added missing files to repository
+	* make distcheck works again
+	* applied, verified, corrected patches by various people
+	* hddtemp and netcat should work with the port-version now
+
 2010-06-01 timystery
   * Apply patch for netcat/nc in configure.in.in again
 	* Hddtemp with sockets instead of calls to netcat, sent in by ...
