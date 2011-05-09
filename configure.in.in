@@ -14,7 +14,7 @@ m4_define([xfce4_sensors_version_minor], [2])
 m4_define([xfce4_sensors_version_micro], [0])
 m4_define([xfce4_sensors_version_nano], [])
 m4_define([xfce4_sensors_version_build], [@REVISION@])
-m4_define([xfce4_sensors_version_tag], [git])
+m4_define([xfce4_sensors_version_tag], []) dnl may be set to 'git'
 m4_define([xfce4_sensors_version], [xfce4_sensors_version_major().xfce4_sensors_version_minor().xfce4_sensors_version_micro()ifelse(xfce4_sensors_version_nano(), [], [], [.xfce4_sensors_version_nano()])ifelse(xfce4_sensors_version_tag(), [git], [xfce4_sensors_version_tag()-xfce4_sensors_version_build()], [xfce4_sensors_version_tag()])])
 
 
@@ -336,12 +336,12 @@ dnl **************************************
 dnl XDT_CHECK_PACKAGE([LIBNOTIFY], [libnotify], [0.4.0])
 XDT_CHECK_OPTIONAL_PACKAGE([LIBNOTIFY4],
                            [libnotify],
-                           [0.4], [notification],
+                           [0.4], [notification4],
                            [notification message library < 0.7])
 
 XDT_CHECK_OPTIONAL_PACKAGE([LIBNOTIFY7],
                            [libnotify],
-                           [0.7], [notification],
+                           [0.7], [notification7],
                            [notification message library >= 0.7])
 
 dnl **************************************

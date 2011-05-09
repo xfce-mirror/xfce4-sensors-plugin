@@ -45,7 +45,7 @@ DISTCLEANFILES =						\
 	xfce4-sensors-plugin.spec
 
 DISTCHECK_CONFIGURE_FLAGS =		\
-	--enable-notification				\
+	--enable-notification4				\
 	--enable-libsensors					\
 	--enable-hddtemp						\
 	--enable-procacpi						\
