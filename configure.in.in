@@ -7,11 +7,11 @@ dnl 2003,2004, 2007 Benedikt Meurer <benny@xfce.org>
 dnl 2007-2011 Fabian Nowak <timystery@arcor.de>
 dnl
 
-m4_define([libxfce4sensors_verinfo], [1:2:0])
+m4_define([libxfce4sensors_verinfo], [1:2:1])
 
 m4_define([xfce4_sensors_version_major], [1])
 m4_define([xfce4_sensors_version_minor], [2])
-m4_define([xfce4_sensors_version_micro], [0])
+m4_define([xfce4_sensors_version_micro], [1])
 m4_define([xfce4_sensors_version_nano], [])
 m4_define([xfce4_sensors_version_build], [@REVISION@])
 m4_define([xfce4_sensors_version_tag], []) dnl may be set to 'git'
@@ -336,12 +336,12 @@ dnl **************************************
 dnl XDT_CHECK_PACKAGE([LIBNOTIFY], [libnotify], [0.4.0])
 XDT_CHECK_OPTIONAL_PACKAGE([LIBNOTIFY4],
                            [libnotify],
-                           [0.4], [notification4],
+                           [0.4], [notification],
                            [notification message library < 0.7])
 
 XDT_CHECK_OPTIONAL_PACKAGE([LIBNOTIFY7],
                            [libnotify],
-                           [0.7], [notification7],
+                           [0.7], [notification],
                            [notification message library >= 0.7])
 
 dnl **************************************
@@ -415,7 +415,7 @@ echo "*  NVIDIA X CTRL"
 fi
 echo
 if test x"$LIBNOTIFY4_FOUND" = x"yes"; then
-echo "Support for libnotify < 0.7 will be built in."
+echo "Support for libnotify will be built in."
 echo
 fi
 if test x"$LIBNOTIFY7_FOUND" = x"yes"; then

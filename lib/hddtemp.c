@@ -79,10 +79,7 @@
 
 
 /* forward declaration for GCC 4.3 -Wall */
-#ifdef HAVE_LIBNOTIFY4
-void notification_suppress_messages (NotifyNotification *n, gchar *action, gpointer *data);
-#endif
-#ifdef HAVE_LIBNOTIFY7
+#if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
 void notification_suppress_messages (NotifyNotification *n, gchar *action, gpointer *data);
 #endif
 
@@ -117,11 +114,11 @@ void quick_message_notify (gchar *message)
 
     if (!notify_is_initted())
         notify_init(PACKAGE); /* NOTIFY_APPNAME */
-#ifdef HAVE_LIBNOTIFY4
-    nn = notify_notification_new (summary, body, icon, NULL);
-#endif
+
 #ifdef HAVE_LIBNOTIFY7
     nn = notify_notification_new (summary, body, icon);
+#elseif HAVE_LIBNOTIFY4
+    nn = notify_notification_new (summary, body, icon, NULL);
 #endif
     /* FIXME: Use channels or propagate private object or use static global variable */
     //notify_notification_add_action (nn,

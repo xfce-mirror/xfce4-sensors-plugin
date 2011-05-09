@@ -104,12 +104,11 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale, t_senso
 #if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
                 if (!notify_is_initted())
                     notify_init(PACKAGE); /* NOTIFY_APPNAME */
-                    
-#ifdef HAVE_LIBNOTIFY4
-                nn = notify_notification_new (summary, body, icon, NULL);
-#endif
+
 #ifdef HAVE_LIBNOTIFY7
                 nn = notify_notification_new (summary, body, icon);
+#elseif HAVE_LIBNOTIFY4
+                nn = notify_notification_new (summary, body, icon, NULL);
 #endif
                 notify_notification_show(nn, &error);
 #else
