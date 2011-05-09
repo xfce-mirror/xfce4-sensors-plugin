@@ -32,8 +32,8 @@
 
 
 /* Package includes */
-#include <types.h>
-#include <sensors-interface-plugin.h>
+#include "types.h"
+#include "sensors-interface-plugin.h"
 
 /* Definitions */
 #define BORDER 8

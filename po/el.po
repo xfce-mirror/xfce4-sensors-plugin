@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-05 15:15+0200\n"
+"POT-Creation-Date: 2011-05-09 20:24+0200\n"
 "PO-Revision-Date: 2011-01-07 18:26+0200\n"
 "Last-Translator: Spiros Georgaras <sng@hellug.gr>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -40,98 +40,98 @@ msgstr ""
 "Όπως φαίνεται υπήρξε πρόβλημα κατά την ανάγνωση κάποιου αισθητήρα.\n"
 "Δεν είναι εγγυημένη η κανονική συνέχεια.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1716
+#: ../panel-plugin/sensors-plugin.c:1718
 msgid "UI style:"
 msgstr "Στυλ διεπαφής:"
 
-#: ../panel-plugin/sensors-plugin.c:1717
+#: ../panel-plugin/sensors-plugin.c:1719
 msgid "_text"
 msgstr "_κείμενο"
 
-#: ../panel-plugin/sensors-plugin.c:1719
+#: ../panel-plugin/sensors-plugin.c:1721
 msgid "_progress bars"
 msgstr "_μπάρα προόδου"
 
-#: ../panel-plugin/sensors-plugin.c:1721
+#: ../panel-plugin/sensors-plugin.c:1723
 msgid "_tachos"
 msgstr "_κοντέρ"
 
-#: ../panel-plugin/sensors-plugin.c:1766
+#: ../panel-plugin/sensors-plugin.c:1768
 msgid "Show _labels"
 msgstr "Εμφάνιση _ετικετών"
 
-#: ../panel-plugin/sensors-plugin.c:1796
+#: ../panel-plugin/sensors-plugin.c:1798
 msgid "Show colored _bars"
 msgstr "Εμφάνιση χρωματιστών _μπαρών"
 
-#: ../panel-plugin/sensors-plugin.c:1824
+#: ../panel-plugin/sensors-plugin.c:1826
 msgid "_Show title"
 msgstr "Εμφάνιση _τίτλου"
 
-#: ../panel-plugin/sensors-plugin.c:1848
+#: ../panel-plugin/sensors-plugin.c:1850
 msgid "_Number of text lines:"
 msgstr "_Αριθμός γραμμών κειμένου:"
 
-#: ../panel-plugin/sensors-plugin.c:1883
+#: ../panel-plugin/sensors-plugin.c:1885
 msgid "F_ont size:"
 msgstr "_Μέγεθος γραμματοσειράς:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1890
+#: ../panel-plugin/sensors-plugin.c:1892
 msgid "x-small"
 msgstr "πολύ μικρό"
 
-#: ../panel-plugin/sensors-plugin.c:1891
+#: ../panel-plugin/sensors-plugin.c:1893
 msgid "small"
 msgstr "Μικρό"
 
-#: ../panel-plugin/sensors-plugin.c:1892
+#: ../panel-plugin/sensors-plugin.c:1894
 msgid "medium"
 msgstr "μεσαίο"
 
-#: ../panel-plugin/sensors-plugin.c:1893
+#: ../panel-plugin/sensors-plugin.c:1895
 msgid "large"
 msgstr "μεγάλο"
 
-#: ../panel-plugin/sensors-plugin.c:1894
+#: ../panel-plugin/sensors-plugin.c:1896
 msgid "x-large"
 msgstr "πολύ μεγάλο"
 
-#: ../panel-plugin/sensors-plugin.c:1925
+#: ../panel-plugin/sensors-plugin.c:1927
 msgid "F_ont:"
 msgstr "_Γραμματοσειρά:"
 
-#: ../panel-plugin/sensors-plugin.c:1959
+#: ../panel-plugin/sensors-plugin.c:1961
 msgid "Show _Units"
 msgstr "Εμφάνιση _μονάδων"
 
-#: ../panel-plugin/sensors-plugin.c:1980
+#: ../panel-plugin/sensors-plugin.c:1982
 msgid "Small horizontal s_pacing"
 msgstr "Μικρό ορι_ζόντιο διάστημα"
 
-#: ../panel-plugin/sensors-plugin.c:2002
+#: ../panel-plugin/sensors-plugin.c:2004
 msgid "Suppress messages"
 msgstr "Απόκρυψη μηνυμάτων"
 
-#: ../panel-plugin/sensors-plugin.c:2027
+#: ../panel-plugin/sensors-plugin.c:2029
 msgid "E_xecute on double click:"
 msgstr "Ε_κτέλεση στο διπλό κλικ:"
 
-#: ../panel-plugin/sensors-plugin.c:2070
+#: ../panel-plugin/sensors-plugin.c:2072
 msgid "_View"
 msgstr "_Προβολή"
 
-#: ../panel-plugin/sensors-plugin.c:2104
+#: ../panel-plugin/sensors-plugin.c:2106
 msgid "_Miscellaneous"
 msgstr "_Διάφορα"
 
-#: ../panel-plugin/sensors-plugin.c:2177 ../panel-plugin/sensors-plugin.h:30
-#: ../lib/hddtemp.c:173
+#: ../panel-plugin/sensors-plugin.c:2179 ../panel-plugin/sensors-plugin.h:30
+#: ../lib/hddtemp.c:180
 msgid "Sensors Plugin"
 msgstr "Πρόσθετο αισθητήρων"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2220
+#: ../panel-plugin/sensors-plugin.c:2222
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -146,8 +146,8 @@ msgstr ""
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:159 ../lib/configuration.c:348
-#: ../lib/configuration.c:355 ../lib/hddtemp.c:354 ../lib/hddtemp.c:400
+#: ../lib/configuration.c:160 ../lib/configuration.c:356
+#: ../lib/configuration.c:363 ../lib/hddtemp.c:361 ../lib/hddtemp.c:407
 msgid "Hard disks"
 msgstr "Σκληροί δίσκοι"
 
@@ -168,11 +168,29 @@ msgstr "ζώνες ACPI v%s"
 msgid "<Unknown>"
 msgstr "<Άγνωστο>"
 
-#: ../lib/hddtemp.c:399
+#: ../lib/nvidia.c:60
+msgid "NVidia GPU core temperature"
+msgstr ""
+
+#: ../lib/nvidia.c:61
+msgid "nvidia"
+msgstr ""
+
+#. if (scale == FAHRENHEIT) {
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. } else { // Celsius
+#. Celsius
+#: ../lib/nvidia.c:126 ../lib/hddtemp.c:711
+#: ../lib/sensors-interface-common.c:145
+#, c-format
+msgid "%.1f °C"
+msgstr "%.1f °C"
+
+#: ../lib/hddtemp.c:406
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "Θερμοκρασίες S.M.A.R.T. σκληρών δίσκων"
 
-#: ../lib/hddtemp.c:589
+#: ../lib/hddtemp.c:596
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is "
@@ -198,11 +216,11 @@ msgstr ""
 "%s\n"
 "επιστρέφοντας την τιμή %d.\n"
 
-#: ../lib/hddtemp.c:605 ../lib/hddtemp.c:635
+#: ../lib/hddtemp.c:612 ../lib/hddtemp.c:642
 msgid "Suppress this message in future"
 msgstr "Να μην εμφανιστεί ξανά αυτό το μήνυμα στο μέλλον"
 
-#: ../lib/hddtemp.c:629
+#: ../lib/hddtemp.c:636
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
@@ -210,15 +228,6 @@ msgid ""
 msgstr ""
 "Προέκυψε σφάλμα κατά την εκτέλεση \"%s\":\n"
 "%s"
-
-#. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
-#. } else { // Celsius
-#. Celsius
-#: ../lib/hddtemp.c:704 ../lib/sensors-interface-common.c:145
-#, c-format
-msgid "%.1f °C"
-msgstr "%.1f °C"
 
 #: ../lib/lmsensors.c:110
 msgid "LM Sensors"
@@ -241,55 +250,55 @@ msgstr ""
 "Όπως φαίνεται υπήρξε πρόβλημα κατά την ανάγνωση κάποιου αισθητήρα.\n"
 "Δεν είναι εγγυημένη η κανονική συνέχεια."
 
-#: ../lib/sensors-interface.c:164
+#: ../lib/sensors-interface.c:169
 msgid "Sensors t_ype:"
 msgstr "_Τύπος αισθητήρα:"
 
-#: ../lib/sensors-interface.c:190
+#: ../lib/sensors-interface.c:195
 msgid "Description:"
 msgstr "Περιγραφή:"
 
-#: ../lib/sensors-interface.c:223
+#: ../lib/sensors-interface.c:228
 msgid "U_pdate interval (seconds):"
 msgstr "_Διάστημα ανανέωσης (δευτερόλεπτα):"
 
-#: ../lib/sensors-interface.c:263
+#: ../lib/sensors-interface.c:268
 msgid "Name"
 msgstr "Όνομα"
 
-#: ../lib/sensors-interface.c:275
+#: ../lib/sensors-interface.c:280
 msgid "Value"
 msgstr "Τιμή"
 
-#: ../lib/sensors-interface.c:283
+#: ../lib/sensors-interface.c:288
 msgid "Show"
 msgstr "Εμφάνιση"
 
-#: ../lib/sensors-interface.c:292
+#: ../lib/sensors-interface.c:297
 msgid "Color"
 msgstr "Χρώμα"
 
-#: ../lib/sensors-interface.c:305
+#: ../lib/sensors-interface.c:310
 msgid "Min"
 msgstr "Ελαχ"
 
-#: ../lib/sensors-interface.c:322
+#: ../lib/sensors-interface.c:327
 msgid "Max"
 msgstr "Μεγ"
 
-#: ../lib/sensors-interface.c:363
+#: ../lib/sensors-interface.c:368
 msgid "Temperature scale:"
 msgstr "Κλίμακα θερμοκρασίας:"
 
-#: ../lib/sensors-interface.c:365
+#: ../lib/sensors-interface.c:370
 msgid "_Celsius"
 msgstr "_Κελσίου"
 
-#: ../lib/sensors-interface.c:367
+#: ../lib/sensors-interface.c:372
 msgid "_Fahrenheit"
 msgstr "_Φαρενάιτ"
 
-#: ../lib/sensors-interface.c:403
+#: ../lib/sensors-interface.c:408
 msgid "_Sensors"
 msgstr "_Αισθητήρες:"
 

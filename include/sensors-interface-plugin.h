@@ -34,8 +34,8 @@
 #include <libxfce4panel/libxfce4panel.h>
 
 /* Package includes */
-#include <types.h>
-#include <sensors-interface-types.h>
+#include "types.h"
+#include "sensors-interface-types.h"
 
 /**
  * Sensors module

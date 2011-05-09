@@ -7,22 +7,22 @@ dnl 2003,2004, 2007 Benedikt Meurer <benny@xfce.org>
 dnl 2007-2011 Fabian Nowak <timystery@arcor.de>
 dnl
 
-m4_define([libxfce4sensors_verinfo], [1:0:1])
+m4_define([libxfce4sensors_verinfo], [1:2:0])
 
-m4_define([sensors_version_major], [4])
-m4_define([sensors_version_minor], [6])
-m4_define([sensors_version_micro], [2])
-m4_define([sensors_version_nano], [])
-m4_define([sensors_version_build], [@REVISION@])
-m4_define([sensors_version_tag], [git])
-m4_define([sensors_version], [sensors_version_major().sensors_version_minor().sensors_version_micro()ifelse(sensors_version_nano(), [], [], [.sensors_version_nano()])ifelse(sensors_version_tag(), [git], [sensors_version_tag()-sensors_version_build()], [sensors_version_tag()])])
+m4_define([xfce4_sensors_version_major], [1])
+m4_define([xfce4_sensors_version_minor], [2])
+m4_define([xfce4_sensors_version_micro], [0])
+m4_define([xfce4_sensors_version_nano], [])
+m4_define([xfce4_sensors_version_build], [@REVISION@])
+m4_define([xfce4_sensors_version_tag], [git])
+m4_define([xfce4_sensors_version], [xfce4_sensors_version_major().xfce4_sensors_version_minor().xfce4_sensors_version_micro()ifelse(xfce4_sensors_version_nano(), [], [], [.xfce4_sensors_version_nano()])ifelse(xfce4_sensors_version_tag(), [git], [xfce4_sensors_version_tag()-xfce4_sensors_version_build()], [xfce4_sensors_version_tag()])])
 
 
-AC_INIT([xfce4-sensors-plugin], [sensors_version], [timystery@arcor.de])
+AC_INIT([xfce4-sensors-plugin], [xfce4_sensors_version], [timystery@arcor.de])
 AC_PREREQ([2.50])
 AC_CANONICAL_TARGET()
 
-PLUGIN_VERSION=sensors_version()
+PLUGIN_VERSION=xfce4_sensors_version()
 AM_INIT_AUTOMAKE([AC_PACKAGE_TARNAME], [AC_PACKAGE_VERSION])
 AM_CONFIG_HEADER([config.h])
 AM_MAINTAINER_MODE

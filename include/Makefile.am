@@ -7,6 +7,7 @@ EXTRA_DIST = 									\
 	Makefile.am									\
 	sensors-interface-common.h	\
 	sensors-interface-plugin.h	\
+	sensors-interface-types.h	\
 	types.h											\
 	configuration.h							\
 	lmsensors.h									\

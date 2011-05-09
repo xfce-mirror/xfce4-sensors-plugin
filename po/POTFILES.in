@@ -2,6 +2,7 @@ panel-plugin/sensors-plugin.c
 panel-plugin/sensors-plugin.h
 lib/configuration.c
 lib/acpi.c
+lib/nvidia.c
 lib/hddtemp.c
 lib/lmsensors.c
 lib/middlelayer.c

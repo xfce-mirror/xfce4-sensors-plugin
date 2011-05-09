@@ -44,12 +44,12 @@ DISTCLEANFILES =						\
 	intltool-update						\
 	xfce4-sensors-plugin.spec
 
-DISTCHECK_CONFIGURE_FLAGS =				\
-	--with-libnotify					\
-	--with-libsensors					\
-	--with-hddtemp						\
-	--with-netcat						\
-	--with-procacpi
+DISTCHECK_CONFIGURE_FLAGS =		\
+	--enable-notification				\
+	--enable-libsensors					\
+	--enable-hddtemp						\
+	--enable-procacpi						\
+	--enable-sysfsacpi
 
 checksums: distcheck
 	sha1sum $(PACKAGE)-$(VERSION).tar.bz2 > $(PACKAGE)-$(VERSION).tar.bz2.sha1.asc

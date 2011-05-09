@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-05 15:15+0200\n"
+"POT-Creation-Date: 2011-05-09 20:24+0200\n"
 "PO-Revision-Date: 2009-04-09 21:46-0400\n"
 "Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
@@ -38,100 +38,100 @@ msgstr ""
 "Kelihatannya terdapat masalah saat membaca nilai fitur sensor.\n"
 "Eksekusi yang normal tidak dapat dijamin.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1716
+#: ../panel-plugin/sensors-plugin.c:1718
 msgid "UI style:"
 msgstr "Gaya UI:"
 
-#: ../panel-plugin/sensors-plugin.c:1717
+#: ../panel-plugin/sensors-plugin.c:1719
 msgid "_text"
 msgstr "_teks"
 
-#: ../panel-plugin/sensors-plugin.c:1719
+#: ../panel-plugin/sensors-plugin.c:1721
 msgid "_progress bars"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1721
+#: ../panel-plugin/sensors-plugin.c:1723
 msgid "_tachos"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1766
+#: ../panel-plugin/sensors-plugin.c:1768
 #, fuzzy
 msgid "Show _labels"
 msgstr "_Tampilkan judul"
 
-#: ../panel-plugin/sensors-plugin.c:1796
+#: ../panel-plugin/sensors-plugin.c:1798
 msgid "Show colored _bars"
 msgstr "Tampilkan batang _berwarna"
 
-#: ../panel-plugin/sensors-plugin.c:1824
+#: ../panel-plugin/sensors-plugin.c:1826
 msgid "_Show title"
 msgstr "_Tampilkan judul"
 
-#: ../panel-plugin/sensors-plugin.c:1848
+#: ../panel-plugin/sensors-plugin.c:1850
 msgid "_Number of text lines:"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1883
+#: ../panel-plugin/sensors-plugin.c:1885
 msgid "F_ont size:"
 msgstr "U_kuran fonta:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1890
+#: ../panel-plugin/sensors-plugin.c:1892
 msgid "x-small"
 msgstr "sangat kecil"
 
-#: ../panel-plugin/sensors-plugin.c:1891
+#: ../panel-plugin/sensors-plugin.c:1893
 msgid "small"
 msgstr "kecil"
 
-#: ../panel-plugin/sensors-plugin.c:1892
+#: ../panel-plugin/sensors-plugin.c:1894
 msgid "medium"
 msgstr "sedang"
 
-#: ../panel-plugin/sensors-plugin.c:1893
+#: ../panel-plugin/sensors-plugin.c:1895
 msgid "large"
 msgstr "besar"
 
-#: ../panel-plugin/sensors-plugin.c:1894
+#: ../panel-plugin/sensors-plugin.c:1896
 msgid "x-large"
 msgstr "sangat besar"
 
-#: ../panel-plugin/sensors-plugin.c:1925
+#: ../panel-plugin/sensors-plugin.c:1927
 #, fuzzy
 msgid "F_ont:"
 msgstr "U_kuran fonta:"
 
-#: ../panel-plugin/sensors-plugin.c:1959
+#: ../panel-plugin/sensors-plugin.c:1961
 msgid "Show _Units"
 msgstr "Tampilkan _Unit"
 
-#: ../panel-plugin/sensors-plugin.c:1980
+#: ../panel-plugin/sensors-plugin.c:1982
 msgid "Small horizontal s_pacing"
 msgstr "P_emisah horizontal kecil"
 
-#: ../panel-plugin/sensors-plugin.c:2002
+#: ../panel-plugin/sensors-plugin.c:2004
 msgid "Suppress messages"
 msgstr "Kecilkan pesan"
 
-#: ../panel-plugin/sensors-plugin.c:2027
+#: ../panel-plugin/sensors-plugin.c:2029
 msgid "E_xecute on double click:"
 msgstr "E_ksekusi pada klik ganda:"
 
-#: ../panel-plugin/sensors-plugin.c:2070
+#: ../panel-plugin/sensors-plugin.c:2072
 msgid "_View"
 msgstr "_Tampilan"
 
-#: ../panel-plugin/sensors-plugin.c:2104
+#: ../panel-plugin/sensors-plugin.c:2106
 msgid "_Miscellaneous"
 msgstr "_Lainnya"
 
-#: ../panel-plugin/sensors-plugin.c:2177 ../panel-plugin/sensors-plugin.h:30
-#: ../lib/hddtemp.c:173
+#: ../panel-plugin/sensors-plugin.c:2179 ../panel-plugin/sensors-plugin.h:30
+#: ../lib/hddtemp.c:180
 msgid "Sensors Plugin"
 msgstr "Plugin Sensor"
 
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2220
+#: ../panel-plugin/sensors-plugin.c:2222
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -145,8 +145,8 @@ msgstr ""
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:159 ../lib/configuration.c:348
-#: ../lib/configuration.c:355 ../lib/hddtemp.c:354 ../lib/hddtemp.c:400
+#: ../lib/configuration.c:160 ../lib/configuration.c:356
+#: ../lib/configuration.c:363 ../lib/hddtemp.c:361 ../lib/hddtemp.c:407
 msgid "Hard disks"
 msgstr "Cakram keras"
 
@@ -167,11 +167,29 @@ msgstr "Zona v%s ACPI"
 msgid "<Unknown>"
 msgstr "<Tak diketahui>"
 
-#: ../lib/hddtemp.c:399
+#: ../lib/nvidia.c:60
+msgid "NVidia GPU core temperature"
+msgstr ""
+
+#: ../lib/nvidia.c:61
+msgid "nvidia"
+msgstr ""
+
+#. if (scale == FAHRENHEIT) {
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. } else { // Celsius
+#. Celsius
+#: ../lib/nvidia.c:126 ../lib/hddtemp.c:711
+#: ../lib/sensors-interface-common.c:145
+#, c-format
+msgid "%.1f °C"
+msgstr "%.1f °C"
+
+#: ../lib/hddtemp.c:406
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "Temperatur cakram keras S.M.A.R.T."
 
-#: ../lib/hddtemp.c:589
+#: ../lib/hddtemp.c:596
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is "
@@ -196,11 +214,11 @@ msgstr ""
 "%s\n"
 "dengan nilai kembali %d.\n"
 
-#: ../lib/hddtemp.c:605 ../lib/hddtemp.c:635
+#: ../lib/hddtemp.c:612 ../lib/hddtemp.c:642
 msgid "Suppress this message in future"
 msgstr "Kecilkan pesan ini di masa depan"
 
-#: ../lib/hddtemp.c:629
+#: ../lib/hddtemp.c:636
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
@@ -208,15 +226,6 @@ msgid ""
 msgstr ""
 "Galat terjadi ketika mengeksekusi \"%s\":\n"
 "%s"
-
-#. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
-#. } else { // Celsius
-#. Celsius
-#: ../lib/hddtemp.c:704 ../lib/sensors-interface-common.c:145
-#, c-format
-msgid "%.1f °C"
-msgstr "%.1f °C"
 
 #: ../lib/lmsensors.c:110
 msgid "LM Sensors"
@@ -239,55 +248,55 @@ msgstr ""
 "Kelihatannya terdapat masalah saat membaca nilai fitur sensor.\n"
 "Eksekusi yang normal tidak dijamin."
 
-#: ../lib/sensors-interface.c:164
+#: ../lib/sensors-interface.c:169
 msgid "Sensors t_ype:"
 msgstr "Tipe s_ensor:"
 
-#: ../lib/sensors-interface.c:190
+#: ../lib/sensors-interface.c:195
 msgid "Description:"
 msgstr "Keterangan:"
 
-#: ../lib/sensors-interface.c:223
+#: ../lib/sensors-interface.c:228
 msgid "U_pdate interval (seconds):"
 msgstr "I_nterval pemutakhiran (detik):"
 
-#: ../lib/sensors-interface.c:263
+#: ../lib/sensors-interface.c:268
 msgid "Name"
 msgstr "Nama"
 
-#: ../lib/sensors-interface.c:275
+#: ../lib/sensors-interface.c:280
 msgid "Value"
 msgstr "Nilai"
 
-#: ../lib/sensors-interface.c:283
+#: ../lib/sensors-interface.c:288
 msgid "Show"
 msgstr "Tampilkan"
 
-#: ../lib/sensors-interface.c:292
+#: ../lib/sensors-interface.c:297
 msgid "Color"
 msgstr "Warna"
 
-#: ../lib/sensors-interface.c:305
+#: ../lib/sensors-interface.c:310
 msgid "Min"
 msgstr "Min"
 
-#: ../lib/sensors-interface.c:322
+#: ../lib/sensors-interface.c:327
 msgid "Max"
 msgstr "Maks"
 
-#: ../lib/sensors-interface.c:363
+#: ../lib/sensors-interface.c:368
 msgid "Temperature scale:"
 msgstr "Skala temperatur:"
 
-#: ../lib/sensors-interface.c:365
+#: ../lib/sensors-interface.c:370
 msgid "_Celsius"
 msgstr "_Celsius"
 
-#: ../lib/sensors-interface.c:367
+#: ../lib/sensors-interface.c:372
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../lib/sensors-interface.c:403
+#: ../lib/sensors-interface.c:408
 msgid "_Sensors"
 msgstr "_Sensor"
 
