@@ -117,7 +117,7 @@ void quick_message_notify (gchar *message)
 
 #ifdef HAVE_LIBNOTIFY7
     nn = notify_notification_new (summary, body, icon);
-#elseif HAVE_LIBNOTIFY4
+#elif HAVE_LIBNOTIFY4
     nn = notify_notification_new (summary, body, icon, NULL);
 #endif
     /* FIXME: Use channels or propagate private object or use static global variable */
