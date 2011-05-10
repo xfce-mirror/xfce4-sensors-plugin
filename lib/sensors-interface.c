@@ -484,7 +484,7 @@ init_widgets (t_sensors_dialog *sd)
                             iter,
                             0, chipfeature->name,
                             1, "0.0",        /* chipfeature->formatted_value */
-                            2, False,        /* chipfeature->show */
+                            2, FALSE,        /* chipfeature->show */
                             3, "#000000",    /* chipfeature->color */
                             4, 0.0,            /* chipfeature->min_value */
                             5, 0.0,            /* chipfeature->max_value */
