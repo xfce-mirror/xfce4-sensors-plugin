@@ -28,7 +28,8 @@
 #include <gtk/gtk.h>
 
 /* Xfce includes */
-#include <libxfcegui4/libxfcegui4.h>
+//#include <libxfcegui4/libxfcegui4.h>
+#include <libxfce4ui/libxfce4ui.h>
 
 /* Package includes */
 #include <middlelayer.h>
