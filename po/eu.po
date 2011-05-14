@@ -156,7 +156,7 @@ msgstr "ACPI"
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
-msgstr "ACPI %sb zonaldeak"
+msgstr "ACPI v%s zonaldeak"
 
 #. who knows, if we obtain non-NULL version at all...
 #. || g_strisempty(version))
