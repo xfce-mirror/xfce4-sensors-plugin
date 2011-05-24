@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-15 22:50+0900\n"
+"POT-Creation-Date: 2011-05-23 22:31+0200\n"
 "PO-Revision-Date: 2011-05-15 22:54+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: xfce-users-jp <xfce-users-jp@ml.fdiary.net>\n"
@@ -17,8 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors-plugin.c:293
-#: ../panel-plugin/sensors-plugin.c:390
+#: ../panel-plugin/sensors-plugin.c:293 ../panel-plugin/sensors-plugin.c:390
 #: ../panel-plugin/sensors-plugin.c:987
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>センサ</b></span>"
@@ -125,31 +124,32 @@ msgstr "表示(_V)"
 msgid "_Miscellaneous"
 msgstr "その他(_M)"
 
-#: ../panel-plugin/sensors-plugin.c:2179
-#: ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2179 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:177
 msgid "Sensors Plugin"
 msgstr "センサプラグイン"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2222
-msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
-msgstr "エントリをダブルクリックして内容を編集し、\"Enter キー\" を押すか別のフィールドを選択する事で、名前、色、最小/最大値などの主要な機能のプロパティを変更できます。"
+msgid ""
+"You can change a feature's properties such as name, colours, min/max value "
+"by double-clicking the entry, editing the content, and pressing \"Return\" "
+"or selecting a different field."
+msgstr ""
+"エントリをダブルクリックして内容を編集し、\"Enter キー\" を押すか別のフィール"
+"ドを選択する事で、名前、色、最小/最大値などの主要な機能のプロパティを変更でき"
+"ます。"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:160
-#: ../lib/configuration.c:356
-#: ../lib/configuration.c:363
-#: ../lib/hddtemp.c:358
-#: ../lib/hddtemp.c:404
+#: ../lib/configuration.c:160 ../lib/configuration.c:356
+#: ../lib/configuration.c:363 ../lib/hddtemp.c:358 ../lib/hddtemp.c:404
 msgid "Hard disks"
 msgstr "ハードディスク"
 
-#: ../lib/acpi.c:521
-#: ../lib/acpi.c:529
+#: ../lib/acpi.c:521 ../lib/acpi.c:529
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -178,8 +178,7 @@ msgstr "nvidia"
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/nvidia.c:126
-#: ../lib/hddtemp.c:708
+#: ../lib/nvidia.c:126 ../lib/hddtemp.c:708
 #: ../lib/sensors-interface-common.c:145
 #, c-format
 msgid "%.1f °C"
@@ -192,24 +191,29 @@ msgstr "S.M.A.R.T. ハードディスク温度"
 #: ../lib/hddtemp.c:593
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is "
+"most probably due to the disks requiring root privileges to read their "
+"temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
+"restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" は実行可能ですが、正常に実行されませんでした。おそらく、それらの温度を読み込む root 権限を必要とするディスクか、\"hddtemp\" コマンドが root として setuid されていないからでしょう。\n"
+"\"hddtemp\" は実行可能ですが、正常に実行されませんでした。おそらく、それらの"
+"温度を読み込む root 権限を必要とするディスクか、\"hddtemp\" コマンドが root "
+"として setuid されていないからでしょう。\n"
 "\n"
-"簡単ではありますが、お勧めしない提案として、root ユーザで、\"chmod u+s %s\" を実行し、本プラグインかパネルを再起動するという方法があります。\n"
+"簡単ではありますが、お勧めしない提案として、root ユーザで、\"chmod u+s %s\" "
+"を実行し、本プラグインかパネルを再起動するという方法があります。\n"
 "\n"
 "\"%s\" を呼んだ際に以下のエラーを受けとりました:\n"
 "%s\n"
 "返り値: %d\n"
 
-#: ../lib/hddtemp.c:609
-#: ../lib/hddtemp.c:639
+#: ../lib/hddtemp.c:609 ../lib/hddtemp.c:639
 msgid "Suppress this message in future"
 msgstr "今後このメッセージを表示しない"
 
@@ -226,8 +230,7 @@ msgstr ""
 msgid "LM Sensors"
 msgstr "LM Sensors"
 
-#: ../lib/lmsensors.c:369
-#: ../lib/lmsensors.c:416
+#: ../lib/lmsensors.c:369 ../lib/lmsensors.c:416
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "エラー: センサに接続できませんでした!"
@@ -296,8 +299,7 @@ msgstr "華氏(_F)"
 msgid "_Sensors"
 msgstr "センサ(_S)"
 
-#: ../lib/sensors-interface-common.c:71
-#: ../lib/sensors-interface-common.c:72
+#: ../lib/sensors-interface-common.c:71 ../lib/sensors-interface-common.c:72
 msgid "No sensors found!"
 msgstr "センサが見つかりません!"
 
@@ -334,17 +336,22 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /"
+"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.txt\n"
 msgstr ""
 "Xfce4 センサ %s\n"
 "このプログラムは GPL v2 の下で公開されています。\n"
-"ライセンス文はプログラムのソースアーカイブ、 /usr/share/apps/LICENSES/GPL_V2 配下、または http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt にあります。\n"
+"ライセンス文はプログラムのソースアーカイブ、 /usr/share/apps/LICENSES/GPL_V2 "
+"配下、または http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt にありま"
+"す。\n"
 
 #: ../src/main.c:64
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk "
+"temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -355,7 +362,8 @@ msgid ""
 "This program is published under the GPL v2.\n"
 msgstr ""
 "Xfce4 センサ %s\n"
-"ハードウェアセンサ、ACPI ステータス、ハードディスク温度、および NVidia GPU 温度についての情報を表示する。\n"
+"ハードウェアセンサ、ACPI ステータス、ハードディスク温度、および NVidia GPU 温"
+"度についての情報を表示する。\n"
 "概要: \n"
 "  xfce4-sensors オプション\n"
 "オプションは以下の一つ以上があります:\n"

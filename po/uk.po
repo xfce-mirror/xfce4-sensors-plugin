@@ -1,20 +1,20 @@
 # Ukrainian translation of xfce4-sensors-plugin.
 # Copyright (C) 2008 Dmitry Nikitin
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
-# 
+#
 # Dmitry Nikitin <luckas_fb@mail.ru>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-09 20:24+0200\n"
+"POT-Creation-Date: 2011-05-23 22:31+0200\n"
 "PO-Revision-Date: 2008-11-17 13:48+0200\n"
 "Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
 "Language-Team: Ukrainian <xfce4-dev@xfce.org>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: ../panel-plugin/sensors-plugin.c:293 ../panel-plugin/sensors-plugin.c:390
@@ -75,8 +75,7 @@ msgstr "Кількіс_ть тектових стрічок:"
 msgid "F_ont size:"
 msgstr "Розмір _шрифту:"
 
-#. gtk_widget_set_sensitive(myFontBox,
-#. !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1892
 msgid "x-small"
 msgstr "найменші"
@@ -126,21 +125,27 @@ msgid "_Miscellaneous"
 msgstr "_Різне"
 
 #: ../panel-plugin/sensors-plugin.c:2179 ../panel-plugin/sensors-plugin.h:30
-#: ../lib/hddtemp.c:180
+#: ../lib/hddtemp.c:177
 msgid "Sensors Plugin"
 msgstr "Плагін сенсорів"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2222
-msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
-msgstr "Ви можете вибрати опції властивостей такі як назва, кольори, мін/макс значення через подвійне клацання на елементі, редагування змісту і натиснути\"Ввід\" aбо вибрати різні поля."
+msgid ""
+"You can change a feature's properties such as name, colours, min/max value "
+"by double-clicking the entry, editing the content, and pressing \"Return\" "
+"or selecting a different field."
+msgstr ""
+"Ви можете вибрати опції властивостей такі як назва, кольори, мін/макс "
+"значення через подвійне клацання на елементі, редагування змісту і натиснути"
+"\"Ввід\" aбо вибрати різні поля."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
 #: ../lib/configuration.c:160 ../lib/configuration.c:356
-#: ../lib/configuration.c:363 ../lib/hddtemp.c:361 ../lib/hddtemp.c:407
+#: ../lib/configuration.c:363 ../lib/hddtemp.c:358 ../lib/hddtemp.c:404
 msgid "Hard disks"
 msgstr "Жорсткі диски"
 
@@ -149,8 +154,7 @@ msgid "ACPI"
 msgstr "Інтерфейс ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power
-#. Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
@@ -171,44 +175,49 @@ msgid "nvidia"
 msgstr "nvidia"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
-#. 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/nvidia.c:126 ../lib/hddtemp.c:711
+#: ../lib/nvidia.c:126 ../lib/hddtemp.c:708
 #: ../lib/sensors-interface-common.c:145
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f градусів по Цельсію"
 
-#: ../lib/hddtemp.c:406
+#: ../lib/hddtemp.c:403
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "Температура жорстких дисків із S.M.A.R.T."
 
-#: ../lib/hddtemp.c:596
+#: ../lib/hddtemp.c:593
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is "
+"most probably due to the disks requiring root privileges to read their "
+"temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
+"restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" не було коректно виконано, хоча він виконуваний. Можливо це    потребує прав адміністратора для перегляду інформації про температуру  дисків але \"hddtemp\" не має адміністративних прав.\n"
+"\"hddtemp\" не було коректно виконано, хоча він виконуваний. Можливо це    "
+"потребує прав адміністратора для перегляду інформації про температуру  "
+"дисків але \"hddtemp\" не має адміністративних прав.\n"
 "\n"
-"Простіше але брудне рішення запустити \"chmod u+s %s\" як root і       перезапустити цей плагін або панель.\n"
+"Простіше але брудне рішення запустити \"chmod u+s %s\" як root і       "
+"перезапустити цей плагін або панель.\n"
 "\n"
 "Виклик \"%s\" дає наступну помилку:\n"
 "%s\n"
 "з поверненням значення %d.\n"
 
-#: ../lib/hddtemp.c:612 ../lib/hddtemp.c:642
+#: ../lib/hddtemp.c:609 ../lib/hddtemp.c:639
 msgid "Suppress this message in future"
 msgstr "Доповнювати це повідомлення в майбутньому"
 
-#: ../lib/hddtemp.c:636
+#: ../lib/hddtemp.c:633
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
@@ -226,11 +235,11 @@ msgstr "Сенсори LM"
 msgid "Error: Could not connect to sensors!"
 msgstr "Помилка: Неможливо отримати доступ до сенсорів!"
 
-#: ../lib/sensors-interface.c:82
+#: ../lib/sensors-interface.c:83
 msgid "Sensors Plugin Failure"
 msgstr "Невдача плагіна сенсорів"
 
-#: ../lib/sensors-interface.c:83
+#: ../lib/sensors-interface.c:84
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
@@ -327,17 +336,22 @@ msgstr "%.0f обертів за хвилину"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /"
+"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.txt\n"
 msgstr ""
 "Сенсори Xfce4 %s\n"
 "Цю програму опубліковано під ліцензією GPL v2.\n"
-"Текст ліцензії можна знайти всередині архіву з джерельними кодами програми або нижче /usr/share/apps/LICENSES/GPL_V2 або на сайті http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+"Текст ліцензії можна знайти всередині архіву з джерельними кодами програми "
+"або нижче /usr/share/apps/LICENSES/GPL_V2 або на сайті http://www.gnu.org/"
+"licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk "
+"temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -348,7 +362,8 @@ msgid ""
 "This program is published under the GPL v2.\n"
 msgstr ""
 "Сенсори Xfce4 %s\n"
-"Показують інформацію про ваші сенсори, статус ACPI. температуру твердих дисків і температуру GPU Nvidia.\n"
+"Показують інформацію про ваші сенсори, статус ACPI. температуру твердих "
+"дисків і температуру GPU Nvidia.\n"
 "Команда запуску: \n"
 "  xfce4-sensors опції\n"
 "де опції одна або більше з наступних:\n"
@@ -363,21 +378,21 @@ msgstr ""
 msgid "Xfce4 Sensors %s\n"
 msgstr "Сенсори Xfce4 %s\n"
 
-#: ../src/interface.c:77
+#: ../src/interface.c:78
 msgid "_Overview"
 msgstr "_Огляд"
 
-#: ../src/interface.c:97
+#: ../src/interface.c:98
 msgid "_Tachometers"
 msgstr "Таксом_етри"
 
-#: ../src/interface.c:113
+#: ../src/interface.c:114
 msgid "Sensors Viewer"
 msgstr "Переглядач сенсорів"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../src/actions.c:78
+#: ../src/actions.c:79
 #, c-format
 msgid ""
 "Sensors Viewer:\n"

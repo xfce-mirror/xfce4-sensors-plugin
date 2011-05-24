@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-09 20:24+0200\n"
+"POT-Creation-Date: 2011-05-23 22:31+0200\n"
 "PO-Revision-Date: 2009-04-09 21:46-0400\n"
 "Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
@@ -126,7 +126,7 @@ msgid "_Miscellaneous"
 msgstr "_Lainnya"
 
 #: ../panel-plugin/sensors-plugin.c:2179 ../panel-plugin/sensors-plugin.h:30
-#: ../lib/hddtemp.c:180
+#: ../lib/hddtemp.c:177
 msgid "Sensors Plugin"
 msgstr "Plugin Sensor"
 
@@ -146,7 +146,7 @@ msgstr ""
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
 #: ../lib/configuration.c:160 ../lib/configuration.c:356
-#: ../lib/configuration.c:363 ../lib/hddtemp.c:361 ../lib/hddtemp.c:407
+#: ../lib/configuration.c:363 ../lib/hddtemp.c:358 ../lib/hddtemp.c:404
 msgid "Hard disks"
 msgstr "Cakram keras"
 
@@ -179,17 +179,17 @@ msgstr ""
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
-#: ../lib/nvidia.c:126 ../lib/hddtemp.c:711
+#: ../lib/nvidia.c:126 ../lib/hddtemp.c:708
 #: ../lib/sensors-interface-common.c:145
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
 
-#: ../lib/hddtemp.c:406
+#: ../lib/hddtemp.c:403
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "Temperatur cakram keras S.M.A.R.T."
 
-#: ../lib/hddtemp.c:596
+#: ../lib/hddtemp.c:593
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is "
@@ -214,11 +214,11 @@ msgstr ""
 "%s\n"
 "dengan nilai kembali %d.\n"
 
-#: ../lib/hddtemp.c:612 ../lib/hddtemp.c:642
+#: ../lib/hddtemp.c:609 ../lib/hddtemp.c:639
 msgid "Suppress this message in future"
 msgstr "Kecilkan pesan ini di masa depan"
 
-#: ../lib/hddtemp.c:636
+#: ../lib/hddtemp.c:633
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
@@ -236,11 +236,11 @@ msgstr "Sensor LM"
 msgid "Error: Could not connect to sensors!"
 msgstr "Galat: Tak dapat menghubungi sensor!"
 
-#: ../lib/sensors-interface.c:82
+#: ../lib/sensors-interface.c:83
 msgid "Sensors Plugin Failure"
 msgstr "Kegagalan Plugin Sensor"
 
-#: ../lib/sensors-interface.c:83
+#: ../lib/sensors-interface.c:84
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
@@ -378,21 +378,21 @@ msgstr ""
 msgid "Xfce4 Sensors %s\n"
 msgstr "Sensor Xfce4 %s\n"
 
-#: ../src/interface.c:77
+#: ../src/interface.c:78
 msgid "_Overview"
 msgstr ""
 
-#: ../src/interface.c:97
+#: ../src/interface.c:98
 msgid "_Tachometers"
 msgstr ""
 
-#: ../src/interface.c:113
+#: ../src/interface.c:114
 msgid "Sensors Viewer"
 msgstr "Penampil Sensor"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../src/actions.c:78
+#: ../src/actions.c:79
 #, fuzzy, c-format
 msgid ""
 "Sensors Viewer:\n"
