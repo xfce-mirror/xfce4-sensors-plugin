@@ -7,14 +7,14 @@ dnl 2003,2004, 2007 Benedikt Meurer <benny@xfce.org>
 dnl 2007-2011 Fabian Nowak <timystery@arcor.de>
 dnl
 
-m4_define([libxfce4sensors_verinfo], [3:2:2])
+m4_define([libxfce4sensors_verinfo], [3:3:2])
 
 m4_define([xfce4_sensors_version_major], [1])
 m4_define([xfce4_sensors_version_minor], [2])
 m4_define([xfce4_sensors_version_micro], [3])
 m4_define([xfce4_sensors_version_nano], [])
 m4_define([xfce4_sensors_version_build], [@REVISION@])
-m4_define([xfce4_sensors_version_tag], []) dnl may be set to 'git'
+m4_define([xfce4_sensors_version_tag], [git]) dnl may be set to 'git'
 m4_define([xfce4_sensors_version], [xfce4_sensors_version_major().xfce4_sensors_version_minor().xfce4_sensors_version_micro()ifelse(xfce4_sensors_version_nano(), [], [], [.xfce4_sensors_version_nano()])ifelse(xfce4_sensors_version_tag(), [git], [xfce4_sensors_version_tag()-xfce4_sensors_version_build()], [xfce4_sensors_version_tag()])])
 
 
