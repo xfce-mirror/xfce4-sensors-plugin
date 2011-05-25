@@ -2,7 +2,7 @@
 # Copyright (C) 2004-2005 Fabian Nowak.
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
 # Stavros Giannouris <stavrosg@serverhive.com>, 2005.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
@@ -11,10 +11,10 @@ msgstr ""
 "PO-Revision-Date: 2011-01-07 18:26+0200\n"
 "Last-Translator: Spiros Georgaras <sng@hellug.gr>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
-"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
 "X-Poedit-Country: GREECE\n"
 
 #: ../panel-plugin/sensors-plugin.c:293 ../panel-plugin/sensors-plugin.c:390
@@ -76,7 +76,8 @@ msgstr "_Αριθμός γραμμών κειμένου:"
 msgid "F_ont size:"
 msgstr "_Μέγεθος γραμματοσειράς:"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1892
 msgid "x-small"
 msgstr "πολύ μικρό"
@@ -132,15 +133,8 @@ msgstr "Πρόσθετο αισθητήρων"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2222
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field."
-msgstr ""
-"Μπορείτε να αλλάξετε τις ιδιότητες ενός χαρακτηριστικού όπως το όνομα, τα "
-"χρώματα, ελάχιστη / μέγιστη τιμή κάνοντας διπλό κλικ την εγγραφή, "
-"επεξεργάζοντας το περιεχομενο και πατώντας \"Enter\" ή επιλέγοντας ένα "
-"διαφορετικό πεδίο."
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
+msgstr "Μπορείτε να αλλάξετε τις ιδιότητες ενός χαρακτηριστικού όπως το όνομα, τα χρώματα, ελάχιστη / μέγιστη τιμή κάνοντας διπλό κλικ την εγγραφή, επεξεργάζοντας το περιεχομενο και πατώντας \"Enter\" ή επιλέγοντας ένα διαφορετικό πεδίο."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -156,7 +150,8 @@ msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
@@ -170,14 +165,15 @@ msgstr "<Άγνωστο>"
 
 #: ../lib/nvidia.c:60
 msgid "NVidia GPU core temperature"
-msgstr ""
+msgstr "Θερμοκρασία πυρήνα NVidia GPU"
 
 #: ../lib/nvidia.c:61
 msgid "nvidia"
-msgstr ""
+msgstr "nvidia"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
 #. } else { // Celsius
 #. Celsius
 #: ../lib/nvidia.c:126 ../lib/hddtemp.c:708
@@ -193,24 +189,17 @@ msgstr "Θερμοκρασίες S.M.A.R.T. σκληρών δίσκων"
 #: ../lib/hddtemp.c:593
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"Το \"hddtemp\" δεν εκτελέστηκε σωστά, παρόλο που έιναι εκτελέσιμο. "
-"Πιθανότατα επειδή χρειάζονται δικαιώματα υπερχρήστη για να διαβαστούν οι "
-"θερμοκρασίες των σκληρών δίσκων, και το \"hddtemp\" δεν έχει ορίστεί με "
-"setuid root.\n"
+"Το \"hddtemp\" δεν εκτελέστηκε σωστά, παρόλο που έιναι εκτελέσιμο. Πιθανότατα επειδή χρειάζονται δικαιώματα υπερχρήστη για να διαβαστούν οι θερμοκρασίες των σκληρών δίσκων, και το \"hddtemp\" δεν έχει ορίστεί με setuid root.\n"
 "\n"
-"Μια εύκολη αλλά βρώμικη λύση είναι να εκτελέσετε \"chmod u+s %s\" σαν "
-"υπερχρήστης και να επανεκκινήσετε το πρόσθετο ή το ταμπλό του.\n"
+"Μια εύκολη αλλά βρώμικη λύση είναι να εκτελέσετε \"chmod u+s %s\" σαν υπερχρήστης και να επανεκκινήσετε το πρόσθετο ή το ταμπλό του.\n"
 "\n"
 "Καλώντας \"%s\" εμφανίστηκε το ακόλουθο σφάλμα:\n"
 "%s\n"
@@ -339,22 +328,17 @@ msgstr "%5.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
 "Xfce4 Sensors %s\n"
 "ο παρόν πρόγραμμα δημοσιεύεται κάτω από την άδεια χρήσης GPL v2.\n"
-"Το κείμενο της άδειας χρήσης μπορεί να βρεθεί στο πακέτο πηγαίου κώδικα του "
-"προγράμματος ή στο /usr/share/apps/LICENSES/GPL_V2 ή στο http://www.gnu.org/"
-"licenses/old-licenses/gpl-2.0.txt\n"
+"Το κείμενο της άδειας χρήσης μπορεί να βρεθεί στο πακέτο πηγαίου κώδικα του προγράμματος ή στο /usr/share/apps/LICENSES/GPL_V2 ή στο http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
 #, fuzzy, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk "
-"temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -455,8 +439,7 @@ msgstr "Πρόσθετο αισθητήρων"
 #~ "Δεν είναι εγγυημένη η κανονική συνέχεια.\n"
 
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
-#~ msgstr ""
-#~ "<span foreground=\"#000000\" size=\"%s\"><b>Αισθητήρες</b></span> \n"
+#~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Αισθητήρες</b></span> \n"
 
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Αισθητήρες</b></span>"
