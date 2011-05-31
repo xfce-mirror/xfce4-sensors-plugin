@@ -2,7 +2,7 @@
 # Copyright (C) 2004-2005 Fabian Nowak.
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
 # Andhika Padmawan <andhika.padmawan@gmail.com>, 2008.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
@@ -11,10 +11,10 @@ msgstr ""
 "PO-Revision-Date: 2009-04-09 21:46-0400\n"
 "Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
-"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: id\n"
 
 #: ../panel-plugin/sensors-plugin.c:293 ../panel-plugin/sensors-plugin.c:390
 #: ../panel-plugin/sensors-plugin.c:987
@@ -48,16 +48,15 @@ msgstr "_teks"
 
 #: ../panel-plugin/sensors-plugin.c:1721
 msgid "_progress bars"
-msgstr ""
+msgstr "_batang progres"
 
 #: ../panel-plugin/sensors-plugin.c:1723
 msgid "_tachos"
-msgstr ""
+msgstr "_tachometer"
 
 #: ../panel-plugin/sensors-plugin.c:1768
-#, fuzzy
 msgid "Show _labels"
-msgstr "_Tampilkan judul"
+msgstr "Tampilkan _label"
 
 #: ../panel-plugin/sensors-plugin.c:1798
 msgid "Show colored _bars"
@@ -69,13 +68,14 @@ msgstr "_Tampilkan judul"
 
 #: ../panel-plugin/sensors-plugin.c:1850
 msgid "_Number of text lines:"
-msgstr ""
+msgstr "_Jumlah baris teks:"
 
 #: ../panel-plugin/sensors-plugin.c:1885
 msgid "F_ont size:"
 msgstr "U_kuran fonta:"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1892
 msgid "x-small"
 msgstr "sangat kecil"
@@ -97,9 +97,8 @@ msgid "x-large"
 msgstr "sangat besar"
 
 #: ../panel-plugin/sensors-plugin.c:1927
-#, fuzzy
 msgid "F_ont:"
-msgstr "U_kuran fonta:"
+msgstr "F_onta:"
 
 #: ../panel-plugin/sensors-plugin.c:1961
 msgid "Show _Units"
@@ -132,14 +131,8 @@ msgstr "Plugin Sensor"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2222
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field."
-msgstr ""
-"Anda dapat mengubah properti fitur seperti nama, warna, nilai min/maks "
-"dengan klik ganda pada entri, sunting isi, dan menekan \"Kembali\" atau "
-"memilih bidang yang lain."
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
+msgstr "Anda dapat mengubah properti fitur seperti nama, warna, nilai min/maks dengan klik ganda pada entri, sunting isi, dan menekan \"Kembali\" atau memilih bidang yang lain."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -155,7 +148,8 @@ msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
@@ -169,14 +163,15 @@ msgstr "<Tak diketahui>"
 
 #: ../lib/nvidia.c:60
 msgid "NVidia GPU core temperature"
-msgstr ""
+msgstr "Temperatur inti GPU NVidia"
 
 #: ../lib/nvidia.c:61
 msgid "nvidia"
-msgstr ""
+msgstr "nvidia"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
 #. } else { // Celsius
 #. Celsius
 #: ../lib/nvidia.c:126 ../lib/hddtemp.c:708
@@ -192,23 +187,17 @@ msgstr "Temperatur cakram keras S.M.A.R.T."
 #: ../lib/hddtemp.c:593
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" tak tereksekusi dengan benar, meskipun dapat dieksekusi. Ini "
-"mungkin karena cakram memerlukan hak akses root untuk membaca temperaturnya, "
-"dan \"hddtemp\" tidak diatur menggunakan uid root.\n"
+"\"hddtemp\" tak tereksekusi dengan benar, meskipun dapat dieksekusi. Ini mungkin karena cakram memerlukan hak akses root untuk membaca temperaturnya, dan \"hddtemp\" tidak diatur menggunakan uid root.\n"
 "\n"
-"Cara yang mudah namun kotor adalah dengan menjalankan \"chmod u+s %s\" "
-"sebagai pengguna root kemudian start ulang plugin ini atau panelnya.\n"
+"Cara yang mudah namun kotor adalah dengan menjalankan \"chmod u+s %s\" sebagai pengguna root kemudian start ulang plugin ini atau panelnya.\n"
 "\n"
 "Memanggil \"%s\" memberikan galat berikut:\n"
 "%s\n"
@@ -337,22 +326,17 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
 "Sensor Xfce4 %s\n"
 "Program ini dipublikasikan di bawah GPL v2.\n"
-"Teks lisensi dapat ditemukan di dalam arsip sumber program atau di bawah /"
-"usr/share/apps/LICENSES/GPL_V2 atau di http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"Teks lisensi dapat ditemukan di dalam arsip sumber program atau di bawah /usr/share/apps/LICENSES/GPL_V2 atau di http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk "
-"temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -363,7 +347,7 @@ msgid ""
 "This program is published under the GPL v2.\n"
 msgstr ""
 "Sensor Xfce4 %s\n"
-"Tampilkan informasi tentang sensor dan ACPI anda.\n"
+"Tampilkan informasi tentang sensor peranti keras, status ACPI, temperatur hardisk dan temperatur GPU NVidia anda.\n"
 "Sinopsis: \n"
 "  xfce4-sensors opsi\n"
 "opsi merupakan satu atau beberapa opsi berikut:\n"
@@ -380,11 +364,11 @@ msgstr "Sensor Xfce4 %s\n"
 
 #: ../src/interface.c:78
 msgid "_Overview"
-msgstr ""
+msgstr "_Ringkasan"
 
 #: ../src/interface.c:98
 msgid "_Tachometers"
-msgstr ""
+msgstr "_Tachometer"
 
 #: ../src/interface.c:114
 msgid "Sensors Viewer"
@@ -393,7 +377,7 @@ msgstr "Penampil Sensor"
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
 #: ../src/actions.c:79
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
@@ -404,7 +388,6 @@ msgstr ""
 "Eksekusi yang normal tidak dapat dijamin.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
-#, fuzzy
 msgid "Sensor Values Viewer"
 msgstr "Penampil Nilai Sensor"
 
