@@ -39,7 +39,7 @@ msgstr ""
 "Sensors-plugin:\n"
 "Het lijkt erop dat er een probleem was met het lezen van de waarde\n"
 "van een sensorfunctie.\n"
-"Correcte voortgang kan niet worden gegagarandeerd.\n"
+"Correcte voortgang kan niet worden gegarandeerd.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1718
 msgid "UI style:"
@@ -166,7 +166,7 @@ msgstr "<Unknown>"
 
 #: ../lib/nvidia.c:60
 msgid "NVidia GPU core temperature"
-msgstr "NVidia Grafische Processor temperatuur"
+msgstr "NVidia Grafische Processor-temperatuur"
 
 #: ../lib/nvidia.c:61
 msgid "nvidia"
@@ -185,7 +185,7 @@ msgstr "%.1f °C"
 
 #: ../lib/hddtemp.c:403
 msgid "S.M.A.R.T. harddisk temperatures"
-msgstr "S.M.A.R.T. temperaturen van harde schijf"
+msgstr "S.M.A.R.T.-temperaturen van harde schijf"
 
 #: ../lib/hddtemp.c:593
 #, c-format
@@ -237,8 +237,8 @@ msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr ""
-"Seems like there was a problem reading a sensor feature value.\n"
-"Proper proceeding cannot be guaranteed."
+"Het lijkt erop dat er een probleem was met het uitlezen van een\n"
+"sensorfunctiewaarde. Juiste voortgang kan niet worden gegarandeerd."
 
 #: ../lib/sensors-interface.c:169
 msgid "Sensors t_ype:"
@@ -332,8 +332,8 @@ msgid ""
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
 "Xfce4 Sensors %s\n"
-"This program is published under the GPL v2.\n"
-"The licence text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+"Dit programma wordt gepubliceerd onder de GPL v2.\n"
+"De licentietekst zit in het bronarchief van het programma of onder /usr/share/apps/LICENSES/GPL_V2 of op http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
 #, c-format
@@ -350,7 +350,7 @@ msgid ""
 "This program is published under the GPL v2.\n"
 msgstr ""
 "Xfce4 Sensors %s\n"
-"Toont informatie over uw hardware sensors, ACPI status, harde-schijf-temperaturen en Nvidia GPU's-temperaturen.\n"
+"Toont informatie over uw hardware-sensors, ACPI-status, harde-schijf-temperaturen en Nvidia GPU's-temperaturen.\n"
 "Synopsis: \n"
 "  xfce4-sensors opties\n"
 "waar opties zijn een of meer van de volgende:\n"
@@ -414,7 +414,7 @@ msgstr "Sensor-plugin "
 #~ msgstr "Geen concrete fout bespeurd.\n"
 
 #~ msgid "Show _labels in graphical UI"
-#~ msgstr "Toon _etiketten in de grafische omgeving"
+#~ msgstr "Toon _etiketten in de grafische schil"
 
 #~ msgid "Xfce 4 Sensors Plugin"
 #~ msgstr "Xfce4 Sensors Plugin"
@@ -435,8 +435,8 @@ msgstr "Sensor-plugin "
 #~ msgstr ""
 #~ " \n"
 #~ "Xfce Hardware Sensors Plugin: \n"
-#~ "Seems like there was a problem reading a sensor feature value. \n"
-#~ "Proper proceeding cannot be guaranteed.\n"
+#~ "Het lijkt erop dat er een probleem was met het uitlezen van een sensorfunctiewaarde. \n"
+#~ "Juiste voortgang kan niet worden gegarandeerd.\n"
 
 #~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
 #~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
@@ -447,5 +447,5 @@ msgstr "Sensor-plugin "
 #~ msgid "<b>Sensors</b>"
 #~ msgstr "<b>Sensors</b>"
 
-#~ msgid "<b>Toon</b>"
+#~ msgid "<b>View</b>"
 #~ msgstr "<b>Toon</b>"
