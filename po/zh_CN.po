@@ -387,9 +387,8 @@ msgstr ""
 "无法保证相应操作将被执行。\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
-#, fuzzy
 msgid "Sensor Values Viewer"
-msgstr "传感器查看器"
+msgstr "传感器数值查看器"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
 msgid "Sensor Viewer"
