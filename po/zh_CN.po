@@ -2,7 +2,7 @@
 # Copyright (C) 2009 THE xfce'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce package.
 # Hunt Xu <huntxu@live.cn>, 2009.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce 4-sensors-plugin\n"
@@ -11,10 +11,10 @@ msgstr ""
 "PO-Revision-Date: 2009-11-09 19:43+0800\n"
 "Last-Translator: Hunt Xu <huntxu@live.cn>\n"
 "Language-Team: Chinese (simplified) <xfce-i18n@xfce.org>\n"
-"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 
 #: ../panel-plugin/sensors-plugin.c:293 ../panel-plugin/sensors-plugin.c:390
 #: ../panel-plugin/sensors-plugin.c:987
@@ -74,7 +74,8 @@ msgstr "文本行数(_N):"
 msgid "F_ont size:"
 msgstr "字体大小(_O):"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1892
 msgid "x-small"
 msgstr "很小"
@@ -130,13 +131,8 @@ msgstr "传感器插件"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2222
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field."
-msgstr ""
-"您可以通过在项目上双击然后输入内容并回车改变一个组件的名称，颜色，最小/最大值"
-"等首选项，或者选择其他栏目。"
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
+msgstr "您可以通过在项目上双击然后输入内容并回车改变一个组件的名称，颜色，最小/最大值等首选项，或者选择其他栏目。"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -152,7 +148,8 @@ msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
@@ -166,14 +163,15 @@ msgstr "<未知>"
 
 #: ../lib/nvidia.c:60
 msgid "NVidia GPU core temperature"
-msgstr ""
+msgstr "NVidia GPU 核心温度"
 
 #: ../lib/nvidia.c:61
 msgid "nvidia"
-msgstr ""
+msgstr "nvidia"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
 #. } else { // Celsius
 #. Celsius
 #: ../lib/nvidia.c:126 ../lib/hddtemp.c:708
@@ -189,22 +187,17 @@ msgstr "S.M.A.R.T. 硬盘温度"
 #: ../lib/hddtemp.c:593
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"虽然 \"hddtemp\" 是可执行的但并未被正确执行。这很可能是由于读取硬盘温度需要 "
-"root 权限，且 \"hddtemp\" 不是 setuid root权限。\n"
+"虽然 \"hddtemp\" 是可执行的但并未被正确执行。这很可能是由于读取硬盘温度需要 root 权限，且 \"hddtemp\" 不是 setuid root权限。\n"
 "\n"
-"一个简单但可能给您带来危险的做法是以root用户运行\"chmod u+s %s\" 并重新启动此"
-"插件或者此面板。\n"
+"一个简单但可能给您带来危险的做法是以root用户运行\"chmod u+s %s\" 并重新启动此插件或者此面板。\n"
 "执行 \"%s\" 返回如下错误:\n"
 "%s\n"
 "返回值为 %d。\n"
@@ -332,21 +325,17 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
 "Xfce4 传感器 %s\n"
 "这个软件在 GPL v2 授权协议下发布。\n"
-"协议文件可以在软件源代码中或者系统中的/usr/share/apps/LICENSES/GPL_V2目录或者"
-"在http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt找到\n"
+"协议文件可以在软件源代码中或者系统中的/usr/share/apps/LICENSES/GPL_V2目录或者在http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt找到\n"
 
 #: ../src/main.c:64
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk "
-"temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -357,7 +346,7 @@ msgid ""
 "This program is published under the GPL v2.\n"
 msgstr ""
 "Xfce4 传感器 %s\n"
-"显示传感器及ACPI信息。\n"
+"显示硬件传感器及ACPI信息,硬盘温度和Nvidia GPU的温度。\n"
 "用法: \n"
 "  xfce4-sensors 选项\n"
 "选项可以是下列一个或者多个:\n"
