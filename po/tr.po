@@ -386,7 +386,6 @@ msgstr ""
 "Düzgün çalışma garantisi bulunmamaktadır.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
-#, fuzzy
 msgid "Sensor Values Viewer"
 msgstr "Algılayıcı Değerleri Görüntüleyici"
 
