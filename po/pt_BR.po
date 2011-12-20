@@ -4,7 +4,7 @@
 # Bruno Jesus <myxfce@gmail.com>, 2007.
 # Fábio Nogueira <deb-user-ba@ubuntu.com>, 2008.
 # Og Maciel <ogmaciel@gnome.org>, 2007-2008.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
@@ -13,10 +13,10 @@ msgstr ""
 "PO-Revision-Date: 2008-11-28 21:49-0500\n"
 "Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
-"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../panel-plugin/sensors-plugin.c:293 ../panel-plugin/sensors-plugin.c:390
@@ -51,16 +51,15 @@ msgstr "_texto"
 
 #: ../panel-plugin/sensors-plugin.c:1721
 msgid "_progress bars"
-msgstr ""
+msgstr "barras de _progresso"
 
 #: ../panel-plugin/sensors-plugin.c:1723
 msgid "_tachos"
-msgstr ""
+msgstr "con_tadores"
 
 #: ../panel-plugin/sensors-plugin.c:1768
-#, fuzzy
 msgid "Show _labels"
-msgstr "Mo_strar título"
+msgstr "Mo_strar rótulos"
 
 #: ../panel-plugin/sensors-plugin.c:1798
 msgid "Show colored _bars"
@@ -72,13 +71,14 @@ msgstr "Mo_strar título"
 
 #: ../panel-plugin/sensors-plugin.c:1850
 msgid "_Number of text lines:"
-msgstr ""
+msgstr "_Número de linhas de texto:"
 
 #: ../panel-plugin/sensors-plugin.c:1885
 msgid "F_ont size:"
-msgstr "Tamanho de f_onte:"
+msgstr "Tamanho da f_onte:"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1892
 msgid "x-small"
 msgstr "muito pequena"
@@ -100,13 +100,12 @@ msgid "x-large"
 msgstr "muito grande"
 
 #: ../panel-plugin/sensors-plugin.c:1927
-#, fuzzy
 msgid "F_ont:"
-msgstr "Tamanho de f_onte:"
+msgstr "F_onte:"
 
 #: ../panel-plugin/sensors-plugin.c:1961
 msgid "Show _Units"
-msgstr "Mostrar _unidades"
+msgstr "Mostrar _Unidades"
 
 #: ../panel-plugin/sensors-plugin.c:1982
 msgid "Small horizontal s_pacing"
@@ -135,7 +134,6 @@ msgstr "Plug-in de sensores"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2222
-#, fuzzy
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -159,7 +157,8 @@ msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
 #: ../lib/acpi.c:523
 #, c-format
 msgid "ACPI v%s zones"
@@ -173,14 +172,15 @@ msgstr "<Desconhecido>"
 
 #: ../lib/nvidia.c:60
 msgid "NVidia GPU core temperature"
-msgstr ""
+msgstr "Temperatura do Núcleo GPU NVidia"
 
 #: ../lib/nvidia.c:61
 msgid "nvidia"
-msgstr ""
+msgstr "nvidia"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
 #. } else { // Celsius
 #. Celsius
 #: ../lib/nvidia.c:126 ../lib/hddtemp.c:708
@@ -353,7 +353,7 @@ msgstr ""
 "licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
 "Displays information about your hardware sensors, ACPI status, harddisk "
@@ -385,20 +385,20 @@ msgstr "Sensores do Xfce %s\n"
 
 #: ../src/interface.c:78
 msgid "_Overview"
-msgstr ""
+msgstr "Visã_o Geral"
 
 #: ../src/interface.c:98
 msgid "_Tachometers"
-msgstr ""
+msgstr "_Tacômetros"
 
 #: ../src/interface.c:114
 msgid "Sensors Viewer"
-msgstr "Visualizador de sensores"
+msgstr "Visualizador de Sensores"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
 #: ../src/actions.c:79
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
@@ -409,13 +409,12 @@ msgstr ""
 "Não é possível garantir o procedimento apropriado.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
-#, fuzzy
 msgid "Sensor Values Viewer"
-msgstr "Visualizador de valores dos sensores"
+msgstr "Visualizador de Valores dos Sensores"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
 msgid "Sensor Viewer"
-msgstr "Visualizador de sensores"
+msgstr "Visualizador de Sensor"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
