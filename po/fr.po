@@ -171,7 +171,7 @@ msgstr "<Inconnu>"
 
 #: ../lib/nvidia.c:60
 msgid "NVidia GPU core temperature"
-msgstr ""
+msgstr "Température du GPU NVidia"
 
 #: ../lib/nvidia.c:61
 msgid "nvidia"
@@ -406,9 +406,8 @@ msgstr ""
 "L'exécution normale ne peut pas être garantie.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
-#, fuzzy
 msgid "Sensor Values Viewer"
-msgstr "Afficheur des valeurs de capteurs"
+msgstr "Afficheur des valeurs des capteurs"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
 msgid "Sensor Viewer"
