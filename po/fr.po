@@ -232,7 +232,7 @@ msgstr ""
 
 #: ../lib/lmsensors.c:110
 msgid "LM Sensors"
-msgstr "lm-sensors"
+msgstr "LM Capteurs"
 
 #: ../lib/lmsensors.c:369 ../lib/lmsensors.c:416
 #, c-format
@@ -305,7 +305,7 @@ msgstr "_Senseurs"
 
 #: ../lib/sensors-interface-common.c:71 ../lib/sensors-interface-common.c:72
 msgid "No sensors found!"
-msgstr "Aucun senseur trouvé !"
+msgstr "Aucun capteur trouvé !"
 
 #: ../lib/sensors-interface-common.c:142
 #, c-format
@@ -350,7 +350,7 @@ msgstr ""
 "programme ou sur http://www.gun.org/licenses/\n"
 
 #: ../src/main.c:64
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
 "Displays information about your hardware sensors, ACPI status, harddisk "
