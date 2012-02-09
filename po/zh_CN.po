@@ -3,7 +3,7 @@
 # This file is distributed under the same license as
 # the xfce4-sensors-plugin package.
 # Hunt Xu <huntxu@live.cn>, 2009.
-# Chipong Luo <chipong_l@yahoo.com>, 2011.
+# Chipong Luo <chipong.luo@yahoo.com>, 2011, 2012.
 #
 msgid ""
 msgstr ""
@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-05-23 22:31+0200\n"
 "PO-Revision-Date: 2009-11-09 19:43+0800\n"
-"Last-Translator: Chipong Luo <chipong_l@yahoo.com>\n"
+"Last-Translator: Chipong Luo <chipong.luo@yahoo.com>\n"
 "Language-Team: Chinese (Simplified) <xfce-i18n@xfce.org>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +38,7 @@ msgid ""
 msgstr ""
 "传感器插件：\n"
 "读取传感器值时好像有问题。\n"
-"无法保证正确的操作。\n"
+"未能保证正确的操作。\n"
 
 #: ../panel-plugin/sensors-plugin.c:1718
 msgid "UI style:"
@@ -46,7 +46,7 @@ msgstr "界面样式："
 
 #: ../panel-plugin/sensors-plugin.c:1719
 msgid "_text"
-msgstr "文本(_T)"
+msgstr "文字(_T)"
 
 #: ../panel-plugin/sensors-plugin.c:1721
 msgid "_progress bars"
@@ -70,7 +70,7 @@ msgstr "显示标题(_S)"
 
 #: ../panel-plugin/sensors-plugin.c:1850
 msgid "_Number of text lines:"
-msgstr "文本行数(_N)："
+msgstr "文字行数(_N)："
 
 #: ../panel-plugin/sensors-plugin.c:1885
 msgid "F_ont size:"
@@ -108,7 +108,7 @@ msgstr "显示单位(_U)"
 
 #: ../panel-plugin/sensors-plugin.c:1982
 msgid "Small horizontal s_pacing"
-msgstr "小水平间隔(_P)"
+msgstr "小水平间距(_P)"
 
 #: ../panel-plugin/sensors-plugin.c:2004
 msgid "Suppress messages"
@@ -116,7 +116,7 @@ msgstr "不显示信息"
 
 #: ../panel-plugin/sensors-plugin.c:2029
 msgid "E_xecute on double click:"
-msgstr "在双击时执行(_X)："
+msgstr "双击时执行(_X)："
 
 #: ../panel-plugin/sensors-plugin.c:2072
 msgid "_View"
@@ -135,8 +135,9 @@ msgstr "传感器插件"
 #: ../panel-plugin/sensors-plugin.c:2222
 msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
 msgstr ""
-"您可以通过双击条目、编辑内容后按回车或选择不同的区域来更改一个功能的"
-"名称、颜色、最小/最大值等属性。"
+"您可以通过双击条目、编辑内容后按回车或选择"
+"不同的区域来更改一个功能的比如名称、颜色、"
+"最小/最大值等属性。"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -199,12 +200,14 @@ msgid ""
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"虽然 “hddtemp” 是可执行的但并未正确执行。这很可能是由于读取硬盘温度"
-"需要 root 权限，且 “hddtemp” 没有设置具有 root 权限。\n"
+"虽然 “hddtemp” 是可执行的但并未正确执行。"
+"这很可能是由于读取硬盘温度需要 root 权限，"
+"且 “hddtemp” 没有设置具有 root 权限。\n"
 "\n"
-"一个简单但不正当的解决方法是以 root 用户运行 “chmod u+s %s” 并重新"
-"启动此插件或者此面板。\n"
-"呼叫 “%s” 返回如下错误：\n"
+"一个简单但不正当的解决方法是以 root 用户"
+"运行 “chmod u+s %s” 并重新启动此插件或"
+"此面板。\n"
+"呼叫 “%s” 时返回如下错误：\n"
 "%s\n"
 "返回值为 %d。\n"
 
@@ -239,8 +242,8 @@ msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr ""
-"读取传感器值时好像有问题。\n"
-"无法保证正确的操作。"
+"读取传感器功能值时好像有问题。\n"
+"未能保证正确的操作。"
 
 #: ../lib/sensors-interface.c:169
 msgid "Sensors t_ype:"
@@ -333,11 +336,12 @@ msgid ""
 "This program is published under the GPL v2.\n"
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
-"Xfce4 传感器 %s\n"
-"此程序在 GPL v2 下发布。\n"
-"协议正文可在程序源码档案中或在 /usr/share/apps/LICENSES/GPL_V2 "
-"下或在 http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt "
-"中找到\n"
+"Xfce 4 传感器 %s\n"
+"此程序以 GPL v2 发布。\n"
+"许可协议正文可在程序源码档案中或在 /usr/"
+"share/apps/LICENSES/GPL_V2 下或在 "
+"http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.txt 中找到\n"
 
 #: ../src/main.c:64
 #, c-format
@@ -353,21 +357,22 @@ msgid ""
 "\n"
 "This program is published under the GPL v2.\n"
 msgstr ""
-"Xfce4 传感器 %s\n"
-"显示硬件传感器、ACPI 状态、硬盘温度和 Nvidia GPU 的温度。\n"
+"Xfce 4 传感器 %s\n"
+"显示硬件传感器、ACPI 状态、硬盘温度和 "
+"Nvidia GPU 的温度。\n"
 "摘要：\n"
 "  xfce4-sensors 选项\n"
 "选项可以是下列中的一个或多个：\n"
-"  -h，--help    显示此帮助对话框。\n"
-"  -l，--license 显示协议信息。\n"
-"  -V，--version 显示版本信息。\n"
+"  -h，--help    列印此帮助对话框。\n"
+"  -l，--license 列印许可协议信息。\n"
+"  -V，--version 列印版本信息。\n"
 "\n"
-"此程序在 GPL v2 下发布。\n"
+"此程序以 GPL v2 发布。\n"
 
 #: ../src/main.c:82
 #, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr "Xfce4 传感器 %s\n"
+msgstr "Xfce 4 传感器 %s\n"
 
 #: ../src/interface.c:78
 msgid "_Overview"
@@ -391,8 +396,8 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
 "传感器查看器：\n"
-"读取传感器值时好像有问题。\n"
-"无法保证正确的操作。\n"
+"读取传感器功能值时好像有问题。\n"
+"未能保证正确的操作。\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Values Viewer"
@@ -409,4 +414,4 @@ msgstr "显示传感器值。"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
-msgstr "传感器插件"
+msgstr "传感器插件 "
