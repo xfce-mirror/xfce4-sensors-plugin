@@ -59,15 +59,15 @@ msgstr "타코(_T)"
 
 #: ../panel-plugin/sensors-plugin.c:1768
 msgid "Show _labels"
-msgstr "레이블 보이기(_L)"
+msgstr "레이블 보기(_L)"
 
 #: ../panel-plugin/sensors-plugin.c:1798
 msgid "Show colored _bars"
-msgstr "색깔있는 막대 보이기(_B)"
+msgstr "색깔있는 막대 보기(_B)"
 
 #: ../panel-plugin/sensors-plugin.c:1826
 msgid "_Show title"
-msgstr "제목 보이기(_S)"
+msgstr "제목 보기(_S)"
 
 #: ../panel-plugin/sensors-plugin.c:1850
 msgid "_Number of text lines:"
@@ -104,7 +104,7 @@ msgstr "글꼴(_O):"
 
 #: ../panel-plugin/sensors-plugin.c:1961
 msgid "Show _Units"
-msgstr "단위 보이기(_U)"
+msgstr "단위 보기(_U)"
 
 #: ../panel-plugin/sensors-plugin.c:1982
 msgid "Small horizontal s_pacing"
@@ -267,7 +267,7 @@ msgstr "값"
 
 #: ../lib/sensors-interface.c:288
 msgid "Show"
-msgstr "보이기"
+msgstr "보기"
 
 #: ../lib/sensors-interface.c:297
 msgid "Color"
