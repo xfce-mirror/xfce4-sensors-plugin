@@ -267,7 +267,7 @@ msgstr "값"
 
 #: ../lib/sensors-interface.c:288
 msgid "Show"
-msgstr "보기"
+msgstr "보이기"
 
 #: ../lib/sensors-interface.c:297
 msgid "Color"
