@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-05-23 22:31+0200\n"
-"PO-Revision-Date: 2012-01-09 15:51-0000\n"
-"Last-Translator: Sérgio Marques <smarquespt@gmail.com>\n"
+"PO-Revision-Date: 2012-04-15 16:47+0100\n"
+"Last-Translator: Nuno Miguel <nunomgue@gmail.com>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -35,7 +35,7 @@ msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-"\"Plug-in\" Sensores:\n"
+"\"Plugin\" Sensores:\n"
 "Parece ter ocorrido um problema durante a leitura de um sensor.\n"
 "Não é possível garantir o procedimento apropriado.\n"
 
@@ -128,12 +128,12 @@ msgstr "_Diversos"
 #: ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:177
 msgid "Sensors Plugin"
-msgstr "\"Plug-in\" Sensores"
+msgstr "\"Plugin\" Sensores"
 
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2222
 msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
-msgstr "Pode mudar algumas propriedades como nome, cores, valores min./max. se fizer duplo clique no item, editar o conteúdo e premir \"Return\" ou selecionar um campo diferente."
+msgstr "Pode mudar algumas propriedades como nome, cores, valores min/max se fizer duplo clique no item, editar o conteúdo e premir \"Return\" ou selecionar um campo diferente."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -201,7 +201,7 @@ msgid ""
 msgstr ""
 "\"hddtemp\" não foi executado corretamente, apesar de ser executável. Provavelmente, o disco requer privilégios \"root\" para ler a temperatura e \"hddtemp\" não está definido como tal.\n"
 "\n"
-"Uma maneira fácil, mas incorreta é executar \"chmod u+s %s\" como \"root\" e reiniciar este \"plug-in\" ou o painel.\n"
+"Uma maneira fácil, mas incorreta é executar \"chmod u+s %s\" como \"root\" e reiniciar este \"plugin\" ou o painel.\n"
 "\n"
 "A invocação de \"%s\" deu o seguinte erro:\n"
 "%s\n"
@@ -233,7 +233,7 @@ msgstr "Erro: ligação aos sensores não é possível."
 
 #: ../lib/sensors-interface.c:83
 msgid "Sensors Plugin Failure"
-msgstr "Falha no \"plug-in\""
+msgstr "Falha no \"plugin\""
 
 #: ../lib/sensors-interface.c:84
 msgid ""
@@ -409,5 +409,5 @@ msgstr "Mostrar valores de sensor."
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
-msgstr "\"Plug-in\" Sensores"
+msgstr "\"Plugin\" Sensores"
 
