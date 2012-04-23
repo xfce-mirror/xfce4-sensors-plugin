@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-05-15 22:50+0900\n"
-"PO-Revision-Date: 2012-04-19 20:06+0900\n"
+"PO-Revision-Date: 2012-04-23 21:12+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: xfce-users-jp <xfce-users-jp@ml.fdiary.net>\n"
 "Language: \n"
@@ -381,7 +381,7 @@ msgstr "タコメーター(_T)"
 
 #: ../src/interface.c:114
 msgid "Sensors Viewer"
-msgstr "センサービューア"
+msgstr "センサービューアー"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
@@ -398,11 +398,11 @@ msgstr ""
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Values Viewer"
-msgstr "センサー値ビューア"
+msgstr "センサー値ビューアー"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
 msgid "Sensor Viewer"
-msgstr "センサービューア"
+msgstr "センサービューアー"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
