@@ -216,7 +216,8 @@ read_disks_netcat (t_chip *chip)
     size_t result;
 
     t_chipfeature *cf;
-
+    
+    bzero(&reply, REPLY_MAX_SIZE);
     result = get_hddtemp_d_str(reply, REPLY_MAX_SIZE);
     DBG ("reply=%s with result=%d\n", reply, (int) result);
 
@@ -391,7 +392,7 @@ initialize_hddtemp (GPtrArray *chips, gboolean *suppressmessage)
 #ifndef HAVE_NETCAT
     int generation, major, result;
 #endif
-		int retval;
+    int retval;
     //struct utsname *p_uname;
     t_chip *chip;
 
@@ -432,7 +433,7 @@ initialize_hddtemp (GPtrArray *chips, gboolean *suppressmessage)
     else
         read_disks_fallback (chip); /* hopefully, that's a safe variant */
     
-		g_free(p_uname);
+    g_free(p_uname);
 #endif
 
 
@@ -466,7 +467,7 @@ get_hddtemp_d_str (char *buffer, size_t bufsize)
     /* Create the socket. */
     sock = socket(PF_INET, SOCK_STREAM, 0);
     if (sock < 0) {
-	    return -1;
+      return -1;
     }
 
     /* Connect to the server. */
@@ -474,14 +475,14 @@ get_hddtemp_d_str (char *buffer, size_t bufsize)
     servername.sin_port = htons(HDDTEMP_PORT);
     hostinfo = gethostbyname("localhost");
     if (hostinfo == NULL) {
-/*	fprintf (stderr, "Unknown host %s.\n", hostname);*/
-	    return -1;
+/*  fprintf (stderr, "Unknown host %s.\n", hostname);*/
+      return -1;
     }
     servername.sin_addr = *(struct in_addr *) hostinfo->h_addr;
 
     if (connect (sock, (struct sockaddr *) &servername, sizeof (servername)) < 0) {
-/*	perror ("connect (client)");*/
-	    return -1;
+/*  perror ("connect (client)");*/
+      return -1;
     }
 
     /* Read data from server. */
@@ -489,7 +490,7 @@ get_hddtemp_d_str (char *buffer, size_t bufsize)
       nchunk = read(sock, buffer+nbytes, bufsize-nbytes-1);
       if (nchunk < 0) {
           /* Read error. */
-    /*	    perror ("read");*/
+    /*      perror ("read");*/
           close (sock);
           return -1;
       } else if (nchunk == 0) {
@@ -523,7 +524,7 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
 
 #ifdef HAVE_NETCAT
     gchar *tmp, *tmp2, *tmp3;
-		char reply[REPLY_MAX_SIZE];
+    char reply[REPLY_MAX_SIZE];
     //size_t read_size;
 #endif
 
@@ -543,6 +544,7 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
     error->message = g_strdup (_("No concrete error detected.\n"));
     if (exit_status==0)
 */
+    bzero(&reply, REPLY_MAX_SIZE);
     get_hddtemp_d_str(reply, REPLY_MAX_SIZE);
 
     {
