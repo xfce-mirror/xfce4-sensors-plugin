@@ -17,7 +17,7 @@ Dependencies: libxfce4ui, libxfce4util, libgtk2.0-0,
 
 Optional: hddtemp, netcat, lmsensors3, working ACPI library, libnotify, nvidia-utils/xnvctrl
 
-Preparation: Install libsensors, lmsensors, hddtemp;
+Preparation: Install libsensors, lmsensors, hddtemp, xnvctrl
              for lmsensors do:
              sensors-detect as root somehow, have modules be added to config files, let them be loaded or load them manually or do some sudo service moduleinit-tools restart or the like
              and then install.
