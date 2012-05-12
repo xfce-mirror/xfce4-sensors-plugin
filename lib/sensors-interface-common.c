@@ -54,6 +54,8 @@ sensors_new (XfcePanelPlugin *plugin, gchar *plugin_config_file)
 
     /* read all sensors from libraries */
     result = initialize_all (&(sensors->chips), &(sensors->suppressmessage));
+		if (result==0)
+			return NULL;
 
     sensors->num_sensorchips = sensors->chips->len;
 

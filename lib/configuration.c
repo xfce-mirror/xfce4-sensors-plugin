@@ -191,7 +191,6 @@ void
 sensors_read_general_config (XfceRc *rc, t_sensors *sensors)
 {
     const char *value;
-    gint num_chips;
 
     TRACE ("enters sensors_read_general_config");
 
@@ -241,7 +240,7 @@ sensors_read_general_config (XfceRc *rc, t_sensors *sensors)
         sensors->preferred_width = xfce_rc_read_int_entry (rc, "Preferred_Width", 400);
         sensors->preferred_height = xfce_rc_read_int_entry (rc, "Preferred_Height", 400);
 
-        num_chips = xfce_rc_read_int_entry (rc, "Number_Chips", 0);
+        //num_chips = xfce_rc_read_int_entry (rc, "Number_Chips", 0);
         /* or could use 1 or the always existent dummy entry */
     }
 

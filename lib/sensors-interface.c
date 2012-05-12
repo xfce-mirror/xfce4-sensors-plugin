@@ -75,8 +75,9 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale, t_senso
 #if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
     NotifyNotification *nn;
     GError *error = NULL;
+		gchar *icon;
 #endif
-    gchar *summary, *body, *icon;
+    gchar *summary, *body;
     float minval, maxval;
 
 
@@ -84,7 +85,9 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale, t_senso
     body = _("Seems like there was a problem reading a sensor "
                     "feature value.\nProper proceeding cannot be "
                     "guaranteed.");
+#if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
     icon = "xfce-sensors";
+#endif
 
     TRACE ("enters fill_gtkTreeStore");
 

@@ -301,7 +301,7 @@ gtk_cpu_paint (GtkWidget *widget)
   
   TRACE("enter gtk_cpu_paint\n");
   
-  DBG ("Widget=0x%X, Window=0x%X\n", (unsigned int) widget, (unsigned int) widget->window);
+  //DBG ("Widget=0x%X, Window=0x%X\n", (unsigned int) widget, (unsigned int) widget->window);
   
   if (GTK_CPU(widget)->gc==NULL)
   {

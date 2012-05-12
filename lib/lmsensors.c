@@ -348,13 +348,14 @@ t_chipfeature *find_chipfeature (const sensors_chip_name *name, t_chip *chip,
 
 int initialize_libsensors (GPtrArray *chips)
 {
-    int sensorsInit, nr1, nr2, num_sensorchips; /*    , numchips;  */
+    int sensorsInit, nr1, num_sensorchips; /*    , numchips;  */
     t_chip *chip;
     t_chipfeature *chipfeature; /* , *furtherchipfeature; */
     const sensors_chip_name *detected_chip;
 #if SENSORS_API_VERSION < 0x400 /* libsensors3 */
     FILE *file;
     const sensors_feature_data *sfd;
+		int nr2;
 
     TRACE("enters initialize_libsensors");
 
@@ -426,7 +427,6 @@ int initialize_libsensors (GPtrArray *chips)
         chip = setup_chip (chips, detected_chip, num_sensorchips);
 
         nr1 = 0;
-        nr2 = 0;
         /* iterate over chip features, i.e. id, cpu temp, mb temp... */
         /* numchips = get_number_chip_features (detected_chip); */
         sfd = sensors_get_features (detected_chip, &nr1);
@@ -450,13 +450,14 @@ int initialize_libsensors (GPtrArray *chips)
 void
 refresh_lmsensors (gpointer chip_feature, gpointer data)
 {
-    t_chipfeature *cf;
+    //t_chipfeature *cf;
 
     TRACE ("leaves refresh_lmsensors");
 
     g_assert(chip_feature!=NULL);
 
-    cf = (t_chipfeature *) chip_feature;
+    //cf = (t_chipfeature *) chip_feature;
+	  //refresh now?	
 
     TRACE ("leaves refresh_lmsensors");
 }
@@ -476,3 +477,4 @@ free_lmsensors_chip (gpointer chip)
     #endif
 
 }
+

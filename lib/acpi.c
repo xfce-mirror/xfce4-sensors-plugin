@@ -635,8 +635,9 @@ get_acpi_info (void)
     g_free (filename);
 
     if (version!=NULL)
+		{
         version = g_strchomp (version);
-
+		}
 		else // if (version==NULL)
 		{
   	  filename = g_strdup_printf ("%s/%s_", ACPI_PATH, ACPI_INFO);

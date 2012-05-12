@@ -85,6 +85,9 @@ void notification_suppress_messages (NotifyNotification *n, gchar *action, gpoin
 
 void quick_message_notify (gchar *message);
 void quick_message (gchar *message);
+void quick_message_dialog (gchar *message);
+gboolean quick_message_with_checkbox (gchar *message, gchar *checkboxtext);
+
 void read_disks_netcat (t_chip *chip);
 void read_disks_linux26 (t_chip *chip);
 int get_hddtemp_d_str (char *buffer, size_t bufsize);
@@ -140,7 +143,7 @@ void quick_message_dialog (gchar *message)
                                   GTK_DIALOG_DESTROY_WITH_PARENT,
                                   GTK_MESSAGE_INFO,
                                   GTK_BUTTONS_CLOSE,
-                                  message);
+                                  message, NULL);
 
     /* dialog = gtk_dialog_new_with_buttons (_("Could not run \"hddtemp\""),
                                          NULL, 0, // GTK DIALOG NO MODAL ;-)
@@ -172,7 +175,7 @@ gboolean quick_message_with_checkbox (gchar *message, gchar *checkboxtext) {
                                   0, /* GTK_DIALOG_DESTROY_WITH_PARENT */
                                   GTK_MESSAGE_INFO,
                                   GTK_BUTTONS_CLOSE,
-                                  message);
+                                  message, NULL);
 
     gtk_window_set_title(GTK_WINDOW(dialog), _("Sensors Plugin"));
 
@@ -215,7 +218,7 @@ read_disks_netcat (t_chip *chip)
     t_chipfeature *cf;
 
     result = get_hddtemp_d_str(reply, REPLY_MAX_SIZE);
-    DBG ("reply=%s\n", reply);
+    DBG ("reply=%s with result=%d\n", reply, (int) result);
 
     tmp = str_split (reply, DOUBLE_DELIMITER);
     do {
@@ -385,8 +388,11 @@ populate_detected_drives (t_chip *chip)
 int
 initialize_hddtemp (GPtrArray *chips, gboolean *suppressmessage)
 {
-    int generation, major, result, retval;
-    struct utsname *p_uname;
+#ifndef HAVE_NETCAT
+    int generation, major, result;
+#endif
+		int retval;
+    //struct utsname *p_uname;
     t_chip *chip;
 
     g_assert (chips!=NULL);
@@ -404,7 +410,9 @@ initialize_hddtemp (GPtrArray *chips, gboolean *suppressmessage)
     chip->name = g_strdup(_("Hard disks"));
     chip->sensorId = g_strdup("Hard disks");
     chip->type = HDD;
-
+#ifdef HAVE_NETCAT
+    read_disks_netcat (chip);
+#else
     p_uname = (struct utsname *) malloc (sizeof(struct utsname));
     result =  uname (p_uname);
     if (result!=0) {
@@ -418,16 +426,15 @@ initialize_hddtemp (GPtrArray *chips, gboolean *suppressmessage)
 
     /* Note: This is actually supposed to be carried out by ifdef HAVE_LINUX
      and major/minor number stuff from compile time*/
-#ifdef HAVE_NETCAT
-    read_disks_netcat (chip);
-#else
+
     if (strcmp(p_uname->sysname, "Linux")==0 && major>=5)
         read_disks_linux26 (chip);
     else
         read_disks_fallback (chip); /* hopefully, that's a safe variant */
+    
+		g_free(p_uname);
 #endif
 
-    g_free(p_uname);
 
     remove_unmonitored_drives (chip, suppressmessage);
     DBG  ("numfeatures=%d\n", chip->num_features);
@@ -517,7 +524,7 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
 #ifdef HAVE_NETCAT
     gchar *tmp, *tmp2, *tmp3;
 		char reply[REPLY_MAX_SIZE];
-    size_t read_size;
+    //size_t read_size;
 #endif
 
     if (suppressmessage!=NULL)
@@ -536,7 +543,7 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
     error->message = g_strdup (_("No concrete error detected.\n"));
     if (exit_status==0)
 */
-    read_size = get_hddtemp_d_str(reply, REPLY_MAX_SIZE);
+    get_hddtemp_d_str(reply, REPLY_MAX_SIZE);
 
     {
         tmp3 = "-255";

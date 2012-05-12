@@ -164,7 +164,7 @@ list_cell_toggle (GtkCellRendererToggle *cell, gchar *path_str,
     GtkTreeModel *model;
     GtkTreePath *path;
     GtkTreeIter iter;
-    gboolean toggle_item, res;
+    gboolean toggle_item; //, res;
     //GtkWidget *tacho;
 
     TRACE ("enters list_cell_toggle");
@@ -214,7 +214,8 @@ list_cell_toggle (GtkCellRendererToggle *cell, gchar *path_str,
 
     /* update tooltip and panel widget */
     //sensors_show_panel ((gpointer) sd->sensors);
-    res = refresh_view ((gpointer) sd);
+    //res = 
+		refresh_view ((gpointer) sd);
 
     TRACE ("leaves list_cell_toggle");//~ 
 }
@@ -289,7 +290,7 @@ minimum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
     GtkTreeIter iter;
     t_chip *chip;
     t_chipfeature *chipfeature;
-    int res;
+    //int res;
 
     TRACE ("enters minimum_changed");
 
@@ -320,7 +321,8 @@ minimum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
 
     /* update panel */
     if (sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)]!=NULL)
-      res = refresh_view ((gpointer) sd);
+      //res = 
+			refresh_view ((gpointer) sd);
 
     TRACE ("leaves minimum_changed");
 }
@@ -336,7 +338,7 @@ maximum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
     GtkTreeIter iter;
     t_chip *chip;
     t_chipfeature *chipfeature;
-    int res;
+    //int res;
 
     TRACE ("enters maximum_changed");
 
@@ -367,7 +369,8 @@ maximum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
 
     /* update panel */
     if (sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)]!=NULL)
-      res = refresh_view ((gpointer) sd);
+      //res = 
+			refresh_view ((gpointer) sd);
 
     TRACE ("leaves maximum_changed");
 }

@@ -295,6 +295,7 @@ sensors_add_graphical_display (t_sensors *sensors)
     gtk_label_set_markup (GTK_LABEL(sensors->panel_label_text), text);
     g_free (text);
 
+    gtk_container_set_border_width (GTK_CONTAINER(sensors->widget_sensors), 0);
     for (chipNum=0; chipNum < sensors->num_sensorchips; chipNum++) {
         chip = (t_chip *) g_ptr_array_index(sensors->chips, chipNum);
         g_assert (chip != NULL);
@@ -354,7 +355,6 @@ sensors_add_graphical_display (t_sensors *sensors)
                 panel->databox = databox;
                 sensors->panels[chipNum][feature] = (GtkWidget*) panel;
 
-                gtk_container_set_border_width (GTK_CONTAINER(sensors->widget_sensors), 0);
                 gtk_box_pack_start (GTK_BOX (sensors->widget_sensors),
                                     databox, FALSE, FALSE, INNER_BORDER);
             }
@@ -392,6 +392,8 @@ sensors_add_tacho_display (t_sensors *sensors)
     gtk_label_set_markup (GTK_LABEL(sensors->panel_label_text), text);
     g_free (text);
 
+    
+    gtk_container_set_border_width (GTK_CONTAINER(sensors->widget_sensors), 0);
     for (chipNum=0; chipNum < sensors->num_sensorchips; chipNum++) {
         chip = (t_chip *) g_ptr_array_index(sensors->chips, chipNum);
         g_assert (chip != NULL);
@@ -437,8 +439,6 @@ sensors_add_tacho_display (t_sensors *sensors)
                 sensors->tachos[chipNum][feature] = (GtkWidget*) tacho;
                 DBG("8");
 
-                gtk_container_set_border_width (GTK_CONTAINER(sensors->widget_sensors), 0);
-                DBG("9");
                 gtk_box_pack_start (GTK_BOX (sensors->widget_sensors),
                                     tacho, TRUE, TRUE, INNER_BORDER);
                 DBG("10");
@@ -771,7 +771,7 @@ static gboolean
 sensors_create_tooltip (gpointer data)
 {
     t_sensors *sensors;
-    GtkWidget *widget;
+    //GtkWidget *widget;
     int i, index_feature, res;
     double sensorFeature;
     gboolean first, prependedChipName;
@@ -785,7 +785,7 @@ sensors_create_tooltip (gpointer data)
     TRACE ("data!=NULL");
 
     sensors = (t_sensors *) data;
-    widget = sensors->eventbox;
+    //widget = sensors->eventbox;
     myToolTipText = g_strdup (_("No sensors selected!"));
     first = TRUE;
 
