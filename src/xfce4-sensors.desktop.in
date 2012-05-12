@@ -7,6 +7,6 @@ Icon=xfce-sensors
 Exec=xfce4-sensors
 Terminal=false
 Type=Application
-Categories=X-XFCE;Utility;Monitor;
+Categories=X-XFCE;Utility;System;Monitor;
 StartupNotify=true
 
