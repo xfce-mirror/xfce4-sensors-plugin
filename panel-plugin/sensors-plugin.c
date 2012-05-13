@@ -1282,11 +1282,11 @@ font_size_change (GtkWidget *widget, t_sensors_dialog *sd)
     g_free(sd->sensors->font_size);
     switch ( gtk_combo_box_get_active(GTK_COMBO_BOX(widget)) ) {
 
-        case 0: sd->sensors->font_size = "x-small"; break;
-        case 1: sd->sensors->font_size = "small"; break;
-        case 3: sd->sensors->font_size = "large"; break;
-        case 4: sd->sensors->font_size = "x-large"; break;
-        default: sd->sensors->font_size = "medium";
+        case 0: sd->sensors->font_size = g_strdup("x-small"); break;
+        case 1: sd->sensors->font_size = g_strdup("small"); break;
+        case 3: sd->sensors->font_size = g_strdup("large"); break;
+        case 4: sd->sensors->font_size = g_strdup("x-large"); break;
+        default: sd->sensors->font_size = g_strdup("medium");
     }
 
     sd->sensors->font_size_numerical =
