@@ -528,6 +528,9 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
     //size_t read_size;
 #endif
 
+    if (disk==NULL)
+      return 0.0;
+
     if (suppressmessage!=NULL)
         nevershowagain = *suppressmessage;
     else

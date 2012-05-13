@@ -1,0 +1,7 @@
+*.o
+.gitignore
+*.bz2
+*.gz
+Makefile
+*.swp
+*.gmo
