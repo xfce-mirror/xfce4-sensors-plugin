@@ -11,7 +11,7 @@ m4_define([libxfce4sensors_verinfo], [3:3:2])
 
 m4_define([xfce4_sensors_version_major], [1])
 m4_define([xfce4_sensors_version_minor], [2])
-m4_define([xfce4_sensors_version_micro], [3])
+m4_define([xfce4_sensors_version_micro], [4])
 m4_define([xfce4_sensors_version_nano], [])
 m4_define([xfce4_sensors_version_build], [@REVISION@])
 m4_define([xfce4_sensors_version_tag], [git]) dnl may be set to 'git'
@@ -225,9 +225,9 @@ fi
 
 dnl Check for nvidia blahblah to be used
 AC_ARG_ENABLE([xnvctrl], 
-	      AC_HELP_STRING([--enable-xnvctrl], 
-			     [Use nvctrl to obtain Nvidia GPU temperature value @<:@default=auto@:>@]),
-		[],
+        AC_HELP_STRING([--enable-xnvctrl], 
+           [Use nvctrl to obtain Nvidia GPU temperature value @<:@default=auto@:>@]),
+    [],
 [
     enable_xnvctrl=auto
 ])
