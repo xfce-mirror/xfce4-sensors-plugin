@@ -209,10 +209,12 @@ sensors_read_general_config (XfceRc *rc, t_sensors *sensors)
         sensors->scale = xfce_rc_read_int_entry (rc, "Scale", 0);
 
         if ((value = xfce_rc_read_entry (rc, "Font_Size", NULL)) && *value) {
+            g_free(sensors->font_size);
             sensors->font_size = g_strdup(value);
         }
         
         if ((value = xfce_rc_read_entry (rc, "Font", NULL)) && *value) {
+            //g_free(sensors->font); // font is initialized to NULL
             font = g_strdup(value); // in cpu.h for the tachometers
         }
 
@@ -231,6 +233,7 @@ sensors_read_general_config (XfceRc *rc, t_sensors *sensors)
         sensors->show_smallspacings= xfce_rc_read_bool_entry (rc, "Small_Spacings", FALSE);
 
         if ((value = xfce_rc_read_entry (rc, "Command_Name", NULL)) && *value) {
+            g_free(sensors->command_name);
             sensors->command_name = g_strdup (value);
         }
 

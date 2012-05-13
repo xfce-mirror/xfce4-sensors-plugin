@@ -54,8 +54,8 @@ sensors_new (XfcePanelPlugin *plugin, gchar *plugin_config_file)
 
     /* read all sensors from libraries */
     result = initialize_all (&(sensors->chips), &(sensors->suppressmessage));
-		if (result==0)
-			return NULL;
+    if (result==0)
+      return NULL;
 
     sensors->num_sensorchips = sensors->chips->len;
 
@@ -103,7 +103,7 @@ sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
     sensors->show_labels = TRUE;
     sensors->display_values_type = DISPLAY_TEXT;
     sensors->bars_created = FALSE;
-    sensors->font_size = "medium";
+    sensors->font_size = g_strdup("medium");
     sensors->font_size_numerical = 2;
     sensors->lines_size = 3;
 

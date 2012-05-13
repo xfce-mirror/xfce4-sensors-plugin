@@ -859,7 +859,7 @@ sensors_create_tooltip (gpointer data)
     /* #if GTK_VERSION < 2.11 */
     gtk_tooltips_set_tip (tooltips, GTK_WIDGET(sensors->eventbox),
                           myToolTipText, NULL);
-		DBG("tooltip text: %s.\n", myToolTipText);
+    DBG("tooltip text: %s.\n", myToolTipText);
     TRACE ("freeing myToolTipText");
     g_free (myToolTipText);
 
@@ -1023,7 +1023,7 @@ execute_command (GtkWidget *widget, GdkEventButton *event, gpointer data)
 
         g_return_val_if_fail ( sensors->exec_command, FALSE);
 
-				// screen NULL, command, terminal=no, startup=yes, error=NULL
+        // screen NULL, command, terminal=no, startup=yes, error=NULL
         xfce_spawn_command_line_on_screen (NULL, sensors->command_name, FALSE, TRUE, NULL);
 
         TRACE ("leaves execute_command with TRUE");
@@ -1278,7 +1278,8 @@ font_size_change (GtkWidget *widget, t_sensors_dialog *sd)
 {
     int rows;
     TRACE ("enters font_size_change");
-
+    
+    g_free(sd->sensors->font_size);
     switch ( gtk_combo_box_get_active(GTK_COMBO_BOX(widget)) ) {
 
         case 0: sd->sensors->font_size = "x-small"; break;
