@@ -55,12 +55,6 @@
 #include "sensors-plugin.h"
 
 
-/*
- * Tooltips to display for any part of this plugin
- */
-extern GtkTooltips *tooltips;
-
-
 static void
 sensors_set_bar_size (GtkWidget *bar, int size, int orientation)
 {
@@ -853,13 +847,9 @@ sensors_create_tooltip (gpointer data)
         }
     }
 
-    if (!tooltips)
-      tooltips = gtk_tooltips_new();
-
-    /* #if GTK_VERSION < 2.11 */
-    gtk_tooltips_set_tip (tooltips, GTK_WIDGET(sensors->eventbox),
-                          myToolTipText, NULL);
+    gtk_widget_set_tooltip_text (GTK_WIDGET(sensors->eventbox), myToolTipText);
     DBG("tooltip text: %s.\n", myToolTipText);
+    
     TRACE ("freeing myToolTipText");
     g_free (myToolTipText);
 
@@ -1035,31 +1025,6 @@ execute_command (GtkWidget *widget, GdkEventButton *event, gpointer data)
         return FALSE;
     }
 }
-
-
-
-/* #if GTK_VERSION >= 2.11
- * static gboolean
-handle_tooltip_query (GtkWidget  *widget,
-                                         gint        x, gint        y,
-                                         GtkTooltip *tooltip,
-                                         gpointer    data)
-{
-    t_sensors *sensors;
-    gchar *buffer;
-
-    g_assert (data!=NULL);
-
-    sensors = (t_sensors *) data;
-
-    buffer = g_strdup("Tooltip placeholder");
-
-    gtk_tooltip_set_markup (tooltip, buffer);
-
-    return TRUE;
-} */
-
-
 
 
 static void
@@ -2216,13 +2181,8 @@ sensors_create_options (XfcePanelPlugin *plugin, t_sensors *sensors)
 
     add_sensors_frame (notebook, sd);
 
-    if (!tooltips)
-      tooltips = gtk_tooltips_new();
-
-    /* #if GTK_VERSION < 2.11 */
     myToolTipText = g_strdup(_("You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."));
-    gtk_tooltips_set_tip (tooltips, GTK_WIDGET(sd->myTreeView),
-                          myToolTipText, NULL);
+    gtk_widget_set_tooltip_text (GTK_WIDGET(sd->myTreeView), myToolTipText);
     g_free (myToolTipText);
     /* g_signal_connect (G_OBJECT (sd->myComboBox), "changed",
                       //G_CALLBACK (sensor_entry_changed), sd ); */
@@ -2283,7 +2243,7 @@ create_sensors_control (XfcePanelPlugin *plugin)
 
     add_event_box (sensors);
 
-        /* Add tooltip to show extended current sensors status */
+    /* Add tooltip to show extended current sensors status */
     sensors_create_tooltip ((gpointer) sensors);
 
     /* fill panel widget with boxes, strings, values, ... */
@@ -2292,12 +2252,6 @@ create_sensors_control (XfcePanelPlugin *plugin)
     /* finally add panel "sensors" to eventbox */
     gtk_container_add (GTK_CONTAINER (sensors->eventbox),
                        sensors->widget_sensors);
-
-    /* #if GTK_VERSION >= 2.11
-     * g_signal_connect(G_OBJECT(sensors->eventbox),
-                                    "query-tooltip",
-                                    G_CALLBACK(handle_tooltip_query),
-                                    (gpointer) sensors); */
 
     /* sensors_set_size (control, settings.size); */
 
