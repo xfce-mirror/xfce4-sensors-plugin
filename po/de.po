@@ -95,7 +95,7 @@ msgstr "Konnte Gerät »%s« nicht einhängen."
 #: ../panel-plugin/devices.c:303
 #, c-format
 msgid "Error executing on-mount command \"%s\"."
-msgstr "Mount Plugin: Fehler beim Ausführen des Befehls »%s|«."
+msgstr "Fehler beim Ausführen des Befehls »%s«."
 
 #. xfce_dialog_show_error (NULL, error, "%s %s %d, %s %s", _("Mount Plugin:
 #. Error executing command."),
