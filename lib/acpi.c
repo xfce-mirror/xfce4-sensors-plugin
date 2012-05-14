@@ -44,17 +44,21 @@ strip_key_colon_spaces (char *buf)
     p = buf;
 
     /* Skip everything before the ':' */
-    while (*(p++)) {
-        if (*p == ':') {
-            break;
-        }
+    if (strchr(buf, ':'))
+    {
+      while (*(p++)) {
+          if (*p == ':') {
+              break;
+          }
+      }
+      p++;
     }
-    p++;
     /* Skip all the spaces */
-    while (*(p++)) {
+    while (*p) {
         if (*p != ' ') {
             break;
         }
+        p++;
     }
 
     return p;
@@ -635,28 +639,28 @@ get_acpi_info (void)
     g_free (filename);
 
     if (version!=NULL)
-		{
+    {
         version = g_strchomp (version);
-		}
-		else // if (version==NULL)
-		{
-  	  filename = g_strdup_printf ("%s/%s_", ACPI_PATH, ACPI_INFO);
+    }
+    else // if (version==NULL)
+    {
+      filename = g_strdup_printf ("%s/%s_", ACPI_PATH, ACPI_INFO);
       version = get_acpi_value (filename);
       g_free (filename);
-		
+    
       if (version!=NULL)
         version = g_strchomp (version);
-		
-  		else //if (version==NULL)
-  	
-  		{
-  			version = get_acpi_value ("/sys/module/acpi/parameters/acpica_version");
-  			if (version!=NULL)
+    
+      else //if (version==NULL)
+    
+      {
+        version = get_acpi_value ("/sys/module/acpi/parameters/acpica_version");
+        if (version!=NULL)
           version = g_strchomp (version);
-  		}
-		}
+      }
+    }
   
-		// who knows, if we obtain non-NULL version at all...
+    // who knows, if we obtain non-NULL version at all...
     if (version==NULL) // || g_strisempty(version))
         version = g_strdup(_("<Unknown>"));
 
