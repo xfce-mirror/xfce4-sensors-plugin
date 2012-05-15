@@ -393,7 +393,7 @@ initialize_hddtemp (GPtrArray *chips, gboolean *suppressmessage)
     int generation, major, result;
 #endif
     int retval;
-    //struct utsname *p_uname;
+    struct utsname *p_uname;
     t_chip *chip;
 
     g_assert (chips!=NULL);
