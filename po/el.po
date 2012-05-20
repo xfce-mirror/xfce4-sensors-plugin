@@ -2,20 +2,22 @@
 # Copyright (C) 2004-2005 Fabian Nowak.
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
 # Stavros Giannouris <stavrosg@serverhive.com>, 2005.
+# Efstathios Iosifidis <iosifidis@opensuse.org>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-14 23:35+0200\n"
-"PO-Revision-Date: 2011-01-07 18:26+0200\n"
-"Last-Translator: Spiros Georgaras <sng@hellug.gr>\n"
-"Language-Team: Greek <nls@tux.hellug.gr>\n"
+"PO-Revision-Date: 2012-05-20 11:41+0300\n"
+"Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
+"Language-Team: Ελληνικά, Σύγχρονα <opensuse-translation-el@opensuse.org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: 8bits\n"
 "X-Poedit-Country: GREECE\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:384
 #: ../panel-plugin/sensors-plugin.c:977
@@ -353,7 +355,7 @@ msgstr ""
 "licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
 "Displays information about your hardware sensors, ACPI status, harddisk "
@@ -367,12 +369,13 @@ msgid ""
 "\n"
 "This program is published under the GPL v2.\n"
 msgstr ""
-"Xfce4 Sensors %s\n"
-"Εμφανίζει πληροφορίες για τους αισθητήρες και το ACPI.\n"
+"Αισθητήρες Xfce4 %s\n"
+"Εμφάνιση πληροφοριών για τους αισθητήρες, την κατάσταση ACPI, τις "
+"θερμοκρασίες του σκληρού δίσκου και την θερμοκρασία της Nvidia GPU.\n"
 "Συνοπτικά: \n"
-"  xfce4-sensors επιλογές\n"
-"όπου επιλογές είναι μία ή περισσότερες από τις ακόλουθες:\n"
-"  -h, --help    Εμφάνιση του διαλόγου βοήθειας.\n"
+"  xfce4-sensors options\n"
+"όπου options είναι μία ή περισσότερες από τις ακόλουθες:\n"
+"  -h, --help    Εμφάνιση του παραθύρου βοήθειας.\n"
 "  -l, --license Εμφάνιση πληροφοριών άδειας χρήσης.\n"
 "  -V, --version Εμφάνιση πληροφοριών έκδοσης.\n"
 "\n"
@@ -418,9 +421,8 @@ msgid "Show sensor values."
 msgstr "Εμφάνιση τιμών αισθητήρα."
 
 #: ../src/xfce4-sensors.desktop.in.h:3
-#, fuzzy
 msgid "Sensor Values Viewer"
-msgstr "Προβολέας τιμών αισθητήρων"
+msgstr "Προβολέας Τιμών Αισθητήρων"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
