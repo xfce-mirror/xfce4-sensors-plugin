@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
+"Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-14 14:26+0200\n"
 "PO-Revision-Date: 2010-03-30 22:08+0900\n"
@@ -19,7 +19,7 @@ msgstr ""
 #: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:384
 #: ../panel-plugin/sensors-plugin.c:977
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
-msgstr "<span foreground=\"#000000\"><b>سەزگۈچ</b></span>"
+msgstr "<span foreground=\"#000000\"><b>سەزگۈچلەر</b></span>"
 
 #. widget = sensors->eventbox;
 #: ../panel-plugin/sensors-plugin.c:783
@@ -34,8 +34,7 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"سەزگۈچ قىستۇرمىسى:\n"
+msgstr "سەزگۈچ قىستۇرمىسى:\n"
 "سەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\n"
 "نورمال بىر تەرەپ قىلىشقا كاپالەتلىك قىلغىلى بولمايدۇ.\n"
 
@@ -49,19 +48,19 @@ msgstr "تېكىست(_T)"
 
 #: ../panel-plugin/sensors-plugin.c:1687
 msgid "_progress bars"
-msgstr "progress بالدىقى(_P)"
+msgstr "ئىجرا بالدىقى(_P)"
 
 #: ../panel-plugin/sensors-plugin.c:1689
 msgid "_tachos"
-msgstr "タコメータ(_T)"
+msgstr "كۆرسەتكۈچ چىراغلار(_T)"
 
 #: ../panel-plugin/sensors-plugin.c:1734
 msgid "Show _labels"
-msgstr "ئەن كۆرسەت(_L)"
+msgstr "ئەنلەر كۆرسەت(_L)"
 
 #: ../panel-plugin/sensors-plugin.c:1764
 msgid "Show colored _bars"
-msgstr "رەڭلىك ئەن كۆرسەت(_B)"
+msgstr "رەڭلىك بالداقلارنى كۆرسەت(_B)"
 
 #: ../panel-plugin/sensors-plugin.c:1792
 msgid "_Show title"
@@ -69,7 +68,7 @@ msgstr "ماۋزۇ كۆرسەت(_S)"
 
 #: ../panel-plugin/sensors-plugin.c:1816
 msgid "_Number of text lines:"
-msgstr "قۇر سانىنى(_N)"
+msgstr "قۇر سانى(_N)"
 
 #: ../panel-plugin/sensors-plugin.c:1851
 msgid "F_ont size:"
@@ -98,7 +97,7 @@ msgstr "بەك چوڭ"
 
 #: ../panel-plugin/sensors-plugin.c:1893
 msgid "F_ont:"
-msgstr "فونت(_O):"
+msgstr "خەت نۇسخىسى(_O):"
 
 #: ../panel-plugin/sensors-plugin.c:1927
 msgid "Show _Units"
@@ -110,7 +109,7 @@ msgstr "كىچىكرەك يان بوشلۇق(_P)"
 
 #: ../panel-plugin/sensors-plugin.c:1970
 msgid "Suppress messages"
-msgstr "ئۇچۇرنى باستۇرۇپ قوي"
+msgstr "ئۇچۇرلارنى باستۇرۇپ قوي"
 
 #: ../panel-plugin/sensors-plugin.c:1995
 msgid "E_xecute on double click:"
@@ -138,9 +137,6 @@ msgid ""
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr ""
-"エントリをダブルクリックして内容を編集し、\"Enter キー\" を押すか別のフィール"
-"ドを選択する事で、名前、色、最小/最大値などの主要な機能のプロパティを変更でき"
-"ます。"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -170,11 +166,11 @@ msgstr "<نامەلۇم>"
 
 #: ../lib/nvidia.c:60
 msgid "NVidia GPU core temperature"
-msgstr ""
+msgstr "NVidia GPU يادروسىنىڭ تېمپېراتۇرىسى"
 
 #: ../lib/nvidia.c:61
 msgid "nvidia"
-msgstr ""
+msgstr "nvidia"
 
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
@@ -204,16 +200,6 @@ msgid ""
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" は実行可能ですが、正常に実行されませんでした。おそらく、それらの"
-"温度を読み込む root 権限を必要とするディスクか、\"hddtemp\" コマンドが root "
-"として setuid されていないからでしょう。\n"
-"\n"
-"簡単ではありますが、お勧めしない提案として、root ユーザで、\"chmod u+s %s\" "
-"を実行し、本プラグインかパネルを再起動するという方法があります。\n"
-"\n"
-"\"%s\" を呼んだ際に以下のエラーを受けとりました:\n"
-"%s\n"
-"返り値: %d\n"
 
 #: ../lib/hddtemp.c:621 ../lib/hddtemp.c:651
 msgid "Suppress this message in future"
@@ -224,13 +210,12 @@ msgstr "بۇ ئۇچۇرنى بۇنىڭدىن كېيىن كۆرسەتمە"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr ""
-"\"%s\" نى ئىجرا قىلىۋاتقاندا خاتالىق كۆرۈلدى:\n"
+msgstr "«%s» نى ئىجرا قىلىۋاتقاندا خاتالىق كۆرۈلدى:\n"
 "%s"
 
 #: ../lib/lmsensors.c:110
 msgid "LM Sensors"
-msgstr "LM Sensors"
+msgstr "LM سەزگۈچلەر"
 
 #: ../lib/lmsensors.c:370 ../lib/lmsensors.c:417
 #, c-format
@@ -245,8 +230,7 @@ msgstr "سەزگۈچ قىستۇرمىسى - مەغلۇپ بولدى"
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr ""
-"سەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\n"
+msgstr "سەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\n"
 "نورمال بىر تەرەپ قىلىشقا كاپالەتلىك قىلغىلى بولمايدۇ."
 
 #: ../lib/sensors-interface.c:172
@@ -287,7 +271,7 @@ msgstr "ئەڭ چوڭ قىممەت"
 
 #: ../lib/sensors-interface.c:371
 msgid "Temperature scale:"
-msgstr "تېمپېراتۇرا scale:"
+msgstr "تېمپېراتۇرا ئۆلچىكى:"
 
 #: ../lib/sensors-interface.c:373
 msgid "_Celsius"
@@ -295,11 +279,11 @@ msgstr "سېلسىيە(_C)"
 
 #: ../lib/sensors-interface.c:375
 msgid "_Fahrenheit"
-msgstr "فارېنھېيىت (_F)"
+msgstr "فارېنگېيت (_F)"
 
 #: ../lib/sensors-interface.c:411
 msgid "_Sensors"
-msgstr "سەزگۈچ(_S)"
+msgstr "سەزگۈچلەر(_S)"
 
 #: ../lib/sensors-interface-common.c:73 ../lib/sensors-interface-common.c:74
 msgid "No sensors found!"
@@ -322,11 +306,11 @@ msgstr "%.0f mWh"
 
 #: ../lib/sensors-interface-common.c:161
 msgid "off"
-msgstr "چەكلە"
+msgstr "ئېتىك"
 
 #: ../lib/sensors-interface-common.c:163
 msgid "on"
-msgstr "قوزغات"
+msgstr "ئوچۇق"
 
 #: ../lib/sensors-interface-common.c:167
 #, c-format
@@ -341,14 +325,12 @@ msgid ""
 "The license text can be found inside the program's source archive or under /"
 "usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
 "licenses/gpl-2.0.txt\n"
-msgstr ""
-"Xfce4 سەزگۈچ %s\n"
+msgstr "Xfce4 سەزگۈچ %s\n"
 "مەزكۇر پروگرامما GPL v2 ئىجازەتنامىسى بويىچە تارقىتىلدى.\n"
-"ئىجازەتنامە  /usr/share/apps/LICENSES/GPL_V2 نىڭ ئاستىدا بار. ياكى http://"
-"www.gnu.org/licenses/old-licenses/gpl-2.0.txt  دىمۇ بار.\n"
+"ئىجازەتنامە  /usr/share/apps/LICENSES/GPL_V2 نىڭ ئاستىدا بار. ياكى http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt  دىمۇ بار.\n"
 
 #: ../src/main.c:64
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
 "Displays information about your hardware sensors, ACPI status, harddisk "
@@ -362,16 +344,6 @@ msgid ""
 "\n"
 "This program is published under the GPL v2.\n"
 msgstr ""
-"Xfce4 سەزگۈچ %s\n"
-"سەزگۈچ ۋە ACPI ھەققىدە ئۇچۇرلار تۆۋەندىكىچە.\n"
-"ئۈزۈندى: \n"
-"  xfce4-sensors تاللانمىلىرى\n"
-"تاللانمىلار تۆۋەندىكىدەك بىر قانچە قىل:\n"
-"  -h, --help    ياردەم كۆنىكىنى كۆرسىتىدۇ\n"
-"  -l, --license ئىجازەتنامە ئۇچۇرلىرىنى كۆرسىتىدۇ\n"
-"  -v, --version نەشر ئۇچۇرىنى كۆرسىتىدۇ\n"
-"\n"
-"مەزكۇر پروگرامما GPL v2 ئىجازەتنامىسىگە ئاساسەن تارقىتىلدى.\n"
 
 #: ../src/main.c:82
 #, c-format
@@ -384,7 +356,7 @@ msgstr "ئورتاق(_O)"
 
 #: ../src/interface.c:99
 msgid "_Tachometers"
-msgstr "タコメータ(_T)"
+msgstr "ئۆلچىگۈچلەر(_T)"
 
 #: ../src/interface.c:116
 msgid "Sensors Viewer"
@@ -398,8 +370,7 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"سەزگۈچ كۆرگۈ:\n"
+msgstr "سەزگۈچ كۆرگۈ:\n"
 "سەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\n"
 "نورمال بىر تەرەپ قىلىشقا كاپالەتلىك قىلغىلى بولمايدۇ.\n"
 
@@ -413,9 +384,8 @@ msgid "Show sensor values."
 msgstr "سەزگۈچنىڭ قىممىتىنى كۆرسىتىدۇ."
 
 #: ../src/xfce4-sensors.desktop.in.h:3
-#, fuzzy
 msgid "Sensor Values Viewer"
-msgstr "سەزگۈچ قىممىتىنى كۆرگۈ"
+msgstr "سەزگۈچنىڭ قىممىتىنى كۆرگۈ"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
@@ -423,9 +393,3 @@ msgstr "سەزگۈچ قىستۇرمىسى "
 
 #~ msgid "No concrete error detected.\n"
 #~ msgstr "ئېنىق بولغان خاتالىق بايقالمىدى.\n"
-
-#~ msgid "g_raphical"
-#~ msgstr "グラフィック(_R)"
-
-#~ msgid "Show _labels in graphical UI"
-#~ msgstr "グラフィカル UI にラベルを表示する(_L)"
