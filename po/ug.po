@@ -2,12 +2,12 @@
 # Copyright (C) 2004-2005 Fabian Nowak.
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
 # Gheyret T.Kenji <gheyret@gmail.com>, 2010.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-14 14:26+0200\n"
+"POT-Creation-Date: 2012-06-03 11:30+0200\n"
 "PO-Revision-Date: 2010-03-30 22:08+0900\n"
 "Last-Translator: Gheyret T.Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -34,7 +34,8 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "سەزگۈچ قىستۇرمىسى:\n"
+msgstr ""
+"سەزگۈچ قىستۇرمىسى:\n"
 "سەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\n"
 "نورمال بىر تەرەپ قىلىشقا كاپالەتلىك قىلغىلى بولمايدۇ.\n"
 
@@ -147,20 +148,20 @@ msgstr ""
 msgid "Hard disks"
 msgstr "قاتتىق دىسكا"
 
-#: ../lib/acpi.c:521 ../lib/acpi.c:529
+#: ../lib/acpi.c:525 ../lib/acpi.c:533
 msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
 #. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
-#: ../lib/acpi.c:523
+#: ../lib/acpi.c:527
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ACPI v%s رايونى"
 
 #. who knows, if we obtain non-NULL version at all...
 #. || g_strisempty(version))
-#: ../lib/acpi.c:661
+#: ../lib/acpi.c:665
 msgid "<Unknown>"
 msgstr "<نامەلۇم>"
 
@@ -210,7 +211,8 @@ msgstr "بۇ ئۇچۇرنى بۇنىڭدىن كېيىن كۆرسەتمە"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr "«%s» نى ئىجرا قىلىۋاتقاندا خاتالىق كۆرۈلدى:\n"
+msgstr ""
+"«%s» نى ئىجرا قىلىۋاتقاندا خاتالىق كۆرۈلدى:\n"
 "%s"
 
 #: ../lib/lmsensors.c:110
@@ -230,7 +232,8 @@ msgstr "سەزگۈچ قىستۇرمىسى - مەغلۇپ بولدى"
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr "سەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\n"
+msgstr ""
+"سەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\n"
 "نورمال بىر تەرەپ قىلىشقا كاپالەتلىك قىلغىلى بولمايدۇ."
 
 #: ../lib/sensors-interface.c:172
@@ -325,9 +328,11 @@ msgid ""
 "The license text can be found inside the program's source archive or under /"
 "usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
 "licenses/gpl-2.0.txt\n"
-msgstr "Xfce4 سەزگۈچ %s\n"
+msgstr ""
+"Xfce4 سەزگۈچ %s\n"
 "مەزكۇر پروگرامما GPL v2 ئىجازەتنامىسى بويىچە تارقىتىلدى.\n"
-"ئىجازەتنامە  /usr/share/apps/LICENSES/GPL_V2 نىڭ ئاستىدا بار. ياكى http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt  دىمۇ بار.\n"
+"ئىجازەتنامە  /usr/share/apps/LICENSES/GPL_V2 نىڭ ئاستىدا بار. ياكى http://"
+"www.gnu.org/licenses/old-licenses/gpl-2.0.txt  دىمۇ بار.\n"
 
 #: ../src/main.c:64
 #, c-format
@@ -370,7 +375,8 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "سەزگۈچ كۆرگۈ:\n"
+msgstr ""
+"سەزگۈچ كۆرگۈ:\n"
 "سەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\n"
 "نورمال بىر تەرەپ قىلىشقا كاپالەتلىك قىلغىلى بولمايدۇ.\n"
 

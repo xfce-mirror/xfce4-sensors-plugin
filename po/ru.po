@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-14 14:26+0200\n"
+"POT-Creation-Date: 2012-06-03 11:30+0200\n"
 "PO-Revision-Date: 2010-03-02 18:47+0300\n"
 "Last-Translator: Dima Smirnov <arch@cnc-parts.info>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -151,20 +151,20 @@ msgstr ""
 msgid "Hard disks"
 msgstr "Жесткие диски"
 
-#: ../lib/acpi.c:521 ../lib/acpi.c:529
+#: ../lib/acpi.c:525 ../lib/acpi.c:533
 msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
 #. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
-#: ../lib/acpi.c:523
+#: ../lib/acpi.c:527
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ACPI v%s зоны"
 
 #. who knows, if we obtain non-NULL version at all...
 #. || g_strisempty(version))
-#: ../lib/acpi.c:661
+#: ../lib/acpi.c:665
 msgid "<Unknown>"
 msgstr "<Неизвестно>"
 
