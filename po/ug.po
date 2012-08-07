@@ -2,7 +2,7 @@
 # Copyright (C) 2004-2005 Fabian Nowak.
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
 # Gheyret T.Kenji <gheyret@gmail.com>, 2010.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
@@ -11,10 +11,10 @@ msgstr ""
 "PO-Revision-Date: 2010-03-30 22:08+0900\n"
 "Last-Translator: Gheyret T.Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 
 #: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:384
 #: ../panel-plugin/sensors-plugin.c:977
@@ -34,8 +34,7 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"سەزگۈچ قىستۇرمىسى:\n"
+msgstr "سەزگۈچ قىستۇرمىسى:\n"
 "سەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\n"
 "نورمال بىر تەرەپ قىلىشقا كاپالەتلىك قىلغىلى بولمايدۇ.\n"
 
@@ -75,8 +74,7 @@ msgstr "قۇر سانى(_N)"
 msgid "F_ont size:"
 msgstr "فونت چوڭلۇقى(_O):"
 
-#. gtk_widget_set_sensitive(myFontBox,
-#. !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1858
 msgid "x-small"
 msgstr "بەك كىچىك"
@@ -154,8 +152,7 @@ msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power
-#. Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
 #: ../lib/acpi.c:527
 #, c-format
 msgid "ACPI v%s zones"
@@ -176,8 +173,7 @@ msgid "nvidia"
 msgstr "nvidia"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
-#. 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #. Celsius
 #: ../lib/nvidia.c:126 ../lib/hddtemp.c:720
@@ -203,14 +199,13 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr ""
-"ھۆججەت «hddtemp» نى ئىجرا قىلدۇرغىلى بولىدۇ، بىراق نورمال ئىجرا بولماپتۇ. سەۋەبى، بەلكىم ئالىي ئىشلەتكۈچى مەرتىۋىسىنى تەلەپ قىلىدىغان دىسكىنى ئوقۇغاندا، «hddtemp» بۇيرۇقى ئالىي ئىشلەتكۈچى مەرتىۋىسىگە ئېرىشەلمىگەن بولۇشى مۇمكىن.\r\n"
-"\r\n"
-"ئاددىي بىراق، ئىپتىدائىي ئۇسۇل ئالىي ئىشلەتكۈچى ھالىتىدە «chmod u+s %s» نى ئىجرا قىلىپ، قىستۇرمىنى قايتا باشلاشتۇر.\r\n"
-"\r\n"
-"پروگراممىدا «%s» نى چاقىرغاندا تۆۋەندىكى خاتالىق كۆرۈلدى:\r\n"
-"%s\r\n"
-"قايتۇرغان قىممىتى: %d"
+msgstr "ھۆججەت «hddtemp» نى ئىجرا قىلدۇرغىلى بولىدۇ، بىراق نورمال ئىجرا بولماپتۇ. سەۋەبى، بەلكىم ئالىي ئىشلەتكۈچى مەرتىۋىسىنى تەلەپ قىلىدىغان دىسكىنى ئوقۇغاندا، «hddtemp» بۇيرۇقى ئالىي ئىشلەتكۈچى مەرتىۋىسىگە ئېرىشەلمىگەن بولۇشى مۇمكىن.\n"
+"\n"
+"ئاددىي بىراق، ئىپتىدائىي ئۇسۇل ئالىي ئىشلەتكۈچى ھالىتىدە «chmod u+s %s» نى ئىجرا قىلىپ، قىستۇرمىنى قايتا باشلاشتۇر.\n"
+"\n"
+"پروگراممىدا «%s» نى چاقىرغاندا تۆۋەندىكى خاتالىق كۆرۈلدى:\n"
+"%s\n"
+"قايتۇرغان قىممىتى: %d\n"
 
 #: ../lib/hddtemp.c:621 ../lib/hddtemp.c:651
 msgid "Suppress this message in future"
@@ -221,8 +216,7 @@ msgstr "بۇ ئۇچۇرنى بۇنىڭدىن كېيىن كۆرسەتمە"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr ""
-"«%s» نى ئىجرا قىلىۋاتقاندا خاتالىق كۆرۈلدى:\n"
+msgstr "«%s» نى ئىجرا قىلىۋاتقاندا خاتالىق كۆرۈلدى:\n"
 "%s"
 
 #: ../lib/lmsensors.c:110
@@ -242,8 +236,7 @@ msgstr "سەزگۈچ قىستۇرمىسى - مەغلۇپ بولدى"
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr ""
-"سەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\n"
+msgstr "سەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\n"
 "نورمال بىر تەرەپ قىلىشقا كاپالەتلىك قىلغىلى بولمايدۇ."
 
 #: ../lib/sensors-interface.c:172
@@ -338,11 +331,9 @@ msgid ""
 "The license text can be found inside the program's source archive or under /"
 "usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
 "licenses/gpl-2.0.txt\n"
-msgstr ""
-"Xfce4 سەزگۈچ %s\n"
+msgstr "Xfce4 سەزگۈچ %s\n"
 "مەزكۇر پروگرامما GPL v2 ئىجازەتنامىسى بويىچە تارقىتىلدى.\n"
-"ئىجازەتنامە  /usr/share/apps/LICENSES/GPL_V2 نىڭ ئاستىدا بار. ياكى http://"
-"www.gnu.org/licenses/old-licenses/gpl-2.0.txt  دىمۇ بار.\n"
+"ئىجازەتنامە  /usr/share/apps/LICENSES/GPL_V2 نىڭ ئاستىدا بار. ياكى http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt  دىمۇ بار.\n"
 
 #: ../src/main.c:64
 #, c-format
@@ -358,7 +349,15 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr ""
+msgstr "ئېكس ف س ئې (Xfce) 4 سەزگۈچلىرى %s\n"
+"قاتتىق دېتال سەزگۈچلىرى (ACPI ھالىتى، قاتتىق دىسكا تېمپېراتۇرىسى، ۋە Nvidia GPU نىڭ تېمپېراتۇرىسى) قاتارلىقلارنىڭ ئۇچۇرلىرىنى كۆرسىتىدۇ.\n"
+"قىسقىچە مەزمۇنى:\n"
+"  پروگرامما xfce4-sensors نىڭ تاللانمىلىرى\n"
+"مەزكۇر پروگراممىنىڭ تۆۋەندىكىدەك بىر قانچە تاللانمىلىرى بار\n"
+"  -h, --help    مەزكۇر ياردەمنى كۆرسىتىدۇ\n"
+"  -l, --license ئىجازەتنامە ئۇچۇرلىرىنى كۆرسىتىدۇ\n"
+"  -V, --version نەشر ئۇچۇرىنى كۆرسىتىدۇ\n"
+"مەزكۇر پروگرامما GPL v2 ئىجازەتنامىسى بويىچە تارقىتىلغان\n"
 
 #: ../src/main.c:82
 #, c-format
@@ -385,8 +384,7 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"سەزگۈچ كۆرگۈ:\n"
+msgstr "سەزگۈچ كۆرگۈ:\n"
 "سەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\n"
 "نورمال بىر تەرەپ قىلىشقا كاپالەتلىك قىلغىلى بولمايدۇ.\n"
 
