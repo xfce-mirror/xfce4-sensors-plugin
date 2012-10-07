@@ -388,7 +388,7 @@ msgstr ""
 
 #: ../src/interface.c:116
 msgid "Sensors Viewer"
-msgstr "Podgląd Czójników:"
+msgstr "Podgląd Czujników:"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
@@ -406,7 +406,7 @@ msgstr ""
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
-msgstr "Podgląd Czójnika"
+msgstr "Podgląd Czujnika"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
