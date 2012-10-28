@@ -55,12 +55,11 @@ msgstr "_pasek postępu"
 
 #: ../panel-plugin/sensors-plugin.c:1689
 msgid "_tachos"
-msgstr ""
+msgstr "_prędkości"
 
 #: ../panel-plugin/sensors-plugin.c:1734
-#, fuzzy
 msgid "Show _labels"
-msgstr "_Etykieta"
+msgstr "Pokazuje _etykiety"
 
 #: ../panel-plugin/sensors-plugin.c:1764
 msgid "Show colored _bars"
@@ -110,7 +109,7 @@ msgstr "_Jednostki"
 
 #: ../panel-plugin/sensors-plugin.c:1948
 msgid "Small horizontal s_pacing"
-msgstr ""
+msgstr "Mały odstęp p_oziomy"
 
 #: ../panel-plugin/sensors-plugin.c:1970
 msgid "Suppress messages"
@@ -384,7 +383,7 @@ msgstr "_Przeglad"
 
 #: ../src/interface.c:99
 msgid "_Tachometers"
-msgstr ""
+msgstr "_Prędkościomierze"
 
 #: ../src/interface.c:116
 msgid "Sensors Viewer"
@@ -393,7 +392,7 @@ msgstr "Podgląd Czujników:"
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
 #: ../src/actions.c:80
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
