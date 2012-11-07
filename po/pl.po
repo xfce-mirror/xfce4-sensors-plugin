@@ -136,11 +136,12 @@ msgstr "Czujniki"
 #. gtk_cpu_expose(sensors->tachos [i][index_feature], NULL);
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2184 ../src/actions.c:205
+#, fuzzy
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr ""
+msgstr "Opcje wyglądu takie jak nazwa, kolor, wartość minimalna/maksymalna można zmienić przez podwójne kliknięcie na pozycję, edytując zawartość i wciskając \"Enter\" lub wybierając pole różnic."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
