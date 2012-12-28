@@ -141,10 +141,10 @@ format_sensor_value (t_tempscale scale, t_chipfeature *chipfeature,
     switch (chipfeature->class) {
         case TEMPERATURE:
            if (scale == FAHRENHEIT) {
-                *help = g_strdup_printf(_("%.1f °F"),
+                *help = g_strdup_printf(_("%.0f °F"),
                             (float) (sensorFeature * 9/5 + 32) );
            } else { /* Celsius */
-                *help = g_strdup_printf(_("%.1f °C"), sensorFeature);
+                *help = g_strdup_printf(_("%.0f °C"), sensorFeature);
            }
            break;
 
