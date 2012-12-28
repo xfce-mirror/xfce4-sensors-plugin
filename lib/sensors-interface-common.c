@@ -149,7 +149,7 @@ format_sensor_value (t_tempscale scale, t_chipfeature *chipfeature,
            break;
 
         case VOLTAGE:
-               *help = g_strdup_printf(_("%+.2f V"), sensorFeature);
+               *help = g_strdup_printf(_("%+.3f V"), sensorFeature);
                break;
 
         case ENERGY:
