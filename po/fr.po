@@ -390,7 +390,7 @@ msgstr "_Tachymètres"
 
 #: ../src/interface.c:116
 msgid "Sensors Viewer"
-msgstr "Afficheur de captures"
+msgstr "Afficheur de capteurs"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
