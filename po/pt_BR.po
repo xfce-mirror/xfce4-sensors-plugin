@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-03 11:30+0200\n"
-"PO-Revision-Date: 2008-11-28 21:49-0500\n"
-"Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
+"POT-Creation-Date: 2013-01-04 04:06+0000\n"
+"PO-Revision-Date: 2013-01-04 04:56-0300\n"
+"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -182,9 +182,7 @@ msgstr "nvidia"
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#. Celsius
 #: ../lib/nvidia.c:126 ../lib/hddtemp.c:720
-#: ../lib/sensors-interface-common.c:147
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -311,13 +309,19 @@ msgstr "Nenhum sensor encontrado!"
 
 #: ../lib/sensors-interface-common.c:144
 #, c-format
-msgid "%.1f °F"
-msgstr "%.1f °F"
+msgid "%.0f °F"
+msgstr "%.0f °F"
+
+#. Celsius
+#: ../lib/sensors-interface-common.c:147
+#, c-format
+msgid "%.0f °C"
+msgstr "%.0f °C"
 
 #: ../lib/sensors-interface-common.c:152
 #, c-format
-msgid "%+.2f V"
-msgstr "%+.2f V"
+msgid "%+.3f V"
+msgstr "%+.3f V"
 
 #: ../lib/sensors-interface-common.c:156
 #, c-format
@@ -409,21 +413,24 @@ msgstr ""
 "Não é possível garantir o procedimento apropriado.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
+msgid "Sensor Values Viewer"
+msgstr "Visualizador de Valores dos Sensores"
+
+#: ../src/xfce4-sensors.desktop.in.h:2
 msgid "Sensor Viewer"
 msgstr "Visualizador de Sensor"
 
-#: ../src/xfce4-sensors.desktop.in.h:2
+#: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "Mostrar valores do sensor."
 
-#: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Sensor Values Viewer"
-msgstr "Visualizador de Valores dos Sensores"
-
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "Plug-in de sensores"
+
+#~ msgid "%+.2f V"
+#~ msgstr "%+.2f V"
 
 #~ msgid "No concrete error detected.\n"
 #~ msgstr "Nenhum erro concreto foi detectado.\n"
