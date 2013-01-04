@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
 # Daichi Kawahata <daichi@xfce.org>, 2005-2006.
 # Nobuhiro Iwamatsu <iwamatsu@nigauri.org>, 2008.
-# Masato Hashimoto <cabezon.hashimoto@gmail.com>, 2011-2012.
+# Masato Hashimoto <cabezon.hashimoto@gmail.com>, 2011-2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-03 11:30+0200\n"
-"PO-Revision-Date: 2012-04-23 21:12+0900\n"
+"POT-Creation-Date: 2013-01-04 19:57+0900\n"
+"PO-Revision-Date: 2013-01-04 19:59+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: xfce-users-jp <xfce-users-jp@ml.fdiary.net>\n"
 "Language: \n"
@@ -135,14 +135,8 @@ msgstr "センサープラグイン"
 #. gtk_cpu_expose(sensors->tachos [i][index_feature], NULL);
 #. #if GTK_VERSION < 2.11
 #: ../panel-plugin/sensors-plugin.c:2184 ../src/actions.c:205
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field."
-msgstr ""
-"エントリをダブルクリックして内容を編集し、\"Enter キー\" を押すか別のフィール"
-"ドを選択する事で、名前、色、最小/最大値などの主要な機能のプロパティを変更でき"
-"ます。"
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
+msgstr "エントリをダブルクリックして内容を編集し、\"Enter キー\" を押すか別のフィールドを選択する事で、名前、色、最小/最大値などの主要な機能のプロパティを変更できます。"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -181,9 +175,7 @@ msgstr "nvidia"
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#. Celsius
 #: ../lib/nvidia.c:126 ../lib/hddtemp.c:720
-#: ../lib/sensors-interface-common.c:147
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -195,23 +187,17 @@ msgstr "S.M.A.R.T. ハードディスク温度"
 #: ../lib/hddtemp.c:605
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" は実行可能ですが、正常に実行されませんでした。おそらく、それらの"
-"温度を読み込む root 権限を必要とするディスクか、\"hddtemp\" コマンドが root "
-"として setuid されていないからでしょう。\n"
+"\"hddtemp\" は実行可能ですが、正常に実行されませんでした。おそらく、それらの温度を読み込む root 権限を必要とするディスクか、\"hddtemp\" コマンドが root として setuid されていないからでしょう。\n"
 "\n"
-"簡単ではありますが、お勧めしない提案として、root ユーザーで、\"chmod u+s %s"
-"\" を実行し、本プラグインかパネルを再起動するという方法があります。\n"
+"簡単ではありますが、お勧めしない提案として、root ユーザーで、\"chmod u+s %s\" を実行し、本プラグインかパネルを再起動するという方法があります。\n"
 "\n"
 "\"%s\" を呼んだ際に以下のエラーを受けとりました:\n"
 "%s\n"
@@ -309,13 +295,19 @@ msgstr "センサーが見つかりません!"
 
 #: ../lib/sensors-interface-common.c:144
 #, c-format
-msgid "%.1f °F"
-msgstr "%.1f °F"
+msgid "%.0f °F"
+msgstr "%.0f °F"
+
+#. Celsius
+#: ../lib/sensors-interface-common.c:147
+#, c-format
+msgid "%.0f °C"
+msgstr "%.0f °C"
 
 #: ../lib/sensors-interface-common.c:152
 #, c-format
-msgid "%+.2f V"
-msgstr "%+.2f V"
+msgid "%+.3f V"
+msgstr "%+.3f V"
 
 #: ../lib/sensors-interface-common.c:156
 #, c-format
@@ -340,22 +332,17 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
 "Xfce4 センサー %s\n"
 "このプログラムは GPL v2 の下で公開されています。\n"
-"ライセンス文はプログラムのソースアーカイブ、 /usr/share/apps/LICENSES/GPL_V2 "
-"配下、または http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt にありま"
-"す。\n"
+"ライセンス文はプログラムのソースアーカイブ、 /usr/share/apps/LICENSES/GPL_V2 配下、または http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt にあります。\n"
 
 #: ../src/main.c:64
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk "
-"temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -366,8 +353,7 @@ msgid ""
 "This program is published under the GPL v2.\n"
 msgstr ""
 "Xfce4 センサー %s\n"
-"ハードウェアセンサー、ACPI ステータス、ハードディスク温度、および NVidia GPU "
-"温度についての情報を表示する。\n"
+"ハードウェアセンサー、ACPI ステータス、ハードディスク温度、および NVidia GPU 温度についての情報を表示する。\n"
 "概要: \n"
 "  xfce4-sensors オプション\n"
 "オプションは以下の一つ以上があります:\n"
@@ -423,6 +409,9 @@ msgstr "センサー値ビューアー"
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "センサープラグイン"
+
+#~ msgid "%+.2f V"
+#~ msgstr "%+.2f V"
 
 #~ msgid "No concrete error detected.\n"
 #~ msgstr "具体的なエラーが検出されませんでした。\n"
