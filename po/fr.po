@@ -309,18 +309,18 @@ msgid "No sensors found!"
 msgstr "Aucun capteur trouvé !"
 
 #: ../lib/sensors-interface-common.c:144
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f °F"
-msgstr "%.1f °F"
+msgstr "%.0f °F"
 
 #. Celsius
 #: ../lib/sensors-interface-common.c:147
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f °C"
-msgstr "%.1f °C"
+msgstr "%.0f °C"
 
 #: ../lib/sensors-interface-common.c:152
-#, c-format, fuzzy
+#, c-format
 msgid "%+.3f V"
 msgstr "%+.3f V"
 
