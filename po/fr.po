@@ -4,19 +4,19 @@
 # Stephane Roy <sroy@j2n.net>, 2005.
 # Fabian Nowak <timystery@arcor.de>, 2005.
 # Maximilian Schleiss <maximilian@xfce.org>, 2006.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-03 11:30+0200\n"
+"POT-Creation-Date: 2013-01-05 22:54+0000\n"
 "PO-Revision-Date: 2009-03-19 21:00+0100\n"
 "Last-Translator: Mike Massonnet <mmassonnet@gmail.com>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 
 #: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:384
 #: ../panel-plugin/sensors-plugin.c:977
@@ -77,7 +77,8 @@ msgstr "_Nombre de lignes de texte :"
 msgid "F_ont size:"
 msgstr "Taille de la _police :"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1858
 msgid "x-small"
 msgstr "très petite"
@@ -158,7 +159,8 @@ msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
 #: ../lib/acpi.c:527
 #, c-format
 msgid "ACPI v%s zones"
@@ -179,11 +181,10 @@ msgid "nvidia"
 msgstr "nvidia"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
 #. } else { // Celsius
-#. Celsius
 #: ../lib/nvidia.c:126 ../lib/hddtemp.c:720
-#: ../lib/sensors-interface-common.c:147
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -308,14 +309,20 @@ msgid "No sensors found!"
 msgstr "Aucun capteur trouvé !"
 
 #: ../lib/sensors-interface-common.c:144
-#, c-format
-msgid "%.1f °F"
+#, fuzzy, c-format
+msgid "%.0f °F"
 msgstr "%.1f °F"
 
+#. Celsius
+#: ../lib/sensors-interface-common.c:147
+#, fuzzy, c-format
+msgid "%.0f °C"
+msgstr "%.1f °C"
+
 #: ../lib/sensors-interface-common.c:152
-#, c-format
-msgid "%+.2f V"
-msgstr "%+.2f V"
+#, c-format, fuzzy
+msgid "%+.3f V"
+msgstr "%+.3f V"
 
 #: ../lib/sensors-interface-common.c:156
 #, c-format
@@ -406,21 +413,24 @@ msgstr ""
 "L'exécution normale ne peut pas être garantie.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
+msgid "Sensor Values Viewer"
+msgstr "Afficheur des valeurs des capteurs"
+
+#: ../src/xfce4-sensors.desktop.in.h:2
 msgid "Sensor Viewer"
 msgstr "Afficheur de capteur"
 
-#: ../src/xfce4-sensors.desktop.in.h:2
+#: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "Afficher les valeurs du capteur."
 
-#: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Sensor Values Viewer"
-msgstr "Afficheur des valeurs des capteurs"
-
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "Greffon de capteurs"
+
+#~ msgid "%+.2f V"
+#~ msgstr "%+.2f V"
 
 #~ msgid "No concrete error detected.\n"
 #~ msgstr "Aucune erreur concrète détectée.\n"
