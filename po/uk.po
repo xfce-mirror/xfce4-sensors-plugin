@@ -1,20 +1,20 @@
 # Ukrainian translation of xfce4-sensors-plugin.
 # Copyright (C) 2008 Dmitry Nikitin
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
-#
+# 
 # Dmitry Nikitin <luckas_fb@mail.ru>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-03 11:30+0200\n"
+"POT-Creation-Date: 2013-01-06 20:18+0000\n"
 "PO-Revision-Date: 2008-11-17 13:48+0200\n"
 "Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
 "Language-Team: Ukrainian <xfce4-dev@xfce.org>\n"
-"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:384
@@ -76,7 +76,8 @@ msgstr "Кількіс_ть тектових стрічок:"
 msgid "F_ont size:"
 msgstr "Розмір _шрифту:"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1858
 msgid "x-small"
 msgstr "найменші"
@@ -157,7 +158,8 @@ msgid "ACPI"
 msgstr "Інтерфейс ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
 #: ../lib/acpi.c:527
 #, c-format
 msgid "ACPI v%s zones"
@@ -178,11 +180,10 @@ msgid "nvidia"
 msgstr "nvidia"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
 #. } else { // Celsius
-#. Celsius
 #: ../lib/nvidia.c:126 ../lib/hddtemp.c:720
-#: ../lib/sensors-interface-common.c:147
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f градусів по Цельсію"
@@ -308,13 +309,19 @@ msgstr "Не знайдено сенсорів!"
 
 #: ../lib/sensors-interface-common.c:144
 #, c-format
-msgid "%.1f °F"
-msgstr "%.1f градусів по Фаренгейту"
+msgid "%.0f °F"
+msgstr "%.0f градусів по Фаренгейту"
+
+#. Celsius
+#: ../lib/sensors-interface-common.c:147
+#, c-format
+msgid "%.0f °C"
+msgstr "%.0f градусів по Цельсію"
 
 #: ../lib/sensors-interface-common.c:152
 #, c-format
-msgid "%+.2f V"
-msgstr "%+.2f Вольт"
+msgid "%+.3f V"
+msgstr "%+.3f В"
 
 #: ../lib/sensors-interface-common.c:156
 #, c-format
@@ -407,21 +414,24 @@ msgstr ""
 "Правильна обробка не гарантована.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
+msgid "Sensor Values Viewer"
+msgstr "Переглядач інформації сенсорів"
+
+#: ../src/xfce4-sensors.desktop.in.h:2
 msgid "Sensor Viewer"
 msgstr "Переглядач сенсора"
 
-#: ../src/xfce4-sensors.desktop.in.h:2
+#: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "Показувати значення сенсорів."
 
-#: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Sensor Values Viewer"
-msgstr "Переглядач інформації сенсорів"
-
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "Плагін сенсорів "
+
+#~ msgid "%+.2f V"
+#~ msgstr "%+.2f Вольт"
 
 #~ msgid "No concrete error detected.\n"
 #~ msgstr "Отримано невідому помилку.\n"
