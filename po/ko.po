@@ -2,15 +2,15 @@
 # Copyright (C) 2004-2005 Fabian Nowak.
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
 # ByungHyun Choi <byunghyun.choi@gmail.com>, 2005.
-# Seong-ho, Cho <darkcircle.0426@gmail.com>, 2012.
+# Seong-ho Cho <darkcircle.0426@gmail.com>, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-03 11:30+0200\n"
-"PO-Revision-Date: 2012-02-28 03:47+0900\n"
-"Last-Translator: Seong-ho, Cho <darkcircle.0426@gmail.com>\n"
+"Report-Msgid-Bugs-To: https://bugzilla.xfce.org/enter_bug.cgi?product=Xfce4-sensors-plugin\n"
+"POT-Creation-Date: 2013-01-23 13:33+0000\n"
+"PO-Revision-Date: 2013-01-24 03:12+0900\n"
+"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: xfce-i18n <xfce-i18n@xfce.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:384
+#: ../panel-plugin/sensors-plugin.c:287
+#: ../panel-plugin/sensors-plugin.c:384
 #: ../panel-plugin/sensors-plugin.c:977
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>센서</b></span>"
@@ -126,7 +127,8 @@ msgstr "보기(_V)"
 msgid "_Miscellaneous"
 msgstr "기타(_M)"
 
-#: ../panel-plugin/sensors-plugin.c:2145 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2145
+#: ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:180
 msgid "Sensors Plugin"
 msgstr "센서 플러그인"
@@ -134,25 +136,25 @@ msgstr "센서 플러그인"
 #. gtk_cpu_paint(sensors->tachos [i][index_feature]);
 #. gtk_cpu_expose(sensors->tachos [i][index_feature], NULL);
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2184 ../src/actions.c:205
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field."
-msgstr ""
-"이름, 색, 최대/최소 값과 같은 기능 속성을 항목을 두번 누르고 내용을 편집한 다"
-"음 \"리턴\"키를 누르거나 다른 필드를 선택하여 바꿀 수 있습니다."
+#: ../panel-plugin/sensors-plugin.c:2184
+#: ../src/actions.c:205
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
+msgstr "이름, 색, 최대/최소 값과 같은 기능 속성을 항목을 두번 누르고 내용을 편집한 다음 \"리턴\"키를 누르거나 다른 필드를 선택하여 바꿀 수 있습니다."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:160 ../lib/configuration.c:358
-#: ../lib/configuration.c:365 ../lib/hddtemp.c:362 ../lib/hddtemp.c:411
+#: ../lib/configuration.c:160
+#: ../lib/configuration.c:358
+#: ../lib/configuration.c:365
+#: ../lib/hddtemp.c:362
+#: ../lib/hddtemp.c:411
 msgid "Hard disks"
 msgstr "하드 디스크"
 
-#: ../lib/acpi.c:525 ../lib/acpi.c:533
+#: ../lib/acpi.c:525
+#: ../lib/acpi.c:533
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -180,9 +182,8 @@ msgstr "엔비디아"
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#. Celsius
-#: ../lib/nvidia.c:126 ../lib/hddtemp.c:720
-#: ../lib/sensors-interface-common.c:147
+#: ../lib/nvidia.c:126
+#: ../lib/hddtemp.c:720
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -194,29 +195,24 @@ msgstr "S.M.A.R.T 하드디스크 온도 센서"
 #: ../lib/hddtemp.c:605
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\"가 실행 가능하지만 올바로 실행하지 않았습니다. 아마도 디스크에서 "
-"온도를 읽어들이기 위해 루트 권한을 필요로 하며, \"hddtemp\"를 루트가 실행하"
-"지 않아서 인 것 같습니다.\n"
+"\"hddtemp\"가 실행 가능하지만 올바로 실행하지 않았습니다. 아마도 디스크에서 온도를 읽어들리려면 루트 권한이 필요하며, \"hddtemp\"를 루트가 실행하지 않아서 인 것 같습니다.\n"
 "\n"
-"쉽지만 지저분 맞은 해결책은 \"chmod u+s %s\"을(를) 루트 계정으로 실행하고 이 "
-"플러그인을 실행하거나 패널로 띄우는 방법입니다.\n"
+"쉽지만 지저분 맞은 해결책은 \"chmod u+s %s\"을(를) 루트 계정으로 실행하고 이 플러그인을 실행하거나 패널로 띄우는 방법입니다.\n"
 "\n"
 "\"%s\"을(를) 호출하는데 다음 오류\n"
 "%s이(가)\n"
 "반환 오류값 %d와(과) 함께 발생했습니다.\n"
 
-#: ../lib/hddtemp.c:621 ../lib/hddtemp.c:651
+#: ../lib/hddtemp.c:621
+#: ../lib/hddtemp.c:651
 msgid "Suppress this message in future"
 msgstr "나중에 이 메시지 숨기기"
 
@@ -233,7 +229,8 @@ msgstr ""
 msgid "LM Sensors"
 msgstr "LM 센서"
 
-#: ../lib/lmsensors.c:370 ../lib/lmsensors.c:417
+#: ../lib/lmsensors.c:370
+#: ../lib/lmsensors.c:417
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "오류: 센서에 연결할 수 없습니다!"
@@ -302,19 +299,26 @@ msgstr "화씨(_F)"
 msgid "_Sensors"
 msgstr "센서(_S)"
 
-#: ../lib/sensors-interface-common.c:73 ../lib/sensors-interface-common.c:74
+#: ../lib/sensors-interface-common.c:73
+#: ../lib/sensors-interface-common.c:74
 msgid "No sensors found!"
 msgstr "센서를 찾을 수 없습니다!"
 
 #: ../lib/sensors-interface-common.c:144
 #, c-format
-msgid "%.1f °F"
-msgstr "%.1f °F"
+msgid "%.0f °F"
+msgstr "%.0f °F"
+
+#. Celsius
+#: ../lib/sensors-interface-common.c:147
+#, c-format
+msgid "%.0f °C"
+msgstr "%.0f °C"
 
 #: ../lib/sensors-interface-common.c:152
 #, c-format
-msgid "%+.2f V"
-msgstr "%+.2f V"
+msgid "%+.3f V"
+msgstr "%+.3f V"
 
 #: ../lib/sensors-interface-common.c:156
 #, c-format
@@ -339,21 +343,17 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
 "Xfce4 센서 %s\n"
 "이 프로그램은 GPL v2하에 나왔습니다.\n"
-"라이선스는 프로그램의 소스 아카이브 내 또는 /usr/share/apps/LICENSES/GPL_V2, "
-"http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt에서 찾을 수 있습니다\n"
+"라이선스는 프로그램의 소스 아카이브 내 또는 /usr/share/apps/LICENSES/GPL_V2, http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt에서 찾을 수 있습니다\n"
 
 #: ../src/main.c:64
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk "
-"temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -364,8 +364,7 @@ msgid ""
 "This program is published under the GPL v2.\n"
 msgstr ""
 "Xfce4 센서 %s\n"
-"하드웨어 센서, ACPI 상태, 하드디스크 온도와 엔비디아 GPU 온도정보를 표시합니"
-"다.\n"
+"하드웨어 센서, ACPI 상태, 하드디스크 온도와 엔비디아 GPU 온도정보를 표시합니다.\n"
 "개요: \n"
 "  xfce4-sensors options\n"
 "options 대신 다음 중 하나 이상을 사용할 수 있습니다:\n"
@@ -407,18 +406,21 @@ msgstr ""
 "따라서 정상적인 동작을 보장할 수 없습니다.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
+msgid "Sensor Values Viewer"
+msgstr "센서 값 보기"
+
+#: ../src/xfce4-sensors.desktop.in.h:2
 msgid "Sensor Viewer"
 msgstr "센서 보기"
 
-#: ../src/xfce4-sensors.desktop.in.h:2
+#: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "센서 값을 보여줍니다."
 
-#: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Sensor Values Viewer"
-msgstr "센서 값 보기"
-
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "센서 플러그인"
+
+#~ msgid "%+.2f V"
+#~ msgstr "%+.2f V"
