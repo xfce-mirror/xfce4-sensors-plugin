@@ -3,12 +3,12 @@
 # This file is distributed under the same license as the xfce4-sensors-plugin package.
 # Piotr Maliński <admin@rk.edu.pl>, 2006.
 # Piotr Sokół <psokol@jabster.pl>, 2012.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-03 11:30+0200\n"
+"POT-Creation-Date: 2013-01-28 05:54+0000\n"
 "PO-Revision-Date: 2012-11-24 11:04+0100\n"
 "Last-Translator: Piotr Sokół <psokol@jabster.pl>\n"
 "Language-Team: polski <>\n"
@@ -16,8 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bits\n"
 "Language: \n"
-"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : ((n%10>=2 && n%10<=4 && (n"
-"%100<10 || n%100>=20)) ? 1 : 2));\n"
+"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : ((n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20)) ? 1 : 2));\n"
 "X-Generator: Gtranslator 2.91.5\n"
 
 #: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:384
@@ -188,9 +187,7 @@ msgstr "nvidia"
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
 #. 32) );
 #. } else { // Celsius
-#. Celsius
 #: ../lib/nvidia.c:126 ../lib/hddtemp.c:720
-#: ../lib/sensors-interface-common.c:147
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -313,13 +310,19 @@ msgstr "Nie odnaleziono czujników!"
 
 #: ../lib/sensors-interface-common.c:144
 #, c-format
-msgid "%.1f °F"
-msgstr "%.1f °F"
+msgid "%.0f °F"
+msgstr "%.0f °F"
+
+#. Celsius
+#: ../lib/sensors-interface-common.c:147
+#, c-format
+msgid "%.0f °C"
+msgstr "%.0f °C"
 
 #: ../lib/sensors-interface-common.c:152
 #, c-format
-msgid "%+.2f V"
-msgstr "%+.2f V"
+msgid "%+.3f V"
+msgstr "%+.3f V"
 
 #: ../lib/sensors-interface-common.c:156
 #, c-format
@@ -414,21 +417,24 @@ msgstr ""
 "Wskazania mogą być niezgodne z prawdą.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
+msgid "Sensor Values Viewer"
+msgstr "Podgląd wskazań czujników"
+
+#: ../src/xfce4-sensors.desktop.in.h:2
 msgid "Sensor Viewer"
 msgstr "Wskazania czujników"
 
-#: ../src/xfce4-sensors.desktop.in.h:2
+#: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "Wyświetla wskazania czujników sprzętowych"
 
-#: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Sensor Values Viewer"
-msgstr "Podgląd wskazań czujników"
-
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "Czujniki"
+
+#~ msgid "%+.2f V"
+#~ msgstr "%+.2f V"
 
 #~ msgid "No concrete error detected.\n"
 #~ msgstr "Wykryto nieznany błąd.\n"
