@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-03 11:30+0200\n"
-"PO-Revision-Date: 2012-01-15 19:45+0800\n"
+"POT-Creation-Date: 2013-01-28 00:33+0000\n"
+"PO-Revision-Date: 2013-01-28 12:26+0800\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
@@ -16,7 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:384
+#: ../panel-plugin/sensors-plugin.c:287
+#: ../panel-plugin/sensors-plugin.c:384
 #: ../panel-plugin/sensors-plugin.c:977
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>感測器</b></span>"
@@ -124,7 +125,8 @@ msgstr "檢視(_V)"
 msgid "_Miscellaneous"
 msgstr "雜項(_M)"
 
-#: ../panel-plugin/sensors-plugin.c:2145 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2145
+#: ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:180
 msgid "Sensors Plugin"
 msgstr "感測器插件"
@@ -132,25 +134,25 @@ msgstr "感測器插件"
 #. gtk_cpu_paint(sensors->tachos [i][index_feature]);
 #. gtk_cpu_expose(sensors->tachos [i][index_feature], NULL);
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2184 ../src/actions.c:205
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field."
-msgstr ""
-"您可以變更某些特色屬性，像是名稱、色彩、最小/最大值；只要雙擊該條目，編輯內"
-"容，接著按下「Enter」或選取不同的欄位即可。"
+#: ../panel-plugin/sensors-plugin.c:2184
+#: ../src/actions.c:205
+msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
+msgstr "您可以變更某些特色屬性，像是名稱、色彩、最小/最大值；只要雙擊該條目，編輯內容，接著按下「Enter」或選取不同的欄位即可。"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:160 ../lib/configuration.c:358
-#: ../lib/configuration.c:365 ../lib/hddtemp.c:362 ../lib/hddtemp.c:411
+#: ../lib/configuration.c:160
+#: ../lib/configuration.c:358
+#: ../lib/configuration.c:365
+#: ../lib/hddtemp.c:362
+#: ../lib/hddtemp.c:411
 msgid "Hard disks"
 msgstr "硬碟"
 
-#: ../lib/acpi.c:525 ../lib/acpi.c:533
+#: ../lib/acpi.c:525
+#: ../lib/acpi.c:533
 msgid "ACPI"
 msgstr "ACPI"
 
@@ -178,9 +180,8 @@ msgstr "nvidia"
 #. if (scale == FAHRENHEIT) {
 #. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
-#. Celsius
-#: ../lib/nvidia.c:126 ../lib/hddtemp.c:720
-#: ../lib/sensors-interface-common.c:147
+#: ../lib/nvidia.c:126
+#: ../lib/hddtemp.c:720
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -192,28 +193,24 @@ msgstr "S.M.A.R.T. 硬碟溫度"
 #: ../lib/hddtemp.c:605
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"「hddtemp」未正確執行，雖然它可以執行。這很可能是因為磁碟需要 root 特權來讀取"
-"其溫度，而且「hddtemp」允可設定不是 setuid root。\n"
+"「hddtemp」未正確執行，雖然它可以執行。這很可能是因為磁碟需要 root 特權來讀取其溫度，而且「hddtemp」允可設定不是 setuid root。\n"
 "\n"
-"有個簡單但糟糕的解法：以 root 使用者的身份執行「chmod u+s %s」，並重新啟動此"
-"插件或面板。\n"
+"有個簡單但糟糕的解法：以 root 使用者的身份執行「chmod u+s %s」，並重新啟動此插件或面板。\n"
 "\n"
 "呼叫「%s」回給下列錯誤：\n"
 "%s\n"
 "傳回值為 %d。\n"
 
-#: ../lib/hddtemp.c:621 ../lib/hddtemp.c:651
+#: ../lib/hddtemp.c:621
+#: ../lib/hddtemp.c:651
 msgid "Suppress this message in future"
 msgstr "抑制此訊息使未來不出現"
 
@@ -230,7 +227,8 @@ msgstr ""
 msgid "LM Sensors"
 msgstr "LM 感測器"
 
-#: ../lib/lmsensors.c:370 ../lib/lmsensors.c:417
+#: ../lib/lmsensors.c:370
+#: ../lib/lmsensors.c:417
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "錯誤：無法連結感測器！"
@@ -299,19 +297,26 @@ msgstr "華氏(_F)"
 msgid "_Sensors"
 msgstr "感測器(_S)"
 
-#: ../lib/sensors-interface-common.c:73 ../lib/sensors-interface-common.c:74
+#: ../lib/sensors-interface-common.c:73
+#: ../lib/sensors-interface-common.c:74
 msgid "No sensors found!"
 msgstr "找不到感測器！"
 
 #: ../lib/sensors-interface-common.c:144
 #, c-format
-msgid "%.1f °F"
-msgstr "%.1f °F"
+msgid "%.0f °F"
+msgstr "%.0f °F"
+
+#. Celsius
+#: ../lib/sensors-interface-common.c:147
+#, c-format
+msgid "%.0f °C"
+msgstr "%.0f °C"
 
 #: ../lib/sensors-interface-common.c:152
 #, c-format
-msgid "%+.2f V"
-msgstr "%+.2f V"
+msgid "%+.3f V"
+msgstr "%+.3f V"
 
 #: ../lib/sensors-interface-common.c:156
 #, c-format
@@ -336,21 +341,17 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr ""
 "Xfce4 感測器 %s\n"
 "本程式基於 GPL v2 授權條款發布。\n"
-"授權內容可以在程式的源封存內或 /usr/share/apps/LICENSES/GPL_V2 找到，又或是 "
-"http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+"授權內容可以在程式的源封存內或 /usr/share/apps/LICENSES/GPL_V2 找到，又或是 http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk "
-"temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -402,21 +403,24 @@ msgstr ""
 "無法保證能夠正常運作。\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
+msgid "Sensor Values Viewer"
+msgstr "感測器數值檢視器"
+
+#: ../src/xfce4-sensors.desktop.in.h:2
 msgid "Sensor Viewer"
 msgstr "感測器檢視器"
 
-#: ../src/xfce4-sensors.desktop.in.h:2
+#: ../src/xfce4-sensors.desktop.in.h:3
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "顯示感測器數值。"
 
-#: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Sensor Values Viewer"
-msgstr "感測器數值檢視器"
-
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "感測器插件"
+
+#~ msgid "%+.2f V"
+#~ msgstr "%+.2f V"
 
 #, fuzzy
 #~ msgid "g_raphical"
