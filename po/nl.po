@@ -2,7 +2,7 @@
 # Copyright (C) The Xfce development team.
 # This file is distributed under the same license as the
 # xfce4-sensors-plugin package.
-# Pjotr, 2011.
+# Pjotr <pjotrvertaalt@gmail.com> , 2011 - 2013.
 # 
 msgid ""
 msgstr ""
@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-01-03 19:10+0000\n"
 "PO-Revision-Date: 2011-09-09 11:34+0200\n"
-"Last-Translator: Pjotr\n"
+"Last-Translator: Pjotr pjotrvertaalt@gmail.com\n"
 "Language-Team: Dutch (Flemish)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,7 +44,7 @@ msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:1684
 msgid "UI style:"
-msgstr "Stijl van omgeving:"
+msgstr "Stijl van gebruikersomgeving:"
 
 #: ../panel-plugin/sensors-plugin.c:1685
 msgid "_text"
@@ -131,7 +131,7 @@ msgstr "_Gemengd"
 #: ../panel-plugin/sensors-plugin.c:2145 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:180
 msgid "Sensors Plugin"
-msgstr "Sensors-plugin"
+msgstr "Sensors-invoegtoepassing"
 
 #. gtk_cpu_paint(sensors->tachos [i][index_feature]);
 #. gtk_cpu_expose(sensors->tachos [i][index_feature], NULL);
@@ -144,7 +144,7 @@ msgid ""
 msgstr ""
 "U kunt de eigenschappen van een functie veranderen, zoals naam, kleuren of "
 "min/max-waarde, door te dubbelklikken op het veld, de inhoud te bewerken, en "
-"te drukken op \"Return\" of een ander veld te kiezen."
+"te drukken op 'Return' of een ander veld te kiezen."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -208,14 +208,14 @@ msgid ""
 "%s\n"
 "with a return value of %d.\n"
 msgstr ""
-"\"hddtemp\" werd niet correct uitgevoerd, hoewel het uitvoerbaar is. Dit "
+"'hddtemp' werd niet correct uitgevoerd, hoewel het uitvoerbaar is. Dit "
 "komt hoogstwaarschijnlijk doordat de schijven rootrechten nodig hebben om "
-"hun temperaturen te lezen, en doordat \"hddtemp\" geen setuid root is.\n"
+"hun temperaturen te lezen, en doordat 'hddtemp' geen setuid root is.\n"
 "\n"
-"Een snelle maar vuile oplossing is om \"chmod u+s %s\" uit te voeren als "
-"rootgebruiker en deze plugin of zijn werkbalk te herstarten.\n"
+"Een snelle maar vuile oplossing is om 'chmod u+s %s' uit te voeren als "
+"rootgebruiker en deze invoegtoepassing of zijn werkbalk te herstarten.\n"
 "\n"
-"Aanroepen van \"%s\" gaf de volgende fout:\n"
+"Aanroepen van '%s' gaf de volgende fout:\n"
 "%s\n"
 "met een terugmeldwaarde van %d.\n"
 
@@ -229,7 +229,7 @@ msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr ""
-"Er trad een fout op bij het uitvoeren van \"%s\":\n"
+"Er trad een fout op bij het uitvoeren van '%s':\n"
 "%s"
 
 #: ../lib/lmsensors.c:110
@@ -243,7 +243,7 @@ msgstr "Fout: Kon niet verbinden met sensors!"
 
 #: ../lib/sensors-interface.c:84
 msgid "Sensors Plugin Failure"
-msgstr "Sensors-plugin mislukking"
+msgstr "Sensors-invoegtoepassing mislukking"
 
 #: ../lib/sensors-interface.c:85
 msgid ""
@@ -411,7 +411,7 @@ msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-"Sensors Kijker:\n"
+"Sensorskijker:\n"
 "Het lijkt alsof er een probleem was met uitlezen van een "
 "sensorfunctiewaarde.\n"
 "Juiste voortgang kan niet worden gegarandeerd.\n"
@@ -431,7 +431,7 @@ msgstr "Toon sensorwaarden."
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
-msgstr "Sensor-plugin "
+msgstr "Sensor-invoegtoepassing "
 
 #~ msgid "%+.2f V"
 #~ msgstr "%+.2f V"
@@ -446,7 +446,7 @@ msgstr "Sensor-plugin "
 #~ msgstr "Toon _etiketten in de grafische schil"
 
 #~ msgid "Xfce 4 Sensors Plugin"
-#~ msgstr "Xfce4 Sensors-plugin"
+#~ msgstr "Xfce4 Sensors-invoegtoepassing"
 
 #~ msgid "Xfce 4 Sensors Viewer"
 #~ msgstr "Xfce Sensorskijker"
@@ -463,7 +463,7 @@ msgstr "Sensor-plugin "
 #~ "Proper proceeding cannot be guaranteed.\n"
 #~ msgstr ""
 #~ " \n"
-#~ "Xfce Hardware Sensors Plugin: \n"
+#~ "Xfce Hardware Sensors Invoegtoepassing: \n"
 #~ "Het lijkt erop dat er een probleem was met het uitlezen van een "
 #~ "sensorfunctiewaarde. \n"
 #~ "Juiste voortgang kan niet worden gegarandeerd.\n"
