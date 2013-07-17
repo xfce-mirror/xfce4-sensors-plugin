@@ -1,20 +1,22 @@
-# Uyghur translations for xfce4-sensors-plugin package.
-# Copyright (C) 2004-2005 Fabian Nowak.
-# This file is distributed under the same license as the xfce4-sensors-plugin package.
-# Gheyret T.Kenji <gheyret@gmail.com>, 2010.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
+# Translators:
+# Gheyret T.Kenji <gheyret@gmail.com>, 2010
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-sensors-plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-24 21:39+0000\n"
-"PO-Revision-Date: 2012-02-03 18:47+0900\n"
-"Last-Translator: Gheyret T.Kenji <gheyret@gmail.com>\n"
-"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
+"POT-Creation-Date: 2013-07-03 21:16+0200\n"
+"PO-Revision-Date: 2013-07-17 07:00+0000\n"
+"Last-Translator: kawichi\n"
+"Language-Team: Uighur (http://www.transifex.com/projects/p/xfce/language/ug/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
+"Language: ug\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:384
 #: ../panel-plugin/sensors-plugin.c:977
@@ -34,10 +36,7 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"سەزگۈچ قىستۇرمىسى:\n"
-"سەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\n"
-"نورمال بىر تەرەپ قىلىشقا كاپالەتلىك قىلغىلى بولمايدۇ.\n"
+msgstr "سەزگۈچ قىستۇرمىسى:\nسەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\nنورمال بىر تەرەپ قىلىشقا كاپالەتلىك قىلغىلى بولمايدۇ.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1684
 msgid "UI style:"
@@ -138,10 +137,7 @@ msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr ""
-"كىرگۈنى قوش چېكىپ، مەزمۇنلارنى تەھرىرلەپ، «Return» كۇنۇپكىسىنى بېسىش "
-"ئارقىلىق، ئاتى، رېڭى، ئەڭ چوڭ/ئەڭ كىچىك قىممىتى قاتارلىق مۇھىم خاسلىقلارنى "
-"ئۆزگەرتكىلى بولىدۇ."
+msgstr "كىرگۈنى قوش چېكىپ، مەزمۇنلارنى تەھرىرلەپ، «Return» كۇنۇپكىسىنى بېسىش ئارقىلىق، ئاتى، رېڭى، ئەڭ چوڭ/ئەڭ كىچىك قىممىتى قاتارلىق مۇھىم خاسلىقلارنى ئۆزگەرتكىلى بولىدۇ."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -194,28 +190,14 @@ msgstr "S.M.A.R.T. قاتتىق دىسكا تېمپېراتۇرىسى"
 #: ../lib/hddtemp.c:605
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr ""
-"ھۆججەت «hddtemp» نى ئىجرا قىلدۇرغىلى بولىدۇ، بىراق نورمال ئىجرا بولماپتۇ. "
-"سەۋەبى، بەلكىم ئالىي ئىشلەتكۈچى مەرتىۋىسىنى تەلەپ قىلىدىغان دىسكىنى "
-"ئوقۇغاندا، «hddtemp» بۇيرۇقى ئالىي ئىشلەتكۈچى مەرتىۋىسىگە ئېرىشەلمىگەن "
-"بولۇشى مۇمكىن.\n"
-"\n"
-"ئاددىي بىراق، ئىپتىدائىي ئۇسۇل ئالىي ئىشلەتكۈچى ھالىتىدە «chmod u+s %s» نى "
-"ئىجرا قىلىپ، قىستۇرمىنى قايتا باشلاشتۇر.\n"
-"\n"
-"پروگراممىدا «%s» نى چاقىرغاندا تۆۋەندىكى خاتالىق كۆرۈلدى:\n"
-"%s\n"
-"قايتۇرغان قىممىتى: %d\n"
+msgstr "ھۆججەت «hddtemp» نى ئىجرا قىلدۇرغىلى بولىدۇ، بىراق نورمال ئىجرا بولماپتۇ. سەۋەبى، بەلكىم ئالىي ئىشلەتكۈچى مەرتىۋىسىنى تەلەپ قىلىدىغان دىسكىنى ئوقۇغاندا، «hddtemp» بۇيرۇقى ئالىي ئىشلەتكۈچى مەرتىۋىسىگە ئېرىشەلمىگەن بولۇشى مۇمكىن.\n\nئاددىي بىراق، ئىپتىدائىي ئۇسۇل ئالىي ئىشلەتكۈچى ھالىتىدە «chmod u+s %s» نى ئىجرا قىلىپ، قىستۇرمىنى قايتا باشلاشتۇر.\n\nپروگراممىدا «%s» نى چاقىرغاندا تۆۋەندىكى خاتالىق كۆرۈلدى:\n%s\nقايتۇرغان قىممىتى: %d\n"
 
 #: ../lib/hddtemp.c:621 ../lib/hddtemp.c:651
 msgid "Suppress this message in future"
@@ -226,9 +208,7 @@ msgstr "بۇ ئۇچۇرنى بۇنىڭدىن كېيىن كۆرسەتمە"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr ""
-"«%s» نى ئىجرا قىلىۋاتقاندا خاتالىق كۆرۈلدى:\n"
-"%s"
+msgstr "«%s» نى ئىجرا قىلىۋاتقاندا خاتالىق كۆرۈلدى:\n%s"
 
 #: ../lib/lmsensors.c:110
 msgid "LM Sensors"
@@ -247,9 +227,7 @@ msgstr "سەزگۈچ قىستۇرمىسى - مەغلۇپ بولدى"
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr ""
-"سەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\n"
-"نورمال بىر تەرەپ قىلىشقا كاپالەتلىك قىلغىلى بولمايدۇ."
+msgstr "سەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\nنورمال بىر تەرەپ قىلىشقا كاپالەتلىك قىلغىلى بولمايدۇ."
 
 #: ../lib/sensors-interface.c:172
 msgid "Sensors t_ype:"
@@ -346,21 +324,14 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
-msgstr ""
-"Xfce4 سەزگۈچ %s\n"
-"مەزكۇر پروگرامما GPL v2 ئىجازەتنامىسى بويىچە تارقىتىلدى.\n"
-"ئىجازەتنامە  /usr/share/apps/LICENSES/GPL_V2 نىڭ ئاستىدا بار. ياكى http://"
-"www.gnu.org/licenses/old-licenses/gpl-2.0.txt  دىمۇ بار.\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Xfce4 سەزگۈچ %s\nمەزكۇر پروگرامما GPL v2 ئىجازەتنامىسى بويىچە تارقىتىلدى.\nئىجازەتنامە  /usr/share/apps/LICENSES/GPL_V2 نىڭ ئاستىدا بار. ياكى http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt  دىمۇ بار.\n"
 
 #: ../src/main.c:64
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk "
-"temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -369,17 +340,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr ""
-"ئېكس ف س ئې (Xfce) 4 سەزگۈچلىرى %s\n"
-"قاتتىق دېتال سەزگۈچلىرى (ACPI ھالىتى، قاتتىق دىسكا تېمپېراتۇرىسى، ۋە Nvidia "
-"GPU نىڭ تېمپېراتۇرىسى) قاتارلىقلارنىڭ ئۇچۇرلىرىنى كۆرسىتىدۇ.\n"
-"قىسقىچە مەزمۇنى:\n"
-"  پروگرامما xfce4-sensors نىڭ تاللانمىلىرى\n"
-"مەزكۇر پروگراممىنىڭ تۆۋەندىكىدەك بىر قانچە تاللانمىلىرى بار\n"
-"  -h, --help    مەزكۇر ياردەمنى كۆرسىتىدۇ\n"
-"  -l, --license ئىجازەتنامە ئۇچۇرلىرىنى كۆرسىتىدۇ\n"
-"  -V, --version نەشر ئۇچۇرىنى كۆرسىتىدۇ\n"
-"مەزكۇر پروگرامما GPL v2 ئىجازەتنامىسى بويىچە تارقىتىلغان\n"
+msgstr "ئېكس ف س ئې (Xfce) 4 سەزگۈچلىرى %s\nقاتتىق دېتال سەزگۈچلىرى (ACPI ھالىتى، قاتتىق دىسكا تېمپېراتۇرىسى، ۋە Nvidia GPU نىڭ تېمپېراتۇرىسى) قاتارلىقلارنىڭ ئۇچۇرلىرىنى كۆرسىتىدۇ.\nقىسقىچە مەزمۇنى:\n  پروگرامما xfce4-sensors نىڭ تاللانمىلىرى\nمەزكۇر پروگراممىنىڭ تۆۋەندىكىدەك بىر قانچە تاللانمىلىرى بار\n  -h, --help    مەزكۇر ياردەمنى كۆرسىتىدۇ\n  -l, --license ئىجازەتنامە ئۇچۇرلىرىنى كۆرسىتىدۇ\n  -V, --version نەشر ئۇچۇرىنى كۆرسىتىدۇ\nمەزكۇر پروگرامما GPL v2 ئىجازەتنامىسى بويىچە تارقىتىلغان\n"
 
 #: ../src/main.c:82
 #, c-format
@@ -406,30 +367,21 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"سەزگۈچ كۆرگۈ:\n"
-"سەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\n"
-"نورمال بىر تەرەپ قىلىشقا كاپالەتلىك قىلغىلى بولمايدۇ.\n"
+msgstr "سەزگۈچ كۆرگۈ:\nسەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\nنورمال بىر تەرەپ قىلىشقا كاپالەتلىك قىلغىلى بولمايدۇ.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
-msgid "Sensor Values Viewer"
-msgstr "سەزگۈچنىڭ قىممىتىنى كۆرگۈ"
-
-#: ../src/xfce4-sensors.desktop.in.h:2
 msgid "Sensor Viewer"
 msgstr "سەزگۈچ كۆرگۈ"
 
-#: ../src/xfce4-sensors.desktop.in.h:3
+#: ../src/xfce4-sensors.desktop.in.h:2
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "سەزگۈچنىڭ قىممىتىنى كۆرسىتىدۇ."
 
+#: ../src/xfce4-sensors.desktop.in.h:3
+msgid "Sensor Values Viewer"
+msgstr "سەزگۈچنىڭ قىممىتىنى كۆرگۈ"
+
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "سەزگۈچ قىستۇرمىسى "
-
-#~ msgid "%+.2f V"
-#~ msgstr "%+.2f V"
-
-#~ msgid "No concrete error detected.\n"
-#~ msgstr "ئېنىق بولغان خاتالىق بايقالمىدى.\n"
