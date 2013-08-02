@@ -1,17 +1,22 @@
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Necdet Yücel <necdetyucel@gmail.com>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4 sensors plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-03 11:30+0200\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Samed Beyribey <ras0ir@eventualis.org>\n"
-"Language-Team: Xfce-TR <xfce-tr@googlegroups.com>\n"
-"Language: \n"
+"POT-Creation-Date: 2013-07-03 21:16+0200\n"
+"PO-Revision-Date: 2013-08-02 13:18+0000\n"
+"Last-Translator: Necdet Yücel <necdetyucel@gmail.com>\n"
+"Language-Team: Turkish (http://www.transifex.com/projects/p/xfce/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Country: TURKEY\n"
+"Language: tr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:384
 #: ../panel-plugin/sensors-plugin.c:977
@@ -31,10 +36,7 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"Sensors Eklentisi:\n"
-"Algılayıcı değerleri okunurken sorun oluştu.\n"
-"Düzgün çalışma garantisi bulunmamaktadır.\n"
+msgstr "Sensors Eklentisi:\nAlgılayıcı değerleri okunurken sorun oluştu.\nDüzgün çalışma garantisi bulunmamaktadır.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1684
 msgid "UI style:"
@@ -72,7 +74,8 @@ msgstr "_Satır sayısı:"
 msgid "F_ont size:"
 msgstr "Yazıtipi b_oyutu: "
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1858
 msgid "x-small"
 msgstr "çok küçük"
@@ -134,10 +137,7 @@ msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr ""
-"Bir özelliğin ismini, rengini, minimum/maksimum değerini o değerin üzerine "
-"çift tıklayarak, o değeri istediğiniz gibi biçimlendirip, \"Enter\" tuşuna "
-"basarak  değiştirebilirsiniz."
+msgstr "Bir özelliğin ismini, rengini, minimum/maksimum değerini o değerin üzerine çift tıklayarak, o değeri istediğiniz gibi biçimlendirip, \"Enter\" tuşuna basarak  değiştirebilirsiniz."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -153,7 +153,8 @@ msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
 #: ../lib/acpi.c:527
 #, c-format
 msgid "ACPI v%s zones"
@@ -174,11 +175,10 @@ msgid "nvidia"
 msgstr "nvidia"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
 #. } else { // Celsius
-#. Celsius
 #: ../lib/nvidia.c:126 ../lib/hddtemp.c:720
-#: ../lib/sensors-interface-common.c:147
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -190,27 +190,14 @@ msgstr "S.M.A.R.T. sabit disk ısı dereceleri"
 #: ../lib/hddtemp.c:605
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr ""
-"\"hddtemp\" çalıştırılabilir olmasına rağmen çalıştırılamadı. Bu genellikle "
-"disklerin ısı derecelerini okumak için root yetkisine ihtiyacından "
-"kaynaklanmaktadır ve bu yüzden \"hddtemp\" çalışmamaktadır.\n"
-"\n"
-"Bu sorunu çözmek için root kullanıcısı ile \"chmod u+s %s\" komutunu verip, "
-"eklentiyi veya paneli tekrar başlatın.\n"
-"\n"
-"\"%s\" şu hatayı verdi:\n"
-"%s\n"
-"%d değeri dönüşü.\n"
+msgstr "\"hddtemp\" çalıştırılabilir olmasına rağmen çalıştırılamadı. Bu genellikle disklerin ısı derecelerini okumak için root yetkisine ihtiyacından kaynaklanmaktadır ve bu yüzden \"hddtemp\" çalışmamaktadır.\n\nBu sorunu çözmek için root kullanıcısı ile \"chmod u+s %s\" komutunu verip, eklentiyi veya paneli tekrar başlatın.\n\n\"%s\" şu hatayı verdi:\n%s\n%d değeri dönüşü.\n"
 
 #: ../lib/hddtemp.c:621 ../lib/hddtemp.c:651
 msgid "Suppress this message in future"
@@ -221,9 +208,7 @@ msgstr "Bu mesajı ileride gizle"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr ""
-"\"%s\" çalıştırılırken bir hata meydana geldi:\n"
-"%s"
+msgstr "\"%s\" çalıştırılırken bir hata meydana geldi:\n%s"
 
 #: ../lib/lmsensors.c:110
 msgid "LM Sensors"
@@ -242,9 +227,7 @@ msgstr "Sensors Eklentisi Çalışmıyor"
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr ""
-"Algılayıcı değerleri okunurken sorun meydana geldi.\n"
-"Düzgün çalışma garantisi bulunmamaktadır."
+msgstr "Algılayıcı değerleri okunurken sorun meydana geldi.\nDüzgün çalışma garantisi bulunmamaktadır."
 
 #: ../lib/sensors-interface.c:172
 msgid "Sensors t_ype:"
@@ -304,13 +287,19 @@ msgstr "Algılayıcı bulunamadı!"
 
 #: ../lib/sensors-interface-common.c:144
 #, c-format
-msgid "%.1f °F"
-msgstr "%.1f °F"
+msgid "%.0f °F"
+msgstr "%.0f °F"
+
+#. Celsius
+#: ../lib/sensors-interface-common.c:147
+#, c-format
+msgid "%.0f °C"
+msgstr "%.0f °C"
 
 #: ../lib/sensors-interface-common.c:152
 #, c-format
-msgid "%+.2f V"
-msgstr "%+.2f V"
+msgid "%+.3f V"
+msgstr "%+.3f V"
 
 #: ../lib/sensors-interface-common.c:156
 #, c-format
@@ -335,23 +324,14 @@ msgstr "%.0f devir"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
-msgstr ""
-"Xfce4 Sensors %s\n"
-"Bu uygulama GPL v2 hükümleri çerçevesinde yayınlanmaktadır.\n"
-"Lisans metnine programın kaynak kodlarının bulunduğu arşivden ve /usr/share/"
-"apps/LICENSES/GPL_V2 dosyasından veya http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
-"adresinden ulaşabilirsiniz\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Xfce4 Sensors %s\nBu uygulama GPL v2 hükümleri çerçevesinde yayınlanmaktadır.\nLisans metnine programın kaynak kodlarının bulunduğu arşivden ve /usr/share/apps/LICENSES/GPL_V2 dosyasından veya http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\nadresinden ulaşabilirsiniz\n"
 
 #: ../src/main.c:64
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk "
-"temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -361,16 +341,6 @@ msgid ""
 "\n"
 "This program is published under the GPL v2.\n"
 msgstr ""
-"Xfce4 Sensors %s\n"
-"Sisteminizdeki algılayıcılar ve ACPI hakkındaki bilgileri gösterir.\n"
-"Özet: \n"
-"  xfce4-sensors seçenekleri\n"
-"aşağıdaki seçeneklerden biri veya daha fazlasıdır:\n"
-"  -h, --help    Yardım menüsünü gösterir.\n"
-"  -l, --license  Lisans bilgisini gösterir.\n"
-"  -V, --version Sürüm bilgisini gösterir.\n"
-"\n"
-"Bu yazılım GNU GPLv2 hükümleri çerçevesinde yayınlanmaktadır.\n"
 
 #: ../src/main.c:82
 #, c-format
@@ -392,15 +362,12 @@ msgstr "Algılayıcı Görüntüleyici"
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
 #: ../src/actions.c:80
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr ""
-"Sensors Eklentisi:\n"
-"Algılayıcı değerleri okunurken sorun oluştu.\n"
-"Düzgün çalışma garantisi bulunmamaktadır.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
@@ -418,12 +385,3 @@ msgstr "Algılayıcı Değerleri Görüntüleyici"
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "Algılayıcı eklentisi"
-
-#~ msgid "No concrete error detected.\n"
-#~ msgstr "Somut bir hata algılanamadı.\n"
-
-#~ msgid "g_raphical"
-#~ msgstr "gör_sel"
-
-#~ msgid "Show _labels in graphical UI"
-#~ msgstr "Görsel arabirimde etike_tleri görüntüle"
