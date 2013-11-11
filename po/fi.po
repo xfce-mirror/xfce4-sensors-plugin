@@ -1,21 +1,23 @@
-# Finnish translation of xfce4-sensors-plugin.
-# Copyright (C) 2004 - 2007 Fabian Nowak
-# This file is distributed under the same license as the xfce4-sensors-plugin.
-# Elias Julkunen <elias.julkunen@gmail.com>, 2008.
-# Jari Rahkonen <jari.rahkonen@pp1.inet.fi>, 2008-2010.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Elias Julkunen <elias.julkunen@gmail.com>, 2008
+# Jiri Grönroos <jiri.gronroos@iki.fi>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-sensors-plugin 0.11.0\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-03 11:30+0200\n"
-"PO-Revision-Date: 2010-10-17 00:09+0300\n"
-"Last-Translator: Jari Rahkonen <jari.rahkonen@pp1.inet.fi>\n"
-"Language-Team: Finnish\n"
-"Language: \n"
+"POT-Creation-Date: 2013-07-03 21:16+0200\n"
+"PO-Revision-Date: 2013-11-11 21:42+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"Language-Team: Finnish (http://www.transifex.com/projects/p/xfce/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fi\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:384
 #: ../panel-plugin/sensors-plugin.c:977
@@ -35,10 +37,7 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"Anturiliitännäinen:\n"
-"Ilmeisesti anturin arvon lukeminen ei onnistunut.\n"
-"Sovellus ei välttämättä toimi oikein.\n"
+msgstr "Anturiliitännäinen:\nIlmeisesti anturin arvon lukeminen ei onnistunut.\nSovellus ei välttämättä toimi oikein.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1684
 msgid "UI style:"
@@ -76,7 +75,8 @@ msgstr "Teksti_rivien määrä:"
 msgid "F_ont size:"
 msgstr "_Kirjasimen koko:"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1858
 msgid "x-small"
 msgstr "Hyvin pieni"
@@ -115,9 +115,7 @@ msgstr "Älä näytä viestejä"
 
 #: ../panel-plugin/sensors-plugin.c:1995
 msgid "E_xecute on double click:"
-msgstr ""
-"S_uorita, kun kuvaketta\n"
-"kaksoisnapsautetaan:"
+msgstr "S_uorita, kun kuvaketta\nkaksoisnapsautetaan:"
 
 #: ../panel-plugin/sensors-plugin.c:2038
 msgid "_View"
@@ -140,10 +138,7 @@ msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr ""
-"Voit muokata kohteen ominaisuuksia kuten sen nimeä, väriä sekä ala- ja "
-"ylärajaa kaksoisnapsauttamalla kenttää, muokkaamalla sen sisältöä ja "
-"painamalla enter tai valitsemalla toisen kentän."
+msgstr "Voit muokata kohteen ominaisuuksia kuten sen nimeä, väriä sekä ala- ja ylärajaa kaksoisnapsauttamalla kenttää, muokkaamalla sen sisältöä ja painamalla enter tai valitsemalla toisen kentän."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -159,7 +154,8 @@ msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
 #: ../lib/acpi.c:527
 #, c-format
 msgid "ACPI v%s zones"
@@ -177,14 +173,13 @@ msgstr ""
 
 #: ../lib/nvidia.c:61
 msgid "nvidia"
-msgstr ""
+msgstr "nvidia"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
 #. } else { // Celsius
-#. Celsius
 #: ../lib/nvidia.c:126 ../lib/hddtemp.c:720
-#: ../lib/sensors-interface-common.c:147
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -196,29 +191,14 @@ msgstr "S.M.A.R.T. -kiintolevylämpötilat"
 #: ../lib/hddtemp.c:605
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr ""
-"Komentoa \"hddtemp\" ei suoritettu oikein, vaikka se on suoritettavissa. "
-"Tämä johtuu todennäköisesti siitä, että levyjen lämpötilojen lukemiseen "
-"tarvitaan pääkäyttäjän oikeudet, mutta komentoa \"hddtemp\" ei suoriteta "
-"pääkäyttäjänä.\n"
-"\n"
-"Helppo mutta mahdollisesti ongelmallinen ratkaisu on suorittaa komento "
-"\"chmod u+s %s\" pääkäyttäjänä ja käynnistää tämä liitännäinen tai sen "
-"paneeli uudelleen.\n"
-"\n"
-"Komento \"%s\" antoi seuraavan virheen:\n"
-"%s\n"
-"ja palautti arvon %d.\n"
+msgstr "Komentoa \"hddtemp\" ei suoritettu oikein, vaikka se on suoritettavissa. Tämä johtuu todennäköisesti siitä, että levyjen lämpötilojen lukemiseen tarvitaan pääkäyttäjän oikeudet, mutta komentoa \"hddtemp\" ei suoriteta pääkäyttäjänä.\n\nHelppo mutta mahdollisesti ongelmallinen ratkaisu on suorittaa komento \"chmod u+s %s\" pääkäyttäjänä ja käynnistää tämä liitännäinen tai sen paneeli uudelleen.\n\nKomento \"%s\" antoi seuraavan virheen:\n%s\nja palautti arvon %d.\n"
 
 #: ../lib/hddtemp.c:621 ../lib/hddtemp.c:651
 msgid "Suppress this message in future"
@@ -229,9 +209,7 @@ msgstr "Älä näytä tätä viestiä jatkossa"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr ""
-"Virhe suoritettaessa komentoa \"%s\":\n"
-"%s"
+msgstr "Virhe suoritettaessa komentoa \"%s\":\n%s"
 
 #: ../lib/lmsensors.c:110
 msgid "LM Sensors"
@@ -250,9 +228,7 @@ msgstr "Anturiliitännäisen virhe"
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr ""
-"Ilmeisesti anturin arvon lukeminen ei onnistunut.\n"
-"Sovellus ei välttämättä toimi oikein."
+msgstr "Ilmeisesti anturin arvon lukeminen ei onnistunut.\nSovellus ei välttämättä toimi oikein."
 
 #: ../lib/sensors-interface.c:172
 msgid "Sensors t_ype:"
@@ -312,13 +288,19 @@ msgstr "Antureita ei löytynyt!"
 
 #: ../lib/sensors-interface-common.c:144
 #, c-format
-msgid "%.1f °F"
-msgstr "%.1f °F"
+msgid "%.0f °F"
+msgstr "%.0f °F"
+
+#. Celsius
+#: ../lib/sensors-interface-common.c:147
+#, c-format
+msgid "%.0f °C"
+msgstr "%.0f °C"
 
 #: ../lib/sensors-interface-common.c:152
 #, c-format
-msgid "%+.2f V"
-msgstr "%+.2f V"
+msgid "%+.3f V"
+msgstr "%+.3f V"
 
 #: ../lib/sensors-interface-common.c:156
 #, c-format
@@ -343,22 +325,14 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
-msgstr ""
-"Xfce4 anturit %s\n"
-"Julkaistu GPL-lisenssin versiolla 2.\n"
-"Lisenssiehdot löytyvät sovelluksen lähdekoodipaketista, tiedostosta /usr/"
-"share/apps/LICENSES/GPL_V2 tai osoitteesta http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Xfce4 anturit %s\nJulkaistu GPL-lisenssin versiolla 2.\nLisenssiehdot löytyvät sovelluksen lähdekoodipaketista, tiedostosta /usr/share/apps/LICENSES/GPL_V2 tai osoitteesta http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk "
-"temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -368,14 +342,6 @@ msgid ""
 "\n"
 "This program is published under the GPL v2.\n"
 msgstr ""
-"Xfce4 Anturit %s\n"
-"Näyttää tietoa antureista ja ACPI:sta.\n"
-"Tiivistelmä: \n"
-"  xfce4-sensors valitsimet\n"
-"jossa valitsimet ovat yksi tai useampi allaolevista:\n"
-"  -h, --help    Näyttää tämän käyttöohjeen.\n"
-"  -l, --license Näyttää lisenssitiedot.\n"
-"  -V, --version Näyttää versiotiedot.\n"
 
 #: ../src/main.c:82
 #, c-format
@@ -402,10 +368,7 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"Anturien näyttäjä:\n"
-"Ilmeisesti anturin arvon lukeminen ei onnistunut.\n"
-"Sovellus ei välttämättä toimi oikein.\n"
+msgstr "Anturien näyttäjä:\nIlmeisesti anturin arvon lukeminen ei onnistunut.\nSovellus ei välttämättä toimi oikein.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
@@ -417,13 +380,9 @@ msgid "Show sensor values."
 msgstr "Näyttää laiteanturien arvot"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
-#, fuzzy
 msgid "Sensor Values Viewer"
-msgstr "Anturien arvojen näyttäjä"
+msgstr ""
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "Anturiliitännäinen"
-
-#~ msgid "No concrete error detected.\n"
-#~ msgstr "Selkeää virhettä ei havaittu.\n"
