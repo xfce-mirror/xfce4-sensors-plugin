@@ -1,23 +1,25 @@
-# Traditional Chinese translations for xfce4-sensors-plugin package.
-# Copyright (C) 2004-2005 Fabian Nowak.
-# This file is distributed under the same license as the xfce4-sensors-plugin package.
-# Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006
+# Walter Cheuk <wwycheuk@gmail.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-28 00:33+0000\n"
-"PO-Revision-Date: 2013-01-28 12:26+0800\n"
-"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
-"Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
-"Language: zh_TW\n"
+"POT-Creation-Date: 2013-07-03 21:16+0200\n"
+"PO-Revision-Date: 2014-01-06 13:45+0000\n"
+"Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/xfce/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/sensors-plugin.c:287
-#: ../panel-plugin/sensors-plugin.c:384
+#: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:384
 #: ../panel-plugin/sensors-plugin.c:977
 msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>感測器</b></span>"
@@ -35,14 +37,11 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"感測器插件： \n"
-"在讀取感測器數值時似乎有點問題。\n"
-"無法保證能夠正常運作。\n"
+msgstr "感測器插件： \n在讀取感測器數值時似乎有點問題。\n無法保證能夠正常運作。\n"
 
 #: ../panel-plugin/sensors-plugin.c:1684
 msgid "UI style:"
-msgstr "使用介面樣式："
+msgstr "使用者介面樣式："
 
 #: ../panel-plugin/sensors-plugin.c:1685
 msgid "_text"
@@ -76,7 +75,8 @@ msgstr "文字列數(_N)："
 msgid "F_ont size:"
 msgstr "字型大小(_O)："
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1858
 msgid "x-small"
 msgstr "超小"
@@ -125,8 +125,7 @@ msgstr "檢視(_V)"
 msgid "_Miscellaneous"
 msgstr "雜項(_M)"
 
-#: ../panel-plugin/sensors-plugin.c:2145
-#: ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2145 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:180
 msgid "Sensors Plugin"
 msgstr "感測器插件"
@@ -134,30 +133,29 @@ msgstr "感測器插件"
 #. gtk_cpu_paint(sensors->tachos [i][index_feature]);
 #. gtk_cpu_expose(sensors->tachos [i][index_feature], NULL);
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2184
-#: ../src/actions.c:205
-msgid "You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."
+#: ../panel-plugin/sensors-plugin.c:2184 ../src/actions.c:205
+msgid ""
+"You can change a feature's properties such as name, colours, min/max value "
+"by double-clicking the entry, editing the content, and pressing \"Return\" "
+"or selecting a different field."
 msgstr "您可以變更某些特色屬性，像是名稱、色彩、最小/最大值；只要雙擊該條目，編輯內容，接著按下「Enter」或選取不同的欄位即可。"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtmep and acpi store numeric values
 #. assert correctly saved file
-#: ../lib/configuration.c:160
-#: ../lib/configuration.c:358
-#: ../lib/configuration.c:365
-#: ../lib/hddtemp.c:362
-#: ../lib/hddtemp.c:411
+#: ../lib/configuration.c:160 ../lib/configuration.c:358
+#: ../lib/configuration.c:365 ../lib/hddtemp.c:362 ../lib/hddtemp.c:411
 msgid "Hard disks"
 msgstr "硬碟"
 
-#: ../lib/acpi.c:525
-#: ../lib/acpi.c:533
+#: ../lib/acpi.c:525 ../lib/acpi.c:533
 msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
 #: ../lib/acpi.c:527
 #, c-format
 msgid "ACPI v%s zones"
@@ -178,10 +176,10 @@ msgid "nvidia"
 msgstr "nvidia"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
 #. } else { // Celsius
-#: ../lib/nvidia.c:126
-#: ../lib/hddtemp.c:720
+#: ../lib/nvidia.c:126 ../lib/hddtemp.c:720
 #, c-format
 msgid "%.1f °C"
 msgstr "%.1f °C"
@@ -200,17 +198,9 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr ""
-"「hddtemp」未正確執行，雖然它可以執行。這很可能是因為磁碟需要 root 特權來讀取其溫度，而且「hddtemp」允可設定不是 setuid root。\n"
-"\n"
-"有個簡單但糟糕的解法：以 root 使用者的身份執行「chmod u+s %s」，並重新啟動此插件或面板。\n"
-"\n"
-"呼叫「%s」回給下列錯誤：\n"
-"%s\n"
-"傳回值為 %d。\n"
+msgstr "「hddtemp」未正確執行，雖然它可以執行。這很可能是因為磁碟需要 root 特權來讀取其溫度，而且「hddtemp」允可設定不是 setuid root。\n\n有個簡單但糟糕的解法：以 root 使用者的身份執行「chmod u+s %s」，並重新啟動此插件或面板。\n\n呼叫「%s」回給下列錯誤：\n%s\n傳回值為 %d。\n"
 
-#: ../lib/hddtemp.c:621
-#: ../lib/hddtemp.c:651
+#: ../lib/hddtemp.c:621 ../lib/hddtemp.c:651
 msgid "Suppress this message in future"
 msgstr "抑制此訊息使未來不出現"
 
@@ -219,16 +209,13 @@ msgstr "抑制此訊息使未來不出現"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr ""
-"當執行「%s」時遭遇錯誤：\n"
-"%s"
+msgstr "當執行「%s」時遭遇錯誤：\n%s"
 
 #: ../lib/lmsensors.c:110
 msgid "LM Sensors"
 msgstr "LM 感測器"
 
-#: ../lib/lmsensors.c:370
-#: ../lib/lmsensors.c:417
+#: ../lib/lmsensors.c:370 ../lib/lmsensors.c:417
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "錯誤：無法連結感測器！"
@@ -241,9 +228,7 @@ msgstr "感測器插件開啟失敗"
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr ""
-"在讀取感測器數值時似乎有點問題。\n"
-"無法保證能夠正常運作。"
+msgstr "在讀取感測器數值時似乎有點問題。\n無法保證能夠正常運作。"
 
 #: ../lib/sensors-interface.c:172
 msgid "Sensors t_ype:"
@@ -283,7 +268,7 @@ msgstr "最大"
 
 #: ../lib/sensors-interface.c:371
 msgid "Temperature scale:"
-msgstr "温標："
+msgstr "溫標："
 
 #: ../lib/sensors-interface.c:373
 msgid "_Celsius"
@@ -297,8 +282,7 @@ msgstr "華氏(_F)"
 msgid "_Sensors"
 msgstr "感測器(_S)"
 
-#: ../lib/sensors-interface-common.c:73
-#: ../lib/sensors-interface-common.c:74
+#: ../lib/sensors-interface-common.c:73 ../lib/sensors-interface-common.c:74
 msgid "No sensors found!"
 msgstr "找不到感測器！"
 
@@ -342,10 +326,7 @@ msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-msgstr ""
-"Xfce4 感測器 %s\n"
-"本程式基於 GPL v2 授權條款發布。\n"
-"授權內容可以在程式的源封存內或 /usr/share/apps/LICENSES/GPL_V2 找到，又或是 http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Xfce4 感測器 %s\n本程式基於 GPL v2 授權條款發布。\n授權內容可以在程式的源封存內或 /usr/share/apps/LICENSES/GPL_V2 找到，又或是 http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
 #, c-format
@@ -360,17 +341,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr ""
-"Xfce4 感測器 %s\n"
-"顯示有關您的硬體感測器、ACPI 狀態、硬碟溫度、Nvidia GPU 溫度等的資訊。\n"
-"對照表: \n"
-"  xfce4-sensors options\n"
-"options 可以是下列的一項或多項：\n"
-"  -h, --help    列印本幫助對話。\n"
-"  -l, --license 列印授權資訊。\n"
-"  -V, --version 列印版本資訊。\n"
-"\n"
-"本程式以 GPL v2 授權發布。\n"
+msgstr "Xfce4 感測器 %s\n顯示有關您的硬體感測器、ACPI 狀態、硬碟溫度、Nvidia GPU 溫度等的資訊。\n對照表: \n  xfce4-sensors options\noptions 可以是下列的一項或多項：\n  -h, --help    列印本幫助對話。\n  -l, --license 列印授權資訊。\n  -V, --version 列印版本資訊。\n\n本程式以 GPL v2 授權發布。\n"
 
 #: ../src/main.c:82
 #, c-format
@@ -397,73 +368,21 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"感測器檢視器： \n"
-"在讀取感測器數值時似乎有點問題。\n"
-"無法保證能夠正常運作。\n"
+msgstr "感測器檢視器： \n在讀取感測器數值時似乎有點問題。\n無法保證能夠正常運作。\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
-msgid "Sensor Values Viewer"
-msgstr "感測器數值檢視器"
-
-#: ../src/xfce4-sensors.desktop.in.h:2
 msgid "Sensor Viewer"
 msgstr "感測器檢視器"
 
-#: ../src/xfce4-sensors.desktop.in.h:3
+#: ../src/xfce4-sensors.desktop.in.h:2
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
 msgstr "顯示感測器數值。"
 
+#: ../src/xfce4-sensors.desktop.in.h:3
+msgid "Sensor Values Viewer"
+msgstr "感測器數值檢視器"
+
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "感測器插件"
-
-#~ msgid "%+.2f V"
-#~ msgstr "%+.2f V"
-
-#, fuzzy
-#~ msgid "g_raphical"
-#~ msgstr "圖形"
-
-#, fuzzy
-#~ msgid "Show _labels in graphical UI"
-#~ msgstr "在圖形介面中顯示標籤"
-
-#, fuzzy
-#~ msgid "Xfce 4 Sensors Plugin"
-#~ msgstr "感測器外掛程式"
-
-#, fuzzy
-#~ msgid "Xfce 4 Sensors Viewer"
-#~ msgstr "感測器外掛程式"
-
-#~ msgid "Edit Properties"
-#~ msgstr "編輯屬性"
-
-#, fuzzy
-#~ msgid "View sensor values"
-#~ msgstr "顯示感測器數值。"
-
-#, fuzzy
-#~ msgid ""
-#~ "Xfce Hardware Sensors Plugin: \n"
-#~ "Seems like there was a problem reading a sensor feature value. \n"
-#~ "Proper proceeding cannot be guaranteed.\n"
-#~ msgstr ""
-#~ " \n"
-#~ "Xfce 硬體感測外掛程式：\n"
-#~ "在讀取感測器數值時似乎有點問題。\n"
-#~ "無法保證能夠正常運作。\n"
-
-#~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
-#~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>感測器</b></span>\n"
-
-#~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
-#~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>感測器</b></span>"
-
-#~ msgid "<b>Sensors</b>"
-#~ msgstr "<b>感測器</b>"
-
-#~ msgid "<b>View</b>"
-#~ msgstr "<b>檢視</b>"
