@@ -32,3 +32,4 @@
 1.2.5:  Fix German translation; fix bug 8887 compile error
 1.2.6:  Bug 9395 fixed: When sensors are no longer available for any reason, 
         plugin won't crash.
+        Bug 10031 fixed.
