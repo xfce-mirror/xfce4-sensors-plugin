@@ -24,4 +24,11 @@
         Labels in text view possible
         Remember window size of configuration dialog
         Respect "suppress messages" for error dialogs with acpi/sysfs
-1.2.5   
+1.2.0...1.2.3: libnotify issues, new versions of libnotify, version changes 
+        for libsensors in this package.
+1.2.4:  Fixes some memory issues, stabilizes support for hddtemp
+        and improves battery reading via ACPI and sysfs. In addition, many
+        translations have been updated.
+1.2.5:  Fix German translation; fix bug 8887 compile error
+1.2.6:  Bug 9395 fixed: When sensors are no longer available for any reason, 
+        plugin won't crash.
