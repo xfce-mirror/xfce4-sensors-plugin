@@ -327,17 +327,21 @@ sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
             /* assert that file does not contain more information
               than does exist on system */
               /* ??? At least, it works. */
+              //DBG("number of chip from file: %d, number of expected or known chips: %d.\n", num_sensorchip, sensors->num_sensorchips);
             g_return_if_fail (num_sensorchip < sensors->num_sensorchips);
+            //DBG ("Success.\n");
 
             /* now featuring enhanced string comparison */
             //g_assert (chip!=NULL);
             k = 0;
             do {
               chip = (t_chip *) g_ptr_array_index (sensors->chips, k++);
-              if (chip==NULL)
+              if (chip==NULL || k==sensors->num_sensorchips)
                   break;
+              //DBG("k=%d, chip=%p, name=.\n", k, chip);
               }
-            while ( strcmp(chip->sensorId, sensorName) != 0 );
+            while (chip!=NULL && strcmp(chip->sensorId, sensorName) != 0 );
+            //DBG("Found a chip.\n");
             if ( chip!=NULL && strcmp(chip->sensorId, sensorName)==0 ) {
 
                 for (j=0; j<chip->num_features; j++) {
@@ -410,13 +414,13 @@ sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 
                 } /* end for features */
 
-            } /* end if */
+            } /* end if chip && strcmp */
 
             g_free (sensorName);
 
-        } /* end if */
+        } /* end if xfce_rc_has_group (rc, rc_chip) */
 
-    } /* end for */
+    } /* end for num_sensorchips */
 
     xfce_rc_close (rc);
 

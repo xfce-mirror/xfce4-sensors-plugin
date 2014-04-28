@@ -4,14 +4,14 @@ dnl
 dnl xfce4-sensors-plugin - Sensors plugin for xfce4-panel
 dnl
 dnl 2003,2004, 2007 Benedikt Meurer <benny@xfce.org>
-dnl 2007-2011 Fabian Nowak <timystery@arcor.de>
+dnl 2007-2011,2014 Fabian Nowak <timystery@arcor.de>
 dnl
 
 m4_define([libxfce4sensors_verinfo], [3:4:2])
 
 m4_define([xfce4_sensors_version_major], [1])
 m4_define([xfce4_sensors_version_minor], [2])
-m4_define([xfce4_sensors_version_micro], [5])
+m4_define([xfce4_sensors_version_micro], [6])
 m4_define([xfce4_sensors_version_nano], [])
 m4_define([xfce4_sensors_version_build], [@REVISION@])
 m4_define([xfce4_sensors_version_tag], [git]) dnl may be set to 'git'
@@ -431,4 +431,3 @@ echo "Full debug is disabled"
 fi
 echo
 echo "==============================================================="
-

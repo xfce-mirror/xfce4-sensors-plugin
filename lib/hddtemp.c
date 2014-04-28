@@ -213,13 +213,17 @@ void
 read_disks_netcat (t_chip *chip)
 {
     char reply[REPLY_MAX_SIZE], *tmp, *tmp2, *tmp3;
-    size_t result;
+    int result;
 
     t_chipfeature *cf;
     
     bzero(&reply, REPLY_MAX_SIZE);
     result = get_hddtemp_d_str(reply, REPLY_MAX_SIZE);
     DBG ("reply=%s with result=%d\n", reply, (int) result);
+    if (result==-1)
+    {
+      return;
+    }
 
     tmp = str_split (reply, DOUBLE_DELIMITER);
     do {
@@ -391,9 +395,9 @@ initialize_hddtemp (GPtrArray *chips, gboolean *suppressmessage)
 {
 #ifndef HAVE_NETCAT
     int generation, major, result;
+    struct utsname *p_uname = NULL;
 #endif
     int retval;
-    struct utsname *p_uname;
     t_chip *chip;
 
     g_assert (chips!=NULL);
@@ -526,6 +530,7 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
     gchar *tmp, *tmp2, *tmp3;
     char reply[REPLY_MAX_SIZE];
     //size_t read_size;
+    int resultHddtemp;
 #endif
 
     if (disk==NULL)
@@ -548,7 +553,11 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
     if (exit_status==0)
 */
     bzero(&reply, REPLY_MAX_SIZE);
-    get_hddtemp_d_str(reply, REPLY_MAX_SIZE);
+    resultHddtemp = get_hddtemp_d_str(reply, REPLY_MAX_SIZE);
+    if (resultHddtemp==-1)
+    {
+      return 0.0;
+    }
 
     {
         tmp3 = "-255";
@@ -723,4 +732,3 @@ refresh_hddtemp (gpointer chip_feature, gpointer data)
 
     TRACE ("leaves refresh_hddtemp");
 }
-
