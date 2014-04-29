@@ -126,6 +126,8 @@ sensors_write_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 
     xfce_rc_write_bool_entry (rc, "Suppress_Hddtemp_Message", sensors->suppressmessage);
 
+    xfce_rc_write_bool_entry (rc, "Suppress_Tooltip", sensors->suppresstooltip);
+
   xfce_rc_write_int_entry (rc, "Preferred_Width", sensors->preferred_width);
   xfce_rc_write_int_entry (rc, "Preferred_Height", sensors->preferred_height);
 
@@ -239,6 +241,9 @@ sensors_read_general_config (XfceRc *rc, t_sensors *sensors)
 
         if (!sensors->suppressmessage)
             sensors->suppressmessage = xfce_rc_read_bool_entry (rc, "Suppress_Hddtemp_Message", FALSE);
+
+        if (!sensors->suppresstooltip)
+            sensors->suppresstooltip = xfce_rc_read_bool_entry (rc, "Suppress_Tooltip", FALSE);
             
         sensors->preferred_width = xfce_rc_read_int_entry (rc, "Preferred_Width", 400);
         sensors->preferred_height = xfce_rc_read_int_entry (rc, "Preferred_Height", 400);

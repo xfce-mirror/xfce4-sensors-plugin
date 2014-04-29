@@ -73,6 +73,7 @@ typedef struct {
     GtkWidget *Lines_Box;
     GtkWidget *Lines_Spin_Box;
     GtkWidget *suppressmessage_checkbox;
+    GtkWidget *suppresstooltip_checkbox;
     GtkWidget *smallspacing_checkbox;
     GtkWidget *labels_Box; /* used to enable 'show labels' option when using graphical view */
     GtkWidget *coloredBars_Box;

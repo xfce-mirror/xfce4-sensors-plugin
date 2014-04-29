@@ -101,6 +101,9 @@ typedef struct {
 
     /* suppress Hddtemp failure messages and any other messages */
     gboolean suppressmessage;
+    
+    /* suppress tooltip from overlapping widget and thereby crashing the plugin or modifying the background */
+    gboolean suppresstooltip;
 
     /* sensor update time */
     gint sensors_refresh_time;
@@ -186,4 +189,3 @@ t_sensors * sensors_new (XfcePanelPlugin *plugin, gchar * plugin_config_file);
 void sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin);
 
 #endif /* XFCE4_SENSORS_INTERFACE_PLUGIN_H */
-

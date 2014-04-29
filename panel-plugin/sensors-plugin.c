@@ -850,6 +850,8 @@ sensors_create_tooltip (gpointer data)
     gtk_widget_set_tooltip_text (GTK_WIDGET(sensors->eventbox), myToolTipText);
     DBG("tooltip text: %s.\n", myToolTipText);
     
+    gtk_widget_set_has_tooltip(GTK_WIDGET(sensors->eventbox), !sensors->suppresstooltip);
+    
     TRACE ("freeing myToolTipText");
     g_free (myToolTipText);
 
@@ -871,8 +873,6 @@ sensors_show_panel (gpointer data)
 
     sensors = (t_sensors *) data;
 
-    sensors_create_tooltip ((gpointer) sensors);
-
     switch (sensors->display_values_type)
     {
       case DISPLAY_TACHO: 
@@ -884,6 +884,9 @@ sensors_show_panel (gpointer data)
       default:
         result = sensors_show_text_display (sensors);
     }
+    
+    sensors_create_tooltip ((gpointer) sensors);
+    
     TRACE ("leaves sensors_show_panel\n");
     return result;
 }
@@ -1190,6 +1193,21 @@ display_style_changed_bars (GtkWidget *widget, t_sensors_dialog *sd)
     TRACE ("leaves display_style_changed_bars");
 }
 
+
+
+static void
+suppresstooltip_changed (GtkWidget *widget, t_sensors_dialog* sd)
+{
+    TRACE ("enters suppresstooltip_changed");
+
+    sd->sensors->suppresstooltip = ! sd->sensors->suppresstooltip;
+    
+    gtk_widget_set_has_tooltip(sd->sensors->eventbox, !sd->sensors->suppresstooltip);
+
+    TRACE ("leaves suppresstooltip_changed");
+}
+
+
 static void
 display_style_changed_tacho (GtkWidget *widget, t_sensors_dialog *sd)
 {
@@ -1212,6 +1230,9 @@ display_style_changed_tacho (GtkWidget *widget, t_sensors_dialog *sd)
     sd->sensors->display_values_type = DISPLAY_TACHO;
     //gtk_toggle_button_get_active ( GTK_TOGGLE_BUTTON(widget) );
 
+    if (!sd->sensors->suppresstooltip)
+      suppresstooltip_changed (widget, sd);
+    
     sensors_show_panel ((gpointer) sd->sensors);
 
     TRACE ("leaves display_style_changed_tacho");
@@ -1980,6 +2001,24 @@ add_suppressmessage_box (GtkWidget * vbox, t_sensors_dialog * sd)
     TRACE ("leaves add_suppressmessage_box");
 }
 
+static void
+add_suppresstooltips_box (GtkWidget * vbox, t_sensors_dialog * sd)
+{
+    TRACE ("enters add_suppresstooltips_box");
+
+    sd->suppresstooltip_checkbox  = gtk_check_button_new_with_mnemonic(_("Suppress tooltip"));
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(sd->suppresstooltip_checkbox), sd->sensors->suppresstooltip);
+
+    gtk_widget_show (sd->suppresstooltip_checkbox);
+
+    gtk_box_pack_start (GTK_BOX (vbox), sd->suppresstooltip_checkbox, FALSE, TRUE, 0);
+
+    g_signal_connect   (G_OBJECT (sd->suppresstooltip_checkbox), "toggled",
+                        G_CALLBACK (suppresstooltip_changed), sd );
+
+    TRACE ("leaves add_suppresstooltips_box");
+}
+
 
 /* double-click improvement */
 static void
@@ -2080,8 +2119,10 @@ add_miscellaneous_frame (GtkWidget * notebook, t_sensors_dialog * sd)
 
     add_suppressmessage_box(_vbox, sd);
 
+    add_suppresstooltips_box(_vbox, sd);
+    
     add_command_box (_vbox, sd);
-
+    
     TRACE ("leaves add_miscellaneous_frame");
 }
 
@@ -2244,7 +2285,7 @@ create_sensors_control (XfcePanelPlugin *plugin)
     add_event_box (sensors);
 
     /* Add tooltip to show extended current sensors status */
-    sensors_create_tooltip ((gpointer) sensors);
+    //sensors_create_tooltip ((gpointer) sensors);
 
     /* fill panel widget with boxes, strings, values, ... */
     create_panel_widget (sensors);
@@ -2312,4 +2353,3 @@ sensors_plugin_construct (XfcePanelPlugin *plugin)
 }
 
 XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (sensors_plugin_construct);
-
