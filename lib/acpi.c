@@ -289,8 +289,8 @@ int read_battery_zone (t_chip *chip)
 #endif
                 DBG ("filename=%s\n", filename);
                 file = fopen (filename, "r");
+                chipfeature = g_new0 (t_chipfeature, 1);
                 if (file) {
-                    chipfeature = g_new0 (t_chipfeature, 1);
                     chipfeature->address = chip->chip_features->len;
                     chipfeature->devicename = g_strdup (de->d_name);
 
@@ -367,6 +367,10 @@ int read_battery_zone (t_chip *chip)
                     continue; /* because, what would we want to do with only
                                 a maxval and no real value inside? */
                 }
+                /*
+                 * if no files found at all
+                 * g_free(chipfeature);
+                 */
 
                 g_free (filename);
 
@@ -722,4 +726,3 @@ get_acpi_value (char *filename)
     /* Have read the data */
     return g_strdup (p);
 }
-
