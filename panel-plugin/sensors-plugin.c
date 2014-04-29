@@ -711,15 +711,15 @@ count_number_checked_sensor_features (t_sensors *sensors)
         chip = (t_chip *) g_ptr_array_index (sensors->chips, chipNum);
         g_assert (chip!=NULL);
 
-        for (feature=0; feature<chip->num_features; /* none */ ) {
+        for (feature=0; feature<chip->num_features; feature++) {
             chipfeature = g_ptr_array_index (chip->chip_features, feature);
             g_assert (chipfeature!=NULL);
 
-            if (chipfeature->show == TRUE)
+            if (chipfeature->valid == TRUE && chipfeature->show == TRUE)
                 itemsToDisplay++;
 
-            if (chipfeature->valid == TRUE)
-                feature++;
+            //if (chipfeature->valid == TRUE)
+                //feature++;
         }
     }
 
