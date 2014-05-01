@@ -625,7 +625,7 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
 #if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
             //msg_text = g_strconcat(msg_text, _("\nYou can disable these notifications in the settings dialog.\n");
             quick_message_notify (msg_text);
-            nevershowagain = FALSE;
+            //nevershowagain = FALSE;
 #else
             checktext = g_strdup(_("Suppress this message in future"));
             nevershowagain = quick_message_with_checkbox(msg_text, checktext);
@@ -655,7 +655,7 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
                                       " \"%s\":\n%s"), cmd_line, error->message);
 #if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
             quick_message_notify (msg_text);
-            nevershowagain = FALSE;
+            //nevershowagain = FALSE;
 #else
             checktext = g_strdup(_("Suppress this message in future"));
             nevershowagain = quick_message_with_checkbox (msg_text, checktext);

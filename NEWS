@@ -33,3 +33,6 @@
 1.2.6:  Bug 9395 fixed: When sensors are no longer available for any reason, 
         plugin won't crash.
         Bug 10031 fixed: Automake/Autoconfigure option for config headers.
+        Bug 9962: smarter ACPI battery value reading
+        Bug 10840: suppress tooltip
+        Bug 4142: Suppress notification warnings for hddtemp after having displayed once
