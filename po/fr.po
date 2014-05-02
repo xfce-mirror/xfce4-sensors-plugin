@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-04-30 00:31+0200\n"
-"PO-Revision-Date: 2014-04-30 10:27+0000\n"
+"PO-Revision-Date: 2014-05-02 19:19+0000\n"
 "Last-Translator: Urides <urien.desterres@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/xfce-panel-plugins/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -40,15 +40,15 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Greffon Capteurs :\nIl semblerait qu'il y ait un problème de lecture d'une valeur  caractéristique du capteur.\nL'exécution normale ne peut pas être garantie.\n\n\n\n"
+msgstr "Greffon Capteurs :\nIl semblerait que la valeur d’un capteur n’ait pas été correctement lue.\nLe résultat de l’opération ne peut être garanti.\n\n\n\n"
 
 #: ../panel-plugin/sensors-plugin.c:1705
 msgid "UI style:"
-msgstr "Style de l'interface :"
+msgstr "Style de l’interface :"
 
 #: ../panel-plugin/sensors-plugin.c:1706
 msgid "_text"
-msgstr "_texte"
+msgstr "t_exte"
 
 #: ../panel-plugin/sensors-plugin.c:1708
 msgid "_progress bars"
@@ -56,7 +56,7 @@ msgstr "_barres de progression"
 
 #: ../panel-plugin/sensors-plugin.c:1710
 msgid "_tachos"
-msgstr "_tachys"
+msgstr "_tachymètres"
 
 #: ../panel-plugin/sensors-plugin.c:1755
 msgid "Show _labels"
@@ -90,7 +90,7 @@ msgstr "petite"
 
 #: ../panel-plugin/sensors-plugin.c:1881
 msgid "medium"
-msgstr "normale"
+msgstr "moyenne"
 
 #: ../panel-plugin/sensors-plugin.c:1882
 msgid "large"
@@ -102,7 +102,7 @@ msgstr "très grande"
 
 #: ../panel-plugin/sensors-plugin.c:1914
 msgid "F_ont:"
-msgstr "Taille de la _police :"
+msgstr "P_olice :"
 
 #: ../panel-plugin/sensors-plugin.c:1948
 msgid "Show _Units"
@@ -110,7 +110,7 @@ msgstr "Afficher les _unités"
 
 #: ../panel-plugin/sensors-plugin.c:1969
 msgid "Small horizontal s_pacing"
-msgstr "Petit e_space horizontal"
+msgstr "Faible e_spacement horizontal"
 
 #: ../panel-plugin/sensors-plugin.c:1991
 msgid "Suppress messages"
@@ -122,11 +122,11 @@ msgstr "Supprimer l’infobulle"
 
 #: ../panel-plugin/sensors-plugin.c:2034
 msgid "E_xecute on double click:"
-msgstr "E_xécute après un double clic :"
+msgstr "E_xécuter sur un double clic :"
 
 #: ../panel-plugin/sensors-plugin.c:2077
 msgid "_View"
-msgstr "_Afficher"
+msgstr "_Affichage"
 
 #: ../panel-plugin/sensors-plugin.c:2111
 msgid "_Miscellaneous"
@@ -145,7 +145,7 @@ msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr "Vous pouvez modifier les propriétés d'une entité comme le nom, les couleurs, la valeur min / max  en double-cliquant sur l'entrée, éditer le contenu, et en appuyant sur « Entrée » ou en sélectionnant un autre champ."
+msgstr "Vous pouvez modifier les caractéristiques d’une fonctionnalité comme son nom, ses couleurs ou sa valeur min/max. Double-cliquez sur l’entrée, modifiez son contenu et appuyez sur « Entrée » ou sélectionnez un autre champ."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -205,7 +205,7 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "« hddtemp » n'a pas été exécuté correctement bien qu'il soit exécutable. Il se pourrait bien que ce soit dû à des privilèges restreint pour la lecture des températures et que « hddtemp » ne soit pas fixé avec un setuid root.\n\nUne solution simple mais radicale consiste à lancer la commande « chmod u+s %s » en tant que root et de relancer le greffon ou son tableau de bord.\n\nL'appel à « %s » a donné l'erreur suivante :\n%s\navec le code retour %d.\n"
+msgstr "Bien qu’il soit exécutable, « hddtemp » n’a pas été correctement exécuté. Cela provient certainement du fait que les disques exigent des privilèges root, que « hddtemp » ne possède pas, pour accéder à leur température .\n\nUne solution simple, mais peu orthodoxe, consiste à exécuter la commande « chmod u+s %s » en tant que root et relancer le greffon ou son tableau de bord.\n\nAppeler « %s » a donné l’erreur suivante :\n%s\navec une valeur de retour de %d.\n"
 
 #: ../lib/hddtemp.c:630 ../lib/hddtemp.c:660
 msgid "Suppress this message in future"
@@ -216,11 +216,11 @@ msgstr "Ne plus afficher ce message"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr "Une erreur est survenue lors de l'exécution de « %s » :\n%s"
+msgstr "Une erreur s’est produite lors de l’exécution de « %s » :\n%s"
 
 #: ../lib/lmsensors.c:110
 msgid "LM Sensors"
-msgstr "LM Capteurs"
+msgstr " Capteurs LM"
 
 #: ../lib/lmsensors.c:370 ../lib/lmsensors.c:417
 #, c-format
@@ -229,13 +229,13 @@ msgstr "Erreur : ne peut pas se connecter aux capteurs !"
 
 #: ../lib/sensors-interface.c:84
 msgid "Sensors Plugin Failure"
-msgstr "Erreur dans le greffon de capteurs"
+msgstr "Défaillance du greffon Capteurs"
 
 #: ../lib/sensors-interface.c:85
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr "Il semblerait qu'il y ait un problème de lecture d'une valeur  caractéristique du capteur.\nL'exécution normale ne peut pas être garantie."
+msgstr "Il semblerait que la valeur d’un capteur n’ait pas été correctement lue.\nLe résultat de l’opération ne peut être garanti."
 
 #: ../lib/sensors-interface.c:172
 msgid "Sensors t_ype:"
@@ -247,7 +247,7 @@ msgstr "Description :"
 
 #: ../lib/sensors-interface.c:231
 msgid "U_pdate interval (seconds):"
-msgstr "_Intervalle de mise-à-jour (secondes) :"
+msgstr "_Intervalle d’actualisation (secondes) :"
 
 #: ../lib/sensors-interface.c:271
 msgid "Name"
@@ -287,7 +287,7 @@ msgstr "_Fahrenheit"
 
 #: ../lib/sensors-interface.c:411
 msgid "_Sensors"
-msgstr "_Capteur"
+msgstr "_Capteurs"
 
 #: ../lib/sensors-interface-common.c:73 ../lib/sensors-interface-common.c:74
 msgid "No sensors found!"
@@ -357,7 +357,7 @@ msgstr "Capteurs Xfce4 %s\n"
 
 #: ../src/interface.c:78
 msgid "_Overview"
-msgstr "_Apercu"
+msgstr "_Présentation"
 
 #: ../src/interface.c:99
 msgid "_Tachometers"
@@ -365,7 +365,7 @@ msgstr "_Tachymètres"
 
 #: ../src/interface.c:116
 msgid "Sensors Viewer"
-msgstr "Afficheur de capteurs"
+msgstr "Visionneur de capteurs"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
@@ -375,11 +375,11 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Greffon de Capteurs :\nIl semblerait qu'il y ait un problème de lecture de valeur sur un capteur.\nL'exécution normale ne peut pas être garantie.\n"
+msgstr "Visionneur de capteurs :\nIl semblerait que la valeur d’un capteur n’ait pas été correctement lue.\nLe résultat de l’opération ne peut être garanti.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
-msgstr "Afficheur de capteur"
+msgstr "Visionneur de capteur"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
@@ -388,7 +388,7 @@ msgstr "Afficher les valeurs du capteur."
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 msgid "Sensor Values Viewer"
-msgstr "Afficheur des valeurs des capteurs"
+msgstr "Visionneur des valeurs de capteurs"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
