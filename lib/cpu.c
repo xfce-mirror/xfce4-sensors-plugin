@@ -43,6 +43,8 @@ static void gtk_cpu_realize(GtkWidget *widget);
 static gboolean gtk_cpu_expose(GtkWidget *widget,
     GdkEventExpose *event);
 static void gtk_cpu_destroy(GtkObject *object);
+static gboolean gtk_cpu_button_press (GtkWidget      *widget,
+                       GdkEventButton *event);
 
 
 gchar *font = NULL; // declared as extern in cpu.h
@@ -114,14 +116,16 @@ gtk_cpu_unset_text (GtkCpu *cpu)
 }
 
 
-GtkWidget * gtk_cpu_new(void)
+GtkWidget * 
+gtk_cpu_new(void)
 {
   TRACE("enter gtk_cpu_new\n");
    return GTK_WIDGET(gtk_type_new(gtk_cpu_get_type()));
 }
 
 
-void gtk_cpu_set_color (GtkCpu *cpu, gchar *color)
+void 
+gtk_cpu_set_color (GtkCpu *cpu, gchar *color)
 {
   if (color==NULL) {
     gtk_cpu_unset_color(cpu);
@@ -135,7 +139,8 @@ void gtk_cpu_set_color (GtkCpu *cpu, gchar *color)
 }
 
 
-void gtk_cpu_unset_color (GtkCpu *cpu)
+void 
+gtk_cpu_unset_color (GtkCpu *cpu)
 {
   if (cpu->color!=NULL)
     g_free (cpu->color);
@@ -160,6 +165,7 @@ gtk_cpu_class_init (GtkCpuClass *klass)
   widget_class->size_request = gtk_cpu_size_request;
   widget_class->size_allocate = gtk_cpu_size_allocate;
   widget_class->expose_event = gtk_cpu_expose;
+  widget_class->button_press_event = gtk_cpu_button_press;
 
   object_class->destroy = gtk_cpu_destroy;
   
@@ -284,7 +290,7 @@ gtk_cpu_expose(GtkWidget *widget, GdkEventExpose *event)
   gtk_cpu_paint(widget);
 
   TRACE("leave gtk_cpu_expose\n");
-  return FALSE;
+  return TRUE;
 }
 
 
@@ -305,8 +311,12 @@ gtk_cpu_paint (GtkWidget *widget)
   
   if (GTK_CPU(widget)->gc==NULL)
   {
-    if (widget->window==NULL) /* safety checks to circumvent assertion failures when creating graphics contect */
+    // TODO FIXME: The following might be responsible for the widget not working in newly allocated sensors plugin
+    if (widget->window==NULL) /* safety checks to circumvent assertion failures when creating graphics context */
+    {
+      DBG("widget window is NULL.\n");
       return;
+    }
       
     GTK_CPU(widget)->gc = gdk_gc_new(widget->window);
   }
@@ -455,7 +465,7 @@ gtk_cpu_destroy (GtkObject *object)
 
   cpu = GTK_CPU(object);
   
-	/* gdk_gc_destroy(cpu->gc); */
+  /* gdk_gc_destroy(cpu->gc); */
   
   if (cpu->text!=NULL)
   {
@@ -495,4 +505,13 @@ gtk_cpu_set_value (GtkCpu *cpu, gdouble value)
   //gdk_window_process_updates (GTK_WIDGET(cpu)->window, TRUE);
   gtk_cpu_paint(GTK_WIDGET(cpu));
   TRACE("leave gtk_cpu_set_value\n");
+}
+
+static gboolean
+gtk_cpu_button_press (GtkWidget      *widget,
+                       GdkEventButton *event)
+{
+  DBG("obtained mouse event.\n");
+  // GTK_CPU(widget)->parent_class -> send event
+  return FALSE; // propagate event further
 }

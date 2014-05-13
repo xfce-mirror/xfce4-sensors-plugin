@@ -46,7 +46,7 @@ sensors_new (XfcePanelPlugin *plugin, gchar *plugin_config_file)
     sensors = g_new0 (t_sensors, 1);
     sensors->plugin_config_file = plugin_config_file; /* important as we check against NULL frequently */
 
-    /* init xfce sensors stuff width default values */
+    /* init xfce sensors stuff with default values */
     sensors_init_default_values (sensors, plugin);
 
     /* get suppressmessages */

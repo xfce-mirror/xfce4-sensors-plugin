@@ -284,8 +284,7 @@ sensors_add_graphical_display (t_sensors *sensors)
 
     TRACE ("enters sensors_add_graphical_display");
 
-    text = g_strdup (_("<span foreground=\"#000000\">"
-                                     "<b>Sensors</b></span>"));
+    text = g_strdup (_("<span><b>Sensors</b></span>"));
     gtk_label_set_markup (GTK_LABEL(sensors->panel_label_text), text);
     g_free (text);
 
@@ -381,8 +380,7 @@ sensors_add_tacho_display (t_sensors *sensors)
 
     TRACE ("enters sensors_add_tacho_display");
 
-    text = g_strdup (_("<span foreground=\"#000000\">"
-                                     "<b>Sensors</b></span>"));
+    text = g_strdup (_("<span><b>Sensors</b></span>"));
     gtk_label_set_markup (GTK_LABEL(sensors->panel_label_text), text);
     g_free (text);
 
@@ -622,9 +620,11 @@ sensors_set_text_panel_label (t_sensors *sensors, gint numCols, gint itemsToDisp
             
             if (chipfeature->show == TRUE) {
                 if(sensors->show_labels==TRUE) {
-                  tmpstring = g_strconcat (myLabelText, "<span size=\"", sensors->font_size, "\">",chipfeature->name, ":</span> ", NULL);
+                  tmpstring = g_strconcat (myLabelText, "<span size=\"", sensors->font_size, "\">",chipfeature->name, NULL);
+                  
                   g_free(myLabelText);
-                  myLabelText = tmpstring;
+                  myLabelText = g_strconcat (tmpstring, ":</span> ", NULL);
+                  g_free(tmpstring);
                 }
                 
                 if (sensors->show_units) {
@@ -633,18 +633,23 @@ sensors_set_text_panel_label (t_sensors *sensors, gint numCols, gint itemsToDisp
                                             chipfeature->color, "\" size=\"",
                                             sensors->font_size, "\">",
                                             chipfeature->formatted_value,
-                                            "</span>", NULL);
+                                            NULL);
+                                              
+                  myLabelText = g_strconcat (tmpstring,
+                                              "</span>", NULL);
+
+                  g_free (tmpstring);
                 }
                 else {
                     tmpstring = g_strdup_printf("%s<span foreground=\"%s\" size=\"%s\">%.1f</span>", myLabelText,
                             chipfeature->color, sensors->font_size,
                             chipfeature->raw_value);
                     //myLabelText = g_strconcat (myLabelText, tmpstring, NULL);
+                    g_free(myLabelText);
+                    myLabelText = tmpstring;
                 }
-
-                g_free (myLabelText);
-
-                myLabelText = tmpstring;
+                
+                  
 
                 if (sensors->orientation == GTK_ORIENTATION_VERTICAL) {
                     if (itemsToDisplay > 1) {
@@ -799,12 +804,12 @@ sensors_create_tooltip (gpointer data)
 
                     if (first == TRUE) {
                         g_free (myToolTipText);
-                        myToolTipText = g_strdup (chip->sensorId);
+                        myToolTipText = g_strconcat ("<b>", chip->sensorId, "</b>", NULL);
                         first = FALSE;
                     }
                     else {
-                        myToolTipText2 = g_strconcat (myToolTipText, " \n",
-                                                     chip->sensorId, NULL);
+                        myToolTipText2 = g_strconcat (myToolTipText, " \n<b>",
+                                                     chip->sensorId, "</b>", NULL);
                         TRACE ("freeing myToolTipText");
                         g_free (myToolTipText);
                         myToolTipText = myToolTipText2;
@@ -847,7 +852,7 @@ sensors_create_tooltip (gpointer data)
         }
     }
 
-    gtk_widget_set_tooltip_text (GTK_WIDGET(sensors->eventbox), myToolTipText);
+    gtk_widget_set_tooltip_markup (GTK_WIDGET(sensors->eventbox), myToolTipText);
     DBG("tooltip text: %s.\n", myToolTipText);
     
     gtk_widget_set_has_tooltip(GTK_WIDGET(sensors->eventbox), !sensors->suppresstooltip);
@@ -977,8 +982,7 @@ create_panel_widget (t_sensors * sensors)
     gtk_misc_set_padding (GTK_MISC(sensors->panel_label_text), INNER_BORDER, 0);
     gtk_misc_set_alignment(GTK_MISC(sensors->panel_label_text), 0.0, 0.5);
 
-    myLabelText = g_strdup (_("<span foreground=\"#000000\"><b>Sensors"
-                                    "</b></span>"));
+    myLabelText = g_strdup (_("<span><b>Sensors</b></span>"));
     gtk_label_set_markup(GTK_LABEL(sensors->panel_label_text), myLabelText);
     gtk_widget_show (sensors->panel_label_text);
     g_free(myLabelText);
@@ -1025,7 +1029,7 @@ execute_command (GtkWidget *widget, GdkEventButton *event, gpointer data)
     }
     else {
         TRACE ("leaves execute_command with FALSE");
-        return FALSE;
+        return TRUE;
     }
 }
 
@@ -2253,7 +2257,6 @@ add_event_box (t_sensors *sensors)
     /* create eventbox to catch events on widget */
     sensors->eventbox = gtk_event_box_new ();
     gtk_widget_set_name (sensors->eventbox, "xfce_sensors");
-    gtk_widget_show (sensors->eventbox);
 
     /* double-click improvement */
     sensors->doubleclick_id = g_signal_connect (G_OBJECT(sensors->eventbox),
@@ -2294,6 +2297,7 @@ create_sensors_control (XfcePanelPlugin *plugin)
     gtk_container_add (GTK_CONTAINER (sensors->eventbox),
                        sensors->widget_sensors);
 
+    
     /* sensors_set_size (control, settings.size); */
 
     TRACE ("leaves create_sensors_control");
@@ -2348,7 +2352,9 @@ sensors_plugin_construct (XfcePanelPlugin *plugin)
     gtk_container_add (GTK_CONTAINER(plugin), sensors->eventbox);
 
     xfce_panel_plugin_add_action_widget (plugin, sensors->eventbox);
-
+    
+    gtk_widget_show (sensors->eventbox);
+    
     TRACE ("leaves sensors_plugin_construct");
 }
 
