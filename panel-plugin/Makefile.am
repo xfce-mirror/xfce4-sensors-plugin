@@ -1,7 +1,7 @@
 plugindir = $(libexecdir)/xfce4/panel-plugins
 plugin_PROGRAMS = xfce4-sensors-plugin
 
-INCLUDES = 			\
+AM_CPPFLAGS = 			\
 	-I$(top_srcdir)/include 	\
 	-I$(top_srcdir)/lib
 
@@ -48,4 +48,3 @@ DISTCLEANFILES =													 \
 %.desktop.in: %.desktop.in.in
 	sed -e "s^@PLUGIN_PATH@^$(libexecdir)/xfce4/panel-plugins^" \
 		$< > $@
-

@@ -1,4 +1,4 @@
-INCLUDES =														  	\
+AM_CPPFLAGS =														  	\
 	-I$(top_srcdir)/include
 
 plugindir = $(libdir)/xfce4/modules
@@ -88,4 +88,3 @@ DISTCLEANFILES =
 ##
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = libxfce4sensors-1.0.pc
-
