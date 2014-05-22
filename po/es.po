@@ -5,14 +5,15 @@
 # Translators:
 #  <abel.martin.ruiz@gmail.com>, 2009
 # Adolfo Jayme Barrientos <fitoschido@ubuntu.com>, 2014
+# gabrieltandil <gabriel.tandil@gmail.com>, 2014
 # Pablo Lezaeta <prflr88@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-30 00:31+0200\n"
-"PO-Revision-Date: 2014-05-02 20:41+0000\n"
-"Last-Translator: Pablo Lezaeta <prflr88@gmail.com>\n"
+"POT-Creation-Date: 2014-05-22 00:31+0200\n"
+"PO-Revision-Date: 2014-05-22 11:06+0000\n"
+"Last-Translator: gabrieltandil <gabriel.tandil@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,19 +21,19 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:384
-#: ../panel-plugin/sensors-plugin.c:980
-msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
-msgstr "<span foreground=\"#000000\"><b>Sensores</b></span>"
+#: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:383
+#: ../panel-plugin/sensors-plugin.c:985
+msgid "<span><b>Sensors</b></span>"
+msgstr "<span><b>Sensores</b></span>"
 
 #. widget = sensors->eventbox;
-#: ../panel-plugin/sensors-plugin.c:783
+#: ../panel-plugin/sensors-plugin.c:788
 msgid "No sensors selected!"
 msgstr "No se seleccionó ningún sensor."
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:823
+#: ../panel-plugin/sensors-plugin.c:828
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -40,97 +41,97 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "Complemento de sensores:\nParece que hubo un problema leyendo el valor de una característica de un sensor.\nNo se puede garantizar un funcionamiento adecuado.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1705
+#: ../panel-plugin/sensors-plugin.c:1709
 msgid "UI style:"
 msgstr "Estilo de IU:"
 
-#: ../panel-plugin/sensors-plugin.c:1706
+#: ../panel-plugin/sensors-plugin.c:1710
 msgid "_text"
 msgstr "_texto"
 
-#: ../panel-plugin/sensors-plugin.c:1708
+#: ../panel-plugin/sensors-plugin.c:1712
 msgid "_progress bars"
 msgstr "barras de _progreso"
 
-#: ../panel-plugin/sensors-plugin.c:1710
+#: ../panel-plugin/sensors-plugin.c:1714
 msgid "_tachos"
 msgstr "con_tadores"
 
-#: ../panel-plugin/sensors-plugin.c:1755
+#: ../panel-plugin/sensors-plugin.c:1759
 msgid "Show _labels"
 msgstr "Mostrar _etiquetas"
 
-#: ../panel-plugin/sensors-plugin.c:1785
+#: ../panel-plugin/sensors-plugin.c:1789
 msgid "Show colored _bars"
 msgstr "Mostrar _barras con colores"
 
-#: ../panel-plugin/sensors-plugin.c:1813
+#: ../panel-plugin/sensors-plugin.c:1817
 msgid "_Show title"
 msgstr "Mostrar _título"
 
-#: ../panel-plugin/sensors-plugin.c:1837
+#: ../panel-plugin/sensors-plugin.c:1841
 msgid "_Number of text lines:"
 msgstr "_Número de líneas de texto:"
 
-#: ../panel-plugin/sensors-plugin.c:1872
+#: ../panel-plugin/sensors-plugin.c:1876
 msgid "F_ont size:"
 msgstr "Tamaño de _letra:"
 
 #. gtk_widget_set_sensitive(myFontBox,
 #. !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1879
+#: ../panel-plugin/sensors-plugin.c:1883
 msgid "x-small"
 msgstr "muy pequeña"
 
-#: ../panel-plugin/sensors-plugin.c:1880
+#: ../panel-plugin/sensors-plugin.c:1884
 msgid "small"
 msgstr "pequeña"
 
-#: ../panel-plugin/sensors-plugin.c:1881
+#: ../panel-plugin/sensors-plugin.c:1885
 msgid "medium"
 msgstr "medio"
 
-#: ../panel-plugin/sensors-plugin.c:1882
+#: ../panel-plugin/sensors-plugin.c:1886
 msgid "large"
 msgstr "grande"
 
-#: ../panel-plugin/sensors-plugin.c:1883
+#: ../panel-plugin/sensors-plugin.c:1887
 msgid "x-large"
 msgstr "muy grande"
 
-#: ../panel-plugin/sensors-plugin.c:1914
+#: ../panel-plugin/sensors-plugin.c:1918
 msgid "F_ont:"
 msgstr "Ti_po de letra:"
 
-#: ../panel-plugin/sensors-plugin.c:1948
+#: ../panel-plugin/sensors-plugin.c:1952
 msgid "Show _Units"
 msgstr "Mostrar _unidades"
 
-#: ../panel-plugin/sensors-plugin.c:1969
+#: ../panel-plugin/sensors-plugin.c:1973
 msgid "Small horizontal s_pacing"
 msgstr "Es_paciado horizontal pequeño"
 
-#: ../panel-plugin/sensors-plugin.c:1991
+#: ../panel-plugin/sensors-plugin.c:1995
 msgid "Suppress messages"
 msgstr "Suprimir mensajes"
 
-#: ../panel-plugin/sensors-plugin.c:2009
+#: ../panel-plugin/sensors-plugin.c:2013
 msgid "Suppress tooltip"
 msgstr "No mostrar cuadros emergentes"
 
-#: ../panel-plugin/sensors-plugin.c:2034
+#: ../panel-plugin/sensors-plugin.c:2038
 msgid "E_xecute on double click:"
 msgstr "E_jecutar al hacer doble clic:"
 
-#: ../panel-plugin/sensors-plugin.c:2077
+#: ../panel-plugin/sensors-plugin.c:2081
 msgid "_View"
 msgstr "_Ver"
 
-#: ../panel-plugin/sensors-plugin.c:2111
+#: ../panel-plugin/sensors-plugin.c:2115
 msgid "_Miscellaneous"
 msgstr "_Varios"
 
-#: ../panel-plugin/sensors-plugin.c:2186 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2190 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:180
 msgid "Sensors Plugin"
 msgstr "Complemento de sensores"
@@ -138,7 +139,7 @@ msgstr "Complemento de sensores"
 #. gtk_cpu_paint(sensors->tachos [i][index_feature]);
 #. gtk_cpu_expose(sensors->tachos [i][index_feature], NULL);
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2225 ../src/actions.c:205
+#: ../panel-plugin/sensors-plugin.c:2229 ../src/actions.c:205
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
