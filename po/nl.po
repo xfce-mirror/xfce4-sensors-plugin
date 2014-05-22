@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-30 00:31+0200\n"
-"PO-Revision-Date: 2014-04-30 21:11+0000\n"
+"POT-Creation-Date: 2014-05-22 00:31+0200\n"
+"PO-Revision-Date: 2014-05-22 11:15+0000\n"
 "Last-Translator: Pjotr123 <pjotrvertaalt@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/xfce-panel-plugins/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -18,19 +18,19 @@ msgstr ""
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:384
-#: ../panel-plugin/sensors-plugin.c:980
-msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
-msgstr "<span foreground=\"#000000\"><b>Sensors</b></span>"
+#: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:383
+#: ../panel-plugin/sensors-plugin.c:985
+msgid "<span><b>Sensors</b></span>"
+msgstr "<span><b>Sensoren</b></span>"
 
 #. widget = sensors->eventbox;
-#: ../panel-plugin/sensors-plugin.c:783
+#: ../panel-plugin/sensors-plugin.c:788
 msgid "No sensors selected!"
 msgstr "Geen sensors geselecteerd!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:823
+#: ../panel-plugin/sensors-plugin.c:828
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -38,97 +38,97 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "Sensors-invoegtoepassing:\nHet lijkt erop dat er een probleem was met het lezen van de waarde\nvan een sensorfunctie.\nCorrecte voortgang kan niet worden gegarandeerd.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1705
+#: ../panel-plugin/sensors-plugin.c:1709
 msgid "UI style:"
 msgstr "Stijl van gebruikersomgeving:"
 
-#: ../panel-plugin/sensors-plugin.c:1706
+#: ../panel-plugin/sensors-plugin.c:1710
 msgid "_text"
 msgstr "_tekst"
 
-#: ../panel-plugin/sensors-plugin.c:1708
+#: ../panel-plugin/sensors-plugin.c:1712
 msgid "_progress bars"
 msgstr "_voortgangsbalken"
 
-#: ../panel-plugin/sensors-plugin.c:1710
+#: ../panel-plugin/sensors-plugin.c:1714
 msgid "_tachos"
 msgstr "_snelheidsmeters"
 
-#: ../panel-plugin/sensors-plugin.c:1755
+#: ../panel-plugin/sensors-plugin.c:1759
 msgid "Show _labels"
 msgstr "_Toon etiketten"
 
-#: ../panel-plugin/sensors-plugin.c:1785
+#: ../panel-plugin/sensors-plugin.c:1789
 msgid "Show colored _bars"
 msgstr "Toon gekleurde _balken"
 
-#: ../panel-plugin/sensors-plugin.c:1813
+#: ../panel-plugin/sensors-plugin.c:1817
 msgid "_Show title"
 msgstr "_Toon titel"
 
-#: ../panel-plugin/sensors-plugin.c:1837
+#: ../panel-plugin/sensors-plugin.c:1841
 msgid "_Number of text lines:"
 msgstr "_Aantal tekstregels:"
 
-#: ../panel-plugin/sensors-plugin.c:1872
+#: ../panel-plugin/sensors-plugin.c:1876
 msgid "F_ont size:"
 msgstr "Grootte van _lettertype:"
 
 #. gtk_widget_set_sensitive(myFontBox,
 #. !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1879
+#: ../panel-plugin/sensors-plugin.c:1883
 msgid "x-small"
 msgstr "x-klein"
 
-#: ../panel-plugin/sensors-plugin.c:1880
+#: ../panel-plugin/sensors-plugin.c:1884
 msgid "small"
 msgstr "klein"
 
-#: ../panel-plugin/sensors-plugin.c:1881
+#: ../panel-plugin/sensors-plugin.c:1885
 msgid "medium"
 msgstr "gemiddeld"
 
-#: ../panel-plugin/sensors-plugin.c:1882
+#: ../panel-plugin/sensors-plugin.c:1886
 msgid "large"
 msgstr "groot"
 
-#: ../panel-plugin/sensors-plugin.c:1883
+#: ../panel-plugin/sensors-plugin.c:1887
 msgid "x-large"
 msgstr "x-groot"
 
-#: ../panel-plugin/sensors-plugin.c:1914
+#: ../panel-plugin/sensors-plugin.c:1918
 msgid "F_ont:"
 msgstr "_Lettertype:"
 
-#: ../panel-plugin/sensors-plugin.c:1948
+#: ../panel-plugin/sensors-plugin.c:1952
 msgid "Show _Units"
 msgstr "Toon _eenheden"
 
-#: ../panel-plugin/sensors-plugin.c:1969
+#: ../panel-plugin/sensors-plugin.c:1973
 msgid "Small horizontal s_pacing"
 msgstr "Geringe horizontale _tussenruimtes"
 
-#: ../panel-plugin/sensors-plugin.c:1991
+#: ../panel-plugin/sensors-plugin.c:1995
 msgid "Suppress messages"
 msgstr "Onderdruk boodschappen"
 
-#: ../panel-plugin/sensors-plugin.c:2009
+#: ../panel-plugin/sensors-plugin.c:2013
 msgid "Suppress tooltip"
 msgstr "Onderdruk gereedschaptip"
 
-#: ../panel-plugin/sensors-plugin.c:2034
+#: ../panel-plugin/sensors-plugin.c:2038
 msgid "E_xecute on double click:"
 msgstr "_Uitvoeren bij dubbelklikken:"
 
-#: ../panel-plugin/sensors-plugin.c:2077
+#: ../panel-plugin/sensors-plugin.c:2081
 msgid "_View"
 msgstr "_Weergeven"
 
-#: ../panel-plugin/sensors-plugin.c:2111
+#: ../panel-plugin/sensors-plugin.c:2115
 msgid "_Miscellaneous"
 msgstr "_Gemengd"
 
-#: ../panel-plugin/sensors-plugin.c:2186 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2190 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:180
 msgid "Sensors Plugin"
 msgstr "Sensors-invoegtoepassing"
@@ -136,7 +136,7 @@ msgstr "Sensors-invoegtoepassing"
 #. gtk_cpu_paint(sensors->tachos [i][index_feature]);
 #. gtk_cpu_expose(sensors->tachos [i][index_feature], NULL);
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2225 ../src/actions.c:205
+#: ../panel-plugin/sensors-plugin.c:2229 ../src/actions.c:205
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
