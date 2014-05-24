@@ -7,13 +7,14 @@
 # Andrey Fedoseev <andrey.fedoseev@gmail.com>, 2006
 # Degit22, 2014
 # Dima Smirnov <arch@cnc-parts.info>, 2010
+# asvl <alyoshin.s@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-22 00:31+0200\n"
-"PO-Revision-Date: 2014-05-22 10:19+0000\n"
-"Last-Translator: Aleksandr P <davian818@gmail.com>\n"
+"PO-Revision-Date: 2014-05-24 08:38+0000\n"
+"Last-Translator: asvl <alyoshin.s@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -219,12 +220,12 @@ msgstr "Ошибка при выполнении «%s»:\n%s"
 
 #: ../lib/lmsensors.c:110
 msgid "LM Sensors"
-msgstr "Сенсоры"
+msgstr "Датчики LM"
 
 #: ../lib/lmsensors.c:370 ../lib/lmsensors.c:417
 #, c-format
 msgid "Error: Could not connect to sensors!"
-msgstr "Ошибка: Не удаётся соединиться с сенсорами!"
+msgstr "Ошибка: не удаётся соединиться с датчиками!"
 
 #: ../lib/sensors-interface.c:84
 msgid "Sensors Plugin Failure"
@@ -234,7 +235,7 @@ msgstr "Сбой модуля"
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr "Похоже что возникла проблема при чтении показаний сенсоров.\nОтображаемые данные могут быть не верны."
+msgstr "Похоже что возникла проблема при чтении показаний датчиков.\nОтображаемые данные могут быть не верны."
 
 #: ../lib/sensors-interface.c:172
 msgid "Sensors t_ype:"
@@ -246,7 +247,7 @@ msgstr "Описание:"
 
 #: ../lib/sensors-interface.c:231
 msgid "U_pdate interval (seconds):"
-msgstr "Интервал обновления (с):"
+msgstr "Интервал обновления, с:"
 
 #: ../lib/sensors-interface.c:271
 msgid "Name"
@@ -311,7 +312,7 @@ msgstr "%+.3f V"
 #: ../lib/sensors-interface-common.c:156
 #, c-format
 msgid "%.0f mWh"
-msgstr "%.0f мВтч"
+msgstr "%.0f мВт⋅ч"
 
 #: ../lib/sensors-interface-common.c:161
 msgid "off"
@@ -332,7 +333,7 @@ msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-msgstr "Xfce4 Sensors %s\nЭта программа выпущена под лицензией GPL v2.\nТекст лицензии может быть найден внутри архива с исходным кодом или в /usr/share/apps/LICENSES/GPL_V2, а также http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Xfce4 Sensors %s\nЭта программа выпущена под лицензией GPL v2.\nТекст лицензии может быть найден внутри архива с исходным кодом или в /usr/share/apps/LICENSES/GPL_V2, а также на http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
 #, c-format
@@ -347,7 +348,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Сенсоры Xfce4 %s\nОтображают информацию о сенсорах и ACPI.\nСинтаксис: \n  Опции xfce4-sensors\nвыберите один из следующих параметров:\n  -h, --help    Выводит этот диалог помощи.\n  -l, --license Выводит информацию о лицензии.\n  -V, --version Выводит информацию о версии.\n\nЭта программа публикуется под лицензией GPL v2.\n"
+msgstr "Сенсоры Xfce4 %s\nОтображение информации о датчиках и ACPI.\nСинтаксис: \n  Опции xfce4-sensors выберите один из следующих параметров:\n  -h, --help      Выводит это сообщение.\n  -l, --license   Выводит информацию о лицензии.\n  -V, --version   Выводит информацию о версии.\n\nЭта программа публикуется под лицензией GPL v2.\n"
 
 #: ../src/main.c:82
 #, c-format
@@ -364,7 +365,7 @@ msgstr "Тахометры"
 
 #: ../src/interface.c:116
 msgid "Sensors Viewer"
-msgstr "Просмотр сенсоров"
+msgstr "Просмотр датчиков"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
@@ -378,17 +379,17 @@ msgstr "Сообщение:\nНевозможно считать показан�
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
-msgstr "Просмотр сенсоров"
+msgstr "Просмотр датчиков"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
-msgstr "Отображать значения сенсоров."
+msgstr "Показания датчиков."
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 msgid "Sensor Values Viewer"
-msgstr "Просмотр значений сенсоров"
+msgstr "Просмотр показаний датчиков"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
-msgstr "Модуль сенсоров"
+msgstr "Модуль датчиков"
