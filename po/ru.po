@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-22 00:31+0200\n"
-"PO-Revision-Date: 2014-05-24 08:38+0000\n"
+"PO-Revision-Date: 2014-05-24 12:13+0000\n"
 "Last-Translator: asvl <alyoshin.s@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -145,7 +145,7 @@ msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr "Вы можете изменять свойства, такие как имя, цвета, минимальное или максимальное значение двойным щелчком мыши по параметру, редактировать содержимое и нажать «Return» или выбрать другое поле. "
+msgstr "Вы можете изменять свойства, такие как имя, цвет, минимальное или максимальное значение, двойным щелчком мыши по параметру, редактировать содержимое и нажать «Enter» или выбрать другое поле. "
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -205,7 +205,7 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "Команда «hddtemp» выполнена некорректно. Это может случиться, если для получения доступа к измерению температуры дисков нужны права суперпользователя.\nСамое простое, но нежелательное решение выполнить команду «chmod u+s %s» от имени суперпользователя и перезапустить модуль, или панель.\n\nВывод «%s» сообщает о следующей ошибке:\n%s\nс кодом завершения %d.\n"
+msgstr "Команда «hddtemp» выполнена некорректно. Это может случиться, если для получения доступа к измерению температуры дисков нужны права суперпользователя.\nСамое простое, но нежелательное решение выполнить команду «chmod u+s %s» от имени суперпользователя и перезапустить модуль или панель.\n\nВывод «%s» сообщает о следующей ошибке:\n%s\nс кодом завершения %d.\n"
 
 #: ../lib/hddtemp.c:630 ../lib/hddtemp.c:660
 msgid "Suppress this message in future"
@@ -307,7 +307,7 @@ msgstr "%.0f °C"
 #: ../lib/sensors-interface-common.c:152
 #, c-format
 msgid "%+.3f V"
-msgstr "%+.3f V"
+msgstr "%+.3f В"
 
 #: ../lib/sensors-interface-common.c:156
 #, c-format
@@ -357,11 +357,11 @@ msgstr "Сенсоры Xfce4 %s\n"
 
 #: ../src/interface.c:78
 msgid "_Overview"
-msgstr "Обзор"
+msgstr "_Обзор"
 
 #: ../src/interface.c:99
 msgid "_Tachometers"
-msgstr "Тахометры"
+msgstr "_Тахометры"
 
 #: ../src/interface.c:116
 msgid "Sensors Viewer"
@@ -384,7 +384,7 @@ msgstr "Просмотр датчиков"
 #: ../src/xfce4-sensors.desktop.in.h:2
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
 msgid "Show sensor values."
-msgstr "Показания датчиков."
+msgstr "Отображение показаний датчиков"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 msgid "Sensor Values Viewer"
