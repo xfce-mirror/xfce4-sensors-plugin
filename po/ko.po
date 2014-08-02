@@ -4,14 +4,14 @@
 # 
 # Translators:
 # ByungHyun Choi <byunghyun.choi@gmail.com>, 2005
-# Darkcircle <darkcircle.0426@gmail.com>, 2012-2014
+# Seong-ho Cho <darkcircle.0426@gmail.com>, 2012-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-30 00:31+0200\n"
-"PO-Revision-Date: 2014-05-03 14:53+0000\n"
-"Last-Translator: Darkcircle <darkcircle.0426@gmail.com>\n"
+"POT-Creation-Date: 2014-05-22 00:31+0200\n"
+"PO-Revision-Date: 2014-08-02 09:36+0000\n"
+"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/xfce-panel-plugins/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,19 +19,19 @@ msgstr ""
 "Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:384
-#: ../panel-plugin/sensors-plugin.c:980
-msgid "<span foreground=\"#000000\"><b>Sensors</b></span>"
-msgstr "<span foreground=\"#000000\"><b>센서</b></span>"
+#: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:383
+#: ../panel-plugin/sensors-plugin.c:985
+msgid "<span><b>Sensors</b></span>"
+msgstr "<span><b>센서</b></span>"
 
 #. widget = sensors->eventbox;
-#: ../panel-plugin/sensors-plugin.c:783
+#: ../panel-plugin/sensors-plugin.c:788
 msgid "No sensors selected!"
 msgstr "센서를 선택하지 않았습니다!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:823
+#: ../panel-plugin/sensors-plugin.c:828
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -39,97 +39,97 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "센서 플러그인:\n센서 기능 값을 읽어들이는데 문제가 있는 것 같습니다.\n따라서 정상적인 동작을 보장할 수 없습니다.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1705
+#: ../panel-plugin/sensors-plugin.c:1709
 msgid "UI style:"
 msgstr "UI 형태:"
 
-#: ../panel-plugin/sensors-plugin.c:1706
+#: ../panel-plugin/sensors-plugin.c:1710
 msgid "_text"
 msgstr "본문(_T)"
 
-#: ../panel-plugin/sensors-plugin.c:1708
+#: ../panel-plugin/sensors-plugin.c:1712
 msgid "_progress bars"
 msgstr "진행 막대(_P)"
 
-#: ../panel-plugin/sensors-plugin.c:1710
+#: ../panel-plugin/sensors-plugin.c:1714
 msgid "_tachos"
 msgstr "타코(_T)"
 
-#: ../panel-plugin/sensors-plugin.c:1755
+#: ../panel-plugin/sensors-plugin.c:1759
 msgid "Show _labels"
 msgstr "레이블 표시(_L)"
 
-#: ../panel-plugin/sensors-plugin.c:1785
+#: ../panel-plugin/sensors-plugin.c:1789
 msgid "Show colored _bars"
 msgstr "색깔있는 막대 표시(_B)"
 
-#: ../panel-plugin/sensors-plugin.c:1813
+#: ../panel-plugin/sensors-plugin.c:1817
 msgid "_Show title"
 msgstr "제목 표시(_S)"
 
-#: ../panel-plugin/sensors-plugin.c:1837
+#: ../panel-plugin/sensors-plugin.c:1841
 msgid "_Number of text lines:"
 msgstr "본문 줄 수(_N):"
 
-#: ../panel-plugin/sensors-plugin.c:1872
+#: ../panel-plugin/sensors-plugin.c:1876
 msgid "F_ont size:"
 msgstr "글꼴 크기(_O):"
 
 #. gtk_widget_set_sensitive(myFontBox,
 #. !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1879
+#: ../panel-plugin/sensors-plugin.c:1883
 msgid "x-small"
 msgstr "아주 작게"
 
-#: ../panel-plugin/sensors-plugin.c:1880
+#: ../panel-plugin/sensors-plugin.c:1884
 msgid "small"
 msgstr "작게"
 
-#: ../panel-plugin/sensors-plugin.c:1881
+#: ../panel-plugin/sensors-plugin.c:1885
 msgid "medium"
 msgstr "중간"
 
-#: ../panel-plugin/sensors-plugin.c:1882
+#: ../panel-plugin/sensors-plugin.c:1886
 msgid "large"
 msgstr "크게"
 
-#: ../panel-plugin/sensors-plugin.c:1883
+#: ../panel-plugin/sensors-plugin.c:1887
 msgid "x-large"
 msgstr "아주 크게"
 
-#: ../panel-plugin/sensors-plugin.c:1914
+#: ../panel-plugin/sensors-plugin.c:1918
 msgid "F_ont:"
 msgstr "글꼴(_O):"
 
-#: ../panel-plugin/sensors-plugin.c:1948
+#: ../panel-plugin/sensors-plugin.c:1952
 msgid "Show _Units"
 msgstr "단위 표시(_U)"
 
-#: ../panel-plugin/sensors-plugin.c:1969
+#: ../panel-plugin/sensors-plugin.c:1973
 msgid "Small horizontal s_pacing"
 msgstr "좁은 수평 공간(_P)"
 
-#: ../panel-plugin/sensors-plugin.c:1991
+#: ../panel-plugin/sensors-plugin.c:1995
 msgid "Suppress messages"
 msgstr "숨겨진 메시지"
 
-#: ../panel-plugin/sensors-plugin.c:2009
+#: ../panel-plugin/sensors-plugin.c:2013
 msgid "Suppress tooltip"
 msgstr "풍선 도움말 숨김"
 
-#: ../panel-plugin/sensors-plugin.c:2034
+#: ../panel-plugin/sensors-plugin.c:2038
 msgid "E_xecute on double click:"
 msgstr "두번 누르면 실행(_X):"
 
-#: ../panel-plugin/sensors-plugin.c:2077
+#: ../panel-plugin/sensors-plugin.c:2081
 msgid "_View"
 msgstr "보기(_V)"
 
-#: ../panel-plugin/sensors-plugin.c:2111
+#: ../panel-plugin/sensors-plugin.c:2115
 msgid "_Miscellaneous"
 msgstr "기타(_M)"
 
-#: ../panel-plugin/sensors-plugin.c:2186 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2190 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:180
 msgid "Sensors Plugin"
 msgstr "센서 플러그인"
@@ -137,7 +137,7 @@ msgstr "센서 플러그인"
 #. gtk_cpu_paint(sensors->tachos [i][index_feature]);
 #. gtk_cpu_expose(sensors->tachos [i][index_feature], NULL);
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2225 ../src/actions.c:205
+#: ../panel-plugin/sensors-plugin.c:2229 ../src/actions.c:205
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
