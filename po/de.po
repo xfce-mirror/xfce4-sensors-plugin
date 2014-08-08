@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Fabian Nowak <timystery@arcor.de>, 2004 - 2007, 2009
-# to_ba, 2014
+# Tobias Bannert, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-22 00:31+0200\n"
-"PO-Revision-Date: 2014-05-22 22:00+0000\n"
-"Last-Translator: to_ba\n"
+"PO-Revision-Date: 2014-08-08 15:37+0000\n"
+"Last-Translator: Tobias Bannert\n"
 "Language-Team: German (http://www.transifex.com/projects/p/xfce-panel-plugins/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,7 +45,7 @@ msgstr "Darstellung:"
 
 #: ../panel-plugin/sensors-plugin.c:1710
 msgid "_text"
-msgstr "_textuell"
+msgstr "Te_xt"
 
 #: ../panel-plugin/sensors-plugin.c:1712
 msgid "_progress bars"
@@ -69,7 +69,7 @@ msgstr "T_itel anzeigen"
 
 #: ../panel-plugin/sensors-plugin.c:1841
 msgid "_Number of text lines:"
-msgstr "A_nzahl Textzeilen:"
+msgstr "A_nzahl der Textzeilen:"
 
 #: ../panel-plugin/sensors-plugin.c:1876
 msgid "F_ont size:"
@@ -111,7 +111,7 @@ msgstr "K_leine horizontale Abstände"
 
 #: ../panel-plugin/sensors-plugin.c:1995
 msgid "Suppress messages"
-msgstr "Nachrichtendialoge unterbinden"
+msgstr "Nachrichtendialoge _unterbinden"
 
 #: ../panel-plugin/sensors-plugin.c:2013
 msgid "Suppress tooltip"
@@ -163,7 +163,7 @@ msgstr "ACPI"
 #: ../lib/acpi.c:531
 #, c-format
 msgid "ACPI v%s zones"
-msgstr "ACPI v%s"
+msgstr "ACPI-v%s-Zonen"
 
 #. who knows, if we obtain non-NULL version at all...
 #. || g_strisempty(version))
@@ -173,7 +173,7 @@ msgstr "<Unbekannt>"
 
 #: ../lib/nvidia.c:60
 msgid "NVidia GPU core temperature"
-msgstr "Nvidia GPU-Temperatur"
+msgstr "Nvidia-GPU-Kerntemperatur"
 
 #: ../lib/nvidia.c:61
 msgid "nvidia"
@@ -190,7 +190,7 @@ msgstr "%.1f °C"
 
 #: ../lib/hddtemp.c:414
 msgid "S.M.A.R.T. harddisk temperatures"
-msgstr "S.M.A.R.T.-Sensoren der Festplatten"
+msgstr "S.M.A.R.T.-Festplattentemperaturen"
 
 #: ../lib/hddtemp.c:614
 #, c-format
@@ -202,7 +202,7 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "»hddtemp« wurde nicht ordnungsgemäß ausgeführt, obwohl es ausführbar ist. Dies liegt wahrscheinlich daran, dass zum Auslesen der Festplatteninformation die Rechte des Supernutzers nötig sind, bei »hddtemp« aber nicht das Setuid-Bit gesetzt ist.\n\nEine einfache aber unsaubere Lösung ist, »chmod u+s %s« als Systemverwalter auszuführen und die Erweiterung oder die Leiste neu zu starten.\n\nDer Aufruf »%s« führte zu folgendem Fehler:\n%s\nmit einem Rückgabewert von %d.\n"
+msgstr "»hddtemp« wurde nicht ordnungsgemäß ausgeführt, obwohl es ausführbar ist. Dieses liegt wahrscheinlich daran, dass zum Auslesen der Festplatteninformation die Rechte des Supernutzers nötig sind, bei »hddtemp« aber nicht das Setuid-Bit eingestellt ist.\n\nEine einfache aber unsaubere Lösung ist, »chmod u+s %s« als Systemverwalter auszuführen und die Erweiterung oder die Leiste neu zu starten.\n\nDer Aufruf »%s« führte zu folgendem Fehler:\n%s\nmit einem Rückgabewert von %d.\n"
 
 #: ../lib/hddtemp.c:630 ../lib/hddtemp.c:660
 msgid "Suppress this message in future"
@@ -222,7 +222,7 @@ msgstr "LM-Sensoren"
 #: ../lib/lmsensors.c:370 ../lib/lmsensors.c:417
 #, c-format
 msgid "Error: Could not connect to sensors!"
-msgstr "Fehler: Konnte nicht mit Sensoren verbinden!"
+msgstr "Fehler: Zu den Sensoren konnte keine Verbindung aufgebaut werden!"
 
 #: ../lib/sensors-interface.c:84
 msgid "Sensors Plugin Failure"
@@ -276,7 +276,7 @@ msgstr "Temperaturskala:"
 
 #: ../lib/sensors-interface.c:373
 msgid "_Celsius"
-msgstr "C_elsius"
+msgstr "_Celsius"
 
 #: ../lib/sensors-interface.c:375
 msgid "_Fahrenheit"
@@ -330,7 +330,7 @@ msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-msgstr "Xfce4-Sensors %s\nDieses Programm ist unter der GPL v2 veröffentlicht.\nDie Lizenzbedingungen können innerhalb des Quelltextarchivs gefunden werden oder unter usr/share/apps/LICENSES/GPL_V2 oder unter http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Xfce4-Sensoren %s\nDieses Programm ist unter der GPL v2 veröffentlicht.\nDie Lizenzbedingungen können innerhalb des Quelltextarchivs oder unter usr/share/apps/LICENSES/GPL_V2 oder unter http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt gefunden werden\n"
 
 #: ../src/main.c:64
 #, c-format
@@ -345,7 +345,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Xfce4-Sensoren %s\nZeigt Informationen über Ihre Sensorchips, den Status von ACPI,Festplattentemperaturen und die Temperatur einer Nvidia-Grafikkarte an.\nAufruf: \n  xfce4-sensors <optionen>\nwobei <optionen> eine oder mehrere der folgenden ist:\n  -h, --help    Diesen Hilfedialog anzeigen\n  -l, --license Lizenzinformationen ausgeben\n  -V, --version Versionsinformation ausgeben\n\nDieses Programm ist unter der GPL v2 veröffentlicht.\n"
+msgstr "Xfce4-Sensoren %s\nZeigt Informationen über Ihre Gerätesensoren, den ACPI-Status,Festplattentemperaturen und die Temperatur einer Nvidia-Grafikkarte an.\nAufruf: \n  xfce4-sensors <optionen>\nwobei <optionen> eine oder mehrere der folgenden ist:\n  -h, --help    Diesen Hilfedialog anzeigen\n  -l, --license Lizenzinformationen ausgeben\n  -V, --version Versionsinformation ausgeben\n\nDieses Programm ist unter der GPL v2 veröffentlicht.\n"
 
 #: ../src/main.c:82
 #, c-format
@@ -372,7 +372,7 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Sensor-Plugin:\nAnscheinend gab es ein Problem beim Auslesen eines Wertes.\nSauberes Weiterlaufen kann nicht gewährleistet werden.\n"
+msgstr "Sensorbetrachter:\nAnscheinend gab es ein Problem beim Auslesen eines Wertes.\nSauberes Weiterlaufen kann nicht gewährleistet werden.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
