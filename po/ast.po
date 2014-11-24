@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Tornes Llume <l.lumex03.tornes@gmail.com>, 2014
-# Tornes Llume <l.lumex03.tornes@gmail.com>, 2014
+# Ḷḷumex03 <tornes@opmbx.org>, 2014
+# Ḷḷumex03 <tornes@opmbx.org>, 2014
+# Ḷḷumex03 <tornes@opmbx.org>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-22 00:31+0200\n"
-"PO-Revision-Date: 2014-06-04 07:03+0000\n"
-"Last-Translator: Tornes Llume <l.lumex03.tornes@gmail.com>\n"
+"PO-Revision-Date: 2014-11-24 16:33+0000\n"
+"Last-Translator: Ḷḷumex03 <tornes@opmbx.org>\n"
 "Language-Team: Asturian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/ast/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -345,7 +346,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Xfce4 Sensors %s\nAmuesa información tocante los tos sensores de hardware, estáu del ACPI y temperatures del discu y de nucleos gráficos Nvidia.\nSinopsis: \n  Opciones de xfce4-sensors\nu les opciones son una o más de les siguientes:\n  -h, --help    Amuesa esti diálogu d'aida.\n  -l, --license Amusa la información de la llicencia.\n  -V, --version Auesa información de la versión.\n\nEsti programa ta espublizáu baxo la GPL v2.\n"
+msgstr "Xfce4 Sensors %s\nAmuesa información tocante los tos sensores de hardware, estáu del ACPI y temperatures del discu y de nucleos gráficos Nvidia.\nSinopsis: \n  Opciones de xfce4-sensors\nu les opciones son una o más de les siguientes:\n  -h, --help    Amuesa esti diálogu d'ayuda.\n  -l, --license Amusa la información de la llicencia.\n  -V, --version Auesa información de la versión.\n\nEsti programa ta espublizáu baxo la GPL v2.\n"
 
 #: ../src/main.c:82
 #, c-format
