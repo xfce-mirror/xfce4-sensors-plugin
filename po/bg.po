@@ -1,0 +1,391 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Kiril Kirilov <cybercop_montana@abv.bg>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-05-22 00:31+0200\n"
+"PO-Revision-Date: 2015-02-14 08:27+0000\n"
+"Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>\n"
+"Language-Team: Bulgarian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/bg/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: bg\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:383
+#: ../panel-plugin/sensors-plugin.c:985
+msgid "<span><b>Sensors</b></span>"
+msgstr "<span><b>Сензори</b></span>"
+
+#. widget = sensors->eventbox;
+#: ../panel-plugin/sensors-plugin.c:788
+msgid "No sensors selected!"
+msgstr "Не са избрани сензори!"
+
+#. FIXME: either print nothing, or undertake appropriate action,
+#. * or pop up a message box.
+#: ../panel-plugin/sensors-plugin.c:828
+#, c-format
+msgid ""
+"Sensors Plugin:\n"
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr "Добавка Сензори:\nИзглежда е имало проблем с четенето на показанията на сензорите.\nПравилното поведение не е гарантирано.\n"
+
+#: ../panel-plugin/sensors-plugin.c:1709
+msgid "UI style:"
+msgstr "UI стил:"
+
+#: ../panel-plugin/sensors-plugin.c:1710
+msgid "_text"
+msgstr "текст"
+
+#: ../panel-plugin/sensors-plugin.c:1712
+msgid "_progress bars"
+msgstr "ленти с прогреса"
+
+#: ../panel-plugin/sensors-plugin.c:1714
+msgid "_tachos"
+msgstr "tachos"
+
+#: ../panel-plugin/sensors-plugin.c:1759
+msgid "Show _labels"
+msgstr "Покажи етикети"
+
+#: ../panel-plugin/sensors-plugin.c:1789
+msgid "Show colored _bars"
+msgstr "Покажи оцветени ленти"
+
+#: ../panel-plugin/sensors-plugin.c:1817
+msgid "_Show title"
+msgstr "Покажи заглавие"
+
+#: ../panel-plugin/sensors-plugin.c:1841
+msgid "_Number of text lines:"
+msgstr "Брой на тестовите редове:"
+
+#: ../panel-plugin/sensors-plugin.c:1876
+msgid "F_ont size:"
+msgstr "Размер на шрифт"
+
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
+#: ../panel-plugin/sensors-plugin.c:1883
+msgid "x-small"
+msgstr "много малък"
+
+#: ../panel-plugin/sensors-plugin.c:1884
+msgid "small"
+msgstr "малък"
+
+#: ../panel-plugin/sensors-plugin.c:1885
+msgid "medium"
+msgstr "среден"
+
+#: ../panel-plugin/sensors-plugin.c:1886
+msgid "large"
+msgstr "голям"
+
+#: ../panel-plugin/sensors-plugin.c:1887
+msgid "x-large"
+msgstr "много голям"
+
+#: ../panel-plugin/sensors-plugin.c:1918
+msgid "F_ont:"
+msgstr "Шрифт:"
+
+#: ../panel-plugin/sensors-plugin.c:1952
+msgid "Show _Units"
+msgstr "Покажи единици"
+
+#: ../panel-plugin/sensors-plugin.c:1973
+msgid "Small horizontal s_pacing"
+msgstr "Малко хоризонтално разстояние"
+
+#: ../panel-plugin/sensors-plugin.c:1995
+msgid "Suppress messages"
+msgstr "Блокиране на съобщенията"
+
+#: ../panel-plugin/sensors-plugin.c:2013
+msgid "Suppress tooltip"
+msgstr "Блокиране на подсказките"
+
+#: ../panel-plugin/sensors-plugin.c:2038
+msgid "E_xecute on double click:"
+msgstr "Изпълнение при двойно кликване:"
+
+#: ../panel-plugin/sensors-plugin.c:2081
+msgid "_View"
+msgstr "Преглед"
+
+#: ../panel-plugin/sensors-plugin.c:2115
+msgid "_Miscellaneous"
+msgstr "Разни"
+
+#: ../panel-plugin/sensors-plugin.c:2190 ../panel-plugin/sensors-plugin.h:30
+#: ../lib/hddtemp.c:180
+msgid "Sensors Plugin"
+msgstr "Добавка Сензори"
+
+#. gtk_cpu_paint(sensors->tachos [i][index_feature]);
+#. gtk_cpu_expose(sensors->tachos [i][index_feature], NULL);
+#. #if GTK_VERSION < 2.11
+#: ../panel-plugin/sensors-plugin.c:2229 ../src/actions.c:205
+msgid ""
+"You can change a feature's properties such as name, colours, min/max value "
+"by double-clicking the entry, editing the content, and pressing \"Return\" "
+"or selecting a different field."
+msgstr "Можете да промените свойствата на елемента, като име, цветове, мин / макс стойност чрез двукратно щракване върху елемента, редактиране на съдържанието, и чрез натискане на \"Return\" или избор на друга област."
+
+#. only use this if no hddtemp sensor
+#. or do only use this , if it is an lmsensors device. whatever.
+#. FIXME: compare strings, or also have hddtmep and acpi store numeric values
+#. assert correctly saved file
+#: ../lib/configuration.c:162 ../lib/configuration.c:367
+#: ../lib/configuration.c:374 ../lib/hddtemp.c:366 ../lib/hddtemp.c:415
+msgid "Hard disks"
+msgstr "Твърди дискове"
+
+#: ../lib/acpi.c:529 ../lib/acpi.c:537
+msgid "ACPI"
+msgstr "ACPI"
+
+#. to be displayed
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
+#: ../lib/acpi.c:531
+#, c-format
+msgid "ACPI v%s zones"
+msgstr "ACPI v%s зони"
+
+#. who knows, if we obtain non-NULL version at all...
+#. || g_strisempty(version))
+#: ../lib/acpi.c:669
+msgid "<Unknown>"
+msgstr "<Неизвестно>"
+
+#: ../lib/nvidia.c:60
+msgid "NVidia GPU core temperature"
+msgstr "Температура на NVidia GPU ядро"
+
+#: ../lib/nvidia.c:61
+msgid "nvidia"
+msgstr "nvidia"
+
+#. if (scale == FAHRENHEIT) {
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
+#. } else { // Celsius
+#: ../lib/nvidia.c:126 ../lib/hddtemp.c:729
+#, c-format
+msgid "%.1f °C"
+msgstr "%.1f °C"
+
+#: ../lib/hddtemp.c:414
+msgid "S.M.A.R.T. harddisk temperatures"
+msgstr "S.M.A.R.T. температура на твърдият диск"
+
+#: ../lib/hddtemp.c:614
+#, c-format
+msgid ""
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"\n"
+"Calling \"%s\" gave the following error:\n"
+"%s\n"
+"with a return value of %d.\n"
+msgstr "\"hddtemp\" не е била изпълнена правилно, въпреки че е изпълнима. Това,  най-вероятно се дължи на дисковете, изискващи root привилегии да прочетете техните температури, и \"hddtemp\" не е имала нужните права.\n\nЕдин лесно, но рисково решение е да изпълните \"chmod u+s %s\"  като администратор и да рестартирате този плъгин или неговия панел.\n\n\nЗаявката  \"%s\" дава следната грешка:\n%s\nс остатъчна стойност %d.\n\n"
+
+#: ../lib/hddtemp.c:630 ../lib/hddtemp.c:660
+msgid "Suppress this message in future"
+msgstr "Блокиране на това съобщение в бъдеще"
+
+#: ../lib/hddtemp.c:654
+#, c-format
+msgid ""
+"An error occurred when executing \"%s\":\n"
+"%s"
+msgstr "Възникна грешка при изпълнение на \"%s\":\n%s"
+
+#: ../lib/lmsensors.c:110
+msgid "LM Sensors"
+msgstr "LM Сензори"
+
+#: ../lib/lmsensors.c:370 ../lib/lmsensors.c:417
+#, c-format
+msgid "Error: Could not connect to sensors!"
+msgstr "Грешка: Неуспешно свързване със сензорите!"
+
+#: ../lib/sensors-interface.c:84
+msgid "Sensors Plugin Failure"
+msgstr "Неуспешно зареждане на добавка Сензори"
+
+#: ../lib/sensors-interface.c:85
+msgid ""
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed."
+msgstr "Изглежда, че е имало проблем с прочитането на показанията на сензорите.\nПравилната процедура не може да бъде гарантирана."
+
+#: ../lib/sensors-interface.c:172
+msgid "Sensors t_ype:"
+msgstr "Тип сензори:"
+
+#: ../lib/sensors-interface.c:198
+msgid "Description:"
+msgstr "Описание:"
+
+#: ../lib/sensors-interface.c:231
+msgid "U_pdate interval (seconds):"
+msgstr "Интервал на опресняване (секунди):"
+
+#: ../lib/sensors-interface.c:271
+msgid "Name"
+msgstr "Име"
+
+#: ../lib/sensors-interface.c:283
+msgid "Value"
+msgstr "Стойност"
+
+#: ../lib/sensors-interface.c:291
+msgid "Show"
+msgstr "Покажи"
+
+#: ../lib/sensors-interface.c:300
+msgid "Color"
+msgstr "Цвят"
+
+#: ../lib/sensors-interface.c:313
+msgid "Min"
+msgstr "Мин"
+
+#: ../lib/sensors-interface.c:330
+msgid "Max"
+msgstr "Макс"
+
+#: ../lib/sensors-interface.c:371
+msgid "Temperature scale:"
+msgstr "Температурна скала:"
+
+#: ../lib/sensors-interface.c:373
+msgid "_Celsius"
+msgstr "Целзий"
+
+#: ../lib/sensors-interface.c:375
+msgid "_Fahrenheit"
+msgstr "Фаренхайт"
+
+#: ../lib/sensors-interface.c:411
+msgid "_Sensors"
+msgstr "Сензори"
+
+#: ../lib/sensors-interface-common.c:73 ../lib/sensors-interface-common.c:74
+msgid "No sensors found!"
+msgstr "Не са открити сензори!"
+
+#: ../lib/sensors-interface-common.c:144
+#, c-format
+msgid "%.0f °F"
+msgstr "%.0f °F"
+
+#. Celsius
+#: ../lib/sensors-interface-common.c:147
+#, c-format
+msgid "%.0f °C"
+msgstr "%.0f °C"
+
+#: ../lib/sensors-interface-common.c:152
+#, c-format
+msgid "%+.3f V"
+msgstr "%+.3f V"
+
+#: ../lib/sensors-interface-common.c:156
+#, c-format
+msgid "%.0f mWh"
+msgstr "%.0f mWh"
+
+#: ../lib/sensors-interface-common.c:161
+msgid "off"
+msgstr "Изкл"
+
+#: ../lib/sensors-interface-common.c:163
+msgid "on"
+msgstr "Вкл"
+
+#: ../lib/sensors-interface-common.c:167
+#, c-format
+msgid "%.0f rpm"
+msgstr "%.0f rpm"
+
+#: ../src/main.c:52
+#, c-format
+msgid ""
+"Xfce4 Sensors %s\n"
+"This program is published under the GPL v2.\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Xfce4 Сензори %s\nТази програма е лицензирана под GPL v2 лиценз.\nТекстът на лиценза може да бъде намерен в изходният код на програмата или в /usr/share/apps/LICENSES/GPL_V2, както и на адрес http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n\n"
+
+#: ../src/main.c:64
+#, c-format
+msgid ""
+"Xfce4 Sensors %s\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
+"Synopsis: \n"
+"  xfce4-sensors options\n"
+"where options are one or more of the following:\n"
+"  -h, --help    Print this help dialog.\n"
+"  -l, --license Print license information.\n"
+"  -V, --version Print version information.\n"
+"\n"
+"This program is published under the GPL v2.\n"
+msgstr "Xfce4 Сензори %s\nПоказва информация от вашите хардуерни сензори, ACPI състоянието, температурата на твърдият диск и на графичните карти Nvidia.\nРезюме:\nfce4-sensors options\nкъдето опциите са една или няколко от следните:\n-h, --help Показва този помощен диалог.\nl, --license Показва информация за лиценза.\n-V, --version Показва информация за версията.\n\nТази програма е публикувана под GPL v2 лиценз.\n"
+
+#: ../src/main.c:82
+#, c-format
+msgid "Xfce4 Sensors %s\n"
+msgstr "Xfce4 Сензори %s\n"
+
+#: ../src/interface.c:78
+msgid "_Overview"
+msgstr "Преглед"
+
+#: ../src/interface.c:99
+msgid "_Tachometers"
+msgstr "Тахометри"
+
+#: ../src/interface.c:116
+msgid "Sensors Viewer"
+msgstr "Преглед на сензорите"
+
+#. FIXME: either print nothing, or undertake appropriate action,
+#. * or pop up a message box.
+#: ../src/actions.c:80
+#, c-format
+msgid ""
+"Sensors Viewer:\n"
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr "Преглед на сензорите:\nИзглежда, че е имало проблем с разчитането на показанията на сензора.\nПравилното отчитане не може да се гарантира.\n"
+
+#: ../src/xfce4-sensors.desktop.in.h:1
+msgid "Sensor Viewer"
+msgstr "Преглед на сензор"
+
+#: ../src/xfce4-sensors.desktop.in.h:2
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
+msgid "Show sensor values."
+msgstr "Покажи показанията на сензора."
+
+#: ../src/xfce4-sensors.desktop.in.h:3
+msgid "Sensor Values Viewer"
+msgstr "Преглед на показанията на сензора"
+
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
+msgid "Sensor plugin "
+msgstr "Добавка Сензор"
