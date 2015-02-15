@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-22 00:31+0200\n"
-"PO-Revision-Date: 2015-02-14 08:27+0000\n"
+"PO-Revision-Date: 2015-02-15 20:48+0000\n"
 "Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -321,7 +321,7 @@ msgstr "Вкл"
 #: ../lib/sensors-interface-common.c:167
 #, c-format
 msgid "%.0f rpm"
-msgstr "%.0f rpm"
+msgstr "%.0f об/мин"
 
 #: ../src/main.c:52
 #, c-format
