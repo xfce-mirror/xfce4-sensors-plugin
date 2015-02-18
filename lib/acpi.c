@@ -522,6 +522,7 @@ int read_fan_zone (t_chip *chip)
 int initialize_ACPI (GPtrArray *chips)
 {
     t_chip *chip;
+    sensors_chip_name *ptr_chipname_tmp;
 
     TRACE ("enters initialize_ACPI");
 
@@ -533,8 +534,11 @@ int initialize_ACPI (GPtrArray *chips)
 
     chip->type = ACPI;
 
-    chip->chip_name = (const sensors_chip_name *)
-                            ( g_strdup(_("ACPI")), 0, 0, g_strdup(_("ACPI")) );
+    ptr_chipname_tmp = g_new0 (sensors_chip_name, 1);
+    ptr_chipname_tmp->prefix = g_strdup(_("ACPI"));
+    ptr_chipname_tmp->path = g_strdup(_("ACPI"));
+    
+    chip->chip_name = (const sensors_chip_name *) ptr_chipname_tmp;
 
     chip->chip_features = g_ptr_array_new ();
 

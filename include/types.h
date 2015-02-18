@@ -38,9 +38,9 @@
 #else
  typedef struct sensors_chip_name {
   char *prefix;
-  int bus;
+  int bus; /* newer sensors.h has sensors_bus_id as struct{short,short} */
   int addr;
-  char *busname;    /* if dummy */
+  char *path;    /* if dummy */
  } sensors_chip_name;
 #endif
 
