@@ -7,22 +7,18 @@ plugin_LTLIBRARIES = libxfce4sensors.la
 
 if HAVE_LIBSENSORS
 SENSORS_SOURCES = lmsensors.c
-# lmsensors.h
 endif
 
 if HAVE_HDDTEMP
 HDDTEMP_SOURCES = hddtemp.c
-#hddtemp.h
 endif
 
 if HAVE_ACPI
 ACPI_SOURCES = acpi.c
-#acpi.h
 endif
 
 if HAVE_NVIDIA
 NVIDIA_SOURCES = nvidia.c
-#nvidia.c
 endif
 
 libxfce4sensors_la_SOURCES =										\

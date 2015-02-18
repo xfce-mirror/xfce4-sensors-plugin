@@ -7,12 +7,6 @@ AM_CPPFLAGS = \
 bin_PROGRAMS = \
 	xfce4-sensors
 
-#	-DG_LOG_DOMAIN=\"xfce4-sensors-plugin\"	\
-#	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
-
-# LIBS = @LIBS@ @SOLLIBS@
-# CFLAGS = @CFLAGS@
-
 xfce4_sensors_SOURCES = \
 	main.c \
 	interface.c \
@@ -29,11 +23,6 @@ xfce4_sensors_CFLAGS = \
 	@LIBXFCE4UI_CFLAGS@ \
 	@LIBXFCE4PANEL_CFLAGS@
 
-# @GTK_CFLAGS@ 	\
-# @GLIB_CFLAGS@ \
-# @LIBXFCE4PANEL_CFLAGS@
-# @LIBXFCEGUI4_CFLAGS@ 
-
 xfce4_sensors_LDFLAGS = \
 	-Wl,--no-undefined		\
 	@PLATFORM_LDFLAGS@
@@ -44,18 +33,11 @@ xfce4_sensors_LDADD = \
 	@LIBXFCE4UI_LIBS@	\
 	@LIBM@
 
-# @GTK_LIBS@ \
-# @GLIB_LIBS@ \
-# -L/usr/local/lib/xfce4/modules/ -L$(top_builddir)/lib -lxfce4sensors
-# @LIBXFCE4PANEL_LIBS@
-#@LIBXFCEGUI4_LIBS@ 											
-
 xfce4_sensors_DEPENDENCIES = \
 	$(top_builddir)/lib/libxfce4sensors.la
 
 # .desktop file
 desktop_in_files = xfce4-sensors.desktop.in
-#desktop_in_files = $(desktop_in_in_files:.desktop.in.in=.desktop.in)
 
 desktopdir = $(datadir)/applications
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
@@ -66,8 +48,3 @@ EXTRA_DIST = \
 
 DISTCLEANFILES = \
 	$(desktop_DATA)
-
-# get full path into .desktop file
-#%.desktop.in: %.desktop.in.in
-#	sed -e "s^@PLUGIN_PATH@^$(libexecdir)/xfce4/panel-plugins^" \
-#		$< > $@

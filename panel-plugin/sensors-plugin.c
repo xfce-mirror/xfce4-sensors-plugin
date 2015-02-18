@@ -54,6 +54,20 @@
 /* Local includes */
 #include "sensors-plugin.h"
 
+static void
+remove_gsource (guint gsource_id)
+{
+    GSource *ptr_gsource;
+    if (gsource_id != 0) 
+    {
+        ptr_gsource = g_main_context_find_source_by_id (NULL, gsource_id);
+        if (ptr_gsource != NULL) 
+        {
+            g_source_destroy (ptr_gsource);
+            gsource_id = 0;
+        }
+    }
+}
 
 static void
 sensors_set_bar_size (GtkWidget *bar, int size, int orientation)
@@ -147,7 +161,7 @@ sensors_remove_graphical_panel (t_sensors *sensors)
             if (chipfeature->show == TRUE) {
                 panel = (t_barpanel*) sensors->panels[chipNum][feature];
 
-        if (sensors->show_labels == TRUE) /* FN: FIXME; this value is already updated! */
+                if (sensors->show_labels == TRUE) /* FN: FIXME; this value is already updated! */
                     gtk_widget_destroy (panel->label);
 
                 gtk_widget_destroy (panel->progressbar);
@@ -1045,11 +1059,10 @@ sensors_free (XfcePanelPlugin *plugin, t_sensors *sensors)
     sensor_interface_cleanup();
 
     /* remove timeout functions */
-    if (sensors->timeout_id)
-        g_source_remove (sensors->timeout_id);
+    remove_gsource (sensors->timeout_id);
 
     /* double-click improvement */
-    g_source_remove (sensors->doubleclick_id);
+    remove_gsource (sensors->doubleclick_id);
 
     /* free structures and arrays */
     g_ptr_array_foreach (sensors->chips, free_chip, NULL);
