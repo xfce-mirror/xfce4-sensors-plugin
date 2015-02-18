@@ -1345,7 +1345,7 @@ adjustment_value_changed (GtkWidget *widget, t_sensors_dialog* sd)
         (gint) gtk_adjustment_get_value ( GTK_ADJUSTMENT (widget) );
 
     /* stop the timeout functions ... */
-    g_source_remove (sd->sensors->timeout_id);
+    remove_gsource (sd->sensors->timeout_id);
     /* ... and start them again */
     sd->sensors->timeout_id  = g_timeout_add (
         sd->sensors->sensors_refresh_time * 1000,
