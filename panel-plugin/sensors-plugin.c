@@ -1043,7 +1043,7 @@ execute_command (GtkWidget *widget, GdkEventButton *event, gpointer data)
     }
     else {
         TRACE ("leaves execute_command with FALSE");
-        return FALSE;
+        return FALSE; // with FALSE, the event will not have been accepted by the handler and will be propagated further
     }
 }
 
