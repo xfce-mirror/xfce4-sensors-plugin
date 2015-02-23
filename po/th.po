@@ -1,134 +1,137 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Theppitak Karoonboonyanan <thep@linux.thai.net>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-22 00:31+0200\n"
+"POT-Creation-Date: 2015-02-23 21:54+0100\n"
 "PO-Revision-Date: 2014-07-14 15:32+0000\n"
 "Last-Translator: Theppitak Karoonboonyanan <theppitak@gmail.com>\n"
-"Language-Team: Thai (http://www.transifex.com/projects/p/xfce-panel-plugins/language/th/)\n"
+"Language-Team: Thai (http://www.transifex.com/projects/p/xfce-panel-plugins/"
+"language/th/)\n"
+"Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: th\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:383
-#: ../panel-plugin/sensors-plugin.c:985
+#: ../panel-plugin/sensors-plugin.c:301 ../panel-plugin/sensors-plugin.c:397
+#: ../panel-plugin/sensors-plugin.c:999
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>เซนเซอร์</b></span>"
 
 #. widget = sensors->eventbox;
-#: ../panel-plugin/sensors-plugin.c:788
+#: ../panel-plugin/sensors-plugin.c:802
 msgid "No sensors selected!"
 msgstr "ไม่ได้เลือกเซนเซอร์ใดไว้!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:828
+#: ../panel-plugin/sensors-plugin.c:842
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "ปลั๊กอินเซนเซอร์:\nดูเหมือนจะมีปัญหาในการอ่านค่าบางค่าจากเซนเซอร์\nจึงไม่สามารถแน่ใจได้ว่าปลั๊กอินจะทำงานถูกต้อง\n"
+msgstr ""
+"ปลั๊กอินเซนเซอร์:\n"
+"ดูเหมือนจะมีปัญหาในการอ่านค่าบางค่าจากเซนเซอร์\n"
+"จึงไม่สามารถแน่ใจได้ว่าปลั๊กอินจะทำงานถูกต้อง\n"
 
-#: ../panel-plugin/sensors-plugin.c:1709
+#: ../panel-plugin/sensors-plugin.c:1722
 msgid "UI style:"
 msgstr "รูปแบบ UI:"
 
-#: ../panel-plugin/sensors-plugin.c:1710
+#: ../panel-plugin/sensors-plugin.c:1723
 msgid "_text"
 msgstr "_ข้อความ"
 
-#: ../panel-plugin/sensors-plugin.c:1712
+#: ../panel-plugin/sensors-plugin.c:1725
 msgid "_progress bars"
 msgstr "แถบ_ปรอท"
 
-#: ../panel-plugin/sensors-plugin.c:1714
+#: ../panel-plugin/sensors-plugin.c:1727
 msgid "_tachos"
 msgstr "หน้าปัด_กลม"
 
-#: ../panel-plugin/sensors-plugin.c:1759
+#: ../panel-plugin/sensors-plugin.c:1772
 msgid "Show _labels"
 msgstr "แสดงฉ_ลาก"
 
-#: ../panel-plugin/sensors-plugin.c:1789
+#: ../panel-plugin/sensors-plugin.c:1802
 msgid "Show colored _bars"
 msgstr "ใช้_สีในแถบ"
 
-#: ../panel-plugin/sensors-plugin.c:1817
+#: ../panel-plugin/sensors-plugin.c:1830
 msgid "_Show title"
 msgstr "แสดง_หัวเรื่อง"
 
-#: ../panel-plugin/sensors-plugin.c:1841
+#: ../panel-plugin/sensors-plugin.c:1854
 msgid "_Number of text lines:"
 msgstr "_จำนวนบรรทัดของข้อความ:"
 
-#: ../panel-plugin/sensors-plugin.c:1876
+#: ../panel-plugin/sensors-plugin.c:1889
 msgid "F_ont size:"
 msgstr "ข_นาดตัวอักษร:"
 
-#. gtk_widget_set_sensitive(myFontBox,
-#. !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1883
+#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#: ../panel-plugin/sensors-plugin.c:1896
 msgid "x-small"
 msgstr "เล็กมาก"
 
-#: ../panel-plugin/sensors-plugin.c:1884
+#: ../panel-plugin/sensors-plugin.c:1897
 msgid "small"
 msgstr "เล็ก"
 
-#: ../panel-plugin/sensors-plugin.c:1885
+#: ../panel-plugin/sensors-plugin.c:1898
 msgid "medium"
 msgstr "กลาง"
 
-#: ../panel-plugin/sensors-plugin.c:1886
+#: ../panel-plugin/sensors-plugin.c:1899
 msgid "large"
 msgstr "ใหญ่"
 
-#: ../panel-plugin/sensors-plugin.c:1887
+#: ../panel-plugin/sensors-plugin.c:1900
 msgid "x-large"
 msgstr "ใหญ่มาก"
 
-#: ../panel-plugin/sensors-plugin.c:1918
+#: ../panel-plugin/sensors-plugin.c:1931
 msgid "F_ont:"
 msgstr "แ_บบอักษร:"
 
-#: ../panel-plugin/sensors-plugin.c:1952
+#: ../panel-plugin/sensors-plugin.c:1965
 msgid "Show _Units"
 msgstr "แสดง_หน่วย"
 
-#: ../panel-plugin/sensors-plugin.c:1973
+#: ../panel-plugin/sensors-plugin.c:1986
 msgid "Small horizontal s_pacing"
 msgstr "_ช่องว่างแนวนอนขนาดเล็ก"
 
-#: ../panel-plugin/sensors-plugin.c:1995
+#: ../panel-plugin/sensors-plugin.c:2008
 msgid "Suppress messages"
 msgstr "ไม่ต้องแสดงข้อความ"
 
-#: ../panel-plugin/sensors-plugin.c:2013
+#: ../panel-plugin/sensors-plugin.c:2026
 msgid "Suppress tooltip"
 msgstr "ไม่แสดงคำแนะนำเครื่องมือ"
 
-#: ../panel-plugin/sensors-plugin.c:2038
+#: ../panel-plugin/sensors-plugin.c:2051
 msgid "E_xecute on double click:"
 msgstr "เ_รียกทำงานเมื่อดับเบิลคลิก:"
 
-#: ../panel-plugin/sensors-plugin.c:2081
+#: ../panel-plugin/sensors-plugin.c:2094
 msgid "_View"
 msgstr "การแสดง_ผล"
 
-#: ../panel-plugin/sensors-plugin.c:2115
+#: ../panel-plugin/sensors-plugin.c:2128
 msgid "_Miscellaneous"
 msgstr "เ_บ็ดเตล็ด"
 
-#: ../panel-plugin/sensors-plugin.c:2190 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2203 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:180
 msgid "Sensors Plugin"
 msgstr "ปลั๊กอินเซนเซอร์"
@@ -136,12 +139,14 @@ msgstr "ปลั๊กอินเซนเซอร์"
 #. gtk_cpu_paint(sensors->tachos [i][index_feature]);
 #. gtk_cpu_expose(sensors->tachos [i][index_feature], NULL);
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2229 ../src/actions.c:205
+#: ../panel-plugin/sensors-plugin.c:2242 ../src/actions.c:205
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr "คุณสามารถเปลี่ยนค่าต่างๆ ของเซนเซอร์แต่ละตัว เช่น ชื่อ สี ค่าต่ำสุด/สูงสุด โดยดับเบิลคลิกที่รายการที่จะเปลี่ยน แล้วแก้ไขเนื้อหา และกด \"Enter\" หรือเลือกช่องข้อมูลอื่น"
+msgstr ""
+"คุณสามารถเปลี่ยนค่าต่างๆ ของเซนเซอร์แต่ละตัว เช่น ชื่อ สี ค่าต่ำสุด/สูงสุด "
+"โดยดับเบิลคลิกที่รายการที่จะเปลี่ยน แล้วแก้ไขเนื้อหา และกด \"Enter\" หรือเลือกช่องข้อมูลอื่น"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -152,21 +157,20 @@ msgstr "คุณสามารถเปลี่ยนค่าต่างๆ
 msgid "Hard disks"
 msgstr "ฮาร์ดดิสก์"
 
-#: ../lib/acpi.c:529 ../lib/acpi.c:537
+#: ../lib/acpi.c:530 ../lib/acpi.c:538 ../lib/acpi.c:539
 msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power
-#. Interface"));
-#: ../lib/acpi.c:531
+#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#: ../lib/acpi.c:532
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "โซนต่างๆ ของ ACPI v%s"
 
 #. who knows, if we obtain non-NULL version at all...
 #. || g_strisempty(version))
-#: ../lib/acpi.c:669
+#: ../lib/acpi.c:673
 msgid "<Unknown>"
 msgstr "<ไม่ทราบ>"
 
@@ -179,8 +183,7 @@ msgid "nvidia"
 msgstr "nvidia"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
-#. 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #: ../lib/nvidia.c:126 ../lib/hddtemp.c:729
 #, c-format
@@ -194,14 +197,27 @@ msgstr "อุณหภูมิฮาร์ดดิสก์จาก S.M.A.R.
 #: ../lib/hddtemp.c:614
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is "
+"most probably due to the disks requiring root privileges to read their "
+"temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
+"restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "\"hddtemp\" ไม่ได้ทำงานอย่างถูกต้อง ถึงแม้จะสามารถเรียกขึ้นมาทำงานได้ เป็นไปได้อย่างมากว่าเกิดจากการที่ดิสก์ต้องใช้สิทธิ์ root ในการอ่านอุณหภูมิ และ \"hddtemp\" ไม่ได้ setuid เป็น root ไว้\n\nวิธีแก้ที่ง่ายแต่อาจไม่รอบคอบนักคือเรียกคำสั่ง \"chmod u+s %s\" ในฐานะผู้ใช้ root และเริ่มทำงานปลั๊กอินนี้ใหม่ หรือเริ่มทำงานพาเนลใหม่\n\nคำสั่ง \"%s\" ให้ข้อผิดพลาดต่อไปนี้:\n%s\nโดยค่าที่กลับคืนมาคือ %d\n"
+msgstr ""
+"\"hddtemp\" ไม่ได้ทำงานอย่างถูกต้อง ถึงแม้จะสามารถเรียกขึ้นมาทำงานได้ "
+"เป็นไปได้อย่างมากว่าเกิดจากการที่ดิสก์ต้องใช้สิทธิ์ root ในการอ่านอุณหภูมิ และ \"hddtemp\" "
+"ไม่ได้ setuid เป็น root ไว้\n"
+"\n"
+"วิธีแก้ที่ง่ายแต่อาจไม่รอบคอบนักคือเรียกคำสั่ง \"chmod u+s %s\" ในฐานะผู้ใช้ root "
+"และเริ่มทำงานปลั๊กอินนี้ใหม่ หรือเริ่มทำงานพาเนลใหม่\n"
+"\n"
+"คำสั่ง \"%s\" ให้ข้อผิดพลาดต่อไปนี้:\n"
+"%s\n"
+"โดยค่าที่กลับคืนมาคือ %d\n"
 
 #: ../lib/hddtemp.c:630 ../lib/hddtemp.c:660
 msgid "Suppress this message in future"
@@ -212,7 +228,9 @@ msgstr "ไม่ต้องแสดงข้อความนี้ในอ
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr "เกิดข้อผิดพลาดขณะเรียกทำงาน \"%s\":\n%s"
+msgstr ""
+"เกิดข้อผิดพลาดขณะเรียกทำงาน \"%s\":\n"
+"%s"
 
 #: ../lib/lmsensors.c:110
 msgid "LM Sensors"
@@ -231,7 +249,9 @@ msgstr "ปลั๊กอินเซนเซอร์ทำงานล้ม
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr "ดูเหมือนจะมีปัญหาในการอ่านค่าบางค่าจากเซนเซอร์\nจึงไม่สามารถแน่ใจได้ว่าปลั๊กอินจะทำงานถูกต้อง"
+msgstr ""
+"ดูเหมือนจะมีปัญหาในการอ่านค่าบางค่าจากเซนเซอร์\n"
+"จึงไม่สามารถแน่ใจได้ว่าปลั๊กอินจะทำงานถูกต้อง"
 
 #: ../lib/sensors-interface.c:172
 msgid "Sensors t_ype:"
@@ -328,14 +348,21 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-msgstr "เซนเซอร์ของ Xfce4 %s\nโปรแกรมนี้เผยแพร่ภายใต้เงื่อนไขของ GPL v2\nอ่านเนื้อหาของสัญญาอนุญาตได้ในซอร์สของโปรแกรม หรือที่ /usr/share/apps/LICENSES/GPL_V2 หรือที่ http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /"
+"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.txt\n"
+msgstr ""
+"เซนเซอร์ของ Xfce4 %s\n"
+"โปรแกรมนี้เผยแพร่ภายใต้เงื่อนไขของ GPL v2\n"
+"อ่านเนื้อหาของสัญญาอนุญาตได้ในซอร์สของโปรแกรม หรือที่ /usr/share/apps/LICENSES/GPL_V2 "
+"หรือที่ http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk "
+"temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -344,7 +371,18 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "เซนเซอร์ของ Xfce4 %s\nแสดงข้อมูลเกี่ยวกับเซนเซอร์ของฮาร์ดแวร์ของคุณ, สถานะ ACPI, อุณหภูมิของฮาร์ดดิสก์ และอุณหภูมิของ GPU ของ Nvidia\nรูปแบบการเรียก: \n  xfce4-sensors ตัวเลือก\nโดยที่ตัวเลือกที่ใช้ได้คือ:\n  -h, --help    แสดงข้อความวิธีใช้นี้\n  -l, --license แสดงข้อมูลสัญญาอนุญาต\n  -V, --version แสดงข้อมูลรุ่นของโปรแกรม\n\nโปรแกรมนี้เผยแพร่ภายใต้สัญญาอนุญาต GPL v2\n"
+msgstr ""
+"เซนเซอร์ของ Xfce4 %s\n"
+"แสดงข้อมูลเกี่ยวกับเซนเซอร์ของฮาร์ดแวร์ของคุณ, สถานะ ACPI, อุณหภูมิของฮาร์ดดิสก์ "
+"และอุณหภูมิของ GPU ของ Nvidia\n"
+"รูปแบบการเรียก: \n"
+"  xfce4-sensors ตัวเลือก\n"
+"โดยที่ตัวเลือกที่ใช้ได้คือ:\n"
+"  -h, --help    แสดงข้อความวิธีใช้นี้\n"
+"  -l, --license แสดงข้อมูลสัญญาอนุญาต\n"
+"  -V, --version แสดงข้อมูลรุ่นของโปรแกรม\n"
+"\n"
+"โปรแกรมนี้เผยแพร่ภายใต้สัญญาอนุญาต GPL v2\n"
 
 #: ../src/main.c:82
 #, c-format
@@ -371,7 +409,10 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "เครื่องมือแสดงเซนเซอร์\nดูเหมือนจะมีปัญหาในการอ่านค่าบางค่าจากเซนเซอร์\nจึงไม่สามารถแน่ใจได้ว่าปลั๊กอินจะทำงานถูกต้อง\n"
+msgstr ""
+"เครื่องมือแสดงเซนเซอร์\n"
+"ดูเหมือนจะมีปัญหาในการอ่านค่าบางค่าจากเซนเซอร์\n"
+"จึงไม่สามารถแน่ใจได้ว่าปลั๊กอินจะทำงานถูกต้อง\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"

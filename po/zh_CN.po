@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Chipong Luo <chipong.luo@yahoo.com>, 2011-2012
 # Hunt Xu <huntxu@live.cn>, 2009
@@ -11,127 +11,130 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-22 00:31+0200\n"
+"POT-Creation-Date: 2015-02-23 21:54+0100\n"
 "PO-Revision-Date: 2014-12-03 05:20+0000\n"
 "Last-Translator: 玉堂白鹤 <yjwork@qq.com>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/xfce-panel-plugins/language/zh_CN/)\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/xfce-"
+"panel-plugins/language/zh_CN/)\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:383
-#: ../panel-plugin/sensors-plugin.c:985
+#: ../panel-plugin/sensors-plugin.c:301 ../panel-plugin/sensors-plugin.c:397
+#: ../panel-plugin/sensors-plugin.c:999
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>传感器</b></span>"
 
 #. widget = sensors->eventbox;
-#: ../panel-plugin/sensors-plugin.c:788
+#: ../panel-plugin/sensors-plugin.c:802
 msgid "No sensors selected!"
 msgstr "未选择传感器！"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:828
+#: ../panel-plugin/sensors-plugin.c:842
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "传感器插件：\n读取传感器值时好像有问题。\n未能保证正确的操作。\n"
+msgstr ""
+"传感器插件：\n"
+"读取传感器值时好像有问题。\n"
+"未能保证正确的操作。\n"
 
-#: ../panel-plugin/sensors-plugin.c:1709
+#: ../panel-plugin/sensors-plugin.c:1722
 msgid "UI style:"
 msgstr "界面样式："
 
-#: ../panel-plugin/sensors-plugin.c:1710
+#: ../panel-plugin/sensors-plugin.c:1723
 msgid "_text"
 msgstr "文字(_T)"
 
-#: ../panel-plugin/sensors-plugin.c:1712
+#: ../panel-plugin/sensors-plugin.c:1725
 msgid "_progress bars"
 msgstr "进度条(_P)"
 
-#: ../panel-plugin/sensors-plugin.c:1714
+#: ../panel-plugin/sensors-plugin.c:1727
 msgid "_tachos"
 msgstr "转速计(_T)"
 
-#: ../panel-plugin/sensors-plugin.c:1759
+#: ../panel-plugin/sensors-plugin.c:1772
 msgid "Show _labels"
 msgstr "显示标签(_L)"
 
-#: ../panel-plugin/sensors-plugin.c:1789
+#: ../panel-plugin/sensors-plugin.c:1802
 msgid "Show colored _bars"
 msgstr "显示颜色条(_B)"
 
-#: ../panel-plugin/sensors-plugin.c:1817
+#: ../panel-plugin/sensors-plugin.c:1830
 msgid "_Show title"
 msgstr "显示标题(_S)"
 
-#: ../panel-plugin/sensors-plugin.c:1841
+#: ../panel-plugin/sensors-plugin.c:1854
 msgid "_Number of text lines:"
 msgstr "文字行数(_N)："
 
-#: ../panel-plugin/sensors-plugin.c:1876
+#: ../panel-plugin/sensors-plugin.c:1889
 msgid "F_ont size:"
 msgstr "字体大小(_O)："
 
-#. gtk_widget_set_sensitive(myFontBox,
-#. !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1883
+#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#: ../panel-plugin/sensors-plugin.c:1896
 msgid "x-small"
 msgstr "很小"
 
-#: ../panel-plugin/sensors-plugin.c:1884
+#: ../panel-plugin/sensors-plugin.c:1897
 msgid "small"
 msgstr "小"
 
-#: ../panel-plugin/sensors-plugin.c:1885
+#: ../panel-plugin/sensors-plugin.c:1898
 msgid "medium"
 msgstr "中等"
 
-#: ../panel-plugin/sensors-plugin.c:1886
+#: ../panel-plugin/sensors-plugin.c:1899
 msgid "large"
 msgstr "大"
 
-#: ../panel-plugin/sensors-plugin.c:1887
+#: ../panel-plugin/sensors-plugin.c:1900
 msgid "x-large"
 msgstr "很大"
 
-#: ../panel-plugin/sensors-plugin.c:1918
+#: ../panel-plugin/sensors-plugin.c:1931
 msgid "F_ont:"
 msgstr "字体(_O)："
 
-#: ../panel-plugin/sensors-plugin.c:1952
+#: ../panel-plugin/sensors-plugin.c:1965
 msgid "Show _Units"
 msgstr "显示单位(_U)"
 
-#: ../panel-plugin/sensors-plugin.c:1973
+#: ../panel-plugin/sensors-plugin.c:1986
 msgid "Small horizontal s_pacing"
 msgstr "小水平间距(_P)"
 
-#: ../panel-plugin/sensors-plugin.c:1995
+#: ../panel-plugin/sensors-plugin.c:2008
 msgid "Suppress messages"
 msgstr "不显示信息"
 
-#: ../panel-plugin/sensors-plugin.c:2013
+#: ../panel-plugin/sensors-plugin.c:2026
 msgid "Suppress tooltip"
 msgstr "阻止提示框"
 
-#: ../panel-plugin/sensors-plugin.c:2038
+#: ../panel-plugin/sensors-plugin.c:2051
 msgid "E_xecute on double click:"
 msgstr "双击时执行(_X)："
 
-#: ../panel-plugin/sensors-plugin.c:2081
+#: ../panel-plugin/sensors-plugin.c:2094
 msgid "_View"
 msgstr "视图(_V)"
 
-#: ../panel-plugin/sensors-plugin.c:2115
+#: ../panel-plugin/sensors-plugin.c:2128
 msgid "_Miscellaneous"
 msgstr "杂项(_M)"
 
-#: ../panel-plugin/sensors-plugin.c:2190 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2203 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:180
 msgid "Sensors Plugin"
 msgstr "传感器插件"
@@ -139,12 +142,14 @@ msgstr "传感器插件"
 #. gtk_cpu_paint(sensors->tachos [i][index_feature]);
 #. gtk_cpu_expose(sensors->tachos [i][index_feature], NULL);
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2229 ../src/actions.c:205
+#: ../panel-plugin/sensors-plugin.c:2242 ../src/actions.c:205
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr "您可以通过双击条目、编辑内容后按回车或选择不同的区域来更改一个功能的比如名称、颜色、最小/最大值等属性。"
+msgstr ""
+"您可以通过双击条目、编辑内容后按回车或选择不同的区域来更改一个功能的比如名"
+"称、颜色、最小/最大值等属性。"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -155,21 +160,20 @@ msgstr "您可以通过双击条目、编辑内容后按回车或选择不同的
 msgid "Hard disks"
 msgstr "硬盘"
 
-#: ../lib/acpi.c:529 ../lib/acpi.c:537
+#: ../lib/acpi.c:530 ../lib/acpi.c:538 ../lib/acpi.c:539
 msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power
-#. Interface"));
-#: ../lib/acpi.c:531
+#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#: ../lib/acpi.c:532
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ACPI v%s 区域"
 
 #. who knows, if we obtain non-NULL version at all...
 #. || g_strisempty(version))
-#: ../lib/acpi.c:669
+#: ../lib/acpi.c:673
 msgid "<Unknown>"
 msgstr "<未知>"
 
@@ -182,8 +186,7 @@ msgid "nvidia"
 msgstr "nvidia"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
-#. 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #: ../lib/nvidia.c:126 ../lib/hddtemp.c:729
 #, c-format
@@ -197,14 +200,25 @@ msgstr "S.M.A.R.T. 硬盘温度"
 #: ../lib/hddtemp.c:614
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is "
+"most probably due to the disks requiring root privileges to read their "
+"temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
+"restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "虽然 “hddtemp” 是可执行的但并未正确执行。这很可能是由于读取硬盘温度需要 root 权限，且 “hddtemp” 没有设置具有 root 权限。\n\n一个简单但不正当的解决方法是以 root 用户运行 “chmod u+s %s” 并重新启动此插件或此面板。\n呼叫 “%s” 时返回如下错误：\n%s\n返回值为 %d。\n"
+msgstr ""
+"虽然 “hddtemp” 是可执行的但并未正确执行。这很可能是由于读取硬盘温度需要 root "
+"权限，且 “hddtemp” 没有设置具有 root 权限。\n"
+"\n"
+"一个简单但不正当的解决方法是以 root 用户运行 “chmod u+s %s” 并重新启动此插件"
+"或此面板。\n"
+"呼叫 “%s” 时返回如下错误：\n"
+"%s\n"
+"返回值为 %d。\n"
 
 #: ../lib/hddtemp.c:630 ../lib/hddtemp.c:660
 msgid "Suppress this message in future"
@@ -215,7 +229,9 @@ msgstr "今后不再显示此信息"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr "执行 “%s” 时出错：\n%s"
+msgstr ""
+"执行 “%s” 时出错：\n"
+"%s"
 
 #: ../lib/lmsensors.c:110
 msgid "LM Sensors"
@@ -234,7 +250,9 @@ msgstr "传感器插件无效"
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr "读取传感器功能值时好像有问题。\n未能保证正确的操作。"
+msgstr ""
+"读取传感器功能值时好像有问题。\n"
+"未能保证正确的操作。"
 
 #: ../lib/sensors-interface.c:172
 msgid "Sensors t_ype:"
@@ -331,14 +349,21 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-msgstr "Xfce 4 传感器 %s\n此程序以 GPL v2 发布。\n许可协议正文可在程序源码档案中或在 /usr/share/apps/LICENSES/GPL_V2 下或在 http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt 中找到\n"
+"The license text can be found inside the program's source archive or under /"
+"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.txt\n"
+msgstr ""
+"Xfce 4 传感器 %s\n"
+"此程序以 GPL v2 发布。\n"
+"许可协议正文可在程序源码档案中或在 /usr/share/apps/LICENSES/GPL_V2 下或在 "
+"http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt 中找到\n"
 
 #: ../src/main.c:64
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk "
+"temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -347,7 +372,17 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Xfce 4 传感器 %s\n显示硬件传感器、ACPI 状态、硬盘温度和 Nvidia GPU 的温度。\n摘要：\n  xfce4-sensors 选项\n选项可以是下列中的一个或多个：\n  -h，--help    列印此帮助对话框。\n  -l，--license 列印许可协议信息。\n  -V，--version 列印版本信息。\n\n此程序以 GPL v2 发布。\n"
+msgstr ""
+"Xfce 4 传感器 %s\n"
+"显示硬件传感器、ACPI 状态、硬盘温度和 Nvidia GPU 的温度。\n"
+"摘要：\n"
+"  xfce4-sensors 选项\n"
+"选项可以是下列中的一个或多个：\n"
+"  -h，--help    列印此帮助对话框。\n"
+"  -l，--license 列印许可协议信息。\n"
+"  -V，--version 列印版本信息。\n"
+"\n"
+"此程序以 GPL v2 发布。\n"
 
 #: ../src/main.c:82
 #, c-format
@@ -374,7 +409,10 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "传感器查看器：\n读取传感器功能值时好像有问题。\n未能保证正确的操作。\n"
+msgstr ""
+"传感器查看器：\n"
+"读取传感器功能值时好像有问题。\n"
+"未能保证正确的操作。\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"

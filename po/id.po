@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Andhika Padmawan <andhika.padmawan@gmail.com>, 2008
 # Mohamad Hasan Al Banna, 2014
@@ -9,127 +9,130 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-22 00:31+0200\n"
+"POT-Creation-Date: 2015-02-23 21:54+0100\n"
 "PO-Revision-Date: 2014-05-23 17:50+0000\n"
 "Last-Translator: Mohamad Hasan Al Banna\n"
-"Language-Team: Indonesian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/id/)\n"
+"Language-Team: Indonesian (http://www.transifex.com/projects/p/xfce-panel-"
+"plugins/language/id/)\n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:383
-#: ../panel-plugin/sensors-plugin.c:985
+#: ../panel-plugin/sensors-plugin.c:301 ../panel-plugin/sensors-plugin.c:397
+#: ../panel-plugin/sensors-plugin.c:999
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Sensor</b></span>"
 
 #. widget = sensors->eventbox;
-#: ../panel-plugin/sensors-plugin.c:788
+#: ../panel-plugin/sensors-plugin.c:802
 msgid "No sensors selected!"
 msgstr "Tak ada sensor yang dipilih!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:828
+#: ../panel-plugin/sensors-plugin.c:842
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Plugin Sensor:\nKelihatannya terdapat masalah saat membaca nilai fitur sensor.\nEksekusi yang normal tidak dapat dijamin.\n"
+msgstr ""
+"Plugin Sensor:\n"
+"Kelihatannya terdapat masalah saat membaca nilai fitur sensor.\n"
+"Eksekusi yang normal tidak dapat dijamin.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1709
+#: ../panel-plugin/sensors-plugin.c:1722
 msgid "UI style:"
 msgstr "Gaya UI:"
 
-#: ../panel-plugin/sensors-plugin.c:1710
+#: ../panel-plugin/sensors-plugin.c:1723
 msgid "_text"
 msgstr "_teks"
 
-#: ../panel-plugin/sensors-plugin.c:1712
+#: ../panel-plugin/sensors-plugin.c:1725
 msgid "_progress bars"
 msgstr "_batang progres"
 
-#: ../panel-plugin/sensors-plugin.c:1714
+#: ../panel-plugin/sensors-plugin.c:1727
 msgid "_tachos"
 msgstr "_tachometer"
 
-#: ../panel-plugin/sensors-plugin.c:1759
+#: ../panel-plugin/sensors-plugin.c:1772
 msgid "Show _labels"
 msgstr "Tampilkan _label"
 
-#: ../panel-plugin/sensors-plugin.c:1789
+#: ../panel-plugin/sensors-plugin.c:1802
 msgid "Show colored _bars"
 msgstr "Tampilkan batang _berwarna"
 
-#: ../panel-plugin/sensors-plugin.c:1817
+#: ../panel-plugin/sensors-plugin.c:1830
 msgid "_Show title"
 msgstr "_Tampilkan judul"
 
-#: ../panel-plugin/sensors-plugin.c:1841
+#: ../panel-plugin/sensors-plugin.c:1854
 msgid "_Number of text lines:"
 msgstr "_Jumlah baris teks:"
 
-#: ../panel-plugin/sensors-plugin.c:1876
+#: ../panel-plugin/sensors-plugin.c:1889
 msgid "F_ont size:"
 msgstr "U_kuran fonta:"
 
-#. gtk_widget_set_sensitive(myFontBox,
-#. !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1883
+#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#: ../panel-plugin/sensors-plugin.c:1896
 msgid "x-small"
 msgstr "sangat kecil"
 
-#: ../panel-plugin/sensors-plugin.c:1884
+#: ../panel-plugin/sensors-plugin.c:1897
 msgid "small"
 msgstr "kecil"
 
-#: ../panel-plugin/sensors-plugin.c:1885
+#: ../panel-plugin/sensors-plugin.c:1898
 msgid "medium"
 msgstr "sedang"
 
-#: ../panel-plugin/sensors-plugin.c:1886
+#: ../panel-plugin/sensors-plugin.c:1899
 msgid "large"
 msgstr "besar"
 
-#: ../panel-plugin/sensors-plugin.c:1887
+#: ../panel-plugin/sensors-plugin.c:1900
 msgid "x-large"
 msgstr "sangat besar"
 
-#: ../panel-plugin/sensors-plugin.c:1918
+#: ../panel-plugin/sensors-plugin.c:1931
 msgid "F_ont:"
 msgstr "F_onta:"
 
-#: ../panel-plugin/sensors-plugin.c:1952
+#: ../panel-plugin/sensors-plugin.c:1965
 msgid "Show _Units"
 msgstr "Tampilkan _Unit"
 
-#: ../panel-plugin/sensors-plugin.c:1973
+#: ../panel-plugin/sensors-plugin.c:1986
 msgid "Small horizontal s_pacing"
 msgstr "P_emisah horizontal kecil"
 
-#: ../panel-plugin/sensors-plugin.c:1995
+#: ../panel-plugin/sensors-plugin.c:2008
 msgid "Suppress messages"
 msgstr "Kecilkan pesan"
 
-#: ../panel-plugin/sensors-plugin.c:2013
+#: ../panel-plugin/sensors-plugin.c:2026
 msgid "Suppress tooltip"
 msgstr "tooltip Suppress"
 
-#: ../panel-plugin/sensors-plugin.c:2038
+#: ../panel-plugin/sensors-plugin.c:2051
 msgid "E_xecute on double click:"
 msgstr "E_ksekusi pada klik ganda:"
 
-#: ../panel-plugin/sensors-plugin.c:2081
+#: ../panel-plugin/sensors-plugin.c:2094
 msgid "_View"
 msgstr "_Tampilan"
 
-#: ../panel-plugin/sensors-plugin.c:2115
+#: ../panel-plugin/sensors-plugin.c:2128
 msgid "_Miscellaneous"
 msgstr "_Lainnya"
 
-#: ../panel-plugin/sensors-plugin.c:2190 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2203 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:180
 msgid "Sensors Plugin"
 msgstr "Plugin Sensor"
@@ -137,12 +140,15 @@ msgstr "Plugin Sensor"
 #. gtk_cpu_paint(sensors->tachos [i][index_feature]);
 #. gtk_cpu_expose(sensors->tachos [i][index_feature], NULL);
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2229 ../src/actions.c:205
+#: ../panel-plugin/sensors-plugin.c:2242 ../src/actions.c:205
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr "Anda dapat mengubah properti fitur seperti nama, warna, nilai min/maks dengan klik ganda pada entri, sunting isi, dan menekan \"Kembali\" atau memilih bidang yang lain."
+msgstr ""
+"Anda dapat mengubah properti fitur seperti nama, warna, nilai min/maks "
+"dengan klik ganda pada entri, sunting isi, dan menekan \"Kembali\" atau "
+"memilih bidang yang lain."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -153,21 +159,20 @@ msgstr "Anda dapat mengubah properti fitur seperti nama, warna, nilai min/maks d
 msgid "Hard disks"
 msgstr "Cakram keras"
 
-#: ../lib/acpi.c:529 ../lib/acpi.c:537
+#: ../lib/acpi.c:530 ../lib/acpi.c:538 ../lib/acpi.c:539
 msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power
-#. Interface"));
-#: ../lib/acpi.c:531
+#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#: ../lib/acpi.c:532
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "Zona v%s ACPI"
 
 #. who knows, if we obtain non-NULL version at all...
 #. || g_strisempty(version))
-#: ../lib/acpi.c:669
+#: ../lib/acpi.c:673
 msgid "<Unknown>"
 msgstr "<Tak diketahui>"
 
@@ -180,8 +185,7 @@ msgid "nvidia"
 msgstr "nvidia"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
-#. 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #: ../lib/nvidia.c:126 ../lib/hddtemp.c:729
 #, c-format
@@ -195,14 +199,27 @@ msgstr "Temperatur cakram keras S.M.A.R.T."
 #: ../lib/hddtemp.c:614
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is "
+"most probably due to the disks requiring root privileges to read their "
+"temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
+"restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "\"hddtemp\" tak tereksekusi dengan benar, meskipun dapat dieksekusi. Ini mungkin karena cakram memerlukan hak akses root untuk membaca temperaturnya, dan \"hddtemp\" tidak diatur menggunakan uid root.\n\nCara yang mudah namun kotor adalah dengan menjalankan \"chmod u+s %s\" sebagai pengguna root kemudian start ulang plugin ini atau panelnya.\n\nMemanggil \"%s\" memberikan galat berikut:\n%s\ndengan nilai kembali %d.\n"
+msgstr ""
+"\"hddtemp\" tak tereksekusi dengan benar, meskipun dapat dieksekusi. Ini "
+"mungkin karena cakram memerlukan hak akses root untuk membaca temperaturnya, "
+"dan \"hddtemp\" tidak diatur menggunakan uid root.\n"
+"\n"
+"Cara yang mudah namun kotor adalah dengan menjalankan \"chmod u+s %s\" "
+"sebagai pengguna root kemudian start ulang plugin ini atau panelnya.\n"
+"\n"
+"Memanggil \"%s\" memberikan galat berikut:\n"
+"%s\n"
+"dengan nilai kembali %d.\n"
 
 #: ../lib/hddtemp.c:630 ../lib/hddtemp.c:660
 msgid "Suppress this message in future"
@@ -213,7 +230,9 @@ msgstr "Kecilkan pesan ini di masa depan"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr "Galat terjadi ketika mengeksekusi \"%s\":\n%s"
+msgstr ""
+"Galat terjadi ketika mengeksekusi \"%s\":\n"
+"%s"
 
 #: ../lib/lmsensors.c:110
 msgid "LM Sensors"
@@ -232,7 +251,9 @@ msgstr "Kegagalan Plugin Sensor"
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr "Kelihatannya terdapat masalah saat membaca nilai fitur sensor.\nEksekusi yang normal tidak dijamin."
+msgstr ""
+"Kelihatannya terdapat masalah saat membaca nilai fitur sensor.\n"
+"Eksekusi yang normal tidak dijamin."
 
 #: ../lib/sensors-interface.c:172
 msgid "Sensors t_ype:"
@@ -329,14 +350,22 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-msgstr "Sensor Xfce4 %s\nProgram ini dipublikasikan di bawah GPL v2.\nTeks lisensi dapat ditemukan di dalam arsip sumber program atau di bawah /usr/share/apps/LICENSES/GPL_V2 atau di http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /"
+"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.txt\n"
+msgstr ""
+"Sensor Xfce4 %s\n"
+"Program ini dipublikasikan di bawah GPL v2.\n"
+"Teks lisensi dapat ditemukan di dalam arsip sumber program atau di bawah /"
+"usr/share/apps/LICENSES/GPL_V2 atau di http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk "
+"temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -345,7 +374,18 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Sensor Xfce4 %s\nTampilkan informasi tentang sensor peranti keras, status ACPI, temperatur hardisk dan temperatur GPU NVidia anda.\nSinopsis: \n  xfce4-sensors opsi\nopsi merupakan satu atau beberapa opsi berikut:\n  -h, --help Cetak dialog bantuan ini.\n  -l, --license Cetak informasi lisensi.\n  -V, --version Cetak informasi versi.\n\nProgram ini dipublikasikan di bawah GPL v2.\n"
+msgstr ""
+"Sensor Xfce4 %s\n"
+"Tampilkan informasi tentang sensor peranti keras, status ACPI, temperatur "
+"hardisk dan temperatur GPU NVidia anda.\n"
+"Sinopsis: \n"
+"  xfce4-sensors opsi\n"
+"opsi merupakan satu atau beberapa opsi berikut:\n"
+"  -h, --help Cetak dialog bantuan ini.\n"
+"  -l, --license Cetak informasi lisensi.\n"
+"  -V, --version Cetak informasi versi.\n"
+"\n"
+"Program ini dipublikasikan di bawah GPL v2.\n"
 
 #: ../src/main.c:82
 #, c-format
@@ -372,7 +412,10 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Plugin Sensor:\nKelihatannya terdapat masalah saat membaca nilai fitur sensor.\nEksekusi yang normal tidak dapat dijamin.\n"
+msgstr ""
+"Plugin Sensor:\n"
+"Kelihatannya terdapat masalah saat membaca nilai fitur sensor.\n"
+"Eksekusi yang normal tidak dapat dijamin.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"

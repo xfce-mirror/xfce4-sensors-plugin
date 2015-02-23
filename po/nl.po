@@ -1,134 +1,138 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Pjotr123 <pjotrvertaalt@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-22 00:31+0200\n"
+"POT-Creation-Date: 2015-02-23 21:54+0100\n"
 "PO-Revision-Date: 2014-05-22 11:15+0000\n"
 "Last-Translator: Pjotr123 <pjotrvertaalt@gmail.com>\n"
-"Language-Team: Dutch (http://www.transifex.com/projects/p/xfce-panel-plugins/language/nl/)\n"
+"Language-Team: Dutch (http://www.transifex.com/projects/p/xfce-panel-plugins/"
+"language/nl/)\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:383
-#: ../panel-plugin/sensors-plugin.c:985
+#: ../panel-plugin/sensors-plugin.c:301 ../panel-plugin/sensors-plugin.c:397
+#: ../panel-plugin/sensors-plugin.c:999
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Sensoren</b></span>"
 
 #. widget = sensors->eventbox;
-#: ../panel-plugin/sensors-plugin.c:788
+#: ../panel-plugin/sensors-plugin.c:802
 msgid "No sensors selected!"
 msgstr "Geen sensors geselecteerd!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:828
+#: ../panel-plugin/sensors-plugin.c:842
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Sensors-invoegtoepassing:\nHet lijkt erop dat er een probleem was met het lezen van de waarde\nvan een sensorfunctie.\nCorrecte voortgang kan niet worden gegarandeerd.\n"
+msgstr ""
+"Sensors-invoegtoepassing:\n"
+"Het lijkt erop dat er een probleem was met het lezen van de waarde\n"
+"van een sensorfunctie.\n"
+"Correcte voortgang kan niet worden gegarandeerd.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1709
+#: ../panel-plugin/sensors-plugin.c:1722
 msgid "UI style:"
 msgstr "Stijl van gebruikersomgeving:"
 
-#: ../panel-plugin/sensors-plugin.c:1710
+#: ../panel-plugin/sensors-plugin.c:1723
 msgid "_text"
 msgstr "_tekst"
 
-#: ../panel-plugin/sensors-plugin.c:1712
+#: ../panel-plugin/sensors-plugin.c:1725
 msgid "_progress bars"
 msgstr "_voortgangsbalken"
 
-#: ../panel-plugin/sensors-plugin.c:1714
+#: ../panel-plugin/sensors-plugin.c:1727
 msgid "_tachos"
 msgstr "_snelheidsmeters"
 
-#: ../panel-plugin/sensors-plugin.c:1759
+#: ../panel-plugin/sensors-plugin.c:1772
 msgid "Show _labels"
 msgstr "_Toon etiketten"
 
-#: ../panel-plugin/sensors-plugin.c:1789
+#: ../panel-plugin/sensors-plugin.c:1802
 msgid "Show colored _bars"
 msgstr "Toon gekleurde _balken"
 
-#: ../panel-plugin/sensors-plugin.c:1817
+#: ../panel-plugin/sensors-plugin.c:1830
 msgid "_Show title"
 msgstr "_Toon titel"
 
-#: ../panel-plugin/sensors-plugin.c:1841
+#: ../panel-plugin/sensors-plugin.c:1854
 msgid "_Number of text lines:"
 msgstr "_Aantal tekstregels:"
 
-#: ../panel-plugin/sensors-plugin.c:1876
+#: ../panel-plugin/sensors-plugin.c:1889
 msgid "F_ont size:"
 msgstr "Grootte van _lettertype:"
 
-#. gtk_widget_set_sensitive(myFontBox,
-#. !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1883
+#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#: ../panel-plugin/sensors-plugin.c:1896
 msgid "x-small"
 msgstr "x-klein"
 
-#: ../panel-plugin/sensors-plugin.c:1884
+#: ../panel-plugin/sensors-plugin.c:1897
 msgid "small"
 msgstr "klein"
 
-#: ../panel-plugin/sensors-plugin.c:1885
+#: ../panel-plugin/sensors-plugin.c:1898
 msgid "medium"
 msgstr "gemiddeld"
 
-#: ../panel-plugin/sensors-plugin.c:1886
+#: ../panel-plugin/sensors-plugin.c:1899
 msgid "large"
 msgstr "groot"
 
-#: ../panel-plugin/sensors-plugin.c:1887
+#: ../panel-plugin/sensors-plugin.c:1900
 msgid "x-large"
 msgstr "x-groot"
 
-#: ../panel-plugin/sensors-plugin.c:1918
+#: ../panel-plugin/sensors-plugin.c:1931
 msgid "F_ont:"
 msgstr "_Lettertype:"
 
-#: ../panel-plugin/sensors-plugin.c:1952
+#: ../panel-plugin/sensors-plugin.c:1965
 msgid "Show _Units"
 msgstr "Toon _eenheden"
 
-#: ../panel-plugin/sensors-plugin.c:1973
+#: ../panel-plugin/sensors-plugin.c:1986
 msgid "Small horizontal s_pacing"
 msgstr "Geringe horizontale _tussenruimtes"
 
-#: ../panel-plugin/sensors-plugin.c:1995
+#: ../panel-plugin/sensors-plugin.c:2008
 msgid "Suppress messages"
 msgstr "Onderdruk boodschappen"
 
-#: ../panel-plugin/sensors-plugin.c:2013
+#: ../panel-plugin/sensors-plugin.c:2026
 msgid "Suppress tooltip"
 msgstr "Onderdruk gereedschaptip"
 
-#: ../panel-plugin/sensors-plugin.c:2038
+#: ../panel-plugin/sensors-plugin.c:2051
 msgid "E_xecute on double click:"
 msgstr "_Uitvoeren bij dubbelklikken:"
 
-#: ../panel-plugin/sensors-plugin.c:2081
+#: ../panel-plugin/sensors-plugin.c:2094
 msgid "_View"
 msgstr "_Weergeven"
 
-#: ../panel-plugin/sensors-plugin.c:2115
+#: ../panel-plugin/sensors-plugin.c:2128
 msgid "_Miscellaneous"
 msgstr "_Gemengd"
 
-#: ../panel-plugin/sensors-plugin.c:2190 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2203 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:180
 msgid "Sensors Plugin"
 msgstr "Sensors-invoegtoepassing"
@@ -136,12 +140,15 @@ msgstr "Sensors-invoegtoepassing"
 #. gtk_cpu_paint(sensors->tachos [i][index_feature]);
 #. gtk_cpu_expose(sensors->tachos [i][index_feature], NULL);
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2229 ../src/actions.c:205
+#: ../panel-plugin/sensors-plugin.c:2242 ../src/actions.c:205
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr "U kunt de eigenschappen van een functie veranderen, zoals naam, kleuren of min/max-waarde, door te dubbelklikken op het veld, de inhoud te bewerken, en te drukken op 'Return' of een ander veld te kiezen."
+msgstr ""
+"U kunt de eigenschappen van een functie veranderen, zoals naam, kleuren of "
+"min/max-waarde, door te dubbelklikken op het veld, de inhoud te bewerken, en "
+"te drukken op 'Return' of een ander veld te kiezen."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -152,21 +159,20 @@ msgstr "U kunt de eigenschappen van een functie veranderen, zoals naam, kleuren 
 msgid "Hard disks"
 msgstr "Harde schijven"
 
-#: ../lib/acpi.c:529 ../lib/acpi.c:537
+#: ../lib/acpi.c:530 ../lib/acpi.c:538 ../lib/acpi.c:539
 msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power
-#. Interface"));
-#: ../lib/acpi.c:531
+#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
+#: ../lib/acpi.c:532
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ACPI v%s zones"
 
 #. who knows, if we obtain non-NULL version at all...
 #. || g_strisempty(version))
-#: ../lib/acpi.c:669
+#: ../lib/acpi.c:673
 msgid "<Unknown>"
 msgstr "<Unknown>"
 
@@ -179,8 +185,7 @@ msgid "nvidia"
 msgstr "nvidia"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
-#. 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
 #. } else { // Celsius
 #: ../lib/nvidia.c:126 ../lib/hddtemp.c:729
 #, c-format
@@ -194,14 +199,27 @@ msgstr "S.M.A.R.T.-temperaturen van harde schijf"
 #: ../lib/hddtemp.c:614
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is "
+"most probably due to the disks requiring root privileges to read their "
+"temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
+"restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "'hddtemp' werd niet correct uitgevoerd, hoewel het uitvoerbaar is. Dit komt hoogstwaarschijnlijk doordat de schijven rootrechten nodig hebben om hun temperaturen te lezen, en doordat 'hddtemp' geen setuid root is.\n\nEen snelle maar vuile oplossing is om 'chmod u+s %s' uit te voeren als rootgebruiker en deze invoegtoepassing of zijn werkbalk te herstarten.\n\nAanroepen van '%s' gaf de volgende fout:\n%s\nmet een terugmeldwaarde van %d.\n"
+msgstr ""
+"'hddtemp' werd niet correct uitgevoerd, hoewel het uitvoerbaar is. Dit komt "
+"hoogstwaarschijnlijk doordat de schijven rootrechten nodig hebben om hun "
+"temperaturen te lezen, en doordat 'hddtemp' geen setuid root is.\n"
+"\n"
+"Een snelle maar vuile oplossing is om 'chmod u+s %s' uit te voeren als "
+"rootgebruiker en deze invoegtoepassing of zijn werkbalk te herstarten.\n"
+"\n"
+"Aanroepen van '%s' gaf de volgende fout:\n"
+"%s\n"
+"met een terugmeldwaarde van %d.\n"
 
 #: ../lib/hddtemp.c:630 ../lib/hddtemp.c:660
 msgid "Suppress this message in future"
@@ -212,7 +230,9 @@ msgstr "Onderdruk deze boodschap in de toekomst"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr "Er trad een fout op bij het uitvoeren van '%s':\n%s"
+msgstr ""
+"Er trad een fout op bij het uitvoeren van '%s':\n"
+"%s"
 
 #: ../lib/lmsensors.c:110
 msgid "LM Sensors"
@@ -231,7 +251,9 @@ msgstr "Sensors-invoegtoepassing mislukking"
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr "Het lijkt erop dat er een probleem was met het uitlezen van een\nsensorfunctiewaarde. Juiste voortgang kan niet worden gegarandeerd."
+msgstr ""
+"Het lijkt erop dat er een probleem was met het uitlezen van een\n"
+"sensorfunctiewaarde. Juiste voortgang kan niet worden gegarandeerd."
 
 #: ../lib/sensors-interface.c:172
 msgid "Sensors t_ype:"
@@ -328,14 +350,22 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-msgstr "Xfce4 Sensors %s\nDit programma wordt gepubliceerd onder de GPL v2.\nDe licentietekst zit in het bronarchief van het programma of onder /usr/share/apps/LICENSES/GPL_V2 of op http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /"
+"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.txt\n"
+msgstr ""
+"Xfce4 Sensors %s\n"
+"Dit programma wordt gepubliceerd onder de GPL v2.\n"
+"De licentietekst zit in het bronarchief van het programma of onder /usr/"
+"share/apps/LICENSES/GPL_V2 of op http://www.gnu.org/licenses/old-licenses/"
+"gpl-2.0.txt\n"
 
 #: ../src/main.c:64
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk "
+"temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -344,7 +374,18 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Xfce4 Sensors %s\nToont informatie over uw apparatuursensors, ACPI-status, harde-schijf-temperaturen en Nvidia GPU-temperatuur.\nSamenvatting: \n  xfce4-sensors opties\nwaar opties zijn een of meer van de volgende:\n  -h, --help    Druk deze hulpdialoog af.\n  -l, --license Druk licentie-informatie af.\n  -V, --version Druk versie-informatie af.\n\nDit programma wordt gepubliceerd onder de GPL v2.\n"
+msgstr ""
+"Xfce4 Sensors %s\n"
+"Toont informatie over uw apparatuursensors, ACPI-status, harde-schijf-"
+"temperaturen en Nvidia GPU-temperatuur.\n"
+"Samenvatting: \n"
+"  xfce4-sensors opties\n"
+"waar opties zijn een of meer van de volgende:\n"
+"  -h, --help    Druk deze hulpdialoog af.\n"
+"  -l, --license Druk licentie-informatie af.\n"
+"  -V, --version Druk versie-informatie af.\n"
+"\n"
+"Dit programma wordt gepubliceerd onder de GPL v2.\n"
 
 #: ../src/main.c:82
 #, c-format
@@ -371,7 +412,11 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Sensorkijker:\nHet lijkt alsof er een probleem was met uitlezen van een sensorfunctiewaarde.\nJuiste voortgang kan niet worden gegarandeerd.\n"
+msgstr ""
+"Sensorkijker:\n"
+"Het lijkt alsof er een probleem was met uitlezen van een "
+"sensorfunctiewaarde.\n"
+"Juiste voortgang kan niet worden gegarandeerd.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
