@@ -345,9 +345,9 @@ sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
                   break;
               //DBG("k=%d, chip=%p, name=.\n", k, chip);
               }
-            while (chip!=NULL && strcmp(chip->sensorId, sensorName) != 0 );
+            while (chip!=NULL && sensorName != NULL && strcmp(chip->sensorId, sensorName) != 0 );
             //DBG("Found a chip.\n");
-            if ( chip!=NULL && strcmp(chip->sensorId, sensorName)==0 ) {
+            if ( chip!=NULL && sensorName != NULL && strcmp(chip->sensorId, sensorName)==0 ) {
 
                 for (j=0; j<chip->num_features; j++) {
                     chipfeature = (t_chipfeature *) g_ptr_array_index (
@@ -421,7 +421,8 @@ sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 
             } /* end if chip && strcmp */
 
-            g_free (sensorName);
+            if (sensorName != NULL)
+              g_free (sensorName);
 
         } /* end if xfce_rc_has_group (rc, rc_chip) */
 
