@@ -86,14 +86,23 @@ int
 read_thermal_zone (t_chip *chip)
 {
     DIR *d;
-    FILE *file;
-    char *zone, *filename;
+    FILE *file; 
+    char *filename;
     struct dirent *de;
     t_chipfeature *chipfeature;
+#ifdef HAVE_SYSFS_ACPI
+    char buf[1024];
+#else
+    char *zone;
+#endif
 
     TRACE ("enters read_thermal_zone");
 
+#ifdef HAVE_SYSFS_ACPI
+    if ((chdir ("/sys/class/") == 0) && (chdir ("thermal/") == 0))
+#else
     if ((chdir (ACPI_PATH) == 0) && (chdir (ACPI_DIR_THERMAL) == 0))
+#endif
     {
         d = opendir (".");
         if (!d) {
@@ -107,13 +116,17 @@ read_thermal_zone (t_chip *chip)
             if (strncmp(de->d_name, ".", 1)==0)
                 continue;
 
+#ifdef HAVE_SYSFS_ACPI
+            filename = g_strdup_printf ("/sys/class/thermal/%s/temp", de->d_name);
+#else
             filename = g_strdup_printf ("%s/%s/%s/%s", ACPI_PATH,
                                         ACPI_DIR_THERMAL, de->d_name,
                                         ACPI_FILE_THERMAL);
+#endif
             file = fopen (filename, "r");
             if (file)
             {
-                //printf ("parsing temperature file...\n");
+                printf ("parsing temperature file \"%s\"...\n", filename);
                 /* if (acpi_ignore_directory_entry (de))
                     continue; */
 
@@ -126,9 +139,19 @@ read_thermal_zone (t_chip *chip)
                 chipfeature->formatted_value = NULL; /*  Gonna refresh it in
                                                         sensors_get_wrapper or some
                                                         other functions */
+
+#ifdef HAVE_SYSFS_ACPI
+                if (fgets (buf, 1024, file)!=NULL)
+                {
+                    cut_newline (buf);
+                    chipfeature->raw_value = strtod (buf, NULL) / 1000.0;
+                    DBG ("Raw-Value=%f\n", chipfeature->raw_value);
+                }
+#else
                 zone = g_strdup_printf ("%s/%s", ACPI_DIR_THERMAL, de->d_name);
                 chipfeature->raw_value = get_acpi_zone_value (zone, ACPI_FILE_THERMAL);
                 g_free (zone);
+#endif
 
                 chipfeature->valid = TRUE;
                 chipfeature->min_value = 20.0;
@@ -568,6 +591,11 @@ refresh_acpi (gpointer chip_feature, gpointer data)
 {
     char *file, *zone, *state;
     t_chipfeature *cf;
+    
+#ifdef HAVE_SYSFS_ACPI
+    FILE *f = NULL;
+    char buf[1024];
+#endif
 
     TRACE ("enters refresh_acpi");
 
@@ -577,8 +605,22 @@ refresh_acpi (gpointer chip_feature, gpointer data)
 
     switch (cf->class) {
         case TEMPERATURE:
+#ifdef HAVE_SYSFS_ACPI
+            zone = g_strdup_printf ("/sys/class/thermal_zone/%s/temp", cf->devicename);
+            f = fopen(zone, "r");
+            if (f != NULL)
+            {
+              if (fgets (buf, 1024, f))
+              {
+                cut_newline(buf);
+                cf->raw_value = strtod(buf, NULL) / 1000.0;
+              }
+              fclose (f);              
+            }
+#else
             zone = g_strdup_printf ("%s/%s", ACPI_DIR_THERMAL, cf->devicename);
             cf->raw_value = get_acpi_zone_value (zone, ACPI_FILE_THERMAL);
+#endif
             g_free (zone);
             /* g_free (cf->formatted_value);
             cf->formatted_value = g_strdup_printf (_("%+5.1f °C"), cf->raw_value); */
