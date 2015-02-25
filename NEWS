@@ -36,3 +36,7 @@
         Bug 9962: smarter ACPI battery value reading
         Bug 10840: suppress tooltip
         Bug 4142: Suppress notification warnings for hddtemp after having displayed once
+        Bug 11544: NULL pointer checks
+        Bug 11252: Removed gsources
+        Bug 11596: Recover directory "m4" in autogen.sh
+        Bug 11012: ACPI thermal zones not shown
