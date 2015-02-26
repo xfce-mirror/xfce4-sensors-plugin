@@ -4,7 +4,7 @@ dnl
 dnl xfce4-sensors-plugin - Sensors plugin for xfce4-panel
 dnl
 dnl 2003,2004, 2007 Benedikt Meurer <benny@xfce.org>
-dnl 2007-2011,2014 Fabian Nowak <timystery@arcor.de>
+dnl 2007-2011,2014-2015 Fabian Nowak <timystery@arcor.de>
 dnl
 
 m4_define([libxfce4sensors_verinfo], [3:4:2])

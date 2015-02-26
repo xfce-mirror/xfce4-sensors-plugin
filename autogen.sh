@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Copyright (c) 2002-2010 Xfce Development Team
+# Copyright (c) 2002-2015 Xfce Development Team
 #
 
 (type xdt-autogen) >/dev/null 2>&1 || {
