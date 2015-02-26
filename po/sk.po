@@ -1,137 +1,135 @@
-# Slovak translations for xfce4-sensors-plugin package.
-# Copyright (C) 2006 THE xfce4-sensors-plugin'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the xfce4-sensors-plugin package.
-# Tomáš Vadina <kyberdev@gmail.com>, 2011.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Slavko <linux@slavino.sk>, 2015
+# Tomáš Vadina <tomasvadina+transifex@cryptolab.net>, 2011
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-sensors-plugin\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-23 21:54+0100\n"
-"PO-Revision-Date: 2011-08-03 20:06+0200\n"
-"Last-Translator: Tomáš Vadina <kyberdev@gmail.com>\n"
-"Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
-"Language: sk\n"
+"POT-Creation-Date: 2014-05-22 00:31+0200\n"
+"PO-Revision-Date: 2015-02-26 12:00+0000\n"
+"Last-Translator: Slavko <linux@slavino.sk>\n"
+"Language-Team: Slovak (http://www.transifex.com/projects/p/xfce-panel-plugins/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Slovak\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
+"Language: sk\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: ../panel-plugin/sensors-plugin.c:301 ../panel-plugin/sensors-plugin.c:397
-#: ../panel-plugin/sensors-plugin.c:999
-#, fuzzy
+#: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:383
+#: ../panel-plugin/sensors-plugin.c:985
 msgid "<span><b>Sensors</b></span>"
-msgstr "<span foreground=\"#000000\"><b>Senzory</b></span>"
+msgstr "<span><b>Senzory</b></span>"
 
 #. widget = sensors->eventbox;
-#: ../panel-plugin/sensors-plugin.c:802
+#: ../panel-plugin/sensors-plugin.c:788
 msgid "No sensors selected!"
 msgstr "Neboli nájdené žiadne senzory!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:842
+#: ../panel-plugin/sensors-plugin.c:828
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"Zásuvný modul Senzory:\n"
-"Pri čítaní hodnoty senzora sa vyskytla chyba.\n"
-"Správne fungovanie nie je zaručené.\n"
+msgstr "Zásuvný modul Senzory:\nPri čítaní hodnoty senzora sa vyskytla chyba.\nSprávne fungovanie nie je zaručené.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1722
+#: ../panel-plugin/sensors-plugin.c:1709
 msgid "UI style:"
 msgstr "Štýl používateľského rozhrania:"
 
-#: ../panel-plugin/sensors-plugin.c:1723
+#: ../panel-plugin/sensors-plugin.c:1710
 msgid "_text"
 msgstr "_text"
 
-#: ../panel-plugin/sensors-plugin.c:1725
+#: ../panel-plugin/sensors-plugin.c:1712
 msgid "_progress bars"
 msgstr "ukazovateľ _priebehu"
 
-#: ../panel-plugin/sensors-plugin.c:1727
+#: ../panel-plugin/sensors-plugin.c:1714
 msgid "_tachos"
 msgstr "o_táčkomery"
 
-#: ../panel-plugin/sensors-plugin.c:1772
+#: ../panel-plugin/sensors-plugin.c:1759
 msgid "Show _labels"
 msgstr "Zobraziť pop_isy"
 
-#: ../panel-plugin/sensors-plugin.c:1802
+#: ../panel-plugin/sensors-plugin.c:1789
 msgid "Show colored _bars"
 msgstr "Zobraziť fa_rebné stĺpce"
 
-#: ../panel-plugin/sensors-plugin.c:1830
+#: ../panel-plugin/sensors-plugin.c:1817
 msgid "_Show title"
 msgstr "_Zobraziť názov"
 
-#: ../panel-plugin/sensors-plugin.c:1854
+#: ../panel-plugin/sensors-plugin.c:1841
 msgid "_Number of text lines:"
 msgstr "_Počet textových riadkov:"
 
-#: ../panel-plugin/sensors-plugin.c:1889
+#: ../panel-plugin/sensors-plugin.c:1876
 msgid "F_ont size:"
 msgstr "Veľ_kosť písma:"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1896
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
+#: ../panel-plugin/sensors-plugin.c:1883
 msgid "x-small"
 msgstr "veľmi malé"
 
-#: ../panel-plugin/sensors-plugin.c:1897
+#: ../panel-plugin/sensors-plugin.c:1884
 msgid "small"
 msgstr "malé"
 
-#: ../panel-plugin/sensors-plugin.c:1898
+#: ../panel-plugin/sensors-plugin.c:1885
 msgid "medium"
 msgstr "stredné"
 
-#: ../panel-plugin/sensors-plugin.c:1899
+#: ../panel-plugin/sensors-plugin.c:1886
 msgid "large"
 msgstr "veľké"
 
-#: ../panel-plugin/sensors-plugin.c:1900
+#: ../panel-plugin/sensors-plugin.c:1887
 msgid "x-large"
 msgstr "veľmi veľké"
 
-#: ../panel-plugin/sensors-plugin.c:1931
+#: ../panel-plugin/sensors-plugin.c:1918
 msgid "F_ont:"
 msgstr "Písm_o:"
 
-#: ../panel-plugin/sensors-plugin.c:1965
+#: ../panel-plugin/sensors-plugin.c:1952
 msgid "Show _Units"
 msgstr "Zobraziť j_ednotky"
 
-#: ../panel-plugin/sensors-plugin.c:1986
+#: ../panel-plugin/sensors-plugin.c:1973
 msgid "Small horizontal s_pacing"
 msgstr "Malý vodorovný oddeľovací _priestor"
 
-#: ../panel-plugin/sensors-plugin.c:2008
+#: ../panel-plugin/sensors-plugin.c:1995
 msgid "Suppress messages"
 msgstr "Potlačiť správy"
 
-#: ../panel-plugin/sensors-plugin.c:2026
+#: ../panel-plugin/sensors-plugin.c:2013
 msgid "Suppress tooltip"
-msgstr ""
+msgstr "Potlačiť popisy"
 
-#: ../panel-plugin/sensors-plugin.c:2051
+#: ../panel-plugin/sensors-plugin.c:2038
 msgid "E_xecute on double click:"
 msgstr "_Spustiť pri dvojitom kliknutí"
 
-#: ../panel-plugin/sensors-plugin.c:2094
+#: ../panel-plugin/sensors-plugin.c:2081
 msgid "_View"
 msgstr "_Zobrazenie"
 
-#: ../panel-plugin/sensors-plugin.c:2128
+#: ../panel-plugin/sensors-plugin.c:2115
 msgid "_Miscellaneous"
 msgstr "_Rôzne"
 
-#: ../panel-plugin/sensors-plugin.c:2203 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2190 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:180
 msgid "Sensors Plugin"
 msgstr "Zásuvný modul Senzory"
@@ -139,15 +137,12 @@ msgstr "Zásuvný modul Senzory"
 #. gtk_cpu_paint(sensors->tachos [i][index_feature]);
 #. gtk_cpu_expose(sensors->tachos [i][index_feature], NULL);
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2242 ../src/actions.c:205
+#: ../panel-plugin/sensors-plugin.c:2229 ../src/actions.c:205
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr ""
-"Vlastnosti, ako napríklad názov, farby, najnižšia a najvyššia hodnota môžete "
-"zmeniť dvojitým kliknutím na položku, úpravou obsahu a stlačením klávesu "
-"\"Return\" alebo výberom iného poľa."
+msgstr "Vlastnosti, ako napríklad názov, farby, najnižšia a najvyššia hodnota môžete zmeniť dvojitým kliknutím na položku, úpravou obsahu a stlačením klávesu \"Return\" alebo výberom iného poľa."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -158,20 +153,21 @@ msgstr ""
 msgid "Hard disks"
 msgstr "Pevné disky"
 
-#: ../lib/acpi.c:530 ../lib/acpi.c:538 ../lib/acpi.c:539
+#: ../lib/acpi.c:529 ../lib/acpi.c:537
 msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
-#: ../lib/acpi.c:532
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
+#: ../lib/acpi.c:531
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "Zóny ACPI v%s"
 
 #. who knows, if we obtain non-NULL version at all...
 #. || g_strisempty(version))
-#: ../lib/acpi.c:673
+#: ../lib/acpi.c:669
 msgid "<Unknown>"
 msgstr "<Neznámy>"
 
@@ -184,7 +180,8 @@ msgid "nvidia"
 msgstr "nvidia"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
 #. } else { // Celsius
 #: ../lib/nvidia.c:126 ../lib/hddtemp.c:729
 #, c-format
@@ -198,28 +195,14 @@ msgstr "Teploty pevných diskov zo systému S.M.A.R.T."
 #: ../lib/hddtemp.c:614
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr ""
-"Aplikácia \"hddtemp\" sa nespustila správne aj napriek tomu, že je "
-"spustiteľná. Disky väčšinou vyžadujú práva používateľa root, avšak aplikácia "
-"\"hddtemp\" nemá nastavený bit SUID.\n"
-"\n"
-"Jednoduchým, ale nečistým riešením je spustenie príkazu \"chmod u+s %s\" pod "
-"používateľom root a následné opätovné spustenie tohoto zásuvného modulu, "
-"alebo jeho panelu.\n"
-"\n"
-"Volanie \"%s\" vrátilo túto chybu: \n"
-"%s\n"
-"s návratovou hodnotou %d.\n"
+msgstr "Aplikácia \"hddtemp\" sa nespustila správne aj napriek tomu, že je spustiteľná. Disky väčšinou vyžadujú práva používateľa root, avšak aplikácia \"hddtemp\" nemá nastavený bit SUID.\n\nJednoduchým, ale nečistým riešením je spustenie príkazu \"chmod u+s %s\" pod používateľom root a následné opätovné spustenie tohoto zásuvného modulu, alebo jeho panelu.\n\nVolanie \"%s\" vrátilo túto chybu: \n%s\ns návratovou hodnotou %d.\n"
 
 #: ../lib/hddtemp.c:630 ../lib/hddtemp.c:660
 msgid "Suppress this message in future"
@@ -249,9 +232,7 @@ msgstr "Zlyhanie zásuvného modulu Senzory"
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr ""
-"Pri čítaní hodnoty senzorov zrejme došlo k problému.\n"
-"Nie je možné zaručiť správne fungovanie."
+msgstr "Pri čítaní hodnoty senzorov zrejme došlo k problému.\nNie je možné zaručiť správne fungovanie."
 
 #: ../lib/sensors-interface.c:172
 msgid "Sensors t_ype:"
@@ -310,20 +291,20 @@ msgid "No sensors found!"
 msgstr "Senzory nenájdené!"
 
 #: ../lib/sensors-interface-common.c:144
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f °F"
-msgstr "%.1f °F"
+msgstr "%.0f °F"
 
 #. Celsius
 #: ../lib/sensors-interface-common.c:147
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f °C"
-msgstr "%.1f °C"
+msgstr "%.0f °C"
 
 #: ../lib/sensors-interface-common.c:152
 #, c-format
 msgid "%+.3f V"
-msgstr ""
+msgstr "%+.3f V"
 
 #: ../lib/sensors-interface-common.c:156
 #, c-format
@@ -348,22 +329,14 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
-msgstr ""
-"Senzory %s pre Xfce4\n"
-"Tento program je vydaný pod licenciou GPL v2.\n"
-"Licenciu nájdete v archíve zdrojového kódu tohoto programu, alebo v "
-"priečinku /usr/share/apps/LICENSES/GPL_V2 alebo na adrese http://www.gnu.org/"
-"licenses/old-licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Senzory %s pre Xfce4\nTento program je vydaný pod licenciou GPL v2.\nLicenciu nájdete v archíve zdrojového kódu tohoto programu, alebo v priečinku /usr/share/apps/LICENSES/GPL_V2 alebo na adrese http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk "
-"temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -372,18 +345,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr ""
-"Senzory %s pre Xfce4\n"
-"Zobrazuje informácie o senzoroch, stave ACPI, teplotách pevných diskov a "
-"teplotách grafických procesorov Nvidia.\n"
-"Použitie:\n"
-"  xfce4-sensors možnosti\n"
-"kde možnosti sú jeden alebo viac nasledujúcich prepínačov:\n"
-"  -h, --help    Zobrazí toto dialógové okno pomocníka.\n"
-"  -l, --license Zobrazí informácie o licencii.\n"
-"  -v, --version Zobrazí informácie o verzii.\n"
-"\n"
-"Tento program je vydaný pod licenciou GPL v2.\n"
+msgstr "Senzory %s pre Xfce4\nZobrazuje informácie o senzoroch, stave ACPI, teplotách pevných diskov a teplotách grafických procesorov Nvidia.\nPoužitie:\n  xfce4-sensors možnosti\nkde možnosti sú jeden alebo viac nasledujúcich prepínačov:\n  -h, --help    Zobrazí toto dialógové okno pomocníka.\n  -l, --license Zobrazí informácie o licencii.\n  -v, --version Zobrazí informácie o verzii.\n\nTento program je vydaný pod licenciou GPL v2.\n"
 
 #: ../src/main.c:82
 #, c-format
@@ -410,10 +372,7 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"Prehliadač senzorov:\n"
-"Pri čítaní hodnôt senzorov nastali problémy.\n"
-"Nie je možné zaručiť správne fungovanie.\n"
+msgstr "Prehliadač senzorov:\nPri čítaní hodnôt senzorov nastali problémy.\nNie je možné zaručiť správne fungovanie.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
@@ -431,6 +390,3 @@ msgstr "Prehliadač hodnôt senzorov"
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "Zásuvný modul Senzory"
-
-#~ msgid "%+.2f V"
-#~ msgstr "%+.2f V"
