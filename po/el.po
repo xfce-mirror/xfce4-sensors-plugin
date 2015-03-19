@@ -1,139 +1,136 @@
-# Greek translations for xfce4-sensors-plugin package.
-# Copyright (C) 2004-2005 Fabian Nowak.
-# This file is distributed under the same license as the xfce4-sensors-plugin package.
-# Stavros Giannouris <stavrosg@serverhive.com>, 2005.
-# Efstathios Iosifidis <iosifidis@opensuse.org>, 2012.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Efstathios Iosifidis <iefstathios@gmail.com>, 2015
+# Efstathios Iosifidis <iosifidis@opensuse.org>, 2012
+# Stavros Giannouris <stavrosg@serverhive.com>, 2005
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-23 21:54+0100\n"
-"PO-Revision-Date: 2012-05-20 11:41+0300\n"
-"Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
-"Language-Team: Ελληνικά, Σύγχρονα <opensuse-translation-el@opensuse.org>\n"
-"Language: el\n"
+"POT-Creation-Date: 2014-05-22 00:31+0200\n"
+"PO-Revision-Date: 2015-03-19 00:24+0000\n"
+"Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>\n"
+"Language-Team: Greek (http://www.transifex.com/projects/p/xfce-panel-plugins/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bits\n"
-"X-Poedit-Country: GREECE\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/sensors-plugin.c:301 ../panel-plugin/sensors-plugin.c:397
-#: ../panel-plugin/sensors-plugin.c:999
-#, fuzzy
+#: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:383
+#: ../panel-plugin/sensors-plugin.c:985
 msgid "<span><b>Sensors</b></span>"
-msgstr "<span foreground=\"#000000\"><b>Αισθητήρες</b></span>"
+msgstr ""
 
 #. widget = sensors->eventbox;
-#: ../panel-plugin/sensors-plugin.c:802
+#: ../panel-plugin/sensors-plugin.c:788
 msgid "No sensors selected!"
 msgstr "Δεν επιλέχθηκαν αισθητήρες!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:842
+#: ../panel-plugin/sensors-plugin.c:828
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-" \n"
-"Πρόσθετο αισθητήρων: \n"
-"Όπως φαίνεται υπήρξε πρόβλημα κατά την ανάγνωση κάποιου αισθητήρα.\n"
-"Δεν είναι εγγυημένη η κανονική συνέχεια.\n"
+msgstr " \nΠρόσθετο αισθητήρων: \nΌπως φαίνεται υπήρξε πρόβλημα κατά την ανάγνωση κάποιου αισθητήρα.\nΔεν είναι εγγυημένη η κανονική συνέχεια.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1722
+#: ../panel-plugin/sensors-plugin.c:1709
 msgid "UI style:"
 msgstr "Στυλ διεπαφής:"
 
-#: ../panel-plugin/sensors-plugin.c:1723
+#: ../panel-plugin/sensors-plugin.c:1710
 msgid "_text"
 msgstr "_κείμενο"
 
-#: ../panel-plugin/sensors-plugin.c:1725
+#: ../panel-plugin/sensors-plugin.c:1712
 msgid "_progress bars"
 msgstr "_μπάρα προόδου"
 
-#: ../panel-plugin/sensors-plugin.c:1727
+#: ../panel-plugin/sensors-plugin.c:1714
 msgid "_tachos"
 msgstr "_κοντέρ"
 
-#: ../panel-plugin/sensors-plugin.c:1772
+#: ../panel-plugin/sensors-plugin.c:1759
 msgid "Show _labels"
 msgstr "Εμφάνιση _ετικετών"
 
-#: ../panel-plugin/sensors-plugin.c:1802
+#: ../panel-plugin/sensors-plugin.c:1789
 msgid "Show colored _bars"
 msgstr "Εμφάνιση χρωματιστών _μπαρών"
 
-#: ../panel-plugin/sensors-plugin.c:1830
+#: ../panel-plugin/sensors-plugin.c:1817
 msgid "_Show title"
 msgstr "Εμφάνιση _τίτλου"
 
-#: ../panel-plugin/sensors-plugin.c:1854
+#: ../panel-plugin/sensors-plugin.c:1841
 msgid "_Number of text lines:"
 msgstr "_Αριθμός γραμμών κειμένου:"
 
-#: ../panel-plugin/sensors-plugin.c:1889
+#: ../panel-plugin/sensors-plugin.c:1876
 msgid "F_ont size:"
 msgstr "_Μέγεθος γραμματοσειράς:"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1896
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
+#: ../panel-plugin/sensors-plugin.c:1883
 msgid "x-small"
 msgstr "πολύ μικρό"
 
-#: ../panel-plugin/sensors-plugin.c:1897
+#: ../panel-plugin/sensors-plugin.c:1884
 msgid "small"
 msgstr "Μικρό"
 
-#: ../panel-plugin/sensors-plugin.c:1898
+#: ../panel-plugin/sensors-plugin.c:1885
 msgid "medium"
 msgstr "μεσαίο"
 
-#: ../panel-plugin/sensors-plugin.c:1899
+#: ../panel-plugin/sensors-plugin.c:1886
 msgid "large"
 msgstr "μεγάλο"
 
-#: ../panel-plugin/sensors-plugin.c:1900
+#: ../panel-plugin/sensors-plugin.c:1887
 msgid "x-large"
 msgstr "πολύ μεγάλο"
 
-#: ../panel-plugin/sensors-plugin.c:1931
+#: ../panel-plugin/sensors-plugin.c:1918
 msgid "F_ont:"
 msgstr "_Γραμματοσειρά:"
 
-#: ../panel-plugin/sensors-plugin.c:1965
+#: ../panel-plugin/sensors-plugin.c:1952
 msgid "Show _Units"
 msgstr "Εμφάνιση _μονάδων"
 
-#: ../panel-plugin/sensors-plugin.c:1986
+#: ../panel-plugin/sensors-plugin.c:1973
 msgid "Small horizontal s_pacing"
 msgstr "Μικρό ορι_ζόντιο διάστημα"
 
-#: ../panel-plugin/sensors-plugin.c:2008
+#: ../panel-plugin/sensors-plugin.c:1995
 msgid "Suppress messages"
 msgstr "Απόκρυψη μηνυμάτων"
 
-#: ../panel-plugin/sensors-plugin.c:2026
+#: ../panel-plugin/sensors-plugin.c:2013
 msgid "Suppress tooltip"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:2051
+#: ../panel-plugin/sensors-plugin.c:2038
 msgid "E_xecute on double click:"
 msgstr "Ε_κτέλεση στο διπλό κλικ:"
 
-#: ../panel-plugin/sensors-plugin.c:2094
+#: ../panel-plugin/sensors-plugin.c:2081
 msgid "_View"
 msgstr "_Προβολή"
 
-#: ../panel-plugin/sensors-plugin.c:2128
+#: ../panel-plugin/sensors-plugin.c:2115
 msgid "_Miscellaneous"
 msgstr "_Διάφορα"
 
-#: ../panel-plugin/sensors-plugin.c:2203 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2190 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:180
 msgid "Sensors Plugin"
 msgstr "Πρόσθετο αισθητήρων"
@@ -141,16 +138,12 @@ msgstr "Πρόσθετο αισθητήρων"
 #. gtk_cpu_paint(sensors->tachos [i][index_feature]);
 #. gtk_cpu_expose(sensors->tachos [i][index_feature], NULL);
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2242 ../src/actions.c:205
+#: ../panel-plugin/sensors-plugin.c:2229 ../src/actions.c:205
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr ""
-"Μπορείτε να αλλάξετε τις ιδιότητες ενός χαρακτηριστικού όπως το όνομα, τα "
-"χρώματα, ελάχιστη / μέγιστη τιμή κάνοντας διπλό κλικ την εγγραφή, "
-"επεξεργάζοντας το περιεχομενο και πατώντας \"Enter\" ή επιλέγοντας ένα "
-"διαφορετικό πεδίο."
+msgstr "Μπορείτε να αλλάξετε τις ιδιότητες ενός χαρακτηριστικού όπως το όνομα, τα χρώματα, ελάχιστη / μέγιστη τιμή κάνοντας διπλό κλικ την εγγραφή, επεξεργάζοντας το περιεχομενο και πατώντας \"Enter\" ή επιλέγοντας ένα διαφορετικό πεδίο."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -161,20 +154,21 @@ msgstr ""
 msgid "Hard disks"
 msgstr "Σκληροί δίσκοι"
 
-#: ../lib/acpi.c:530 ../lib/acpi.c:538 ../lib/acpi.c:539
+#: ../lib/acpi.c:529 ../lib/acpi.c:537
 msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
-#: ../lib/acpi.c:532
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
+#: ../lib/acpi.c:531
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ζώνες ACPI v%s"
 
 #. who knows, if we obtain non-NULL version at all...
 #. || g_strisempty(version))
-#: ../lib/acpi.c:673
+#: ../lib/acpi.c:669
 msgid "<Unknown>"
 msgstr "<Άγνωστο>"
 
@@ -187,7 +181,8 @@ msgid "nvidia"
 msgstr "nvidia"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
 #. } else { // Celsius
 #: ../lib/nvidia.c:126 ../lib/hddtemp.c:729
 #, c-format
@@ -201,28 +196,14 @@ msgstr "Θερμοκρασίες S.M.A.R.T. σκληρών δίσκων"
 #: ../lib/hddtemp.c:614
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr ""
-"Το \"hddtemp\" δεν εκτελέστηκε σωστά, παρόλο που έιναι εκτελέσιμο. "
-"Πιθανότατα επειδή χρειάζονται δικαιώματα υπερχρήστη για να διαβαστούν οι "
-"θερμοκρασίες των σκληρών δίσκων, και το \"hddtemp\" δεν έχει ορίστεί με "
-"setuid root.\n"
-"\n"
-"Μια εύκολη αλλά βρώμικη λύση είναι να εκτελέσετε \"chmod u+s %s\" σαν "
-"υπερχρήστης και να επανεκκινήσετε το πρόσθετο ή το ταμπλό του.\n"
-"\n"
-"Καλώντας \"%s\" εμφανίστηκε το ακόλουθο σφάλμα:\n"
-"%s\n"
-"επιστρέφοντας την τιμή %d.\n"
+msgstr "Το \"hddtemp\" δεν εκτελέστηκε σωστά, παρόλο που έιναι εκτελέσιμο. Πιθανότατα επειδή χρειάζονται δικαιώματα υπερχρήστη για να διαβαστούν οι θερμοκρασίες των σκληρών δίσκων, και το \"hddtemp\" δεν έχει ορίστεί με setuid root.\n\nΜια εύκολη αλλά βρώμικη λύση είναι να εκτελέσετε \"chmod u+s %s\" σαν υπερχρήστης και να επανεκκινήσετε το πρόσθετο ή το ταμπλό του.\n\nΚαλώντας \"%s\" εμφανίστηκε το ακόλουθο σφάλμα:\n%s\nεπιστρέφοντας την τιμή %d.\n"
 
 #: ../lib/hddtemp.c:630 ../lib/hddtemp.c:660
 msgid "Suppress this message in future"
@@ -233,9 +214,7 @@ msgstr "Να μην εμφανιστεί ξανά αυτό το μήνυμα σ�
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr ""
-"Προέκυψε σφάλμα κατά την εκτέλεση \"%s\":\n"
-"%s"
+msgstr "Προέκυψε σφάλμα κατά την εκτέλεση \"%s\":\n%s"
 
 #: ../lib/lmsensors.c:110
 msgid "LM Sensors"
@@ -254,9 +233,7 @@ msgstr "Αποτυχία πρόσθετου αισθητήρων"
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr ""
-"Όπως φαίνεται υπήρξε πρόβλημα κατά την ανάγνωση κάποιου αισθητήρα.\n"
-"Δεν είναι εγγυημένη η κανονική συνέχεια."
+msgstr "Όπως φαίνεται υπήρξε πρόβλημα κατά την ανάγνωση κάποιου αισθητήρα.\nΔεν είναι εγγυημένη η κανονική συνέχεια."
 
 #: ../lib/sensors-interface.c:172
 msgid "Sensors t_ype:"
@@ -315,20 +292,20 @@ msgid "No sensors found!"
 msgstr "Δε βρέθηκαν αισθητήρες!"
 
 #: ../lib/sensors-interface-common.c:144
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f °F"
-msgstr "%.1f °F"
+msgstr "%.0f °F"
 
 #. Celsius
 #: ../lib/sensors-interface-common.c:147
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f °C"
-msgstr "%.1f °C"
+msgstr "%.0f °C"
 
 #: ../lib/sensors-interface-common.c:152
 #, c-format
 msgid "%+.3f V"
-msgstr ""
+msgstr "%+.3f V"
 
 #: ../lib/sensors-interface-common.c:156
 #, c-format
@@ -353,22 +330,14 @@ msgstr "%5.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
-msgstr ""
-"Xfce4 Sensors %s\n"
-"ο παρόν πρόγραμμα δημοσιεύεται κάτω από την άδεια χρήσης GPL v2.\n"
-"Το κείμενο της άδειας χρήσης μπορεί να βρεθεί στο πακέτο πηγαίου κώδικα του "
-"προγράμματος ή στο /usr/share/apps/LICENSES/GPL_V2 ή στο http://www.gnu.org/"
-"licenses/old-licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Xfce4 Sensors %s\nο παρόν πρόγραμμα δημοσιεύεται κάτω από την άδεια χρήσης GPL v2.\nΤο κείμενο της άδειας χρήσης μπορεί να βρεθεί στο πακέτο πηγαίου κώδικα του προγράμματος ή στο /usr/share/apps/LICENSES/GPL_V2 ή στο http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk "
-"temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -377,18 +346,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr ""
-"Αισθητήρες Xfce4 %s\n"
-"Εμφάνιση πληροφοριών για τους αισθητήρες, την κατάσταση ACPI, τις "
-"θερμοκρασίες του σκληρού δίσκου και την θερμοκρασία της Nvidia GPU.\n"
-"Συνοπτικά: \n"
-"  xfce4-sensors options\n"
-"όπου options είναι μία ή περισσότερες από τις ακόλουθες:\n"
-"  -h, --help    Εμφάνιση του παραθύρου βοήθειας.\n"
-"  -l, --license Εμφάνιση πληροφοριών άδειας χρήσης.\n"
-"  -V, --version Εμφάνιση πληροφοριών έκδοσης.\n"
-"\n"
-"Το παρόν πρόγραμμα δημοσιεύεται κάτω από την άδεια χρήσης GPL v2.\n"
+msgstr "Αισθητήρες Xfce4 %s\nΕμφάνιση πληροφοριών για τους αισθητήρες, την κατάσταση ACPI, τις θερμοκρασίες του σκληρού δίσκου και την θερμοκρασία της Nvidia GPU.\nΣυνοπτικά: \n  xfce4-sensors options\nόπου options είναι μία ή περισσότερες από τις ακόλουθες:\n  -h, --help    Εμφάνιση του παραθύρου βοήθειας.\n  -l, --license Εμφάνιση πληροφοριών άδειας χρήσης.\n  -V, --version Εμφάνιση πληροφοριών έκδοσης.\n\nΤο παρόν πρόγραμμα δημοσιεύεται κάτω από την άδεια χρήσης GPL v2.\n"
 
 #: ../src/main.c:82
 #, c-format
@@ -415,10 +373,7 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"Προβολέας αισθητήρων: \n"
-"Όπως φαίνεται υπήρξε πρόβλημα κατά την ανάγνωση κάποιου αισθητήρα. \n"
-"Δεν είναι εγγυημένη η κανονική συνέχεια.\n"
+msgstr "Προβολέας αισθητήρων: \nΌπως φαίνεται υπήρξε πρόβλημα κατά την ανάγνωση κάποιου αισθητήρα. \nΔεν είναι εγγυημένη η κανονική συνέχεια.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
@@ -436,50 +391,3 @@ msgstr "Προβολέας Τιμών Αισθητήρων"
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
 msgstr "Πρόσθετο αισθητήρων"
-
-#~ msgid "%+.2f V"
-#~ msgstr "%+.2f V"
-
-#~ msgid "No concrete error detected.\n"
-#~ msgstr "Δε βρέθηκε κάποιο συγκεκριμένο σφάλμα.\n"
-
-#~ msgid "g_raphical"
-#~ msgstr "γραφικό"
-
-#~ msgid "Show _labels in graphical UI"
-#~ msgstr "Εμφάνιση ετικετών σε γραφικό UI"
-
-#~ msgid "Xfce 4 Sensors Plugin"
-#~ msgstr "Πρόσθετο αισθητήρων"
-
-#~ msgid "Xfce 4 Sensors Viewer"
-#~ msgstr "Πρόσθετο αισθητήρων"
-
-#~ msgid "Edit Properties"
-#~ msgstr "Ιδιότητες"
-
-#~ msgid "View sensor values"
-#~ msgstr "Εμφάνιση τιμών αισθητήρων."
-
-#~ msgid ""
-#~ "Xfce Hardware Sensors Plugin: \n"
-#~ "Seems like there was a problem reading a sensor feature value. \n"
-#~ "Proper proceeding cannot be guaranteed.\n"
-#~ msgstr ""
-#~ " \n"
-#~ "Xfce Hardware Sensors Plugin: \n"
-#~ "Από οτι φαίνεται υπήρξε πρόβλημα κατά την ανάγνωση κάποιου αισθητήρα. \n"
-#~ "Δεν είναι εγγυημένη η κανονική συνέχεια.\n"
-
-#~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
-#~ msgstr ""
-#~ "<span foreground=\"#000000\" size=\"%s\"><b>Αισθητήρες</b></span> \n"
-
-#~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
-#~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Αισθητήρες</b></span>"
-
-#~ msgid "<b>Sensors</b>"
-#~ msgstr "<b>Αισθητήρες</b>"
-
-#~ msgid "<b>View</b>"
-#~ msgstr "<b>Προβολή</b>"
