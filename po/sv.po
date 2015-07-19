@@ -10,9 +10,9 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-22 00:31+0200\n"
-"PO-Revision-Date: 2015-06-03 15:49+0000\n"
+"PO-Revision-Date: 2015-07-19 17:22+0000\n"
 "Last-Translator: Påvel Nicklasson <pavelnicklasson@bahnhof.se>\n"
-"Language-Team: Swedish (http://www.transifex.com/projects/p/xfce-panel-plugins/language/sv/)\n"
+"Language-Team: Swedish (http://www.transifex.com/p/xfce-panel-plugins/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -222,7 +222,7 @@ msgstr "LM sensorer"
 #: ../lib/lmsensors.c:370 ../lib/lmsensors.c:417
 #, c-format
 msgid "Error: Could not connect to sensors!"
-msgstr "Fel: Kunde inte ansluta till sensorer!"
+msgstr "Fel: Det gick inte att ansluta till sensorer!"
 
 #: ../lib/sensors-interface.c:84
 msgid "Sensors Plugin Failure"
