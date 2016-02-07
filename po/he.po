@@ -1,0 +1,391 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Elishai Eliyahu <e1907@mm.st>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-05-22 00:31+0200\n"
+"PO-Revision-Date: 2016-02-07 17:01+0000\n"
+"Last-Translator: Elishai Eliyahu <e1907@mm.st>\n"
+"Language-Team: Hebrew (http://www.transifex.com/xfce/xfce-panel-plugins/language/he/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: he\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:383
+#: ../panel-plugin/sensors-plugin.c:985
+msgid "<span><b>Sensors</b></span>"
+msgstr "<span><b>חיישנים</b></span>"
+
+#. widget = sensors->eventbox;
+#: ../panel-plugin/sensors-plugin.c:788
+msgid "No sensors selected!"
+msgstr "לא נבחרו חיישנים!"
+
+#. FIXME: either print nothing, or undertake appropriate action,
+#. * or pop up a message box.
+#: ../panel-plugin/sensors-plugin.c:828
+#, c-format
+msgid ""
+"Sensors Plugin:\n"
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr "תוסף חיישנים:\nנראה שהיתה בעיה בקריאת ערך אופייני של חיישן.\nלא ניתן להבטיח התקדמות נאותה.\n"
+
+#: ../panel-plugin/sensors-plugin.c:1709
+msgid "UI style:"
+msgstr "סגנון ממשק משתמש:"
+
+#: ../panel-plugin/sensors-plugin.c:1710
+msgid "_text"
+msgstr "_טקסט"
+
+#: ../panel-plugin/sensors-plugin.c:1712
+msgid "_progress bars"
+msgstr "_סרגלי התקדמות"
+
+#: ../panel-plugin/sensors-plugin.c:1714
+msgid "_tachos"
+msgstr "_מדי מהירות"
+
+#: ../panel-plugin/sensors-plugin.c:1759
+msgid "Show _labels"
+msgstr "הצג _תוויות"
+
+#: ../panel-plugin/sensors-plugin.c:1789
+msgid "Show colored _bars"
+msgstr "הצג _סרגלים צבעוניים"
+
+#: ../panel-plugin/sensors-plugin.c:1817
+msgid "_Show title"
+msgstr "_הצג שם"
+
+#: ../panel-plugin/sensors-plugin.c:1841
+msgid "_Number of text lines:"
+msgstr "_מספר שורות טקסט:"
+
+#: ../panel-plugin/sensors-plugin.c:1876
+msgid "F_ont size:"
+msgstr "גודל ג_ופן:"
+
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
+#: ../panel-plugin/sensors-plugin.c:1883
+msgid "x-small"
+msgstr "קטן מאוד"
+
+#: ../panel-plugin/sensors-plugin.c:1884
+msgid "small"
+msgstr "קטן"
+
+#: ../panel-plugin/sensors-plugin.c:1885
+msgid "medium"
+msgstr "בינוני"
+
+#: ../panel-plugin/sensors-plugin.c:1886
+msgid "large"
+msgstr "גדול"
+
+#: ../panel-plugin/sensors-plugin.c:1887
+msgid "x-large"
+msgstr "גדול מאוד"
+
+#: ../panel-plugin/sensors-plugin.c:1918
+msgid "F_ont:"
+msgstr "ג_ופן:"
+
+#: ../panel-plugin/sensors-plugin.c:1952
+msgid "Show _Units"
+msgstr "הצג _יחידות"
+
+#: ../panel-plugin/sensors-plugin.c:1973
+msgid "Small horizontal s_pacing"
+msgstr "ר_יווח אופקי קטן"
+
+#: ../panel-plugin/sensors-plugin.c:1995
+msgid "Suppress messages"
+msgstr "הסתר מסרים"
+
+#: ../panel-plugin/sensors-plugin.c:2013
+msgid "Suppress tooltip"
+msgstr "הסתר טיפ עזר"
+
+#: ../panel-plugin/sensors-plugin.c:2038
+msgid "E_xecute on double click:"
+msgstr "ב_צע בקליק כפול:"
+
+#: ../panel-plugin/sensors-plugin.c:2081
+msgid "_View"
+msgstr "ת_צוגה"
+
+#: ../panel-plugin/sensors-plugin.c:2115
+msgid "_Miscellaneous"
+msgstr "_שונות"
+
+#: ../panel-plugin/sensors-plugin.c:2190 ../panel-plugin/sensors-plugin.h:30
+#: ../lib/hddtemp.c:180
+msgid "Sensors Plugin"
+msgstr "תוסף חיישנים"
+
+#. gtk_cpu_paint(sensors->tachos [i][index_feature]);
+#. gtk_cpu_expose(sensors->tachos [i][index_feature], NULL);
+#. #if GTK_VERSION < 2.11
+#: ../panel-plugin/sensors-plugin.c:2229 ../src/actions.c:205
+msgid ""
+"You can change a feature's properties such as name, colours, min/max value "
+"by double-clicking the entry, editing the content, and pressing \"Return\" "
+"or selecting a different field."
+msgstr "אתה יכול לשנות תכונות מאפיין כמו שם, צבעים, ערכי מינימום/מקסימום ע\"י ביצוע קליק כפול בערך, עריכת התוכן, ולחיצה על \"חזור\" או בחירת שדה אחר."
+
+#. only use this if no hddtemp sensor
+#. or do only use this , if it is an lmsensors device. whatever.
+#. FIXME: compare strings, or also have hddtmep and acpi store numeric values
+#. assert correctly saved file
+#: ../lib/configuration.c:162 ../lib/configuration.c:367
+#: ../lib/configuration.c:374 ../lib/hddtemp.c:366 ../lib/hddtemp.c:415
+msgid "Hard disks"
+msgstr "כוננים קשיחים"
+
+#: ../lib/acpi.c:529 ../lib/acpi.c:537
+msgid "ACPI"
+msgstr "ACPI"
+
+#. to be displayed
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
+#: ../lib/acpi.c:531
+#, c-format
+msgid "ACPI v%s zones"
+msgstr "ACPI v%s אזורי"
+
+#. who knows, if we obtain non-NULL version at all...
+#. || g_strisempty(version))
+#: ../lib/acpi.c:669
+msgid "<Unknown>"
+msgstr "<Unknown>"
+
+#: ../lib/nvidia.c:60
+msgid "NVidia GPU core temperature"
+msgstr "טמפרטורת ליבת יחידת עיבוד גרפי NVidia "
+
+#: ../lib/nvidia.c:61
+msgid "nvidia"
+msgstr "nvidia"
+
+#. if (scale == FAHRENHEIT) {
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
+#. } else { // Celsius
+#: ../lib/nvidia.c:126 ../lib/hddtemp.c:729
+#, c-format
+msgid "%.1f °C"
+msgstr "%.1f °C"
+
+#: ../lib/hddtemp.c:414
+msgid "S.M.A.R.T. harddisk temperatures"
+msgstr "טמפרטורות כונן קשיח S.M.A.R.T. "
+
+#: ../lib/hddtemp.c:614
+#, c-format
+msgid ""
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"\n"
+"Calling \"%s\" gave the following error:\n"
+"%s\n"
+"with a return value of %d.\n"
+msgstr "\"hddtemp\" לא הופעל נכון, למרות שהוא בר הפעלה. זה ככל הנראה בגלל שהכוננים דורשים זכויות משתמש-על לקריאת הטמפרטורה שלהם, ו-\"hddtemp\" לא setuid משתמש-על.\n\nפתרון קל אבל מלוכלך הוא להריץ \"chmod u+s %s\" כמשתמש-על ולאתחל את התוסף הזה או את הפאנל שלו.\n\nקריאה ל-\"%s\" נתנה את השגיאה הבאה:\n%s\nעם ערך חזרה של %d. \n"
+
+#: ../lib/hddtemp.c:630 ../lib/hddtemp.c:660
+msgid "Suppress this message in future"
+msgstr "הסתר מסר זה בעתיד"
+
+#: ../lib/hddtemp.c:654
+#, c-format
+msgid ""
+"An error occurred when executing \"%s\":\n"
+"%s"
+msgstr "אירעה שגיאה בעת ביצוע \"%s\": \n%s "
+
+#: ../lib/lmsensors.c:110
+msgid "LM Sensors"
+msgstr "חיישני LM "
+
+#: ../lib/lmsensors.c:370 ../lib/lmsensors.c:417
+#, c-format
+msgid "Error: Could not connect to sensors!"
+msgstr "שגיאה: לא יכול להתחבר לחיישנים!"
+
+#: ../lib/sensors-interface.c:84
+msgid "Sensors Plugin Failure"
+msgstr "כשל תוסף חיישנים"
+
+#: ../lib/sensors-interface.c:85
+msgid ""
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed."
+msgstr "נראה שהיתה בעיה בקריאת ערך אופייני של חיישן.\nלא ניתן להבטיח התקדמות נאותה."
+
+#: ../lib/sensors-interface.c:172
+msgid "Sensors t_ype:"
+msgstr "ס_וג חיישנים:"
+
+#: ../lib/sensors-interface.c:198
+msgid "Description:"
+msgstr "תיאור:"
+
+#: ../lib/sensors-interface.c:231
+msgid "U_pdate interval (seconds):"
+msgstr "מרווח ע_דכון (שניות):"
+
+#: ../lib/sensors-interface.c:271
+msgid "Name"
+msgstr "שם"
+
+#: ../lib/sensors-interface.c:283
+msgid "Value"
+msgstr "ערך"
+
+#: ../lib/sensors-interface.c:291
+msgid "Show"
+msgstr "הצג"
+
+#: ../lib/sensors-interface.c:300
+msgid "Color"
+msgstr "צבע"
+
+#: ../lib/sensors-interface.c:313
+msgid "Min"
+msgstr "מינימום"
+
+#: ../lib/sensors-interface.c:330
+msgid "Max"
+msgstr "מקסימום"
+
+#: ../lib/sensors-interface.c:371
+msgid "Temperature scale:"
+msgstr "סקאלת טמפרטורה:"
+
+#: ../lib/sensors-interface.c:373
+msgid "_Celsius"
+msgstr "_צלסיוס"
+
+#: ../lib/sensors-interface.c:375
+msgid "_Fahrenheit"
+msgstr "_פרנהייט"
+
+#: ../lib/sensors-interface.c:411
+msgid "_Sensors"
+msgstr "_חיישנים"
+
+#: ../lib/sensors-interface-common.c:73 ../lib/sensors-interface-common.c:74
+msgid "No sensors found!"
+msgstr "לא נמצאו חיישנים!"
+
+#: ../lib/sensors-interface-common.c:144
+#, c-format
+msgid "%.0f °F"
+msgstr "%.0f °F"
+
+#. Celsius
+#: ../lib/sensors-interface-common.c:147
+#, c-format
+msgid "%.0f °C"
+msgstr "%.0f °C"
+
+#: ../lib/sensors-interface-common.c:152
+#, c-format
+msgid "%+.3f V"
+msgstr "%+.3f V"
+
+#: ../lib/sensors-interface-common.c:156
+#, c-format
+msgid "%.0f mWh"
+msgstr "%.0f mWh"
+
+#: ../lib/sensors-interface-common.c:161
+msgid "off"
+msgstr "מכובה"
+
+#: ../lib/sensors-interface-common.c:163
+msgid "on"
+msgstr "דלוק"
+
+#: ../lib/sensors-interface-common.c:167
+#, c-format
+msgid "%.0f rpm"
+msgstr "%.0f rpm"
+
+#: ../src/main.c:52
+#, c-format
+msgid ""
+"Xfce4 Sensors %s\n"
+"This program is published under the GPL v2.\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "חיישני Xfce4 %s \nתוכנה זו פורסמה תחת GPL v2.\nניתן למצוא את טקסט הרישיון בתוך ארכיון המקור של התוכנה או ב- /usr/share/apps/LICENSES/GPL_V2 או ב-http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt  \n"
+
+#: ../src/main.c:64
+#, c-format
+msgid ""
+"Xfce4 Sensors %s\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
+"Synopsis: \n"
+"  xfce4-sensors options\n"
+"where options are one or more of the following:\n"
+"  -h, --help    Print this help dialog.\n"
+"  -l, --license Print license information.\n"
+"  -V, --version Print version information.\n"
+"\n"
+"This program is published under the GPL v2.\n"
+msgstr "חיישני Xfce4 %s \nמציג מידע אודות חיישני החומרה שלך, סטטוס ACPI, טמפרטורות כוננים קשיחים וטמפרטורת יחידת עיבוד גרפי Nvidia. \nתקציר:\nאפשרויות xfce4-sensors\nכאשר אפשרויות הן אחת או יותר מהבאים:\n-h, --help הדפס את דיאלוג עזרה זה.\n-l, --license הדפס מידע רשיון.\n-V, --version הדפס מידע גרסה.\n\nתוכנה זו מפורסמת תחת GPL v2. \n"
+
+#: ../src/main.c:82
+#, c-format
+msgid "Xfce4 Sensors %s\n"
+msgstr "חיישני Xfce4 %s \n"
+
+#: ../src/interface.c:78
+msgid "_Overview"
+msgstr "_סקירה"
+
+#: ../src/interface.c:99
+msgid "_Tachometers"
+msgstr "_מדי מהירות"
+
+#: ../src/interface.c:116
+msgid "Sensors Viewer"
+msgstr "מציג חיישנים"
+
+#. FIXME: either print nothing, or undertake appropriate action,
+#. * or pop up a message box.
+#: ../src/actions.c:80
+#, c-format
+msgid ""
+"Sensors Viewer:\n"
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr "מציג חיישנים:\nנראה שהיתה בעיה בקריאת ערך אופייני של חיישן.\nלא ניתן להבטיח התקדמות נאותה.\n"
+
+#: ../src/xfce4-sensors.desktop.in.h:1
+msgid "Sensor Viewer"
+msgstr "מציג חיישן"
+
+#: ../src/xfce4-sensors.desktop.in.h:2
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
+msgid "Show sensor values."
+msgstr "הצג ערכי חיישן."
+
+#: ../src/xfce4-sensors.desktop.in.h:3
+msgid "Sensor Values Viewer"
+msgstr "מציג ערכי חיישן"
+
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
+msgid "Sensor plugin "
+msgstr "תוסף חיישן"
