@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-22 00:31+0200\n"
-"PO-Revision-Date: 2016-01-17 17:18+0000\n"
+"PO-Revision-Date: 2016-02-09 18:25+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic (http://www.transifex.com/xfce/xfce-panel-plugins/language/is/)\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +37,7 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
+msgstr "Skynjaraviðbót:\nÞað lítur út fyrir að vandamál hafi komið upp við að lesa gildi frá skynjara.\nEkki er víst að hægt sé að halda áfram svo vel sé.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1709
 msgid "UI style:"
@@ -232,7 +232,7 @@ msgstr "Villa í skynjaraviðbót"
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr ""
+msgstr "Það lítur út fyrir að vandamál hafi komið upp við að lesa gildi frá skynjara.\nEkki er víst að hægt sé að halda áfram svo vel sé."
 
 #: ../lib/sensors-interface.c:172
 msgid "Sensors t_ype:"
@@ -322,7 +322,7 @@ msgstr "virkt"
 #: ../lib/sensors-interface-common.c:167
 #, c-format
 msgid "%.0f rpm"
-msgstr "%.0f rpm"
+msgstr "%.0f snú/mín"
 
 #: ../src/main.c:52
 #, c-format
@@ -330,7 +330,7 @@ msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-msgstr ""
+msgstr "Xfce4 skynjarar %s\nÞetta forrit er gefið út með GPL v2 notkunarleyfi.\nTexta leyfisins má finna í grunnkóðasafni forritsins eða í /usr/share/apps/LICENSES/GPL_V2 eða á vefnum http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
 #, c-format
@@ -372,7 +372,7 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
+msgstr "Skynjaraskoðun:\nÞað lítur út fyrir að vandamál hafi komið upp við að lesa gildi frá skynjara.\nEkki er víst að hægt sé að halda áfram svo vel sé.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
