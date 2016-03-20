@@ -396,9 +396,6 @@ sensors_add_tacho_display (t_sensors *sensors)
     gtk_label_set_markup (GTK_LABEL(sensors->panel_label_text), text);
     g_free (text);
     
-    gtk_widget_set_has_tooltip(sensors->eventbox, FALSE);
-
-    
     gtk_container_set_border_width (GTK_CONTAINER(sensors->widget_sensors), 0);
     for (chipNum=0; chipNum < sensors->num_sensorchips; chipNum++) {
         chip = (t_chip *) g_ptr_array_index(sensors->chips, chipNum);
