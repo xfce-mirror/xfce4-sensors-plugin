@@ -40,7 +40,6 @@
 
 /* Xfce includes */
 #include <libxfce4util/libxfce4util.h>
-//#include <libxfcegui4/libxfcegui4.h>
 #include <libxfce4ui/libxfce4ui.h>
 #include <libxfce4panel/xfce-panel-plugin.h>
 
@@ -375,7 +374,6 @@ sensors_add_graphical_display (t_sensors *sensors)
     gtk_widget_hide (sensors->panel_label_data);
 
     sensors->bars_created = TRUE;
-    sensors_update_graphical_panel (sensors);
 
     TRACE ("leaves sensors_add_graphical_display");
 }
@@ -397,6 +395,8 @@ sensors_add_tacho_display (t_sensors *sensors)
     text = g_strdup (_("<span><b>Sensors</b></span>"));
     gtk_label_set_markup (GTK_LABEL(sensors->panel_label_text), text);
     g_free (text);
+    
+    gtk_widget_set_has_tooltip(sensors->eventbox, FALSE);
 
     
     gtk_container_set_border_width (GTK_CONTAINER(sensors->widget_sensors), 0);
@@ -461,7 +461,6 @@ sensors_add_tacho_display (t_sensors *sensors)
 
     DBG("12");
     sensors->tachos_created = TRUE;
-    sensors_update_tacho_panel (sensors);
 
     TRACE ("leaves sensors_add_tacho_display");
 }
@@ -472,10 +471,10 @@ sensors_show_graphical_display (t_sensors *sensors)
 {
     TRACE ("enters sensors_show_graphical_display");
 
-    if (sensors->bars_created == TRUE)
-        sensors_update_graphical_panel (sensors);
-    else
+    if (sensors->bars_created == FALSE)
         sensors_add_graphical_display (sensors);
+        
+    sensors_update_graphical_panel (sensors);
 
     TRACE ("leaves sensors_show_graphical_display");
 
@@ -488,11 +487,11 @@ sensors_show_tacho_display (t_sensors *sensors)
 {
     TRACE ("enters sensors_show_tacho_display");
 
-    if (sensors->tachos_created == TRUE)
-        sensors_update_tacho_panel (sensors);
-    else
+    if (sensors->tachos_created == FALSE)
         sensors_add_tacho_display (sensors);
-
+        
+    sensors_update_tacho_panel (sensors);
+    
     TRACE ("leaves sensors_show_tacho_display");
 
     return TRUE;
@@ -868,9 +867,7 @@ sensors_create_tooltip (gpointer data)
 
     gtk_widget_set_tooltip_markup (GTK_WIDGET(sensors->eventbox), myToolTipText);
     DBG("tooltip text: %s.\n", myToolTipText);
-    
-    gtk_widget_set_has_tooltip(GTK_WIDGET(sensors->eventbox), !sensors->suppresstooltip);
-    
+        
     TRACE ("freeing myToolTipText");
     g_free (myToolTipText);
 
@@ -1245,10 +1242,6 @@ display_style_changed_tacho (GtkWidget *widget, t_sensors_dialog *sd)
     gtk_widget_hide (sd->smallspacing_checkbox);
 
     sd->sensors->display_values_type = DISPLAY_TACHO;
-    //gtk_toggle_button_get_active ( GTK_TOGGLE_BUTTON(widget) );
-
-    if (!sd->sensors->suppresstooltip)
-      suppresstooltip_changed (widget, sd);
     
     sensors_show_panel ((gpointer) sd->sensors);
 

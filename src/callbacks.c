@@ -27,7 +27,6 @@
 #include <stdlib.h>
 
 /* Xfce includes */
-//#include <libxfcegui4/libxfcegui4.h>
 #include <libxfce4ui/libxfce4ui.h>
 
 /* Package includes */
@@ -213,9 +212,7 @@ list_cell_toggle (GtkCellRendererToggle *cell, gchar *path_str,
     gtk_tree_path_free (path);
 
     /* update tooltip and panel widget */
-    //sensors_show_panel ((gpointer) sd->sensors);
-    //res = 
-		refresh_view ((gpointer) sd);
+    refresh_view ((gpointer) sd);
 
     TRACE ("leaves list_cell_toggle");//~ 
 }
@@ -272,7 +269,7 @@ list_cell_color_edited (GtkCellRendererText *cellrenderertext, gchar *path_str,
         //sensors_show_panel ((gpointer) sd->sensors);
         //res = refresh_view ((gpointer) sd);
         if (sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)]!=NULL)
-          gtk_cpu_set_color(GTK_CPU(sd->sensors->tachos[gtk_combo_box_active][atoi(path_str)]), new_color);
+            gtk_cpu_set_color(GTK_CPU(sd->sensors->tachos[gtk_combo_box_active][atoi(path_str)]), new_color);
         
     }
 
@@ -313,7 +310,7 @@ minimum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
 
     chipfeature = (t_chipfeature *) g_ptr_array_index(chip->chip_features, atoi(path_str));
     if (sd->sensors->scale==FAHRENHEIT)
-      value = (value -32 ) * 5/9;
+        value = (value -32 ) * 5/9;
     chipfeature->min_value = value;
 
     /* clean up */
@@ -321,8 +318,7 @@ minimum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
 
     /* update panel */
     if (sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)]!=NULL)
-      //res = 
-			refresh_view ((gpointer) sd);
+        refresh_view ((gpointer) sd);
 
     TRACE ("leaves minimum_changed");
 }
@@ -370,7 +366,7 @@ maximum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
     /* update panel */
     if (sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)]!=NULL)
       //res = 
-			refresh_view ((gpointer) sd);
+            refresh_view ((gpointer) sd);
 
     TRACE ("leaves maximum_changed");
 }
@@ -407,5 +403,3 @@ temperature_unit_change (GtkWidget *widget, t_sensors_dialog *sd)
 
     TRACE ("laeves temperature_unit_change ");
 }
-
-

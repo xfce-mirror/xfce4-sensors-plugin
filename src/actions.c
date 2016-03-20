@@ -28,7 +28,6 @@
 #include <gtk/gtk.h>
 
 /* Xfce includes */
-//#include <libxfcegui4/libxfcegui4.h>
 #include <libxfce4ui/libxfce4ui.h>
 
 /* Package includes */
@@ -42,6 +41,9 @@
 /* foward declaration */
 gboolean
 refresh_sensor_data (t_sensors_dialog *sd);
+
+void 
+gtk_widget_unparent_ext (GtkWidget *widget, gpointer data);
 
 /* actual implementations */
 gboolean
@@ -109,8 +111,6 @@ refresh_sensor_data (t_sensors_dialog *sd)
   
 //}
 
-void gtk_widget_unparent_ext (GtkWidget *widget, gpointer data);
-
 void
 gtk_widget_unparent_ext (GtkWidget *widget, gpointer data)
 {
@@ -128,7 +128,6 @@ refresh_tacho_view (t_sensors_dialog *sd)
   GtkWidget *table; //, *widget;
   //GList *list;
   gdouble d;
-  gchar *myToolTipText;
   
   TRACE ("enters refresh_tacho_view");
   
@@ -200,12 +199,7 @@ refresh_tacho_view (t_sensors_dialog *sd)
                 gtk_widget_show (sensors->tachos [i][index_feature]);
                 //gtk_cpu_paint(sensors->tachos [i][index_feature]);
                 //gtk_cpu_expose(sensors->tachos [i][index_feature], NULL);
-                
-    /* #if GTK_VERSION < 2.11 */
-    myToolTipText = g_strdup(_("You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."));
-    gtk_tooltips_set_tip (tooltips, GTK_WIDGET(sensors->tachos [i][index_feature]),
-                          myToolTipText, NULL);
-                
+                                
                 if (col>=3) {
                     row++;
                     col = 0;

@@ -209,10 +209,10 @@ gtk_cpu_size_allocate (GtkWidget *widget, GtkAllocation *allocation)
   //int minwh;
   
   TRACE("enter gtk_cpu_size_allocate\n");
-  DBG ("width x height = %d x %d\n", allocation->width, allocation->height);
   g_return_if_fail(widget != NULL);
   g_return_if_fail(GTK_IS_CPU(widget));
   g_return_if_fail(allocation != NULL);
+  DBG ("width x height = %d x %d\n", allocation->width, allocation->height);
 
   //minwh = min(allocation->width, allocation->height);
   //DBG("minimum is %d\n", minwh);
@@ -282,10 +282,10 @@ static gboolean
 gtk_cpu_expose(GtkWidget *widget, GdkEventExpose *event)
 {
   TRACE("enter gtk_cpu_expose\n");
-  DBG("event: %d\n", event->type);
   g_return_val_if_fail(widget != NULL, FALSE);
   g_return_val_if_fail(GTK_IS_CPU(widget), FALSE);
   g_return_val_if_fail(event != NULL, FALSE);
+  DBG("event: %d\n", event->type);
 
   gtk_cpu_paint(widget);
 

@@ -255,6 +255,7 @@ sensors_read_general_config (XfceRc *rc, t_sensors *sensors)
     TRACE ("leaves sensors_read_general_config");
 }
 
+
 void
 sensors_read_preliminary_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 {
@@ -282,6 +283,7 @@ sensors_read_preliminary_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 
     TRACE ("leaves sensors_read_preliminary_config");
 }
+
 
 /* Read the configuration file at init */
 // TODO: modify to store chipname as indicator and access features by acpitz-1_Feature0 etc.
@@ -343,10 +345,9 @@ sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
               chip = (t_chip *) g_ptr_array_index (sensors->chips, k++);
               if (chip==NULL || k==sensors->num_sensorchips)
                   break;
-              //DBG("k=%d, chip=%p, name=.\n", k, chip);
               }
             while (chip!=NULL && sensorName != NULL && strcmp(chip->sensorId, sensorName) != 0 );
-            //DBG("Found a chip.\n");
+            
             if ( chip!=NULL && sensorName != NULL && strcmp(chip->sensorId, sensorName)==0 ) {
 
                 for (j=0; j<chip->num_features; j++) {
@@ -360,7 +361,7 @@ sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
                     if (xfce_rc_has_group (rc, feature)) {
                         xfce_rc_set_group (rc, feature);
 
-                        id=0; address=0;
+                        address=0;
 
                         id = (gint) xfce_rc_read_int_entry (rc, "Id", 0);
 
@@ -368,7 +369,7 @@ sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
                             address = (gint) xfce_rc_read_int_entry (rc, "Address", 0);
                         else
 
-                         /* FIXME: compare strings, or also have hddtmep and acpi store numeric values */
+                         /* FIXME: compare strings, or also have hddtemp and acpi store numeric values */
 
                         /* assert correctly saved file */
                         if (strcmp(chip->sensorId, _("Hard disks")) != 0) { /* chip->name? */

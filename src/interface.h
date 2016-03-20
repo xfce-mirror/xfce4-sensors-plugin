@@ -24,6 +24,5 @@
 
 /* Package includes */
 #include <sensors-interface-common.h>
-GtkTooltips *tooltips;
 
 GtkWidget * create_main_window (t_sensors_dialog *sd);

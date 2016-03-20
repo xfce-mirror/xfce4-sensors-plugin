@@ -45,138 +45,144 @@ int read_gpus (t_chip *chip);
 /* Defines */
 #define ZERO_KELVIN -273
 
-int initialize_nvidia (GPtrArray *chips) {
-	int retval;
-	int num_gpus;
-	t_chip *chip;
-	t_chipfeature *chipfeature;
+int initialize_nvidia (GPtrArray *chips) 
+{
+    int retval;
+    int num_gpus;
+    t_chip *chip;
+    t_chipfeature *chipfeature;
 
-	TRACE ("enters initialize_nvidia");
-	
-	chip = g_new0 (t_chip, 1);
-	//chip -> chip_name = g_strdup(_("nvidia"));
-	chip -> chip_features = g_ptr_array_new ();
-	chip -> num_features = 0;
-	chip -> description = g_strdup(_("NVidia GPU core temperature"));
-	chip -> name = g_strdup(_("nvidia"));
-	chip -> sensorId = g_strdup("nvidia");
-	chip -> type = GPU;
+    TRACE ("enters initialize_nvidia");
+    
+    chip = g_new0 (t_chip, 1);
+    //chip -> chip_name = g_strdup(_("nvidia"));
+    chip -> chip_features = g_ptr_array_new ();
+    chip -> num_features = 0;
+    chip -> description = g_strdup(_("NVidia GPU core temperature"));
+    chip -> name = g_strdup(_("nvidia"));
+    chip -> sensorId = g_strdup("nvidia");
+    chip -> type = GPU;
 
-	num_gpus = read_gpus (chip);
-	if (chip -> num_features > 0) {
-		int i;
-		for (i = 0; i < num_gpus; i++) {
-			chipfeature = g_ptr_array_index (chip -> chip_features, i);
-			g_assert (chipfeature != NULL);
-			chipfeature -> address = i;
-			chipfeature -> name = g_strdup(chipfeature -> devicename);
-			chipfeature -> color = g_strdup ("#000000");
-			chipfeature -> valid = TRUE;
-			chipfeature -> formatted_value = g_strdup ("0.0");
-			chipfeature -> raw_value = 0.0;
-			chipfeature -> class = TEMPERATURE;
-			chipfeature -> min_value = 10.0;
-			chipfeature -> max_value = 50.0;
-			chipfeature -> show = FALSE;
-		}
-		g_ptr_array_add (chips, chip);
-		retval = 2;
-	} else retval = 0;
+    num_gpus = read_gpus (chip);
+    if (chip -> num_features > 0) {
+        int i;
+        for (i = 0; i < num_gpus; i++) {
+            chipfeature = g_ptr_array_index (chip -> chip_features, i);
+            g_assert (chipfeature != NULL);
+            chipfeature -> address = i;
+            chipfeature -> name = g_strdup(chipfeature -> devicename);
+            chipfeature -> color = g_strdup ("#000000");
+            chipfeature -> valid = TRUE;
+            chipfeature -> formatted_value = g_strdup ("0.0");
+            chipfeature -> raw_value = 0.0;
+            chipfeature -> class = TEMPERATURE;
+            chipfeature -> min_value = 10.0;
+            chipfeature -> max_value = 50.0;
+            chipfeature -> show = FALSE;
+        }
+        g_ptr_array_add (chips, chip);
+        retval = 2;
+    } 
+    else 
+        retval = 0;
 
-	TRACE ("leaves initialize_nvidia");
+    TRACE ("leaves initialize_nvidia");
 
-	return retval;
+    return retval;
 }
 
-double get_nvidia_value (int gpu) {
-	int temp;
 
-	TRACE ("enters get_nvidia_value for %d gpu", gpu);
+double get_nvidia_value (int gpu) 
+{
+    int temp;
 
-	if (!(XNVCTRLQueryTargetAttribute (nvidia_sensors_display, 
-				NV_CTRL_TARGET_TYPE_GPU,
-				gpu,
-				0,
-				NV_CTRL_GPU_CORE_TEMPERATURE,
-				&temp))) {
-		TRACE ("NVCtrl doesn't work properly");
-		return ZERO_KELVIN;
-	}
+    TRACE ("enters get_nvidia_value for %d gpu", gpu);
 
-	TRACE ("leaves get_nvidia_value for %d gpu", gpu);
+    if (!(XNVCTRLQueryTargetAttribute (nvidia_sensors_display, 
+                                       NV_CTRL_TARGET_TYPE_GPU,
+                                       gpu,
+                                       0,
+                                       NV_CTRL_GPU_CORE_TEMPERATURE,
+                                       &temp))) {
+        TRACE ("NVCtrl doesn't work properly");
+        return ZERO_KELVIN;
+    }
 
-	return (double) (1.0 * temp);
+    TRACE ("leaves get_nvidia_value for %d gpu", gpu);
+
+    return (double) (1.0 * temp);
 }
 
-void refresh_nvidia (gpointer chip_feature, gpointer data) {
-	t_chipfeature *cf;
-	double value;
-	t_sensors *sensors;
 
-	g_assert (chip_feature != NULL);
+void refresh_nvidia (gpointer chip_feature, gpointer data) 
+{
+    t_chipfeature *cf;
+    double value;
 
-	TRACE ("enters refresh_nvidia");
+    g_assert (chip_feature != NULL);
 
-	if (data) sensors = (t_sensors *) data;	
-	cf = (t_chipfeature *) chip_feature;
-	value = get_nvidia_value (cf -> address);
-	if (value == ZERO_KELVIN) return; 
+    TRACE ("enters refresh_nvidia");
 
-	g_free (cf -> formatted_value);
-	cf -> formatted_value = g_strdup_printf(_("%.1f °C"), value);
-	cf -> raw_value = value;
+    cf = (t_chipfeature *) chip_feature;
+    value = get_nvidia_value (cf -> address);
+    if (value == ZERO_KELVIN) 
+        return; 
 
-	TRACE ("leaves refresh_nvidia");
+    g_free (cf -> formatted_value);
+    cf -> formatted_value = g_strdup_printf(_("%.1f °C"), value);
+    cf -> raw_value = value;
 
+    TRACE ("leaves refresh_nvidia");
 }
 
-int read_gpus (t_chip *chip) {
-	t_chipfeature *chipfeature;
-	int num_gpus;
-	int event, error;
-	int i;
 
-	TRACE ("enters read_gpus");
+int read_gpus (t_chip *chip) 
+{
+    t_chipfeature *chipfeature;
+    int num_gpus;
+    int event, error;
+    int i;
 
-	/* create the connection to the X server */
-	if (!(nvidia_sensors_display = XOpenDisplay (NULL))) {
-		TRACE ("failed to connect to X server");
-		return 0;
-	}
+    TRACE ("enters read_gpus");
 
-	/* check if the NVCtrl is available on this X server
-	 * if so - add sensors*/
-	if (!(XNVCTRLQueryExtension (nvidia_sensors_display, 
-			&event, &error))) {
-		TRACE ("NVCtrl is not available");
-		return 0;
-	}
-	
-	if (!(XNVCTRLQueryTargetCount (nvidia_sensors_display,
-			NV_CTRL_TARGET_TYPE_GPU,
-			&num_gpus))) {
-		TRACE ("No NVidia devices found");
-		return 0;
-	}
-	
-	for (i = 0; i < num_gpus; i++){ 
-		gchar *device_name = (gchar*) malloc (100 * sizeof(gchar));
-		if (XNVCTRLQueryTargetStringAttribute (
-					nvidia_sensors_display,
-					NV_CTRL_TARGET_TYPE_GPU, 
-					i,
-					0,
-					NV_CTRL_STRING_PRODUCT_NAME,
-					&device_name))
-			TRACE ("GPU%d:%s", i, device_name);
-		chipfeature = g_new0 (t_chipfeature, 1);
-		chipfeature -> devicename = g_strdup (device_name);
-		chipfeature -> name = g_strdup (device_name);
-		g_ptr_array_add (chip -> chip_features, chipfeature);
-		chip -> num_features++;
-	}
+    /* create the connection to the X server */
+    if (!(nvidia_sensors_display = XOpenDisplay (NULL))) {
+        TRACE ("failed to connect to X server");
+        return 0;
+    }
 
-	TRACE ("leaves read_gpus");
-	return num_gpus;
+    /* check if the NVCtrl is available on this X server
+     * if so - add sensors*/
+    if (!(XNVCTRLQueryExtension (nvidia_sensors_display, 
+                &event, &error))) {
+        TRACE ("NVCtrl is not available");
+        return 0;
+    }
+    
+    if (!(XNVCTRLQueryTargetCount (nvidia_sensors_display,
+            NV_CTRL_TARGET_TYPE_GPU,
+            &num_gpus))) {
+        TRACE ("No NVidia devices found");
+        return 0;
+    }
+    
+    for (i = 0; i < num_gpus; i++) { 
+        gchar *device_name = (gchar*) malloc (100 * sizeof(gchar));
+        if (XNVCTRLQueryTargetStringAttribute (nvidia_sensors_display,
+                                               NV_CTRL_TARGET_TYPE_GPU, 
+                                               i,
+                                               0,
+                                               NV_CTRL_STRING_PRODUCT_NAME,
+                                               &device_name))
+            TRACE ("GPU%d:%s", i, device_name);
+            
+        chipfeature = g_new0 (t_chipfeature, 1);
+        chipfeature -> devicename = g_strdup (device_name);
+        chipfeature -> name = g_strdup (device_name);
+        g_ptr_array_add (chip -> chip_features, chipfeature);
+        chip -> num_features++;
+    }
+
+    TRACE ("leaves read_gpus");
+    return num_gpus;
 }
-

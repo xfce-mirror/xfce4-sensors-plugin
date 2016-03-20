@@ -24,7 +24,6 @@
 #endif
 
 /* Xfce includes */
-//#include <libxfcegui4/libxfcegui4.h>
 #include <libxfce4ui/libxfce4ui.h>
 
 /* Package includes */
@@ -76,8 +75,7 @@ add_notebook (GtkWidget *box, t_sensors_dialog *sd)
     add_update_time_box (child, sd);
     
     tab_label = gtk_label_new_with_mnemonic(_("_Overview"));
-    gtk_widget_show (tab_label); 
-		//res = 
+    gtk_widget_show (tab_label);
     gtk_notebook_append_page       (GTK_NOTEBOOK(nb), child, tab_label);
     
     child = gtk_vbox_new (FALSE, BORDER);
@@ -98,8 +96,7 @@ add_notebook (GtkWidget *box, t_sensors_dialog *sd)
     
     tab_label = gtk_label_new_with_mnemonic(_("_Tachometers"));
     gtk_widget_show (tab_label); 
-    //res = 
-		gtk_notebook_append_page       (GTK_NOTEBOOK(nb), child, tab_label);
+    gtk_notebook_append_page       (GTK_NOTEBOOK(nb), child, tab_label);
     
     gtk_box_pack_start(GTK_BOX(box), nb, TRUE, TRUE, 0);
 }
@@ -145,9 +142,6 @@ create_main_window (t_sensors_dialog *sd)
         
     gtk_window_set_default_size (GTK_WINDOW(dlg), sd->sensors->preferred_width, sd->sensors->preferred_height);
     
-    if (!tooltips)
-      tooltips = gtk_tooltips_new();
-
 
     g_signal_connect (G_OBJECT(dlg), "response", G_CALLBACK(on_main_window_response), sd); // also captures the dialog-destroy event and the closekeybinding-pressed event
     //g_signal_connect (G_OBJECT(dlg), "destroy", G_CALLBACK(on_main_window_response), sd);

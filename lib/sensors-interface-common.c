@@ -103,6 +103,7 @@ sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
     sensors->show_labels = TRUE;
     sensors->display_values_type = DISPLAY_TEXT;
     sensors->bars_created = FALSE;
+    sensors->tachos_created = FALSE;
     sensors->font_size = g_strdup("medium");
     sensors->font_size_numerical = 2;
     sensors->lines_size = 3;

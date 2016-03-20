@@ -568,9 +568,8 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
             tmp3 = strtok (tmp2, SINGLE_DELIMITER); // device name
             if (strcmp(tmp3, disk)==0)
             {
-                tmp3 = strtok(NULL, SINGLE_DELIMITER); // name
+                strtok(NULL, SINGLE_DELIMITER); // name
                 tmp3 = strdup(strtok(NULL, SINGLE_DELIMITER)); // value
-                // tmp3 = strtok(NULL, SINGLE_DELIMITER); // temperature unit
                 exit_status = 0;
                 g_free(error);
                 error = NULL;

@@ -34,7 +34,6 @@
 #include <gtk/gtk.h>
 
 /* Xfce includes */
-//#include <libxfcegui4/libxfcegui4.h>
 #include <libxfce4ui/libxfce4ui.h>
 
 /* Package includes */
@@ -45,10 +44,6 @@
 /* forward declaration to not make gcc 4.3 -Wall complain */
 void produce_min_max_values (t_chipfeature *chipfeature, t_tempscale scale, float *minval, float *maxval);
 
-/*
- * Tooltips to display for any part of this plugin
- */
-GtkTooltips *tooltips = NULL;
 
 void
 produce_min_max_values (t_chipfeature *chipfeature, t_tempscale scale, float *minval, float *maxval)
@@ -75,7 +70,7 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale, t_senso
 #if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
     NotifyNotification *nn;
     GError *error = NULL;
-		gchar *icon;
+    gchar *icon;
 #endif
     gchar *summary, *body;
     float minval, maxval;
@@ -183,7 +178,7 @@ add_type_box (GtkWidget * vbox, t_sensors_dialog * sd)
         gtk_combo_box_get_active(GTK_COMBO_BOX(sd->myComboBox));
 
     chip = g_ptr_array_index (sd->sensors->chips, gtk_combo_box_active);
-		DBG("index: %d, chip: %p\n", gtk_combo_box_active, chip);
+        DBG("index: %d, chip: %p\n", gtk_combo_box_active, chip);
 
     /* if (sd->sensors->num_sensorchips > 0)
         sd->mySensorLabel = gtk_label_new
