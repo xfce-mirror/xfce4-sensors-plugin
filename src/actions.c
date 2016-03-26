@@ -42,9 +42,6 @@
 gboolean
 refresh_sensor_data (t_sensors_dialog *sd);
 
-void 
-gtk_widget_unparent_ext (GtkWidget *widget, gpointer data);
-
 
 /* actual implementations */
 gboolean
@@ -101,13 +98,6 @@ refresh_sensor_data (t_sensors_dialog *sd)
     TRACE ("leaves refresh_sensor_data");
 
     return TRUE;
-}
-
-
-void
-gtk_widget_unparent_ext (GtkWidget *widget, gpointer data)
-{
-    gtk_widget_unparent(widget);
 }
 
 
