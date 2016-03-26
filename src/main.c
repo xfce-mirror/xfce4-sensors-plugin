@@ -27,9 +27,7 @@
 
 #include <string.h>
 
-/* #ifdef HAVE_CONFIG_H */
  #include <config.h>
-/* #endif */
 
 /* Package includes */
 #include <sensors-interface.h>
@@ -44,7 +42,7 @@
 void print_license (void);
 void print_usage (void);
 void print_version (void);
-t_sensors_dialog * initialize_sensors_struct (void);
+t_sensors_dialog * initialize_sensors_structures (void);
 
 void
 print_license (void)
@@ -63,7 +61,7 @@ print_usage (void)
 {
     printf (_("Xfce4 Sensors %s\n"
                       "Displays information about your hardware sensors, ACPI "
-											"status, harddisk temperatures and Nvidia GPU's temperature.\n"
+                                            "status, harddisk temperatures and Nvidia GPU's temperature.\n"
                       "Synopsis: \n"
                       "  xfce4-sensors options\n"
                       "where options are one or more of the following:\n"
@@ -84,24 +82,26 @@ print_version (void)
 
 
 t_sensors_dialog *
-initialize_sensors_struct (void)
+initialize_sensors_structures (void)
 {
-    t_sensors *sensors;
-    t_sensors_dialog *sd;
-    int i, j;
+    t_sensors *ptr_sensors_structure;
+    t_sensors_dialog *ptr_sensors_dialog_structure;
+    int idx_chip, idx_feature;
     
-    sensors = sensors_new (NULL, NULL);
-    sd = g_new0 (t_sensors_dialog, 1);
-    sd->sensors = sensors;
-    sd->plugin_dialog = FALSE;
+    ptr_sensors_structure = sensors_new (NULL, NULL);
+    ptr_sensors_dialog_structure = g_new0 (t_sensors_dialog, 1);
+    ptr_sensors_dialog_structure->sensors = ptr_sensors_structure;
+    ptr_sensors_dialog_structure->plugin_dialog = FALSE;
     
-    for (i=0; i<10; i++)
-      for (j=0; j<256; j++)
-      {
-        sensors->tachos[i][j] = NULL;
-      }
+    for (idx_chip=0; idx_chip<MAX_NUM_CHIPS; idx_chip++)
+    {
+        for (idx_feature=0; idx_feature<MAX_NUM_FEATURES; idx_feature++)
+        {
+            ptr_sensors_structure->tachos[idx_chip][idx_feature] = NULL;
+        }
+    }
       
-    return sd;
+    return ptr_sensors_dialog_structure;
 }
 
 
@@ -140,7 +140,7 @@ main (int argc, char **argv)
     gtk_init (&argc, &argv);
 
     /* initialize sensor stuff */
-    sd = initialize_sensors_struct ();
+    sd = initialize_sensors_structures ();
 
     /* build main application */
     window = create_main_window (sd);
@@ -171,4 +171,3 @@ main (int argc, char **argv)
 
     return 0;
 }
-

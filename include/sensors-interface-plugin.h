@@ -37,6 +37,9 @@
 #include "types.h"
 #include "sensors-interface-types.h"
 
+#define MAX_NUM_CHIPS 10
+#define MAX_NUM_FEATURES 256
+
 /**
  * Sensors module
  */
@@ -117,12 +120,12 @@ typedef struct {
 
     /* contains the progress bar panels */
     /* FIXME:    Might be replaced by GPtrArray as well */
-    GtkWidget* panels[10][256];
+    GtkWidget* panels[MAX_NUM_CHIPS][MAX_NUM_FEATURES];
     /*    GArray *panels_array; */
     
     /* contains the tacho panels */
     /* FIXME:    Might be replaced by GPtrArray as well */
-    GtkWidget* tachos[10][256];
+    GtkWidget* tachos[MAX_NUM_CHIPS][MAX_NUM_FEATURES];
 
     /* contains structure from libsensors */
     /* const sensors_chip_name *chipName[SENSORS]; */
@@ -183,6 +186,7 @@ typedef struct {
     gint preferred_height;
 }
 t_sensors;
+
 /* Regularly included functions in library */
 t_sensors * sensors_new (XfcePanelPlugin *plugin, gchar * plugin_config_file);
 
