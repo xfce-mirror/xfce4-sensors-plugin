@@ -1,6 +1,6 @@
 /* $Id$ */
 
-/*  Copyright 2008-2010 Fabian Nowak (timystery@arcor.de)
+/*  Copyright 2008-2016 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -45,16 +45,17 @@ refresh_sensor_data (t_sensors_dialog *sd);
 void 
 gtk_widget_unparent_ext (GtkWidget *widget, gpointer data);
 
+
 /* actual implementations */
 gboolean
 refresh_sensor_data (t_sensors_dialog *sd)
 {
   t_sensors *sensors;
-    int i, index_feature, res;
-    double sensorFeature;
+    int idx_chip, idx_feature, result;
+    double val_sensor_feature;
     gchar *tmp;
     t_chipfeature *chipfeature;
-    t_chip *chip;
+    t_chip *ptr_chip_structure;
     
     TRACE ("enters refresh_sensor_data");
 
@@ -62,21 +63,21 @@ refresh_sensor_data (t_sensors_dialog *sd)
 
     sensors = sd->sensors;
 
-    for (i=0; i < sensors->num_sensorchips; i++) {
-        chip = (t_chip *) g_ptr_array_index (sensors->chips, i);
-        g_assert (chip!=NULL);
+    for (idx_chip=0; idx_chip < sensors->num_sensorchips; idx_chip++) {
+        ptr_chip_structure = (t_chip *) g_ptr_array_index (sensors->chips, idx_chip);
+        g_assert (ptr_chip_structure!=NULL);
 
-        for (index_feature = 0; index_feature<chip->num_features; index_feature++) {
-            chipfeature = g_ptr_array_index (chip->chip_features, index_feature);
+        for (idx_feature = 0; idx_feature<ptr_chip_structure->num_features; idx_feature++) {
+            chipfeature = g_ptr_array_index (ptr_chip_structure->chip_features, idx_feature);
             g_assert (chipfeature!=NULL);
 
             if ( chipfeature->valid == TRUE)
             {
-                res = sensor_get_value (chip, chipfeature->address,
-                                                    &sensorFeature,
+                result = sensor_get_value (ptr_chip_structure, chipfeature->address,
+                                                    &val_sensor_feature,
                                                     &(sensors->suppressmessage));
 
-                if ( res!=0 ) {
+                if ( result!=0 ) {
                     /* FIXME: either print nothing, or undertake appropriate action,
                      * or pop up a message box. */
                     g_printf ( _("Sensors Viewer:\n"
@@ -86,11 +87,11 @@ refresh_sensor_data (t_sensors_dialog *sd)
                 }
                 tmp = g_new (gchar, 0);
                 format_sensor_value (sensors->scale, chipfeature,
-                                     sensorFeature, &tmp);
+                                     val_sensor_feature, &tmp);
 
                 g_free (chipfeature->formatted_value);
                 chipfeature->formatted_value = g_strdup (tmp);
-                chipfeature->raw_value = sensorFeature;
+                chipfeature->raw_value = val_sensor_feature;
 
                 g_free (tmp);
             } /* end if chipfeature->valid */
@@ -102,112 +103,80 @@ refresh_sensor_data (t_sensors_dialog *sd)
     return TRUE;
 }
 
-//void
-//refresh_tree_view (t_sensors_dialog *sd)
-//{
-  //GtkTreeModel *  model;
-  
-  //model = gtk_tree_view_get_model(GTK_TREE_VIEW(sd->myTreeView));
-  
-//}
 
 void
 gtk_widget_unparent_ext (GtkWidget *widget, gpointer data)
 {
-  gtk_widget_unparent(widget);
+    gtk_widget_unparent(widget);
 }
+
 
 void
 refresh_tacho_view (t_sensors_dialog *sd)
 {
-  //GtkTreeModel *  model;
-  int i, index_feature, row=0, col=0;
-  t_sensors *sensors;
-  t_chipfeature *chipfeature;
-  t_chip *chip;
-  GtkWidget *table; //, *widget;
-  //GList *list;
-  gdouble d;
+    int idx_chip, idx_feature, row_tacho_table=0, col_tacho_table=0;
+    t_sensors *ptr_sensors_structure;
+    t_chipfeature *ptr_chipfeature_structure;
+    t_chip *ptr_chip_structure;
+    GtkWidget *ptr_wdgt_table;
+    gdouble val_fill_degree;
+
+    TRACE ("enters refresh_tacho_view");
+
+    g_return_if_fail (sd!=NULL);
+
+    ptr_sensors_structure = sd->sensors;
+
+    ptr_wdgt_table = ptr_sensors_structure->widget_sensors;
   
-  TRACE ("enters refresh_tacho_view");
-  
-  g_return_if_fail (sd!=NULL);
-  
-  sensors = sd->sensors;
-  
-  //model = gtk_tree_view_get_model(GTK_TREE_VIEW(sd->myTreeView));
-  
-  table = sensors->widget_sensors;
-  
-  //list = gtk_container_get_children (GTK_CONTAINER(table));
-  //if (list!=NULL)
-  //{
-    //for (widget=(GtkWidget *) (list->data); widget!=NULL; list=list->next)
-    //{
-      //gtk_widget_unparent(widget);
-    //}
-  //}
-  //gtk_container_foreach(GTK_CONTAINER(table), (GtkCallback) gtk_widget_hide, NULL);
-  //gtk_widget_destroy(table);
-  //table = sensors->widget_sensors = gtk_table_new(5, 4, TRUE);
-  //gtk_widget_show(table);
-  
-    for (i=0; i < sensors->num_sensorchips; i++) 
+    for (idx_chip=0; idx_chip < ptr_sensors_structure->num_sensorchips; idx_chip++) 
     {
-        chip = (t_chip *) g_ptr_array_index (sensors->chips, i);
-        g_assert (chip!=NULL);
+        ptr_chip_structure = (t_chip *) g_ptr_array_index (ptr_sensors_structure->chips, idx_chip);
+        g_assert (ptr_chip_structure!=NULL);
 
-        for (index_feature = 0; index_feature<chip->num_features; index_feature++)
+        for (idx_feature = 0; idx_feature<ptr_chip_structure->num_features; idx_feature++)
         {
-            chipfeature = g_ptr_array_index (chip->chip_features, index_feature);
-            g_assert (chipfeature!=NULL);
+            ptr_chipfeature_structure = g_ptr_array_index (ptr_chip_structure->chip_features, idx_feature);
+            g_assert (ptr_chipfeature_structure!=NULL);
 
-            if ( chipfeature->valid == TRUE && chipfeature->show == TRUE)
+            if ( ptr_chipfeature_structure->valid == TRUE && ptr_chipfeature_structure->show == TRUE)
             {
                 // actually, the idea is to move the tacho widgets in the table; but Gtk fails at this point: 
                 //  there is neither a gtk_table_move nor does it allow to unparent a widget and attach it at a new positon,
                 //  so the container is removed and destroyed for safety.
-                if ((sensors->tachos [i][index_feature]!=NULL) && (sensors->tachos [i][index_feature]->parent!=NULL))
+                if ((ptr_sensors_structure->tachos [idx_chip][idx_feature]!=NULL) && (ptr_sensors_structure->tachos [idx_chip][idx_feature]->parent!=NULL))
                 {
-                    //gtk_widget_unparent (sensors->tachos [i][index_feature]);
-                    gtk_container_remove(GTK_CONTAINER(table), sensors->tachos [i][index_feature]);
-                    //gtk_widget_destroy(sensors->tachos [i][index_feature]);
+                    gtk_container_remove(GTK_CONTAINER(ptr_wdgt_table), ptr_sensors_structure->tachos [idx_chip][idx_feature]);
                 }
-                //else if (sensors->tachos [i][index_feature]==NULL )
-                //{
-                  // sensors->tachos[i][index_feature] is now destroyed due to bad GTK function naming and implementation of gtk_container_remove; gtk_widget_unparent does not work at all from within here.
-                    sensors->tachos[i][index_feature] = gtk_cpu_new();
-                //}
-              
-                //gtk_cpu_set_value (GTK_CPU(sensors->tachos [i][index_feature]), (chipfeature->raw_value - chipfeature->min_value) / ( chipfeature->max_value - chipfeature->min_value));
-                d = (chipfeature->raw_value - chipfeature->min_value) / ( chipfeature->max_value - chipfeature->min_value);
-                if (d<0.0) 
-                    d=0.0;
-                else if (d>1.0) 
-                    d=1.0;
+                ptr_sensors_structure->tachos[idx_chip][idx_feature] = gtk_cpu_new();
                     
-                GTK_CPU(sensors->tachos [i][index_feature])->sel = d;
-                //gtk_cpu_set_text (GTK_CPU(sensors->tachos [i][index_feature]), chipfeature->name);
-                GTK_CPU(sensors->tachos [i][index_feature])->text = g_strdup(chipfeature->name);
-                GTK_CPU(sensors->tachos [i][index_feature])->color = g_strdup(chipfeature->color);
-                //gtk_cpu_expose(sensors->tachos [i][index_feature], NULL);
+                val_fill_degree = (ptr_chipfeature_structure->raw_value - ptr_chipfeature_structure->min_value) / ( ptr_chipfeature_structure->max_value - ptr_chipfeature_structure->min_value);
+                if (val_fill_degree<0.0) 
+                    val_fill_degree=0.0;
+                else if (val_fill_degree>1.0) 
+                    val_fill_degree=1.0;
+                    
+                GTK_CPU(ptr_sensors_structure->tachos [idx_chip][idx_feature])->sel = val_fill_degree;
+                char str_widget_tooltip_text[128];
+                snprintf(str_widget_tooltip_text, 128, "<b>%s</b>\n%s: %s", ptr_chip_structure->sensorId, ptr_chipfeature_structure->name, ptr_chipfeature_structure->formatted_value);
+                gtk_widget_set_tooltip_markup (GTK_WIDGET(ptr_sensors_structure->tachos [idx_chip][idx_feature]), str_widget_tooltip_text);
+                GTK_CPU(ptr_sensors_structure->tachos [idx_chip][idx_feature])->text = g_strdup(ptr_chipfeature_structure->name);
+                GTK_CPU(ptr_sensors_structure->tachos [idx_chip][idx_feature])->color = g_strdup(ptr_chipfeature_structure->color);
                 
                 
-                gtk_widget_set_size_request(sensors->tachos [i][index_feature], 64, 64);
+                gtk_widget_set_size_request(ptr_sensors_structure->tachos [idx_chip][idx_feature], 64, 64);
                 
-                gtk_table_attach_defaults(GTK_TABLE(table), sensors->tachos [i][index_feature], col, col+1, row, row+1);
-                gtk_widget_show (sensors->tachos [i][index_feature]);
-                //gtk_cpu_paint(sensors->tachos [i][index_feature]);
-                //gtk_cpu_expose(sensors->tachos [i][index_feature], NULL);
+                gtk_table_attach_defaults(GTK_TABLE(ptr_wdgt_table), ptr_sensors_structure->tachos [idx_chip][idx_feature], col_tacho_table, col_tacho_table+1, row_tacho_table, row_tacho_table+1);
+                gtk_widget_show (ptr_sensors_structure->tachos [idx_chip][idx_feature]);
                                 
-                if (col>=3) {
-                    row++;
-                    col = 0;
+                if (col_tacho_table>=3) {
+                    row_tacho_table++;
+                    col_tacho_table = 0;
                 }
                 else
-                    col++;
+                    col_tacho_table++;
                 
-                if (row>=5)
+                if (row_tacho_table>=5)
                     return; /* or resize the table after reading the property n-rows of GtkTableClass*/
             }
         }
@@ -215,26 +184,26 @@ refresh_tacho_view (t_sensors_dialog *sd)
     TRACE ("leaves refresh_tacho_view");
 }
 
+
 gboolean
 refresh_view (gpointer data)
 {
-  t_sensors_dialog *sd;
-  
-  TRACE ("enters refresh_view");
-  
-  g_return_val_if_fail (data != NULL, FALSE);
-  sd = (t_sensors_dialog *) data;
-  
-  if (!refresh_sensor_data (sd))
-    return FALSE;
-  
-  reload_listbox(sd);
-  
-  refresh_tacho_view (sd);
-  
-  /* refresh all the tacho elements in the notebook/table view */
-  
-  
-  TRACE ("leaves refresh_view");
-  return TRUE;
+    t_sensors_dialog *ptr_sensors_dialog;
+    gboolean return_value = FALSE;
+    
+    TRACE ("enters refresh_view");
+    
+    g_return_val_if_fail (data != NULL, FALSE);
+    ptr_sensors_dialog = (t_sensors_dialog *) data;
+    
+    if (refresh_sensor_data (ptr_sensors_dialog))
+    {
+        reload_listbox(ptr_sensors_dialog);
+        
+        refresh_tacho_view (ptr_sensors_dialog); /* refresh all the tacho elements in the notebook/table view */
+        
+        return_value = TRUE;
+    }
+    TRACE ("leaves refresh_view");
+    return return_value;
 }
