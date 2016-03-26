@@ -30,6 +30,6 @@
 #include <cpu.h>
 
 gboolean refresh_view (gpointer data);
-void refresh_tacho_view (t_sensors_dialog *sd);
+void refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure);
 
 #endif /* ACTIONS_H */

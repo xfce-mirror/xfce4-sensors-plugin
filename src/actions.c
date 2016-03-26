@@ -45,7 +45,7 @@ refresh_sensor_data (t_sensors_dialog *sd);
 
 /* actual implementations */
 gboolean
-refresh_sensor_data (t_sensors_dialog *sd)
+refresh_sensor_data (t_sensors_dialog *ptr_sensors_dialog_structure)
 {
   t_sensors *sensors;
     int idx_chip, idx_feature, result;
@@ -56,9 +56,9 @@ refresh_sensor_data (t_sensors_dialog *sd)
     
     TRACE ("enters refresh_sensor_data");
 
-    g_return_val_if_fail (sd != NULL, FALSE);
+    g_return_val_if_fail (ptr_sensors_dialog_structure != NULL, FALSE);
 
-    sensors = sd->sensors;
+    sensors = ptr_sensors_dialog_structure->sensors;
 
     for (idx_chip=0; idx_chip < sensors->num_sensorchips; idx_chip++) {
         ptr_chip_structure = (t_chip *) g_ptr_array_index (sensors->chips, idx_chip);
@@ -102,7 +102,7 @@ refresh_sensor_data (t_sensors_dialog *sd)
 
 
 void
-refresh_tacho_view (t_sensors_dialog *sd)
+refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
 {
     int idx_chip, idx_feature, row_tacho_table=0, col_tacho_table=0;
     t_sensors *ptr_sensors_structure;
@@ -113,9 +113,9 @@ refresh_tacho_view (t_sensors_dialog *sd)
 
     TRACE ("enters refresh_tacho_view");
 
-    g_return_if_fail (sd!=NULL);
+    g_return_if_fail (ptr_sensors_dialog_structure!=NULL);
 
-    ptr_sensors_structure = sd->sensors;
+    ptr_sensors_structure = ptr_sensors_dialog_structure->sensors;
 
     ptr_wdgt_table = ptr_sensors_structure->widget_sensors;
   
