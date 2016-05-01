@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-22 00:31+0200\n"
-"PO-Revision-Date: 2016-05-01 15:18+0000\n"
+"PO-Revision-Date: 2016-05-01 18:49+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -116,7 +116,7 @@ msgstr "Suprimeix els missatges"
 
 #: ../panel-plugin/sensors-plugin.c:2013
 msgid "Suppress tooltip"
-msgstr "Suprimeix l'indicador de funció"
+msgstr "Suprimeix el quadre de text emergent"
 
 #: ../panel-plugin/sensors-plugin.c:2038
 msgid "E_xecute on double click:"
@@ -203,7 +203,7 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "«hddtemp» no s'ha executat correctament, tot i que és executable. Probablement es deu al fet que els discs requereixen privilegis de superusuari per llegir-ne les temperatures i que «hddtemp» no té «setuid» de superusuari.\n\nUna solució fàcil però lletja és executar l'ordre «chmod u+s %s» com a superusuari i reiniciar el connector o el quadre.\n\nL'ordre «%s» ha tornat aquest error:\n%s\namb un valor de %d.\n"
+msgstr "«hddtemp» no s'ha executat correctament, tot i que és executable. Probablement es deu al fet que els discs requereixen privilegis de root per llegir-ne les temperatures i que «hddtemp» no té «setuid» de root.\n\nUna solució fàcil però lletja és executar l'ordre «chmod u+s %s» com a usuari root i reiniciar el connector o el seu plafó.\n\nL'ordre «%s» ha tornat aquest error:\n%s\namb un valor de %d.\n"
 
 #: ../lib/hddtemp.c:630 ../lib/hddtemp.c:660
 msgid "Suppress this message in future"
