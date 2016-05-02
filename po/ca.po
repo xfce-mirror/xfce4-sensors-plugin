@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-22 00:31+0200\n"
-"PO-Revision-Date: 2016-05-01 18:49+0000\n"
+"PO-Revision-Date: 2016-05-02 06:44+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,7 @@ msgstr "Connector de sensors:\nSembla com si hi hagués un problema en llegir el
 
 #: ../panel-plugin/sensors-plugin.c:1709
 msgid "UI style:"
-msgstr "Estil de la UI:"
+msgstr "Estil gràfic:"
 
 #: ../panel-plugin/sensors-plugin.c:1710
 msgid "_text"
@@ -174,7 +174,7 @@ msgstr "<desconegut>"
 
 #: ../lib/nvidia.c:60
 msgid "NVidia GPU core temperature"
-msgstr "Temperatura del nucli del processador de Nvidia"
+msgstr "Temperatura del nucli GPU de NVidia"
 
 #: ../lib/nvidia.c:61
 msgid "nvidia"
@@ -223,7 +223,7 @@ msgstr "Sensors LM"
 #: ../lib/lmsensors.c:370 ../lib/lmsensors.c:417
 #, c-format
 msgid "Error: Could not connect to sensors!"
-msgstr "No s’ha pogut connectar als sensors"
+msgstr "Error: No s’ha pogut connectar a sensors!"
 
 #: ../lib/sensors-interface.c:84
 msgid "Sensors Plugin Failure"
@@ -289,7 +289,7 @@ msgstr "_Sensors"
 
 #: ../lib/sensors-interface-common.c:73 ../lib/sensors-interface-common.c:74
 msgid "No sensors found!"
-msgstr "No s’han trobat sensors"
+msgstr "No s’ha trobat cap sensor!"
 
 #: ../lib/sensors-interface-common.c:144
 #, c-format
@@ -363,7 +363,7 @@ msgstr "_Tacòmetres"
 
 #: ../src/interface.c:116
 msgid "Sensors Viewer"
-msgstr "Visor de sensors"
+msgstr "Visualitzador dels sensors"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
@@ -373,11 +373,11 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Visor dels sensors:\nSembla que hi ha algun problema amb la lectura del sensor.\nNo es pot garantir que es pugui procedir.\n"
+msgstr "Visualitzador dels sensors:\nSembla que hi ha algun problema amb la lectura del sensor.\nNo es pot garantir el correcte funcionament.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
-msgstr "Visor de sensor"
+msgstr "Visualitzador del sensor"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
@@ -386,8 +386,8 @@ msgstr "Mostra els valors del sensor."
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 msgid "Sensor Values Viewer"
-msgstr "Visor dels valors dels sensors"
+msgstr "Visualitzador dels valors dels sensors"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
-msgstr "Connector de sensors"
+msgstr "Connector del sensor"
