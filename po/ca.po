@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-22 00:31+0200\n"
-"PO-Revision-Date: 2016-05-02 06:44+0000\n"
+"PO-Revision-Date: 2016-06-06 00:29+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr "<span><b>Sensors</b></span>"
 #. widget = sensors->eventbox;
 #: ../panel-plugin/sensors-plugin.c:788
 msgid "No sensors selected!"
-msgstr "No s’ha seleccionat cap sensor"
+msgstr "No s'ha seleccionat cap sensor"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
@@ -223,7 +223,7 @@ msgstr "Sensors LM"
 #: ../lib/lmsensors.c:370 ../lib/lmsensors.c:417
 #, c-format
 msgid "Error: Could not connect to sensors!"
-msgstr "Error: No s’ha pogut connectar a sensors!"
+msgstr "Error: No s'ha pogut connectar a sensors!"
 
 #: ../lib/sensors-interface.c:84
 msgid "Sensors Plugin Failure"
@@ -289,7 +289,7 @@ msgstr "_Sensors"
 
 #: ../lib/sensors-interface-common.c:73 ../lib/sensors-interface-common.c:74
 msgid "No sensors found!"
-msgstr "No s’ha trobat cap sensor!"
+msgstr "No s'ha trobat cap sensor!"
 
 #: ../lib/sensors-interface-common.c:144
 #, c-format
