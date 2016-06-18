@@ -1,142 +1,136 @@
-# Catalan translation of xfce4-sensors-plugin.
-# Copyright (C) 2004-2006 Fabian Nowak
-# This file is distributed under the same license as the xfce4-sensors-plugin package.
-# Pau Rul·lan Ferragut <paurullan@bulma.net>, 2006.
-# Carles Muñoz Gorriz <carlesmu@internautas.org>, 2008-2009.
-#
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Davidmp <medipas@gmail.com>, 2016
+# Pau Rul·lan Ferragut <paurullan@bulma.net>, 2006
+# Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-sensors-plugin 0.9.0\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-23 21:54+0100\n"
-"PO-Revision-Date: 2009-10-24 00:46+0100\n"
-"Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
-"Language-Team: Catalan\n"
-"Language: \n"
+"POT-Creation-Date: 2014-05-22 00:31+0200\n"
+"PO-Revision-Date: 2016-06-06 00:29+0000\n"
+"Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
+"Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-Language: Catalan\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Country: ANDORRA\n"
 
-#: ../panel-plugin/sensors-plugin.c:301 ../panel-plugin/sensors-plugin.c:397
-#: ../panel-plugin/sensors-plugin.c:999
-#, fuzzy
+#: ../panel-plugin/sensors-plugin.c:287 ../panel-plugin/sensors-plugin.c:383
+#: ../panel-plugin/sensors-plugin.c:985
 msgid "<span><b>Sensors</b></span>"
-msgstr "<span foreground=\"#000000\"><b>Sensors</b></span>"
+msgstr "<span><b>Sensors</b></span>"
 
 #. widget = sensors->eventbox;
-#: ../panel-plugin/sensors-plugin.c:802
+#: ../panel-plugin/sensors-plugin.c:788
 msgid "No sensors selected!"
-msgstr "No s’ha seleccionat cap sensor"
+msgstr "No s'ha seleccionat cap sensor"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:842
+#: ../panel-plugin/sensors-plugin.c:828
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"Connector de sensorts:\n"
-"Sembla com si hi hagués un problema al llegir el valor d'alguna "
-"característica del sensor.\n"
-"No podem garantir que funcioni correctament.\n"
+msgstr "Connector de sensors:\nSembla com si hi hagués un problema en llegir el valor d'alguna característica del sensor.\nNo es pot garantir que funcioni correctament.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1722
+#: ../panel-plugin/sensors-plugin.c:1709
 msgid "UI style:"
-msgstr "Estil de la UI:"
+msgstr "Estil gràfic:"
 
-#: ../panel-plugin/sensors-plugin.c:1723
+#: ../panel-plugin/sensors-plugin.c:1710
 msgid "_text"
 msgstr "_text"
 
-#: ../panel-plugin/sensors-plugin.c:1725
+#: ../panel-plugin/sensors-plugin.c:1712
 msgid "_progress bars"
 msgstr "Barres de _progrés"
 
-#: ../panel-plugin/sensors-plugin.c:1727
+#: ../panel-plugin/sensors-plugin.c:1714
 msgid "_tachos"
 msgstr "_instruments"
 
-#: ../panel-plugin/sensors-plugin.c:1772
+#: ../panel-plugin/sensors-plugin.c:1759
 msgid "Show _labels"
 msgstr "Mostra _etiquetes"
 
-#: ../panel-plugin/sensors-plugin.c:1802
+#: ../panel-plugin/sensors-plugin.c:1789
 msgid "Show colored _bars"
 msgstr "Mostra _barres colorejades"
 
-#: ../panel-plugin/sensors-plugin.c:1830
+#: ../panel-plugin/sensors-plugin.c:1817
 msgid "_Show title"
 msgstr "_Mostra títol"
 
-#: ../panel-plugin/sensors-plugin.c:1854
+#: ../panel-plugin/sensors-plugin.c:1841
 msgid "_Number of text lines:"
 msgstr "_Número de línies de text:"
 
-#: ../panel-plugin/sensors-plugin.c:1889
+#: ../panel-plugin/sensors-plugin.c:1876
 msgid "F_ont size:"
 msgstr "Mida de la _lletra:"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1896
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
+#: ../panel-plugin/sensors-plugin.c:1883
 msgid "x-small"
 msgstr "molt petit"
 
-#: ../panel-plugin/sensors-plugin.c:1897
+#: ../panel-plugin/sensors-plugin.c:1884
 msgid "small"
 msgstr "petit"
 
-#: ../panel-plugin/sensors-plugin.c:1898
+#: ../panel-plugin/sensors-plugin.c:1885
 msgid "medium"
 msgstr "mitjà"
 
-#: ../panel-plugin/sensors-plugin.c:1899
+#: ../panel-plugin/sensors-plugin.c:1886
 msgid "large"
 msgstr "gran"
 
-#: ../panel-plugin/sensors-plugin.c:1900
+#: ../panel-plugin/sensors-plugin.c:1887
 msgid "x-large"
 msgstr "extra gran"
 
-#: ../panel-plugin/sensors-plugin.c:1931
+#: ../panel-plugin/sensors-plugin.c:1918
 msgid "F_ont:"
 msgstr "Tipus de _lletra:"
 
-#: ../panel-plugin/sensors-plugin.c:1965
+#: ../panel-plugin/sensors-plugin.c:1952
 msgid "Show _Units"
 msgstr "Mostra _unitats"
 
-#: ../panel-plugin/sensors-plugin.c:1986
+#: ../panel-plugin/sensors-plugin.c:1973
 msgid "Small horizontal s_pacing"
 msgstr "_Espaiat petit horitzontal"
 
-#: ../panel-plugin/sensors-plugin.c:2008
+#: ../panel-plugin/sensors-plugin.c:1995
 msgid "Suppress messages"
 msgstr "Suprimeix els missatges"
 
-#: ../panel-plugin/sensors-plugin.c:2026
+#: ../panel-plugin/sensors-plugin.c:2013
 msgid "Suppress tooltip"
-msgstr ""
+msgstr "Suprimeix el quadre de text emergent"
 
-#: ../panel-plugin/sensors-plugin.c:2051
+#: ../panel-plugin/sensors-plugin.c:2038
 msgid "E_xecute on double click:"
 msgstr "E_xecuta amb doble clic:"
 
-#: ../panel-plugin/sensors-plugin.c:2094
+#: ../panel-plugin/sensors-plugin.c:2081
 msgid "_View"
 msgstr "_Mostra"
 
-#: ../panel-plugin/sensors-plugin.c:2128
+#: ../panel-plugin/sensors-plugin.c:2115
 msgid "_Miscellaneous"
-msgstr "_Misceŀlània"
+msgstr "_Miscel·lània"
 
-#: ../panel-plugin/sensors-plugin.c:2203 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2190 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:180
 msgid "Sensors Plugin"
 msgstr "Connector de sensors"
@@ -144,16 +138,12 @@ msgstr "Connector de sensors"
 #. gtk_cpu_paint(sensors->tachos [i][index_feature]);
 #. gtk_cpu_expose(sensors->tachos [i][index_feature], NULL);
 #. #if GTK_VERSION < 2.11
-#: ../panel-plugin/sensors-plugin.c:2242 ../src/actions.c:205
+#: ../panel-plugin/sensors-plugin.c:2229 ../src/actions.c:205
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr ""
-"Podeu canviar la propietat d'alguna característica com ara el nom, els "
-"colors o els valors màxims o mínims al fer doble clic al camp d'entrada, "
-"editant el contingut, i pitjant la tecla de retorn o seleccionant un altre "
-"camp."
+msgstr "Podeu canviar la propietat d'alguna característica com ara el nom, els colors o els valors màxims o mínims en fer doble clic al camp d'entrada, editant el contingut i pitjant la tecla de retorn o seleccionant un altre camp."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -164,33 +154,35 @@ msgstr ""
 msgid "Hard disks"
 msgstr "Discs durs"
 
-#: ../lib/acpi.c:530 ../lib/acpi.c:538 ../lib/acpi.c:539
+#: ../lib/acpi.c:529 ../lib/acpi.c:537
 msgid "ACPI"
 msgstr "ACPI"
 
 #. to be displayed
-#. chip->description = g_strdup(_("Advanced Configuration and Power Interface"));
-#: ../lib/acpi.c:532
+#. chip->description = g_strdup(_("Advanced Configuration and Power
+#. Interface"));
+#: ../lib/acpi.c:531
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ACPI v%s zones"
 
 #. who knows, if we obtain non-NULL version at all...
 #. || g_strisempty(version))
-#: ../lib/acpi.c:673
+#: ../lib/acpi.c:669
 msgid "<Unknown>"
 msgstr "<desconegut>"
 
 #: ../lib/nvidia.c:60
 msgid "NVidia GPU core temperature"
-msgstr "Temperatura del nucli del processador de Nvidia"
+msgstr "Temperatura del nucli GPU de NVidia"
 
 #: ../lib/nvidia.c:61
 msgid "nvidia"
 msgstr "nvidia"
 
 #. if (scale == FAHRENHEIT) {
-#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
+#. cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 +
+#. 32) );
 #. } else { // Celsius
 #: ../lib/nvidia.c:126 ../lib/hddtemp.c:729
 #, c-format
@@ -204,28 +196,14 @@ msgstr "Temperatures del disc dur S.M.A.R.T."
 #: ../lib/hddtemp.c:614
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr ""
-"«hddtemp» no s'ha executat correctament, tot i que és executable. "
-"Probablement es deu a que els discs requereixen privilegis de super usuari "
-"per llegir llurs temperatures i a que «hddtemp» no te «setuid» de super "
-"usuari.\n"
-"\n"
-"Una solució fàcil però lletja és executar l'ordre «chmod u+s %s» com super "
-"usuari i reiniciar el connector o el quadre.\n"
-"\n"
-"L'ordre «%s» ha tornat aquest error:\n"
-"%s\n"
-"amb un valor de %d.\n"
+msgstr "«hddtemp» no s'ha executat correctament, tot i que és executable. Probablement es deu al fet que els discs requereixen privilegis de root per llegir-ne les temperatures i que «hddtemp» no té «setuid» de root.\n\nUna solució fàcil però lletja és executar l'ordre «chmod u+s %s» com a usuari root i reiniciar el connector o el seu plafó.\n\nL'ordre «%s» ha tornat aquest error:\n%s\namb un valor de %d.\n"
 
 #: ../lib/hddtemp.c:630 ../lib/hddtemp.c:660
 msgid "Suppress this message in future"
@@ -236,9 +214,7 @@ msgstr "No mostris aquest missatge en el futur"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr ""
-"S'ha produït un error al executar «%s»:\n"
-"%s"
+msgstr "S'ha produït un error al executar «%s»:\n%s"
 
 #: ../lib/lmsensors.c:110
 msgid "LM Sensors"
@@ -247,7 +223,7 @@ msgstr "Sensors LM"
 #: ../lib/lmsensors.c:370 ../lib/lmsensors.c:417
 #, c-format
 msgid "Error: Could not connect to sensors!"
-msgstr "No s’ha pogut connectar als sensors"
+msgstr "Error: No s'ha pogut connectar a sensors!"
 
 #: ../lib/sensors-interface.c:84
 msgid "Sensors Plugin Failure"
@@ -257,10 +233,7 @@ msgstr "Fallida del connector de sensors"
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr ""
-"Sembla com si hi hagués un problema al llegir el valor d'alguna "
-"característica del sensor.\n"
-"No podem garantir que funcioni correctament."
+msgstr "Sembla com si hi hagués un problema en llegir el valor d'alguna característica del sensor.\nNo es pot garantir que funcioni correctament."
 
 #: ../lib/sensors-interface.c:172
 msgid "Sensors t_ype:"
@@ -316,23 +289,23 @@ msgstr "_Sensors"
 
 #: ../lib/sensors-interface-common.c:73 ../lib/sensors-interface-common.c:74
 msgid "No sensors found!"
-msgstr "No s’han trobat sensors"
+msgstr "No s'ha trobat cap sensor!"
 
 #: ../lib/sensors-interface-common.c:144
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f °F"
-msgstr "%.1f °F"
+msgstr "%.0f °F"
 
 #. Celsius
 #: ../lib/sensors-interface-common.c:147
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f °C"
-msgstr "%.1f °C"
+msgstr "%.0f °C"
 
 #: ../lib/sensors-interface-common.c:152
 #, c-format
 msgid "%+.3f V"
-msgstr ""
+msgstr "%+.3f V"
 
 #: ../lib/sensors-interface-common.c:156
 #, c-format
@@ -357,22 +330,14 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
-msgstr ""
-"Sensors Xfce4 %s\n"
-"Aquest pograma es distribueix amb llicència GPL v2.\n"
-"El text de la llicència el podeu trobar dins de l'arxiu font del programa o "
-"a «/usr/share/apps/LICENSES/GPL_V2» o a http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Sensors Xfce4 %s\nAquest programa es distribueix amb llicència GPL v2.\nEl text de la llicència el podeu trobar dins de l'arxiu font del programa o a «/usr/share/apps/LICENSES/GPL_V2» o a http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:64
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk "
-"temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -381,17 +346,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr ""
-"Xfce4 Sensors %s\n"
-"Mostra informació dels sensors i d'ACPI.\n"
-"Sinopsis: \n"
-"  xfce4-sensors opcions\n"
-"On les opcions son:\n"
-"  -h, --help    Mostra aquest diàleg d'ajuda.\n"
-"  -l, --license Mostra informació de la llicència.\n"
-"  -V, --version Mostra informació de la versió.\n"
-"\n"
-"Aquest programa es distribueix amb llicència GPL v2.\n"
+msgstr "Xfce4 Sensors %s\nMostra informació dels sensors i d'ACPI.\nSinopsis: \n  xfce4-sensors opcions\nOn les opcions son:\n  -h, --help    Mostra aquest diàleg d'ajuda.\n  -l, --license Mostra informació de la llicència.\n  -V, --version Mostra informació de la versió.\n\nAquest programa es distribueix amb llicència GPL v2.\n"
 
 #: ../src/main.c:82
 #, c-format
@@ -408,7 +363,7 @@ msgstr "_Tacòmetres"
 
 #: ../src/interface.c:116
 msgid "Sensors Viewer"
-msgstr "Visor de sensors"
+msgstr "Visualitzador dels sensors"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
@@ -418,14 +373,11 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"Visor dels sensors:\n"
-"Sembla que hi ha algun problema amb la lectura del sensor.\n"
-"No es pot garantir que es pugui procedir.\n"
+msgstr "Visualitzador dels sensors:\nSembla que hi ha algun problema amb la lectura del sensor.\nNo es pot garantir el correcte funcionament.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
-msgstr "Visor de sensor"
+msgstr "Visualitzador del sensor"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:2
@@ -434,54 +386,8 @@ msgstr "Mostra els valors del sensor."
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 msgid "Sensor Values Viewer"
-msgstr "Visor dels valors dels sensors"
+msgstr "Visualitzador dels valors dels sensors"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.in.h:1
 msgid "Sensor plugin "
-msgstr "Connector de sensors"
-
-#~ msgid "%+.2f V"
-#~ msgstr "%+.2f V"
-
-#~ msgid "No concrete error detected.\n"
-#~ msgstr "Cap error concret detectat.\n"
-
-#~ msgid "g_raphical"
-#~ msgstr "_gràfic"
-
-#~ msgid "Show _labels in graphical UI"
-#~ msgstr "Mostra _etiquetes a la UI"
-
-#~ msgid "Xfce 4 Sensors Plugin"
-#~ msgstr "Connector de sensors"
-
-#~ msgid "Xfce 4 Sensors Viewer"
-#~ msgstr "Connector de sensors"
-
-#~ msgid "Edit Properties"
-#~ msgstr "Edita propietats"
-
-#~ msgid "View sensor values"
-#~ msgstr "Mostra els valors dels sensors"
-
-#~ msgid ""
-#~ "Xfce Hardware Sensors Plugin: \n"
-#~ "Seems like there was a problem reading a sensor feature value. \n"
-#~ "Proper proceeding cannot be guaranteed.\n"
-#~ msgstr ""
-#~ " \n"
-#~ "Connector pels sensor de maquinari Xfce:\n"
-#~ "S’ha produït un error durant la lectura dels sensors.\n"
-#~ "No es podrà assegurar un bon funcionament.\n"
-
-#~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
-#~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>\n"
-
-#~ msgid "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
-#~ msgstr "<span foreground=\"#000000\" size=\"%s\"><b>Sensors</b></span>"
-
-#~ msgid "<b>Sensors</b>"
-#~ msgstr "<b>Sensors</b>"
-
-#~ msgid "<b>View</b>"
-#~ msgstr "<b>Visualitza</b>"
+msgstr "Connector del sensor"

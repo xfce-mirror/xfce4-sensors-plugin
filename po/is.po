@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-22 00:31+0200\n"
-"PO-Revision-Date: 2016-02-09 18:25+0000\n"
+"PO-Revision-Date: 2016-04-23 09:57+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic (http://www.transifex.com/xfce/xfce-panel-plugins/language/is/)\n"
 "MIME-Version: 1.0\n"
@@ -345,7 +345,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr ""
+msgstr "Xfce4 skynjarar %s\nBirtir upplýsingar um vélbúnaðarskynjara, stöðu ACPI, hitastigs diska og hitastig Nvidia GPU-skjákortsörgjörva.\nSamantekt: \n  xfce4-sensors rofar\nþar sem 'rofar' er eitt af eftirfarandi:\n  -h, --help    Birtir þessar leiðbeiningar.\n  -l, --license Birtir upplýsingar um notkunarleyfi.\n  -V, --version Birtir upplýsingar um útgáfu.\n\nÞetta forrit er gefið út með GPL v2 notkunarleyfi.\n"
 
 #: ../src/main.c:82
 #, c-format
