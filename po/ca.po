@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-22 00:31+0200\n"
-"PO-Revision-Date: 2016-06-06 00:29+0000\n"
+"PO-Revision-Date: 2016-06-20 15:05+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -50,7 +50,7 @@ msgstr "_text"
 
 #: ../panel-plugin/sensors-plugin.c:1712
 msgid "_progress bars"
-msgstr "Barres de _progrés"
+msgstr "barres de _progrés"
 
 #: ../panel-plugin/sensors-plugin.c:1714
 msgid "_tachos"
@@ -58,15 +58,15 @@ msgstr "_instruments"
 
 #: ../panel-plugin/sensors-plugin.c:1759
 msgid "Show _labels"
-msgstr "Mostra _etiquetes"
+msgstr "Mostra les _etiquetes"
 
 #: ../panel-plugin/sensors-plugin.c:1789
 msgid "Show colored _bars"
-msgstr "Mostra _barres colorejades"
+msgstr "Mostra les _barres colorejades"
 
 #: ../panel-plugin/sensors-plugin.c:1817
 msgid "_Show title"
-msgstr "_Mostra títol"
+msgstr "_Mostra el títol"
 
 #: ../panel-plugin/sensors-plugin.c:1841
 msgid "_Number of text lines:"
@@ -80,15 +80,15 @@ msgstr "Mida de la _lletra:"
 #. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:1883
 msgid "x-small"
-msgstr "molt petit"
+msgstr "molt petita"
 
 #: ../panel-plugin/sensors-plugin.c:1884
 msgid "small"
-msgstr "petit"
+msgstr "petita"
 
 #: ../panel-plugin/sensors-plugin.c:1885
 msgid "medium"
-msgstr "mitjà"
+msgstr "mitjana"
 
 #: ../panel-plugin/sensors-plugin.c:1886
 msgid "large"
@@ -104,7 +104,7 @@ msgstr "Tipus de _lletra:"
 
 #: ../panel-plugin/sensors-plugin.c:1952
 msgid "Show _Units"
-msgstr "Mostra _unitats"
+msgstr "Mostra les _unitats"
 
 #: ../panel-plugin/sensors-plugin.c:1973
 msgid "Small horizontal s_pacing"
@@ -120,7 +120,7 @@ msgstr "Suprimeix el quadre de text emergent"
 
 #: ../panel-plugin/sensors-plugin.c:2038
 msgid "E_xecute on double click:"
-msgstr "E_xecuta amb doble clic:"
+msgstr "E_xecuta en fer doble clic:"
 
 #: ../panel-plugin/sensors-plugin.c:2081
 msgid "_View"
@@ -164,7 +164,7 @@ msgstr "ACPI"
 #: ../lib/acpi.c:531
 #, c-format
 msgid "ACPI v%s zones"
-msgstr "ACPI v%s zones"
+msgstr "zones v%s d'ACPI"
 
 #. who knows, if we obtain non-NULL version at all...
 #. || g_strisempty(version))
