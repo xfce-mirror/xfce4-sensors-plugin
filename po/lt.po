@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-22 00:31+0200\n"
-"PO-Revision-Date: 2016-06-24 12:43+0000\n"
+"PO-Revision-Date: 2016-09-07 14:52+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -143,7 +143,7 @@ msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr "Jūs galite keisti tokias savybes kaip pavadinimas, spalvos, didžiausia/mažiausia reikšmė du kartus spustelėję ant įrašo."
+msgstr "Jūs galite keisti tokias savybes kaip pavadinimas, spalvos, didžiausia/mažiausia reikšmė du kartus spustelėję ant įrašo, atlikę turinio redagavimą ir nuspaudę \"Return\" (Įvedimo arba angl. \"Enter\") klavišą arba pasirinkdami kitą lauką."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
