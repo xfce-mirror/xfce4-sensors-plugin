@@ -645,6 +645,7 @@ sensors_set_text_panel_label (t_sensors *sensors, gint numCols, gint itemsToDisp
                                             chipfeature->formatted_value,
                                             NULL);
                                               
+                  g_free(myLabelText);
                   myLabelText = g_strconcat (tmpstring,
                                               "</span>", NULL);
 
