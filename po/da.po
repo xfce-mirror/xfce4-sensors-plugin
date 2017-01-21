@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-22 00:31+0200\n"
-"PO-Revision-Date: 2017-01-14 14:40+0000\n"
+"PO-Revision-Date: 2017-01-21 19:38+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -60,7 +60,7 @@ msgstr "_tachometer"
 
 #: ../panel-plugin/sensors-plugin.c:1759
 msgid "Show _labels"
-msgstr "Vi_s mærkater"
+msgstr "Vi_s etiketter"
 
 #: ../panel-plugin/sensors-plugin.c:1789
 msgid "Show colored _bars"
