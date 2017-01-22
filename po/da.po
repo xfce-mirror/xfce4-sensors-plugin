@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-22 00:31+0200\n"
-"PO-Revision-Date: 2017-01-21 19:38+0000\n"
+"PO-Revision-Date: 2017-01-22 21:39+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -52,7 +52,7 @@ msgstr "_tekst"
 
 #: ../panel-plugin/sensors-plugin.c:1712
 msgid "_progress bars"
-msgstr "_fremgangsstatus"
+msgstr "_fremgangsbjælker"
 
 #: ../panel-plugin/sensors-plugin.c:1714
 msgid "_tachos"
@@ -126,7 +126,7 @@ msgstr "Kø_r ved dobbeltklik:"
 
 #: ../panel-plugin/sensors-plugin.c:2081
 msgid "_View"
-msgstr "_Vis"
+msgstr "_Visning"
 
 #: ../panel-plugin/sensors-plugin.c:2115
 msgid "_Miscellaneous"
@@ -145,7 +145,7 @@ msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr "Du kan ændre en funktions egenskaber såsom navn, farver, minimum-/maksimumværdier ved at dobbeltklikke elementet, redigering af indhold og trykke \"Return\" eller vælge et andet felt."
+msgstr "Du kan ændre en funktions egenskaber såsom navn, farver, minimum-/maksimumværdier ved at dobbeltklikke elementet, redigere indholdet og trykke på \"Retur\" eller vælge et andet felt."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -239,7 +239,7 @@ msgstr "Det lader til, at der var et problem med at læse en sensors funktionsv�
 
 #: ../lib/sensors-interface.c:172
 msgid "Sensors t_ype:"
-msgstr "Sensor_typer:"
+msgstr "Sensor_type:"
 
 #: ../lib/sensors-interface.c:198
 msgid "Description:"
