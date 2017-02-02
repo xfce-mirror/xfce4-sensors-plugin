@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-22 00:31+0200\n"
-"PO-Revision-Date: 2017-01-05 22:39+0000\n"
+"PO-Revision-Date: 2017-02-01 23:59+0000\n"
 "Last-Translator: Ivica  Kolić <ikoli@yahoo.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/xfce/xfce-panel-plugins/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -190,7 +190,7 @@ msgstr "%.1f °C"
 
 #: ../lib/hddtemp.c:414
 msgid "S.M.A.R.T. harddisk temperatures"
-msgstr "S.M.A.R.T. harddisk temperature"
+msgstr "S.M.A.R.T. temperature tvrdih diskova"
 
 #: ../lib/hddtemp.c:614
 #, c-format
@@ -313,11 +313,11 @@ msgstr "%.0f mWh"
 
 #: ../lib/sensors-interface-common.c:161
 msgid "off"
-msgstr "ugašeno"
+msgstr "isključeno"
 
 #: ../lib/sensors-interface-common.c:163
 msgid "on"
-msgstr "upaljeno"
+msgstr "uključeno"
 
 #: ../lib/sensors-interface-common.c:167
 #, c-format
@@ -372,7 +372,7 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Dodatak za senzore:\nPostoji problem pri čitanju vrijednosti senzora.\nPravilan nastavak nije garantiran.\n"
+msgstr "Preglednik senzora:\nPostoji problem pri čitanju vrijednosti senzora.\nPravilan nastavak nije garantiran.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
