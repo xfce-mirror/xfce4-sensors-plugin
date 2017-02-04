@@ -1,0 +1,16 @@
+	../panel-plugin/sensors-plugin.c \
+	../panel-plugin/sensors-plugin.h \
+	../lib/configuration.c \
+	../lib/acpi.c \
+	../lib/nvidia.c \
+	../lib/hddtemp.c \
+	../lib/lmsensors.c \
+	../lib/middlelayer.c \
+	../lib/sensors-interface.c \
+	../lib/sensors-interface-common.c \
+	../src/main.c \
+	../src/interface.c \
+	../src/callbacks.c \
+	../src/actions.c \
+	../src/xfce4-sensors.desktop.in \
+	../panel-plugin/xfce4-sensors-plugin.desktop.in

@@ -142,7 +142,7 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
                 {
                     gtk_container_remove(GTK_CONTAINER(ptr_wdgt_table), ptr_sensors_structure->tachos [idx_chip][idx_feature]);
                 }
-                ptr_sensors_structure->tachos[idx_chip][idx_feature] = gtk_sensorstacho_new(ptr_sensors_structure->orientation, ptr_sensors_structure->panel_size);
+                ptr_sensors_structure->tachos[idx_chip][idx_feature] = gtk_sensorstacho_new(ptr_sensors_structure->orientation, 48);
 
                 val_fill_degree = (ptr_chipfeature_structure->raw_value - ptr_chipfeature_structure->min_value) / ( ptr_chipfeature_structure->max_value - ptr_chipfeature_structure->min_value);
                 if (val_fill_degree<0.0)
