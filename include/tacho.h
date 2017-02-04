@@ -1,5 +1,5 @@
 /* $Id$ */
-/*  Copyright 2009-2016 Fabian Nowak (timystery@arcor.de)
+/*  Copyright 2009-2017 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -18,8 +18,8 @@
 
 /* tacho.h */
 
-#ifndef __CPU_H
-#define __CPU_H
+#ifndef __TACHO_H
+#define __TACHO_H
 
 #include <gtk/gtk.h>
 #include <cairo.h>
@@ -96,4 +96,4 @@ extern gchar *font;
 
 G_END_DECLS
 
-#endif /* __CPU_H */
+#endif /* __TACHO_H */

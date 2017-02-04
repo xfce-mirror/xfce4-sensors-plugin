@@ -1,4 +1,4 @@
-/*  Copyright 2009-2016 Fabian Nowak (timystery@arcor.de)
+/*  Copyright 2009-2017 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

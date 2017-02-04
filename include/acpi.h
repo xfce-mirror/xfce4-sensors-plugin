@@ -42,66 +42,67 @@
 #include "types.h"
 
 /**
- * Initialize ACPI by ?
+ * Publish ACPI chip by appending chip data to argument arr_ptr_chips.
+ * @Param arr_ptr_chips: Pointer to array of chips
  * @Return: Number of initialized chips
- * @Param: Pointer to array of chips
  */
-int initialize_ACPI (GPtrArray *chips);
+gint initialize_ACPI (GPtrArray *arr_ptr_chips);
 
 
 /**
  * Refreshs an ACPI chip's feature in sense of raw and formatted value
- * @Param chip_feature: Pointer to feature
+ * @Param ptr_chipfeature: Pointer to feature
+ * @Param ptr_unused: reserved for future use
  */
-void refresh_acpi (gpointer chip_feature, gpointer data);
+void refresh_acpi (gpointer ptr_chipfeature, gpointer ptr_unused);
 
 
 /**
  * Read a double value from zone. Calls get_acpi_value with prolonged path.
- * @Param zone: zone name under /proc/acpi including the subdir for one zone.
- * @Param file: file to read information from, e.g. info.
- * @Return: value read in first line of file after keyword and colon.
+ * @Param str_zone: zone name under /proc/acpi including the subdir for one zone.
+ * @Param str_filename: file to read information from, e.g. info.
+ * @Return: value from first line of file after keyword and colon.
  */
-double get_acpi_zone_value (char *zone, char *file);
+gdouble get_acpi_zone_value (char *str_zone, char *str_filename);
 
 
 /**
  * Read a double value from status file for fans.
  * When status is on, result is 1.0; else it is 0.0.
- * @Param zone: file to read information from, e.g. state.
- * @Return: valued read in any line starting with "status:", converted to 1 or 0
+ * @Param str_zonename: file to read information from, e.g. state.
+ * @Return: valued from any line starting with "status:", converted to 1 or 0
  */
-double get_fan_zone_value (char *zone);
+double get_fan_zone_value (char *str_zonename);
 
 /**
- * Read a double value from special subzone denoted by name.
- * @Param name: name in the /pro/acpi/battery directory.
- * @Param chipfeature: pointer to chipfeature to get a max value.
+ * Read a double value from special battery subzone denoted by str_filename.
+ * @Param str_filename: name in the /pro/acpi/battery directory.
+ * @Param ptr_chipfeature: pointer to chipfeature to get a max value.
  */
-void get_battery_max_value (char *name, t_chipfeature *chipfeature);
+void get_battery_max_value (char *str_filename, t_chipfeature *ptr_chipfeature);
 
 /**
  * Read information from the thermal zone.
- * @Param chip: Pointer to already allocated chip, where values can be added.
+ * @Param ptr_chip: Pointer to already allocated chip, where values can be added.
  * @Return: 0 on success
  */
-int read_thermal_zone (t_chip *chip);
+gint read_thermal_zone (t_chip *ptr_chip);
 
 
 /**
  * Read information from the battery zone.
- * @Param chip: Pointer to already allocated chip, where values can be added.
+ * @Param ptr_chip: Pointer to already allocated chip, where values can be added.
  * @Return: 0 on success
  */
-int read_battery_zone (t_chip *chip);
+gint read_battery_zone (t_chip *ptr_chip);
 
 
 /**
  * Read information from the fan zone.
- * @Param chip: Pointer to already allocated chip, where values can be added.
+ * @Param ptr_chip: Pointer to already allocated chip, where values can be added.
  * @Return: 0 on success
  */
-int read_fan_zone (t_chip *chip);
+gint read_fan_zone (t_chip *ptr_chip);
 
 
 /**
@@ -114,34 +115,34 @@ char * get_acpi_info ();
 /**
  * Get the string found in filename after the colon. To make a double out of
  * it, strtod is suitable.
- * @Param filename: Complete path to file to be inspected.
+ * @Param str_filename: Complete path to file to be inspected.
  * @Return: String of value found, "<Unknown>" otherwise.
  */
-char * get_acpi_value (char *filename);
+char * get_acpi_value (char *str_filename);
 
 
 /**
  * Get the battery percentage from the battery information.
- * @Param zone: Complete zone path including both e.g. "battery" and "BAT0"
+ * @Param str_zone: Complete zone path including both e.g. "battery" and "BAT0"
  * @Return double value of current battery power
  */
-double get_battery_zone_value (char *zone);
+gdouble get_battery_zone_value (char *str_zone);
 
 
 /**
  * Indicates whether a given directory entry should be ignored as it's not
  *  "temperature".
- * @Param de: pointer to directory entry.
+ * @Param ptr_dirent: pointer to directory entry.
  * @Return: 1 on ignore, else 0
  */
-int acpi_ignore_directory_entry (struct dirent *de);
+gint acpi_ignore_directory_entry (struct dirent *ptr_dirent);
 
 
 /**
  * Free the additionally allocated structures in the sensors_chip_name
  * according to the version of libsensors.
- * @Param chip: Pointer to t_chip
+ * @Param ptr_chip: Pointer to t_chip
  */
-void free_acpi_chip (gpointer chip);
+void free_acpi_chip (gpointer ptr_chip);
 
 #endif /* XFCE4_SENSORS_ACPI_H */
