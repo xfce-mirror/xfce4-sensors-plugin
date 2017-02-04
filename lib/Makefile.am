@@ -1,4 +1,4 @@
-AM_CPPFLAGS =														  	\
+AM_CPPFLAGS =										\
 	-I$(top_srcdir)/include
 
 plugindir = $(libdir)/xfce4/modules
@@ -21,22 +21,22 @@ if HAVE_NVIDIA
 NVIDIA_SOURCES = nvidia.c
 endif
 
-libxfce4sensors_la_SOURCES =										\
-	middlelayer.c													\
-	configuration.c													\
-	sensors-interface-common.c										\
-	sensors-interface.c												\
-	cpu.c																			\
-	$(SENSORS_SOURCES)												\
-	$(HDDTEMP_SOURCES)												\
-	$(ACPI_SOURCES) \
+libxfce4sensors_la_SOURCES =						\
+	middlelayer.c									\
+	configuration.c									\
+	sensors-interface-common.c						\
+	sensors-interface.c								\
+	cpu.c											\
+	$(SENSORS_SOURCES)								\
+	$(HDDTEMP_SOURCES)								\
+	$(ACPI_SOURCES)									\
 	$(NVIDIA_SOURCES)
 
-libxfce4sensors_la_CFLAGS = 										\
-	@PLATFORM_CFLAGS@												\
-	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"							\
-	@LIBXFCE4UI_CFLAGS@											\
-	@LIBXFCE4PANEL_CFLAGS@										\
+libxfce4sensors_la_CFLAGS =							\
+	@PLATFORM_CFLAGS@								\
+	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"			\
+	@LIBXFCE4UI_CFLAGS@								\
+	@LIBXFCE4PANEL_CFLAGS@							\
 	@LIBSENSORS_CFLAGS@
 
 if HAVE_NVIDIA
@@ -50,31 +50,31 @@ if HAVE_LIBNOTIFY7
 libxfce4sensors_la_CFLAGS += @LIBNOTIFY7_CFLAGS@
 endif
 
-libxfce4sensors_la_LDFLAGS = 										\
-	-export-dynamic													\
-	-export-symbols-regex "^[^_].*"									\
+libxfce4sensors_la_LDFLAGS =						\
+	-export-dynamic									\
+	-export-symbols-regex "^[^_].*"					\
 	-version-info $(LIBXFCE4SENSORS_VERINFO)
 
-#	@PLATFORM_LDFLAGS@
+# @PLATFORM_LDFLAGS@
 
-libxfce4sensors_la_LIBADD = 										\
-	@LIBXFCE4UI_LIBS@											\
-	@LIBXFCE4PANEL_LIBS@											\
-	@LIBSENSORS_LDFLAGS@											\
+libxfce4sensors_la_LIBADD =							\
+	@LIBXFCE4UI_LIBS@								\
+	@LIBXFCE4PANEL_LIBS@							\
+	@LIBSENSORS_LDFLAGS@							\
 	@LIBM@
 
 if HAVE_NVIDIA
 libxfce4sensors_la_LIBADD += @NVIDIA_LIBS@
 endif
 
-if HAVE_LIBNOTIFY4 
+if HAVE_LIBNOTIFY4
 libxfce4sensors_la_LIBADD += @LIBNOTIFY4_LIBS@
 endif
-if HAVE_LIBNOTIFY7 
+if HAVE_LIBNOTIFY7
 libxfce4sensors_la_LIBADD += @LIBNOTIFY7_LIBS@
 endif
 
-EXTRA_DIST =														\
+EXTRA_DIST =										\
 	helpers.c
 
 DISTCLEANFILES =

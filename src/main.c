@@ -38,6 +38,14 @@
 #include "callbacks.h"
 #include "interface.h"
 
+
+#define gtk_hbox_new(homogeneous, spacing) \
+        gtk_box_new(GTK_ORIENTATION_HORIZONTAL, spacing)
+
+#define gtk_vbox_new(homogeneous, spacing) \
+        gtk_box_new(GTK_ORIENTATION_VERTICAL, spacing)
+
+
 /* forward declarations for -Wall */
 void print_license (void);
 void print_usage (void);
@@ -87,12 +95,12 @@ initialize_sensors_structures (void)
     t_sensors *ptr_sensors_structure;
     t_sensors_dialog *ptr_sensors_dialog_structure;
     int idx_chip, idx_feature;
-    
+
     ptr_sensors_structure = sensors_new (NULL, NULL);
     ptr_sensors_dialog_structure = g_new0 (t_sensors_dialog, 1);
     ptr_sensors_dialog_structure->sensors = ptr_sensors_structure;
     ptr_sensors_dialog_structure->plugin_dialog = FALSE;
-    
+
     for (idx_chip=0; idx_chip<MAX_NUM_CHIPS; idx_chip++)
     {
         for (idx_feature=0; idx_feature<MAX_NUM_FEATURES; idx_feature++)
@@ -100,74 +108,76 @@ initialize_sensors_structures (void)
             ptr_sensors_structure->tachos[idx_chip][idx_feature] = NULL;
         }
     }
-      
+
     return ptr_sensors_dialog_structure;
 }
 
 
-static void
-on_window_destroy_event (GtkWidget *widget, GdkEvent *event, gpointer user_data)
-{
-  DBG("on_window_destroy_event\n");
-}
+//static void
+//on_window_destroy_event (GtkWidget *widget, GdkEvent *event, gpointer user_data)
+//{
+  //DBG("on_window_destroy_event\n");
+    ///* do some cleaning in here rather than at the end of the program? */
+//}
 
 
 int
 main (int argc, char **argv)
 {
     GtkWidget *window;
-    t_sensors_dialog *sd;
+    t_sensors_dialog *ptr_sensors_dialog;
 
     xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
-    if ( argc > 1 && (strcmp(argv[1], "--help")==0 || strcmp(argv[1], "-h")==0) )
+    if (argc > 1)
     {
-        print_usage ();
-        return 0;
-    }
-    else if ( argc > 1 && (strcmp(argv[1], "--license")==0 || strcmp(argv[1], "-l")==0) )
-    {
-        print_license ();
-        return 0;
-    }
-    else if ( argc > 1 && (strcmp(argv[1], "--version")==0 || strcmp(argv[1], "-V")==0) )
-    {
-        print_version ();
-        return 0;
+        if (strcmp(argv[1], "--help")==0 || strcmp(argv[1], "-h")==0)
+        {
+            print_usage ();
+            return 0;
+        }
+        else if (strcmp(argv[1], "--license")==0 || strcmp(argv[1], "-l")==0)
+        {
+            print_license ();
+            return 0;
+        }
+        else if (strcmp(argv[1], "--version")==0 || strcmp(argv[1], "-V")==0)
+        {
+            print_version ();
+            return 0;
+        }
     }
 
     /* start the Gtk engine */
     gtk_init (&argc, &argv);
 
     /* initialize sensor stuff */
-    sd = initialize_sensors_structures ();
+    ptr_sensors_dialog = initialize_sensors_structures ();
 
     /* build main application */
-    window = create_main_window (sd);
-        
+    window = create_main_window (ptr_sensors_dialog);
+
     /* automatic refresh callback */
-    sd->sensors->timeout_id  = g_timeout_add (
-        sd->sensors->sensors_refresh_time * 1000,
-        (GtkFunction) refresh_view, (gpointer) sd
+    ptr_sensors_dialog->sensors->timeout_id  = g_timeout_add (
+        ptr_sensors_dialog->sensors->sensors_refresh_time * 1000,
+        (GSourceFunc) refresh_view, (gpointer) ptr_sensors_dialog
     );
 
     /* show window and run forever */
     gtk_widget_show_all(window); /* to make sure everything is shown */
     gtk_window_resize(GTK_WINDOW(window), 400, 500);
-    gtk_widget_realize(sd->sensors->widget_sensors); /* without this call, the table will only be realized when the tab is shown and hence, toggled tachos are not drawn as they lack a drawable window. */
-    
-    g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(on_window_destroy_event), NULL);
-    
+    //gtk_widget_realize(sd->sensors->widget_sensors); /* without this call, the table will only be realized when the tab is shown and hence, toggled tachos are not drawn as they lack a drawable window. */
+
+    //g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(on_window_destroy_event), NULL);
+
     gtk_main();
 
-    /* do the cleaning? */
-    /*
     gtk_widget_destroy(window);
-    g_free (window);
-    g_free (sd->sensors);
-    g_free (sd);
-  */
-    
+
+    /* do the cleaning? */
+    free_widgets(ptr_sensors_dialog); /* counterpart to init_widgets() inside create_main_window() */
+    g_free (ptr_sensors_dialog->sensors);
+    g_free (ptr_sensors_dialog);
 
     return 0;
 }

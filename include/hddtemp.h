@@ -23,9 +23,11 @@
 
 /* Gtk/Glib includes */
 #include <glib.h>
-/* #include <gtk/gtk.h> */
 
-#define ZERO_KELVIN -273 /*.15 */
+#define ZERO_KELVIN                 -273 /*.15 */
+#define HDDTEMP_DISK_SLEEPING       ZERO_KELVIN /* must be larger than the remaining ones */
+#define NO_VALID_HDDTEMP_PROGRAM    ZERO_KELVIN-1 /* the calls/communication to hddtemp don't work */
+#define NO_VALID_TEMPERATURE_VALUE  ZERO_KELVIN-2 /* the value for a single disk is invalid */
 
 
 /**

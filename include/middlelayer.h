@@ -30,8 +30,6 @@
 /* Gtk/Glib includes */
 #include <glib.h>
 
-#define NO_VALID_HDDTEMP -2
-
 /**
  * Initialize all sensors detected by iterating and calling init-routines
  * @Param chips: Double-pointer to array of chips
@@ -94,6 +92,7 @@ void free_chip (gpointer chip, gpointer data);
  * Clean up structures and call library routines for ending "session".
  */
 void sensor_interface_cleanup ();
+
 
 /**
  * Refreshes all chips at once.

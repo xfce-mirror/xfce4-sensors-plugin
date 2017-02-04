@@ -1,0 +1,23 @@
+levelbar block.full {
+   background-color: #F00000;
+   padding: 1px;
+   border-style: ridge;
+}
+
+levelbar block.high {
+   background-color: #F0F000;
+   padding: 1px;
+   border-style: ridge;
+}
+
+levelbar block.warn-low {
+   background-color: #F0F000;
+   padding: 1px;
+   border-style: ridge;
+}
+
+levelbar block.low {
+   background-color: #F00000;
+   padding: 1px;
+   border-style: ridge;
+}

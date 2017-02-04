@@ -30,6 +30,8 @@
 /* Initializing and filling functions */
 void fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale, t_sensors_dialog *sd);
 
+void free_widgets (t_sensors_dialog *ptr_sensors_dialog);
+
 void init_widgets (t_sensors_dialog *sd);
 
 void reload_listbox (t_sensors_dialog *sd);

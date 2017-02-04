@@ -102,10 +102,10 @@ sensors_write_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 
     xfce_rc_write_int_entry (rc, "Scale", sensors->scale);
 
-    xfce_rc_write_entry (rc, "Font_Size", sensors->font_size);
+    xfce_rc_write_entry (rc, "str_fontsize", sensors->str_fontsize);
 
-    xfce_rc_write_int_entry (rc, "Font_Size_Numerical",
-                                sensors->font_size_numerical);
+    xfce_rc_write_int_entry (rc, "val_fontsize",
+                                sensors->val_fontsize);
 
     if (font!=NULL)
       xfce_rc_write_entry (rc, "Font", font); // the font for the tachometers exported from cpu.h
@@ -210,19 +210,19 @@ sensors_read_general_config (XfceRc *rc, t_sensors *sensors)
 
         sensors->scale = xfce_rc_read_int_entry (rc, "Scale", 0);
 
-        if ((value = xfce_rc_read_entry (rc, "Font_Size", NULL)) && *value) {
-            g_free(sensors->font_size);
-            sensors->font_size = g_strdup(value);
+        if ((value = xfce_rc_read_entry (rc, "str_fontsize", NULL)) && *value) {
+            g_free(sensors->str_fontsize);
+            sensors->str_fontsize = g_strdup(value);
         }
-        
+
         if ((value = xfce_rc_read_entry (rc, "Font", NULL)) && *value) {
             //g_free(sensors->font); // font is initialized to NULL
             font = g_strdup(value); // in cpu.h for the tachometers
         }
 
-        sensors->font_size_numerical = xfce_rc_read_int_entry (rc,
-                                                 "Font_Size_Numerical", 2);
-                                                 
+        sensors->val_fontsize = xfce_rc_read_int_entry (rc,
+                                                 "val_fontsize", 2);
+
         sensors->lines_size = xfce_rc_read_int_entry (rc, "Lines_Size", 3);
 
         sensors->sensors_refresh_time = xfce_rc_read_int_entry (rc, "Update_Interval",
@@ -244,7 +244,7 @@ sensors_read_general_config (XfceRc *rc, t_sensors *sensors)
 
         if (!sensors->suppresstooltip)
             sensors->suppresstooltip = xfce_rc_read_bool_entry (rc, "Suppress_Tooltip", FALSE);
-            
+
         sensors->preferred_width = xfce_rc_read_int_entry (rc, "Preferred_Width", 400);
         sensors->preferred_height = xfce_rc_read_int_entry (rc, "Preferred_Height", 400);
 
@@ -287,7 +287,7 @@ sensors_read_preliminary_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 
 /* Read the configuration file at init */
 // TODO: modify to store chipname as indicator and access features by acpitz-1_Feature0 etc.
-// this will require differently storing the stuff as well. 
+// this will require differently storing the stuff as well.
 // targeted for 1.1 or 1.2 release
 void
 sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
@@ -347,7 +347,7 @@ sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
                   break;
               }
             while (chip!=NULL && sensorName != NULL && strcmp(chip->sensorId, sensorName) != 0 );
-            
+
             if ( chip!=NULL && sensorName != NULL && strcmp(chip->sensorId, sensorName)==0 ) {
 
                 for (j=0; j<chip->num_features; j++) {

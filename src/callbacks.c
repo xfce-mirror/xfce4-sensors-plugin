@@ -42,7 +42,7 @@ void on_font_set (GtkWidget *widget, gpointer data)
 {
     if (font!=NULL)
         g_free (font);
-        
+
     font = g_strdup(gtk_font_button_get_font_name(GTK_FONT_BUTTON(widget)));
     refresh_view(data); /* data is pointer to sensors_dialog */
 }
@@ -52,22 +52,22 @@ void
 on_main_window_response (GtkWidget *dlg, int response, t_sensors_dialog *sd)
 {
     TRACE ("enters on_main_window_response");
-    
+
     DBG("quitting gtk main routine");
         gtk_main_quit();
-  
+
     // dialog OK button or close keybinding or window close button
     if (response==GTK_RESPONSE_OK) // || response==GTK_RESPONSE_DELETE_EVENT)
     {
         //xfce_titled_dialog_close(GTK_DIALOG(dlg)); // not implemented in libxfcegui4/xfce-titled-dialog.h rev 21491 -- stay compatible
-        
+
         // g_free (sd->sensors)
         //g_free(sd);
-        
+
         //gtk_widget_destroy (sd->sensors->widget_sensors);
 
         //gtk_widget_destroy (sd->dialog);
-        
+
         //gtk_widget_destroy (sd->dialog);
     }
 
@@ -145,9 +145,11 @@ list_cell_text_edited (GtkCellRendererText *cellrenderertext,
     /* update panel */
     /* sensors_show_panel ((gpointer) sd->sensors); */
     /* better send a D-BUS message instead or alter the configuration file */
-    //res = refresh_view ((gpointer) sd);
+
     if (sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)]!=NULL)
-      gtk_cpu_set_text (GTK_CPU(sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)]), new_text);
+      gtk_sensorstacho_set_text (GTK_SENSORSTACHO(sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)]), new_text);
+
+    refresh_view ((gpointer) sd);
 
     TRACE ("leaves list_cell_text_edited");
 }
@@ -155,7 +157,7 @@ list_cell_text_edited (GtkCellRendererText *cellrenderertext,
 
 void
 list_cell_toggle (GtkCellRendererToggle *cell, gchar *path_str,
-                  t_sensors_dialog *sd) 
+                  t_sensors_dialog *sd)
 {
     t_chip *chip;
     t_chipfeature *chipfeature;
@@ -183,7 +185,7 @@ list_cell_toggle (GtkCellRendererToggle *cell, gchar *path_str,
 
     /* do something with the value */
     toggle_item ^= 1;
-    
+
     /* remove previously existing cpu widget from memory */
     if (toggle_item==FALSE)
     {
@@ -197,7 +199,7 @@ list_cell_toggle (GtkCellRendererToggle *cell, gchar *path_str,
      //else
      //{
        ////if (sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)]==NULL)
-                //sd->sensors->tachos[gtk_combo_box_active][atoi(path_str)] = gtk_cpu_new();
+                //sd->sensors->tachos[gtk_combo_box_active][atoi(path_str)] = gtk_sensorstacho_new();
      //}
 
     /* set new value */
@@ -214,7 +216,7 @@ list_cell_toggle (GtkCellRendererToggle *cell, gchar *path_str,
     /* update tooltip and panel widget */
     refresh_view ((gpointer) sd);
 
-    TRACE ("leaves list_cell_toggle");//~ 
+    TRACE ("leaves list_cell_toggle");//~
 }
 
 void
@@ -269,8 +271,8 @@ list_cell_color_edited (GtkCellRendererText *cellrenderertext, gchar *path_str,
         //sensors_show_panel ((gpointer) sd->sensors);
         //res = refresh_view ((gpointer) sd);
         if (sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)]!=NULL)
-            gtk_cpu_set_color(GTK_CPU(sd->sensors->tachos[gtk_combo_box_active][atoi(path_str)]), new_color);
-        
+            gtk_sensorstacho_set_color(GTK_SENSORSTACHO(sd->sensors->tachos[gtk_combo_box_active][atoi(path_str)]), new_color);
+
     }
 
     TRACE ("leaves list_cell_color_edited");
@@ -365,7 +367,7 @@ maximum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
 
     /* update panel */
     if (sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)]!=NULL)
-      //res = 
+      //res =
             refresh_view ((gpointer) sd);
 
     TRACE ("leaves maximum_changed");
@@ -384,7 +386,7 @@ adjustment_value_changed (GtkWidget *widget, t_sensors_dialog* sd)
     /* ... and start them again */
     sd->sensors->timeout_id  = g_timeout_add (
         sd->sensors->sensors_refresh_time * 1000,
-        (GtkFunction) refresh_view, (gpointer) sd);
+        (GSourceFunc) refresh_view, (gpointer) sd);
 
     TRACE ("leaves adjustment_value_changed ");
 }

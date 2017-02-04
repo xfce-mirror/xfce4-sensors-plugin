@@ -66,7 +66,8 @@ strip_key_colon_spaces (char *buf)
 
 
 #ifdef HAVE_SYSFS_ACPI
-static void cut_newline (char *buf)
+static void
+cut_newline (char *buf)
 {
     int i;
     //char *p;
@@ -82,11 +83,12 @@ static void cut_newline (char *buf)
 }
 #endif
 
+
 int
 read_thermal_zone (t_chip *chip)
 {
     DIR *d;
-    FILE *file; 
+    FILE *file;
     char *filename;
     struct dirent *de;
     t_chipfeature *chipfeature;
@@ -126,7 +128,7 @@ read_thermal_zone (t_chip *chip)
             file = fopen (filename, "r");
             if (file)
             {
-                printf ("parsing temperature file \"%s\"...\n", filename);
+                DBG("parsing temperature file \"%s\"...\n", filename);
                 /* if (acpi_ignore_directory_entry (de))
                     continue; */
 
@@ -183,7 +185,8 @@ read_thermal_zone (t_chip *chip)
 }
 
 
-double get_fan_zone_value (char *zone)
+double
+get_fan_zone_value (char *zone)
 {
     double value;
 
@@ -222,7 +225,9 @@ double get_fan_zone_value (char *zone)
     return value;
 }
 
-double get_battery_zone_value (char *zone)
+
+double
+get_battery_zone_value (char *zone)
 {
     double value;
 
@@ -273,7 +278,8 @@ double get_battery_zone_value (char *zone)
 }
 
 
-int read_battery_zone (t_chip *chip)
+int
+read_battery_zone (t_chip *chip)
 {
     DIR *d;
     FILE *file;
@@ -466,7 +472,8 @@ get_battery_max_value (char *name, t_chipfeature *chipfeature)
 }
 
 
-int read_fan_zone (t_chip *chip)
+int
+read_fan_zone (t_chip *chip)
 {
     DIR *d;
     FILE *file;
@@ -542,17 +549,20 @@ int read_fan_zone (t_chip *chip)
 }
 
 
-int initialize_ACPI (GPtrArray *chips)
+int
+initialize_ACPI (GPtrArray *chips)
 {
     t_chip *chip;
     sensors_chip_name *ptr_chipname_tmp;
-
+    gchar *ptr_str_acpi_info;
     TRACE ("enters initialize_ACPI");
 
     chip = g_new0 (t_chip, 1);
     chip->name = g_strdup(_("ACPI")); /* to be displayed */
     /* chip->description = g_strdup(_("Advanced Configuration and Power Interface")); */
-    chip->description = g_strdup_printf (_("ACPI v%s zones"), get_acpi_info());
+    ptr_str_acpi_info = get_acpi_info();
+    chip->description = g_strdup_printf (_("ACPI v%s zones"), ptr_str_acpi_info);
+    g_free(ptr_str_acpi_info);
     chip->sensorId = g_strdup ("ACPI"); /* used internally */
 
     chip->type = ACPI;
@@ -560,8 +570,8 @@ int initialize_ACPI (GPtrArray *chips)
     ptr_chipname_tmp = g_new0 (sensors_chip_name, 1);
     ptr_chipname_tmp->prefix = g_strdup(_("ACPI"));
     ptr_chipname_tmp->path = g_strdup(_("ACPI"));
-    
-    chip->chip_name = (const sensors_chip_name *) ptr_chipname_tmp;
+
+    chip->chip_name = (sensors_chip_name *) ptr_chipname_tmp;
 
     chip->chip_features = g_ptr_array_new ();
 
@@ -591,7 +601,7 @@ refresh_acpi (gpointer chip_feature, gpointer data)
 {
     char *file, *zone, *state;
     t_chipfeature *cf;
-    
+
 #ifdef HAVE_SYSFS_ACPI
     FILE *f = NULL;
     char buf[1024];
@@ -615,7 +625,7 @@ refresh_acpi (gpointer chip_feature, gpointer data)
                 cut_newline(buf);
                 cf->raw_value = strtod(buf, NULL) / 1000.0;
               }
-              fclose (f);              
+              fclose (f);
             }
 #else
             zone = g_strdup_printf ("%s/%s", ACPI_DIR_THERMAL, cf->devicename);
@@ -697,19 +707,19 @@ get_acpi_info (void)
       filename = g_strdup_printf ("%s/%s_", ACPI_PATH, ACPI_INFO);
       version = get_acpi_value (filename);
       g_free (filename);
-    
+
       if (version!=NULL)
         version = g_strchomp (version);
-    
+
       else //if (version==NULL)
-    
+
       {
         version = get_acpi_value ("/sys/module/acpi/parameters/acpica_version");
         if (version!=NULL)
           version = g_strchomp (version);
       }
     }
-  
+
     // who knows, if we obtain non-NULL version at all...
     if (version==NULL) // || g_strisempty(version))
         version = g_strdup(_("<Unknown>"));
@@ -771,4 +781,19 @@ get_acpi_value (char *filename)
 
     /* Have read the data */
     return g_strdup (p);
+}
+
+
+void
+free_acpi_chip (gpointer chip)
+{
+    t_chip *ptr_chip;
+
+    ptr_chip = (t_chip *) chip;
+
+    if (ptr_chip->chip_name->path)
+        g_free (ptr_chip->chip_name->path);
+
+    if (ptr_chip->chip_name->prefix)
+        g_free (ptr_chip->chip_name->prefix);
 }

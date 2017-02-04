@@ -53,7 +53,7 @@ refresh_sensor_data (t_sensors_dialog *ptr_sensors_dialog_structure)
     gchar *tmp;
     t_chipfeature *chipfeature;
     t_chip *ptr_chip_structure;
-    
+
     TRACE ("enters refresh_sensor_data");
 
     g_return_val_if_fail (ptr_sensors_dialog_structure != NULL, FALSE);
@@ -86,7 +86,9 @@ refresh_sensor_data (t_sensors_dialog *ptr_sensors_dialog_structure)
                 format_sensor_value (sensors->scale, chipfeature,
                                      val_sensor_feature, &tmp);
 
-                g_free (chipfeature->formatted_value);
+                if (chipfeature->formatted_value != NULL)
+                    g_free (chipfeature->formatted_value);
+
                 chipfeature->formatted_value = g_strdup (tmp);
                 chipfeature->raw_value = val_sensor_feature;
 
@@ -110,6 +112,7 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
     t_chip *ptr_chip_structure;
     GtkWidget *ptr_wdgt_table;
     gdouble val_fill_degree;
+    char str_widget_tooltip_text[128];
 
     TRACE ("enters refresh_tacho_view");
 
@@ -118,8 +121,8 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
     ptr_sensors_structure = ptr_sensors_dialog_structure->sensors;
 
     ptr_wdgt_table = ptr_sensors_structure->widget_sensors;
-  
-    for (idx_chip=0; idx_chip < ptr_sensors_structure->num_sensorchips; idx_chip++) 
+
+    for (idx_chip=0; idx_chip < ptr_sensors_structure->num_sensorchips; idx_chip++)
     {
         ptr_chip_structure = (t_chip *) g_ptr_array_index (ptr_sensors_structure->chips, idx_chip);
         g_assert (ptr_chip_structure!=NULL);
@@ -131,41 +134,41 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
 
             if ( ptr_chipfeature_structure->valid == TRUE && ptr_chipfeature_structure->show == TRUE)
             {
-                // actually, the idea is to move the tacho widgets in the table; but Gtk fails at this point: 
+                // actually, the idea is to move the tacho widgets in the table; but Gtk fails at this point:
                 //  there is neither a gtk_table_move nor does it allow to unparent a widget and attach it at a new positon,
                 //  so the container is removed and destroyed for safety.
-                if ((ptr_sensors_structure->tachos [idx_chip][idx_feature]!=NULL) && (ptr_sensors_structure->tachos [idx_chip][idx_feature]->parent!=NULL))
+                if ( (ptr_sensors_structure->tachos [idx_chip][idx_feature] != NULL)
+                  && (gtk_widget_get_parent(ptr_sensors_structure->tachos [idx_chip][idx_feature]) != NULL) )
                 {
                     gtk_container_remove(GTK_CONTAINER(ptr_wdgt_table), ptr_sensors_structure->tachos [idx_chip][idx_feature]);
                 }
-                ptr_sensors_structure->tachos[idx_chip][idx_feature] = gtk_cpu_new();
-                    
+                ptr_sensors_structure->tachos[idx_chip][idx_feature] = gtk_sensorstacho_new(ptr_sensors_structure->orientation, ptr_sensors_structure->panel_size);
+
                 val_fill_degree = (ptr_chipfeature_structure->raw_value - ptr_chipfeature_structure->min_value) / ( ptr_chipfeature_structure->max_value - ptr_chipfeature_structure->min_value);
-                if (val_fill_degree<0.0) 
+                if (val_fill_degree<0.0)
                     val_fill_degree=0.0;
-                else if (val_fill_degree>1.0) 
+                else if (val_fill_degree>1.0)
                     val_fill_degree=1.0;
-                    
-                GTK_CPU(ptr_sensors_structure->tachos [idx_chip][idx_feature])->sel = val_fill_degree;
-                char str_widget_tooltip_text[128];
+
+                GTK_SENSORSTACHO(ptr_sensors_structure->tachos [idx_chip][idx_feature])->sel = val_fill_degree;
                 snprintf(str_widget_tooltip_text, 128, "<b>%s</b>\n%s: %s", ptr_chip_structure->sensorId, ptr_chipfeature_structure->name, ptr_chipfeature_structure->formatted_value);
                 gtk_widget_set_tooltip_markup (GTK_WIDGET(ptr_sensors_structure->tachos [idx_chip][idx_feature]), str_widget_tooltip_text);
-                GTK_CPU(ptr_sensors_structure->tachos [idx_chip][idx_feature])->text = g_strdup(ptr_chipfeature_structure->name);
-                GTK_CPU(ptr_sensors_structure->tachos [idx_chip][idx_feature])->color = g_strdup(ptr_chipfeature_structure->color);
-                
-                
-                gtk_widget_set_size_request(ptr_sensors_structure->tachos [idx_chip][idx_feature], 64, 64);
-                
-                gtk_table_attach_defaults(GTK_TABLE(ptr_wdgt_table), ptr_sensors_structure->tachos [idx_chip][idx_feature], col_tacho_table, col_tacho_table+1, row_tacho_table, row_tacho_table+1);
+                GTK_SENSORSTACHO(ptr_sensors_structure->tachos [idx_chip][idx_feature])->text = g_strdup(ptr_chipfeature_structure->name);
+                GTK_SENSORSTACHO(ptr_sensors_structure->tachos [idx_chip][idx_feature])->color = g_strdup(ptr_chipfeature_structure->color);
+
+
+                //gtk_widget_set_size_request(ptr_sensors_structure->tachos [idx_chip][idx_feature], 64, 64);
+
+                gtk_grid_attach(GTK_GRID(ptr_wdgt_table), ptr_sensors_structure->tachos [idx_chip][idx_feature], col_tacho_table, row_tacho_table, 1, 1);
                 gtk_widget_show (ptr_sensors_structure->tachos [idx_chip][idx_feature]);
-                                
+
                 if (col_tacho_table>=3) {
                     row_tacho_table++;
                     col_tacho_table = 0;
                 }
                 else
                     col_tacho_table++;
-                
+
                 if (row_tacho_table>=5)
                     return; /* or resize the table after reading the property n-rows of GtkTableClass*/
             }
@@ -180,18 +183,18 @@ refresh_view (gpointer data)
 {
     t_sensors_dialog *ptr_sensors_dialog;
     gboolean return_value = FALSE;
-    
+
     TRACE ("enters refresh_view");
-    
+
     g_return_val_if_fail (data != NULL, FALSE);
     ptr_sensors_dialog = (t_sensors_dialog *) data;
-    
+
     if (refresh_sensor_data (ptr_sensors_dialog))
     {
         reload_listbox(ptr_sensors_dialog);
-        
+
         refresh_tacho_view (ptr_sensors_dialog); /* refresh all the tacho elements in the notebook/table view */
-        
+
         return_value = TRUE;
     }
     TRACE ("leaves refresh_view");

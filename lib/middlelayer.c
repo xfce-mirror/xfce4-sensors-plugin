@@ -52,8 +52,9 @@
     #include <acpi.h>
 #endif
 #ifdef HAVE_NVIDIA
-	#include <nvidia.h>
-#endif	
+    #include <nvidia.h>
+#endif
+
 
 int
 initialize_all (GPtrArray **chips, gboolean *suppressmessage)
@@ -62,7 +63,7 @@ initialize_all (GPtrArray **chips, gboolean *suppressmessage)
 
     TRACE ("enters initialize_all");
 
-    *chips = g_ptr_array_new();
+    *chips = g_ptr_array_new(); //_with_free_func(free_chip);
 
      #ifdef HAVE_LIBSENSORS
     res += initialize_libsensors (*chips);
@@ -78,8 +79,8 @@ initialize_all (GPtrArray **chips, gboolean *suppressmessage)
 
     #ifdef HAVE_NVIDIA
     res += initialize_nvidia (*chips);
-	#endif
-	
+    #endif
+
     TRACE ("leaves initialize_all, chips->len=%d", (*chips)->len);
 
     return res;
@@ -89,42 +90,49 @@ initialize_all (GPtrArray **chips, gboolean *suppressmessage)
 void
 refresh_chip (gpointer chip, gpointer data)
 {
-    t_chip *c;
+    t_chip *ptr_chip_structure;
 
     g_assert (chip!=NULL);
 
     TRACE ("enters refresh_chip");
 
-    c = (t_chip*) chip;
+    ptr_chip_structure = (t_chip*) chip;
 
+    switch (ptr_chip_structure->type)
+    {
     #ifdef HAVE_ACPI
-        if (c->type==ACPI) {
-            g_ptr_array_foreach (c->chip_features, refresh_acpi, NULL );
-            return;
+        case ACPI: {
+            g_ptr_array_foreach (ptr_chip_structure->chip_features, refresh_acpi, NULL );
+            break;
         }
     #endif
 
     #ifdef HAVE_LIBSENSORS
-        if (c->type==LMSENSOR) {
-            g_ptr_array_foreach (c->chip_features, refresh_lmsensors, NULL );
-        return;
+        case LMSENSOR: {
+            g_ptr_array_foreach (ptr_chip_structure->chip_features, refresh_lmsensors, NULL );
+            break;
         }
     #endif
 
     #ifdef HAVE_HDDTEMP
-        if (c->type==HDD) {
-            g_ptr_array_foreach (c->chip_features, refresh_hddtemp, data ); /* note that data is of *t_sensors! */
-        return;
+        case HDD: {
+            g_ptr_array_foreach (ptr_chip_structure->chip_features, refresh_hddtemp, data ); /* note that data is of *t_sensors! */
+            break;
         }
     #endif
 
-	#ifdef HAVE_NVIDIA
-		if (c->type==GPU) {
-			g_ptr_array_foreach (c->chip_features, refresh_nvidia, NULL);
-		return;
-		}
-	#endif
-	
+    #ifdef HAVE_NVIDIA
+        case GPU: {
+            g_ptr_array_foreach (ptr_chip_structure->chip_features, refresh_nvidia, NULL);
+            break;
+        }
+    #endif
+
+        default: {
+            break;
+        }
+    }
+
     TRACE ("leaves refresh_chip");
 }
 
@@ -181,101 +189,144 @@ int
 sensor_get_value (t_chip *chip, int number, double *value, gboolean *suppressmessage)
 {
     t_chipfeature *feature;
-		#ifdef HAVE_HDDTEMP
+        #ifdef HAVE_HDDTEMP
     gboolean *suppress = suppressmessage;
-		#endif
+        #endif
     /* TRACE ("enters sensor_get_value %d", number); */
 
     g_assert (chip!=NULL);
 
-    if (chip->type==LMSENSOR ) {
-        #ifdef HAVE_LIBSENSORS
-            return sensors_get_feature_wrapper (chip->chip_name, number, value);
-        #else
+    switch (chip->type) {
+        case LMSENSOR: {
+            #ifdef HAVE_LIBSENSORS
+                return sensors_get_feature_wrapper (chip->chip_name, number, value);
+            #else
+                return -1;
+            #endif
+            break;
+        }
+        case HDD: {
+            #ifdef HAVE_HDDTEMP
+                g_assert (number<chip->num_features);
+                feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, number);
+                g_assert (feature!=NULL);
+                *value = get_hddtemp_value (feature->devicename, suppress);
+                if (*value==NO_VALID_HDDTEMP_PROGRAM) {
+                    return NO_VALID_HDDTEMP_PROGRAM;
+                }
+                return 0;
+            #else
+                return -1;
+            #endif
+            break;
+        }
+        case ACPI: {
+            #ifdef HAVE_ACPI
+                g_assert (number<chip->num_features);
+                feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, number);
+                g_assert (feature!=NULL);
+                refresh_acpi ((gpointer) feature, NULL);
+                *value = feature->raw_value;
+                return 0; /* HERE    I    AM,    I    WANNA    BE    FIXED    */
+            #else
+                return -1;
+            #endif
+            break;
+        }
+        case GPU: {
+            #ifdef HAVE_NVIDIA
+                g_assert (number<chip->num_features);
+                feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, number);
+                g_assert (feature!=NULL);
+                refresh_nvidia ((gpointer) feature, NULL);
+                //*value = get_nvidia_value(feature->address);
+                *value = feature->raw_value;
+                return 0;
+            #else
+                return -1;
+            #endif
+            break;
+        }
+        default: {
+            feature = NULL;
             return -1;
-        #endif
+            break;
+        }
     }
-    if (chip->type==HDD ) {
-        #ifdef HAVE_HDDTEMP
-            g_assert (number<chip->num_features);
-            feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, number);
-            g_assert (feature!=NULL);
-            *value = get_hddtemp_value (feature->devicename, suppress);
-            if (*value==ZERO_KELVIN) {
-                return NO_VALID_HDDTEMP;
-            }
-            return 0;
-        #else
-            return -1;
-        #endif
-    }
-    if (chip->type==ACPI ) {
-        #ifdef HAVE_ACPI
-            g_assert (number<chip->num_features);
-            feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, number);
-            g_assert (feature!=NULL);
-            refresh_acpi ((gpointer) feature, NULL);
-            *value = feature->raw_value;
-            return 0; /* HERE    I    AM,    I    WANNA    BE    FIXED    */
-        #else
-            return -1;
-        #endif
-    }
-    if (chip->type==GPU ) {
-		#ifdef HAVE_NVIDIA
-			g_assert (number<chip->num_features);
-			feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, number);
-			g_assert (feature!=NULL);
-			refresh_nvidia ((gpointer) feature, NULL);
-			//*value = get_nvidia_value(feature->address);
-			*value = feature->raw_value;
-			return 0;
-		#else
-			return -1;
-		#endif
-	}
-    else {
-        feature = NULL;
-        return -1;
-    }
+
+    return -1;
 }
 
 
 void
 free_chipfeature (gpointer chipfeature, gpointer data)
 {
-    t_chipfeature *cf;
-    cf = (t_chipfeature *) chipfeature;
+    t_chipfeature *ptr_chipfeature;
+    ptr_chipfeature = (t_chipfeature *) chipfeature;
 
-    g_free (cf->name);
-    g_free (cf->devicename);
-    g_free (cf->formatted_value);
-    g_free (cf->color);
+    g_free (ptr_chipfeature->name);
+    g_free (ptr_chipfeature->devicename);
+    g_free (ptr_chipfeature->formatted_value);
+    g_free (ptr_chipfeature->color);
+    g_free (ptr_chipfeature);
 }
+
+
+//void
+//free_chipstructure(gpointer data)
+//{
+    //t_chip *ptr_chip_structure = (t_chip*)data;
+    //if (NULL != ptr_chip_structure)
+    //{
+        //g_free(ptr_chip_structure->description);
+        //g_free(ptr_chip_structure->name);
+        //g_free(ptr_chip_structure->sensorId);
+        //// g_free(ptr_chip_structure->chip_name); // is this possible? Does it belong to libsensors3?
+        //g_ptr_array_free(ptr_chip_structure->chip_features, TRUE);
+    //}
+//}
 
 
 void
 free_chip (gpointer chip, gpointer data)
 {
-    t_chip *c;
-    c = (t_chip *) chip;
+    t_chip *ptr_chip_structure;
+    ptr_chip_structure = (t_chip *) chip;
 
-    g_free (c->sensorId);
-    g_free (c->description);
+    g_free (ptr_chip_structure->description);
+    g_free (ptr_chip_structure->name);
+    g_free (ptr_chip_structure->sensorId);
+
 #ifdef HAVE_LIBSENSORS
-    if (c->type==LMSENSOR) {
+    if (ptr_chip_structure->type==LMSENSOR) {
         free_lmsensors_chip (chip);
     }
 #endif
-    /* g_free (c->chip_name); */   /* is a _copied_ structure of libsensors */
-    g_ptr_array_foreach (c->chip_features, free_chipfeature, NULL);
-    g_ptr_array_free (c->chip_features, TRUE);
+#ifdef HAVE_ACPI
+    if (ptr_chip_structure->type==ACPI) {
+        free_acpi_chip (chip);
+    }
+#endif
+//#ifdef HAVE_HDDTEMP
+    //if (ptr_chip_structure->type==HDD) {
+        //free_hddtemp_chip (chip);
+    //}
+//#endif
+
+    // makes program crash
+    //g_free (ptr_chip_structure->chip_name);   /* is a _copied_ structure of libsensors */
+
+    g_ptr_array_foreach (ptr_chip_structure->chip_features, free_chipfeature, NULL);
+    g_ptr_array_free (ptr_chip_structure->chip_features, TRUE);
+    g_free (ptr_chip_structure->chip_name);
+    g_free(ptr_chip_structure);
 }
 
 
-void sensor_interface_cleanup (void)
+void
+sensor_interface_cleanup (void)
 {
 #ifdef HAVE_LIBSENSORS
-        sensors_cleanup();
+    sensors_cleanup();
 #endif
 }

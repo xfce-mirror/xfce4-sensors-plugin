@@ -57,9 +57,6 @@ typedef struct {
     /* controls dialog */
     GtkWidget *dialog;
 
-    /* sensors options  - What was this crap for??? */
-    /* GtkWidget *type_menu; */
-
     /* Gtk stuff */
     GtkWidget *myComboBox;
     /* GtkWidget *myFrame; */
@@ -78,6 +75,7 @@ typedef struct {
     GtkWidget *labels_Box; /* used to enable 'show labels' option when using graphical view */
     GtkWidget *coloredBars_Box;
     GtkWidget *temperature_radio_group;
+    GtkWidget *spin_button_update_time;
 
     /* double-click improvement */
     GtkWidget *myExecCommand_CheckBox;

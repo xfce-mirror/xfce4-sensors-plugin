@@ -57,10 +57,6 @@ if test "x$linguas" = "x"; then
     exit 1
 fi
 
-sed -e "s/@LINGUAS@/${linguas}/g" \
-    -e "s/@REVISION@/${revision}/g" \
-    < "configure.in.in" > "configure.in"
-
 exec xdt-autogen $@
 
 # xdt-autogen clean does not remove all generated files

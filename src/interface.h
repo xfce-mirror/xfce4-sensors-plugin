@@ -26,3 +26,7 @@
 #include <sensors-interface-common.h>
 
 GtkWidget * create_main_window (t_sensors_dialog *sd);
+
+gboolean draw_callback(GtkWidget    *widget,
+               cairo_t *cr,
+               gpointer      user_data);

@@ -1,50 +1,54 @@
-plugindir = $(libexecdir)/xfce4/panel-plugins
-plugin_PROGRAMS = xfce4-sensors-plugin
+plugindir = $(libdir)/xfce4/panel/plugins
+plugin_LTLIBRARIES = libxfce4-sensors-plugin.la
 
-AM_CPPFLAGS = 			\
-	-I$(top_srcdir)/include 	\
+AM_CPPFLAGS =			 											\
+	-I$(top_srcdir)/include											\
 	-I$(top_srcdir)/lib
 
-xfce4_sensors_plugin_SOURCES =									   \
-	sensors-plugin.c															\
+libxfce4_sensors_plugin_la_SOURCES =								\
+	sensors-plugin.c												\
 	sensors-plugin.h
 
-xfce4_sensors_plugin_CFLAGS = \
-	@LIBXFCE4PANEL_CFLAGS@										   \
-	@LIBXFCE4UI_CFLAGS@										   \
+libxfce4_sensors_plugin_la_CFLAGS = 								\
+	@LIBXFCE4PANEL_CFLAGS@										 	\
+	@LIBXFCE4UI_CFLAGS@												\
 	@PLATFORM_CFLAGS@												\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"							\
+	-DDATADIR=\"$(datadir)\"                                        \
 	@LIBSENSORS_CFLAGS@
 
-xfce4_sensors_plugin_LDADD = 							\
-	$(top_builddir)/lib/libxfce4sensors.la		\
+libxfce4_sensors_plugin_la_LIBADD =								 	\
+	$(top_builddir)/lib/libxfce4sensors.la							\
 	@LIBXFCE4PANEL_LIBS@											\
 	@LIBXFCE4UI_LIBS@												\
-	@SOLLIBS@																	\
+	@SOLLIBS@														\
 	@LIBSENSORS_LDFLAGS@											\
-	@LIBM@ 
+	@LIBM@
+
+libxfce4_sensors_plugin_la_LDFLAGS = 								\
+	-avoid-version 													\
+	-module 														\
+	-no-undefined 													\
+	-export-dynamic													\
+	-export-symbols-regex "^[^_].*"									\
+	$(PLATFORM_LDFLAGS)
+
+#	-export-symbols-regex '^xfce_panel_module_(preinit|init|construct)'
 
 # .desktop file
 #
-# Some automake trickery here. Because we cannot use $(libexecdir) in the
-# automake stage, we'll use sed to get the full path into the .desktop file.
-# We also need to let intltool merge the translated fields, so we add an
-# additional level of indirection: a <name>.desktop.in.in file.
-#
-desktop_in_in_files = xfce4-sensors-plugin.desktop.in.in
-desktop_in_files = $(desktop_in_in_files:.desktop.in.in=.desktop.in)
+desktop_in_files = xfce4-sensors-plugin.desktop.in
 
-desktopdir = $(datadir)/xfce4/panel-plugins
+desktopdir = $(datadir)/xfce4/panel/plugins
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
-EXTRA_DIST =														 \
-	$(desktop_in_in_files)
+cssfiledir = $(desktopdir)
+cssfile_DATA = xfce4-sensors-plugin.css
 
-DISTCLEANFILES =													 \
-	$(desktop_DATA) $(desktop_in_files)
+EXTRA_DIST =														\
+	$(desktop_in_files)												\
+	$(cssfile_DATA)
 
-# get full path into .desktop file
-%.desktop.in: %.desktop.in.in
-	sed -e "s^@PLUGIN_PATH@^$(libexecdir)/xfce4/panel-plugins^" \
-		$< > $@
+DISTCLEANFILES =													\
+	$(desktop_DATA)

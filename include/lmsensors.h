@@ -1,6 +1,6 @@
 /* $Id$ */
 
-/*  Copyright 2007-2010 Fabian Nowak (timystery@arcor.de)
+/*  Copyright 2007-2016 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -35,21 +35,21 @@
 /* Package/local includes */
 #include "types.h"
 
-/*
+/**
  *  Initialize libsensors by reading sensor config and other stuff
  * @Param chips: Pointer to array of chips
  * @Return: Number of found chip_features
  */
 int initialize_libsensors (GPtrArray *chips);
 
-/*
+/**
  * Refreshs an lmsensors chip's feature in sense of raw and formatted value
 
  * @Param chip_feature: Pointer to feature
  */
 void refresh_lmsensors (gpointer chip_feature, gpointer data);
 
-/*
+/**
  * Get the value of subsensor/feature that is number in array of sensors.
  * @Param name: Structure of sensor description.
  * @Param number: number of feature to read the value from
@@ -59,7 +59,7 @@ void refresh_lmsensors (gpointer chip_feature, gpointer data);
 int sensors_get_feature_wrapper (const sensors_chip_name *name, int number,
                                  double *value);
 
-/*
+/**
  * Free the additionally allocated structures in the sensors_chip_name
  * according to the version of libsensors.
  * @Param chip: Pointer to t_chip

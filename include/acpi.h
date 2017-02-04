@@ -41,7 +41,7 @@
 /* Package/local includes */
 #include "types.h"
 
-/*
+/**
  * Initialize ACPI by ?
  * @Return: Number of initialized chips
  * @Param: Pointer to array of chips
@@ -135,5 +135,13 @@ double get_battery_zone_value (char *zone);
  * @Return: 1 on ignore, else 0
  */
 int acpi_ignore_directory_entry (struct dirent *de);
+
+
+/**
+ * Free the additionally allocated structures in the sensors_chip_name
+ * according to the version of libsensors.
+ * @Param chip: Pointer to t_chip
+ */
+void free_acpi_chip (gpointer chip);
 
 #endif /* XFCE4_SENSORS_ACPI_H */

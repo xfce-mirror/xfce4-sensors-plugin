@@ -11,3 +11,9 @@ hddtemp is no longer searched at run-time, it is only enabled at compile-time.
 If you know of any further OS-specific interface or system library that might be worth including, please tell me. 
 
 For hddtemp to work for users in the plugin, it must be setuid root or a hddtemp daemon must be running. If none of this is the case, the plugin can't display the hard disk temperatures. A possible workaround consists of adding a wrapper script as option to --with-pathhddtemp, that will call sudo on hddtemp.
+
+Theming: You can put a customized style file globally under 
+         /usr/local/share/xfce4/panel/plugins/xfce4-sensors-plugin.css 
+				 or locally under 
+				 $HOME/.config/xfce4/panel/xfce4-sensors-plugin.css. 
+

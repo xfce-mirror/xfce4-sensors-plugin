@@ -104,7 +104,7 @@ typedef struct {
     gchar *name;
     gchar *description;
     gint num_features;
-    const sensors_chip_name *chip_name;
+    sensors_chip_name *chip_name;
     GPtrArray *chip_features;
     t_chiptype type;
 } t_chip;

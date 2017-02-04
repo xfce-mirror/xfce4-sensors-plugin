@@ -1,9 +1,9 @@
 Xfce4-Sensors-Plugin
 ====================
 
-Version 1.2.7 - For Xfce 4 Panel 4.6.0 (and hopefully newer as well!)
+Version 1.3.0 alpha - For Xfce 4 Panel 4.6.0 (and hopefully newer as well!)
 
-Copyright (c) 2004-2015 by Fabian Nowak (timystery@arcor.de)
+Copyright (c) 2004-2016 by Fabian Nowak (timystery@arcor.de)
 Copyright (c) 2005-2006 by Stefan Ott
 
 Licence: GPL version 2 (or later at your option)
@@ -23,6 +23,13 @@ Preparation: Install libsensors, lmsensors, hddtemp, xnvctrl
              and then install.
 
 Installation: ./configure && make && [sudo] make install
+
+Theming: You can put a customized style file globally under 
+         /usr/local/share/xfce4/panel/plugins/xfce4-sensors-plugin.css 
+				 or locally under 
+				 $HOME/.config/xfce4/panel/xfce4-sensors-plugin.css. 
+				 This might be especially useful for distributions.
+
 
 Bugs: Refer to TODO file
 

@@ -4,10 +4,10 @@
 #include <gtk/gtk.h>
 
 /**
- * compound widget displaying a progressbar and optional label
+ * compound widget displaying a levelbar and optional label
  */
 typedef struct {
-    /* the progress bar */
+    /* the level bar */
     GtkWidget *progressbar;
 
     /* the label */
@@ -15,14 +15,16 @@ typedef struct {
 
     /* the surrounding box */
     GtkWidget *databox;
-} t_barpanel;
+} t_labelledlevelbar;
 
 
+/**
+ * enumeration of the available visualization styles for the Xfce 4 Panel Sensors Plugin
+ */
 typedef enum {
   DISPLAY_TEXT = 1,
   DISPLAY_BARS,
   DISPLAY_TACHO
-} display_t;
+} e_displaystyles;
 
 #endif
-

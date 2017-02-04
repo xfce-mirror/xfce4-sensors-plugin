@@ -30,25 +30,12 @@
 
 /* Gtk/Glib includes */
 #include <glib.h>
-/* #include <glib/garray.h>
-#include <glib/gdir.h>
-#include <glib/gerror.h>
-#include <glib/gmem.h>
-#include <glib/gmessages.h>
-#include <glib/gprintf.h>
-#include <glib/gspawn.h>
-#include <glib/gstrfuncs.h> */
 #include <gtk/gtk.h>
-/* #include <gtk/gtkcheckbutton.h>
-#include <gtk/gtkmessagedialog.h>
-#include <gtk/gtklabel.h>
-#include <gtk/gtkstock.h> */
 
 /* Global includes */
 #if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
 #include <libnotify/notify.h>
 #endif
-/* #include <stdio.h> */
 #include <stdlib.h>
 #include <string.h>
 
@@ -76,6 +63,8 @@
 
 
 #define REPLY_MAX_SIZE 512
+
+#define HDDTEMP_CONNECTION_FAILED -1 /* Connection problems to hddtemp */
 
 
 /* forward declaration for GCC 4.3 -Wall */
@@ -105,7 +94,8 @@ notification_suppress_messages (NotifyNotification *n, gchar *action, gpointer *
     /* FIXME: Use channels or propagate private object or use static global variable */
 }
 
-void quick_message_notify (gchar *message)
+void
+quick_message_notify (gchar *message)
 {
     NotifyNotification *nn;
     gchar *summary, *body, *icon;
@@ -132,7 +122,8 @@ void quick_message_notify (gchar *message)
     notify_notification_show(nn, &error);
 }
 #else
-void quick_message_dialog (gchar *message)
+void
+quick_message_dialog (gchar *message)
 {
 
     GtkWidget *dialog;  /*, *label; */
@@ -145,26 +136,17 @@ void quick_message_dialog (gchar *message)
                                   GTK_BUTTONS_CLOSE,
                                   message, NULL);
 
-    /* dialog = gtk_dialog_new_with_buttons (_("Could not run \"hddtemp\""),
-                                         NULL, 0, // GTK DIALOG NO MODAL ;-)
-                                         GTK_STOCK_CLOSE, GTK_RESPONSE_NONE,
-                                         NULL);
-    label = gtk_label_new (message);
-    gtk_label_set_line_wrap (GTK_LABEL(label), TRUE);
-    gtk_label_set_width_chars (GTK_LABEL(label), 60); */
-
     g_signal_connect_swapped (dialog, "response",
                              G_CALLBACK (gtk_widget_destroy), dialog);
 
-    /*
-    gtk_container_add (GTK_CONTAINER (GTK_DIALOG(dialog)->vbox), label);
-    gtk_widget_show_all (dialog); */
     gtk_dialog_run(GTK_DIALOG(dialog));
 
     TRACE ("leaves quick_message");
 }
 
-gboolean quick_message_with_checkbox (gchar *message, gchar *checkboxtext) {
+
+gboolean
+quick_message_with_checkbox (gchar *message, gchar *checkboxtext) {
 
     GtkWidget *dialog, *checkbox;  /*, *label; */
     gboolean is_active;
@@ -197,7 +179,8 @@ gboolean quick_message_with_checkbox (gchar *message, gchar *checkboxtext) {
 #endif
 
 
-void quick_message (gchar *message)
+void
+quick_message (gchar *message)
 {
 #if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
     quick_message_notify (message);
@@ -208,7 +191,6 @@ void quick_message (gchar *message)
 
 
 #ifdef HAVE_NETCAT
-
 void
 read_disks_netcat (t_chip *chip)
 {
@@ -216,7 +198,7 @@ read_disks_netcat (t_chip *chip)
     int result;
 
     t_chipfeature *cf;
-    
+
     bzero(&reply, REPLY_MAX_SIZE);
     result = get_hddtemp_d_str(reply, REPLY_MAX_SIZE);
     DBG ("reply=%s with result=%d\n", reply, (int) result);
@@ -242,10 +224,7 @@ read_disks_netcat (t_chip *chip)
         g_free (tmp2);
     }
     while ( (tmp = str_split(NULL, DOUBLE_DELIMITER)) );
-
-//    g_free (stdoutput);
 }
-
 #else
 void
 read_disks_fallback (t_chip *chip)
@@ -315,32 +294,33 @@ read_disks_linux26 (t_chip *chip)
 }
 #endif
 
+
 void
 remove_unmonitored_drives (t_chip *chip, gboolean *suppressmessage)
 {
-    int i, result;
-    t_chipfeature *chipfeature;
+    int i, val_disk_temperature;
+    t_chipfeature *ptr_chipfeature;
 
     TRACE ("enters remove_unmonitored_drives");
 
     for (i=0; i<chip->num_features; i++)
     {
-        chipfeature = g_ptr_array_index (chip->chip_features, i);
-        result = get_hddtemp_value (chipfeature->devicename, suppressmessage);
-        if (result == 0.0)
+        ptr_chipfeature = g_ptr_array_index (chip->chip_features, i);
+        val_disk_temperature = get_hddtemp_value (ptr_chipfeature->devicename, suppressmessage);
+        if (val_disk_temperature == NO_VALID_HDDTEMP_PROGRAM)
         {
             DBG ("removing single disk");
-            free_chipfeature ( (gpointer) chipfeature, NULL);
+            free_chipfeature ( (gpointer) ptr_chipfeature, NULL);
             g_ptr_array_remove_index (chip->chip_features, i);
             i--;
             chip->num_features--;
         }
-        else if (result == ZERO_KELVIN)
+        else if (val_disk_temperature == NO_VALID_TEMPERATURE_VALUE)
         {
             for (i=0; i < chip->num_features; i++) {
                 DBG ("remove %d\n", i);
-                chipfeature = g_ptr_array_index (chip->chip_features, i);
-                free_chipfeature ( (gpointer) chipfeature, NULL);
+                ptr_chipfeature = g_ptr_array_index (chip->chip_features, i);
+                free_chipfeature ( (gpointer) ptr_chipfeature, NULL);
             }
             g_ptr_array_free (chip->chip_features, TRUE);
             // chip->chip_features = g_ptr_array_new();
@@ -357,33 +337,31 @@ remove_unmonitored_drives (t_chip *chip, gboolean *suppressmessage)
 void
 populate_detected_drives (t_chip *chip)
 {
-    int diskIndex;
+    int idx_disks;
     /* double value; */
-    t_chipfeature *chipfeature;
+    t_chipfeature *ptr_chipfeature;
 
     TRACE ("enters populate_detected_drives");
 
-    chip->sensorId = g_strdup(_("Hard disks"));
+    //chip->sensorId = g_strdup(_("Hard disks"));
 
-    for (diskIndex=0; diskIndex < chip->num_features; diskIndex++)
+    for (idx_disks=0; idx_disks < chip->num_features; idx_disks++)
     {
-       chipfeature = g_ptr_array_index (chip->chip_features, diskIndex);
-       g_assert (chipfeature!=NULL);
+       ptr_chipfeature = g_ptr_array_index (chip->chip_features, idx_disks);
+       g_assert (ptr_chipfeature!=NULL);
 
-       chipfeature->address = diskIndex;
+       ptr_chipfeature->address = idx_disks;
 
-       /* chipfeature->name = g_strdup(chipfeature->devicename); */
+       ptr_chipfeature->color = g_strdup("#B000B0");
+       ptr_chipfeature->valid = TRUE;
+       //ptr_chipfeature->formatted_value = g_strdup ("0.0"); /* _printf("%+5.1f", 0.0); */
+       ptr_chipfeature->raw_value = 0.0;
 
-       chipfeature->color = g_strdup("#B000B0");
-       chipfeature->valid = TRUE;
-       chipfeature->formatted_value = g_strdup ("0.0"); /* _printf("%+5.1f", 0.0); */
-       chipfeature->raw_value = 0.0;
+       ptr_chipfeature->class = TEMPERATURE;
+       ptr_chipfeature->min_value = 10.0;
+       ptr_chipfeature->max_value = 50.0;
 
-       chipfeature->class = TEMPERATURE;
-       chipfeature->min_value = 10.0;
-       chipfeature->max_value = 50.0;
-
-       chipfeature->show = FALSE;
+       ptr_chipfeature->show = FALSE;
     }
 
     TRACE ("leaves populate_detected_drives");
@@ -432,11 +410,11 @@ initialize_hddtemp (GPtrArray *chips, gboolean *suppressmessage)
     /* Note: This is actually supposed to be carried out by ifdef HAVE_LINUX
      and major/minor number stuff from compile time*/
 
-    if (strcmp(p_uname->sysname, "Linux")==0 && (generation>=3 || (generation==2 && major>=5))) 
+    if (strcmp(p_uname->sysname, "Linux")==0 && (generation>=3 || (generation==2 && major>=5)))
         read_disks_linux26 (chip);
     else
         read_disks_fallback (chip); /* hopefully, that's a safe variant */
-    
+
     g_free(p_uname);
 #endif
 
@@ -460,7 +438,7 @@ initialize_hddtemp (GPtrArray *chips, gboolean *suppressmessage)
 
 
 
-int 
+int
 get_hddtemp_d_str (char *buffer, size_t bufsize)
 {
     int sock;
@@ -471,7 +449,7 @@ get_hddtemp_d_str (char *buffer, size_t bufsize)
     /* Create the socket. */
     sock = socket(PF_INET, SOCK_STREAM, 0);
     if (sock < 0) {
-      return -1;
+      return HDDTEMP_CONNECTION_FAILED;
     }
 
     /* Connect to the server. */
@@ -480,13 +458,13 @@ get_hddtemp_d_str (char *buffer, size_t bufsize)
     hostinfo = gethostbyname("localhost");
     if (hostinfo == NULL) {
 /*  fprintf (stderr, "Unknown host %s.\n", hostname);*/
-      return -1;
+      return HDDTEMP_CONNECTION_FAILED;
     }
     servername.sin_addr = *(struct in_addr *) hostinfo->h_addr;
 
     if (connect (sock, (struct sockaddr *) &servername, sizeof (servername)) < 0) {
 /*  perror ("connect (client)");*/
-      return -1;
+      return HDDTEMP_CONNECTION_FAILED;
     }
 
     /* Read data from server. */
@@ -496,7 +474,7 @@ get_hddtemp_d_str (char *buffer, size_t bufsize)
           /* Read error. */
     /*      perror ("read");*/
           close (sock);
-          return -1;
+          return HDDTEMP_CONNECTION_FAILED;
       } else if (nchunk == 0) {
           /* End-of-file. */
           break;
@@ -515,102 +493,82 @@ get_hddtemp_d_str (char *buffer, size_t bufsize)
 double
 get_hddtemp_value (char* disk, gboolean *suppressmessage)
 {
-    gchar *standard_output=NULL, *standard_error=NULL;
-    gchar *cmd_line=NULL, *msg_text=NULL;
+    gchar *ptr_str_stdout=NULL, *ptr_str_stderr=NULL;
+    gchar *ptr_str_hddtemp_call=NULL, *ptr_str_message=NULL;
 
 #if !defined(HAVE_LIBNOTIFY4) && !defined(HAVE_LIBNOTIFY7)
-    gchar *checktext = NULL;
+    gchar *ptr_str_checkbutton = NULL;
 #endif
     gint exit_status=0;
-    double value;
-    gboolean result=FALSE, nevershowagain;
-    GError *error=NULL;
+    double val_drive_temperature;
+    gboolean f_result=FALSE, f_nevershowagain;
+    GError *ptr_f_error=NULL;
 
 #ifdef HAVE_NETCAT
     gchar *tmp, *tmp2, *tmp3;
     char reply[REPLY_MAX_SIZE];
-    //size_t read_size;
-    int resultHddtemp;
+    int val_hddtemp_result;
 #endif
 
     if (disk==NULL)
-      return 0.0;
+      return NO_VALID_TEMPERATURE_VALUE;
 
     if (suppressmessage!=NULL)
-        nevershowagain = *suppressmessage;
+        f_nevershowagain = *suppressmessage;
     else
-        nevershowagain = FALSE;
+        f_nevershowagain = FALSE;
 
-    TRACE ("enters get_hddtemp_value for %s with suppress=%d", disk, nevershowagain); /* *suppressmessage); */
+    TRACE ("enters get_hddtemp_value for %s with suppress=%d", disk, f_nevershowagain); /* *suppressmessage); */
 
 #ifdef HAVE_NETCAT
-/*    exit_status = 1; // assume error by default
-    cmd_line = g_strdup_printf ( "%s localhost %s", NETCAT_PATH, HDDTEMP_PORT);
-    result = g_spawn_command_line_sync ( (const gchar*) cmd_line,
-            &standard_output, &standard_error, &exit_status, NULL);
-    error = g_new(GError, 1);
-    error->message = g_strdup (_("No concrete error detected.\n"));
-    if (exit_status==0)
-*/
+
     bzero(&reply, REPLY_MAX_SIZE);
-    resultHddtemp = get_hddtemp_d_str(reply, REPLY_MAX_SIZE);
-    if (resultHddtemp==-1)
+    val_hddtemp_result = get_hddtemp_d_str(reply, REPLY_MAX_SIZE);
+    if (val_hddtemp_result==HDDTEMP_CONNECTION_FAILED)
     {
-      return 0.0;
+      return NO_VALID_HDDTEMP_PROGRAM;
     }
 
-    {
-        tmp3 = "-255";
-        tmp = str_split (reply, DOUBLE_DELIMITER);
-        do {
-            //g_printf ("Found token: %s for disk %s\n", tmp, disk);
-            tmp2 = g_strdup (tmp);
-            tmp3 = strtok (tmp2, SINGLE_DELIMITER); // device name
-            if (strcmp(tmp3, disk)==0)
-            {
-                strtok(NULL, SINGLE_DELIMITER); // name
-                tmp3 = strdup(strtok(NULL, SINGLE_DELIMITER)); // value
-                exit_status = 0;
-                g_free(error);
-                error = NULL;
-                g_free (tmp2);
-                break;
-            }
+    tmp3 = "-255";
+    tmp = str_split (reply, DOUBLE_DELIMITER);
+    do {
+        //g_printf ("Found token: %s for disk %s\n", tmp, disk);
+        tmp2 = g_strdup (tmp);
+        tmp3 = strtok (tmp2, SINGLE_DELIMITER); // device name
+        if (strcmp(tmp3, disk)==0)
+        {
+            strtok(NULL, SINGLE_DELIMITER); // name
+            tmp3 = strdup(strtok(NULL, SINGLE_DELIMITER)); // value
+            exit_status = 0;
+            ptr_f_error = NULL;
             g_free (tmp2);
+            break;
         }
-        while ( (tmp = str_split(NULL, DOUBLE_DELIMITER)) );
-
-/*        g_free(standard_output);*/
-        standard_output = tmp3;
-
+        g_free (tmp2);
     }
-/*    else
-    {
-        error->message = g_strdup (standard_error);
-    }*/
+    while ( (tmp = str_split(NULL, DOUBLE_DELIMITER)) );
+
+    ptr_str_stdout = tmp3;
 
 #else
-    error = NULL;
-    cmd_line = g_strdup_printf ( "%s -n -q %s", PATH_HDDTEMP, disk);
-    result = g_spawn_command_line_sync ( (const gchar*) cmd_line,
-            &standard_output, &standard_error, &exit_status, &error);
+    ptr_str_hddtemp_call = g_strdup_printf ( "%s -n -q %s", PATH_HDDTEMP, disk);
+    f_result = g_spawn_command_line_sync ( (const gchar*) ptr_str_hddtemp_call,
+            &ptr_str_stdout, &ptr_str_stderr, &exit_status, &ptr_f_error);
 #endif
 
-    msg_text = NULL; // wonder if this is still necessary
-
-    DBG ("Exit code %d on %s with stdout of %s.\n", exit_status, disk, standard_output);
+    DBG ("Exit code %d on %s with stdout of %s.\n", exit_status, disk, ptr_str_stdout);
 
     /* filter those with no sensors out */
     if (exit_status==0 && strncmp(disk, "/dev/fd", 6)==0) { /* is returned for floppy disks */
         DBG("exit_status==0 && strncmp(disk, \"/dev/fd\", 6)==0");
-        value = 0.0;
+        val_drive_temperature = NO_VALID_TEMPERATURE_VALUE;
     }
-    else if ((exit_status==256 || (standard_error && strlen(standard_error)>0))
-            && access (PATH_HDDTEMP, X_OK)==0) /* || strlen(standard_error)>0) */
+    else if ((exit_status==256 || (ptr_str_stderr && strlen(ptr_str_stderr)>0))
+            && access (PATH_HDDTEMP, X_OK)==0) /* || strlen(ptr_str_stderr)>0) */
     {
         /* note that this check does only work for some versions of hddtemp. */
-        if (!nevershowagain) {
-            msg_text = g_strdup_printf(_("\"hddtemp\" was not executed correctly, "
+        if (!f_nevershowagain) {
+            ptr_str_message = g_strdup_printf(_("\"hddtemp\" was not executed correctly, "
                             "although it is executable. This is most probably due "
                             "to the disks requiring root privileges to read their "
                             "temperatures, and \"hddtemp\" not being setuid root."
@@ -619,92 +577,89 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
                             "\" as root user and restart this plugin "
                             "or its panel.\n\n"
                             "Calling \"%s\" gave the following error:\n%s\nwith a return value of %d.\n"),
-                            PATH_HDDTEMP, cmd_line, standard_error, exit_status);
+                            PATH_HDDTEMP, ptr_str_hddtemp_call, ptr_str_stderr, exit_status);
 
 #if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
-            //msg_text = g_strconcat(msg_text, _("\nYou can disable these notifications in the settings dialog.\n");
-            quick_message_notify (msg_text);
-            //nevershowagain = FALSE;
+            //ptr_str_message = g_strconcat(ptr_str_message, _("\nYou can disable these notifications in the settings dialog.\n");
+            quick_message_notify (ptr_str_message);
+            //f_nevershowagain = FALSE;
 #else
-            checktext = g_strdup(_("Suppress this message in future"));
-            nevershowagain = quick_message_with_checkbox(msg_text, checktext);
+            ptr_str_checkbutton = g_strdup(_("Suppress this message in future"));
+            f_nevershowagain = quick_message_with_checkbox(ptr_str_message, ptr_str_checkbutton);
 #endif
 
             if (suppressmessage!=NULL)
-                *suppressmessage = nevershowagain;
+                *suppressmessage = f_nevershowagain;
         }
         else {
-            DBG  ("Suppressing dialog with exit_code=256 or output on standard_error");
+            DBG  ("Suppressing dialog with exit_code=256 or output on ptr_str_stderr");
         }
 
-        value = ZERO_KELVIN;
+        val_drive_temperature = NO_VALID_HDDTEMP_PROGRAM;
     }
-    /* else if (strlen(standard_error)>0) {
-        msg_text = g_strdup_printf (_("An error occurred when executing"
-                                      " \"%s\":\n%s"), cmd_line, standard_error);
-        quick_message (msg_text);
-        value = ZERO_KELVIN;
-    } */
 
-    else if (error && (!result || exit_status!=0))
+    else if (ptr_f_error && (!f_result || exit_status!=0))
     {
-         DBG  ("error %s\n", error->message);
-        if (!nevershowagain) {
-            msg_text = g_strdup_printf (_("An error occurred when executing"
-                                      " \"%s\":\n%s"), cmd_line, error->message);
+        DBG  ("error %s\n", ptr_f_error->message);
+        if (!f_nevershowagain) {
+            ptr_str_message = g_strdup_printf (_("An error occurred when executing"
+                                      " \"%s\":\n%s"), ptr_str_hddtemp_call, ptr_f_error->message);
 #if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
-            quick_message_notify (msg_text);
-            //nevershowagain = FALSE;
+            quick_message_notify (ptr_str_message);
+            //f_nevershowagain = FALSE;
 #else
-            checktext = g_strdup(_("Suppress this message in future"));
-            nevershowagain = quick_message_with_checkbox (msg_text, checktext);
+            ptr_str_checkbutton = g_strdup(_("Suppress this message in future"));
+            f_nevershowagain = quick_message_with_checkbox (ptr_str_message, ptr_str_checkbutton);
 #endif
 
-             if (suppressmessage!=NULL)
-                *suppressmessage = nevershowagain;
+            if (suppressmessage!=NULL)
+                *suppressmessage = f_nevershowagain;
         }
         else {
             DBG  ("Suppressing dialog because of error in g_spawn_cl");
         }
-        value = 0.0;
+        val_drive_temperature = NO_VALID_HDDTEMP_PROGRAM;
     }
-    else if (standard_output && strlen(standard_output) > 0)
+    else if (ptr_str_stdout && strlen(ptr_str_stdout) > 0)
     {
-        DBG("got the only useful return value of 0 and value of %s.\n", standard_output);
+        DBG("got the only useful return value of 0 and value of %s.\n", ptr_str_stdout);
         /* hddtemp does not return floating values, but only integer ones.
           So have an easier life with atoi.
           FIXME: Use strtod() instead?*/
-        value = (double) (atoi ( (const char*) standard_output) );
+        if (0 == strcmp(ptr_str_stdout, "drive is sleeping"))
+            val_drive_temperature = HDDTEMP_DISK_SLEEPING;
+        else
+            val_drive_temperature = (double) (atoi ( (const char*) ptr_str_stdout) );
     }
     else {
         DBG("No condition applied.");
-        value = 0.0;
+        val_drive_temperature = NO_VALID_HDDTEMP_PROGRAM;
     }
 
-    g_free (cmd_line);
-    g_free (standard_output);
-    g_free (standard_error);
-    g_free (msg_text);
+    g_free (ptr_str_hddtemp_call);
+    g_free (ptr_str_stdout);
+    g_free (ptr_str_stderr);
+    g_free (ptr_str_message);
 #if !defined(HAVE_LIBNOTIFY4) && !defined(HAVE_LIBNOTIFY7)
-    g_free (checktext);
+    g_free (ptr_str_checkbutton);
 #endif
 
-    if (error) 
-      g_error_free(error);
+    if (ptr_f_error)
+      g_error_free(ptr_f_error);
 
     TRACE ("leaves get_hddtemp_value");
 
-    return value;
+    return val_drive_temperature;
 }
 
 
 void
 refresh_hddtemp (gpointer chip_feature, gpointer data)
 {
-    t_chipfeature *cf;
-    double value;
-    t_sensors *sensors;
-    gboolean *suppress = NULL;
+    t_chipfeature *ptr_chipfeature;
+    double val_drive_temperature;
+    t_sensors *ptr_sensors_plugin_data;
+    gboolean *ptr_f_suppress = NULL;
 
     g_assert (chip_feature!=NULL);
 
@@ -712,22 +667,32 @@ refresh_hddtemp (gpointer chip_feature, gpointer data)
 
     if (data != NULL)
     {
-        sensors = (t_sensors *) data;
-        suppress = &(sensors->suppressmessage);
+        ptr_sensors_plugin_data = (t_sensors *) data;
+        ptr_f_suppress = &(ptr_sensors_plugin_data->suppressmessage);
     }
 
-    cf = (t_chipfeature *) chip_feature;
+    ptr_chipfeature = (t_chipfeature *) chip_feature;
 
-    value = get_hddtemp_value (cf->devicename, suppress);
+    val_drive_temperature = get_hddtemp_value (ptr_chipfeature->devicename, ptr_f_suppress);
 
-    /* actually, that's done in the gui part */
-    g_free (cf->formatted_value);
-    /*  if (scale == FAHRENHEIT) {
-        cf->formatted_value = g_strdup_printf(_("%.1f °F"), (float) (value * 9/5 + 32) );
-    } else { // Celsius  */
-        cf->formatted_value = g_strdup_printf(_("%.1f °C"), value);
-    /* } */
-    cf->raw_value = value;
+    //g_free (ptr_chipfeature->formatted_value);
+    //ptr_chipfeature->formatted_value = g_strdup_printf(_("%.1f °C"), val_drive_temperature);
+    ptr_chipfeature->raw_value = val_drive_temperature;
 
     TRACE ("leaves refresh_hddtemp");
 }
+
+
+//void
+//free_hddtemp_chip (gpointer chip)
+//{
+    //t_chip *ptr_chip;
+
+    //ptr_chip = (t_chip *) chip;
+
+    ////if (ptr_chip->sensorId)
+        ////g_free (ptr_chip->sensorId);
+
+    ////if (ptr_chip->chip_name->)
+        ////g_free (ptr_chip->chip_name->);
+//}

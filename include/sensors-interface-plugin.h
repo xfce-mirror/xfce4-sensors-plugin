@@ -63,15 +63,15 @@ typedef struct {
     gint timeout_id;
 
     /* font size for display in panel */
-    gchar *font_size;
-    gint font_size_numerical;
+    gchar *str_fontsize;
+    gint val_fontsize;
 
     /* temperature scale for display in panel */
     t_tempscale scale;
 
     /* panel size to compute number of cols/columns */
     gint panel_size;
-    
+
     gint lines_size;
 
     /* panel orientation */
@@ -79,7 +79,7 @@ typedef struct {
 
     /* if the bars have been initialized */
     gboolean bars_created;
-    
+
     /* if the tachos have been initialized */
     gboolean tachos_created;
 
@@ -100,11 +100,11 @@ typedef struct {
 
     /* use the progress-bar UI */
     //gboolean display_values_graphically;
-    display_t display_values_type;
+    e_displaystyles display_values_type;
 
     /* suppress Hddtemp failure messages and any other messages */
     gboolean suppressmessage;
-    
+
     /* suppress tooltip from overlapping widget and thereby crashing the plugin or modifying the background */
     gboolean suppresstooltip;
 
@@ -122,7 +122,7 @@ typedef struct {
     /* FIXME:    Might be replaced by GPtrArray as well */
     GtkWidget* panels[MAX_NUM_CHIPS][MAX_NUM_FEATURES];
     /*    GArray *panels_array; */
-    
+
     /* contains the tacho panels */
     /* FIXME:    Might be replaced by GPtrArray as well */
     GtkWidget* tachos[MAX_NUM_CHIPS][MAX_NUM_FEATURES];
@@ -181,7 +181,7 @@ typedef struct {
     gint num_acpi_zones; */
 
     gchar *plugin_config_file;
-    
+
     gint preferred_width;
     gint preferred_height;
 }
@@ -190,6 +190,6 @@ t_sensors;
 /* Regularly included functions in library */
 t_sensors * sensors_new (XfcePanelPlugin *plugin, gchar * plugin_config_file);
 
-void sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin);
+void sensors_init_default_values (t_sensors *sensors, XfcePanelPlugin *plugin);
 
 #endif /* XFCE4_SENSORS_INTERFACE_PLUGIN_H */

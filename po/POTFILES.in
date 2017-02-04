@@ -13,4 +13,4 @@ src/interface.c
 src/callbacks.c
 src/actions.c
 src/xfce4-sensors.desktop.in
-panel-plugin/xfce4-sensors-plugin.desktop.in.in
+panel-plugin/xfce4-sensors-plugin.desktop.in

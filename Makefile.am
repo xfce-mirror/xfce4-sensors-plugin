@@ -1,11 +1,11 @@
 # $Id$
 
-SUBDIRS = 						\
-	include						\
-	lib							\
-	panel-plugin				\
-	src							\
-	po							\
+SUBDIRS =                               \
+	include                             \
+	lib                                 \
+	panel-plugin                        \
+	src                                 \
+	po                                  \
 	icons
 
 distclean-local:
@@ -23,31 +23,31 @@ rpm: dist
 	rpmbuild -ta $(PACKAGE)-$(VERSION).tar.gz
 	@rm -f $(PACKAGE)-$(VERSION).tar.gz
 
-EXTRA_DIST =							\
-	AUTHORS								\
-	COPYING								\
-	ChangeLog							\
-	LICENSE								\
-	NEWS								\
-	README								\
-	TODO								\
-	NOTES								\
-	xfce4-sensors-plugin.spec.in		\
+EXTRA_DIST =                            \
+	AUTHORS                             \
+	COPYING                             \
+	ChangeLog                           \
+	LICENSE                             \
+	NEWS                                \
+	README                              \
+	TODO                                \
+	NOTES                               \
+	xfce4-sensors-plugin.spec.in        \
 	intltool-extract.in                 \
 	intltool-merge.in                   \
 	intltool-update.in
 
-DISTCLEANFILES =						\
-	intltool-extract					\
-	intltool-merge						\
-	intltool-update						\
+DISTCLEANFILES =                        \
+	intltool-extract                    \
+	intltool-merge                      \
+	intltool-update                     \
 	xfce4-sensors-plugin.spec
 
-DISTCHECK_CONFIGURE_FLAGS =		\
-	--enable-notification4				\
-	--enable-libsensors					\
-	--enable-hddtemp						\
-	--enable-procacpi						\
+DISTCHECK_CONFIGURE_FLAGS =             \
+	--enable-notification4              \
+	--enable-libsensors                 \
+	--enable-hddtemp                    \
+	--enable-procacpi                   \
 	--enable-sysfsacpi
 
 checksums: distcheck
@@ -60,4 +60,3 @@ release: gpg-sign
 	-mkdir releases/
 	mv $(PACKAGE)-$(VERSION).tar.bz2* releases/
 	-rm $(PACKAGE)-$(VERSION).tar.gz
-
