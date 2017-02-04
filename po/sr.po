@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-19 19:59+0200\n"
+"POT-Creation-Date: 2017-02-04 12:02+0100\n"
 "PO-Revision-Date: 2014-07-01 21:12+0000\n"
 "Last-Translator: Саша Петровић <salepetronije@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/xfce-panel-"
@@ -21,19 +21,19 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.c:319 ../panel-plugin/sensors-plugin.c:414
-#: ../panel-plugin/sensors-plugin.c:1009
+#: ../panel-plugin/sensors-plugin.c:365 ../panel-plugin/sensors-plugin.c:467
+#: ../panel-plugin/sensors-plugin.c:1144
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Пријемници</b></span>"
 
 #. widget = sensors->eventbox;
-#: ../panel-plugin/sensors-plugin.c:819
+#: ../panel-plugin/sensors-plugin.c:948
 msgid "No sensors selected!"
 msgstr "Нема изабраних пријемника!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:859
+#: ../panel-plugin/sensors-plugin.c:988
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -44,105 +44,105 @@ msgstr ""
 "Изгледа да се десио проблем читања вредности особина пријемника.\n"
 "Није могуће јемчити за правилан наставак.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1727
+#: ../panel-plugin/sensors-plugin.c:1862
 msgid "UI style:"
 msgstr "Изглед  корисничког сучеља:"
 
-#: ../panel-plugin/sensors-plugin.c:1728
+#: ../panel-plugin/sensors-plugin.c:1863
 msgid "_text"
 msgstr "_текст"
 
-#: ../panel-plugin/sensors-plugin.c:1730
+#: ../panel-plugin/sensors-plugin.c:1865
 msgid "_progress bars"
 msgstr "_траке напредака"
 
-#: ../panel-plugin/sensors-plugin.c:1732
+#: ../panel-plugin/sensors-plugin.c:1867
 msgid "_tachos"
 msgstr "_кружни мерачи"
 
-#: ../panel-plugin/sensors-plugin.c:1777
+#: ../panel-plugin/sensors-plugin.c:1912
 msgid "Show _labels"
 msgstr "Прикажи _натписе"
 
-#: ../panel-plugin/sensors-plugin.c:1807
+#: ../panel-plugin/sensors-plugin.c:1942
 msgid "Show colored _bars"
 msgstr "Прикажи обојене _траке"
 
-#: ../panel-plugin/sensors-plugin.c:1835
+#: ../panel-plugin/sensors-plugin.c:1970
 msgid "_Show title"
 msgstr "_Прикажи наслов"
 
-#: ../panel-plugin/sensors-plugin.c:1859
+#: ../panel-plugin/sensors-plugin.c:1994
 msgid "_Number of text lines:"
 msgstr "_Број линија текста:"
 
-#: ../panel-plugin/sensors-plugin.c:1894
+#: ../panel-plugin/sensors-plugin.c:2029
 msgid "F_ont size:"
 msgstr "Величина _словног лика:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1901
+#: ../panel-plugin/sensors-plugin.c:2036
 msgid "x-small"
 msgstr "икс-мали"
 
-#: ../panel-plugin/sensors-plugin.c:1902
+#: ../panel-plugin/sensors-plugin.c:2037
 msgid "small"
 msgstr "мали"
 
-#: ../panel-plugin/sensors-plugin.c:1903
+#: ../panel-plugin/sensors-plugin.c:2038
 msgid "medium"
 msgstr "средњи"
 
-#: ../panel-plugin/sensors-plugin.c:1904
+#: ../panel-plugin/sensors-plugin.c:2039
 msgid "large"
 msgstr "велики"
 
-#: ../panel-plugin/sensors-plugin.c:1905
+#: ../panel-plugin/sensors-plugin.c:2040
 msgid "x-large"
 msgstr "икс-велики"
 
-#: ../panel-plugin/sensors-plugin.c:1936
+#: ../panel-plugin/sensors-plugin.c:2071
 msgid "F_ont:"
 msgstr "Сл_овни лик:"
 
-#: ../panel-plugin/sensors-plugin.c:1970
+#: ../panel-plugin/sensors-plugin.c:2105
 msgid "Show _Units"
 msgstr "Прикажи _јединице"
 
-#: ../panel-plugin/sensors-plugin.c:1991
+#: ../panel-plugin/sensors-plugin.c:2126
 msgid "Small horizontal s_pacing"
 msgstr "Мали водоравни р_азмаци"
 
-#: ../panel-plugin/sensors-plugin.c:2013
+#: ../panel-plugin/sensors-plugin.c:2148
 msgid "Suppress messages"
 msgstr "Потисни поруке"
 
-#: ../panel-plugin/sensors-plugin.c:2031
+#: ../panel-plugin/sensors-plugin.c:2166
 msgid "Suppress tooltip"
 msgstr "Потисни напомену"
 
-#: ../panel-plugin/sensors-plugin.c:2056
+#: ../panel-plugin/sensors-plugin.c:2191
 msgid "E_xecute on double click:"
 msgstr "П_окрени на двоклик:"
 
-#: ../panel-plugin/sensors-plugin.c:2099
+#: ../panel-plugin/sensors-plugin.c:2234
 msgid "_View"
 msgstr "_Преглед"
 
-#: ../panel-plugin/sensors-plugin.c:2133
+#: ../panel-plugin/sensors-plugin.c:2268
 msgid "_Miscellaneous"
 msgstr "_Разно"
 
-#: ../panel-plugin/sensors-plugin.c:2208 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2343 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:162
 msgid "Sensors Plugin"
 msgstr "Прикључак пријемник"
 
-#: ../panel-plugin/sensors-plugin.c:2216
+#: ../panel-plugin/sensors-plugin.c:2351
 msgid "Properties"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:2249
+#: ../panel-plugin/sensors-plugin.c:2384
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -183,11 +183,6 @@ msgstr "Температура језгра ЕнВидиа ГПЈ"
 #: ../lib/nvidia.c:62
 msgid "nvidia"
 msgstr "енвидиа"
-
-#: ../lib/nvidia.c:132 ../lib/hddtemp.c:679
-#, c-format
-msgid "%.1f °C"
-msgstr "%.1f °C"
 
 #: ../lib/hddtemp.c:392
 msgid "S.M.A.R.T. harddisk temperatures"
@@ -252,55 +247,55 @@ msgstr ""
 "Изгледа да се десио проблем читања вредности особина пријемника.\n"
 "Није могуће јемчити за правилан наставак."
 
-#: ../lib/sensors-interface.c:172
+#: ../lib/sensors-interface.c:174
 msgid "Sensors t_ype:"
 msgstr "В_рста пријемника:"
 
-#: ../lib/sensors-interface.c:198
+#: ../lib/sensors-interface.c:200
 msgid "Description:"
 msgstr "Опис:"
 
-#: ../lib/sensors-interface.c:231
+#: ../lib/sensors-interface.c:233
 msgid "U_pdate interval (seconds):"
 msgstr "Учесталост освежавања (секунде):"
 
-#: ../lib/sensors-interface.c:271
+#: ../lib/sensors-interface.c:273
 msgid "Name"
 msgstr "Назив"
 
-#: ../lib/sensors-interface.c:283
+#: ../lib/sensors-interface.c:285
 msgid "Value"
 msgstr "Вредност"
 
-#: ../lib/sensors-interface.c:291
+#: ../lib/sensors-interface.c:293
 msgid "Show"
 msgstr "Прикажи"
 
-#: ../lib/sensors-interface.c:300
+#: ../lib/sensors-interface.c:302
 msgid "Color"
 msgstr "Боја"
 
-#: ../lib/sensors-interface.c:313
+#: ../lib/sensors-interface.c:315
 msgid "Min"
 msgstr "Најмање"
 
-#: ../lib/sensors-interface.c:330
+#: ../lib/sensors-interface.c:332
 msgid "Max"
 msgstr "Највише"
 
-#: ../lib/sensors-interface.c:371
+#: ../lib/sensors-interface.c:373
 msgid "Temperature scale:"
 msgstr "Температурна лествица:"
 
-#: ../lib/sensors-interface.c:373
+#: ../lib/sensors-interface.c:375
 msgid "_Celsius"
 msgstr "_Целзијус"
 
-#: ../lib/sensors-interface.c:375
+#: ../lib/sensors-interface.c:377
 msgid "_Fahrenheit"
 msgstr "_Фаренхајт"
 
-#: ../lib/sensors-interface.c:411
+#: ../lib/sensors-interface.c:413
 msgid "_Sensors"
 msgstr "_Пријемници"
 
@@ -431,3 +426,6 @@ msgstr "Прегледник вредности пријемника"
 #, fuzzy
 msgid "Sensor plugin"
 msgstr "Прикључак пријемник "
+
+#~ msgid "%.1f °C"
+#~ msgstr "%.1f °C"

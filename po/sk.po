@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-19 19:59+0200\n"
+"POT-Creation-Date: 2017-02-04 12:02+0100\n"
 "PO-Revision-Date: 2015-02-26 12:00+0000\n"
 "Last-Translator: Slavko <linux@slavino.sk>\n"
 "Language-Team: Slovak (http://www.transifex.com/projects/p/xfce-panel-"
@@ -21,19 +21,19 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.c:319 ../panel-plugin/sensors-plugin.c:414
-#: ../panel-plugin/sensors-plugin.c:1009
+#: ../panel-plugin/sensors-plugin.c:365 ../panel-plugin/sensors-plugin.c:467
+#: ../panel-plugin/sensors-plugin.c:1144
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Senzory</b></span>"
 
 #. widget = sensors->eventbox;
-#: ../panel-plugin/sensors-plugin.c:819
+#: ../panel-plugin/sensors-plugin.c:948
 msgid "No sensors selected!"
 msgstr "Neboli nájdené žiadne senzory!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:859
+#: ../panel-plugin/sensors-plugin.c:988
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -44,105 +44,105 @@ msgstr ""
 "Pri čítaní hodnoty senzora sa vyskytla chyba.\n"
 "Správne fungovanie nie je zaručené.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1727
+#: ../panel-plugin/sensors-plugin.c:1862
 msgid "UI style:"
 msgstr "Štýl používateľského rozhrania:"
 
-#: ../panel-plugin/sensors-plugin.c:1728
+#: ../panel-plugin/sensors-plugin.c:1863
 msgid "_text"
 msgstr "_text"
 
-#: ../panel-plugin/sensors-plugin.c:1730
+#: ../panel-plugin/sensors-plugin.c:1865
 msgid "_progress bars"
 msgstr "ukazovateľ _priebehu"
 
-#: ../panel-plugin/sensors-plugin.c:1732
+#: ../panel-plugin/sensors-plugin.c:1867
 msgid "_tachos"
 msgstr "o_táčkomery"
 
-#: ../panel-plugin/sensors-plugin.c:1777
+#: ../panel-plugin/sensors-plugin.c:1912
 msgid "Show _labels"
 msgstr "Zobraziť pop_isy"
 
-#: ../panel-plugin/sensors-plugin.c:1807
+#: ../panel-plugin/sensors-plugin.c:1942
 msgid "Show colored _bars"
 msgstr "Zobraziť fa_rebné stĺpce"
 
-#: ../panel-plugin/sensors-plugin.c:1835
+#: ../panel-plugin/sensors-plugin.c:1970
 msgid "_Show title"
 msgstr "_Zobraziť názov"
 
-#: ../panel-plugin/sensors-plugin.c:1859
+#: ../panel-plugin/sensors-plugin.c:1994
 msgid "_Number of text lines:"
 msgstr "_Počet textových riadkov:"
 
-#: ../panel-plugin/sensors-plugin.c:1894
+#: ../panel-plugin/sensors-plugin.c:2029
 msgid "F_ont size:"
 msgstr "Veľ_kosť písma:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1901
+#: ../panel-plugin/sensors-plugin.c:2036
 msgid "x-small"
 msgstr "veľmi malé"
 
-#: ../panel-plugin/sensors-plugin.c:1902
+#: ../panel-plugin/sensors-plugin.c:2037
 msgid "small"
 msgstr "malé"
 
-#: ../panel-plugin/sensors-plugin.c:1903
+#: ../panel-plugin/sensors-plugin.c:2038
 msgid "medium"
 msgstr "stredné"
 
-#: ../panel-plugin/sensors-plugin.c:1904
+#: ../panel-plugin/sensors-plugin.c:2039
 msgid "large"
 msgstr "veľké"
 
-#: ../panel-plugin/sensors-plugin.c:1905
+#: ../panel-plugin/sensors-plugin.c:2040
 msgid "x-large"
 msgstr "veľmi veľké"
 
-#: ../panel-plugin/sensors-plugin.c:1936
+#: ../panel-plugin/sensors-plugin.c:2071
 msgid "F_ont:"
 msgstr "Písm_o:"
 
-#: ../panel-plugin/sensors-plugin.c:1970
+#: ../panel-plugin/sensors-plugin.c:2105
 msgid "Show _Units"
 msgstr "Zobraziť j_ednotky"
 
-#: ../panel-plugin/sensors-plugin.c:1991
+#: ../panel-plugin/sensors-plugin.c:2126
 msgid "Small horizontal s_pacing"
 msgstr "Malý vodorovný oddeľovací _priestor"
 
-#: ../panel-plugin/sensors-plugin.c:2013
+#: ../panel-plugin/sensors-plugin.c:2148
 msgid "Suppress messages"
 msgstr "Potlačiť správy"
 
-#: ../panel-plugin/sensors-plugin.c:2031
+#: ../panel-plugin/sensors-plugin.c:2166
 msgid "Suppress tooltip"
 msgstr "Potlačiť popisy"
 
-#: ../panel-plugin/sensors-plugin.c:2056
+#: ../panel-plugin/sensors-plugin.c:2191
 msgid "E_xecute on double click:"
 msgstr "_Spustiť pri dvojitom kliknutí"
 
-#: ../panel-plugin/sensors-plugin.c:2099
+#: ../panel-plugin/sensors-plugin.c:2234
 msgid "_View"
 msgstr "_Zobrazenie"
 
-#: ../panel-plugin/sensors-plugin.c:2133
+#: ../panel-plugin/sensors-plugin.c:2268
 msgid "_Miscellaneous"
 msgstr "_Rôzne"
 
-#: ../panel-plugin/sensors-plugin.c:2208 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2343 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:162
 msgid "Sensors Plugin"
 msgstr "Zásuvný modul Senzory"
 
-#: ../panel-plugin/sensors-plugin.c:2216
+#: ../panel-plugin/sensors-plugin.c:2351
 msgid "Properties"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:2249
+#: ../panel-plugin/sensors-plugin.c:2384
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -183,11 +183,6 @@ msgstr "Teplota grafického procesora NVidia"
 #: ../lib/nvidia.c:62
 msgid "nvidia"
 msgstr "nvidia"
-
-#: ../lib/nvidia.c:132 ../lib/hddtemp.c:679
-#, c-format
-msgid "%.1f °C"
-msgstr "%.1f °C"
 
 #: ../lib/hddtemp.c:392
 msgid "S.M.A.R.T. harddisk temperatures"
@@ -251,55 +246,55 @@ msgstr ""
 "Pri čítaní hodnoty senzorov zrejme došlo k problému.\n"
 "Nie je možné zaručiť správne fungovanie."
 
-#: ../lib/sensors-interface.c:172
+#: ../lib/sensors-interface.c:174
 msgid "Sensors t_ype:"
 msgstr "T_yp senzorov:"
 
-#: ../lib/sensors-interface.c:198
+#: ../lib/sensors-interface.c:200
 msgid "Description:"
 msgstr "Popis:"
 
-#: ../lib/sensors-interface.c:231
+#: ../lib/sensors-interface.c:233
 msgid "U_pdate interval (seconds):"
 msgstr "I_nterval aktualizácie (v sekundách):"
 
-#: ../lib/sensors-interface.c:271
+#: ../lib/sensors-interface.c:273
 msgid "Name"
 msgstr "Názov"
 
-#: ../lib/sensors-interface.c:283
+#: ../lib/sensors-interface.c:285
 msgid "Value"
 msgstr "Hodnota"
 
-#: ../lib/sensors-interface.c:291
+#: ../lib/sensors-interface.c:293
 msgid "Show"
 msgstr "Zobraziť"
 
-#: ../lib/sensors-interface.c:300
+#: ../lib/sensors-interface.c:302
 msgid "Color"
 msgstr "Farba"
 
-#: ../lib/sensors-interface.c:313
+#: ../lib/sensors-interface.c:315
 msgid "Min"
 msgstr "Min"
 
-#: ../lib/sensors-interface.c:330
+#: ../lib/sensors-interface.c:332
 msgid "Max"
 msgstr "Max"
 
-#: ../lib/sensors-interface.c:371
+#: ../lib/sensors-interface.c:373
 msgid "Temperature scale:"
 msgstr "Meradlo teploty:"
 
-#: ../lib/sensors-interface.c:373
+#: ../lib/sensors-interface.c:375
 msgid "_Celsius"
 msgstr "Stupne _Celzia"
 
-#: ../lib/sensors-interface.c:375
+#: ../lib/sensors-interface.c:377
 msgid "_Fahrenheit"
 msgstr "Stupne _Fahrenheita"
 
-#: ../lib/sensors-interface.c:411
+#: ../lib/sensors-interface.c:413
 msgid "_Sensors"
 msgstr "_Senzory"
 
@@ -430,3 +425,6 @@ msgstr "Prehliadač hodnôt senzorov"
 #, fuzzy
 msgid "Sensor plugin"
 msgstr "Zásuvný modul Senzory"
+
+#~ msgid "%.1f °C"
+#~ msgstr "%.1f °C"

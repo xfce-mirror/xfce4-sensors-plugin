@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-19 19:59+0200\n"
+"POT-Creation-Date: 2017-02-04 12:02+0100\n"
 "PO-Revision-Date: 2014-12-03 05:20+0000\n"
 "Last-Translator: 玉堂白鹤 <yjwork@qq.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/xfce-"
@@ -23,19 +23,19 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.c:319 ../panel-plugin/sensors-plugin.c:414
-#: ../panel-plugin/sensors-plugin.c:1009
+#: ../panel-plugin/sensors-plugin.c:365 ../panel-plugin/sensors-plugin.c:467
+#: ../panel-plugin/sensors-plugin.c:1144
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>传感器</b></span>"
 
 #. widget = sensors->eventbox;
-#: ../panel-plugin/sensors-plugin.c:819
+#: ../panel-plugin/sensors-plugin.c:948
 msgid "No sensors selected!"
 msgstr "未选择传感器！"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:859
+#: ../panel-plugin/sensors-plugin.c:988
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -46,105 +46,105 @@ msgstr ""
 "读取传感器值时好像有问题。\n"
 "未能保证正确的操作。\n"
 
-#: ../panel-plugin/sensors-plugin.c:1727
+#: ../panel-plugin/sensors-plugin.c:1862
 msgid "UI style:"
 msgstr "界面样式："
 
-#: ../panel-plugin/sensors-plugin.c:1728
+#: ../panel-plugin/sensors-plugin.c:1863
 msgid "_text"
 msgstr "文字(_T)"
 
-#: ../panel-plugin/sensors-plugin.c:1730
+#: ../panel-plugin/sensors-plugin.c:1865
 msgid "_progress bars"
 msgstr "进度条(_P)"
 
-#: ../panel-plugin/sensors-plugin.c:1732
+#: ../panel-plugin/sensors-plugin.c:1867
 msgid "_tachos"
 msgstr "转速计(_T)"
 
-#: ../panel-plugin/sensors-plugin.c:1777
+#: ../panel-plugin/sensors-plugin.c:1912
 msgid "Show _labels"
 msgstr "显示标签(_L)"
 
-#: ../panel-plugin/sensors-plugin.c:1807
+#: ../panel-plugin/sensors-plugin.c:1942
 msgid "Show colored _bars"
 msgstr "显示颜色条(_B)"
 
-#: ../panel-plugin/sensors-plugin.c:1835
+#: ../panel-plugin/sensors-plugin.c:1970
 msgid "_Show title"
 msgstr "显示标题(_S)"
 
-#: ../panel-plugin/sensors-plugin.c:1859
+#: ../panel-plugin/sensors-plugin.c:1994
 msgid "_Number of text lines:"
 msgstr "文字行数(_N)："
 
-#: ../panel-plugin/sensors-plugin.c:1894
+#: ../panel-plugin/sensors-plugin.c:2029
 msgid "F_ont size:"
 msgstr "字体大小(_O)："
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1901
+#: ../panel-plugin/sensors-plugin.c:2036
 msgid "x-small"
 msgstr "很小"
 
-#: ../panel-plugin/sensors-plugin.c:1902
+#: ../panel-plugin/sensors-plugin.c:2037
 msgid "small"
 msgstr "小"
 
-#: ../panel-plugin/sensors-plugin.c:1903
+#: ../panel-plugin/sensors-plugin.c:2038
 msgid "medium"
 msgstr "中等"
 
-#: ../panel-plugin/sensors-plugin.c:1904
+#: ../panel-plugin/sensors-plugin.c:2039
 msgid "large"
 msgstr "大"
 
-#: ../panel-plugin/sensors-plugin.c:1905
+#: ../panel-plugin/sensors-plugin.c:2040
 msgid "x-large"
 msgstr "很大"
 
-#: ../panel-plugin/sensors-plugin.c:1936
+#: ../panel-plugin/sensors-plugin.c:2071
 msgid "F_ont:"
 msgstr "字体(_O)："
 
-#: ../panel-plugin/sensors-plugin.c:1970
+#: ../panel-plugin/sensors-plugin.c:2105
 msgid "Show _Units"
 msgstr "显示单位(_U)"
 
-#: ../panel-plugin/sensors-plugin.c:1991
+#: ../panel-plugin/sensors-plugin.c:2126
 msgid "Small horizontal s_pacing"
 msgstr "小水平间距(_P)"
 
-#: ../panel-plugin/sensors-plugin.c:2013
+#: ../panel-plugin/sensors-plugin.c:2148
 msgid "Suppress messages"
 msgstr "不显示信息"
 
-#: ../panel-plugin/sensors-plugin.c:2031
+#: ../panel-plugin/sensors-plugin.c:2166
 msgid "Suppress tooltip"
 msgstr "阻止提示框"
 
-#: ../panel-plugin/sensors-plugin.c:2056
+#: ../panel-plugin/sensors-plugin.c:2191
 msgid "E_xecute on double click:"
 msgstr "双击时执行(_X)："
 
-#: ../panel-plugin/sensors-plugin.c:2099
+#: ../panel-plugin/sensors-plugin.c:2234
 msgid "_View"
 msgstr "视图(_V)"
 
-#: ../panel-plugin/sensors-plugin.c:2133
+#: ../panel-plugin/sensors-plugin.c:2268
 msgid "_Miscellaneous"
 msgstr "杂项(_M)"
 
-#: ../panel-plugin/sensors-plugin.c:2208 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2343 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:162
 msgid "Sensors Plugin"
 msgstr "传感器插件"
 
-#: ../panel-plugin/sensors-plugin.c:2216
+#: ../panel-plugin/sensors-plugin.c:2351
 msgid "Properties"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:2249
+#: ../panel-plugin/sensors-plugin.c:2384
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -184,11 +184,6 @@ msgstr "NVidia GPU 核心温度"
 #: ../lib/nvidia.c:62
 msgid "nvidia"
 msgstr "nvidia"
-
-#: ../lib/nvidia.c:132 ../lib/hddtemp.c:679
-#, c-format
-msgid "%.1f °C"
-msgstr "%.1f °C"
 
 #: ../lib/hddtemp.c:392
 msgid "S.M.A.R.T. harddisk temperatures"
@@ -251,55 +246,55 @@ msgstr ""
 "读取传感器功能值时好像有问题。\n"
 "未能保证正确的操作。"
 
-#: ../lib/sensors-interface.c:172
+#: ../lib/sensors-interface.c:174
 msgid "Sensors t_ype:"
 msgstr "传感器类型(_Y)："
 
-#: ../lib/sensors-interface.c:198
+#: ../lib/sensors-interface.c:200
 msgid "Description:"
 msgstr "描述："
 
-#: ../lib/sensors-interface.c:231
+#: ../lib/sensors-interface.c:233
 msgid "U_pdate interval (seconds):"
 msgstr "更新间隔(秒)(_P)："
 
-#: ../lib/sensors-interface.c:271
+#: ../lib/sensors-interface.c:273
 msgid "Name"
 msgstr "名称"
 
-#: ../lib/sensors-interface.c:283
+#: ../lib/sensors-interface.c:285
 msgid "Value"
 msgstr "值"
 
-#: ../lib/sensors-interface.c:291
+#: ../lib/sensors-interface.c:293
 msgid "Show"
 msgstr "显示"
 
-#: ../lib/sensors-interface.c:300
+#: ../lib/sensors-interface.c:302
 msgid "Color"
 msgstr "颜色"
 
-#: ../lib/sensors-interface.c:313
+#: ../lib/sensors-interface.c:315
 msgid "Min"
 msgstr "最小值"
 
-#: ../lib/sensors-interface.c:330
+#: ../lib/sensors-interface.c:332
 msgid "Max"
 msgstr "最大值"
 
-#: ../lib/sensors-interface.c:371
+#: ../lib/sensors-interface.c:373
 msgid "Temperature scale:"
 msgstr "温标："
 
-#: ../lib/sensors-interface.c:373
+#: ../lib/sensors-interface.c:375
 msgid "_Celsius"
 msgstr "摄氏度(_C)"
 
-#: ../lib/sensors-interface.c:375
+#: ../lib/sensors-interface.c:377
 msgid "_Fahrenheit"
 msgstr "华氏度(_F)"
 
-#: ../lib/sensors-interface.c:411
+#: ../lib/sensors-interface.c:413
 msgid "_Sensors"
 msgstr "传感器(_S)"
 
@@ -428,3 +423,6 @@ msgstr "传感器值查看器"
 #, fuzzy
 msgid "Sensor plugin"
 msgstr "传感器插件 "
+
+#~ msgid "%.1f °C"
+#~ msgstr "%.1f °C"

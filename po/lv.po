@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pxfce4-sensors-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-19 19:59+0200\n"
+"POT-Creation-Date: 2017-02-04 12:02+0100\n"
 "PO-Revision-Date: 2009-10-21 13:18+0100\n"
 "Last-Translator: Rihards Prieditis <rprieditis@gmail.com>\n"
 "Language-Team: Latvian <translation-team-lv@lists.sourceforge.net>\n"
@@ -21,20 +21,20 @@ msgstr ""
 "2);\n"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.c:319 ../panel-plugin/sensors-plugin.c:414
-#: ../panel-plugin/sensors-plugin.c:1009
+#: ../panel-plugin/sensors-plugin.c:365 ../panel-plugin/sensors-plugin.c:467
+#: ../panel-plugin/sensors-plugin.c:1144
 #, fuzzy
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span foreground=\"#000000\"><b>Sensors</b></span>"
 
 #. widget = sensors->eventbox;
-#: ../panel-plugin/sensors-plugin.c:819
+#: ../panel-plugin/sensors-plugin.c:948
 msgid "No sensors selected!"
 msgstr "Neviens sensors nav izvēlēts!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:859
+#: ../panel-plugin/sensors-plugin.c:988
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -45,107 +45,107 @@ msgstr ""
 "Liekas, ka radās problēma lasot sensora iespēju vērtību.\n"
 "Darba spējīga turpināšana netiek garantēta.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1727
+#: ../panel-plugin/sensors-plugin.c:1862
 msgid "UI style:"
 msgstr "UI stils:"
 
-#: ../panel-plugin/sensors-plugin.c:1728
+#: ../panel-plugin/sensors-plugin.c:1863
 msgid "_text"
 msgstr "_teksts"
 
-#: ../panel-plugin/sensors-plugin.c:1730
+#: ../panel-plugin/sensors-plugin.c:1865
 msgid "_progress bars"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1732
+#: ../panel-plugin/sensors-plugin.c:1867
 msgid "_tachos"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1777
+#: ../panel-plugin/sensors-plugin.c:1912
 msgid "Show _labels"
 msgstr "_Rādīt etiķetes"
 
-#: ../panel-plugin/sensors-plugin.c:1807
+#: ../panel-plugin/sensors-plugin.c:1942
 msgid "Show colored _bars"
 msgstr "Rādīt krāsainas _joslas"
 
-#: ../panel-plugin/sensors-plugin.c:1835
+#: ../panel-plugin/sensors-plugin.c:1970
 msgid "_Show title"
 msgstr "_Rādīt virsrakstu"
 
-#: ../panel-plugin/sensors-plugin.c:1859
+#: ../panel-plugin/sensors-plugin.c:1994
 msgid "_Number of text lines:"
 msgstr "_Teksta rindiņu skaits"
 
-#: ../panel-plugin/sensors-plugin.c:1894
+#: ../panel-plugin/sensors-plugin.c:2029
 msgid "F_ont size:"
 msgstr "F_onta izmērs:"
 
 #. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:1901
+#: ../panel-plugin/sensors-plugin.c:2036
 msgid "x-small"
 msgstr "viss mazākais"
 
-#: ../panel-plugin/sensors-plugin.c:1902
+#: ../panel-plugin/sensors-plugin.c:2037
 msgid "small"
 msgstr "mazs"
 
-#: ../panel-plugin/sensors-plugin.c:1903
+#: ../panel-plugin/sensors-plugin.c:2038
 msgid "medium"
 msgstr "vidējs"
 
-#: ../panel-plugin/sensors-plugin.c:1904
+#: ../panel-plugin/sensors-plugin.c:2039
 msgid "large"
 msgstr "liels"
 
-#: ../panel-plugin/sensors-plugin.c:1905
+#: ../panel-plugin/sensors-plugin.c:2040
 msgid "x-large"
 msgstr "viss lielākais"
 
-#: ../panel-plugin/sensors-plugin.c:1936
+#: ../panel-plugin/sensors-plugin.c:2071
 #, fuzzy
 msgid "F_ont:"
 msgstr "F_onta izmērs:"
 
-#: ../panel-plugin/sensors-plugin.c:1970
+#: ../panel-plugin/sensors-plugin.c:2105
 msgid "Show _Units"
 msgstr "_Rādīt vienību"
 
-#: ../panel-plugin/sensors-plugin.c:1991
+#: ../panel-plugin/sensors-plugin.c:2126
 msgid "Small horizontal s_pacing"
 msgstr "Mazas horizontālās atstar_ptes"
 
-#: ../panel-plugin/sensors-plugin.c:2013
+#: ../panel-plugin/sensors-plugin.c:2148
 msgid "Suppress messages"
 msgstr "Apspiest ziņas"
 
-#: ../panel-plugin/sensors-plugin.c:2031
+#: ../panel-plugin/sensors-plugin.c:2166
 msgid "Suppress tooltip"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:2056
+#: ../panel-plugin/sensors-plugin.c:2191
 msgid "E_xecute on double click:"
 msgstr "I_zpildīt uz dubultklikšķi:"
 
-#: ../panel-plugin/sensors-plugin.c:2099
+#: ../panel-plugin/sensors-plugin.c:2234
 msgid "_View"
 msgstr "_Skats"
 
-#: ../panel-plugin/sensors-plugin.c:2133
+#: ../panel-plugin/sensors-plugin.c:2268
 msgid "_Miscellaneous"
 msgstr "_Dažādi"
 
-#: ../panel-plugin/sensors-plugin.c:2208 ../panel-plugin/sensors-plugin.h:30
+#: ../panel-plugin/sensors-plugin.c:2343 ../panel-plugin/sensors-plugin.h:30
 #: ../lib/hddtemp.c:162
 msgid "Sensors Plugin"
 msgstr "Sensoru spraudnis"
 
-#: ../panel-plugin/sensors-plugin.c:2216
+#: ../panel-plugin/sensors-plugin.c:2351
 #, fuzzy
 msgid "Properties"
 msgstr "Rediģēt Rekvizītus"
 
-#: ../panel-plugin/sensors-plugin.c:2249
+#: ../panel-plugin/sensors-plugin.c:2384
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -186,11 +186,6 @@ msgstr ""
 #: ../lib/nvidia.c:62
 msgid "nvidia"
 msgstr ""
-
-#: ../lib/nvidia.c:132 ../lib/hddtemp.c:679
-#, c-format
-msgid "%.1f °C"
-msgstr "%.1f °C"
 
 #: ../lib/hddtemp.c:392
 msgid "S.M.A.R.T. harddisk temperatures"
@@ -255,55 +250,55 @@ msgstr ""
 "Liekas bija problēma ar sensora iespēju nolasīšanu.\n"
 "Normāla darbība nevar tikt garantēta."
 
-#: ../lib/sensors-interface.c:172
+#: ../lib/sensors-interface.c:174
 msgid "Sensors t_ype:"
 msgstr "Sensoru _tips:"
 
-#: ../lib/sensors-interface.c:198
+#: ../lib/sensors-interface.c:200
 msgid "Description:"
 msgstr "Apraksts:"
 
-#: ../lib/sensors-interface.c:231
+#: ../lib/sensors-interface.c:233
 msgid "U_pdate interval (seconds):"
 msgstr "At_jaunināšanas intervāls (sekundes):"
 
-#: ../lib/sensors-interface.c:271
+#: ../lib/sensors-interface.c:273
 msgid "Name"
 msgstr "Nosaukums"
 
-#: ../lib/sensors-interface.c:283
+#: ../lib/sensors-interface.c:285
 msgid "Value"
 msgstr "Vērtība"
 
-#: ../lib/sensors-interface.c:291
+#: ../lib/sensors-interface.c:293
 msgid "Show"
 msgstr "Rādīt"
 
-#: ../lib/sensors-interface.c:300
+#: ../lib/sensors-interface.c:302
 msgid "Color"
 msgstr "Krāsa"
 
-#: ../lib/sensors-interface.c:313
+#: ../lib/sensors-interface.c:315
 msgid "Min"
 msgstr "Min"
 
-#: ../lib/sensors-interface.c:330
+#: ../lib/sensors-interface.c:332
 msgid "Max"
 msgstr "Maks"
 
-#: ../lib/sensors-interface.c:371
+#: ../lib/sensors-interface.c:373
 msgid "Temperature scale:"
 msgstr "Temperatūras skala:"
 
-#: ../lib/sensors-interface.c:373
+#: ../lib/sensors-interface.c:375
 msgid "_Celsius"
 msgstr "_Celsija"
 
-#: ../lib/sensors-interface.c:375
+#: ../lib/sensors-interface.c:377
 msgid "_Fahrenheit"
 msgstr "_Fārenheita"
 
-#: ../lib/sensors-interface.c:411
+#: ../lib/sensors-interface.c:413
 msgid "_Sensors"
 msgstr "S_ensori"
 
@@ -434,6 +429,9 @@ msgstr "Sensora vērtību skatītājs"
 #, fuzzy
 msgid "Sensor plugin"
 msgstr "Sensoru spraudnis"
+
+#~ msgid "%.1f °C"
+#~ msgstr "%.1f °C"
 
 #~ msgid "%+.2f V"
 #~ msgstr "%+.2f V"
