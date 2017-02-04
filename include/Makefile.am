@@ -3,7 +3,7 @@
 EXTRA_DIST = 									\
 	acpi.h											\
 	hddtemp.h										\
-	cpu.h												\
+	tacho.h												\
 	Makefile.am									\
 	sensors-interface-common.h	\
 	sensors-interface-plugin.h	\

@@ -31,7 +31,7 @@
 
 /* Package includes */
 #include <sensors-interface.h>
-#include <cpu.h> /* contains "extern gchar * font" */
+#include <tacho.h> /* contains "extern gchar * font" */
 
 /* Local includes */
 #include "callbacks.h"

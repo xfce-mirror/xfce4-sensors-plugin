@@ -27,7 +27,7 @@
 
 /* Package includes */
 #include <sensors-interface-common.h>
-#include <cpu.h>
+#include <tacho.h>
 
 gboolean refresh_view (gpointer data);
 void refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure);

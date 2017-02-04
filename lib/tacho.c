@@ -23,7 +23,7 @@
 #include <glib/gprintf.h>
 
 /* Package includes */
-#include <cpu.h>
+#include <tacho.h>
 #include <types.h>
 
 #define DEFAULT_HEIGHT 64
@@ -70,7 +70,7 @@ static GtkSizeRequestMode gtk_sensorstacho_get_request_mode(GtkWidget *widget);
                        //GdkEventButton *event);
 
 
-gchar *font = NULL; // declared as extern in cpu.h
+gchar *font = NULL; // declared as extern in tacho.h
 
 G_DEFINE_TYPE( GtkSensorsTacho, gtk_sensorstacho, GTK_TYPE_DRAWING_AREA )
 

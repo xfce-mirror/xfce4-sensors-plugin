@@ -31,7 +31,7 @@
 #include <configuration.h>
 #include <sensors-interface-common.h>
 #include <middlelayer.h>
-#include <cpu.h>
+#include <tacho.h>
 
 t_sensors *
 sensors_new (XfcePanelPlugin *plugin, gchar *plugin_config_file)

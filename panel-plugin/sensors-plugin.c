@@ -50,7 +50,7 @@
 #include <sensors-interface.h>
 #include <sensors-interface-plugin.h> // includes sensors-interface-common.h
 #include <middlelayer.h>
-#include <cpu.h>
+#include <tacho.h>
 
 /* Local includes */
 #include "sensors-plugin.h"

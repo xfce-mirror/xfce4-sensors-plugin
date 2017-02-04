@@ -34,7 +34,7 @@
 
 /* Package includes */
 #include <configuration.h>
-#include <cpu.h>
+#include <tacho.h>
 #include <sensors-interface.h>
 #include <types.h>
 
@@ -108,7 +108,7 @@ sensors_write_config (XfcePanelPlugin *plugin, t_sensors *sensors)
                                 sensors->val_fontsize);
 
     if (font!=NULL)
-      xfce_rc_write_entry (rc, "Font", font); // the font for the tachometers exported from cpu.h
+      xfce_rc_write_entry (rc, "Font", font); // the font for the tachometers exported from tacho.h
 
     xfce_rc_write_int_entry (rc, "Lines_Size", sensors->lines_size);
 
@@ -217,7 +217,7 @@ sensors_read_general_config (XfceRc *rc, t_sensors *sensors)
 
         if ((value = xfce_rc_read_entry (rc, "Font", NULL)) && *value) {
             //g_free(sensors->font); // font is initialized to NULL
-            font = g_strdup(value); // in cpu.h for the tachometers
+            font = g_strdup(value); // in tacho.h for the tachometers
         }
 
         sensors->val_fontsize = xfce_rc_read_int_entry (rc,

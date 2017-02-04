@@ -27,7 +27,7 @@
 #include <libxfce4ui/libxfce4ui.h>
 
 /* Package includes */
-#include <cpu.h>
+#include <tacho.h>
 #include <sensors-interface.h>
 #include <sensors-interface-common.h>
 
