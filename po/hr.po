@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Edin Veskovic <edin.veskovic@openmailbox.org>, 2014
 # Ivica  Kolić <ikoli@yahoo.com>, 2013,2017
@@ -10,15 +10,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-04 11:49+0100\n"
+"POT-Creation-Date: 2017-02-04 20:48+0100\n"
 "PO-Revision-Date: 2017-02-04 14:46+0000\n"
 "Last-Translator: Lovro Kudelić <lovro.kudelic@outlook.com>\n"
-"Language-Team: Croatian (http://www.transifex.com/xfce/xfce-panel-plugins/language/hr/)\n"
+"Language-Team: Croatian (http://www.transifex.com/xfce/xfce-panel-plugins/"
+"language/hr/)\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hr\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. initialize value label widget
 #: ../panel-plugin/sensors-plugin.c:365 ../panel-plugin/sensors-plugin.c:467
@@ -39,7 +41,10 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Priključak za senzore:\nPostoji problem pri čitanju vrijednosti senzora.\nPravilan nastavak nije garantiran.\n"
+msgstr ""
+"Priključak za senzore:\n"
+"Postoji problem pri čitanju vrijednosti senzora.\n"
+"Pravilan nastavak nije garantiran.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1862
 msgid "UI style:"
@@ -77,8 +82,7 @@ msgstr "_Broj redaka teksta:"
 msgid "F_ont size:"
 msgstr "V_eličina fonta:"
 
-#. gtk_widget_set_sensitive(myFontBox,
-#. !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:2036
 msgid "x-small"
 msgstr "x-mali"
@@ -145,7 +149,9 @@ msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr "Svojstva značajki mjenjajte tako da dva puta kliknete na liniju, zatim uredite sadržaj i pritisnite Enter ili izaberite drugo polje."
+msgstr ""
+"Svojstva značajki mjenjajte tako da dva puta kliknete na liniju, zatim "
+"uredite sadržaj i pritisnite Enter ili izaberite drugo polje."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -186,14 +192,27 @@ msgstr "S.M.A.R.T. temperature tvrdih diskova"
 #: ../lib/hddtemp.c:571
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is "
+"most probably due to the disks requiring root privileges to read their "
+"temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
+"restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "\"hddtemp\" nije pravilno izvršen iako je izvršan. Ovo se vjerojatno događa zato što su diskovima potrebne root privilegije za čitanje temperature, a \"hddtemp\" nema te privilegije.\n\nLakši i prljaviji način je da izvršite \"chmod u+s %s\" naredbu kao root korisnik i ponovno pokrenete dodatak.\n\nPozivanje \"%s\" dalo je slijedeću grešku:\n%s\ns povratnom vrijednosti %d.\n"
+msgstr ""
+"\"hddtemp\" nije pravilno izvršen iako je izvršan. Ovo se vjerojatno događa "
+"zato što su diskovima potrebne root privilegije za čitanje temperature, a "
+"\"hddtemp\" nema te privilegije.\n"
+"\n"
+"Lakši i prljaviji način je da izvršite \"chmod u+s %s\" naredbu kao root "
+"korisnik i ponovno pokrenete dodatak.\n"
+"\n"
+"Pozivanje \"%s\" dalo je slijedeću grešku:\n"
+"%s\n"
+"s povratnom vrijednosti %d.\n"
 
 #: ../lib/hddtemp.c:587 ../lib/hddtemp.c:611
 msgid "Suppress this message in future"
@@ -204,7 +223,9 @@ msgstr "Potisni ovu poruku u budućnosti"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr "Došlo oje do greške pri izvršavanju \"%s\":\n%s"
+msgstr ""
+"Došlo oje do greške pri izvršavanju \"%s\":\n"
+"%s"
 
 #: ../lib/lmsensors.c:95
 msgid "LM Sensors"
@@ -223,7 +244,9 @@ msgstr "Dodatak za senzore neuspješan"
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr "Postoji problem pri čitanju vrijednosti senzora.\nPravilan nastavak nije garantiran. "
+msgstr ""
+"Postoji problem pri čitanju vrijednosti senzora.\n"
+"Pravilan nastavak nije garantiran. "
 
 #: ../lib/sensors-interface.c:174
 msgid "Sensors t_ype:"
@@ -320,14 +343,22 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-msgstr "Xfce4 Snzori %s\nOvaj program je izdan pod GPL v2 licencom.\nSadržaj licence možete pronaći unutar izvornog koda programa ili u /usr/share/apps/LICENSES/GPL_V2 ili na http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /"
+"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.txt\n"
+msgstr ""
+"Xfce4 Snzori %s\n"
+"Ovaj program je izdan pod GPL v2 licencom.\n"
+"Sadržaj licence možete pronaći unutar izvornog koda programa ili u /usr/"
+"share/apps/LICENSES/GPL_V2 ili na http://www.gnu.org/licenses/old-licenses/"
+"gpl-2.0.txt\n"
 
 #: ../src/main.c:70
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk "
+"temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -336,7 +367,18 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Xfce4 Senzori %s\nPrikazuje informacije o senzorima uređaja, ACPI statusu, temeperature diskova i Nvidia grafičkih čipova.\nSadržaj:\nxfce4-sensors mogućnosti\ngdje su opcije slijedeće stavke:\n-h, --help Ispiši ovaj tekst pomoći.\n-l, --license Ispiši informacije o licenci.\n-V, --version Ispiši informacijie o verziji programa.\n\nOvaj program je izdan pod GPL v2 licencom.\n"
+msgstr ""
+"Xfce4 Senzori %s\n"
+"Prikazuje informacije o senzorima uređaja, ACPI statusu, temeperature "
+"diskova i Nvidia grafičkih čipova.\n"
+"Sadržaj:\n"
+"xfce4-sensors mogućnosti\n"
+"gdje su opcije slijedeće stavke:\n"
+"-h, --help Ispiši ovaj tekst pomoći.\n"
+"-l, --license Ispiši informacije o licenci.\n"
+"-V, --version Ispiši informacijie o verziji programa.\n"
+"\n"
+"Ovaj program je izdan pod GPL v2 licencom.\n"
 
 #: ../src/main.c:88
 #, c-format
@@ -363,7 +405,10 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Preglednik senzora:\nPostoji problem pri čitanju vrijednosti senzora.\nPravilan nastavak nije garantiran.\n"
+msgstr ""
+"Preglednik senzora:\n"
+"Postoji problem pri čitanju vrijednosti senzora.\n"
+"Pravilan nastavak nije garantiran.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
