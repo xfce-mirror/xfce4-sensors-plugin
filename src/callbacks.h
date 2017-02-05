@@ -45,5 +45,28 @@ void on_main_window_response (GtkWidget *dlg, int response, t_sensors_dialog *sd
 
 void on_font_set (GtkWidget *widget, gpointer data);
 
-#endif /* __CALLBACKS_H */
+/* Functions for implementing the sensors interface common callback functions */
 
+void adjustment_value_changed_  (GtkWidget *widget, t_sensors_dialog *sd); // for update timer box
+
+void sensor_entry_changed_ (GtkWidget *widget, t_sensors_dialog *sd);
+
+void list_cell_text_edited_ (GtkCellRendererText *cellrenderertext,
+                      gchar *path_str, gchar *new_text, t_sensors_dialog *sd);
+
+void list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,
+                  t_sensors_dialog *sd);
+
+void list_cell_color_edited_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
+                       gchar *new_color, t_sensors_dialog *sd);
+
+void minimum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
+                 gchar *new_value, t_sensors_dialog *sd);
+
+void maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
+            gchar *new_value, t_sensors_dialog *sd);
+
+void temperature_unit_change_ (GtkWidget *widget, t_sensors_dialog *sd);
+
+
+#endif /* __CALLBACKS_H */

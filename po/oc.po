@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-04 20:48+0100\n"
+"POT-Creation-Date: 2017-02-05 23:13+0100\n"
 "PO-Revision-Date: 2017-02-04 11:31+0000\n"
 "Last-Translator: Xfce Bot <transifex@xfce.org>\n"
 "Language-Team: Occitan (post 1500) (http://www.transifex.com/xfce/xfce-panel-"
@@ -165,18 +165,16 @@ msgstr ""
 msgid "Hard disks"
 msgstr "Disques durs"
 
-#: ../lib/acpi.c:561 ../lib/acpi.c:571 ../lib/acpi.c:572
+#: ../lib/acpi.c:547 ../lib/acpi.c:557 ../lib/acpi.c:558
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.c:564
+#: ../lib/acpi.c:550
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "Zònas ACPI v%s"
 
-#. who knows, if we obtain non-NULL version at all...
-#. || g_strisempty(version))
-#: ../lib/acpi.c:725
+#: ../lib/acpi.c:703
 msgid "<Unknown>"
 msgstr "<Desconegut>"
 

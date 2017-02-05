@@ -1396,7 +1396,7 @@ display_style_changed_tacho (GtkWidget *widget, t_sensors_dialog *sd)
 
 
 void
-sensor_entry_changed (GtkWidget *widget, t_sensors_dialog *sd)
+sensor_entry_changed_ (GtkWidget *widget, t_sensors_dialog *sd)
 {
     gint gtk_combo_box_active;
     t_chip *chip;
@@ -1460,7 +1460,7 @@ lines_size_change (GtkWidget *widget, t_sensors_dialog *sd)
 
 
 void
-temperature_unit_change (GtkWidget *widget, t_sensors_dialog *sd)
+temperature_unit_change_ (GtkWidget *widget, t_sensors_dialog *sd)
 {
     TRACE ("enters temperature_unit_change ");
 
@@ -1477,7 +1477,7 @@ temperature_unit_change (GtkWidget *widget, t_sensors_dialog *sd)
 
 
 void
-adjustment_value_changed (GtkWidget *widget, t_sensors_dialog* sd)
+adjustment_value_changed_ (GtkWidget *widget, t_sensors_dialog* sd)
 {
     TRACE ("enters adjustment_value_changed ");
 
@@ -1553,7 +1553,7 @@ execCommand_toggled (GtkWidget *widget, t_sensors_dialog* sd)
 
 
 void
-minimum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
+minimum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
                  gchar *new_value, t_sensors_dialog *sd)
 {
     gint gtk_combo_box_active;
@@ -1606,7 +1606,7 @@ minimum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
 
 
 void
-maximum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
+maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
             gchar *new_value, t_sensors_dialog *sd)
 {
     gint gtk_combo_box_active;
@@ -1659,7 +1659,7 @@ maximum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
 
 
 void
-list_cell_color_edited (GtkCellRendererText *cellrenderertext, gchar *path_str,
+list_cell_color_edited_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
                        gchar *new_color, t_sensors_dialog *sd)
 {
     gint gtk_combo_box_active;
@@ -1714,7 +1714,7 @@ list_cell_color_edited (GtkCellRendererText *cellrenderertext, gchar *path_str,
 
 
 void
-list_cell_text_edited (GtkCellRendererText *cellrenderertext,
+list_cell_text_edited_ (GtkCellRendererText *cellrenderertext,
                       gchar *path_str, gchar *new_text, t_sensors_dialog *sd)
 {
     gint gtk_combo_box_active;
@@ -1766,7 +1766,7 @@ list_cell_text_edited (GtkCellRendererText *cellrenderertext,
 
 
 void
-list_cell_toggle (GtkCellRendererToggle *cell, gchar *path_str,
+list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,
                   t_sensors_dialog *sd)
 {
     t_chip *chip;
@@ -2469,6 +2469,17 @@ sensors_plugin_construct (XfcePanelPlugin *plugin)
     TRACE ("enters sensors_plugin_construct");
 
     xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
+
+    /* declare callback functions for libxfce4sensors */
+    adjustment_value_changed = &adjustment_value_changed_;
+    sensor_entry_changed = &sensor_entry_changed_;
+    list_cell_text_edited= &list_cell_text_edited_;
+    list_cell_toggle = &list_cell_toggle_;
+    list_cell_color_edited = &list_cell_color_edited_;
+    minimum_changed = &minimum_changed_;
+    maximum_changed = &maximum_changed_;
+    temperature_unit_change = &temperature_unit_change_;
+
 
     ptr_sensorsstruct = create_sensors_control (plugin);
 

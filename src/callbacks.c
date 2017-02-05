@@ -76,7 +76,7 @@ on_main_window_response (GtkWidget *dlg, int response, t_sensors_dialog *sd)
 
 
 void
-sensor_entry_changed (GtkWidget *widget, t_sensors_dialog *sd)
+sensor_entry_changed_ (GtkWidget *widget, t_sensors_dialog *sd)
 {
     gint gtk_combo_box_active;
     t_chip *chip;
@@ -98,7 +98,7 @@ sensor_entry_changed (GtkWidget *widget, t_sensors_dialog *sd)
 
 
 void
-list_cell_text_edited (GtkCellRendererText *cellrenderertext,
+list_cell_text_edited_ (GtkCellRendererText *cellrenderertext,
                       gchar *path_str, gchar *new_text, t_sensors_dialog *sd)
 {
     gint gtk_combo_box_active;
@@ -156,7 +156,7 @@ list_cell_text_edited (GtkCellRendererText *cellrenderertext,
 
 
 void
-list_cell_toggle (GtkCellRendererToggle *cell, gchar *path_str,
+list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,
                   t_sensors_dialog *sd)
 {
     t_chip *chip;
@@ -220,7 +220,7 @@ list_cell_toggle (GtkCellRendererToggle *cell, gchar *path_str,
 }
 
 void
-list_cell_color_edited (GtkCellRendererText *cellrenderertext, gchar *path_str,
+list_cell_color_edited_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
                        gchar *new_color, t_sensors_dialog *sd)
 {
       gint gtk_combo_box_active;
@@ -279,7 +279,7 @@ list_cell_color_edited (GtkCellRendererText *cellrenderertext, gchar *path_str,
 }
 
 void
-minimum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
+minimum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
                  gchar *new_value, t_sensors_dialog *sd)
 {
     gint gtk_combo_box_active;
@@ -326,7 +326,7 @@ minimum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
 }
 
 void
-maximum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
+maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
             gchar *new_value, t_sensors_dialog *sd)
 {
     gint gtk_combo_box_active;
@@ -374,7 +374,7 @@ maximum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
 }
 
 void
-adjustment_value_changed (GtkWidget *widget, t_sensors_dialog* sd)
+adjustment_value_changed_ (GtkWidget *widget, t_sensors_dialog* sd)
 {
     TRACE ("enters adjustment_value_changed ");
 
@@ -392,7 +392,7 @@ adjustment_value_changed (GtkWidget *widget, t_sensors_dialog* sd)
 }
 
 void
-temperature_unit_change (GtkWidget *widget, t_sensors_dialog *sd)
+temperature_unit_change_ (GtkWidget *widget, t_sensors_dialog *sd)
 {
     TRACE ("enters temperature_unit_change ");
 

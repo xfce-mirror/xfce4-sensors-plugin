@@ -151,6 +151,16 @@ main (int argc, char **argv)
     /* start the Gtk engine */
     gtk_init (&argc, &argv);
 
+    /* declare callback functions for libxfce4sensors */
+    adjustment_value_changed = &adjustment_value_changed_;
+    sensor_entry_changed = &sensor_entry_changed_;
+    list_cell_text_edited= &list_cell_text_edited_;
+    list_cell_toggle = &list_cell_toggle_;
+    list_cell_color_edited = &list_cell_color_edited_;
+    minimum_changed = &minimum_changed_;
+    maximum_changed = &maximum_changed_;
+    temperature_unit_change = &temperature_unit_change_;
+
     /* initialize sensor stuff */
     ptr_sensors_dialog = initialize_sensors_structures ();
 

@@ -87,35 +87,36 @@ t_sensors_dialog;
 
 /* Extern functions that need to be re-implemented in the sensors-viewer and
  * the panel code. */
-extern void
-adjustment_value_changed  (GtkWidget *widget, t_sensors_dialog *sd); // for update timer box
+void
+(*adjustment_value_changed)  (GtkWidget *widget, t_sensors_dialog *sd); // for update timer box
 
-extern void
-sensor_entry_changed (GtkWidget *widget, t_sensors_dialog *sd);
+void
+(*sensor_entry_changed) (GtkWidget *widget, t_sensors_dialog *sd);
 
-extern void
-list_cell_text_edited (GtkCellRendererText *cellrenderertext,
+void
+(*list_cell_text_edited) (GtkCellRendererText *cellrenderertext,
                       gchar *path_str, gchar *new_text, t_sensors_dialog *sd);
 
-extern void
-list_cell_toggle (GtkCellRendererToggle *cell, gchar *path_str,
+void
+(*list_cell_toggle) (GtkCellRendererToggle *cell, gchar *path_str,
                   t_sensors_dialog *sd);
 
-extern void
-list_cell_color_edited (GtkCellRendererText *cellrenderertext, gchar *path_str,
+void
+(*list_cell_color_edited) (GtkCellRendererText *cellrenderertext, gchar *path_str,
                        gchar *new_color, t_sensors_dialog *sd);
 
-extern void
-minimum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
+void
+(*minimum_changed) (GtkCellRendererText *cellrenderertext, gchar *path_str,
                  gchar *new_value, t_sensors_dialog *sd);
 
-extern void
-maximum_changed (GtkCellRendererText *cellrenderertext, gchar *path_str,
+void
+(*maximum_changed) (GtkCellRendererText *cellrenderertext, gchar *path_str,
             gchar *new_value, t_sensors_dialog *sd);
 
-extern void
-temperature_unit_change (GtkWidget *widget, t_sensors_dialog *sd);
+void
+(*temperature_unit_change) (GtkWidget *widget, t_sensors_dialog *sd);
 
+/* internal function */
 void format_sensor_value (t_tempscale scale, t_chipfeature *chipfeature,
                      double sensorFeature, gchar **help);
 
