@@ -1,27 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Fabian Nowak <timystery@arcor.de>, 2005
 # jc1 <jc1.quebecos@gmail.com>, 2013
 # Maximilian Schleiss <maximilian@xfce.org>, 2006
 # Stephane Roy <sroy@j2n.net>, 2005
 # Urien Desterres <urien.desterres@gmail.com>, 2014
-# Yannick Le Guen <leguen.yannick@gmail.com>, 2014
+# Yannick Le Guen <leguen.yannick@gmail.com>, 2014,2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-04 20:48+0100\n"
-"PO-Revision-Date: 2014-07-25 18:44+0000\n"
+"POT-Creation-Date: 2017-02-04 11:49+0100\n"
+"PO-Revision-Date: 2017-02-05 09:03+0000\n"
 "Last-Translator: Yannick Le Guen <leguen.yannick@gmail.com>\n"
-"Language-Team: French (http://www.transifex.com/projects/p/xfce-panel-"
-"plugins/language/fr/)\n"
-"Language: fr\n"
+"Language-Team: French (http://www.transifex.com/xfce/xfce-panel-plugins/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. initialize value label widget
@@ -43,13 +42,7 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"Greffon Capteurs :\n"
-"Il semblerait que la valeur d’un capteur n’ait pas été correctement lue.\n"
-"Le résultat de l’opération ne peut être garanti.\n"
-"\n"
-"\n"
-"\n"
+msgstr "Greffon Capteurs :\nIl semblerait que la valeur d’un capteur n’ait pas été correctement lue.\nLe résultat de l’opération ne peut être garanti.\n\n\n\n"
 
 #: ../panel-plugin/sensors-plugin.c:1862
 msgid "UI style:"
@@ -87,7 +80,8 @@ msgstr "_Nombre de lignes de texte :"
 msgid "F_ont size:"
 msgstr "Taille de la _police :"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:2036
 msgid "x-small"
 msgstr "très petite"
@@ -147,18 +141,14 @@ msgstr "Greffon Capteurs"
 
 #: ../panel-plugin/sensors-plugin.c:2351
 msgid "Properties"
-msgstr ""
+msgstr "Propriétés"
 
 #: ../panel-plugin/sensors-plugin.c:2384
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr ""
-"Vous pouvez modifier les caractéristiques d’une fonctionnalité comme son "
-"nom, ses couleurs ou sa valeur min/max. Double-cliquez sur l’entrée, "
-"modifiez son contenu et appuyez sur « Entrée » ou sélectionnez un autre "
-"champ."
+msgstr "Vous pouvez modifier les caractéristiques d’une fonctionnalité comme son nom, ses couleurs ou sa valeur min/max. Double-cliquez sur l’entrée, modifiez son contenu et appuyez sur « Entrée » ou sélectionnez un autre champ."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -199,28 +189,14 @@ msgstr "Températures S.M.A.R.T du disque dur"
 #: ../lib/hddtemp.c:571
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr ""
-"Bien qu’il soit exécutable, « hddtemp » n’a pas été correctement exécuté. "
-"Cela provient certainement du fait que les disques exigent des privilèges "
-"root, que « hddtemp » ne possède pas, pour accéder à leur température .\n"
-"\n"
-"Une solution simple, mais peu orthodoxe, consiste à exécuter la commande « "
-"chmod u+s %s » en tant que root et relancer le greffon ou son tableau de "
-"bord.\n"
-"\n"
-"Appeler « %s » a donné l’erreur suivante :\n"
-"%s\n"
-"avec une valeur de retour de %d.\n"
+msgstr "Bien qu’il soit exécutable, « hddtemp » n’a pas été correctement exécuté. Cela provient certainement du fait que les disques exigent des privilèges root, que « hddtemp » ne possède pas, pour accéder à leur température .\n\nUne solution simple, mais peu orthodoxe, consiste à exécuter la commande « chmod u+s %s » en tant que root et relancer le greffon ou son tableau de bord.\n\nAppeler « %s » a donné l’erreur suivante :\n%s\navec une valeur de retour de %d.\n"
 
 #: ../lib/hddtemp.c:587 ../lib/hddtemp.c:611
 msgid "Suppress this message in future"
@@ -231,9 +207,7 @@ msgstr "Ne plus afficher ce message"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr ""
-"Une erreur s’est produite lors de l’exécution de « %s » :\n"
-"%s"
+msgstr "Une erreur s’est produite lors de l’exécution de « %s » :\n%s"
 
 #: ../lib/lmsensors.c:95
 msgid "LM Sensors"
@@ -252,9 +226,7 @@ msgstr "Défaillance du greffon Capteurs"
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr ""
-"Il semblerait que la valeur d’un capteur n’ait pas été correctement lue.\n"
-"Le résultat de l’opération ne peut être garanti."
+msgstr "Il semblerait que la valeur d’un capteur n’ait pas été correctement lue.\nLe résultat de l’opération ne peut être garanti."
 
 #: ../lib/sensors-interface.c:174
 msgid "Sensors t_ype:"
@@ -351,22 +323,14 @@ msgstr "%.0f tr/min"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
-msgstr ""
-"Capteurs Xfce4 %s\n"
-"Ce programme est publié sous la licence GPL v2.\n"
-"Le texte de la licence peut être trouvé à l'intérieur de l'archive source du "
-"programme ou dans /usr/share/apps/LICENSES/GPL_V2 ou à http://www.gnu.org/"
-"licenses/old-licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Capteurs Xfce4 %s\nCe programme est publié sous la licence GPL v2.\nLe texte de la licence peut être trouvé à l'intérieur de l'archive source du programme ou dans /usr/share/apps/LICENSES/GPL_V2 ou à http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:70
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk "
-"temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -375,18 +339,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr ""
-"Capteurs Xfce4 %s\n"
-"Affiche des informations sur vos capteurs matériels, l'état de l'ACPI, les "
-"températures de disque dur et la température du GPU Nvidia.\n"
-"Usage :\n"
-"  options xfce4-sensors\n"
-"où les options sont un ou plusieurs des éléments suivants :\n"
-"  -h, --help       Affiche l'aide.\n"
-"  -l, --license    Affiche les informations de licence.\n"
-"  -V, --version    Affiche les informations de version.\n"
-"\n"
-"Ce programme est publié sous la licence GPL v2.\n"
+msgstr "Capteurs Xfce4 %s\nAffiche des informations sur vos capteurs matériels, l'état de l'ACPI, les températures de disque dur et la température du GPU Nvidia.\nUsage :\n  options xfce4-sensors\noù les options sont un ou plusieurs des éléments suivants :\n  -h, --help       Affiche l'aide.\n  -l, --license    Affiche les informations de licence.\n  -V, --version    Affiche les informations de version.\n\nCe programme est publié sous la licence GPL v2.\n"
 
 #: ../src/main.c:88
 #, c-format
@@ -413,10 +366,7 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"Visionneur de capteurs :\n"
-"Il semblerait que la valeur d’un capteur n’ait pas été correctement lue.\n"
-"Le résultat de l’opération ne peut être garanti.\n"
+msgstr "Visionneur de capteurs :\nIl semblerait que la valeur d’un capteur n’ait pas été correctement lue.\nLe résultat de l’opération ne peut être garanti.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
@@ -432,9 +382,5 @@ msgid "Sensor Values Viewer"
 msgstr "Visionneur des valeurs de capteurs"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
-#, fuzzy
 msgid "Sensor plugin"
-msgstr "Greffon Capteur"
-
-#~ msgid "%.1f °C"
-#~ msgstr "%.1f °C"
+msgstr "Greffon Capteurs"
