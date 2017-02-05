@@ -1,23 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # ByungHyun Choi <byunghyun.choi@gmail.com>, 2005
+# 박정규(Jung-Kyu Park) <bagjunggyu@gmail.com>, 2017
 # Seong-ho Cho <darkcircle.0426@gmail.com>, 2012-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-04 20:48+0100\n"
-"PO-Revision-Date: 2014-10-30 08:09+0000\n"
-"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
-"Language-Team: Korean (http://www.transifex.com/projects/p/xfce-panel-"
-"plugins/language/ko/)\n"
-"Language: ko\n"
+"POT-Creation-Date: 2017-02-04 11:49+0100\n"
+"PO-Revision-Date: 2017-02-05 01:50+0000\n"
+"Last-Translator: 박정규(Jung-Kyu Park) <bagjunggyu@gmail.com>\n"
+"Language-Team: Korean (http://www.transifex.com/xfce/xfce-panel-plugins/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. initialize value label widget
@@ -39,10 +39,7 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"센서 플러그인:\n"
-"센서 기능 값을 읽는데 문제가 있는 것 같습니다.\n"
-"따라서 정상적인 동작을 보장할 수 없습니다.\n"
+msgstr "센서 플러그인:\n센서 기능 값을 읽는데 문제가 있는 것 같습니다.\n따라서 정상적인 동작을 보장할 수 없습니다.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1862
 msgid "UI style:"
@@ -80,7 +77,8 @@ msgstr "본문 줄 수(_N):"
 msgid "F_ont size:"
 msgstr "글꼴 크기(_O):"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:2036
 msgid "x-small"
 msgstr "아주 작게"
@@ -140,16 +138,14 @@ msgstr "센서 플러그인"
 
 #: ../panel-plugin/sensors-plugin.c:2351
 msgid "Properties"
-msgstr ""
+msgstr "속성"
 
 #: ../panel-plugin/sensors-plugin.c:2384
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr ""
-"이름, 색, 최대/최소 값과 같은 기능 속성을 항목을 두번 누르고 내용을 편집한 다"
-"음 \"리턴\"키를 누르거나 다른 필드를 선택하여 바꿀 수 있습니다."
+msgstr "이름, 색, 최대/최소 값과 같은 기능 속성을 항목을 두번 누르고 내용을 편집한 다음 \"리턴\"키를 누르거나 다른 필드를 선택하여 바꿀 수 있습니다."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -190,27 +186,14 @@ msgstr "S.M.A.R.T 하드디스크 온도 센서"
 #: ../lib/hddtemp.c:571
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr ""
-"\"hddtemp\"가 실행 가능하지만 올바로 실행하지 않았습니다. 아마도 디스크에서 "
-"온도를 읽어들리려면 루트 권한이 필요하며, \"hddtemp\"를 루트가 실행하지 않아"
-"서 인 것 같습니다.\n"
-"\n"
-"쉽지만 지저분 맞은 해결책은 \"chmod u+s %s\"을(를) 루트 계정으로 실행하고 이 "
-"플러그인을 실행하거나 패널로 띄우는 방법입니다.\n"
-"\n"
-"\"%s\"을(를) 호출하는데 다음 오류\n"
-"%s이(가)\n"
-"반환 오류값 %d와(과) 함께 발생했습니다.\n"
+msgstr "\"hddtemp\"가 실행 가능하지만 올바로 실행하지 않았습니다. 아마도 디스크에서 온도를 읽어들리려면 루트 권한이 필요하며, \"hddtemp\"를 루트가 실행하지 않아서 인 것 같습니다.\n\n쉽지만 지저분 맞은 해결책은 \"chmod u+s %s\"을(를) 루트 계정으로 실행하고 이 플러그인을 실행하거나 패널로 띄우는 방법입니다.\n\n\"%s\"을(를) 호출하는데 다음 오류\n%s이(가)\n반환 오류값 %d와(과) 함께 발생했습니다.\n"
 
 #: ../lib/hddtemp.c:587 ../lib/hddtemp.c:611
 msgid "Suppress this message in future"
@@ -221,9 +204,7 @@ msgstr "나중에 이 메시지 숨기기"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr ""
-"\"%s\"을(를) 실행하는데 오류가 발생했습니다:\n"
-"%s"
+msgstr "\"%s\"을(를) 실행하는데 오류가 발생했습니다:\n%s"
 
 #: ../lib/lmsensors.c:95
 msgid "LM Sensors"
@@ -242,9 +223,7 @@ msgstr "센서 플러그인 실패"
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr ""
-"센서 기능 값을 읽어들이는데 문제가 있는 것 같습니다.\n"
-"따라서 정상적인 동작을 보장할 수 없습니다."
+msgstr "센서 기능 값을 읽어들이는데 문제가 있는 것 같습니다.\n따라서 정상적인 동작을 보장할 수 없습니다."
 
 #: ../lib/sensors-interface.c:174
 msgid "Sensors t_ype:"
@@ -341,21 +320,14 @@ msgstr "%.0f rpm"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
-msgstr ""
-"Xfce4 센서 %s\n"
-"이 프로그램은 GPL v2하에 나왔습니다.\n"
-"라이선스는 프로그램의 소스 아카이브 내 또는 /usr/share/apps/LICENSES/GPL_V2, "
-"http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt에서 찾을 수 있습니다\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Xfce4 센서 %s\n이 프로그램은 GPL v2하에 나왔습니다.\n라이선스는 프로그램의 소스 아카이브 내 또는 /usr/share/apps/LICENSES/GPL_V2, http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt에서 찾을 수 있습니다\n"
 
 #: ../src/main.c:70
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk "
-"temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -364,18 +336,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr ""
-"Xfce4 센서 %s\n"
-"하드웨어 센서, ACPI 상태, 하드디스크 온도와 엔비디아 GPU 온도정보를 표시합니"
-"다.\n"
-"개요: \n"
-"  xfce4-sensors options\n"
-"options 대신 다음 중 하나 이상을 사용할 수 있습니다:\n"
-"  -h, --help    이 도움말 대화상자를 엽니다.\n"
-"  -l, --license 라이선스 정보를 출력합니다.\n"
-"  -V, --version 버전 정보를 출력합니다.\n"
-"\n"
-"이 프로그램은 GPL v2하에 나왔습니다.\n"
+msgstr "Xfce4 센서 %s\n하드웨어 센서, ACPI 상태, 하드디스크 온도와 엔비디아 GPU 온도정보를 표시합니다.\n개요: \n  xfce4-sensors options\noptions 대신 다음 중 하나 이상을 사용할 수 있습니다:\n  -h, --help    이 도움말 대화상자를 엽니다.\n  -l, --license 라이선스 정보를 출력합니다.\n  -V, --version 버전 정보를 출력합니다.\n\n이 프로그램은 GPL v2하에 나왔습니다.\n"
 
 #: ../src/main.c:88
 #, c-format
@@ -402,11 +363,7 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-" \n"
-"센서 보기: \n"
-"센서 기능 값을 읽어들이는데 문제가 있는 것 같습니다.\n"
-"따라서 정상적인 동작을 보장할 수 없습니다.\n"
+msgstr " \n센서 보기: \n센서 기능 값을 읽어들이는데 문제가 있는 것 같습니다.\n따라서 정상적인 동작을 보장할 수 없습니다.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
@@ -422,9 +379,5 @@ msgid "Sensor Values Viewer"
 msgstr "센서 값 보기"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
-#, fuzzy
 msgid "Sensor plugin"
 msgstr "센서 플러그인"
-
-#~ msgid "%.1f °C"
-#~ msgstr "%.1f °C"
