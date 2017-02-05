@@ -1,23 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-# Kiril Kirilov <cybercop_montana@abv.bg>, 2015
-# Lyubomir Vasilev, 2015
+# Kiril Kirilov <cybercop_montana@abv.bg>, 2015,2017
+# Любомир Василев, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-04 20:48+0100\n"
-"PO-Revision-Date: 2015-02-23 16:25+0000\n"
-"Last-Translator: Lyubomir Vasilev\n"
-"Language-Team: Bulgarian (http://www.transifex.com/projects/p/xfce-panel-"
-"plugins/language/bg/)\n"
-"Language: bg\n"
+"POT-Creation-Date: 2017-02-04 11:49+0100\n"
+"PO-Revision-Date: 2017-02-05 11:50+0000\n"
+"Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>\n"
+"Language-Team: Bulgarian (http://www.transifex.com/xfce/xfce-panel-plugins/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. initialize value label widget
@@ -39,10 +38,7 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"Добавка Сензори:\n"
-"Изглежда е имало проблем с четенето на показанията на сензорите.\n"
-"Правилното поведение не е гарантирано.\n"
+msgstr "Добавка Сензори:\nИзглежда е имало проблем с четенето на показанията на сензорите.\nПравилното поведение не е гарантирано.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1862
 msgid "UI style:"
@@ -80,7 +76,8 @@ msgstr "Брой на тестовите редове:"
 msgid "F_ont size:"
 msgstr "Размер на шрифт"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:2036
 msgid "x-small"
 msgstr "много малък"
@@ -140,17 +137,14 @@ msgstr "Добавка Сензори"
 
 #: ../panel-plugin/sensors-plugin.c:2351
 msgid "Properties"
-msgstr ""
+msgstr "Свойства"
 
 #: ../panel-plugin/sensors-plugin.c:2384
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr ""
-"Можете да промените свойствата на елемента, като име, цветове, мин./макс. "
-"стойност чрез двукратно щракване върху елемента, редактиране на съдържанието "
-"и натискане на „Return“ или избор на друга област."
+msgstr "Можете да промените свойствата на елемента, като име, цветове, мин./макс. стойност чрез двукратно щракване върху елемента, редактиране на съдържанието и натискане на „Return“ или избор на друга област."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -191,28 +185,14 @@ msgstr "S.M.A.R.T. температура на твърдият диск"
 #: ../lib/hddtemp.c:571
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr ""
-"„hddtemp“ не е била изпълнена правилно, въпреки че е изпълнима. Това,  най-"
-"вероятно се дължи на дисковете, изискващи root привилегии да прочетете "
-"техните температури, и „hddtemp“ не е имала нужните права.\n"
-"\n"
-"Един лесно, но рисково решение е да изпълните „chmod u+s %s“  като "
-"администратор и да рестартирате тази добавка или нейния панел.\n"
-"\n"
-"Заявката  „%s“ произвежда следната грешка:\n"
-"%s\n"
-"с резултат %d.\n"
-"\n"
+msgstr "„hddtemp“ не е била изпълнена правилно, въпреки че е изпълнима. Това,  най-вероятно се дължи на дисковете, изискващи root привилегии да прочетете техните температури, и „hddtemp“ не е имала нужните права.\n\nЕдин лесно, но рисково решение е да изпълните „chmod u+s %s“  като администратор и да рестартирате тази добавка или нейния панел.\n\nЗаявката  „%s“ произвежда следната грешка:\n%s\nс резултат %d.\n\n"
 
 #: ../lib/hddtemp.c:587 ../lib/hddtemp.c:611
 msgid "Suppress this message in future"
@@ -223,9 +203,7 @@ msgstr "Блокиране на това съобщение в бъдеще"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr ""
-"Възникна грешка при изпълнение на „%s“:\n"
-"%s"
+msgstr "Възникна грешка при изпълнение на „%s“:\n%s"
 
 #: ../lib/lmsensors.c:95
 msgid "LM Sensors"
@@ -244,9 +222,7 @@ msgstr "Неуспешно зареждане на добавка Сензори
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr ""
-"Изглежда, че е имало проблем с прочитането на показанията на сензорите.\n"
-"Правилната процедура не може да бъде гарантирана."
+msgstr "Изглежда, че е имало проблем с прочитането на показанията на сензорите.\nПравилната процедура не може да бъде гарантирана."
 
 #: ../lib/sensors-interface.c:174
 msgid "Sensors t_ype:"
@@ -343,23 +319,14 @@ msgstr "%.0f об/мин"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
-msgstr ""
-"Xfce4 Сензори %s\n"
-"Тази програма е лицензирана под GPL v2 лиценз.\n"
-"Текстът на лиценза може да бъде намерен в изходният код на програмата или в /"
-"usr/share/apps/LICENSES/GPL_V2, както и на адрес http://www.gnu.org/licenses/"
-"old-licenses/gpl-2.0.txt\n"
-"\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Xfce4 Сензори %s\nТази програма е лицензирана под GPL v2 лиценз.\nТекстът на лиценза може да бъде намерен в изходният код на програмата или в /usr/share/apps/LICENSES/GPL_V2, както и на адрес http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n\n"
 
 #: ../src/main.c:70
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk "
-"temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -368,18 +335,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr ""
-"Xfce4 Сензори %s\n"
-"Показва информация от вашите хардуерни сензори, ACPI състоянието, "
-"температурата на твърдият диск и на графичните карти Nvidia.\n"
-"Резюме:\n"
-"fce4-sensors options\n"
-"където опциите са една или няколко от следните:\n"
-"-h, --help Показва този помощен диалог.\n"
-"l, --license Показва информация за лиценза.\n"
-"-V, --version Показва информация за версията.\n"
-"\n"
-"Тази програма е публикувана под GPL v2 лиценз.\n"
+msgstr "Xfce4 Сензори %s\nПоказва информация от вашите хардуерни сензори, ACPI състоянието, температурата на твърдият диск и на графичните карти Nvidia.\nРезюме:\nfce4-sensors options\nкъдето опциите са една или няколко от следните:\n-h, --help Показва този помощен диалог.\nl, --license Показва информация за лиценза.\n-V, --version Показва информация за версията.\n\nТази програма е публикувана под GPL v2 лиценз.\n"
 
 #: ../src/main.c:88
 #, c-format
@@ -406,10 +362,7 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"Преглед на сензорите:\n"
-"Изглежда, че е имало проблем с разчитането на показанията на сензора.\n"
-"Правилното отчитане не може да се гарантира.\n"
+msgstr "Преглед на сензорите:\nИзглежда, че е имало проблем с разчитането на показанията на сензора.\nПравилното отчитане не може да се гарантира.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
@@ -425,9 +378,5 @@ msgid "Sensor Values Viewer"
 msgstr "Преглед на показанията на сензора"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
-#, fuzzy
 msgid "Sensor plugin"
 msgstr "Добавка Сензор"
-
-#~ msgid "%.1f °C"
-#~ msgstr "%.1f °C"
