@@ -271,7 +271,9 @@ if test x"$enable_debug" = x"yes"; then
     AC_DEFINE([DEBUG_TRACE], [1],
         [Set this to 1 to enable full trace debugging.]
     )
-    PLATFORM_CFLAGS="-Wall -Werror -Wl,--no-undefined $PLATFORM_CFLAGS"
+    PLATFORM_CFLAGS="-Wall -Werror $PLATFORM_CFLAGS"
+    PLATFORM_LDFLAGS="-Wl,--no-undefined $PLATFORM_LDFLAGS"
+
 fi
 
 AC_SUBST([PLATFORM_CFLAGS])
