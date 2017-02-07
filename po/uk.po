@@ -1,25 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Dmitry Nikitin <luckas_fb@mail.ru>, 2008
-# Yarema aka Knedlyk <yupadmin@gmail.com>, 2014
+# Yarema aka Knedlyk <yupadmin@gmail.com>, 2014,2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-05 23:13+0100\n"
-"PO-Revision-Date: 2014-06-03 09:38+0000\n"
+"POT-Creation-Date: 2017-02-04 11:49+0100\n"
+"PO-Revision-Date: 2017-02-07 11:04+0000\n"
 "Last-Translator: Yarema aka Knedlyk <yupadmin@gmail.com>\n"
-"Language-Team: Ukrainian (http://www.transifex.com/projects/p/xfce-panel-"
-"plugins/language/uk/)\n"
-"Language: uk\n"
+"Language-Team: Ukrainian (http://www.transifex.com/xfce/xfce-panel-plugins/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. initialize value label widget
 #: ../panel-plugin/sensors-plugin.c:365 ../panel-plugin/sensors-plugin.c:467
@@ -40,10 +38,7 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"Плагін сенсорів:\n"
-"Здається існують проблеми читання значень опцій сенсора.\n"
-"Правильна обробка не може бути гарантована.\n"
+msgstr "Плагін сенсорів:\nЗдається існують проблеми читання значень опцій сенсора.\nПравильна обробка не може бути гарантована.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1862
 msgid "UI style:"
@@ -81,7 +76,8 @@ msgstr "Кількіс_ть тектових стрічок:"
 msgid "F_ont size:"
 msgstr "Розмір _шрифту:"
 
-#. gtk_widget_set_sensitive(myFontBox, !sd->sensors->display_values_graphically);
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:2036
 msgid "x-small"
 msgstr "найменші"
@@ -141,17 +137,14 @@ msgstr "Плагін сенсорів"
 
 #: ../panel-plugin/sensors-plugin.c:2351
 msgid "Properties"
-msgstr ""
+msgstr "Властивості"
 
 #: ../panel-plugin/sensors-plugin.c:2384
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr ""
-"Ви можете вибрати опції властивостей такі як назва, кольори, мін/макс "
-"значення через подвійне клацання на елементі, редагування змісту і натиснути"
-"\"Ввід\" aбо вибрати різні поля."
+msgstr "Ви можете вибрати опції властивостей такі як назва, кольори, мін/макс значення через подвійне клацання на елементі, редагування змісту і натиснути\"Ввід\" aбо вибрати різні поля."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -162,16 +155,18 @@ msgstr ""
 msgid "Hard disks"
 msgstr "Жорсткі диски"
 
-#: ../lib/acpi.c:547 ../lib/acpi.c:557 ../lib/acpi.c:558
+#: ../lib/acpi.c:561 ../lib/acpi.c:571 ../lib/acpi.c:572
 msgid "ACPI"
 msgstr "Інтерфейс ACPI"
 
-#: ../lib/acpi.c:550
+#: ../lib/acpi.c:564
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ACPI v%s зони"
 
-#: ../lib/acpi.c:703
+#. who knows, if we obtain non-NULL version at all...
+#. || g_strisempty(version))
+#: ../lib/acpi.c:725
 msgid "<Unknown>"
 msgstr "<Невідомо>"
 
@@ -190,27 +185,14 @@ msgstr "Температура жорстких дисків із S.M.A.R.T."
 #: ../lib/hddtemp.c:571
 #, c-format
 msgid ""
-"\"hddtemp\" was not executed correctly, although it is executable. This is "
-"most probably due to the disks requiring root privileges to read their "
-"temperatures, and \"hddtemp\" not being setuid root.\n"
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
 "\n"
-"An easy but dirty solution is to run \"chmod u+s %s\" as root user and "
-"restart this plugin or its panel.\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
 "\n"
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr ""
-"\"hddtemp\" не було коректно виконано, хоча він виконуваний. Можливо це    "
-"потребує прав адміністратора для перегляду інформації про температуру  "
-"дисків але \"hddtemp\" не має адміністративних прав.\n"
-"\n"
-"Простіше але брудне рішення запустити \"chmod u+s %s\" як root і       "
-"перезапустити цей плагін або панель.\n"
-"\n"
-"Виклик \"%s\" дає наступну помилку:\n"
-"%s\n"
-"з поверненням значення %d.\n"
+msgstr "\"hddtemp\" не було коректно виконано, хоча він виконуваний. Можливо це    потребує прав адміністратора для перегляду інформації про температуру  дисків але \"hddtemp\" не має адміністративних прав.\n\nПростіше але брудне рішення запустити \"chmod u+s %s\" як root і       перезапустити цей плагін або панель.\n\nВиклик \"%s\" дає наступну помилку:\n%s\nз поверненням значення %d.\n"
 
 #: ../lib/hddtemp.c:587 ../lib/hddtemp.c:611
 msgid "Suppress this message in future"
@@ -221,9 +203,7 @@ msgstr "Доповнювати це повідомлення в майбутнь
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr ""
-"Під час виконання виникла помилка \"%s\":\n"
-"%s"
+msgstr "Під час виконання виникла помилка \"%s\":\n%s"
 
 #: ../lib/lmsensors.c:95
 msgid "LM Sensors"
@@ -242,9 +222,7 @@ msgstr "Невдача плагіна сенсорів"
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr ""
-"Можливо це проблема перегляду значень опцій сенсорів.\n"
-"Правильна обробка не гарантована."
+msgstr "Можливо це проблема перегляду значень опцій сенсорів.\nПравильна обробка не гарантована."
 
 #: ../lib/sensors-interface.c:174
 msgid "Sensors t_ype:"
@@ -341,22 +319,14 @@ msgstr "%.0f обертів за хвилину"
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
-"The license text can be found inside the program's source archive or under /"
-"usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.txt\n"
-msgstr ""
-"Сенсори Xfce4 %s\n"
-"Цю програму опубліковано під ліцензією GPL v2.\n"
-"Текст ліцензії можна знайти всередині архіву з джерельними кодами програми "
-"або нижче /usr/share/apps/LICENSES/GPL_V2 або на сайті http://www.gnu.org/"
-"licenses/old-licenses/gpl-2.0.txt\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Сенсори Xfce4 %s\nЦю програму опубліковано під ліцензією GPL v2.\nТекст ліцензії можна знайти всередині архіву з джерельними кодами програми або нижче /usr/share/apps/LICENSES/GPL_V2 або на сайті http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:70
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
-"Displays information about your hardware sensors, ACPI status, harddisk "
-"temperatures and Nvidia GPU's temperature.\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
 "  xfce4-sensors options\n"
 "where options are one or more of the following:\n"
@@ -365,18 +335,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr ""
-"Сенсори Xfce4 %s\n"
-"Показують інформацію про ваші сенсори, статус ACPI. температуру твердих "
-"дисків і температуру GPU Nvidia.\n"
-"Команда запуску: \n"
-"  xfce4-sensors опції\n"
-"де опції одна або більше з наступних:\n"
-"  -h, --help    Надрукувати це діалог. \n"
-"  -l, --license Надрукувати ліцензію.     \n"
-"  -V, --version Надрукувати версію.       \n"
-"\n"
-"Ця програма опублікована під ліцензією GPL v2.\n"
+msgstr "Сенсори Xfce4 %s\nПоказують інформацію про ваші сенсори, статус ACPI. температуру твердих дисків і температуру GPU Nvidia.\nКоманда запуску: \n  xfce4-sensors опції\nде опції одна або більше з наступних:\n  -h, --help    Надрукувати це діалог. \n  -l, --license Надрукувати ліцензію.     \n  -V, --version Надрукувати версію.       \n\nЦя програма опублікована під ліцензією GPL v2.\n"
 
 #: ../src/main.c:88
 #, c-format
@@ -403,10 +362,7 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
-"Плагін сенсорів:\n"
-"Здається існують проблеми читання значень опцій сенсора.\n"
-"Правильна обробка не гарантована.\n"
+msgstr "Плагін сенсорів:\nЗдається існують проблеми читання значень опцій сенсора.\nПравильна обробка не гарантована.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
@@ -422,9 +378,5 @@ msgid "Sensor Values Viewer"
 msgstr "Переглядач інформації сенсорів"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
-#, fuzzy
 msgid "Sensor plugin"
-msgstr "Плагін сенсорів "
-
-#~ msgid "%.1f °C"
-#~ msgstr "%.1f градусів по Цельсію"
+msgstr "Додаток сенсорів"
