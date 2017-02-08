@@ -1,5 +1,5 @@
 /* $Id$ */
-/*  Copyright 2004-2010 Fabian Nowak (timystery@arcor.de)
+/*  Copyright 2004-2017 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -63,7 +63,7 @@ void refresh_acpi (gpointer ptr_chipfeature, gpointer ptr_unused);
  * @Param str_filename: file to read information from, e.g. info.
  * @Return: value from first line of file after keyword and colon.
  */
-gdouble get_acpi_zone_value (char *str_zone, char *str_filename);
+gdouble get_acpi_zone_value (gchar *str_zone, char *str_filename);
 
 
 /**
@@ -72,14 +72,14 @@ gdouble get_acpi_zone_value (char *str_zone, char *str_filename);
  * @Param str_zonename: file to read information from, e.g. state.
  * @Return: valued from any line starting with "status:", converted to 1 or 0
  */
-double get_fan_zone_value (char *str_zonename);
+double get_fan_zone_value (gchar *str_zonename);
 
 /**
  * Read a double value from special battery subzone denoted by str_filename.
  * @Param str_filename: name in the /pro/acpi/battery directory.
  * @Param ptr_chipfeature: pointer to chipfeature to get a max value.
  */
-void get_battery_max_value (char *str_filename, t_chipfeature *ptr_chipfeature);
+void get_battery_max_value (gchar *str_filename, t_chipfeature *ptr_chipfeature);
 
 /**
  * Read information from the thermal zone.
@@ -118,7 +118,7 @@ char * get_acpi_info ();
  * @Param str_filename: Complete path to file to be inspected.
  * @Return: String of value found, "<Unknown>" otherwise.
  */
-char * get_acpi_value (char *str_filename);
+char * get_acpi_value (gchar *str_filename);
 
 
 /**
@@ -126,7 +126,7 @@ char * get_acpi_value (char *str_filename);
  * @Param str_zone: Complete zone path including both e.g. "battery" and "BAT0"
  * @Return double value of current battery power
  */
-gdouble get_battery_zone_value (char *str_zone);
+gdouble get_battery_zone_value (gchar *str_zone);
 
 
 /**
