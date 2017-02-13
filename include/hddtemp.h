@@ -1,5 +1,5 @@
 /* $Id$ */
-/*  Copyright 2004-2010 Fabian Nowak (timystery@arcor.de)
+/*  Copyright 2004-2017 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -32,21 +32,28 @@
 
 /**
  * Initialize hddtemp by finding disks to monitor
- * @Param Pointer to array of chips
+ * @Param arr_ptr_chips: Pointer to array of chips
+ * @Param ptr_suppressmessage: returns whether messages shall be suppressed
  * @Return Number of initialized chips
  */
-int initialize_hddtemp (GPtrArray *chips, gboolean *suppressmessage);
+int initialize_hddtemp (GPtrArray *arr_ptr_chips, gboolean *ptr_suppressmessage);
 
 
 /**
  * Refreshs a hddtemp chip's feature in sense of raw and formatted value
  *
- * @Param chip_feature: Pointer to feature
- * @Param data: Pointer to t_sensors or NULL
+ * @Param ptr_chip_feature: Pointer to feature
+ * @Param ptr_data: Pointer to t_sensors or NULL
  */
-void refresh_hddtemp (gpointer chip_feature, gpointer data);
+void refresh_hddtemp (gpointer ptr_chip_feature, gpointer ptr_data);
 
 
-double get_hddtemp_value (char* disk, gboolean *suppressmessage);
+/**
+ * Gets the hddtemp value of a disk
+ * @Param str_disk: disk name
+ * @Param ptr_suppressmessage: returns whether messages shall be suppressed
+ * @Return Temperature of dsk
+ */
+double get_hddtemp_value (char* str_disk, gboolean *ptr_suppressmessage);
 
 #endif /* XFCE4_SENSORS_HDDTEMP_H */

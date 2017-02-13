@@ -1,5 +1,5 @@
 /* $Id$ */
-/*  Copyright 2004-2010 Fabian Nowak (timystery@arcor.de)
+/*  Copyright 2004-2017 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -72,105 +72,104 @@
 void notification_suppress_messages (NotifyNotification *n, gchar *action, gpointer *data);
 #endif
 
-void quick_message_notify (gchar *message);
-void quick_message (gchar *message);
-void quick_message_dialog (gchar *message);
-gboolean quick_message_with_checkbox (gchar *message, gchar *checkboxtext);
+void quick_message_notify (gchar *str_message);
+void quick_message (gchar *str_message);
+void quick_message_dialog (gchar *str_message);
+gboolean quick_message_with_checkbox (gchar *str_message, gchar *str_checkboxtext);
 
-void read_disks_netcat (t_chip *chip);
-void read_disks_linux26 (t_chip *chip);
-int get_hddtemp_d_str (char *buffer, size_t bufsize);
-void read_disks_fallback (t_chip *chip);
-void remove_unmonitored_drives (t_chip *chip, gboolean *suppressmessage);
-void populate_detected_drives (t_chip *chip);
+void read_disks_netcat (t_chip *ptr_chip);
+void read_disks_linux26 (t_chip *ptr_chip);
+int get_hddtemp_d_str (char *str_buffer, size_t siz_buffer);
+void read_disks_fallback (t_chip *ptr_chip);
+void remove_unmonitored_drives (t_chip *ptr_chip, gboolean *ptr_suppressmessage);
+void populate_detected_drives (t_chip *ptr_chip);
 
 #if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
 void
-notification_suppress_messages (NotifyNotification *n, gchar *action, gpointer *data)
+notification_suppress_messages (NotifyNotification *ptr_notification, gchar *str_action, gpointer *ptr_data)
 {
-    if (strcmp(action, "confirmed")!=0)
+    if (strcmp(str_action, "confirmed")!=0)
         return;
 
     /* FIXME: Use channels or propagate private object or use static global variable */
 }
 
 void
-quick_message_notify (gchar *message)
+quick_message_notify (gchar *str_message)
 {
-    NotifyNotification *nn;
-    gchar *summary, *body, *icon;
-    GError *error = NULL;
+    NotifyNotification *ptr_notification;
+    const gchar *str_summary, *str_icon;
+    GError *ptr_error = NULL;
 
-    summary = "Hddtemp Information";
-    body = message;
-    icon = "xfce-sensors";
+    str_summary = "Hddtemp Information";
+    str_icon = "xfce-sensors";
 
     if (!notify_is_initted())
         notify_init(PACKAGE); /* NOTIFY_APPNAME */
 
 #ifdef HAVE_LIBNOTIFY7
-    nn = notify_notification_new (summary, body, icon);
+    ptr_notification = notify_notification_new (str_summary, str_message, str_icon);
 #elif HAVE_LIBNOTIFY4
-    nn = notify_notification_new (summary, body, icon, NULL);
+    ptr_notification = notify_notification_new (str_summary, str_message, str_icon, NULL);
 #endif
     /* FIXME: Use channels or propagate private object or use static global variable */
-    //notify_notification_add_action (nn,
+    //notify_notification_add_action (ptr_notification,
                             //"confirmed",
                             //_("Don't show this message again"),
                             //(NotifyActionCallback) notification_suppress_messages,
                             //NULL);
-    notify_notification_show(nn, &error);
+    notify_notification_show(ptr_notification, &ptr_error);
 }
 #else
 void
-quick_message_dialog (gchar *message)
+quick_message_dialog (gchar *str_message)
 {
 
-    GtkWidget *dialog;  /*, *label; */
+    GtkWidget *ptr_dialog;  /*, *label; */
 
     TRACE ("enters quick_message");
 
-    dialog = gtk_message_dialog_new (NULL,
+    ptr_dialog = gtk_message_dialog_new (NULL,
                                   GTK_DIALOG_DESTROY_WITH_PARENT,
                                   GTK_MESSAGE_INFO,
                                   GTK_BUTTONS_CLOSE,
                                   message, NULL);
 
     g_signal_connect_swapped (dialog, "response",
-                             G_CALLBACK (gtk_widget_destroy), dialog);
+                             G_CALLBACK (gtk_widget_destroy), ptr_dialog);
 
-    gtk_dialog_run(GTK_DIALOG(dialog));
+    gtk_dialog_run(GTK_DIALOG(ptr_dialog));
 
     TRACE ("leaves quick_message");
 }
 
 
 gboolean
-quick_message_with_checkbox (gchar *message, gchar *checkboxtext) {
+quick_message_with_checkbox (gchar *str_message, gchar *str_checkboxtext) {
 
-    GtkWidget *dialog, *checkbox;  /*, *label; */
+    GtkWidget *ptr_dialog, *ptr_checkbox;  /*, *label; */
     gboolean is_active;
 
     TRACE ("enters quick_message");
 
-    dialog = gtk_message_dialog_new (NULL,
+    ptr_dialog = gtk_message_dialog_new (NULL,
                                   0, /* GTK_DIALOG_DESTROY_WITH_PARENT */
                                   GTK_MESSAGE_INFO,
                                   GTK_BUTTONS_CLOSE,
-                                  message, NULL);
+                                  str_message, NULL);
 
-    gtk_window_set_title(GTK_WINDOW(dialog), _("Sensors Plugin"));
+    gtk_window_set_title(GTK_WINDOW(ptr_dialog), _("Sensors Plugin"));
 
-    checkbox = gtk_check_button_new_with_mnemonic (checkboxtext);
+    ptr_checkbox = gtk_check_button_new_with_mnemonic (str_checkboxtext);
 
-    gtk_box_pack_start (GTK_BOX(GTK_DIALOG(dialog)->vbox), checkbox, FALSE, FALSE, 0);
-    gtk_widget_show(checkbox);
+    gtk_box_pack_start (GTK_BOX(GTK_DIALOG(ptr_dialog)->vbox), ptr_checkbox, FALSE, FALSE, 0);
+    gtk_widget_show(ptr_checkbox);
 
-    gtk_dialog_run(GTK_DIALOG(dialog));
+    gtk_dialog_run(GTK_DIALOG(ptr_dialog));
 
-    is_active = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON(checkbox));
+    is_active = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON(ptr_checkbox));
 
-    gtk_widget_destroy (dialog);
+    gtk_widget_destroy (ptr_dialog);
 
     TRACE ("leaves quick_message");
 
@@ -180,73 +179,72 @@ quick_message_with_checkbox (gchar *message, gchar *checkboxtext) {
 
 
 void
-quick_message (gchar *message)
+quick_message (gchar *str_message)
 {
 #if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
-    quick_message_notify (message);
+    quick_message_notify (str_message);
 #else
-    quick_message_dialog (message);
+    quick_message_dialog (str_message);
 #endif
 }
 
 
 #ifdef HAVE_NETCAT
 void
-read_disks_netcat (t_chip *chip)
+read_disks_netcat (t_chip *ptr_chip)
 {
-    char reply[REPLY_MAX_SIZE], *tmp, *tmp2, *tmp3;
+    char str_reply[REPLY_MAX_SIZE], *str_tmp, *str_tmp2, *str_tmp3;
     int result;
 
-    t_chipfeature *cf;
+    t_chipfeature *ptr_chipfeature;
 
-    bzero(&reply, REPLY_MAX_SIZE);
-    result = get_hddtemp_d_str(reply, REPLY_MAX_SIZE);
-    DBG ("reply=%s with result=%d\n", reply, (int) result);
+    bzero(&str_reply, REPLY_MAX_SIZE);
+    result = get_hddtemp_d_str(str_reply, REPLY_MAX_SIZE);
+    DBG ("reply=%s with result=%d\n", str_reply, (int) result);
     if (result==-1)
     {
       return;
     }
 
-    tmp = str_split (reply, DOUBLE_DELIMITER);
+    str_tmp = str_split (str_reply, DOUBLE_DELIMITER);
     do {
-        //g_printf ("Found token: %s\n", tmp);
-        cf = g_new0(t_chipfeature, 1);
+        ptr_chipfeature = g_new0(t_chipfeature, 1);
 
-        tmp2 = g_strdup (tmp);
-        tmp3 = strtok (tmp2, SINGLE_DELIMITER);
-        cf->devicename = g_strdup(tmp3);
-        tmp3 = strtok (NULL, SINGLE_DELIMITER);
-        cf->name = g_strdup(tmp3);
+        str_tmp2 = g_strdup (str_tmp);
+        str_tmp3 = strtok (str_tmp2, SINGLE_DELIMITER);
+        ptr_chipfeature->devicename = g_strdup(str_tmp3);
+        str_tmp3 = strtok (NULL, SINGLE_DELIMITER);
+        ptr_chipfeature->name = g_strdup(str_tmp3);
 
-        g_ptr_array_add(chip->chip_features, cf);
-        chip->num_features++;
+        g_ptr_array_add(ptr_chip->chip_features, ptr_chipfeature);
+        ptr_chip->num_features++;
 
-        g_free (tmp2);
+        g_free (str_tmp2);
     }
-    while ( (tmp = str_split(NULL, DOUBLE_DELIMITER)) );
+    while ( (str_tmp = str_split(NULL, DOUBLE_DELIMITER)) );
 }
 #else
 void
 read_disks_fallback (t_chip *chip)
 {
-    GError *error;
-    GDir *gdir;
-    t_chipfeature *chipfeature;
-    const gchar* dirname;
+    GError *ptr_error;
+    GDir *ptr_dir;
+    t_chipfeature *ptr_chipfeature;
+    const gchar* str_devicename;
 
     TRACE ("enters read_disks_fallback");
 
     /* read from /proc/ide */
-    error = NULL;
-    gdir = g_dir_open ("/proc/ide/", 0, &error);
+    ptr_error = NULL;
+    ptr_dir = g_dir_open ("/proc/ide/", 0, &ptr_error);
 
-    while ( (dirname = g_dir_read_name (gdir))!=NULL ) {
-        if ( strncmp (dirname, "hd", 2)==0 || strncmp (dirname, "sd", 2)==0) {
-            /* TODO: look, if /dev/dirname exists? */
-            chipfeature = g_new0 (t_chipfeature, 1);
-            chipfeature->devicename = g_strconcat ("/dev/", dirname, NULL);
-            chipfeature->name = g_strdup(chipfeature->devicename);
-            g_ptr_array_add (chip->chip_features, chipfeature);
+    while ( (str_devicename = g_dir_read_name (ptr_dir))!=NULL ) {
+        if ( strncmp (str_devicename, "hd", 2)==0 || strncmp (str_devicename, "sd", 2)==0) {
+            /* TODO: look, if /dev/str_devicename exists? */
+            ptr_chipfeature = g_new0 (t_chipfeature, 1);
+            ptr_chipfeature->devicename = g_strconcat ("/dev/", str_devicename, NULL);
+            ptr_chipfeature->name = g_strdup(ptr_chipfeature->devicename);
+            g_ptr_array_add (chip->chip_features, ptr_chipfeature);
             chip->num_features++;
         }
     }
@@ -264,24 +262,24 @@ read_disks_linux26 (t_chip *chip)
 {
     GDir *gdir;
     t_chipfeature *chipfeature;
-    const gchar* dirname;
+    const gchar* str_devicename;
 
     TRACE ("enters read_disks_linux26");
 
     /* read from /sys/block */
     gdir = g_dir_open ("/sys/block/", 0, NULL);
-    while ( (dirname = g_dir_read_name (gdir))!=NULL ) {
-        /* if ( strncmp (dirname, "ram", 3)!=0 &&
-             strncmp (dirname, "loop", 4)!=0 &&
-             strncmp (dirname, "md", 2)!=0 &&
-             strncmp (dirname, "fd", 2)!=0 &&
-             strncmp (dirname, "mmc", 3)!=0 &&
-             strncmp (dirname, "dm-", 3)!=0 ) { */
-            if ( strncmp (dirname, "hd", 2)==0 ||
-                            strncmp (dirname, "sd", 2)==0 ) {
-            /* TODO: look, if /dev/dirname exists? */
+    while ( (str_devicename = g_dir_read_name (gdir))!=NULL ) {
+        /* if ( strncmp (str_devicename, "ram", 3)!=0 &&
+             strncmp (str_devicename, "loop", 4)!=0 &&
+             strncmp (str_devicename, "md", 2)!=0 &&
+             strncmp (str_devicename, "fd", 2)!=0 &&
+             strncmp (str_devicename, "mmc", 3)!=0 &&
+             strncmp (str_devicename, "dm-", 3)!=0 ) { */
+            if ( strncmp (str_devicename, "hd", 2)==0 ||
+                            strncmp (str_devicename, "sd", 2)==0 ) {
+            /* TODO: look, if /dev/str_devicename exists? */
             chipfeature = g_new0 (t_chipfeature, 1);
-            chipfeature->devicename = g_strconcat ("/dev/", dirname, NULL); /* /proc/ide/hda/model ?? */
+            chipfeature->devicename = g_strconcat ("/dev/", str_devicename, NULL); /* /proc/ide/hda/model ?? */
             chipfeature->name = g_strdup(chipfeature->devicename);
             g_ptr_array_add (chip->chip_features, chipfeature);
             chip->num_features++;
@@ -486,12 +484,13 @@ get_hddtemp_d_str (char *buffer, size_t bufsize)
 
     buffer[nbytes] = 0;
     close (sock);
+
     return nbytes;
 }
 
 
 double
-get_hddtemp_value (char* disk, gboolean *suppressmessage)
+get_hddtemp_value (char* str_disk, gboolean *ptr_suppressmessage)
 {
     gchar *ptr_str_stdout=NULL, *ptr_str_stderr=NULL;
     gchar *ptr_str_hddtemp_call=NULL, *ptr_str_message=NULL;
@@ -510,15 +509,15 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
     int val_hddtemp_result;
 #endif
 
-    if (disk==NULL)
+    if (str_disk==NULL)
       return NO_VALID_TEMPERATURE_VALUE;
 
-    if (suppressmessage!=NULL)
-        f_nevershowagain = *suppressmessage;
+    if (ptr_suppressmessage!=NULL)
+        f_nevershowagain = *ptr_suppressmessage;
     else
         f_nevershowagain = FALSE;
 
-    TRACE ("enters get_hddtemp_value for %s with suppress=%d", disk, f_nevershowagain); /* *suppressmessage); */
+    TRACE ("enters get_hddtemp_value for %s with suppress=%d", str_disk, f_nevershowagain); /* *ptr_suppressmessage); */
 
 #ifdef HAVE_NETCAT
 
@@ -532,10 +531,9 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
     tmp3 = "-255";
     tmp = str_split (reply, DOUBLE_DELIMITER);
     do {
-        //g_printf ("Found token: %s for disk %s\n", tmp, disk);
         tmp2 = g_strdup (tmp);
         tmp3 = strtok (tmp2, SINGLE_DELIMITER); // device name
-        if (strcmp(tmp3, disk)==0)
+        if (strcmp(tmp3, str_disk)==0)
         {
             strtok(NULL, SINGLE_DELIMITER); // name
             tmp3 = strdup(strtok(NULL, SINGLE_DELIMITER)); // value
@@ -551,15 +549,15 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
     ptr_str_stdout = tmp3;
 
 #else
-    ptr_str_hddtemp_call = g_strdup_printf ( "%s -n -q %s", PATH_HDDTEMP, disk);
+    ptr_str_hddtemp_call = g_strdup_printf ( "%s -n -q %s", PATH_HDDTEMP, str_disk);
     f_result = g_spawn_command_line_sync ( (const gchar*) ptr_str_hddtemp_call,
             &ptr_str_stdout, &ptr_str_stderr, &exit_status, &ptr_f_error);
 #endif
 
-    DBG ("Exit code %d on %s with stdout of %s.\n", exit_status, disk, ptr_str_stdout);
+    DBG ("Exit code %d on %s with stdout of %s.\n", exit_status, str_disk, ptr_str_stdout);
 
     /* filter those with no sensors out */
-    if (exit_status==0 && strncmp(disk, "/dev/fd", 6)==0) { /* is returned for floppy disks */
+    if (exit_status==0 && strncmp(str_disk, "/dev/fd", 6)==0) { /* is returned for floppy disks */
         DBG("exit_status==0 && strncmp(disk, \"/dev/fd\", 6)==0");
         val_drive_temperature = NO_VALID_TEMPERATURE_VALUE;
     }
@@ -588,8 +586,8 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
             f_nevershowagain = quick_message_with_checkbox(ptr_str_message, ptr_str_checkbutton);
 #endif
 
-            if (suppressmessage!=NULL)
-                *suppressmessage = f_nevershowagain;
+            if (ptr_suppressmessage!=NULL)
+                *ptr_suppressmessage = f_nevershowagain;
         }
         else {
             DBG  ("Suppressing dialog with exit_code=256 or output on ptr_str_stderr");
@@ -612,8 +610,8 @@ get_hddtemp_value (char* disk, gboolean *suppressmessage)
             f_nevershowagain = quick_message_with_checkbox (ptr_str_message, ptr_str_checkbutton);
 #endif
 
-            if (suppressmessage!=NULL)
-                *suppressmessage = f_nevershowagain;
+            if (ptr_suppressmessage!=NULL)
+                *ptr_suppressmessage = f_nevershowagain;
         }
         else {
             DBG  ("Suppressing dialog because of error in g_spawn_cl");
@@ -681,18 +679,3 @@ refresh_hddtemp (gpointer chip_feature, gpointer data)
 
     TRACE ("leaves refresh_hddtemp");
 }
-
-
-//void
-//free_hddtemp_chip (gpointer chip)
-//{
-    //t_chip *ptr_chip;
-
-    //ptr_chip = (t_chip *) chip;
-
-    ////if (ptr_chip->sensorId)
-        ////g_free (ptr_chip->sensorId);
-
-    ////if (ptr_chip->chip_name->)
-        ////g_free (ptr_chip->chip_name->);
-//}
