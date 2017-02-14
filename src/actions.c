@@ -1,6 +1,5 @@
-/* $Id$ */
-
-/*  Copyright 2008-2016 Fabian Nowak (timystery@arcor.de)
+/* File: actions.c
+ *  Copyright 2008-2017 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

@@ -1,6 +1,6 @@
-/* $Id$ */
-
-/*  Copyright 2008-2010 Fabian Nowak (timystery@arcor.de)
+/* File: main.c
+ *
+ *  Copyright 2008-2017 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -113,14 +113,6 @@ initialize_sensors_structures (void)
 }
 
 
-//static void
-//on_window_destroy_event (GtkWidget *widget, GdkEvent *event, gpointer user_data)
-//{
-  //DBG("on_window_destroy_event\n");
-    ///* do some cleaning in here rather than at the end of the program? */
-//}
-
-
 int
 main (int argc, char **argv)
 {
@@ -176,9 +168,6 @@ main (int argc, char **argv)
     /* show window and run forever */
     gtk_widget_show_all(window); /* to make sure everything is shown */
     gtk_window_resize(GTK_WINDOW(window), 400, 500);
-    //gtk_widget_realize(sd->sensors->widget_sensors); /* without this call, the table will only be realized when the tab is shown and hence, toggled tachos are not drawn as they lack a drawable window. */
-
-    //g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(on_window_destroy_event), NULL);
 
     gtk_main();
 

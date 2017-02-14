@@ -1,5 +1,6 @@
-/* $Id$ */
-/*  Copyright 2009-2017 Fabian Nowak (timystery@arcor.de)
+/* File: tacho.h
+ *
+ *  Copyright 2009-2017 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -15,8 +16,6 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-
-/* tacho.h */
 
 #ifndef __TACHO_H
 #define __TACHO_H

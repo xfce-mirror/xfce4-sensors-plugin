@@ -1,4 +1,6 @@
-/* Copyright (c) 2011 Amir Aupov <fads93@gmail.com>
+/* File: nvidia.h
+ *
+ * Copyright (c) 2011 Amir Aupov <fads93@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,7 +28,7 @@
 #include <glib.h>
 #include <NVCtrl/NVCtrl.h>
 /*
- * Initialize nvidia sensor 
+ * Initialize nvidia sensor
  */
 int initialize_nvidia (GPtrArray *chips);
 
