@@ -1,6 +1,6 @@
-/* $Id$ */
-
-/*  Copyright 2007-2016 Fabian Nowak (timystery@arcor.de)
+/* File: lmsensors.c
+ *
+ *   Copyright 2007-2017 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -211,25 +211,22 @@ setup_chipfeature (t_chipfeature *chipfeature, int address_chipfeature,
 
     setup_chipfeature_common (chipfeature, address_chipfeature, val_sensor_feature);
 
-    /* g_free (chipfeature->formatted_value);
-    chipfeature->formatted_value = g_strdup_printf ("%+5.1f", val_sensor_feature); */
-
     categorize_sensor_type (chipfeature);
 
     TRACE ("leaves setup_chipfeature");
 }
 #else
 void
-setup_chipfeature_libsensors4 (t_chipfeature *chipfeature,
+setup_chipfeature_libsensors4 (t_chipfeature *ptr_chipfeature,
                                const sensors_feature *feature,
                                int address_chipfeature,
                                double val_sensor_feature,
                                const sensors_chip_name *name)
 {
 
-    setup_chipfeature_common (chipfeature, address_chipfeature, val_sensor_feature);
+    setup_chipfeature_common (ptr_chipfeature, address_chipfeature, val_sensor_feature);
 
-    categorize_sensor_type_libsensors4 (chipfeature, feature, name, address_chipfeature);
+    categorize_sensor_type_libsensors4 (ptr_chipfeature, feature, name, address_chipfeature);
 }
 #endif
 
@@ -307,31 +304,31 @@ find_chipfeature (const sensors_chip_name *name, t_chip *chip,
     if (sub_feature)
         number = sub_feature->number;
 
-    if (number==-1)
-        return NULL;
-
-    chipfeature = g_new0 (t_chipfeature, 1);
-
-    chipfeature->name = sensors_get_label (name, feature);
-
-    if (!chipfeature->name && feature->name)
-        chipfeature->name = g_strdup(feature->name);
-
-    if (chipfeature->name)
+    if (number!=-1)
     {
-        res = sensors_get_value (name, number, &sensorFeature);
-        if (res==0)
-        {
-            setup_chipfeature_libsensors4 (chipfeature, feature, number,
-                                           sensorFeature, name);
-            chip->num_features++;
-            //TRACE("leaves find_chipfeature");
-            return chipfeature;
-        }
-    }
+        chipfeature = g_new0 (t_chipfeature, 1);
 
-    g_free(chipfeature->name);
-    g_free(chipfeature);
+        chipfeature->name = sensors_get_label (name, feature);
+
+        if (!chipfeature->name && feature->name)
+            chipfeature->name = g_strdup(feature->name);
+
+        if (chipfeature->name)
+        {
+            res = sensors_get_value (name, number, &sensorFeature);
+            if (res==0)
+            {
+                setup_chipfeature_libsensors4 (chipfeature, feature, number,
+                                               sensorFeature, name);
+                chip->num_features++;
+                //TRACE("leaves find_chipfeature");
+                return chipfeature;
+            }
+        }
+
+        g_free(chipfeature->name);
+        g_free(chipfeature);
+    }
 
     //TRACE("leaves find_chipfeature with null");
     return NULL;
@@ -340,7 +337,7 @@ find_chipfeature (const sensors_chip_name *name, t_chip *chip,
 
 
 int
-initialize_libsensors (GPtrArray *chips)
+initialize_libsensors (GPtrArray *arr_ptr_chips)
 {
     int sensorsInit, nr1, num_sensorchips; /*    , numchips;  */
     t_chip *chip;
@@ -373,7 +370,7 @@ initialize_libsensors (GPtrArray *chips)
         /* iterate over chips on mainboard */
         while (detected_chip!=NULL)
         {
-            chip = setup_chip (chips, detected_chip, num_sensorchips);
+            chip = setup_chip (arr_ptr_chips, detected_chip, num_sensorchips);
 
             nr1 = 0;
             nr2 = 0;
@@ -418,7 +415,7 @@ initialize_libsensors (GPtrArray *chips)
     /* iterate over chips on mainboard */
     while (detected_chip!=NULL)
     {
-        chip = setup_chip (chips, detected_chip, num_sensorchips);
+        chip = setup_chip (arr_ptr_chips, detected_chip, num_sensorchips);
 
         nr1 = 0;
         /* iterate over chip features, i.e. id, cpu temp, mb temp... */
@@ -443,36 +440,23 @@ initialize_libsensors (GPtrArray *chips)
 
 
 void
-refresh_lmsensors (gpointer chip_feature, gpointer data)
+refresh_lmsensors (gpointer ptr_chip_feature, gpointer ptr_unused)
 {
-    //t_chipfeature *cf;
-
     TRACE ("enters refresh_lmsensors");
 
-    g_assert(chip_feature!=NULL);
-
-    //cf = (t_chipfeature *) chip_feature;
-      //refresh now?
+    g_assert(ptr_chip_feature!=NULL);
 
     TRACE ("leaves refresh_lmsensors");
 }
 
 
 void
-free_lmsensors_chip (gpointer chip)
+free_lmsensors_chip (gpointer ptr_chip)
 {
     #if SENSORS_API_VERSION < 0x400
-    t_chip *ptr_chip;
-    ptr_chip = (t_chip *) chip;
-    if (ptr_chip->chip_name->busname)
-        g_free (ptr_chip->chip_name->busname);
+    t_chip *ptr_chip_local;
+    ptr_chip_local = (t_chip *) ptr_chip;
+    if (ptr_chip_local->chip_name->busname)
+        g_free (ptr_chip_local->chip_name->busname);
     #endif
-
-    // freeing name or prefix makes sensors_cleanup() crash
-    //if (ptr_chip->name)
-        //g_free (ptr_chip->name);
-
-    //if (ptr_chip->chip_name->prefix)
-        //g_free (ptr_chip->chip_name->prefix);
-
 }

@@ -44,9 +44,9 @@ int initialize_hddtemp (GPtrArray *arr_ptr_chips, gboolean *ptr_suppressmessage)
  * Refreshs a hddtemp chip's feature in sense of raw and formatted value
  *
  * @Param ptr_chip_feature: Pointer to feature
- * @Param ptr_data: Pointer to t_sensors or NULL
+ * @Param ptr_sensors: Pointer to t_sensors or NULL
  */
-void refresh_hddtemp (gpointer ptr_chip_feature, gpointer ptr_data);
+void refresh_hddtemp (gpointer ptr_chip_feature, gpointer ptr_sensors);
 
 
 /**

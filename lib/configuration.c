@@ -1,5 +1,4 @@
-/* $Id$ */
-/* File configuration.c
+/* File: configuration.c
  *
  *  Copyright 2004-2017 Fabian Nowak (timystery@arcor.de)
  *
@@ -42,7 +41,7 @@
 gint
 get_Id_from_address (gint idx_chip, gint addr_chipfeature, t_sensors *ptr_sensors)
 {
-    gint idx_feature = -1;
+    gint idx_feature, result = -1;
     t_chip *ptr_chip = NULL;
     t_chipfeature *ptr_chipfeature = NULL;
 
@@ -56,15 +55,17 @@ get_Id_from_address (gint idx_chip, gint addr_chipfeature, t_sensors *ptr_sensor
             ptr_chipfeature = g_ptr_array_index(ptr_chip->chip_features, idx_feature);
             if (ptr_chipfeature)
             {
+                DBG("address: %d", ptr_chipfeature->address);
                 if (addr_chipfeature == ptr_chipfeature->address) {
+                    result = idx_feature;
                     break;
                 }
             }
         }
     }
 
-    TRACE ("leaves get_Id_from_address with %d", idx_feature);
-    return idx_feature;
+    TRACE ("leaves get_Id_from_address with %d", result);
+    return result;
 }
 
 
@@ -366,11 +367,11 @@ sensors_read_config (XfcePanelPlugin *ptr_panelplugin, t_sensors *ptr_sensors)
                         /* FIXME: compare strings, or also have hddtemp and acpi store numeric str_values */
 
                         /* assert correctly saved str_file */
-                        if (strcmp(ptr_chip->sensorId, _("Hard disks")) != 0) { /* chip->name? */
+                        if (id >= 0 && strcmp(ptr_chip->sensorId, _("Hard disks")) != 0) { /* chip->name? */
                             ptr_chipfeature = g_ptr_array_index(ptr_chip->chip_features, id);
                             address = (gint) xfce_rc_read_int_entry (ptr_xfceresource, "Address", 0);
                             /* FIXME: it might be necessary to use sensors->addresses here */
-                            if (ptr_chipfeature->address != address)
+                            if (!ptr_chipfeature || ptr_chipfeature->address != address)
                                 continue;
                         }
                         else if ((str_value = xfce_rc_read_entry (ptr_xfceresource, "DeviceName", NULL))

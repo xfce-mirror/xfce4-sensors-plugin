@@ -1,5 +1,6 @@
-/* $Id$ */
-/*  Copyright 2004-2017 Fabian Nowak (timystery@arcor.de)
+/* File: hddtemp.c
+ *
+ *  Copyright 2004-2017 Fabian Nowak (timystery@arcor.de)
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -124,7 +125,6 @@ quick_message_notify (gchar *str_message)
 void
 quick_message_dialog (gchar *str_message)
 {
-
     GtkWidget *ptr_dialog;  /*, *label; */
 
     TRACE ("enters quick_message");
@@ -145,8 +145,8 @@ quick_message_dialog (gchar *str_message)
 
 
 gboolean
-quick_message_with_checkbox (gchar *str_message, gchar *str_checkboxtext) {
-
+quick_message_with_checkbox (gchar *str_message, gchar *str_checkboxtext)
+{
     GtkWidget *ptr_dialog, *ptr_checkbox;  /*, *label; */
     gboolean is_active;
 
@@ -225,7 +225,7 @@ read_disks_netcat (t_chip *ptr_chip)
 }
 #else
 void
-read_disks_fallback (t_chip *chip)
+read_disks_fallback (t_chip *ptr_chip)
 {
     GError *ptr_error;
     GDir *ptr_dir;
@@ -244,12 +244,12 @@ read_disks_fallback (t_chip *chip)
             ptr_chipfeature = g_new0 (t_chipfeature, 1);
             ptr_chipfeature->devicename = g_strconcat ("/dev/", str_devicename, NULL);
             ptr_chipfeature->name = g_strdup(ptr_chipfeature->devicename);
-            g_ptr_array_add (chip->chip_features, ptr_chipfeature);
-            chip->num_features++;
+            g_ptr_array_add (ptr_chip->chip_features, ptr_chipfeature);
+            ptr_chip->num_features++;
         }
     }
 
-    g_dir_close (gdir);
+    g_dir_close (ptr_dir);
 
     /* FIXME: read SCSI info from where? SATA?  */
 
@@ -258,35 +258,35 @@ read_disks_fallback (t_chip *chip)
 
 
 void
-read_disks_linux26 (t_chip *chip)
+read_disks_linux26 (t_chip *ptr_chip)
 {
-    GDir *gdir;
-    t_chipfeature *chipfeature;
+    GDir *ptr_dir;
+    t_chipfeature *ptr_chipfeature;
     const gchar* str_devicename;
 
     TRACE ("enters read_disks_linux26");
 
     /* read from /sys/block */
-    gdir = g_dir_open ("/sys/block/", 0, NULL);
-    while ( (str_devicename = g_dir_read_name (gdir))!=NULL ) {
+    ptr_dir = g_dir_open ("/sys/block/", 0, NULL);
+    while ( (str_devicename = g_dir_read_name (ptr_dir))!=NULL ) {
         /* if ( strncmp (str_devicename, "ram", 3)!=0 &&
              strncmp (str_devicename, "loop", 4)!=0 &&
              strncmp (str_devicename, "md", 2)!=0 &&
              strncmp (str_devicename, "fd", 2)!=0 &&
              strncmp (str_devicename, "mmc", 3)!=0 &&
              strncmp (str_devicename, "dm-", 3)!=0 ) { */
-            if ( strncmp (str_devicename, "hd", 2)==0 ||
-                            strncmp (str_devicename, "sd", 2)==0 ) {
+        if ( strncmp (str_devicename, "hd", 2)==0 ||
+              strncmp (str_devicename, "sd", 2)==0 ) {
             /* TODO: look, if /dev/str_devicename exists? */
-            chipfeature = g_new0 (t_chipfeature, 1);
-            chipfeature->devicename = g_strconcat ("/dev/", str_devicename, NULL); /* /proc/ide/hda/model ?? */
-            chipfeature->name = g_strdup(chipfeature->devicename);
-            g_ptr_array_add (chip->chip_features, chipfeature);
-            chip->num_features++;
+            ptr_chipfeature = g_new0 (t_chipfeature, 1);
+            ptr_chipfeature->devicename = g_strconcat ("/dev/", str_devicename, NULL); /* /proc/ide/hda/model ?? */
+            ptr_chipfeature->name = g_strdup(ptr_chipfeature->devicename);
+            g_ptr_array_add (ptr_chip->chip_features, ptr_chipfeature);
+            ptr_chip->num_features++;
         }
     }
 
-    g_dir_close (gdir);
+    g_dir_close (ptr_dir);
 
     TRACE ("leaves read_disks_linux26");
 }
@@ -294,35 +294,34 @@ read_disks_linux26 (t_chip *chip)
 
 
 void
-remove_unmonitored_drives (t_chip *chip, gboolean *suppressmessage)
+remove_unmonitored_drives (t_chip *ptr_chip, gboolean *suppressmessage)
 {
-    int i, val_disk_temperature;
+    int idx_features, val_disk_temperature;
     t_chipfeature *ptr_chipfeature;
 
     TRACE ("enters remove_unmonitored_drives");
 
-    for (i=0; i<chip->num_features; i++)
+    for (idx_features=0; idx_features<ptr_chip->num_features; idx_features++)
     {
-        ptr_chipfeature = g_ptr_array_index (chip->chip_features, i);
+        ptr_chipfeature = g_ptr_array_index (ptr_chip->chip_features, idx_features);
         val_disk_temperature = get_hddtemp_value (ptr_chipfeature->devicename, suppressmessage);
         if (val_disk_temperature == NO_VALID_HDDTEMP_PROGRAM)
         {
             DBG ("removing single disk");
             free_chipfeature ( (gpointer) ptr_chipfeature, NULL);
-            g_ptr_array_remove_index (chip->chip_features, i);
-            i--;
-            chip->num_features--;
+            g_ptr_array_remove_index (ptr_chip->chip_features, idx_features);
+            idx_features--;
+            ptr_chip->num_features--;
         }
         else if (val_disk_temperature == NO_VALID_TEMPERATURE_VALUE)
         {
-            for (i=0; i < chip->num_features; i++) {
-                DBG ("remove %d\n", i);
-                ptr_chipfeature = g_ptr_array_index (chip->chip_features, i);
+            for (idx_features=0; idx_features < ptr_chip->num_features; idx_features++) {
+                DBG ("remove %d\n", idx_features);
+                ptr_chipfeature = g_ptr_array_index (ptr_chip->chip_features, idx_features);
                 free_chipfeature ( (gpointer) ptr_chipfeature, NULL);
             }
-            g_ptr_array_free (chip->chip_features, TRUE);
-            // chip->chip_features = g_ptr_array_new();
-            chip->num_features=0;
+            g_ptr_array_free (ptr_chip->chip_features, TRUE);
+            ptr_chip->num_features=0;
             DBG ("Returning because of bad hddtemp.\n");
             return;
         }
@@ -333,26 +332,22 @@ remove_unmonitored_drives (t_chip *chip, gboolean *suppressmessage)
 
 
 void
-populate_detected_drives (t_chip *chip)
+populate_detected_drives (t_chip *ptr_chip)
 {
     int idx_disks;
-    /* double value; */
     t_chipfeature *ptr_chipfeature;
 
     TRACE ("enters populate_detected_drives");
 
-    //chip->sensorId = g_strdup(_("Hard disks"));
-
-    for (idx_disks=0; idx_disks < chip->num_features; idx_disks++)
+    for (idx_disks=0; idx_disks < ptr_chip->num_features; idx_disks++)
     {
-       ptr_chipfeature = g_ptr_array_index (chip->chip_features, idx_disks);
+       ptr_chipfeature = g_ptr_array_index (ptr_chip->chip_features, idx_disks);
        g_assert (ptr_chipfeature!=NULL);
 
        ptr_chipfeature->address = idx_disks;
 
        ptr_chipfeature->color = g_strdup("#B000B0");
        ptr_chipfeature->valid = TRUE;
-       //ptr_chipfeature->formatted_value = g_strdup ("0.0"); /* _printf("%+5.1f", 0.0); */
        ptr_chipfeature->raw_value = 0.0;
 
        ptr_chipfeature->class = TEMPERATURE;
@@ -367,32 +362,29 @@ populate_detected_drives (t_chip *chip)
 
 
 int
-initialize_hddtemp (GPtrArray *chips, gboolean *suppressmessage)
+initialize_hddtemp (GPtrArray *arr_ptr_chips, gboolean *suppressmessage)
 {
 #ifndef HAVE_NETCAT
     int generation, major, result;
     struct utsname *p_uname = NULL;
 #endif
     int retval;
-    t_chip *chip;
+    t_chip *ptr_chip;
 
-    g_assert (chips!=NULL);
+    g_assert (arr_ptr_chips!=NULL);
 
     TRACE ("enters initialize_hddtemp");
 
-    chip = g_new0 (t_chip, 1);
+    ptr_chip = g_new0 (t_chip, 1);
 
-/*    chip->chip_name = (const sensors_chip_name *)
-            ( _("Hard disks"), 0, 0, _("Hard disks") ); */
-
-    chip->chip_features = g_ptr_array_new ();
-    chip->num_features = 0;
-    chip->description = g_strdup(_("S.M.A.R.T. harddisk temperatures"));
-    chip->name = g_strdup(_("Hard disks"));
-    chip->sensorId = g_strdup("Hard disks");
-    chip->type = HDD;
+    ptr_chip->chip_features = g_ptr_array_new ();
+    ptr_chip->num_features = 0;
+    ptr_chip->description = g_strdup(_("S.M.A.R.T. harddisk temperatures"));
+    ptr_chip->name = g_strdup(_("Hard disks"));
+    ptr_chip->sensorId = g_strdup("Hard disks");
+    ptr_chip->type = HDD;
 #ifdef HAVE_NETCAT
-    read_disks_netcat (chip);
+    read_disks_netcat (ptr_chip);
 #else
     p_uname = (struct utsname *) malloc (sizeof(struct utsname));
     result =  uname (p_uname);
@@ -417,12 +409,12 @@ initialize_hddtemp (GPtrArray *chips, gboolean *suppressmessage)
 #endif
 
 
-    remove_unmonitored_drives (chip, suppressmessage);
-    DBG  ("numfeatures=%d\n", chip->num_features);
-    if ( chip->num_features>0 ) {  /* if (1) */
+    remove_unmonitored_drives (ptr_chip, suppressmessage);
+    DBG  ("numfeatures=%d\n", ptr_chip->num_features);
+    if ( ptr_chip->num_features>0 ) {  /* if (1) */
 
-        populate_detected_drives (chip);
-        g_ptr_array_add (chips, chip);
+        populate_detected_drives (ptr_chip);
+        g_ptr_array_add (arr_ptr_chips, ptr_chip);
         retval = 2;
     }
     else {
@@ -439,53 +431,53 @@ initialize_hddtemp (GPtrArray *chips, gboolean *suppressmessage)
 int
 get_hddtemp_d_str (char *buffer, size_t bufsize)
 {
-    int sock;
-    struct sockaddr_in servername;
-    struct hostent *hostinfo;
-    int nbytes = 0, nchunk = 0;
+    int socket_number;
+    struct sockaddr_in sockaddr_hddtemplocalhost;
+    struct hostent *ptr_hostinfo;
+    int num_read_bytes_total = 0, num_read = 0;
 
     /* Create the socket. */
-    sock = socket(PF_INET, SOCK_STREAM, 0);
-    if (sock < 0) {
+    socket_number = socket(PF_INET, SOCK_STREAM, 0);
+    if (socket_number < 0) {
       return HDDTEMP_CONNECTION_FAILED;
     }
 
     /* Connect to the server. */
-    servername.sin_family = AF_INET;
-    servername.sin_port = htons(HDDTEMP_PORT);
-    hostinfo = gethostbyname("localhost");
-    if (hostinfo == NULL) {
+    sockaddr_hddtemplocalhost.sin_family = AF_INET;
+    sockaddr_hddtemplocalhost.sin_port = htons(HDDTEMP_PORT);
+    ptr_hostinfo = gethostbyname("localhost");
+    if (ptr_hostinfo == NULL) {
 /*  fprintf (stderr, "Unknown host %s.\n", hostname);*/
       return HDDTEMP_CONNECTION_FAILED;
     }
-    servername.sin_addr = *(struct in_addr *) hostinfo->h_addr;
+    sockaddr_hddtemplocalhost.sin_addr = *(struct in_addr *) ptr_hostinfo->h_addr;
 
-    if (connect (sock, (struct sockaddr *) &servername, sizeof (servername)) < 0) {
+    if (connect (socket_number, (struct sockaddr *) &sockaddr_hddtemplocalhost, sizeof (sockaddr_hddtemplocalhost)) < 0) {
 /*  perror ("connect (client)");*/
       return HDDTEMP_CONNECTION_FAILED;
     }
 
     /* Read data from server. */
     for (;;) {
-      nchunk = read(sock, buffer+nbytes, bufsize-nbytes-1);
-      if (nchunk < 0) {
+      num_read = read(socket_number, buffer+num_read_bytes_total, bufsize-num_read_bytes_total-1);
+      if (num_read < 0) {
           /* Read error. */
     /*      perror ("read");*/
-          close (sock);
+          close (socket_number);
           return HDDTEMP_CONNECTION_FAILED;
-      } else if (nchunk == 0) {
+      } else if (num_read == 0) {
           /* End-of-file. */
           break;
       } else {
           /* Data read. */
-          nbytes += nchunk;
+          num_read_bytes_total += num_read;
       }
     }
 
-    buffer[nbytes] = 0;
-    close (sock);
+    buffer[num_read_bytes_total] = 0;
+    close (socket_number);
 
-    return nbytes;
+    return num_read_bytes_total;
 }
 
 
@@ -504,7 +496,7 @@ get_hddtemp_value (char* str_disk, gboolean *ptr_suppressmessage)
     GError *ptr_f_error=NULL;
 
 #ifdef HAVE_NETCAT
-    gchar *tmp, *tmp2, *tmp3;
+    gchar *str_tmp, *str_tmp2, *str_tmp3;
     char reply[REPLY_MAX_SIZE];
     int val_hddtemp_result;
 #endif
@@ -528,25 +520,25 @@ get_hddtemp_value (char* str_disk, gboolean *ptr_suppressmessage)
       return NO_VALID_HDDTEMP_PROGRAM;
     }
 
-    tmp3 = "-255";
-    tmp = str_split (reply, DOUBLE_DELIMITER);
+    str_tmp3 = "-255";
+    str_tmp = str_split (reply, DOUBLE_DELIMITER);
     do {
-        tmp2 = g_strdup (tmp);
-        tmp3 = strtok (tmp2, SINGLE_DELIMITER); // device name
-        if (strcmp(tmp3, str_disk)==0)
+        str_tmp2 = g_strdup (str_tmp);
+        str_tmp3 = strtok (str_tmp2, SINGLE_DELIMITER); // device name
+        if (strcmp(str_tmp3, str_disk)==0)
         {
             strtok(NULL, SINGLE_DELIMITER); // name
-            tmp3 = strdup(strtok(NULL, SINGLE_DELIMITER)); // value
+            str_tmp3 = strdup(strtok(NULL, SINGLE_DELIMITER)); // value
             exit_status = 0;
             ptr_f_error = NULL;
-            g_free (tmp2);
+            g_free (str_tmp2);
             break;
         }
-        g_free (tmp2);
+        g_free (str_tmp2);
     }
-    while ( (tmp = str_split(NULL, DOUBLE_DELIMITER)) );
+    while ( (str_tmp = str_split(NULL, DOUBLE_DELIMITER)) );
 
-    ptr_str_stdout = tmp3;
+    ptr_str_stdout = str_tmp3;
 
 #else
     ptr_str_hddtemp_call = g_strdup_printf ( "%s -n -q %s", PATH_HDDTEMP, str_disk);
@@ -578,9 +570,7 @@ get_hddtemp_value (char* str_disk, gboolean *ptr_suppressmessage)
                             PATH_HDDTEMP, ptr_str_hddtemp_call, ptr_str_stderr, exit_status);
 
 #if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
-            //ptr_str_message = g_strconcat(ptr_str_message, _("\nYou can disable these notifications in the settings dialog.\n");
             quick_message_notify (ptr_str_message);
-            //f_nevershowagain = FALSE;
 #else
             ptr_str_checkbutton = g_strdup(_("Suppress this message in future"));
             f_nevershowagain = quick_message_with_checkbox(ptr_str_message, ptr_str_checkbutton);
@@ -604,7 +594,6 @@ get_hddtemp_value (char* str_disk, gboolean *ptr_suppressmessage)
                                       " \"%s\":\n%s"), ptr_str_hddtemp_call, ptr_f_error->message);
 #if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
             quick_message_notify (ptr_str_message);
-            //f_nevershowagain = FALSE;
 #else
             ptr_str_checkbutton = g_strdup(_("Suppress this message in future"));
             f_nevershowagain = quick_message_with_checkbox (ptr_str_message, ptr_str_checkbutton);
@@ -652,7 +641,7 @@ get_hddtemp_value (char* str_disk, gboolean *ptr_suppressmessage)
 
 
 void
-refresh_hddtemp (gpointer chip_feature, gpointer data)
+refresh_hddtemp (gpointer chip_feature, gpointer ptr_sensors)
 {
     t_chipfeature *ptr_chipfeature;
     double val_drive_temperature;
@@ -663,9 +652,9 @@ refresh_hddtemp (gpointer chip_feature, gpointer data)
 
     TRACE ("enters refresh_hddtemp");
 
-    if (data != NULL)
+    if (ptr_sensors != NULL)
     {
-        ptr_sensors_plugin_data = (t_sensors *) data;
+        ptr_sensors_plugin_data = (t_sensors *) ptr_sensors;
         ptr_f_suppress = &(ptr_sensors_plugin_data->suppressmessage);
     }
 
@@ -673,8 +662,6 @@ refresh_hddtemp (gpointer chip_feature, gpointer data)
 
     val_drive_temperature = get_hddtemp_value (ptr_chipfeature->devicename, ptr_f_suppress);
 
-    //g_free (ptr_chipfeature->formatted_value);
-    //ptr_chipfeature->formatted_value = g_strdup_printf(_("%.1f °C"), val_drive_temperature);
     ptr_chipfeature->raw_value = val_drive_temperature;
 
     TRACE ("leaves refresh_hddtemp");
