@@ -401,9 +401,9 @@ initialize_hddtemp (GPtrArray *arr_ptr_chips, gboolean *suppressmessage)
      and major/minor number stuff from compile time*/
 
     if (strcmp(p_uname->sysname, "Linux")==0 && (generation>=3 || (generation==2 && major>=5)))
-        read_disks_linux26 (chip);
+        read_disks_linux26 (ptr_chip);
     else
-        read_disks_fallback (chip); /* hopefully, that's a safe variant */
+        read_disks_fallback (ptr_chip); /* hopefully, that's a safe variant */
 
     g_free(p_uname);
 #endif
