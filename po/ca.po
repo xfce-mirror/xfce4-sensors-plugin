@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-04 11:49+0100\n"
-"PO-Revision-Date: 2017-02-15 22:06+0000\n"
+"PO-Revision-Date: 2017-02-16 19:25+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -64,7 +64,7 @@ msgstr "Mostra les _etiquetes"
 
 #: ../panel-plugin/sensors-plugin.c:1942
 msgid "Show colored _bars"
-msgstr "Mostra les _barres colorejades"
+msgstr "Mostra les _barres amb acoloriment"
 
 #: ../panel-plugin/sensors-plugin.c:1970
 msgid "_Show title"
