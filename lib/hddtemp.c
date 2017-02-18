@@ -365,10 +365,10 @@ int
 initialize_hddtemp (GPtrArray *arr_ptr_chips, gboolean *suppressmessage)
 {
 #ifndef HAVE_NETCAT
-    int generation, major, result;
-    struct utsname *p_uname = NULL;
+    int generation_linuxkernel, majorversion_linuxkernel;
+    struct utsname *ptr_unixname = NULL;
 #endif
-    int retval;
+    int result;
     t_chip *ptr_chip;
 
     g_assert (arr_ptr_chips!=NULL);
@@ -386,26 +386,26 @@ initialize_hddtemp (GPtrArray *arr_ptr_chips, gboolean *suppressmessage)
 #ifdef HAVE_NETCAT
     read_disks_netcat (ptr_chip);
 #else
-    p_uname = (struct utsname *) malloc (sizeof(struct utsname));
-    result =  uname (p_uname);
+    ptr_unixname = (struct utsname *) malloc (sizeof(struct utsname));
+    result = uname (ptr_unixname);
     if (result!=0) {
-        g_free(p_uname);
+        g_free(ptr_unixname);
         return -1;
     }
 
-    generation = atoi ( p_uname->release ); /* this might cause trouble on */
-    major = atoi ( p_uname->release+2 );      /* other systems than Linux! */
+    generation_linuxkernel = atoi ( ptr_unixname->release ); /* this might cause trouble on */
+    majorversion_linuxkernel = atoi ( ptr_unixname->release+2 );      /* other systems than Linux! */
                 /* actually, wanted to use build time configuration therefore */
 
     /* Note: This is actually supposed to be carried out by ifdef HAVE_LINUX
      and major/minor number stuff from compile time*/
 
-    if (strcmp(p_uname->sysname, "Linux")==0 && (generation>=3 || (generation==2 && major>=5)))
+    if (strcmp(ptr_unixname->sysname, "Linux")==0 && (generation_linuxkernel>=3 || (generation_linuxkernel==2 && majorversion_linuxkernel>=5)))
         read_disks_linux26 (ptr_chip);
     else
         read_disks_fallback (ptr_chip); /* hopefully, that's a safe variant */
 
-    g_free(p_uname);
+    g_free(ptr_unixname);
 #endif
 
 
@@ -415,15 +415,15 @@ initialize_hddtemp (GPtrArray *arr_ptr_chips, gboolean *suppressmessage)
 
         populate_detected_drives (ptr_chip);
         g_ptr_array_add (arr_ptr_chips, ptr_chip);
-        retval = 2;
+        result = 2;
     }
     else {
-        retval = 0;
+        result = 0;
     }
 
     TRACE ("leaves initialize_hddtemp");
 
-    return retval;
+    return result;
 }
 
 
