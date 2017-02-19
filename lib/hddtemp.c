@@ -125,7 +125,7 @@ quick_message_notify (gchar *str_message)
 void
 quick_message_dialog (gchar *str_message)
 {
-    GtkWidget *ptr_dialog;  /*, *label; */
+    GtkWidget *ptr_dialog;
 
     TRACE ("enters quick_message");
 
@@ -147,7 +147,7 @@ quick_message_dialog (gchar *str_message)
 gboolean
 quick_message_with_checkbox (gchar *str_message, gchar *str_checkboxtext)
 {
-    GtkWidget *ptr_dialog, *ptr_checkbox;  /*, *label; */
+    GtkWidget *ptr_dialog, *ptr_checkbox;
     gboolean is_active;
 
     TRACE ("enters quick_message");
@@ -240,7 +240,7 @@ read_disks_fallback (t_chip *ptr_chip)
 
     while ( (str_devicename = g_dir_read_name (ptr_dir))!=NULL ) {
         if ( strncmp (str_devicename, "hd", 2)==0 || strncmp (str_devicename, "sd", 2)==0) {
-            /* TODO: look, if /dev/str_devicename exists? */
+            /* TODO: look whether /dev/str_devicename exists? */
             ptr_chipfeature = g_new0 (t_chipfeature, 1);
             ptr_chipfeature->devicename = g_strconcat ("/dev/", str_devicename, NULL);
             ptr_chipfeature->name = g_strdup(ptr_chipfeature->devicename);
@@ -277,7 +277,7 @@ read_disks_linux26 (t_chip *ptr_chip)
              strncmp (str_devicename, "dm-", 3)!=0 ) { */
         if ( strncmp (str_devicename, "hd", 2)==0 ||
               strncmp (str_devicename, "sd", 2)==0 ) {
-            /* TODO: look, if /dev/str_devicename exists? */
+            /* TODO: look whether /dev/str_devicename exists? */
             ptr_chipfeature = g_new0 (t_chipfeature, 1);
             ptr_chipfeature->devicename = g_strconcat ("/dev/", str_devicename, NULL); /* /proc/ide/hda/model ?? */
             ptr_chipfeature->name = g_strdup(ptr_chipfeature->devicename);
@@ -408,7 +408,6 @@ initialize_hddtemp (GPtrArray *arr_ptr_chips, gboolean *suppressmessage)
     g_free(ptr_unixname);
 #endif
 
-
     remove_unmonitored_drives (ptr_chip, suppressmessage);
     DBG  ("numfeatures=%d\n", ptr_chip->num_features);
     if ( ptr_chip->num_features>0 ) {  /* if (1) */
@@ -447,13 +446,11 @@ get_hddtemp_d_str (char *buffer, size_t bufsize)
     sockaddr_hddtemplocalhost.sin_port = htons(HDDTEMP_PORT);
     ptr_hostinfo = gethostbyname("localhost");
     if (ptr_hostinfo == NULL) {
-/*  fprintf (stderr, "Unknown host %s.\n", hostname);*/
       return HDDTEMP_CONNECTION_FAILED;
     }
     sockaddr_hddtemplocalhost.sin_addr = *(struct in_addr *) ptr_hostinfo->h_addr;
 
     if (connect (socket_number, (struct sockaddr *) &sockaddr_hddtemplocalhost, sizeof (sockaddr_hddtemplocalhost)) < 0) {
-/*  perror ("connect (client)");*/
       return HDDTEMP_CONNECTION_FAILED;
     }
 
@@ -462,7 +459,6 @@ get_hddtemp_d_str (char *buffer, size_t bufsize)
       num_read = read(socket_number, buffer+num_read_bytes_total, bufsize-num_read_bytes_total-1);
       if (num_read < 0) {
           /* Read error. */
-    /*      perror ("read");*/
           close (socket_number);
           return HDDTEMP_CONNECTION_FAILED;
       } else if (num_read == 0) {
