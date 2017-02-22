@@ -314,7 +314,6 @@ sensors_update_graphical_panel (t_sensors *ptr_sensorsstructure)
 }
 
 
-
 static void
 sensors_update_tacho_panel (t_sensors *sensors)
 {
@@ -323,6 +322,9 @@ sensors_update_tacho_panel (t_sensors *sensors)
     t_chipfeature *ptr_chipfeature = NULL;
     GtkWidget *ptr_tacho = NULL;
     double val_percentage = 0.0;
+    gint size_panel = sensors->panel_size;
+    if (!sensors->cover_panel_rows && xfce_panel_plugin_get_mode(sensors->plugin) != XFCE_PANEL_PLUGIN_MODE_DESKBAR)
+        size_panel /= xfce_panel_plugin_get_nrows (sensors->plugin);
 
     TRACE("enters sensors_update_tacho_panel");
 
@@ -338,7 +340,7 @@ sensors_update_tacho_panel (t_sensors *sensors)
                 ptr_tacho = sensors->tachos[idx_sensorchips][idx_feature];
 
                 val_percentage = sensors_get_percentage (ptr_chipfeature);
-                gtk_sensorstacho_set_size(GTK_SENSORSTACHO(ptr_tacho), sensors->panel_size);
+                gtk_sensorstacho_set_size(GTK_SENSORSTACHO(ptr_tacho), size_panel);
                 gtk_sensorstacho_set_value(GTK_SENSORSTACHO(ptr_tacho), val_percentage);
                 gtk_sensorstacho_set_color(GTK_SENSORSTACHO(ptr_tacho), ptr_chipfeature->color);
             }
@@ -360,8 +362,12 @@ sensors_add_graphical_display (t_sensors *sensors)
     GtkWidget *widget_progbar, *widget_databox, *widget_label;
     gchar *str_barlabeltext, *str_panellabeltext;
     guint len_barlabeltext;
+    gint size_panel = (gint) sensors->panel_size;
 
-    TRACE ("enters sensors_add_graphical_display with size %d.", sensors->panel_size);
+    if (!sensors->cover_panel_rows && xfce_panel_plugin_get_mode(sensors->plugin) != XFCE_PANEL_PLUGIN_MODE_DESKBAR)
+        size_panel /= xfce_panel_plugin_get_nrows (sensors->plugin);
+
+    TRACE ("enters sensors_add_graphical_display with size %d.", size_panel);
 
     str_panellabeltext = g_strdup (_("<span><b>Sensors</b></span>"));
     gtk_label_set_markup (GTK_LABEL(sensors->panel_label_text), str_panellabeltext);
@@ -393,7 +399,7 @@ sensors_add_graphical_display (t_sensors *sensors)
                     widget_databox = gtk_vbox_new (FALSE, 0);
                 }
 
-                sensors_set_levelbar_size (widget_progbar, (int) sensors->panel_size,
+                sensors_set_levelbar_size (widget_progbar, size_panel,
                                            sensors->orientation);
                 gtk_widget_show (widget_progbar);
 
@@ -463,7 +469,11 @@ sensors_add_tacho_display (t_sensors *sensors)
     GtkWidget *ptr_tacho;
     gchar *str_panellabeltext;
 
-    TRACE ("enters sensors_add_tacho_display with size %d.", sensors->panel_size);
+    gint size_panel = sensors->panel_size;
+    if (!sensors->cover_panel_rows && xfce_panel_plugin_get_mode(sensors->plugin) != XFCE_PANEL_PLUGIN_MODE_DESKBAR)
+        size_panel /= xfce_panel_plugin_get_nrows (sensors->plugin);
+
+    TRACE ("enters sensors_add_tacho_display with size %d.", size_panel);
 
     str_panellabeltext = g_strdup (_("<span><b>Sensors</b></span>"));
     gtk_label_set_markup (GTK_LABEL(sensors->panel_label_text), str_panellabeltext);
@@ -481,7 +491,7 @@ sensors_add_tacho_display (t_sensors *sensors)
             if (ptr_chipfeature->show == TRUE) {
                 has_tachos = TRUE;
 
-                ptr_tacho = gtk_sensorstacho_new(sensors->orientation, sensors->panel_size);
+                ptr_tacho = gtk_sensorstacho_new(sensors->orientation, size_panel);
 
                 /* create the label stuff only if needed - saves some memory! */
                 if (sensors->show_labels == TRUE) {
@@ -1064,69 +1074,6 @@ sensors_show_panel (gpointer data)
 }
 
 
-static void
-sensors_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
-                         t_sensors *ptr_sensorsstructure)
-{
-    GtkWidget *newBox;
-    int i, feature;
-    t_chip *chip;
-    t_chipfeature *ptr_chipfeature;
-    t_labelledlevelbar *ptr_labelledlevelbar;
-
-    TRACE ("enters sensors_set_orientation: %d", orientation);
-
-    if (orientation == ptr_sensorsstructure->orientation) // || !sensors->display_values_graphically)
-        return;
-
-    ptr_sensorsstructure->orientation = orientation; /* now assign the new orientation */
-
-    newBox = orientation==GTK_ORIENTATION_HORIZONTAL ? gtk_hbox_new(FALSE, 0) : gtk_vbox_new(FALSE, 0);
-    gtk_widget_show (newBox);
-
-    gtk_widget_reparent (ptr_sensorsstructure->panel_label_text, newBox);
-    gtk_widget_reparent (ptr_sensorsstructure->panel_label_data, newBox);
-
-    if (ptr_sensorsstructure->display_values_type != DISPLAY_TEXT)
-    {
-        for (i=0; i < ptr_sensorsstructure->num_sensorchips; i++) {
-            chip = (t_chip *) g_ptr_array_index (ptr_sensorsstructure->chips, i);
-            g_assert (chip!=NULL);
-
-            for (feature = 0; feature<chip->num_features; feature++)
-            {
-                ptr_chipfeature = g_ptr_array_index (chip->chip_features, feature);
-                g_assert (ptr_chipfeature!=NULL);
-
-                if (ptr_chipfeature->show == TRUE) {
-                    ptr_labelledlevelbar = (t_labelledlevelbar*) ptr_sensorsstructure->panels[i][feature];
-                    gtk_widget_reparent (ptr_labelledlevelbar->databox, newBox);
-                }
-            }
-        }
-    }
-    else
-    {
-        /* we don't need a separate function for just one call. */
-    }
-
-    gtk_widget_destroy (ptr_sensorsstructure->widget_sensors);
-    ptr_sensorsstructure->widget_sensors = newBox;
-
-    gtk_container_add (GTK_CONTAINER (ptr_sensorsstructure->eventbox),
-                   ptr_sensorsstructure->widget_sensors);
-
-    if (ptr_sensorsstructure->display_values_type == DISPLAY_BARS)
-        sensors_remove_graphical_panel (ptr_sensorsstructure);
-    else if (ptr_sensorsstructure->display_values_type == DISPLAY_TACHO)
-        sensors_remove_tacho_panel (ptr_sensorsstructure);
-
-    sensors_show_panel (ptr_sensorsstructure);
-
-    TRACE ("leaves sensors_set_orientation");
-}
-
-
 /* initialize box and label to pack them together */
 static void
 create_panel_widget (t_sensors * ptr_sensorsstructure)
@@ -1134,15 +1081,12 @@ create_panel_widget (t_sensors * ptr_sensorsstructure)
     TRACE ("enters create_panel_widget");
 
     /* initialize a new vbox widget */
-    if (ptr_sensorsstructure->orientation == GTK_ORIENTATION_HORIZONTAL)
-        ptr_sensorsstructure->widget_sensors = gtk_hbox_new (FALSE, 0);
-    else
-        ptr_sensorsstructure->widget_sensors = gtk_vbox_new (FALSE, 0);
+    ptr_sensorsstructure->widget_sensors = (ptr_sensorsstructure->orientation == GTK_ORIENTATION_HORIZONTAL) ? gtk_hbox_new (FALSE, 0) : gtk_vbox_new (FALSE, 0);
 
     gtk_widget_show (ptr_sensorsstructure->widget_sensors);
 
     /* initialize value label widget */
-    ptr_sensorsstructure->panel_label_text = gtk_widget_new (GTK_TYPE_LABEL, "label", _("<span><b>Sensors</b></span>"), "use-markup", TRUE, "xalign", 0.0, "xalign", 0.5, "margin", INNER_BORDER, NULL);
+    ptr_sensorsstructure->panel_label_text = gtk_widget_new (GTK_TYPE_LABEL, "label", _("<span><b>Sensors</b></span>"), "use-markup", TRUE, "xalign", 0.0, "yalign", 0.5, "margin", INNER_BORDER, NULL);
 
     gtk_widget_show (ptr_sensorsstructure->panel_label_text);
 
@@ -1158,8 +1102,91 @@ create_panel_widget (t_sensors * ptr_sensorsstructure)
     gtk_box_pack_start (GTK_BOX (ptr_sensorsstructure->widget_sensors),
                         ptr_sensorsstructure->panel_label_data, TRUE, TRUE, 0);
 
-
     TRACE ("leaves create_panel_widget");
+}
+
+
+static void
+sensors_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
+                         t_sensors *ptr_sensorsstructure)
+{
+    //GtkWidget *newBox;
+    //int i, feature;
+    //t_chip *chip;
+    //t_chipfeature *ptr_chipfeature;
+    //t_labelledlevelbar *ptr_labelledlevelbar;
+
+    TRACE ("enters sensors_set_orientation: %d", orientation);
+
+    if (plugin==NULL || ptr_sensorsstructure==NULL)
+        return;
+
+    /* size or orientation shall give hints about the panel plugin mode */
+    if (ptr_sensorsstructure->cover_panel_rows || xfce_panel_plugin_get_mode(plugin) == XFCE_PANEL_PLUGIN_MODE_DESKBAR)
+        xfce_panel_plugin_set_small(plugin, FALSE);
+    else
+        xfce_panel_plugin_set_small(plugin, TRUE);
+
+    if (orientation == ptr_sensorsstructure->orientation) // || !sensors->display_values_graphically)
+        return;
+
+    ptr_sensorsstructure->orientation = orientation; /* now assign the new orientation */
+
+    //newBox = (orientation==GTK_ORIENTATION_HORIZONTAL) ? gtk_hbox_new(FALSE, 0) : gtk_vbox_new(FALSE, 0);
+    //gtk_widget_show (newBox);
+    //DBG("has new box: %p\n", newBox);
+
+    //gtk_widget_reparent (ptr_sensorsstructure->panel_label_text, newBox);
+    gtk_widget_destroy (ptr_sensorsstructure->panel_label_text);
+    gtk_widget_destroy (ptr_sensorsstructure->panel_label_data);
+    //gtk_widget_reparent (ptr_sensorsstructure->panel_label_data, newBox);
+
+    //DBG("DISPLAY VAlue type: %d\n", ptr_sensorsstructure->display_values_type);
+
+    //if (ptr_sensorsstructure->display_values_type != DISPLAY_TEXT)
+    //{
+        //for (i=0; i < ptr_sensorsstructure->num_sensorchips; i++) {
+            //chip = (t_chip *) g_ptr_array_index (ptr_sensorsstructure->chips, i);
+            //g_assert (chip!=NULL);
+
+            //for (feature = 0; feature<chip->num_features; feature++)
+            //{
+                //ptr_chipfeature = g_ptr_array_index (chip->chip_features, feature);
+                //g_assert (ptr_chipfeature!=NULL);
+
+                //if (ptr_chipfeature->show == TRUE) {
+                    //ptr_labelledlevelbar = (t_labelledlevelbar*) ptr_sensorsstructure->panels[i][feature];
+                    //gtk_widget_reparent (ptr_labelledlevelbar->databox, newBox);
+                //}
+            //}
+        //}
+    //}
+    //else
+    //{
+        ///* we don't need a separate function for just one call. */
+    //}
+
+    gtk_widget_destroy (ptr_sensorsstructure->widget_sensors);
+    //ptr_sensorsstructure->widget_sensors = newBox;
+//DBG("adding widget sensors to eventbox.\n");
+    //gtk_container_add (GTK_CONTAINER (ptr_sensorsstructure->eventbox),
+                   //ptr_sensorsstructure->widget_sensors);
+//DBG("added widget sensors to eventbox.\n");
+
+    if (ptr_sensorsstructure->display_values_type == DISPLAY_BARS)
+        sensors_remove_graphical_panel (ptr_sensorsstructure);
+    else if (ptr_sensorsstructure->display_values_type == DISPLAY_TACHO)
+        sensors_remove_tacho_panel (ptr_sensorsstructure);
+
+    //sensors_show_panel (ptr_sensorsstructure);
+
+    create_panel_widget(ptr_sensorsstructure);
+
+
+    gtk_container_add (GTK_CONTAINER (ptr_sensorsstructure->eventbox),
+                       ptr_sensorsstructure->widget_sensors);
+
+    TRACE ("leaves sensors_set_orientation");
 }
 
 
@@ -1231,6 +1258,12 @@ sensors_set_size (XfcePanelPlugin *plugin, int size, t_sensors *sensors)
     TRACE ("enters sensors_set_size: %d", size);
 
     sensors->panel_size = (gint) size;
+
+    /* when the orientation has toggled, maybe the size as well? */
+    if (sensors->cover_panel_rows || xfce_panel_plugin_get_mode(plugin) == XFCE_PANEL_PLUGIN_MODE_DESKBAR)
+        xfce_panel_plugin_set_small(plugin, FALSE);
+    else
+        xfce_panel_plugin_set_small(plugin, TRUE);
 
     /* update the panel widget */
     sensors_show_panel ((gpointer) sensors);
@@ -1457,6 +1490,22 @@ lines_size_change (GtkWidget *widget, t_sensors_dialog *sd)
     sensors_show_panel ((gpointer) sd->sensors);
 
     TRACE ("leaves lines_size_change");
+}
+
+
+static void
+cover_rows_toggled(GtkWidget *widget, t_sensors_dialog *sd)
+{
+    TRACE ("enters cover_rows_toggled");
+
+    sd->sensors->cover_panel_rows = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget));
+
+    if (sd->sensors->cover_panel_rows || xfce_panel_plugin_get_mode(sd->sensors->plugin) == XFCE_PANEL_PLUGIN_MODE_DESKBAR)
+        xfce_panel_plugin_set_small(sd->sensors->plugin, FALSE);
+    else
+        xfce_panel_plugin_set_small(sd->sensors->plugin, TRUE);
+
+    TRACE ("leaves cover_rows_toggled");
 }
 
 
@@ -1990,7 +2039,7 @@ add_lines_box (GtkWidget * vbox, t_sensors_dialog * sd)
     GtkWidget *myLinesBox;
     GtkWidget *myLinesSizeSpinBox;
 
-    TRACE ("enters add_Lines_size_box");
+    TRACE ("enters add_lines_box");
 
     myLinesLabel = gtk_label_new_with_mnemonic (_("_Number of text lines:"));
     myLinesBox = gtk_hbox_new(FALSE, BORDER);
@@ -2015,8 +2064,32 @@ add_lines_box (GtkWidget * vbox, t_sensors_dialog * sd)
     g_signal_connect   (G_OBJECT (myLinesSizeSpinBox), "value-changed",
                         G_CALLBACK (lines_size_change), sd );
 
-    TRACE ("leaves add_Lines_size_box");
+    TRACE ("leaves add_lines_box");
 }
+
+
+static void
+add_cover_rows_box (GtkWidget * vbox, t_sensors_dialog * sd)
+{
+    GtkWidget *myCheckBox;
+
+    TRACE ("enters add_cover_rows_box");
+
+    if (xfce_panel_plugin_get_mode(sd->sensors->plugin) != XFCE_PANEL_PLUGIN_MODE_DESKBAR)
+    {
+        myCheckBox = gtk_check_button_new_with_mnemonic (_("_Cover all panel rows/columns"));
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(myCheckBox), sd->sensors->cover_panel_rows);
+
+        gtk_box_pack_start (GTK_BOX (vbox), myCheckBox, FALSE, FALSE, 0);
+
+        gtk_widget_show (myCheckBox);
+
+        g_signal_connect   (G_OBJECT (myCheckBox), "toggled",
+                            G_CALLBACK (cover_rows_toggled), sd );
+    }
+    TRACE ("leaves add_cover_rows_box");
+}
+
 
 static void
 add_str_fontsize_box (GtkWidget * vbox, t_sensors_dialog * sd)
@@ -2246,6 +2319,7 @@ add_view_frame (GtkWidget * notebook, t_sensors_dialog * sd)
     add_str_fontsize_box (_vbox, sd);
     add_font_settings_box (_vbox, sd);
     add_lines_box (_vbox, sd);
+    add_cover_rows_box(_vbox, sd);
     add_colored_bars_box (_vbox, sd);
     add_units_box (_vbox, sd);
     add_smallspacings_box(_vbox, sd);
@@ -2481,11 +2555,15 @@ sensors_plugin_construct (XfcePanelPlugin *plugin)
     maximum_changed = &maximum_changed_;
     temperature_unit_change = &temperature_unit_change_;
 
-
     ptr_sensorsstruct = create_sensors_control (plugin);
 
     ptr_sensorsstruct->plugin_config_file = xfce_panel_plugin_lookup_rc_file(plugin);
     sensors_read_config (plugin, ptr_sensorsstruct);
+
+    if (ptr_sensorsstruct->cover_panel_rows || xfce_panel_plugin_get_mode(plugin) == XFCE_PANEL_PLUGIN_MODE_DESKBAR)
+        xfce_panel_plugin_set_small(plugin, FALSE);
+    else
+        xfce_panel_plugin_set_small(plugin, TRUE);
 
     //if (font)
             //g_free (font);

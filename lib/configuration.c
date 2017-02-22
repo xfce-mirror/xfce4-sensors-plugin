@@ -116,6 +116,8 @@ sensors_write_config (t_sensors *ptr_sensors)
 
             xfce_rc_write_int_entry (ptr_xfcerc, "Lines_Size", ptr_sensors->lines_size);
 
+            xfce_rc_write_bool_entry (ptr_xfcerc, "Cover_All_Panel_Rows", ptr_sensors->cover_panel_rows);
+
             xfce_rc_write_int_entry (ptr_xfcerc, "Update_Interval", ptr_sensors->sensors_refresh_time);
 
             xfce_rc_write_bool_entry (ptr_xfcerc, "Exec_Command", ptr_sensors->exec_command);
@@ -230,6 +232,8 @@ sensors_read_general_config (XfceRc *ptr_xfceresources, t_sensors *ptr_sensors)
                                                  "val_fontsize", 2);
 
         ptr_sensors->lines_size = xfce_rc_read_int_entry (ptr_xfceresources, "Lines_Size", 3);
+
+        ptr_sensors->cover_panel_rows = xfce_rc_read_bool_entry (ptr_xfceresources, "Cover_All_Panel_Rows", FALSE);
 
         ptr_sensors->sensors_refresh_time = xfce_rc_read_int_entry (ptr_xfceresources, "Update_Interval",
                                                   60);

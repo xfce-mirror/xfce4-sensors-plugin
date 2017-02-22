@@ -73,7 +73,11 @@ typedef struct {
     /* panel size to compute number of cols/columns */
     gint panel_size;
 
+    /* Requested/allowed number of lines in text mode */
     gint lines_size;
+
+    /* The panel plugins can cover all rows/columns of the panel, but default is to not do so */
+    gboolean cover_panel_rows;
 
     /* panel orientation */
     GtkOrientation orientation;
