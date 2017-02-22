@@ -108,7 +108,6 @@ read_thermal_zone (t_chip *ptr_chip)
     {
         ptr_directory = opendir (".");
         if (!ptr_directory) {
-            closedir (ptr_directory);
             res_value = -1;
         }
         else
