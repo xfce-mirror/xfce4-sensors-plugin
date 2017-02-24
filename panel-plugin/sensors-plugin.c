@@ -423,6 +423,12 @@ sensors_add_graphical_display (t_sensors *sensors)
                     }
 
                     gtk_label_set_ellipsize (GTK_LABEL(widget_label), PANGO_ELLIPSIZE_END);
+
+                    if (sensors->orientation == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
+                        gtk_label_set_angle (GTK_LABEL(widget_label), 270);
+                    else
+                        gtk_label_set_angle (GTK_LABEL(widget_label), 0);
+
                     gtk_widget_show (widget_label);
                     ptr_labelledlevelbar->label = widget_label;
 
