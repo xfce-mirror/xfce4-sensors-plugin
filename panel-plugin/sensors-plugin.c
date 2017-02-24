@@ -388,7 +388,7 @@ sensors_add_graphical_display (t_sensors *sensors)
                 widget_progbar = gtk_level_bar_new();
                 gtk_level_bar_set_inverted(GTK_LEVEL_BAR(widget_progbar), TRUE);
 
-                if (sensors->orientation == GTK_ORIENTATION_HORIZONTAL) {
+                if (sensors->orientation == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL) {
                     gtk_orientable_set_orientation (GTK_ORIENTABLE (widget_progbar),
                                                     GTK_ORIENTATION_VERTICAL);
                     widget_databox = gtk_hbox_new (FALSE, 0);
@@ -686,7 +686,7 @@ determine_number_of_rows (t_sensors *sensors)
 
     g_assert (gtk_str_fontsize!=0);
 
-    if (sensors->orientation == GTK_ORIENTATION_HORIZONTAL) {
+    if (sensors->orientation != XFCE_PANEL_PLUGIN_MODE_DESKBAR) {
         switch (gtk_str_fontsize) {
             case 8:
                 switch (sensors->val_fontsize) {
@@ -771,7 +771,9 @@ sensors_set_text_panel_label (t_sensors *ptr_sensors, gint numCols, gint num_ite
 
     TRACE ("enters ptr_sensors_set_text_panel_label");
 
-    if (num_itemsToDisplay==0) {
+    if (ptr_sensors == NULL)
+        return;
+    else if (num_itemsToDisplay==0) {
         gtk_widget_hide (ptr_sensors->panel_label_data);
         return;
     }
@@ -820,8 +822,7 @@ sensors_set_text_panel_label (t_sensors *ptr_sensors, gint numCols, gint num_ite
                 }
 
 
-
-                if (ptr_sensors->orientation == GTK_ORIENTATION_VERTICAL) {
+                if (ptr_sensors->orientation == XFCE_PANEL_PLUGIN_MODE_DESKBAR) {
                     if (num_itemsToDisplay > 1) {
                         tmpstring = g_strconcat (myLabelText, "\n", NULL);
                         g_free(myLabelText);
@@ -855,17 +856,23 @@ sensors_set_text_panel_label (t_sensors *ptr_sensors, gint numCols, gint num_ite
     g_assert (num_itemsToDisplay==0);
 
     gtk_label_set_markup (GTK_LABEL(ptr_sensors->panel_label_data), myLabelText);
+
+    if (ptr_sensors->orientation == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
+    {
+        gtk_widget_set_halign(ptr_sensors->panel_label_data, GTK_ALIGN_CENTER);
+        gtk_label_set_angle(GTK_LABEL(ptr_sensors->panel_label_data), 270.0);
+    }
+    else
+    {
+        gtk_widget_set_valign(ptr_sensors->panel_label_data, GTK_ALIGN_CENTER);
+        gtk_label_set_angle(GTK_LABEL(ptr_sensors->panel_label_data), 0.0);
+    }
+
     /* if (ptr_sensors->show_units) */
         g_free(myLabelText);
     /* else: with sprintf, we cannot free the string. how bad. */
 
     gtk_widget_show (ptr_sensors->panel_label_data);
-
-    if (ptr_sensors->orientation== GTK_ORIENTATION_HORIZONTAL)
-         gtk_widget_set_valign(ptr_sensors->panel_label_data, GTK_ALIGN_CENTER);
-    else
-        gtk_widget_set_halign(ptr_sensors->panel_label_data, GTK_ALIGN_CENTER);
-
 
     TRACE ("leaves sensors_set_text_panel_label");
 }
@@ -1049,6 +1056,17 @@ sensors_show_panel (gpointer data)
 
     sensors = (t_sensors *) data;
 
+    if (sensors->orientation == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
+    {
+        gtk_widget_set_halign(sensors->panel_label_text, GTK_ALIGN_CENTER);
+        gtk_label_set_angle(GTK_LABEL(sensors->panel_label_text), 270.0);
+    }
+    else
+    {
+        gtk_widget_set_valign(sensors->panel_label_text, GTK_ALIGN_CENTER);
+        gtk_label_set_angle(GTK_LABEL(sensors->panel_label_text), 0);
+    }
+
     switch (sensors->display_values_type)
     {
       case DISPLAY_TACHO:
@@ -1081,7 +1099,7 @@ create_panel_widget (t_sensors * ptr_sensorsstructure)
     TRACE ("enters create_panel_widget");
 
     /* initialize a new vbox widget */
-    ptr_sensorsstructure->widget_sensors = (ptr_sensorsstructure->orientation == GTK_ORIENTATION_HORIZONTAL) ? gtk_hbox_new (FALSE, 0) : gtk_vbox_new (FALSE, 0);
+    ptr_sensorsstructure->widget_sensors = (ptr_sensorsstructure->orientation == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL) ? gtk_hbox_new (FALSE, 0) : gtk_vbox_new (FALSE, 0);
 
     gtk_widget_show (ptr_sensorsstructure->widget_sensors);
 
@@ -1107,81 +1125,33 @@ create_panel_widget (t_sensors * ptr_sensorsstructure)
 
 
 static void
-sensors_set_orientation (XfcePanelPlugin *plugin, GtkOrientation orientation,
+sensors_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode_panelplugin,
                          t_sensors *ptr_sensorsstructure)
 {
-    //GtkWidget *newBox;
-    //int i, feature;
-    //t_chip *chip;
-    //t_chipfeature *ptr_chipfeature;
-    //t_labelledlevelbar *ptr_labelledlevelbar;
+    TRACE ("enters sensors_set_mode: %d", mode_panelplugin);
 
-    TRACE ("enters sensors_set_orientation: %d", orientation);
+    g_return_if_fail (plugin!=NULL && ptr_sensorsstructure!=NULL);
 
-    if (plugin==NULL || ptr_sensorsstructure==NULL)
-        return;
+    g_return_if_fail (mode_panelplugin != ptr_sensorsstructure->orientation);
 
-    /* size or orientation shall give hints about the panel plugin mode */
-    if (ptr_sensorsstructure->cover_panel_rows || xfce_panel_plugin_get_mode(plugin) == XFCE_PANEL_PLUGIN_MODE_DESKBAR)
+    if (ptr_sensorsstructure->cover_panel_rows || mode_panelplugin == XFCE_PANEL_PLUGIN_MODE_DESKBAR)
         xfce_panel_plugin_set_small(plugin, FALSE);
     else
         xfce_panel_plugin_set_small(plugin, TRUE);
 
-    if (orientation == ptr_sensorsstructure->orientation) // || !sensors->display_values_graphically)
-        return;
+    ptr_sensorsstructure->orientation = mode_panelplugin; /* now assign the new orientation */
 
-    ptr_sensorsstructure->orientation = orientation; /* now assign the new orientation */
-
-    //newBox = (orientation==GTK_ORIENTATION_HORIZONTAL) ? gtk_hbox_new(FALSE, 0) : gtk_vbox_new(FALSE, 0);
-    //gtk_widget_show (newBox);
-    //DBG("has new box: %p\n", newBox);
-
-    //gtk_widget_reparent (ptr_sensorsstructure->panel_label_text, newBox);
     gtk_widget_destroy (ptr_sensorsstructure->panel_label_text);
     gtk_widget_destroy (ptr_sensorsstructure->panel_label_data);
-    //gtk_widget_reparent (ptr_sensorsstructure->panel_label_data, newBox);
-
-    //DBG("DISPLAY VAlue type: %d\n", ptr_sensorsstructure->display_values_type);
-
-    //if (ptr_sensorsstructure->display_values_type != DISPLAY_TEXT)
-    //{
-        //for (i=0; i < ptr_sensorsstructure->num_sensorchips; i++) {
-            //chip = (t_chip *) g_ptr_array_index (ptr_sensorsstructure->chips, i);
-            //g_assert (chip!=NULL);
-
-            //for (feature = 0; feature<chip->num_features; feature++)
-            //{
-                //ptr_chipfeature = g_ptr_array_index (chip->chip_features, feature);
-                //g_assert (ptr_chipfeature!=NULL);
-
-                //if (ptr_chipfeature->show == TRUE) {
-                    //ptr_labelledlevelbar = (t_labelledlevelbar*) ptr_sensorsstructure->panels[i][feature];
-                    //gtk_widget_reparent (ptr_labelledlevelbar->databox, newBox);
-                //}
-            //}
-        //}
-    //}
-    //else
-    //{
-        ///* we don't need a separate function for just one call. */
-    //}
 
     gtk_widget_destroy (ptr_sensorsstructure->widget_sensors);
-    //ptr_sensorsstructure->widget_sensors = newBox;
-//DBG("adding widget sensors to eventbox.\n");
-    //gtk_container_add (GTK_CONTAINER (ptr_sensorsstructure->eventbox),
-                   //ptr_sensorsstructure->widget_sensors);
-//DBG("added widget sensors to eventbox.\n");
 
     if (ptr_sensorsstructure->display_values_type == DISPLAY_BARS)
         sensors_remove_graphical_panel (ptr_sensorsstructure);
     else if (ptr_sensorsstructure->display_values_type == DISPLAY_TACHO)
         sensors_remove_tacho_panel (ptr_sensorsstructure);
 
-    //sensors_show_panel (ptr_sensorsstructure);
-
     create_panel_widget(ptr_sensorsstructure);
-
 
     gtk_container_add (GTK_CONTAINER (ptr_sensorsstructure->eventbox),
                        ptr_sensorsstructure->widget_sensors);
@@ -2591,8 +2561,8 @@ sensors_plugin_construct (XfcePanelPlugin *plugin)
     g_signal_connect (plugin, "size-changed", G_CALLBACK (sensors_set_size),
                          ptr_sensorsstruct);
 
-    g_signal_connect (plugin, "orientation-changed",
-                      G_CALLBACK (sensors_set_orientation), ptr_sensorsstruct);
+    g_signal_connect (plugin, "mode-changed",
+                      G_CALLBACK (sensors_set_mode), ptr_sensorsstruct);
 
     gtk_container_add (GTK_CONTAINER(plugin), ptr_sensorsstruct->eventbox);
 
