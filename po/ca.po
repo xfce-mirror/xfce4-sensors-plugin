@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-04 11:49+0100\n"
-"PO-Revision-Date: 2017-02-16 19:25+0000\n"
+"POT-Creation-Date: 2017-02-23 00:31+0100\n"
+"PO-Revision-Date: 2017-02-23 06:58+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -22,19 +22,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.c:365 ../panel-plugin/sensors-plugin.c:467
-#: ../panel-plugin/sensors-plugin.c:1144
+#: ../panel-plugin/sensors-plugin.c:372 ../panel-plugin/sensors-plugin.c:478
+#: ../panel-plugin/sensors-plugin.c:1089
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Sensors</b></span>"
 
 #. widget = sensors->eventbox;
-#: ../panel-plugin/sensors-plugin.c:948
+#: ../panel-plugin/sensors-plugin.c:959
 msgid "No sensors selected!"
 msgstr "No s'ha seleccionat cap sensor"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:988
+#: ../panel-plugin/sensors-plugin.c:999
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -42,106 +42,110 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "Connector de sensors:\nSembla com si hi hagués un problema en llegir el valor d'alguna característica del sensor.\nNo es pot garantir que funcioni correctament.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1862
+#: ../panel-plugin/sensors-plugin.c:1912
 msgid "UI style:"
 msgstr "Estil gràfic:"
 
-#: ../panel-plugin/sensors-plugin.c:1863
+#: ../panel-plugin/sensors-plugin.c:1913
 msgid "_text"
 msgstr "_text"
 
-#: ../panel-plugin/sensors-plugin.c:1865
+#: ../panel-plugin/sensors-plugin.c:1915
 msgid "_progress bars"
 msgstr "barres de _progrés"
 
-#: ../panel-plugin/sensors-plugin.c:1867
+#: ../panel-plugin/sensors-plugin.c:1917
 msgid "_tachos"
 msgstr "_instruments"
 
-#: ../panel-plugin/sensors-plugin.c:1912
+#: ../panel-plugin/sensors-plugin.c:1962
 msgid "Show _labels"
 msgstr "Mostra les _etiquetes"
 
-#: ../panel-plugin/sensors-plugin.c:1942
+#: ../panel-plugin/sensors-plugin.c:1992
 msgid "Show colored _bars"
 msgstr "Mostra les _barres amb acoloriment"
 
-#: ../panel-plugin/sensors-plugin.c:1970
+#: ../panel-plugin/sensors-plugin.c:2020
 msgid "_Show title"
 msgstr "_Mostra el títol"
 
-#: ../panel-plugin/sensors-plugin.c:1994
+#: ../panel-plugin/sensors-plugin.c:2044
 msgid "_Number of text lines:"
 msgstr "_Número de línies de text:"
 
-#: ../panel-plugin/sensors-plugin.c:2029
+#: ../panel-plugin/sensors-plugin.c:2080
+msgid "_Cover all panel rows/columns"
+msgstr "_Cobreix totes les files/columnes del plafó"
+
+#: ../panel-plugin/sensors-plugin.c:2103
 msgid "F_ont size:"
 msgstr "Mida de la _lletra:"
 
 #. gtk_widget_set_sensitive(myFontBox,
 #. !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:2036
+#: ../panel-plugin/sensors-plugin.c:2110
 msgid "x-small"
 msgstr "molt petita"
 
-#: ../panel-plugin/sensors-plugin.c:2037
+#: ../panel-plugin/sensors-plugin.c:2111
 msgid "small"
 msgstr "petita"
 
-#: ../panel-plugin/sensors-plugin.c:2038
+#: ../panel-plugin/sensors-plugin.c:2112
 msgid "medium"
 msgstr "mitjana"
 
-#: ../panel-plugin/sensors-plugin.c:2039
+#: ../panel-plugin/sensors-plugin.c:2113
 msgid "large"
 msgstr "gran"
 
-#: ../panel-plugin/sensors-plugin.c:2040
+#: ../panel-plugin/sensors-plugin.c:2114
 msgid "x-large"
 msgstr "extra gran"
 
-#: ../panel-plugin/sensors-plugin.c:2071
+#: ../panel-plugin/sensors-plugin.c:2145
 msgid "F_ont:"
 msgstr "Tipus de _lletra:"
 
-#: ../panel-plugin/sensors-plugin.c:2105
+#: ../panel-plugin/sensors-plugin.c:2179
 msgid "Show _Units"
 msgstr "Mostra les _unitats"
 
-#: ../panel-plugin/sensors-plugin.c:2126
+#: ../panel-plugin/sensors-plugin.c:2200
 msgid "Small horizontal s_pacing"
 msgstr "_Espaiat petit horitzontal"
 
-#: ../panel-plugin/sensors-plugin.c:2148
+#: ../panel-plugin/sensors-plugin.c:2222
 msgid "Suppress messages"
 msgstr "Suprimeix els missatges"
 
-#: ../panel-plugin/sensors-plugin.c:2166
+#: ../panel-plugin/sensors-plugin.c:2240
 msgid "Suppress tooltip"
 msgstr "Suprimeix el quadre de text emergent"
 
-#: ../panel-plugin/sensors-plugin.c:2191
+#: ../panel-plugin/sensors-plugin.c:2265
 msgid "E_xecute on double click:"
 msgstr "E_xecuta en fer doble clic:"
 
-#: ../panel-plugin/sensors-plugin.c:2234
+#: ../panel-plugin/sensors-plugin.c:2308
 msgid "_View"
 msgstr "_Mostra"
 
-#: ../panel-plugin/sensors-plugin.c:2268
+#: ../panel-plugin/sensors-plugin.c:2343
 msgid "_Miscellaneous"
 msgstr "_Miscel·lània"
 
-#: ../panel-plugin/sensors-plugin.c:2343 ../panel-plugin/sensors-plugin.h:30
-#: ../lib/hddtemp.c:162
+#: ../panel-plugin/sensors-plugin.c:2418 ../panel-plugin/sensors-plugin.h:31
+#: ../lib/hddtemp.c:161
 msgid "Sensors Plugin"
 msgstr "Connector de sensors"
 
-#: ../panel-plugin/sensors-plugin.c:2351
+#: ../panel-plugin/sensors-plugin.c:2426
 msgid "Properties"
 msgstr "Propietats"
 
-#: ../panel-plugin/sensors-plugin.c:2384
+#: ../panel-plugin/sensors-plugin.c:2459
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -150,25 +154,23 @@ msgstr "Podeu canviar la propietat d'alguna característica com ara el nom, els 
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
-#. FIXME: compare strings, or also have hddtemp and acpi store numeric values
-#. assert correctly saved file
-#: ../lib/configuration.c:162 ../lib/configuration.c:368
-#: ../lib/configuration.c:375 ../lib/hddtemp.c:393
+#. FIXME: compare strings, or also have hddtemp and acpi store numeric
+#. str_values
+#. assert correctly saved str_file
+#: ../lib/configuration.c:168 ../lib/configuration.c:374 ../lib/hddtemp.c:383
 msgid "Hard disks"
 msgstr "Discs durs"
 
-#: ../lib/acpi.c:561 ../lib/acpi.c:571 ../lib/acpi.c:572
+#: ../lib/acpi.c:541 ../lib/acpi.c:550 ../lib/acpi.c:551
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.c:564
+#: ../lib/acpi.c:543
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "zones v%s d'ACPI"
 
-#. who knows, if we obtain non-NULL version at all...
-#. || g_strisempty(version))
-#: ../lib/acpi.c:725
+#: ../lib/acpi.c:686
 msgid "<Unknown>"
 msgstr "<desconegut>"
 
@@ -180,11 +182,11 @@ msgstr "Temperatura del nucli GPU de NVidia"
 msgid "nvidia"
 msgstr "nvidia"
 
-#: ../lib/hddtemp.c:392
+#: ../lib/hddtemp.c:382
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "Temperatures del disc dur S.M.A.R.T."
 
-#: ../lib/hddtemp.c:571
+#: ../lib/hddtemp.c:557
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
@@ -196,11 +198,11 @@ msgid ""
 "with a return value of %d.\n"
 msgstr "«hddtemp» no s'ha executat correctament, tot i que és executable. Probablement es deu al fet que els discs requereixen els privilegis de root per llegir les seves temperatures i que «hddtemp» no té «setuid» de root.\n\nUna solució fàcil però lletja és executar l'ordre «chmod u+s %s» com a usuari root i reiniciar aquest connector o el seu plafó.\n\nLa crida «%s» ha donat aquest error:\n%s\namb un valor de retorn de %d.\n"
 
-#: ../lib/hddtemp.c:587 ../lib/hddtemp.c:611
+#: ../lib/hddtemp.c:571 ../lib/hddtemp.c:594
 msgid "Suppress this message in future"
 msgstr "No mostris aquest missatge en el futur"
 
-#: ../lib/hddtemp.c:605
+#: ../lib/hddtemp.c:589
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
@@ -211,107 +213,107 @@ msgstr "S'ha produït un error quan s'executava «%s»:\n%s"
 msgid "LM Sensors"
 msgstr "Sensors LM"
 
-#: ../lib/lmsensors.c:364 ../lib/lmsensors.c:411
+#: ../lib/lmsensors.c:361 ../lib/lmsensors.c:408
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Error: No s'ha pogut connectar a sensors!"
 
-#: ../lib/sensors-interface.c:87
+#: ../lib/sensors-interface.c:88
 msgid "Sensors Plugin Failure"
 msgstr "Fallida del connector de sensors"
 
-#: ../lib/sensors-interface.c:88
+#: ../lib/sensors-interface.c:89
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr "Sembla com si hi hagués un problema en llegir el valor d'alguna característica del sensor.\nNo es pot garantir que funcioni correctament."
 
-#: ../lib/sensors-interface.c:174
+#: ../lib/sensors-interface.c:175
 msgid "Sensors t_ype:"
 msgstr "_Tipus de sensors:"
 
-#: ../lib/sensors-interface.c:200
+#: ../lib/sensors-interface.c:201
 msgid "Description:"
 msgstr "Descripció:"
 
-#: ../lib/sensors-interface.c:233
+#: ../lib/sensors-interface.c:234
 msgid "U_pdate interval (seconds):"
 msgstr "Interval d'_actualització (segons):"
 
-#: ../lib/sensors-interface.c:273
+#: ../lib/sensors-interface.c:274
 msgid "Name"
 msgstr "Nom"
 
-#: ../lib/sensors-interface.c:285
+#: ../lib/sensors-interface.c:286
 msgid "Value"
 msgstr "Valor"
 
-#: ../lib/sensors-interface.c:293
+#: ../lib/sensors-interface.c:294
 msgid "Show"
 msgstr "Mostra"
 
-#: ../lib/sensors-interface.c:302
+#: ../lib/sensors-interface.c:303
 msgid "Color"
 msgstr "Color"
 
-#: ../lib/sensors-interface.c:315
+#: ../lib/sensors-interface.c:316
 msgid "Min"
 msgstr "Mín."
 
-#: ../lib/sensors-interface.c:332
+#: ../lib/sensors-interface.c:333
 msgid "Max"
 msgstr "Màx."
 
-#: ../lib/sensors-interface.c:373
+#: ../lib/sensors-interface.c:374
 msgid "Temperature scale:"
 msgstr "Temperatura:"
 
-#: ../lib/sensors-interface.c:375
+#: ../lib/sensors-interface.c:376
 msgid "_Celsius"
 msgstr "_Centígrads"
 
-#: ../lib/sensors-interface.c:377
+#: ../lib/sensors-interface.c:378
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../lib/sensors-interface.c:413
+#: ../lib/sensors-interface.c:414
 msgid "_Sensors"
 msgstr "_Sensors"
 
-#: ../lib/sensors-interface-common.c:73 ../lib/sensors-interface-common.c:74
+#: ../lib/sensors-interface-common.c:74 ../lib/sensors-interface-common.c:75
 msgid "No sensors found!"
 msgstr "No s'ha trobat cap sensor!"
 
-#: ../lib/sensors-interface-common.c:145
+#: ../lib/sensors-interface-common.c:146
 #, c-format
 msgid "%.0f °F"
 msgstr "%.0f °F"
 
 #. Celsius
-#: ../lib/sensors-interface-common.c:148
+#: ../lib/sensors-interface-common.c:149
 #, c-format
 msgid "%.0f °C"
 msgstr "%.0f °C"
 
-#: ../lib/sensors-interface-common.c:153
+#: ../lib/sensors-interface-common.c:154
 #, c-format
 msgid "%+.3f V"
 msgstr "%+.3f V"
 
-#: ../lib/sensors-interface-common.c:157
+#: ../lib/sensors-interface-common.c:158
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.c:162
+#: ../lib/sensors-interface-common.c:163
 msgid "off"
 msgstr "inactiu"
 
-#: ../lib/sensors-interface-common.c:164
+#: ../lib/sensors-interface-common.c:165
 msgid "on"
 msgstr "actiu"
 
-#: ../lib/sensors-interface-common.c:168
+#: ../lib/sensors-interface-common.c:169
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f rpm"
@@ -358,7 +360,7 @@ msgstr "Visualitzador dels sensors"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../src/actions.c:80
+#: ../src/actions.c:79
 #, c-format
 msgid ""
 "Sensors Viewer:\n"
