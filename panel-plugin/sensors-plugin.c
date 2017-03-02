@@ -109,15 +109,18 @@ sensors_set_levelbar_size (GtkWidget *ptr_levelbar, int siz_panelheight, int pan
 
 
 static void
-sensors_set_bar_color (GtkWidget *ptr_levelbar, double val_percentage, gchar* user_bar_color,
+sensors_set_bar_color (t_labelledlevelbar *ptr_labelledlevelbar, double val_percentage, gchar* user_bar_color,
                        t_sensors *ptr_sensorsstructure)
 {
-    GtkCssProvider *ptr_gtkcssprovider;
-    GdkDisplay *ptr_gdkdisplay;
-    GdkScreen *ptr_gdkscreen;
+    GtkWidget *ptr_levelbar;
 
     gchar str_gtkcssdata[256] = "levelbar block.";
     gchar str_levelbarid[32];
+
+    g_return_if_fail(ptr_labelledlevelbar != NULL);
+    ptr_levelbar = ptr_labelledlevelbar->progressbar;
+
+    g_return_if_fail (G_IS_OBJECT(ptr_levelbar));
 
     //TRACE ("enters sensors_set_bar_color");
 
@@ -126,14 +129,11 @@ sensors_set_bar_color (GtkWidget *ptr_levelbar, double val_percentage, gchar* us
     g_strlcat(str_gtkcssdata, str_levelbarid, sizeof(str_gtkcssdata));
     g_strlcat(str_gtkcssdata, " {\n", sizeof(str_gtkcssdata));
 
-    g_return_if_fail (G_IS_OBJECT(ptr_levelbar));
-
     if (ptr_sensorsstructure->show_colored_bars) {
         g_strlcat(str_gtkcssdata, "   background-color: ", sizeof(str_gtkcssdata));
         g_strlcat(str_gtkcssdata, user_bar_color, sizeof(str_gtkcssdata));
         g_strlcat(str_gtkcssdata, ";\n", sizeof(str_gtkcssdata));
     }
-
 
     g_strlcat(str_gtkcssdata,   "   padding: 1px;\n"
                                 "   border-style: ridge;\n"
@@ -157,18 +157,8 @@ sensors_set_bar_color (GtkWidget *ptr_levelbar, double val_percentage, gchar* us
                                   GTK_LEVEL_BAR_OFFSET_HIGH,
                                   0.9);
 
-    ptr_gtkcssprovider = gtk_css_provider_new ();
-    ptr_gdkdisplay = gdk_display_get_default ();
-    ptr_gdkscreen = gdk_display_get_default_screen (ptr_gdkdisplay);
-
-    gtk_style_context_add_provider_for_screen (ptr_gdkscreen,
-                                 GTK_STYLE_PROVIDER (ptr_gtkcssprovider),
-                                 GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-
-    gtk_css_provider_load_from_data (GTK_CSS_PROVIDER(ptr_gtkcssprovider),
+    gtk_css_provider_load_from_data (GTK_CSS_PROVIDER(ptr_labelledlevelbar->css_provider),
                                    str_gtkcssdata, -1, NULL);
-
-    g_object_unref (ptr_gtkcssprovider);
 
     //TRACE ("leaves sensors_set_bar_color");
 }
@@ -218,6 +208,8 @@ sensors_remove_graphical_panel (t_sensors *ptr_sensorsstructure)
 
             if (ptr_chipfeature->show == TRUE) {
                 ptr_labelledlevelbar = (t_labelledlevelbar*) ptr_sensorsstructure->panels[idx_sensorchips][idx_feature];
+
+                g_object_unref (ptr_labelledlevelbar->css_provider);
 
                 if (ptr_sensorsstructure->show_labels == TRUE) {
                     gtk_widget_hide (ptr_labelledlevelbar->label);
@@ -294,7 +286,7 @@ sensors_update_graphical_panel (t_sensors *ptr_sensorsstructure)
             g_assert (ptr_chipfeature != NULL);
 
             if (ptr_chipfeature->show == TRUE) {
-                ptr_labelledlevelbar = (t_labelledlevelbar*) ptr_sensorsstructure->panels[idx_sensorchips][idx_feature];
+                ptr_labelledlevelbar = ptr_sensorsstructure->panels[idx_sensorchips][idx_feature];
 
                 ptr_levelbar = ptr_labelledlevelbar->progressbar;
                 g_return_if_fail (G_IS_OBJECT(ptr_levelbar));
@@ -302,7 +294,7 @@ sensors_update_graphical_panel (t_sensors *ptr_sensorsstructure)
                 sensors_set_levelbar_size (ptr_levelbar, (int) ptr_sensorsstructure->panel_size,
                                       ptr_sensorsstructure->orientation);
                 val_percentage = sensors_get_percentage (ptr_chipfeature);
-                sensors_set_bar_color (ptr_levelbar, val_percentage, ptr_chipfeature->color,
+                sensors_set_bar_color (ptr_labelledlevelbar, val_percentage, ptr_chipfeature->color,
                                        ptr_sensorsstructure);
 
                 gtk_level_bar_set_value(GTK_LEVEL_BAR(ptr_levelbar), val_percentage);
@@ -363,6 +355,9 @@ sensors_add_graphical_display (t_sensors *sensors)
     gchar *str_barlabeltext, *str_panellabeltext;
     guint len_barlabeltext;
     gint size_panel = (gint) sensors->panel_size;
+    GtkCssProvider *ptr_gtkcssprovider;
+    GdkDisplay *ptr_gdkdisplay;
+    GdkScreen *ptr_gdkscreen;
 
     if (!sensors->cover_panel_rows && xfce_panel_plugin_get_mode(sensors->plugin) != XFCE_PANEL_PLUGIN_MODE_DESKBAR)
         size_panel /= xfce_panel_plugin_get_nrows (sensors->plugin);
@@ -410,6 +405,14 @@ sensors_add_graphical_display (t_sensors *sensors)
                 ptr_labelledlevelbar = g_new (t_labelledlevelbar, 1);
                 ptr_labelledlevelbar->progressbar = widget_progbar;
 
+                ptr_labelledlevelbar->css_provider = ptr_gtkcssprovider = gtk_css_provider_new ();
+                ptr_gdkdisplay = gdk_display_get_default ();
+                ptr_gdkscreen = gdk_display_get_default_screen (ptr_gdkdisplay);
+
+                gtk_style_context_add_provider_for_screen (ptr_gdkscreen,
+                                 GTK_STYLE_PROVIDER (ptr_gtkcssprovider),
+                                 GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+
                 /* create the label stuff only if needed - saves some memory! */
                 if (sensors->show_labels == TRUE) {
                     str_barlabeltext = g_strdup (ptr_chipfeature->name);
@@ -443,7 +446,7 @@ sensors_add_graphical_display (t_sensors *sensors)
                 gtk_box_pack_start (GTK_BOX(widget_databox), widget_progbar, FALSE, FALSE, 0);
 
                 ptr_labelledlevelbar->databox = widget_databox;
-                sensors->panels[idx_sensorchips][idx_feature] = (GtkWidget*) ptr_labelledlevelbar;
+                sensors->panels[idx_sensorchips][idx_feature] = ptr_labelledlevelbar;
 
                 gtk_box_pack_start (GTK_BOX (sensors->widget_sensors),
                                     widget_databox, FALSE, FALSE, INNER_BORDER);
@@ -550,7 +553,7 @@ sensors_add_tacho_display (t_sensors *sensors)
 static gboolean
 sensors_show_graphical_display (t_sensors *sensors)
 {
-    GtkCssProvider *ptr_gtkcssprovider;
+    //GtkCssProvider *ptr_gtkcssprovider;
     GdkDisplay *ptr_gdkdisplay;
     GdkScreen *ptr_gdkscreen;
     GFile *ptr_cssdatafile = NULL;
@@ -569,12 +572,12 @@ sensors_show_graphical_display (t_sensors *sensors)
 
     if (sensors->bars_created == FALSE) {
 
-        ptr_gtkcssprovider = gtk_css_provider_new ();
+        sensors->css_provider = gtk_css_provider_new ();
         ptr_gdkdisplay = gdk_display_get_default ();
         ptr_gdkscreen = gdk_display_get_default_screen (ptr_gdkdisplay);
 
         gtk_style_context_add_provider_for_screen (ptr_gdkscreen,
-                                     GTK_STYLE_PROVIDER (ptr_gtkcssprovider),
+                                     GTK_STYLE_PROVIDER (sensors->css_provider),
                                      GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         g_snprintf(str_localcssfile, sizeof(str_localcssfile), "%s/%s",
@@ -590,13 +593,13 @@ sensors_show_graphical_display (t_sensors *sensors)
         }
 
         if (NULL != ptr_cssdatafile) {
-            gtk_css_provider_load_from_file(GTK_CSS_PROVIDER(ptr_gtkcssprovider),
+            gtk_css_provider_load_from_file(GTK_CSS_PROVIDER(sensors->css_provider),
                                     ptr_cssdatafile, NULL);
 
             g_object_unref (ptr_cssdatafile);
         }
         else {
-            gtk_css_provider_load_from_data (GTK_CSS_PROVIDER(ptr_gtkcssprovider),
+            gtk_css_provider_load_from_data (GTK_CSS_PROVIDER(sensors->css_provider),
                                     "levelbar block.full {\n"
                                     "   background-color: "
                                     COLOR_ERROR
@@ -630,7 +633,7 @@ sensors_show_graphical_display (t_sensors *sensors)
                                     "}\n",
                                    -1, NULL);
         }
-        g_object_unref (ptr_gtkcssprovider);
+        g_object_unref (sensors->css_provider);
 
         sensors_add_graphical_display (sensors);
     }

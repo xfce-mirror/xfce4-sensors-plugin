@@ -125,7 +125,8 @@ typedef struct {
 
     /* contains the progress bar panels */
     /* FIXME:    Might be replaced by GPtrArray as well */
-    GtkWidget* panels[MAX_NUM_CHIPS][MAX_NUM_FEATURES];
+    t_labelledlevelbar* panels[MAX_NUM_CHIPS][MAX_NUM_FEATURES];
+    GtkCssProvider  *css_provider;
     /*    GArray *panels_array; */
 
     /* contains the tacho panels */
