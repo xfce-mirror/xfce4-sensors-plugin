@@ -207,7 +207,7 @@ sensors_remove_graphical_panel (t_sensors *ptr_sensorsstructure)
             g_assert (ptr_chipfeature != NULL);
 
             if (ptr_chipfeature->show == TRUE) {
-                ptr_labelledlevelbar = (t_labelledlevelbar*) ptr_sensorsstructure->panels[idx_sensorchips][idx_feature];
+                ptr_labelledlevelbar = ptr_sensorsstructure->panels[idx_sensorchips][idx_feature];
 
                 g_object_unref (ptr_labelledlevelbar->css_provider);
 
