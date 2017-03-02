@@ -97,7 +97,7 @@ sensors_set_levelbar_size (GtkWidget *ptr_levelbar, int siz_panelheight, int pan
     /* check arguments */
     g_return_if_fail (G_IS_OBJECT(ptr_levelbar));
 
-    if (panelorientation == GTK_ORIENTATION_HORIZONTAL) {
+    if (panelorientation == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL) {
         gtk_widget_set_size_request (ptr_levelbar, BORDER+2, siz_panelheight-BORDER);
     }
     else {
@@ -386,16 +386,17 @@ sensors_add_graphical_display (t_sensors *sensors)
                 has_bars = TRUE;
 
                 widget_progbar = gtk_level_bar_new();
-                gtk_level_bar_set_inverted(GTK_LEVEL_BAR(widget_progbar), TRUE);
 
                 if (sensors->orientation == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL) {
                     gtk_orientable_set_orientation (GTK_ORIENTABLE (widget_progbar),
                                                     GTK_ORIENTATION_VERTICAL);
+                    gtk_level_bar_set_inverted(GTK_LEVEL_BAR(widget_progbar), TRUE);
                     widget_databox = gtk_hbox_new (FALSE, 0);
                 }
                 else {
                     gtk_orientable_set_orientation (GTK_ORIENTABLE (widget_progbar),
                                                     GTK_ORIENTATION_HORIZONTAL);
+                    gtk_level_bar_set_inverted(GTK_LEVEL_BAR(widget_progbar), FALSE);
                     widget_databox = gtk_vbox_new (FALSE, 0);
                 }
 
@@ -424,12 +425,13 @@ sensors_add_graphical_display (t_sensors *sensors)
 
                     gtk_label_set_ellipsize (GTK_LABEL(widget_label), PANGO_ELLIPSIZE_END);
 
+                    gtk_widget_show (widget_label);
+
                     if (sensors->orientation == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
                         gtk_label_set_angle (GTK_LABEL(widget_label), 270);
                     else
                         gtk_label_set_angle (GTK_LABEL(widget_label), 0);
 
-                    gtk_widget_show (widget_label);
                     ptr_labelledlevelbar->label = widget_label;
 
                     gtk_box_pack_start (GTK_BOX(widget_databox), widget_label, FALSE, FALSE, INNER_BORDER);
@@ -863,6 +865,8 @@ sensors_set_text_panel_label (t_sensors *ptr_sensors, gint numCols, gint num_ite
 
     gtk_label_set_markup (GTK_LABEL(ptr_sensors->panel_label_data), myLabelText);
 
+    gtk_widget_show (ptr_sensors->panel_label_data);
+
     if (ptr_sensors->orientation == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
     {
         gtk_widget_set_halign(ptr_sensors->panel_label_data, GTK_ALIGN_CENTER);
@@ -878,7 +882,6 @@ sensors_set_text_panel_label (t_sensors *ptr_sensors, gint numCols, gint num_ite
         g_free(myLabelText);
     /* else: with sprintf, we cannot free the string. how bad. */
 
-    gtk_widget_show (ptr_sensors->panel_label_data);
 
     TRACE ("leaves sensors_set_text_panel_label");
 }
@@ -1062,17 +1065,6 @@ sensors_show_panel (gpointer data)
 
     sensors = (t_sensors *) data;
 
-    if (sensors->orientation == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
-    {
-        gtk_widget_set_halign(sensors->panel_label_text, GTK_ALIGN_CENTER);
-        gtk_label_set_angle(GTK_LABEL(sensors->panel_label_text), 270.0);
-    }
-    else
-    {
-        gtk_widget_set_valign(sensors->panel_label_text, GTK_ALIGN_CENTER);
-        gtk_label_set_angle(GTK_LABEL(sensors->panel_label_text), 0);
-    }
-
     switch (sensors->display_values_type)
     {
       case DISPLAY_TACHO:
@@ -1089,6 +1081,17 @@ sensors_show_panel (gpointer data)
         //sensors_show_text_display(sensors);
         //gtk_widget_hide (sensors->panel_label_data);
         result = sensors_show_text_display (sensors);
+    }
+
+    if (sensors->orientation == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
+    {
+        gtk_label_set_angle(GTK_LABEL(sensors->panel_label_text), 270.0);
+        gtk_widget_set_halign(sensors->panel_label_text, GTK_ALIGN_CENTER);
+    }
+    else
+    {
+        gtk_label_set_angle(GTK_LABEL(sensors->panel_label_text), 0);
+        gtk_widget_set_valign(sensors->panel_label_text, GTK_ALIGN_CENTER);
     }
 
     sensors_create_tooltip ((gpointer) sensors);

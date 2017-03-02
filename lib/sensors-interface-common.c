@@ -94,7 +94,6 @@ sensors_new (XfcePanelPlugin *plugin, gchar *plugin_config_file)
 }
 
 
-
 void
 sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
 {
