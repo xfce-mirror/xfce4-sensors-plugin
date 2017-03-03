@@ -193,9 +193,23 @@ typedef struct {
 }
 t_sensors;
 
-/* Regularly included functions in library */
-t_sensors * sensors_new (XfcePanelPlugin *plugin, gchar * plugin_config_file);
 
-void sensors_init_default_values (t_sensors *sensors, XfcePanelPlugin *plugin);
+/* Regularly included functions in library */
+
+/**
+ * Create new sensors plugin data object
+ * @param ptr_xfcepanelplugin: Pointer to panel plugin data
+ * @param ptr_plugin_config_filename
+ * @return pointer to newly allocated sensors object
+ */
+t_sensors * sensors_new (XfcePanelPlugin *ptr_xfcepanelplugin, gchar * ptr_plugin_config_filename);
+
+
+/**
+ * Initialize sensors structure with default values
+ * @param ptr_sensors: pointer to sensors plugin data
+ * @param ptr_xfcepanelplugin: Pointer to panel plugin data
+ */
+void sensors_init_default_values (t_sensors *ptr_sensors, XfcePanelPlugin *ptr_xfcepanelplugin);
 
 #endif /* XFCE4_SENSORS_INTERFACE_PLUGIN_H */
