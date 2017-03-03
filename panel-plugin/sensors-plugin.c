@@ -139,7 +139,7 @@ sensors_set_bar_color (t_labelledlevelbar *ptr_labelledlevelbar, double val_perc
                                 "   border-style: ridge;\n"
                                 "}\n", sizeof(str_gtkcssdata));
 
-    DBG("CSS data for current levelbar: %s\n", str_gtkcssdata);
+    //DBG("CSS data for current levelbar: %s\nwith length %lu.\n", str_gtkcssdata, strlen(str_gtkcssdata));
 
     gtk_level_bar_add_offset_value (GTK_LEVEL_BAR(ptr_levelbar),
                                   GTK_LEVEL_BAR_OFFSET_LOW,
@@ -158,7 +158,7 @@ sensors_set_bar_color (t_labelledlevelbar *ptr_labelledlevelbar, double val_perc
                                   0.9);
 
     gtk_css_provider_load_from_data (GTK_CSS_PROVIDER(ptr_labelledlevelbar->css_provider),
-                                   str_gtkcssdata, -1, NULL);
+                                   str_gtkcssdata, strlen(str_gtkcssdata), NULL);
 
     //TRACE ("leaves sensors_set_bar_color");
 }
@@ -599,8 +599,7 @@ sensors_show_graphical_display (t_sensors *sensors)
             g_object_unref (ptr_cssdatafile);
         }
         else {
-            gtk_css_provider_load_from_data (GTK_CSS_PROVIDER(sensors->css_provider),
-                                    "levelbar block.full {\n"
+            gchar *ptr_cssstring =  "levelbar block.full {\n"
                                     "   background-color: "
                                     COLOR_ERROR
                                     ";\n"
@@ -630,8 +629,10 @@ sensors_show_graphical_display (t_sensors *sensors)
                                     //"   border-color: "
                                     //COLOR_ERROR
                                     //";\n"
-                                    "}\n",
-                                   -1, NULL);
+                                    "}\n";
+
+            gtk_css_provider_load_from_data (GTK_CSS_PROVIDER(sensors->css_provider), ptr_cssstring,
+                                   strlen(ptr_cssstring), NULL);
         }
         g_object_unref (sensors->css_provider);
 
@@ -971,7 +972,6 @@ sensors_create_tooltip (gpointer data)
     TRACE ("enters sensors_create_tooltip");
 
     g_return_val_if_fail (data != NULL, FALSE);
-    TRACE ("data!=NULL");
 
     sensors = (t_sensors *) data;
     //widget = sensors->eventbox;
@@ -1027,7 +1027,6 @@ sensors_create_tooltip (gpointer data)
                 myToolTipText2 = g_strconcat (myToolTipText, "\n  ",
                                              ptr_chipfeature->name, ": ", tmp,
                                              NULL);
-                DBG ("freeing myToolTipText");
                 g_free (myToolTipText);
                 myToolTipText = myToolTipText2;
 
@@ -1038,7 +1037,6 @@ sensors_create_tooltip (gpointer data)
                 ptr_chipfeature->formatted_value = g_strdup (tmp);
                 ptr_chipfeature->raw_value = sensorFeature;
 
-                DBG ("freeing tmp");
                 g_free (tmp);
             } /* end if ptr_chipfeature->valid */
         }
@@ -1047,7 +1045,6 @@ sensors_create_tooltip (gpointer data)
     gtk_widget_set_tooltip_markup (GTK_WIDGET(sensors->eventbox), myToolTipText);
     //DBG("tooltip text: %s.\n", myToolTipText);
 
-    DBG ("freeing myToolTipText");
     g_free (myToolTipText);
 
     TRACE ("leaves sensors_create_tooltip");
