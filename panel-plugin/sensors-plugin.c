@@ -75,6 +75,7 @@
 
 #define XFCE4SENSORSPLUGINCSSFILE "xfce4-sensors-plugin.css"
 
+/* -------------------------------------------------------------------------- */
 static void
 remove_gsource (guint gsource_id)
 {
@@ -89,6 +90,7 @@ remove_gsource (guint gsource_id)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 sensors_set_levelbar_size (GtkWidget *ptr_levelbar, int siz_panelheight, int panelorientation)
 {
@@ -108,6 +110,7 @@ sensors_set_levelbar_size (GtkWidget *ptr_levelbar, int siz_panelheight, int pan
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 sensors_set_bar_color (t_labelledlevelbar *ptr_labelledlevelbar, double val_percentage, gchar* user_bar_color,
                        t_sensors *ptr_sensorsstructure)
@@ -164,6 +167,7 @@ sensors_set_bar_color (t_labelledlevelbar *ptr_labelledlevelbar, double val_perc
 }
 
 
+/* -------------------------------------------------------------------------- */
 static double
 sensors_get_percentage (t_chipfeature *ptr_chipfeature)
 {
@@ -188,6 +192,7 @@ sensors_get_percentage (t_chipfeature *ptr_chipfeature)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 sensors_remove_graphical_panel (t_sensors *ptr_sensorsstructure)
 {
@@ -232,6 +237,7 @@ sensors_remove_graphical_panel (t_sensors *ptr_sensorsstructure)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 sensors_remove_tacho_panel (t_sensors *ptr_sensorsstructure)
 {
@@ -265,6 +271,7 @@ sensors_remove_tacho_panel (t_sensors *ptr_sensorsstructure)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 sensors_update_graphical_panel (t_sensors *ptr_sensorsstructure)
 {
@@ -306,6 +313,7 @@ sensors_update_graphical_panel (t_sensors *ptr_sensorsstructure)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 sensors_update_tacho_panel (t_sensors *sensors)
 {
@@ -343,6 +351,7 @@ sensors_update_tacho_panel (t_sensors *sensors)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 sensors_add_graphical_display (t_sensors *sensors)
 {
@@ -469,6 +478,7 @@ sensors_add_graphical_display (t_sensors *sensors)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 sensors_add_tacho_display (t_sensors *sensors)
 {
@@ -550,6 +560,7 @@ sensors_add_tacho_display (t_sensors *sensors)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static gboolean
 sensors_show_graphical_display (t_sensors *sensors)
 {
@@ -647,6 +658,7 @@ sensors_show_graphical_display (t_sensors *sensors)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static gboolean
 sensors_show_tacho_display (t_sensors *sensors)
 {
@@ -664,6 +676,7 @@ sensors_show_tacho_display (t_sensors *sensors)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static int
 determine_number_of_rows (t_sensors *sensors)
 {
@@ -751,6 +764,7 @@ determine_number_of_rows (t_sensors *sensors)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static int
 determine_number_of_cols (gint numRows, gint num_itemsToDisplay)
 {
@@ -773,6 +787,7 @@ determine_number_of_cols (gint numRows, gint num_itemsToDisplay)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 sensors_set_text_panel_label (t_sensors *ptr_sensors, gint numCols, gint num_itemsToDisplay)
 {
@@ -891,6 +906,7 @@ sensors_set_text_panel_label (t_sensors *ptr_sensors, gint numCols, gint num_ite
 }
 
 
+/* -------------------------------------------------------------------------- */
 static int
 count_number_checked_sensor_features (t_sensors *sensors)
 {
@@ -925,6 +941,7 @@ count_number_checked_sensor_features (t_sensors *sensors)
 }
 
 
+/* -------------------------------------------------------------------------- */
 /* draw label with sensor values into panel's vbox */
 static gboolean
 sensors_show_text_display (t_sensors *sensors)
@@ -955,6 +972,7 @@ sensors_show_text_display (t_sensors *sensors)
 }
 
 
+/* -------------------------------------------------------------------------- */
 /* create tooltip
 Updates the sensor values, see lines 440 and following */
 static gboolean
@@ -1053,6 +1071,7 @@ sensors_create_tooltip (gpointer data)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static gboolean
 sensors_show_panel (gpointer data)
 {
@@ -1101,6 +1120,7 @@ sensors_show_panel (gpointer data)
 }
 
 
+/* -------------------------------------------------------------------------- */
 /* initialize box and label to pack them together */
 static void
 create_panel_widget (t_sensors * ptr_sensorsstructure)
@@ -1133,6 +1153,7 @@ create_panel_widget (t_sensors * ptr_sensorsstructure)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 sensors_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode_panelplugin,
                          t_sensors *ptr_sensorsstructure)
@@ -1169,6 +1190,7 @@ sensors_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode_panelplugin,
 }
 
 
+/* -------------------------------------------------------------------------- */
 /* double-click improvement */
 static gboolean
 execute_command (GtkWidget *widget, GdkEventButton *event, gpointer data)
@@ -1199,6 +1221,7 @@ execute_command (GtkWidget *widget, GdkEventButton *event, gpointer data)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 sensors_free (XfcePanelPlugin *plugin, t_sensors *sensors)
 {
@@ -1221,6 +1244,7 @@ sensors_free (XfcePanelPlugin *plugin, t_sensors *sensors)
 
     g_free (sensors->plugin_config_file);
     g_free (sensors->command_name);
+    sensors->command_name = NULL;
 /*
     g_free (sensors->font);
 */
@@ -1231,6 +1255,7 @@ sensors_free (XfcePanelPlugin *plugin, t_sensors *sensors)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 sensors_set_size (XfcePanelPlugin *plugin, int size, t_sensors *sensors)
 {
@@ -1251,6 +1276,7 @@ sensors_set_size (XfcePanelPlugin *plugin, int size, t_sensors *sensors)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 show_title_toggled (GtkWidget *widget, t_sensors_dialog *sd)
 {
@@ -1271,6 +1297,7 @@ show_title_toggled (GtkWidget *widget, t_sensors_dialog *sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 show_labels_toggled (GtkWidget *widget, t_sensors_dialog *sd)
 {
@@ -1291,6 +1318,8 @@ show_labels_toggled (GtkWidget *widget, t_sensors_dialog *sd)
     TRACE ("leaves show_labels_toggled");
 }
 
+
+/* -------------------------------------------------------------------------- */
 static void
 show_colored_bars_toggled (GtkWidget *widget, t_sensors_dialog *sd)
 {
@@ -1311,6 +1340,8 @@ show_colored_bars_toggled (GtkWidget *widget, t_sensors_dialog *sd)
     TRACE ("leaves show_colored_bars_toggled");
 }
 
+
+/* -------------------------------------------------------------------------- */
 static void
 display_style_changed_text (GtkWidget *widget, t_sensors_dialog *sd)
 {
@@ -1340,6 +1371,8 @@ display_style_changed_text (GtkWidget *widget, t_sensors_dialog *sd)
     TRACE ("leaves display_style_changed_text");
 }
 
+
+/* -------------------------------------------------------------------------- */
 static void
 display_style_changed_bars (GtkWidget *widget, t_sensors_dialog *sd)
 {
@@ -1368,7 +1401,7 @@ display_style_changed_bars (GtkWidget *widget, t_sensors_dialog *sd)
 }
 
 
-
+/* -------------------------------------------------------------------------- */
 static void
 suppresstooltip_changed (GtkWidget *widget, t_sensors_dialog* sd)
 {
@@ -1382,6 +1415,7 @@ suppresstooltip_changed (GtkWidget *widget, t_sensors_dialog* sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 display_style_changed_tacho (GtkWidget *widget, t_sensors_dialog *sd)
 {
@@ -1408,6 +1442,7 @@ display_style_changed_tacho (GtkWidget *widget, t_sensors_dialog *sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 sensor_entry_changed_ (GtkWidget *widget, t_sensors_dialog *sd)
 {
@@ -1429,6 +1464,7 @@ sensor_entry_changed_ (GtkWidget *widget, t_sensors_dialog *sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 str_fontsize_change (GtkWidget *widget, t_sensors_dialog *sd)
 {
@@ -1458,6 +1494,7 @@ str_fontsize_change (GtkWidget *widget, t_sensors_dialog *sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 lines_size_change (GtkWidget *widget, t_sensors_dialog *sd)
 {
@@ -1472,6 +1509,7 @@ lines_size_change (GtkWidget *widget, t_sensors_dialog *sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 cover_rows_toggled(GtkWidget *widget, t_sensors_dialog *sd)
 {
@@ -1488,6 +1526,7 @@ cover_rows_toggled(GtkWidget *widget, t_sensors_dialog *sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 temperature_unit_change_ (GtkWidget *widget, t_sensors_dialog *sd)
 {
@@ -1505,6 +1544,7 @@ temperature_unit_change_ (GtkWidget *widget, t_sensors_dialog *sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 adjustment_value_changed_ (GtkWidget *widget, t_sensors_dialog* sd)
 {
@@ -1537,6 +1577,7 @@ draw_units_changed (GtkWidget *widget, t_sensors_dialog* sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 draw_smallspacings_changed (GtkWidget *widget, t_sensors_dialog* sd)
 {
@@ -1550,6 +1591,7 @@ draw_smallspacings_changed (GtkWidget *widget, t_sensors_dialog* sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 suppressmessage_changed (GtkWidget *widget, t_sensors_dialog* sd)
 {
@@ -1561,6 +1603,7 @@ suppressmessage_changed (GtkWidget *widget, t_sensors_dialog* sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 /* double-click improvement */
 static void
 execCommand_toggled (GtkWidget *widget, t_sensors_dialog* sd)
@@ -1581,6 +1624,7 @@ execCommand_toggled (GtkWidget *widget, t_sensors_dialog* sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 minimum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
                  gchar *new_value, t_sensors_dialog *sd)
@@ -1634,6 +1678,7 @@ minimum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
             gchar *new_value, t_sensors_dialog *sd)
@@ -1687,6 +1732,7 @@ maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 list_cell_color_edited_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
                        gchar *new_color, t_sensors_dialog *sd)
@@ -1742,6 +1788,7 @@ list_cell_color_edited_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 list_cell_text_edited_ (GtkCellRendererText *cellrenderertext,
                       gchar *path_str, gchar *new_text, t_sensors_dialog *sd)
@@ -1794,6 +1841,7 @@ list_cell_text_edited_ (GtkCellRendererText *cellrenderertext,
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,
                   t_sensors_dialog *sd)
@@ -1857,6 +1905,8 @@ list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,
     TRACE ("leaves list_cell_toggle");
 }
 
+
+/* -------------------------------------------------------------------------- */
 static void
 on_font_set (GtkWidget *widget, gpointer data)
 {
@@ -1878,6 +1928,7 @@ on_font_set (GtkWidget *widget, gpointer data)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 add_ui_style_box (GtkWidget * vbox, t_sensors_dialog * sd)
 {
@@ -1925,6 +1976,7 @@ add_ui_style_box (GtkWidget * vbox, t_sensors_dialog * sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 add_labels_box (GtkWidget * vbox, t_sensors_dialog * sd)
 {
@@ -1955,6 +2007,8 @@ add_labels_box (GtkWidget * vbox, t_sensors_dialog * sd)
     TRACE ("leaves add_labels_box");
 }
 
+
+/* -------------------------------------------------------------------------- */
 static void
 add_colored_bars_box (GtkWidget *vbox, t_sensors_dialog *sd)
 {
@@ -1986,6 +2040,8 @@ add_colored_bars_box (GtkWidget *vbox, t_sensors_dialog *sd)
     TRACE ("leaves add_colored_bars_box");
 }
 
+
+/* -------------------------------------------------------------------------- */
 static void
 add_title_box (GtkWidget * vbox, t_sensors_dialog * sd)
 {
@@ -2011,6 +2067,7 @@ add_title_box (GtkWidget * vbox, t_sensors_dialog * sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 add_lines_box (GtkWidget * vbox, t_sensors_dialog * sd)
 {
@@ -2047,6 +2104,7 @@ add_lines_box (GtkWidget * vbox, t_sensors_dialog * sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 add_cover_rows_box (GtkWidget * vbox, t_sensors_dialog * sd)
 {
@@ -2070,6 +2128,7 @@ add_cover_rows_box (GtkWidget * vbox, t_sensors_dialog * sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 add_str_fontsize_box (GtkWidget * vbox, t_sensors_dialog * sd)
 {
@@ -2112,6 +2171,8 @@ add_str_fontsize_box (GtkWidget * vbox, t_sensors_dialog * sd)
     TRACE ("leaves add_str_fontsize_box");
 }
 
+
+/* -------------------------------------------------------------------------- */
 static void
 add_font_settings_box (GtkWidget * vbox, t_sensors_dialog * sd)
 {
@@ -2150,6 +2211,7 @@ add_font_settings_box (GtkWidget * vbox, t_sensors_dialog * sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 add_units_box (GtkWidget * vbox, t_sensors_dialog * sd)
 {
@@ -2171,6 +2233,8 @@ add_units_box (GtkWidget * vbox, t_sensors_dialog * sd)
     TRACE ("leaves add_units_box");
 }
 
+
+/* -------------------------------------------------------------------------- */
 static void
 add_smallspacings_box (GtkWidget * vbox, t_sensors_dialog * sd)
 {
@@ -2193,6 +2257,7 @@ add_smallspacings_box (GtkWidget * vbox, t_sensors_dialog * sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 add_suppressmessage_box (GtkWidget * vbox, t_sensors_dialog * sd)
 {
@@ -2211,6 +2276,8 @@ add_suppressmessage_box (GtkWidget * vbox, t_sensors_dialog * sd)
     TRACE ("leaves add_suppressmessage_box");
 }
 
+
+/* -------------------------------------------------------------------------- */
 static void
 add_suppresstooltips_box (GtkWidget * vbox, t_sensors_dialog * sd)
 {
@@ -2230,6 +2297,7 @@ add_suppresstooltips_box (GtkWidget * vbox, t_sensors_dialog * sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 /* double-click improvement */
 static void
 add_command_box (GtkWidget * vbox,  t_sensors_dialog * sd)
@@ -2273,6 +2341,7 @@ add_command_box (GtkWidget * vbox,  t_sensors_dialog * sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 add_view_frame (GtkWidget * notebook, t_sensors_dialog * sd)
 {
@@ -2307,7 +2376,7 @@ add_view_frame (GtkWidget * notebook, t_sensors_dialog * sd)
 }
 
 
-
+/* -------------------------------------------------------------------------- */
 static void
 add_miscellaneous_frame (GtkWidget * notebook, t_sensors_dialog * sd)
 {
@@ -2338,6 +2407,7 @@ add_miscellaneous_frame (GtkWidget * notebook, t_sensors_dialog * sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 on_optionsDialog_response (GtkWidget *dlg, int response, t_sensors_dialog *sd)
 {
@@ -2380,6 +2450,7 @@ on_optionsDialog_response (GtkWidget *dlg, int response, t_sensors_dialog *sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 /* create sensor options box */
 static void
 sensors_create_options (XfcePanelPlugin *plugin, t_sensors *sensors)
@@ -2456,6 +2527,7 @@ sensors_create_options (XfcePanelPlugin *plugin, t_sensors *sensors)
 }
 
 
+/* -------------------------------------------------------------------------- */
 /**
  * Add event box to sensors panel
  * @param sensors Pointer to t_sensors structure
@@ -2475,6 +2547,7 @@ add_event_box (t_sensors *sensors)
 }
 
 
+/* -------------------------------------------------------------------------- */
 /**
  * Create sensors panel control
  * @param plugin Panel plugin proxy to create sensors plugin in
@@ -2515,6 +2588,7 @@ create_sensors_control (XfcePanelPlugin *plugin)
 }
 
 
+/* -------------------------------------------------------------------------- */
 static void
 sensors_plugin_construct (XfcePanelPlugin *plugin)
 {

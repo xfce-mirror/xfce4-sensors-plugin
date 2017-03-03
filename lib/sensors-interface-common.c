@@ -34,6 +34,7 @@
 #include <middlelayer.h>
 #include <tacho.h>
 
+/* -------------------------------------------------------------------------- */
 t_sensors *
 sensors_new (XfcePanelPlugin *plugin, gchar *plugin_config_file)
 {
@@ -94,6 +95,7 @@ sensors_new (XfcePanelPlugin *plugin, gchar *plugin_config_file)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
 {
@@ -133,6 +135,7 @@ sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 format_sensor_value (t_tempscale scale, t_chipfeature *chipfeature,
                      double sensorFeature, gchar **help)

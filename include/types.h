@@ -33,6 +33,10 @@
 #ifdef HAVE_LIBSENSORS
  #include <sensors/sensors.h>
 #else
+/**
+ * sensors chip name structure from libsensors it is reused for the other
+ * chiptypes as well
+ */
  typedef struct sensors_chip_name {
   char *prefix;
   int bus; /* newer sensors.h has sensors_bus_id as struct{short,short} */
@@ -42,7 +46,7 @@
 #endif
 
 
-/*
+/**
  * temperature scale to show values in
  */
 typedef enum {
@@ -51,9 +55,9 @@ typedef enum {
 } t_tempscale;
 
 
-/* #define NUM_SENSOR_CHIPS 10
-#define FEATURES_PER_SENSOR 256 */
-
+/**
+ * type of chip, i.e, what is its purpose, feature, hardware?
+ */
 typedef enum {
     LMSENSOR,
     HDD,
@@ -61,7 +65,8 @@ typedef enum {
     GPU
 } t_chiptype;
 
-/*
+
+/**
  * Indicates whether chipfeature is a temperature, a voltage or a speed
  * value
  */
@@ -74,13 +79,13 @@ typedef enum {
     OTHER
 } t_chipfeature_class;
 
-/*
+
+/**
  * Information about a special feature on a chip
  */
 typedef struct {
     gchar *name;
     gchar *devicename;
-    /* gchar *description; */
     double raw_value; /* unformatted sensor feature values */
     gchar *formatted_value; /* formatted (%f5.2) sensor feature values */
     float min_value;
@@ -93,7 +98,7 @@ typedef struct {
 } t_chipfeature;
 
 
-/*
+/**
  * Information about a whole chip, like asb-1-45
  */
 typedef struct {

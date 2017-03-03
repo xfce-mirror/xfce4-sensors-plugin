@@ -38,6 +38,7 @@
 #include <unistd.h>
 
 
+/* -------------------------------------------------------------------------- */
 static gchar *
 strip_key_colon_spaces (gchar *ptr_string)
 {
@@ -65,6 +66,7 @@ strip_key_colon_spaces (gchar *ptr_string)
 }
 
 
+/* -------------------------------------------------------------------------- */
 #ifdef HAVE_SYSFS_ACPI
 static void
 cut_newline (gchar *ptr_string)
@@ -83,6 +85,7 @@ cut_newline (gchar *ptr_string)
 #endif
 
 
+/* -------------------------------------------------------------------------- */
 gint
 read_thermal_zone (t_chip *ptr_chip)
 {
@@ -184,6 +187,7 @@ read_thermal_zone (t_chip *ptr_chip)
 }
 
 
+/* -------------------------------------------------------------------------- */
 gdouble
 get_fan_zone_value (gchar *str_zonename)
 {
@@ -222,6 +226,7 @@ get_fan_zone_value (gchar *str_zonename)
 }
 
 
+/* -------------------------------------------------------------------------- */
 gdouble
 get_battery_zone_value (gchar *str_zone)
 {
@@ -271,6 +276,7 @@ get_battery_zone_value (gchar *str_zone)
 }
 
 
+/* -------------------------------------------------------------------------- */
 gint
 read_battery_zone (t_chip *ptr_chip)
 {
@@ -409,6 +415,7 @@ read_battery_zone (t_chip *ptr_chip)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 get_battery_max_value (gchar *str_filename, t_chipfeature *ptr_chipfeature)
 {
@@ -458,6 +465,7 @@ get_battery_max_value (gchar *str_filename, t_chipfeature *ptr_chipfeature)
 }
 
 
+/* -------------------------------------------------------------------------- */
 gint
 read_fan_zone (t_chip *ptr_chip)
 {
@@ -529,6 +537,7 @@ read_fan_zone (t_chip *ptr_chip)
 }
 
 
+/* -------------------------------------------------------------------------- */
 gint
 initialize_ACPI (GPtrArray *arr_ptr_chips)
 {
@@ -568,6 +577,7 @@ initialize_ACPI (GPtrArray *arr_ptr_chips)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 refresh_acpi (gpointer ptr_chipfeature, gpointer ptr_unused)
 {
@@ -645,6 +655,7 @@ refresh_acpi (gpointer ptr_chipfeature, gpointer ptr_unused)
 }
 
 
+/* -------------------------------------------------------------------------- */
 gint
 acpi_ignore_directory_entry (struct dirent *ptr_dirent)
 {
@@ -654,6 +665,7 @@ acpi_ignore_directory_entry (struct dirent *ptr_dirent)
 }
 
 
+/* -------------------------------------------------------------------------- */
 /**
  * Obtains ACPI version information.
  * Might forget some space or tab bytes due to g_strchomp
@@ -691,6 +703,7 @@ get_acpi_info (void)
 }
 
 
+/* -------------------------------------------------------------------------- */
 /* Note that zone will have to consist of two paths, e.g.
  *  thermal_zone and THRM.
  */
@@ -719,6 +732,7 @@ get_acpi_zone_value (gchar *str_zone, gchar *str_filename)
 }
 
 
+/* -------------------------------------------------------------------------- */
 /**
  * Get the value from inside an acpi's file.
  * @param str_filename An absolute filename, most likely starting with /proc/acpi...
@@ -750,6 +764,7 @@ get_acpi_value (gchar *str_filename)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 free_acpi_chip (gpointer ptr_chip)
 {

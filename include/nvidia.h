@@ -27,17 +27,25 @@
 /* Gtk/Glib includes */
 #include <glib.h>
 #include <NVCtrl/NVCtrl.h>
-/*
+
+/**
  * Initialize nvidia sensor
+ * @param chips: Pointer to pointer array to chips
+ * @return number of detected chip features
  */
 int initialize_nvidia (GPtrArray *chips);
 
-/*
+/**
  * Refresh an nvidia chip's feature
+ * @param chip_feature: Pointer to chip feature to refresh
+ * @param data: currently unused
  */
 void refresh_nvidia (gpointer chip_feature, gpointer data);
 
-
+/**
+ * Read the temperature value from GPU
+ * @param gpu: index of GPU to read its value
+ */
 double get_nvidia_value (int gpu);
 
 #endif /* XFCE4_SENSORS_NVIDIA_H */

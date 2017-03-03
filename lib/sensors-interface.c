@@ -54,6 +54,7 @@
 void produce_min_max_values (t_chipfeature *chipfeature, t_tempscale scale, float *minval, float *maxval);
 
 
+/* -------------------------------------------------------------------------- */
 void
 produce_min_max_values (t_chipfeature *chipfeature, t_tempscale scale, float *minval, float *maxval)
 {
@@ -68,6 +69,8 @@ produce_min_max_values (t_chipfeature *chipfeature, t_tempscale scale, float *mi
    }
 }
 
+
+/* -------------------------------------------------------------------------- */
 void
 fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale, t_sensors_dialog *sd)
 {
@@ -158,7 +161,7 @@ fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale, t_senso
 }
 
 
-
+/* -------------------------------------------------------------------------- */
 void
 add_type_box (GtkWidget * vbox, t_sensors_dialog * sd)
 {
@@ -215,7 +218,7 @@ add_type_box (GtkWidget * vbox, t_sensors_dialog * sd)
 }
 
 
-
+/* -------------------------------------------------------------------------- */
 void
 add_update_time_box (GtkWidget * vbox, t_sensors_dialog * sd)
 {
@@ -251,6 +254,7 @@ add_update_time_box (GtkWidget * vbox, t_sensors_dialog * sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 add_sensor_settings_box ( GtkWidget * vbox, t_sensors_dialog * sd)
 {
@@ -361,6 +365,7 @@ add_sensor_settings_box ( GtkWidget * vbox, t_sensors_dialog * sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 add_temperature_unit_box (GtkWidget *vbox, t_sensors_dialog *sd)
 {
@@ -399,7 +404,7 @@ add_temperature_unit_box (GtkWidget *vbox, t_sensors_dialog *sd)
 }
 
 
-
+/* -------------------------------------------------------------------------- */
 void
 add_sensors_frame (GtkWidget * notebook, t_sensors_dialog * sd)
 {
@@ -428,6 +433,7 @@ add_sensors_frame (GtkWidget * notebook, t_sensors_dialog * sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 free_widgets (t_sensors_dialog *ptr_sensors_dialog)
 {
@@ -495,6 +501,7 @@ free_widgets (t_sensors_dialog *ptr_sensors_dialog)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 init_widgets (t_sensors_dialog *sd)
 {
@@ -564,7 +571,7 @@ init_widgets (t_sensors_dialog *sd)
 }
 
 
-
+/* -------------------------------------------------------------------------- */
 void
 reload_listbox (t_sensors_dialog *sd)
 {

@@ -54,6 +54,7 @@
 #endif
 
 
+/* -------------------------------------------------------------------------- */
 int
 initialize_all (GPtrArray **chips, gboolean *suppressmessage)
 {
@@ -85,6 +86,7 @@ initialize_all (GPtrArray **chips, gboolean *suppressmessage)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 refresh_chip (gpointer chip, gpointer data)
 {
@@ -135,6 +137,7 @@ refresh_chip (gpointer chip, gpointer data)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 refresh_all_chips (GPtrArray *chips, t_sensors *sensors )
 {
@@ -146,6 +149,7 @@ refresh_all_chips (GPtrArray *chips, t_sensors *sensors )
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 categorize_sensor_type (t_chipfeature* chipfeature)
 {
@@ -183,6 +187,7 @@ categorize_sensor_type (t_chipfeature* chipfeature)
 }
 
 
+/* -------------------------------------------------------------------------- */
 int
 sensor_get_value (t_chip *chip, int number, double *value, gboolean *suppressmessage)
 {
@@ -225,7 +230,7 @@ sensor_get_value (t_chip *chip, int number, double *value, gboolean *suppressmes
                 g_assert (feature!=NULL);
                 refresh_acpi ((gpointer) feature, NULL);
                 *value = feature->raw_value;
-                return 0; /* HERE    I    AM,    I    WANNA    BE    FIXED    */
+                return 0;
             #else
                 return -1;
             #endif
@@ -237,7 +242,6 @@ sensor_get_value (t_chip *chip, int number, double *value, gboolean *suppressmes
                 feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, number);
                 g_assert (feature!=NULL);
                 refresh_nvidia ((gpointer) feature, NULL);
-                //*value = get_nvidia_value(feature->address);
                 *value = feature->raw_value;
                 return 0;
             #else
@@ -256,6 +260,7 @@ sensor_get_value (t_chip *chip, int number, double *value, gboolean *suppressmes
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 free_chipfeature (gpointer chipfeature, gpointer data)
 {
@@ -270,21 +275,7 @@ free_chipfeature (gpointer chipfeature, gpointer data)
 }
 
 
-//void
-//free_chipstructure(gpointer data)
-//{
-    //t_chip *ptr_chip_structure = (t_chip*)data;
-    //if (NULL != ptr_chip_structure)
-    //{
-        //g_free(ptr_chip_structure->description);
-        //g_free(ptr_chip_structure->name);
-        //g_free(ptr_chip_structure->sensorId);
-        //// g_free(ptr_chip_structure->chip_name); // is this possible? Does it belong to libsensors3?
-        //g_ptr_array_free(ptr_chip_structure->chip_features, TRUE);
-    //}
-//}
-
-
+/* -------------------------------------------------------------------------- */
 void
 free_chip (gpointer chip, gpointer data)
 {
@@ -311,9 +302,6 @@ free_chip (gpointer chip, gpointer data)
     //}
 //#endif
 
-    // makes program crash
-    //g_free (ptr_chip_structure->chip_name);   /* is a _copied_ structure of libsensors */
-
     g_ptr_array_foreach (ptr_chip_structure->chip_features, free_chipfeature, NULL);
     g_ptr_array_free (ptr_chip_structure->chip_features, TRUE);
     g_free (ptr_chip_structure->chip_name);
@@ -321,6 +309,7 @@ free_chip (gpointer chip, gpointer data)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 sensor_interface_cleanup (void)
 {

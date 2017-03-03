@@ -46,6 +46,7 @@ t_chipfeature * find_chipfeature (const sensors_chip_name *name, t_chip *chip, c
 
 
 
+/* -------------------------------------------------------------------------- */
 int
 sensors_get_feature_wrapper (const sensors_chip_name *c_ptr_sensors_chip_name,
                              int address_chipfeature, double *value)
@@ -60,6 +61,7 @@ sensors_get_feature_wrapper (const sensors_chip_name *c_ptr_sensors_chip_name,
 }
 
 
+/* -------------------------------------------------------------------------- */
 t_chip *
 setup_chip (GPtrArray *chips, const sensors_chip_name *c_ptr_sensors_chip_name,
             int num_sensorchips)
@@ -109,6 +111,7 @@ setup_chip (GPtrArray *chips, const sensors_chip_name *c_ptr_sensors_chip_name,
 }
 
 
+/* -------------------------------------------------------------------------- */
 #if SENSORS_API_VERSION >= 0x400 /* libsensors4 */
 void
 categorize_sensor_type_libsensors4 (t_chipfeature *ptr_chipfeature,
@@ -188,6 +191,7 @@ categorize_sensor_type_libsensors4 (t_chipfeature *ptr_chipfeature,
 #endif
 
 
+/* -------------------------------------------------------------------------- */
 void
 setup_chipfeature_common (t_chipfeature *ptr_chipfeature, int address_chipfeature,
                           double val_sensor_feature)
@@ -203,6 +207,7 @@ setup_chipfeature_common (t_chipfeature *ptr_chipfeature, int address_chipfeatur
 
 
 #if SENSORS_API_VERSION < 0x400 /* libsensors3 */
+/* -------------------------------------------------------------------------- */
 void
 setup_chipfeature (t_chipfeature *chipfeature, int address_chipfeature,
                    double val_sensor_feature)
@@ -216,6 +221,7 @@ setup_chipfeature (t_chipfeature *chipfeature, int address_chipfeature,
     TRACE ("leaves setup_chipfeature");
 }
 #else
+/* -------------------------------------------------------------------------- */
 void
 setup_chipfeature_libsensors4 (t_chipfeature *ptr_chipfeature,
                                const sensors_feature *feature,
@@ -232,6 +238,7 @@ setup_chipfeature_libsensors4 (t_chipfeature *ptr_chipfeature,
 
 
 #if SENSORS_API_VERSION < 0x400 /* libsensors3 */
+/* -------------------------------------------------------------------------- */
 t_chipfeature *
 find_chipfeature (const sensors_chip_name *name, t_chip *chip,
                   int address_chipfeature)
@@ -265,6 +272,7 @@ find_chipfeature (const sensors_chip_name *name, t_chip *chip,
     return NULL;
 }
 #else
+/* -------------------------------------------------------------------------- */
 t_chipfeature *
 find_chipfeature (const sensors_chip_name *name, t_chip *chip,
                   const sensors_feature *feature)
@@ -336,6 +344,7 @@ find_chipfeature (const sensors_chip_name *name, t_chip *chip,
 #endif
 
 
+/* -------------------------------------------------------------------------- */
 int
 initialize_libsensors (GPtrArray *arr_ptr_chips)
 {
@@ -439,6 +448,7 @@ initialize_libsensors (GPtrArray *arr_ptr_chips)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 refresh_lmsensors (gpointer ptr_chip_feature, gpointer ptr_unused)
 {
@@ -450,6 +460,7 @@ refresh_lmsensors (gpointer ptr_chip_feature, gpointer ptr_unused)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 free_lmsensors_chip (gpointer ptr_chip)
 {

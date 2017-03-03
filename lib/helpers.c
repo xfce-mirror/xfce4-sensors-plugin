@@ -29,6 +29,7 @@ void * memset2 (void *s, char c, size_t n);
 char * str_split (char *string, char *delim);
 
 
+/* -------------------------------------------------------------------------- */
 /**
  * This function behaves exactly as memset.
  * Memset is broken; it fails when writing an arbitrary number of chars to a valid pointer.
@@ -56,6 +57,8 @@ void *memset2 (void *s, char c, size_t n)
 
 /* Global variable storing last position in splitte string used for str_split(s, d) */
 char *str_split_position;
+
+/* -------------------------------------------------------------------------- */
 /**
  * Returns tokens of the string one after the other, split by the string delim.
  * Just like strtok, initialize with a valid pointer and continue with passing NULL

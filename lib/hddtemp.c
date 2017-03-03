@@ -85,6 +85,8 @@ void read_disks_fallback (t_chip *ptr_chip);
 void remove_unmonitored_drives (t_chip *ptr_chip, gboolean *ptr_suppressmessage);
 void populate_detected_drives (t_chip *ptr_chip);
 
+
+/* -------------------------------------------------------------------------- */
 #if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
 void
 notification_suppress_messages (NotifyNotification *ptr_notification, gchar *str_action, gpointer *ptr_data)
@@ -95,6 +97,8 @@ notification_suppress_messages (NotifyNotification *ptr_notification, gchar *str
     /* FIXME: Use channels or propagate private object or use static global variable */
 }
 
+
+/* -------------------------------------------------------------------------- */
 void
 quick_message_notify (gchar *str_message)
 {
@@ -122,6 +126,7 @@ quick_message_notify (gchar *str_message)
     notify_notification_show(ptr_notification, &ptr_error);
 }
 #else
+/* -------------------------------------------------------------------------- */
 void
 quick_message_dialog (gchar *str_message)
 {
@@ -144,6 +149,7 @@ quick_message_dialog (gchar *str_message)
 }
 
 
+/* -------------------------------------------------------------------------- */
 gboolean
 quick_message_with_checkbox (gchar *str_message, gchar *str_checkboxtext)
 {
@@ -178,6 +184,7 @@ quick_message_with_checkbox (gchar *str_message, gchar *str_checkboxtext)
 #endif
 
 
+/* -------------------------------------------------------------------------- */
 void
 quick_message (gchar *str_message)
 {
@@ -190,6 +197,7 @@ quick_message (gchar *str_message)
 
 
 #ifdef HAVE_NETCAT
+/* -------------------------------------------------------------------------- */
 void
 read_disks_netcat (t_chip *ptr_chip)
 {
@@ -224,6 +232,7 @@ read_disks_netcat (t_chip *ptr_chip)
     while ( (str_tmp = str_split(NULL, DOUBLE_DELIMITER)) );
 }
 #else
+/* -------------------------------------------------------------------------- */
 void
 read_disks_fallback (t_chip *ptr_chip)
 {
@@ -257,6 +266,7 @@ read_disks_fallback (t_chip *ptr_chip)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 read_disks_linux26 (t_chip *ptr_chip)
 {
@@ -293,6 +303,7 @@ read_disks_linux26 (t_chip *ptr_chip)
 #endif
 
 
+/* -------------------------------------------------------------------------- */
 void
 remove_unmonitored_drives (t_chip *ptr_chip, gboolean *suppressmessage)
 {
@@ -331,6 +342,7 @@ remove_unmonitored_drives (t_chip *ptr_chip, gboolean *suppressmessage)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 populate_detected_drives (t_chip *ptr_chip)
 {
@@ -361,6 +373,7 @@ populate_detected_drives (t_chip *ptr_chip)
 }
 
 
+/* -------------------------------------------------------------------------- */
 int
 initialize_hddtemp (GPtrArray *arr_ptr_chips, gboolean *suppressmessage)
 {
@@ -426,7 +439,7 @@ initialize_hddtemp (GPtrArray *arr_ptr_chips, gboolean *suppressmessage)
 }
 
 
-
+/* -------------------------------------------------------------------------- */
 int
 get_hddtemp_d_str (char *buffer, size_t bufsize)
 {
@@ -477,6 +490,7 @@ get_hddtemp_d_str (char *buffer, size_t bufsize)
 }
 
 
+/* -------------------------------------------------------------------------- */
 double
 get_hddtemp_value (char* str_disk, gboolean *ptr_suppressmessage)
 {
@@ -637,6 +651,7 @@ get_hddtemp_value (char* str_disk, gboolean *ptr_suppressmessage)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 refresh_hddtemp (gpointer chip_feature, gpointer ptr_sensors)
 {

@@ -29,29 +29,70 @@
 #include "sensors-interface-common.h"
 
 /* Initializing and filling functions */
-void fill_gtkTreeStore (GtkTreeStore *model, t_chip *chip, t_tempscale scale, t_sensors_dialog *sd);
 
-void free_widgets (t_sensors_dialog *ptr_sensors_dialog);
+/**
+ * Populates the tree store from the obtained sensors data
+ * @param ptr_treestore: Pointer to treestore that has to be filled
+ * @param ptr_chip: Pointer to chip structure
+ * @param tempscale: temperature scale
+ * @param ptr_sensorsdialog: Pointer to sensors dialog data
+ */
+void fill_gtkTreeStore (GtkTreeStore *ptr_treestore, t_chip *ptr_chip, t_tempscale tempscale, t_sensors_dialog *ptr_sensorsdialog);
 
-void init_widgets (t_sensors_dialog *sd);
+/**
+ * Frees the allocated and added dialog widgets
+ * @param ptr_sensorsdialog: Pointer to sensors dialog data
+ */
+void free_widgets (t_sensors_dialog *ptr_sensorsdialog);
 
-void reload_listbox (t_sensors_dialog *sd);
+/**
+ * Initializes the widgets with the proper values
+ * @param ptr_sensorsdialog: Pointer to sensors dialog data
+ */
+void init_widgets (t_sensors_dialog *ptr_sensorsdialog);
+
+/**
+ * Reloads the data in the listbox
+ * @param ptr_sensorsdialog: Pointer to sensors dialog data
+ */
+void reload_listbox (t_sensors_dialog *ptr_sensorsdialog);
+
 
 /* GUI builder functions */
-void add_sensor_settings_box ( GtkWidget * vbox, t_sensors_dialog * sd);
 
-void add_type_box (GtkWidget * vbox, t_sensors_dialog * sd);
+/**
+ * Adds the settings box to ptr_widget_vbox
+ * @param ptr_widget_vbox: Pointer to vbox widget to add the settings box to
+ * @param ptr_sensorsdialog: Pointer to sensors dialog data
+ */
+void add_sensor_settings_box ( GtkWidget *ptr_widget_vbox, t_sensors_dialog * ptr_sensorsdialog);
 
-void add_temperature_unit_box (GtkWidget *vbox, t_sensors_dialog *sd);
+/**
+ * Adds the sensors type chooser box to ptr_widget_vbox
+ * @param ptr_widget_vbox: Pointer to vbox widget to add the type box to
+ * @param ptr_sensorsdialog: Pointer to sensors dialog data
+ */
+void add_type_box (GtkWidget *ptr_widget_vbox, t_sensors_dialog * ptr_sensorsdialog);
 
-void add_sensors_frame (GtkWidget * notebook, t_sensors_dialog * sd);
+/**
+ * Ads the termperature unit chooser box
+ * @param ptr_widget_vbox:  Pointer to vbox widget to add the unit box to
+ * @param ptr_sensorsdialog: Pointer to sensors dialog data
+ */
+void add_temperature_unit_box (GtkWidget *ptr_widget_vbox, t_sensors_dialog *ptr_sensorsdialog);
 
-void add_update_time_box (GtkWidget * vbox, t_sensors_dialog * sd);
+/**
+ * Adds the entire sensors settings frame to the options dialog as new notebook
+ * @param ptr_widget_notebook: Pointer to notebook to attach the new content to
+ * @param ptr_sensorsdialog: Pointer to sensors dialog data
+ */
+void add_sensors_frame (GtkWidget *ptr_widget_notebook, t_sensors_dialog * ptr_sensorsdialog);
 
-/* Callbacks */
-//void temperature_unit_change (GtkWidget *widget, t_sensors_dialog *sd);
-
-
-
+/**
+ * Adds the update tim box
+ * @param ptr_widget_vbox:  Pointer to vbox widget to add the update time box to
+ * @param ptr_sensorsdialog: Pointer to sensors dialog data
+ */
+void add_update_time_box (GtkWidget *ptr_widget_vbox, t_sensors_dialog * ptr_sensorsdialog);
 
 #endif /* XFCE4_SENSORS_INTERFACE_H */

@@ -38,6 +38,7 @@
 #include <types.h>
 
 
+/* -------------------------------------------------------------------------- */
 gint
 get_Id_from_address (gint idx_chip, gint addr_chipfeature, t_sensors *ptr_sensors)
 {
@@ -69,6 +70,7 @@ get_Id_from_address (gint idx_chip, gint addr_chipfeature, t_sensors *ptr_sensor
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 sensors_write_config (t_sensors *ptr_sensors)
 {
@@ -197,6 +199,7 @@ sensors_write_config (t_sensors *ptr_sensors)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 sensors_read_general_config (XfceRc *ptr_xfceresources, t_sensors *ptr_sensors)
 {
@@ -266,6 +269,7 @@ sensors_read_general_config (XfceRc *ptr_xfceresources, t_sensors *ptr_sensors)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 sensors_read_preliminary_config (XfcePanelPlugin *ptr_panelplugin, t_sensors *ptr_sensors)
 {
@@ -292,6 +296,7 @@ sensors_read_preliminary_config (XfcePanelPlugin *ptr_panelplugin, t_sensors *pt
 }
 
 
+/* -------------------------------------------------------------------------- */
 // TODO: modify to store chipname as indicator and access features by acpitz-1_Feature0 etc.
 // this will require differently storing the stuff as well.
 // targeted for 1.3 or 1.4 release

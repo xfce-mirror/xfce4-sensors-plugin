@@ -45,7 +45,9 @@ int read_gpus (t_chip *chip);
 /* Defines */
 #define ZERO_KELVIN -273
 
-int initialize_nvidia (GPtrArray *chips)
+/* -------------------------------------------------------------------------- */
+int
+initialize_nvidia (GPtrArray *chips)
 {
     int retval;
     int num_gpus;
@@ -92,7 +94,9 @@ int initialize_nvidia (GPtrArray *chips)
 }
 
 
-double get_nvidia_value (int gpu)
+/* -------------------------------------------------------------------------- */
+double
+get_nvidia_value (int gpu)
 {
     int temp;
 
@@ -114,7 +118,9 @@ double get_nvidia_value (int gpu)
 }
 
 
-void refresh_nvidia (gpointer chip_feature, gpointer data)
+/* -------------------------------------------------------------------------- */
+void
+refresh_nvidia (gpointer chip_feature, gpointer data)
 {
     t_chipfeature *cf;
     double value;
@@ -136,7 +142,9 @@ void refresh_nvidia (gpointer chip_feature, gpointer data)
 }
 
 
-int read_gpus (t_chip *chip)
+/* -------------------------------------------------------------------------- */
+int
+read_gpus (t_chip *chip)
 {
     t_chipfeature *chipfeature;
     int num_gpus;

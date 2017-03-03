@@ -33,9 +33,9 @@
 
 /**
  * Initialize hddtemp by finding disks to monitor
- * @Param arr_ptr_chips: Pointer to array of chips
- * @Param ptr_suppressmessage: returns whether messages shall be suppressed
- * @Return Number of initialized chips
+ * @param arr_ptr_chips: Pointer to array of chips
+ * @param ptr_suppressmessage: returns whether messages shall be suppressed
+ * @return Number of initialized chips
  */
 int initialize_hddtemp (GPtrArray *arr_ptr_chips, gboolean *ptr_suppressmessage);
 
@@ -43,17 +43,17 @@ int initialize_hddtemp (GPtrArray *arr_ptr_chips, gboolean *ptr_suppressmessage)
 /**
  * Refreshs a hddtemp chip's feature in sense of raw and formatted value
  *
- * @Param ptr_chip_feature: Pointer to feature
- * @Param ptr_sensors: Pointer to t_sensors or NULL
+ * @param ptr_chip_feature: Pointer to feature
+ * @param ptr_sensors: Pointer to t_sensors or NULL
  */
 void refresh_hddtemp (gpointer ptr_chip_feature, gpointer ptr_sensors);
 
 
 /**
  * Gets the hddtemp value of a disk
- * @Param str_disk: disk name
- * @Param ptr_suppressmessage: returns whether messages shall be suppressed
- * @Return Temperature of dsk
+ * @param str_disk: disk name
+ * @param ptr_suppressmessage: returns whether messages shall be suppressed
+ * @return Temperature of disk
  */
 double get_hddtemp_value (char* str_disk, gboolean *ptr_suppressmessage);
 

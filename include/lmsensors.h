@@ -36,34 +36,36 @@
 #include "types.h"
 
 /**
- *  Initialize libsensors by reading sensor config and other stuff
- * @Param arr_ptr_chips: Pointer to array of chips
- * @Return: Number of found chip_features
+ * Initialize libsensors by reading sensor config and other stuff
+ * @param arr_ptr_chips: Pointer to array of chips
+ * @return Number of found chip_features
  */
 int initialize_libsensors (GPtrArray *arr_ptr_chips);
 
+
 /**
  * Refreshs an lmsensors chip's feature in sense of raw and formatted value
-
- * @Param ptr_chip_feature: Pointer to feature
- * @Param ptr_unused: pointer to sensors structure
+ * @param ptr_chip_feature: Pointer to feature
+ * @param ptr_unused: pointer to sensors structure
  */
 void refresh_lmsensors (gpointer ptr_chip_feature, gpointer ptr_unused);
 
+
 /**
  * Get the value of subsensor/feature that is number in array of sensors.
- * @Param ptr_sensorschipname: Structure of sensor description.
- * @Param idx_feature: number of feature to read the value from
- * @Param ptr_returnvalue: pointer where the double feature value is to be stored
- * @Return: 0 on success
+ * @param ptr_sensorschipname: Structure of sensor description.
+ * @param idx_feature: number of feature to read the value from
+ * @param ptr_returnvalue: pointer where the double feature value is to be stored
+ * @return 0 on success
  */
-int sensors_get_feature_wrapper (const sensors_chip_name *ptr_sensorschipname, int idx_feature,
-                                 double *ptr_returnvalue);
+int sensors_get_feature_wrapper (const sensors_chip_name *ptr_sensorschipname,
+                                 int idx_feature, double *ptr_returnvalue);
+
 
 /**
  * Free the additionally allocated structures in the sensors_chip_name
  * according to the version of libsensors.
- * @Param ptr_chip: Pointer to t_chip
+ * @param ptr_chip: Pointer to t_chip
  */
 void free_lmsensors_chip (gpointer ptr_chip);
 
