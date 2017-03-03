@@ -609,7 +609,8 @@ get_hddtemp_value (char* str_disk, gboolean *ptr_suppressmessage)
         /* hddtemp does not return floating values, but only integer ones.
           So have an easier life with atoi.
           FIXME: Use strtod() instead?*/
-        if (0 == strcmp(ptr_str_stdout, "drive is sleeping"))
+        if ( 0 == strcmp(ptr_str_stdout, "drive is sleeping")
+          || 0 == strcmp(ptr_str_stdout, "SLP") )
             val_drive_temperature = HDDTEMP_DISK_SLEEPING;
         else
             val_drive_temperature = (double) (atoi ( (const char*) ptr_str_stdout) );
