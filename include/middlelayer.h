@@ -54,7 +54,7 @@ void categorize_sensor_type (t_chipfeature *chipfeature);
 
 /**
  * Gets value of specified number in chip_name
- * @param chip_name: takten from libsensors3, it specifies bus and stuff of
+ * @param chip: specifies bus and stuff of
  * the sensors chip feature
  * @param number: number of chipfeature to look for
  * @param value: address where double value can be stored

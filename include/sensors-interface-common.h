@@ -47,7 +47,9 @@
 
 
 /**
- * sensor panel widget
+ * sensor panel dialog widget.
+ * Contains pointers to all used major widgets and to the sensors plugin data
+ * itself.
  */
 typedef struct {
     /* the sensors structure */
@@ -64,7 +66,8 @@ typedef struct {
     GtkWidget *mySensorLabel;
     GtkWidget *myTreeView;
     GtkTreeStore *myListStore[10]; /* replace by GPtrArray as well */
-    GtkWidget *font_Box; /* used to disable font size option when using graphical view */
+    /* used to disable font size option when using graphical view */
+    GtkWidget *font_Box;
     GtkWidget *fontSettings_Box;
     GtkWidget *fontSettings_Button;
     GtkWidget *unit_checkbox;
@@ -73,7 +76,8 @@ typedef struct {
     GtkWidget *suppressmessage_checkbox;
     GtkWidget *suppresstooltip_checkbox;
     GtkWidget *smallspacing_checkbox;
-    GtkWidget *labels_Box; /* used to enable 'show labels' option when using graphical view */
+    /* used to enable 'show labels' option when using graphical view */
+    GtkWidget *labels_Box;
     GtkWidget *coloredBars_Box;
     GtkWidget *temperature_radio_group;
     GtkWidget *spin_button_update_time;
@@ -87,38 +91,110 @@ t_sensors_dialog;
 
 
 /* Extern functions that need to be re-implemented in the sensors-viewer and
- * the panel code. */
-void
-(*adjustment_value_changed)  (GtkWidget *widget, t_sensors_dialog *sd); // for update timer box
+ * the panel code.
+ * They kind of need to be registered at the library by any software
+ * implementing them.
+ */
 
+/**
+ * Notification that the adjustment value of the update timer box has changed
+ * @param ptr_widget: Pointer to original widget, i.e, the update timer box
+ * @param ptr_sensorsdialog: argument pointer to sensors dialog data
+ */
 void
-(*sensor_entry_changed) (GtkWidget *widget, t_sensors_dialog *sd);
+(*adjustment_value_changed) (GtkWidget *ptr_widget,
+                             t_sensors_dialog *ptr_sensorsdialog);
 
+/**
+ * Notification that another sensor has been selected.
+ * Therefore, the list box has to be updated.
+ * @param ptr_widget: Pointer to original widget, i.e, the sensor entry combobox
+ * @param ptr_sensorsdialog: argument pointer to sensors dialog data
+ */
 void
-(*list_cell_text_edited) (GtkCellRendererText *cellrenderertext,
-                      gchar *path_str, gchar *new_text, t_sensors_dialog *sd);
+(*sensor_entry_changed) (GtkWidget *ptr_widget,
+                         t_sensors_dialog *ptr_sensorsdialog);
 
+/**
+ * Notification that the label of a sensor entry has been changed
+ * @param ptr_cellrenderertext: Pointer to the CellRenderer for texts
+ * @param ptr_str_path: pointer to the string with the path of the changed item
+ * @param ptr_str_newtext: Pointer to the string containing the new label
+ * @param ptr_sensorsdialog: argument pointer to sensors dialog data
+ */
 void
-(*list_cell_toggle) (GtkCellRendererToggle *cell, gchar *path_str,
-                  t_sensors_dialog *sd);
+(*list_cell_text_edited) (GtkCellRendererText *ptr_cellrenderertext,
+                          gchar *ptr_str_path, gchar *ptr_str_newtext,
+                          t_sensors_dialog *ptr_sensorsdialog);
 
+/**
+ * Notification that a sensors feature has been (de)selected for display
+ * @param ptr_cellrenderertoggle: Pointer to cellrenderer for toggle items
+ * @param ptr_str_path: pointer to the string with the path of the changed item
+ * @param ptr_sensorsdialog: argument pointer to sensors dialog data
+ */
 void
-(*list_cell_color_edited) (GtkCellRendererText *cellrenderertext, gchar *path_str,
-                       gchar *new_color, t_sensors_dialog *sd);
+(*list_cell_toggle) (GtkCellRendererToggle *ptr_cellrenderertoggle, gchar *ptr_str_path,
+                     t_sensors_dialog *ptr_sensorsdialog);
 
+/**
+ * Notification that the color for a sensors feature has been edited
+ * @param ptr_cellrenderertext: Pointer to the CellRenderer for texts
+ * @param ptr_str_path: pointer to the string with the path of the changed item
+ * @param ptr_str_newcolor: Pointer to the string containing the new color in
+ *                          hexadecimal rgb format #0011ff
+ * @param ptr_sensorsdialog: argument pointer to sensors dialog data
+ */
 void
-(*minimum_changed) (GtkCellRendererText *cellrenderertext, gchar *path_str,
-                 gchar *new_value, t_sensors_dialog *sd);
+(*list_cell_color_edited) (GtkCellRendererText *ptr_cellrenderertext,
+                           gchar *ptr_str_path, gchar *ptr_str_newcolor,
+                           t_sensors_dialog *ptr_sensorsdialog);
 
+/**
+ * Notification that the minimum value for a sensor feature has been changed
+ * @param ptr_cellrenderertext: Pointer to the CellRenderer for texts
+ * @param ptr_str_path: pointer to the string with the path of the changed item
+ * @param ptr_str_newmin: Pointer to the string containing the new minimum
+ *                        temperature
+ * @param ptr_sensorsdialog: argument pointer to sensors dialog data
+ */
 void
-(*maximum_changed) (GtkCellRendererText *cellrenderertext, gchar *path_str,
-            gchar *new_value, t_sensors_dialog *sd);
+(*minimum_changed) (GtkCellRendererText *ptr_cellrenderertext, gchar *ptr_str_path,
+                    gchar *ptr_str_newmin, t_sensors_dialog *ptr_sensorsdialog);
 
+/**
+ * Notification that the maximum value for a sensor feature has been changed
+ * @param ptr_cellrenderertext: Pointer to the CellRenderer for texts
+ * @param ptr_str_path: pointer to the string with the path of the changed item
+ * @param ptr_str_newmax: Pointer to the string containing the new maximum
+ *                        temperature
+ * @param ptr_sensorsdialog: argument pointer to sensors dialog data
+ */
 void
-(*temperature_unit_change) (GtkWidget *widget, t_sensors_dialog *sd);
+(*maximum_changed) (GtkCellRendererText *ptr_cellrenderertext, gchar *ptr_str_path,
+                    gchar *ptr_str_newmax, t_sensors_dialog *ptr_sensorsdialog);
 
-/* internal function */
-void format_sensor_value (t_tempscale scale, t_chipfeature *chipfeature,
-                     double sensorFeature, gchar **help);
+/**
+ * Notification that the termperature unit has changed, i.e, between Fahrenheit
+ * and Celsius
+ * @param ptr_widget: Pointer to original widget, i.e, the update timer box
+ * @param ptr_sensorsdialog: argument pointer to sensors dialog data
+ */
+void
+(*temperature_unit_change) (GtkWidget *ptr_widget,
+                            t_sensors_dialog *ptr_sensorsdialog);
+
+
+/* Internal functions */
+
+/**
+ * Internal function for properly formatting a sensor value
+ * @param temperaturescale: temperature scale
+ * @param ptr_chipfeature; Pointer to chipfeature; required for properly formatting
+ * @param val_sensorfeature [in]: input value to be formatted
+ * @param dptr_str_formattedvalue [out]:
+ */
+void format_sensor_value (t_tempscale temperaturescale, t_chipfeature *ptr_chipfeature,
+                     double val_sensorfeature, gchar **dptr_str_formattedvalue);
 
 #endif /* XFCE4_SENSORS_INTERFACE_COMMON_H */
