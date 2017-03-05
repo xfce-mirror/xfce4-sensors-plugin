@@ -41,11 +41,13 @@
 #define MAX_NUM_CHIPS 10
 #define MAX_NUM_FEATURES 256
 
+
 /**
  * Sensors module
  */
 typedef struct {
 
+    /* pointer for Xfce Panel */
     XfcePanelPlugin *plugin;
 
     /* eventbox to catch events */
@@ -133,40 +135,9 @@ typedef struct {
     /* FIXME:    Might be replaced by GPtrArray as well */
     GtkWidget* tachos[MAX_NUM_CHIPS][MAX_NUM_FEATURES];
 
-    /* contains structure from libsensors */
-    /* const sensors_chip_name *chipName[SENSORS]; */
-
-    /* formatted sensor chip names, e.g. 'asb-100-45' */
-    /* gchar *sensorId[SENSORS]; */
-
-    /* unformatted sensor feature names, e.g. 'Vendor' */
-    /* gchar *sensorNames[SENSORS][FEATURES_PER_SENSOR]; */
-
-    /* minimum and maximum values (GUI mode only) */
-    /* glong sensorMinValues[SENSORS][FEATURES_PER_SENSOR]; */
-    /* glong sensorMaxValues[SENSORS][FEATURES_PER_SENSOR]; */
-
-    /* unformatted sensor feature values */
-    /* double sensorRawValues[SENSORS][FEATURES_PER_SENSOR]; */
-
-    /* formatted (%f5.2) sensor feature values */
-    /* gchar *sensorValues[SENSORS][FEATURES_PER_SENSOR]; */
-
-    /* TRUE if sensorNames are set */
-    /* gboolean sensorValid[SENSORS][FEATURES_PER_SENSOR]; */
-
-    /* show sensor in panel */
-    /* gboolean sensorCheckBoxes[SENSORS][FEATURES_PER_SENSOR]; */
-
     /* sensor types to display values in appropriate format */
     /* sensor_type sensor_types[SENSORS][FEATURES_PER_SENSOR]; */
     GPtrArray *chips;
-
-    /* sensor colors in panel */
-    /* gchar *sensorColors[SENSORS][FEATURES_PER_SENSOR]; */
-
-    /* number in list <--> number in array */
-    /* gint sensorAddress[NUM_SENSOR_CHIPS][FEATURES_PER_SENSOR]; */
 
     /* double-click improvement as suggested on xfce4-goodies@berlios.de */
     /* whether to execute command on double click */
