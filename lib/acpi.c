@@ -217,6 +217,7 @@ get_fan_zone_value (gchar *str_zonename)
             if (strncmp (buffer, "status:", 7)==0)
             {
                 ptr_strippedbuffer = strip_key_colon_spaces(buffer);
+                g_assert(ptr_strippedbuffer!=NULL);
                 DBG ("tmp=%s", ptr_strippedbuffer);
                 if (strncmp (ptr_strippedbuffer, "on", 2)==0)
                     res_value = 1.0;
@@ -273,6 +274,7 @@ get_battery_zone_value (gchar *str_zone)
             if (strncmp (buffer, "remaining capacity:", 19)==0)
             {
                 ptr_strippedbuffer = strip_key_colon_spaces(buffer);
+                g_assert(ptr_strippedbuffer!=NULL);
                 res_value = strtod (ptr_strippedbuffer, NULL);
                 break;
             }
@@ -382,11 +384,13 @@ read_battery_zone (t_chip *ptr_chip)
                         if (strncmp (buffer, "design capacity low:", 20)==0)
                         {
                             ptr_strippedbuffer = strip_key_colon_spaces(buffer);
+                            g_assert(ptr_strippedbuffer!=NULL);
                             ptr_chipfeature->min_value = strtod (ptr_strippedbuffer, NULL);
                         }
                         else if (strncmp (buffer, "remaining capacity:", 19)==0)
                         {
                             ptr_strippedbuffer = strip_key_colon_spaces(buffer);
+                            g_assert(ptr_strippedbuffer!=NULL);
                             ptr_chipfeature->raw_value = strtod (ptr_strippedbuffer, NULL);
                         }
                     }
@@ -468,6 +472,7 @@ get_battery_max_value (gchar *str_filename, t_chipfeature *ptr_chipfeature)
             if (strncmp (buffer, "last full capacity:", 19)==0)
             {
                 ptr_strippedbuffer = strip_key_colon_spaces(buffer);
+                g_assert(ptr_strippedbuffer!=NULL);
                 ptr_chipfeature->max_value = strtod (ptr_strippedbuffer, NULL);
                 break;
             }
@@ -636,6 +641,7 @@ refresh_acpi (gpointer ptr_chipfeature, gpointer ptr_unused)
                 cf->raw_value = strtod(buffer, NULL) / 1000.0;
               }
               fclose (ptr_file);
+              ptr_file = NULL; /* avoid reuse after closing file */
             }
 #else
             str_zone = g_strdup_printf ("%s/%s", ACPI_DIR_THERMAL, cf->devicename);
@@ -776,6 +782,7 @@ get_acpi_value (gchar *str_filename)
         fclose (ptr_file);
 
         ptr_valueinstring = strip_key_colon_spaces (buffer);
+        g_assert(ptr_valueinstring!=NULL); /* points to beginning of buffer at least */
 
         TRACE ("leaves get_acpi_value with %s", ptr_valueinstring);
 
