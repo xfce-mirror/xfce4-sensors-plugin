@@ -48,6 +48,8 @@ get_Id_from_address (gint idx_chip, gint addr_chipfeature, t_sensors *ptr_sensor
 
     TRACE ("enters get_Id_from_address");
 
+    g_return_val_if_fail(ptr_sensors!=NULL, result);
+
     ptr_chip = (t_chip *) g_ptr_array_index (ptr_sensors->chips, idx_chip);
 
     if (ptr_chip)
@@ -81,6 +83,8 @@ sensors_write_config (t_sensors *ptr_sensors)
     t_chipfeature *ptr_chipfeature;
 
     TRACE ("enters sensors_write_config");
+
+    g_return_if_fail(ptr_sensors!=NULL);
 
     if ( ! (str_file = ptr_sensors->plugin_config_file) ) {
         TRACE ("leaves sensors_write_config: No file location specified.");
@@ -207,6 +211,10 @@ sensors_read_general_config (XfceRc *ptr_xfceresources, t_sensors *ptr_sensors)
 
     TRACE ("enters sensors_read_general_config");
 
+    g_return_if_fail(ptr_xfceresources!=NULL);
+
+    g_return_if_fail(ptr_sensors!=NULL);
+
     if (xfce_rc_has_group (ptr_xfceresources, "General") ) {
 
         xfce_rc_set_group (ptr_xfceresources, "General");
@@ -278,6 +286,10 @@ sensors_read_preliminary_config (XfcePanelPlugin *ptr_panelplugin, t_sensors *pt
 
     TRACE ("enters sensors_read_preliminary_config");
 
+    g_return_if_fail(ptr_panelplugin!=NULL);
+
+    g_return_if_fail(ptr_sensors!=NULL);
+
     if (ptr_panelplugin)
     {
         if ((str_file = ptr_sensors->plugin_config_file))
@@ -314,6 +326,10 @@ sensors_read_config (XfcePanelPlugin *ptr_panelplugin, t_sensors *ptr_sensors)
     t_chipfeature *ptr_chipfeature;
 
     TRACE ("enters sensors_read_config");
+
+    g_return_if_fail(ptr_panelplugin!=NULL);
+
+    g_return_if_fail(ptr_sensors!=NULL);
 
     if (!(str_file = ptr_sensors->plugin_config_file))
         return;
