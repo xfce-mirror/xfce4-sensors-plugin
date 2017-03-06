@@ -45,9 +45,6 @@ sensors_new (XfcePanelPlugin *plugin, gchar *plugin_config_file)
 
     TRACE ("enters sensors_new");
 
-    g_return_val_if_fail(plugin!=NULL, NULL);
-    g_return_val_if_fail(plugin_config_file!=NULL, NULL);
-
     sensors = g_new0 (t_sensors, 1);
     sensors->plugin_config_file = plugin_config_file; /* important as we check against NULL frequently */
 
@@ -103,7 +100,6 @@ sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
     TRACE ("enters sensors_init_default_values");
 
     g_return_if_fail(sensors!=NULL);
-    g_return_if_fail(plugin!=NULL);
 
     sensors->show_title = TRUE;
     sensors->show_labels = TRUE;
@@ -145,7 +141,7 @@ format_sensor_value (t_tempscale scale, t_chipfeature *chipfeature,
 {
     /* TRACE ("enters format_sensor_value"); */
     g_return_if_fail(chipfeature!=NULL);
-    g_return_if_fail(*help!=NULL);
+    g_return_if_fail(help!=NULL);
 
     switch (chipfeature->class) {
         case TEMPERATURE:

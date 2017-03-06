@@ -235,9 +235,12 @@ sensors_read_general_config (XfceRc *ptr_xfceresources, t_sensors *ptr_sensors)
         }
 
         if ((str_value = xfce_rc_read_entry (ptr_xfceresources, "Font", NULL)) && *str_value) {
-            //g_free(ptr_sensors->font); // font is initialized to NULL
+            if (font)
+                g_free(font); // font is initialized to NULL
             font = g_strdup(str_value); // in tacho.h for the tachometers
         }
+        else if (font==NULL)
+            font = g_strdup("Sans 12");
 
         ptr_sensors->val_fontsize = xfce_rc_read_int_entry (ptr_xfceresources,
                                                  "val_fontsize", 2);
@@ -286,12 +289,10 @@ sensors_read_preliminary_config (XfcePanelPlugin *ptr_panelplugin, t_sensors *pt
 
     TRACE ("enters sensors_read_preliminary_config");
 
-    g_return_if_fail(ptr_panelplugin!=NULL);
-
-    g_return_if_fail(ptr_sensors!=NULL);
-
     if (ptr_panelplugin)
     {
+        g_return_if_fail(ptr_sensors!=NULL);
+
         if ((str_file = ptr_sensors->plugin_config_file))
         {
             ptr_xfceresource = xfce_rc_simple_open (str_file, TRUE);

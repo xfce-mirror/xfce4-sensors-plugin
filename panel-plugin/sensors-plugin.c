@@ -1245,9 +1245,10 @@ sensors_free (XfcePanelPlugin *plugin, t_sensors *sensors)
     g_free (sensors->plugin_config_file);
     g_free (sensors->command_name);
     sensors->command_name = NULL;
-/*
-    g_free (sensors->font);
-*/
+
+    if (font)
+        g_free (font);
+
     g_free (sensors->str_fontsize);
     g_free (sensors);
 
@@ -1915,7 +1916,7 @@ on_font_set (GtkWidget *widget, gpointer data)
         g_assert (sensors!=NULL);
 
         if (font)
-                g_free (font);
+            g_free (font);
 
         font = g_strdup(gtk_font_button_get_font_name(GTK_FONT_BUTTON(widget)));
 
