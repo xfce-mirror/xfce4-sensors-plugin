@@ -514,6 +514,8 @@ init_widgets (t_sensors_dialog *sd)
 
     TRACE ("enters init_widgets");
 
+    g_return_if_fail(sd != NULL);
+
     sensors = sd->sensors;
 
     for (idx_chip=0; idx_chip < sensors->num_sensorchips; idx_chip++) {
@@ -582,12 +584,15 @@ reload_listbox (t_sensors_dialog *sd)
 
     TRACE ("enters reload_listbox");
 
+    g_return_if_fail(sd != NULL);
+
     ptr_sensors_structure = sd->sensors;
 
     for (idx_chip=0; idx_chip < ptr_sensors_structure->num_sensorchips; idx_chip++) {
         ptr_chip_structure = (t_chip *) g_ptr_array_index (ptr_sensors_structure->chips, idx_chip);
 
         ptr_tree_store = sd->myListStore[idx_chip];
+        g_assert(ptr_tree_store != NULL);
         gtk_tree_store_clear (ptr_tree_store);
 
         fill_gtkTreeStore (ptr_tree_store, ptr_chip_structure, ptr_sensors_structure->scale, sd);
