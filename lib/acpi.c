@@ -44,6 +44,8 @@ strip_key_colon_spaces (gchar *ptr_string)
 {
     gchar *ptr_position = ptr_string;
 
+    g_return_val_if_fail(ptr_string!=NULL, NULL);
+
     /* Skip everything before the ':' */
     if (strchr(ptr_string, ':'))
     {
@@ -71,15 +73,18 @@ strip_key_colon_spaces (gchar *ptr_string)
 static void
 cut_newline (gchar *ptr_string)
 {
-    gint index;
+    gint index=0;
 
-    for (index=0; ptr_string[index]!='\0'; index++)
+    g_return_if_fail(ptr_string!=NULL);
+
+    while (ptr_string[index] != '\0')
     {
-        if (ptr_string[index]=='\n')
+        if (ptr_string[index] == '\n')
         {
             ptr_string[index] = '\0';
             break;
         }
+        index++;
     }
 }
 #endif
@@ -100,6 +105,8 @@ read_thermal_zone (t_chip *ptr_chip)
 #else
     gchar *str_zone;
 #endif
+
+    g_return_val_if_fail(ptr_chip!=NULL, res_value);
 
     TRACE ("enters read_thermal_zone");
 
@@ -196,6 +203,8 @@ get_fan_zone_value (gchar *str_zonename)
     FILE *ptr_file;
     gchar buffer [1024], *str_filename, *ptr_strippedbuffer;
 
+    g_return_val_if_fail(str_zonename!=NULL, res_value);
+
     TRACE ("enters get_fan_zone_value for %s", str_zonename);
 
     str_filename = g_strdup_printf ("%s/%s/%s/%s", ACPI_PATH, ACPI_DIR_FAN,
@@ -238,6 +247,8 @@ get_battery_zone_value (gchar *str_zone)
 #ifndef HAVE_SYSFS_ACPI
     gchar *ptr_strippedbuffer;
 #endif
+
+    g_return_val_if_fail(str_zone!=NULL, res_value);
 
     TRACE ("enters get_battery_zone_value for %s", str_zone);
 
@@ -290,6 +301,8 @@ read_battery_zone (t_chip *ptr_chip)
     gchar buffer[1024];
     struct dirent *ptr_dirent;
     t_chipfeature *ptr_chipfeature = NULL;
+
+    g_return_val_if_fail(ptr_chip!=NULL, res_value);
 
     TRACE ("enters read_battery_zone");
 
@@ -425,6 +438,10 @@ get_battery_max_value (gchar *str_filename, t_chipfeature *ptr_chipfeature)
     gchar *ptr_strippedbuffer;
 #endif
 
+    g_return_if_fail(str_filename!=NULL);
+
+    g_return_if_fail(ptr_chipfeature!=NULL);
+
     TRACE ("enters get_battery_max_value");
 
 #ifdef HAVE_SYSFS_ACPI
@@ -474,7 +491,9 @@ read_fan_zone (t_chip *ptr_chip)
     FILE *ptr_file;
     gchar *str_filename;
     struct dirent *ptr_dirent;
-    t_chipfeature *ptr_chipfeature;
+    t_chipfeature *ptr_chipfeature = NULL;
+
+    g_return_val_if_fail(ptr_chip != NULL, res_value);
 
     TRACE ("enters read_fan_zone");
 
@@ -497,6 +516,7 @@ read_fan_zone (t_chip *ptr_chip)
                     continue; */
 
                 ptr_chipfeature = g_new0 (t_chipfeature, 1);
+                g_return_val_if_fail(ptr_chipfeature != NULL, -1);
 
                 ptr_chipfeature->color = g_strdup("#0000B0");
                 ptr_chipfeature->address = ptr_chip->chip_features->len;
@@ -541,13 +561,19 @@ read_fan_zone (t_chip *ptr_chip)
 gint
 initialize_ACPI (GPtrArray *arr_ptr_chips)
 {
-    t_chip *ptr_chip;
-    sensors_chip_name *ptr_chipname_tmp;
-    gchar *str_acpi_info;
+    t_chip *ptr_chip = NULL;
+    sensors_chip_name *ptr_chipname_tmp = NULL;
+    gchar *str_acpi_info = NULL;
+
+    g_return_val_if_fail(arr_ptr_chips != NULL, -1);
+
     TRACE ("enters initialize_ACPI");
 
     ptr_chip = g_new0 (t_chip, 1);
+    g_return_val_if_fail(ptr_chip != NULL, -1);
+
     ptr_chip->name = g_strdup(_("ACPI")); /* to be displayed */
+
     str_acpi_info = get_acpi_info();
     ptr_chip->description = g_strdup_printf (_("ACPI v%s zones"), str_acpi_info);
     g_free(str_acpi_info);
@@ -556,6 +582,8 @@ initialize_ACPI (GPtrArray *arr_ptr_chips)
     ptr_chip->type = ACPI;
 
     ptr_chipname_tmp = g_new0 (sensors_chip_name, 1);
+    g_return_val_if_fail(ptr_chipname_tmp != NULL, -1);
+
     ptr_chipname_tmp->prefix = g_strdup(_("ACPI"));
     ptr_chipname_tmp->path = g_strdup(_("ACPI"));
 
@@ -591,9 +619,9 @@ refresh_acpi (gpointer ptr_chipfeature, gpointer ptr_unused)
 
     TRACE ("enters refresh_acpi");
 
-    g_assert(ptr_chipfeature!=NULL);
-
     cf = (t_chipfeature *) ptr_chipfeature;
+
+    g_return_if_fail(cf != NULL);
 
     switch (cf->class) {
         case TEMPERATURE:
@@ -602,7 +630,7 @@ refresh_acpi (gpointer ptr_chipfeature, gpointer ptr_unused)
             ptr_file = fopen(str_zone, "r");
             if (ptr_file)
             {
-              if (fgets (buffer, 1024, ptr_file))
+              if (fgets (buffer, sizeof(buffer), ptr_file)) /* automatically null-terminated */
               {
                 cut_newline(buffer);
                 cf->raw_value = strtod(buffer, NULL) / 1000.0;
@@ -614,22 +642,16 @@ refresh_acpi (gpointer ptr_chipfeature, gpointer ptr_unused)
             cf->raw_value = get_acpi_zone_value (str_zone, ACPI_FILE_THERMAL);
 #endif
             g_free (str_zone);
-            /* g_free (cf->formatted_value);
-            cf->formatted_value = g_strdup_printf (_("%+5.1f °C"), cf->raw_value); */
             break;
 
         case ENERGY:
-            /* zone = g_strdup_printf ("%s/%s", ACPI_DIR_BATTERY, cf->devicename); */
-            cf->raw_value = get_battery_zone_value (cf->devicename); /* zone */
-            /* g_free (zone); */
-            /*  g_free (cf->formatted_value);
-            cf->formatted_value = g_strdup_printf (_("%.0f mWh"), cf->raw_value); */
+            cf->raw_value = get_battery_zone_value (cf->devicename);
             break;
 
         case STATE:
             str_filename = g_strdup_printf ("%s/%s/%s/state", ACPI_PATH, ACPI_DIR_FAN, cf->devicename);
 
-            str_state = get_acpi_value(str_filename); // return value is strdup'ped
+            str_state = get_acpi_value(str_filename); /* returned value is strdup'ped */
             if (!str_state)
             {
                 DBG("Could not determine fan state.");
@@ -641,9 +663,6 @@ refresh_acpi (gpointer ptr_chipfeature, gpointer ptr_unused)
                 g_free (str_state);
             }
             g_free (str_filename);
-
-            /* g_free (cf->formatted_value);
-            cf->formatted_value = g_strdup_printf (_("%.0f"), cf->raw_value); */
             break;
 
         default:
@@ -661,6 +680,8 @@ acpi_ignore_directory_entry (struct dirent *ptr_dirent)
 {
     TRACE ("enters and leaves acpi_ignore_directory_entry");
 
+    g_return_val_if_fail(ptr_dirent!=NULL, INT_MAX);
+
     return strcmp (ptr_dirent->d_name, "temperature");
 }
 
@@ -668,8 +689,8 @@ acpi_ignore_directory_entry (struct dirent *ptr_dirent)
 /* -------------------------------------------------------------------------- */
 /**
  * Obtains ACPI version information.
- * Might forget some space or tab bytes due to g_strchomp
- **/
+ * Might forget some space or tab bytes due to g_strchomp.
+ */
 gchar *
 get_acpi_info (void)
 {
@@ -691,7 +712,7 @@ get_acpi_info (void)
             str_version = get_acpi_value ("/sys/module/acpi/parameters/acpica_str_version");
     }
 
-    /* who knows, if we obtain non-NULL str_version at all... */
+    /* sometimes, we obtain NULL str_version that can't be chomped then */
     if (str_version)
         str_version = g_strchomp (str_version);
     else
@@ -704,14 +725,19 @@ get_acpi_info (void)
 
 
 /* -------------------------------------------------------------------------- */
-/* Note that zone will have to consist of two paths, e.g.
- *  thermal_zone and THRM.
+/**
+ * Note that zone will have to consist of two paths, e.g.
+ * thermal_zone and THRM.
  */
 gdouble
 get_acpi_zone_value (gchar *str_zone, gchar *str_filename)
 {
     gchar *str_localfilename, *str_value;
     gdouble res_value = 0.0;
+
+    g_return_val_if_fail(str_zone != NULL, res_value);
+
+    g_return_val_if_fail(str_filename != NULL, res_value);
 
     TRACE ("enters get_acpi_zone_value for %s/%s", str_zone, str_filename);
 
@@ -733,23 +759,20 @@ get_acpi_zone_value (gchar *str_zone, gchar *str_filename)
 
 
 /* -------------------------------------------------------------------------- */
-/**
- * Get the value from inside an acpi's file.
- * @param str_filename An absolute filename, most likely starting with /proc/acpi...
- * @return value found inside as a character
- */
 gchar *
 get_acpi_value (gchar *str_filename)
 {
     FILE *ptr_file;
     gchar buffer [1024], *ptr_valueinstring, *str_result = NULL;
 
+    g_return_val_if_fail(str_filename != NULL, str_result);
+
     TRACE ("enters get_acpi_value for %s", str_filename);
 
     ptr_file = fopen (str_filename, "r");
     if (ptr_file)
     {
-        fgets (buffer, 1024, ptr_file);
+        fgets (buffer, sizeof(buffer), ptr_file); /* appends null-byte character at end */
         fclose (ptr_file);
 
         ptr_valueinstring = strip_key_colon_spaces (buffer);
@@ -771,6 +794,10 @@ free_acpi_chip (gpointer ptr_chip)
     t_chip *ptr_chipcasted;
 
     ptr_chipcasted = (t_chip *) ptr_chip;
+
+    g_return_if_fail (ptr_chipcasted != NULL);
+
+    g_return_if_fail (ptr_chipcasted->chip_name!=NULL);
 
     if (ptr_chipcasted->chip_name->path)
         g_free (ptr_chipcasted->chip_name->path);
