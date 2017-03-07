@@ -215,6 +215,7 @@ sensors_remove_graphical_panel (t_sensors *ptr_sensorsstructure)
                 ptr_labelledlevelbar = ptr_sensorsstructure->panels[idx_sensorchips][idx_feature];
 
                 g_object_unref (ptr_labelledlevelbar->css_provider);
+                ptr_labelledlevelbar->css_provider = NULL;
 
                 if (ptr_sensorsstructure->show_labels == TRUE) {
                     gtk_widget_hide (ptr_labelledlevelbar->label);
@@ -365,7 +366,6 @@ sensors_add_graphical_display (t_sensors *sensors)
     gchar *str_barlabeltext, *str_panellabeltext;
     guint len_barlabeltext;
     gint size_panel = (gint) sensors->panel_size;
-    GtkCssProvider *ptr_gtkcssprovider;
     GdkDisplay *ptr_gdkdisplay;
     GdkScreen *ptr_gdkscreen;
 
@@ -415,12 +415,12 @@ sensors_add_graphical_display (t_sensors *sensors)
                 ptr_labelledlevelbar = g_new (t_labelledlevelbar, 1);
                 ptr_labelledlevelbar->progressbar = widget_progbar;
 
-                ptr_labelledlevelbar->css_provider = ptr_gtkcssprovider = gtk_css_provider_new ();
+                ptr_labelledlevelbar->css_provider = gtk_css_provider_new ();
                 ptr_gdkdisplay = gdk_display_get_default ();
                 ptr_gdkscreen = gdk_display_get_default_screen (ptr_gdkdisplay);
 
                 gtk_style_context_add_provider_for_screen (ptr_gdkscreen,
-                                 GTK_STYLE_PROVIDER (ptr_gtkcssprovider),
+                                 GTK_STYLE_PROVIDER (ptr_labelledlevelbar->css_provider),
                                  GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
                 /* create the label stuff only if needed - saves some memory! */
@@ -607,8 +607,6 @@ sensors_show_graphical_display (t_sensors *sensors)
         if (NULL != ptr_cssdatafile) {
             gtk_css_provider_load_from_file(GTK_CSS_PROVIDER(sensors->css_provider),
                                     ptr_cssdatafile, NULL);
-
-            g_object_unref (ptr_cssdatafile);
         }
         else {
             gchar *ptr_cssstring =  "levelbar block.full {\n"
@@ -647,6 +645,7 @@ sensors_show_graphical_display (t_sensors *sensors)
                                    strlen(ptr_cssstring), NULL);
         }
         g_object_unref (sensors->css_provider);
+        sensors->css_provider = NULL;
 
         sensors_add_graphical_display (sensors);
     }
