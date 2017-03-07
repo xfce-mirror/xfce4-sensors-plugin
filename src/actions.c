@@ -136,10 +136,16 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
                 // actually, the idea is to move the tacho widgets in the table; but Gtk fails at this point:
                 //  there is neither a gtk_table_move nor does it allow to unparent a widget and attach it at a new positon,
                 //  so the container is removed and destroyed for safety.
+                // Similarly, the strdupped texts are freed.
                 if ( (ptr_sensors_structure->tachos [idx_chip][idx_feature] != NULL)
                   && (gtk_widget_get_parent(ptr_sensors_structure->tachos [idx_chip][idx_feature]) != NULL) )
                 {
                     gtk_container_remove(GTK_CONTAINER(ptr_wdgt_table), ptr_sensors_structure->tachos [idx_chip][idx_feature]);
+                    if (GTK_SENSORSTACHO(ptr_sensors_structure->tachos [idx_chip][idx_feature])->text)
+                      g_free(GTK_SENSORSTACHO(ptr_sensors_structure->tachos [idx_chip][idx_feature])->text);
+
+                    if (GTK_SENSORSTACHO(ptr_sensors_structure->tachos [idx_chip][idx_feature])->color)
+                      g_free(GTK_SENSORSTACHO(ptr_sensors_structure->tachos [idx_chip][idx_feature])->color);
                 }
                 ptr_sensors_structure->tachos[idx_chip][idx_feature] = gtk_sensorstacho_new(ptr_sensors_structure->orientation, 48);
 
@@ -152,9 +158,10 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
                 GTK_SENSORSTACHO(ptr_sensors_structure->tachos [idx_chip][idx_feature])->sel = val_fill_degree;
                 snprintf(str_widget_tooltip_text, 128, "<b>%s</b>\n%s: %s", ptr_chip_structure->sensorId, ptr_chipfeature_structure->name, ptr_chipfeature_structure->formatted_value);
                 gtk_widget_set_tooltip_markup (GTK_WIDGET(ptr_sensors_structure->tachos [idx_chip][idx_feature]), str_widget_tooltip_text);
-                GTK_SENSORSTACHO(ptr_sensors_structure->tachos [idx_chip][idx_feature])->text = g_strdup(ptr_chipfeature_structure->name);
-                GTK_SENSORSTACHO(ptr_sensors_structure->tachos [idx_chip][idx_feature])->color = g_strdup(ptr_chipfeature_structure->color);
 
+                GTK_SENSORSTACHO(ptr_sensors_structure->tachos [idx_chip][idx_feature])->text = g_strdup(ptr_chipfeature_structure->name);
+
+                GTK_SENSORSTACHO(ptr_sensors_structure->tachos [idx_chip][idx_feature])->color = g_strdup(ptr_chipfeature_structure->color);
 
                 //gtk_widget_set_size_request(ptr_sensors_structure->tachos [idx_chip][idx_feature], 64, 64);
 

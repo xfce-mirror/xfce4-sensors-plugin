@@ -194,6 +194,10 @@ list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,
       gtk_container_remove(GTK_CONTAINER(sd->sensors->widget_sensors),
                                       sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)]);
       //gtk_widget_destroy(sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)]);
+      if (GTK_SENSORSTACHO(sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)])->text)
+        g_free(GTK_SENSORSTACHO(sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)])->text);
+      if (GTK_SENSORSTACHO(sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)])->color)
+        g_free(GTK_SENSORSTACHO(sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)])->color);
       sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)] = NULL;
      }
      //else
