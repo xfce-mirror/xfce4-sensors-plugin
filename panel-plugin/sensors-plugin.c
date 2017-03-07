@@ -338,6 +338,7 @@ sensors_update_tacho_panel (t_sensors *sensors)
 
             if (ptr_chipfeature->show == TRUE) {
                 ptr_tacho = sensors->tachos[idx_sensorchips][idx_feature];
+                g_assert(ptr_tacho != NULL);
 
                 val_percentage = sensors_get_percentage (ptr_chipfeature);
                 gtk_sensorstacho_set_size(GTK_SENSORSTACHO(ptr_tacho), size_panel);
