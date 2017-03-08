@@ -37,6 +37,9 @@
 #include "actions.h"
 #include "interface.h"
 
+/* Local definitions */
+#define DEFAULT_SIZE_TACHOS 48
+
 /* foward declaration */
 gboolean
 refresh_sensor_data (t_sensors_dialog *sd);
@@ -112,8 +115,10 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
     t_chipfeature *ptr_chipfeature_structure;
     t_chip *ptr_chip_structure;
     GtkWidget *ptr_wdgt_table;
+    GtkAllocation allocation;
     gdouble val_fill_degree;
     char str_widget_tooltip_text[128];
+    int num_max_cols, num_max_rows;
 
     TRACE ("enters refresh_tacho_view");
 
@@ -122,6 +127,12 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
     ptr_sensors_structure = ptr_sensors_dialog_structure->sensors;
 
     ptr_wdgt_table = ptr_sensors_structure->widget_sensors;
+    g_assert (ptr_wdgt_table != NULL);
+
+    gtk_widget_get_allocation(gtk_widget_get_parent(ptr_wdgt_table), &allocation);
+    num_max_cols = (allocation.width - BORDER) / (DEFAULT_SIZE_TACHOS + BORDER);
+    num_max_rows = (allocation.height - BORDER) / (DEFAULT_SIZE_TACHOS + BORDER);
+    DBG("using max cols/rows: %d/%d.", num_max_cols, num_max_rows);
 
     for (idx_chip=0; idx_chip < ptr_sensors_structure->num_sensorchips; idx_chip++)
     {
@@ -133,17 +144,18 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
             GtkWidget *ptr_sensorstachowidget = ptr_sensors_structure->tachos [idx_chip][idx_feature];
             GtkSensorsTacho *ptr_sensorstacho = GTK_SENSORSTACHO(ptr_sensorstachowidget);
 
+            if (row_tacho_table>=num_max_rows)
+                return;
+
             ptr_chipfeature_structure = g_ptr_array_index (ptr_chip_structure->chip_features, idx_feature);
             g_assert (ptr_chipfeature_structure!=NULL);
 
             if ( ptr_chipfeature_structure->valid == TRUE && ptr_chipfeature_structure->show == TRUE)
             {
-                if (row_tacho_table>=5)
-                    return; /* or resize the table after reading the property n-rows of GtkTableClass*/
 
                 if (ptr_sensorstachowidget == NULL)
                 {
-                    ptr_sensors_structure->tachos[idx_chip][idx_feature] = ptr_sensorstachowidget = gtk_sensorstacho_new(ptr_sensors_structure->orientation, 48);
+                    ptr_sensors_structure->tachos[idx_chip][idx_feature] = ptr_sensorstachowidget = gtk_sensorstacho_new(ptr_sensors_structure->orientation, DEFAULT_SIZE_TACHOS);
                     ptr_sensorstacho = GTK_SENSORSTACHO(ptr_sensorstachowidget);
 
                     /* TODO: use ...set_text */
@@ -174,23 +186,21 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
                 {
                   while (gtk_grid_get_child_at(GTK_GRID(ptr_wdgt_table), col_tacho_table, row_tacho_table) != NULL)
                   {
-                    if (col_tacho_table>=3) {
+                    col_tacho_table++;
+                    if (col_tacho_table>=num_max_cols) {
                         row_tacho_table++;
                         col_tacho_table = 0;
                     }
-                    else
-                        col_tacho_table++;
                   }
                     gtk_grid_attach(GTK_GRID(ptr_wdgt_table), ptr_sensorstachowidget, col_tacho_table, row_tacho_table, 1, 1);
                     gtk_widget_show (ptr_sensorstachowidget);
                 }
 
-                if (col_tacho_table>=3) {
+                    col_tacho_table++;
+                if (col_tacho_table>=num_max_cols) {
                     row_tacho_table++;
                     col_tacho_table = 0;
                 }
-                else
-                    col_tacho_table++;
 
             }
             else if ( ptr_sensorstachowidget != NULL &&
@@ -203,9 +213,9 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
                 if (ptr_sensorstacho->color)
                     g_free(ptr_sensorstacho->color);
                 ptr_sensors_structure->tachos[idx_chip][idx_feature] = NULL;
-
-                /* TODO: Rearrange following widgets */
             }
+
+            /* TODO: Rearrange all widgets in order to distribute evenly */
         }
     }
     TRACE ("leaves refresh_tacho_view");
