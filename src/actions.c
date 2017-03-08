@@ -110,15 +110,15 @@ refresh_sensor_data (t_sensors_dialog *ptr_sensors_dialog_structure)
 void
 refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
 {
-    int idx_chip, idx_feature, row_tacho_table=0, col_tacho_table=0;
+    gint idx_chip, idx_feature, row_tacho_table=0, col_tacho_table=0;
     t_sensors *ptr_sensors_structure;
     t_chipfeature *ptr_chipfeature_structure;
     t_chip *ptr_chip_structure;
     GtkWidget *ptr_wdgt_table;
     GtkAllocation allocation;
     gdouble val_fill_degree;
-    char str_widget_tooltip_text[128];
-    int num_max_cols, num_max_rows;
+    gchar str_widget_tooltip_text[128];
+    gint num_max_cols, num_max_rows;
 
     TRACE ("enters refresh_tacho_view");
 
@@ -215,9 +215,11 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
                 ptr_sensors_structure->tachos[idx_chip][idx_feature] = NULL;
             }
 
-            /* TODO: Rearrange all widgets in order to distribute evenly */
         }
     }
+
+    /* TODO: Rearrange all widgets in order to distribute evenly */
+
     TRACE ("leaves refresh_tacho_view");
 }
 

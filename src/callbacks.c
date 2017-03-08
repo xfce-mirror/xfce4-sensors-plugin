@@ -135,7 +135,9 @@ list_cell_text_edited_ (GtkCellRendererText *cellrenderertext,
                                   needed for the update in ACPI and hddtemp. */
         chipfeature = (t_chipfeature *) g_ptr_array_index (chip->chip_features,
                                                             atoi(path_str));
-        g_free(chipfeature->name);
+        /* TODO: user gtk_sensorstacho_set_text */
+        if (chipfeature->name != NULL)
+            g_free(chipfeature->name);
         chipfeature->name = g_strdup (new_text);
     /* } */
 
@@ -265,22 +267,22 @@ list_cell_color_edited_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
         chip = (t_chip *) g_ptr_array_index(sd->sensors->chips, gtk_combo_box_active);
 
         chipfeature = (t_chipfeature *) g_ptr_array_index(chip->chip_features, atoi(path_str));
-        g_free (chipfeature->color);
+        if (chipfeature->color!=NULL)
+            g_free (chipfeature->color);
+
         chipfeature->color = g_strdup(new_color);
 
         /* clean up */
         gtk_tree_path_free (path);
 
-        /* update panel */
-        //sensors_show_panel ((gpointer) sd->sensors);
-        //res = refresh_view ((gpointer) sd);
+        /* update color value */
         if (sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)]!=NULL)
             gtk_sensorstacho_set_color(GTK_SENSORSTACHO(sd->sensors->tachos[gtk_combo_box_active][atoi(path_str)]), new_color);
-
     }
 
     TRACE ("leaves list_cell_color_edited");
 }
+
 
 void
 minimum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
