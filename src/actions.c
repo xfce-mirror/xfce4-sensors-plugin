@@ -106,6 +106,7 @@ refresh_sensor_data (t_sensors_dialog *ptr_sensors_dialog_structure)
     return TRUE;
 }
 
+
 /* -------------------------------------------------------------------------- */
 void
 refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
@@ -155,6 +156,7 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
 
                 if (ptr_sensorstachowidget == NULL)
                 {
+                    DBG("Newly adding selected widget from container.");
                     ptr_sensors_structure->tachos[idx_chip][idx_feature] = ptr_sensorstachowidget = gtk_sensorstacho_new(ptr_sensors_structure->orientation, DEFAULT_SIZE_TACHOS);
                     ptr_sensorstacho = GTK_SENSORSTACHO(ptr_sensorstachowidget);
 
@@ -206,6 +208,7 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
             else if ( ptr_sensorstachowidget != NULL &&
              gtk_widget_get_parent(ptr_sensorstachowidget) != NULL )
             {
+                DBG("Removing deselected widget from container.");
                 gtk_container_remove(GTK_CONTAINER(ptr_wdgt_table), ptr_sensorstachowidget);
                 if (ptr_sensorstacho->text)
                     g_free(ptr_sensorstacho->text);
@@ -222,6 +225,7 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
 
     TRACE ("leaves refresh_tacho_view");
 }
+
 
 /* -------------------------------------------------------------------------- */
 gboolean

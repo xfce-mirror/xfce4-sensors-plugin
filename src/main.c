@@ -52,6 +52,7 @@ void print_usage (void);
 void print_version (void);
 t_sensors_dialog * initialize_sensors_structures (void);
 
+/* -------------------------------------------------------------------------- */
 void
 print_license (void)
 {
@@ -64,6 +65,7 @@ print_license (void)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 print_usage (void)
 {
@@ -82,6 +84,7 @@ print_usage (void)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 print_version (void)
 {
@@ -89,6 +92,7 @@ print_version (void)
 }
 
 
+/* -------------------------------------------------------------------------- */
 t_sensors_dialog *
 initialize_sensors_structures (void)
 {
@@ -113,6 +117,7 @@ initialize_sensors_structures (void)
 }
 
 
+/* -------------------------------------------------------------------------- */
 int
 main (int argc, char **argv)
 {

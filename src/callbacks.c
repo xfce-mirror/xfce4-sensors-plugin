@@ -38,6 +38,7 @@
 #include "actions.h"
 
 
+/* -------------------------------------------------------------------------- */
 void on_font_set (GtkWidget *widget, gpointer data)
 {
     if (font!=NULL)
@@ -48,6 +49,7 @@ void on_font_set (GtkWidget *widget, gpointer data)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 on_main_window_response (GtkWidget *dlg, int response, t_sensors_dialog *sd)
 {
@@ -75,6 +77,7 @@ on_main_window_response (GtkWidget *dlg, int response, t_sensors_dialog *sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 sensor_entry_changed_ (GtkWidget *widget, t_sensors_dialog *sd)
 {
@@ -97,6 +100,7 @@ sensor_entry_changed_ (GtkWidget *widget, t_sensors_dialog *sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 list_cell_text_edited_ (GtkCellRendererText *cellrenderertext,
                       gchar *path_str, gchar *new_text, t_sensors_dialog *sd)
@@ -157,6 +161,7 @@ list_cell_text_edited_ (GtkCellRendererText *cellrenderertext,
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,
                   t_sensors_dialog *sd)
@@ -188,25 +193,7 @@ list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,
     /* do something with the value */
     toggle_item ^= 1;
 
-    /* remove previously existing cpu widget from memory */
-    if (toggle_item==FALSE)
-    {
-      //tacho = sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)];
-      // gtk_container_remove also destroys the widget when there are no more references!
-      gtk_container_remove(GTK_CONTAINER(sd->sensors->widget_sensors),
-                                      sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)]);
-      //gtk_widget_destroy(sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)]);
-      if (GTK_SENSORSTACHO(sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)])->text)
-        g_free(GTK_SENSORSTACHO(sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)])->text);
-      if (GTK_SENSORSTACHO(sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)])->color)
-        g_free(GTK_SENSORSTACHO(sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)])->color);
-      sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)] = NULL;
-     }
-     //else
-     //{
-       ////if (sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)]==NULL)
-                //sd->sensors->tachos[gtk_combo_box_active][atoi(path_str)] = gtk_sensorstacho_new();
-     //}
+    DBG("toggle item is %d.", toggle_item);
 
     /* set new value */
     gtk_tree_store_set (GTK_TREE_STORE (model), &iter, 2, toggle_item, -1);
@@ -225,11 +212,13 @@ list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,
     TRACE ("leaves list_cell_toggle");//~
 }
 
+
+/* -------------------------------------------------------------------------- */
 void
 list_cell_color_edited_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
                        gchar *new_color, t_sensors_dialog *sd)
 {
-      gint gtk_combo_box_active;
+    gint gtk_combo_box_active;
     GtkTreeModel *model;
     GtkTreePath *path;
     GtkTreeIter iter;
@@ -284,6 +273,7 @@ list_cell_color_edited_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 minimum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
                  gchar *new_value, t_sensors_dialog *sd)
@@ -331,6 +321,8 @@ minimum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
     TRACE ("leaves minimum_changed");
 }
 
+
+/* -------------------------------------------------------------------------- */
 void
 maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
             gchar *new_value, t_sensors_dialog *sd)
@@ -373,12 +365,13 @@ maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
 
     /* update panel */
     if (sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)]!=NULL)
-      //res =
-            refresh_view ((gpointer) sd);
+      refresh_view ((gpointer) sd);
 
     TRACE ("leaves maximum_changed");
 }
 
+
+/* -------------------------------------------------------------------------- */
 void
 adjustment_value_changed_ (GtkWidget *widget, t_sensors_dialog* sd)
 {
@@ -397,6 +390,8 @@ adjustment_value_changed_ (GtkWidget *widget, t_sensors_dialog* sd)
     TRACE ("leaves adjustment_value_changed ");
 }
 
+
+/* -------------------------------------------------------------------------- */
 void
 temperature_unit_change_ (GtkWidget *widget, t_sensors_dialog *sd)
 {
@@ -406,7 +401,6 @@ temperature_unit_change_ (GtkWidget *widget, t_sensors_dialog *sd)
     sd->sensors->scale = 1 - sd->sensors->scale;
 
     /* refresh the panel content */
-
     reload_listbox (sd);
 
     TRACE ("laeves temperature_unit_change ");

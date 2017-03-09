@@ -49,12 +49,12 @@ void add_notebook (GtkWidget *box, t_sensors_dialog *sd);
 
 /* actual implementations */
 
+/* -------------------------------------------------------------------------- */
 void
 add_tachos_box (GtkWidget *child, t_sensors_dialog *sd)
 {
     GtkWidget *table;
 
-    //table = gtk_table_new (5, 4, TRUE);
     table = gtk_grid_new();
     gtk_grid_set_row_spacing(GTK_GRID(table), BORDER);
     gtk_grid_set_column_spacing(GTK_GRID(table), BORDER);
@@ -64,6 +64,7 @@ add_tachos_box (GtkWidget *child, t_sensors_dialog *sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 void
 add_notebook (GtkWidget *box, t_sensors_dialog *sd)
 {
@@ -110,12 +111,11 @@ add_notebook (GtkWidget *box, t_sensors_dialog *sd)
 }
 
 
+/* -------------------------------------------------------------------------- */
 GtkWidget *
 create_main_window (t_sensors_dialog *sd)
 {
     GtkWidget *dlg, *vbox;
-    //GtkWidget *tacho;
-    //GtkWidget *drawing_area;
 
     /* start and populate */
     dlg = xfce_titled_dialog_new_with_buttons(
@@ -146,19 +146,7 @@ create_main_window (t_sensors_dialog *sd)
 
     gtk_combo_box_set_active (GTK_COMBO_BOX(sd->myComboBox), 0);
 
-
     add_notebook (vbox, sd);
-
-    //tacho = gtk_sensorstacho_new();
-    //gtk_box_pack_end(GTK_BOX(vbox), tacho, TRUE, TRUE, 4);
-    //gtk_widget_set_realized(tacho, TRUE);
-    //gtk_widget_show(tacho);
-
-  //drawing_area = gtk_drawing_area_new ();
-  //gtk_widget_set_size_request (drawing_area, 100, 100);
-  //g_signal_connect (G_OBJECT (drawing_area), "draw",
-                    //G_CALLBACK (draw_callback), NULL);
-    //gtk_box_pack_end(GTK_BOX(vbox), drawing_area, TRUE, TRUE, 4);
 
     gtk_window_set_default_size (GTK_WINDOW(dlg), sd->sensors->preferred_width, sd->sensors->preferred_height);
 
@@ -167,36 +155,4 @@ create_main_window (t_sensors_dialog *sd)
     //g_signal_connect (G_OBJECT(dlg), "destroy", G_CALLBACK(on_main_window_response), sd);
 
     return dlg;
-}
-
-gboolean draw_callback(GtkWidget    *widget,
-                       cairo_t *cr,
-                       gpointer      user_data)
-{
-  guint width, height;
-  GdkRGBA color;
-  GtkStyleContext *context;
-
-  context = gtk_widget_get_style_context (widget);
-
-  width = gtk_widget_get_allocated_width (widget);
-  height = gtk_widget_get_allocated_height (widget);
-
-  //gtk_render_background (context, cr, 0, 0, width, height);
-
-
-  gtk_style_context_get_color (context,
-                               gtk_style_context_get_state (context),
-                               &color);
-  color.red = 1.0;
-  gdk_cairo_set_source_rgba (cr, &color);
-
-  cairo_arc (cr,
-             width / 2.0, height / 2.0,
-             MIN (width, height) / 2.0,
-             0, 2 * G_PI);
-
-  cairo_fill (cr);
-
-   return FALSE;
 }
