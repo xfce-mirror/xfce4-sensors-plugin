@@ -138,8 +138,8 @@ sensors_set_bar_color (t_labelledlevelbar *ptr_labelledlevelbar, double val_perc
         g_strlcat(str_gtkcssdata, ";\n", sizeof(str_gtkcssdata));
     }
 
-    g_strlcat(str_gtkcssdata,   "   padding: 1px;\n"
-                                "   border-style: ridge;\n"
+    g_strlcat(str_gtkcssdata,   "   padding: 0px;\n"
+                                "   border-style: 1px none black;\n"
                                 "}\n", sizeof(str_gtkcssdata));
 
     //DBG("CSS data for current levelbar: %s\nwith length %lu.\n", str_gtkcssdata, strlen(str_gtkcssdata));
@@ -609,36 +609,32 @@ sensors_show_graphical_display (t_sensors *sensors)
                                     ptr_cssdatafile, NULL);
         }
         else {
-            gchar *ptr_cssstring =  "levelbar block.full {\n"
+            gchar *ptr_cssstring =  "levelbar block {\n"
+                                    "   min-height : 0px;\n"
+                                    "   min-width : 0px;\n"
+                                    "   border: 0px none;\n"
+                                    "   margin: 0px;\n"
+                                    "   padding: 0px;\n"
+                                    "}\n"
+                                    "levelbar block.full {\n"
                                     "   background-color: "
                                     COLOR_ERROR
                                     ";\n"
-                                    "   padding: 1px;\n"
-                                    "   border-style: ridge;\n"
                                     "}\n"
                                     "levelbar block.high {\n"
                                     "   background-color: "
                                     COLOR_WARN
                                     ";\n"
-                                    "   padding: 1px;\n"
-                                    "   border-style: ridge;\n"
                                     "}\n"
                                     "levelbar block.warn-low {\n"
                                     "   background-color: "
                                     COLOR_WARN
                                     ";\n"
-                                    "   padding: 1px;\n"
-                                    "   border-style: ridge;\n"
                                     "}\n"
                                     "levelbar block.low {\n"
                                     "   background-color: "
                                     COLOR_ERROR
                                     ";\n"
-                                    "   padding: 1px;\n"
-                                    "   border-style: ridge;\n"
-                                    //"   border-color: "
-                                    //COLOR_ERROR
-                                    //";\n"
                                     "}\n";
 
             gtk_css_provider_load_from_data (GTK_CSS_PROVIDER(sensors->css_provider), ptr_cssstring,
