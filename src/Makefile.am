@@ -37,12 +37,19 @@ xfce4_sensors_DEPENDENCIES = \
 # .desktop file
 desktop_in_files = xfce4-sensors.desktop.in
 
+
+manualdir = $(prefix)/man/man1
+manual_DATA = \
+	xfce4-sensors.1
+
 desktopdir = $(datadir)/applications
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
 EXTRA_DIST = \
-	$(desktop_in_files)
+	$(desktop_in_files) \
+	xfce4-sensors.1.in
 
 DISTCLEANFILES = \
-	$(desktop_DATA)
+	$(desktop_DATA) \
+	xfce4-sensors.1
