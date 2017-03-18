@@ -33,10 +33,7 @@ libxfce4_sensors_plugin_la_LDFLAGS = 								\
 	-export-symbols-regex "^[^_].*"									\
 	$(PLATFORM_LDFLAGS)
 
-#	-export-symbols-regex '^xfce_panel_module_(preinit|init|construct)'
-
 # .desktop file
-#
 desktop_in_files = xfce4-sensors-plugin.desktop.in
 
 desktopdir = $(datadir)/xfce4/panel/plugins
