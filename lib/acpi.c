@@ -590,7 +590,6 @@ initialize_ACPI (GPtrArray *arr_ptr_chips)
     g_return_val_if_fail(ptr_chipname_tmp != NULL, -1);
 
     ptr_chipname_tmp->prefix = g_strdup(_("ACPI"));
-    ptr_chipname_tmp->path = g_strdup(_("ACPI"));
 
     ptr_chip->chip_name = (sensors_chip_name *) ptr_chipname_tmp;
 

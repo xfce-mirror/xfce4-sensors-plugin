@@ -228,6 +228,7 @@ sensor_get_value (t_chip *chip, int number, double *value, gboolean *suppressmes
                 g_assert (number<chip->num_features);
                 feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, number);
                 g_assert (feature!=NULL);
+                /* TODO: seperate refresh from get operation! */
                 refresh_acpi ((gpointer) feature, NULL);
                 *value = feature->raw_value;
                 return 0;
@@ -241,6 +242,7 @@ sensor_get_value (t_chip *chip, int number, double *value, gboolean *suppressmes
                 g_assert (number<chip->num_features);
                 feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, number);
                 g_assert (feature!=NULL);
+                /* TODO: seperate refresh from get operation! */
                 refresh_nvidia ((gpointer) feature, NULL);
                 *value = feature->raw_value;
                 return 0;
