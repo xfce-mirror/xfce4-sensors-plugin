@@ -403,15 +403,6 @@ gtk_sensorstacho_paint (GtkWidget *widget,
 void
 gtk_sensorstacho_set_value (GtkSensorsTacho *ptr_sensorstacho, gdouble value)
 {
-    //GdkWindow *ptr_gdkwindowsensorstacho = NULL;
-    //cairo_t *ptr_context = NULL;
-
-//#if GTK_CHECK_VERSION(3,22,0)
-    //cairo_region_t *region = NULL;
-    //GdkDrawingContext *context = NULL;
-    //cairo_rectangle_int_t rectangle;
-//#endif
-
     TRACE("enter gtk_sensorstacho_set_value\n");
 
     if (value < 0)
@@ -422,31 +413,6 @@ gtk_sensorstacho_set_value (GtkSensorsTacho *ptr_sensorstacho, gdouble value)
     g_return_if_fail (ptr_sensorstacho != NULL);
 
     ptr_sensorstacho->sel = value;
-
-    //gtk_widget_queue_draw (GTK_WIDGET(ptr_sensorstacho));
-
-    //ptr_gdkwindowsensorstacho = gtk_widget_get_window(GTK_WIDGET(ptr_sensorstacho));
-    //g_return_if_fail (ptr_gdkwindowsensorstacho != NULL);
-
-////#if GTK_CHECK_VERSION(3,22,0)
-    //region = gdk_window_get_clip_region(ptr_gdkwindowsensorstacho);
-    //cairo_region_get_rectangle(region, 0, &rectangle);
-    //DBG("x=%d, Y=%d, w=%d, h=%d\n", rectangle.x, rectangle.y, rectangle.width, rectangle.height);
-    //gdk_window_invalidate_region (ptr_gdkwindowsensorstacho, region, TRUE);
-    //context = gdk_window_begin_draw_frame  (ptr_gdkwindowsensorstacho, region);
-    //ptr_context = gdk_drawing_context_get_cairo_context   (context);
-////#else
-    ////ptr_context = gdk_cairo_create (ptr_gdkwindowsensorstacho);
-////#endif
-
-    //g_return_if_fail (ptr_context != NULL);
-    //gtk_sensorstacho_paint(GTK_WIDGET(ptr_sensorstacho), ptr_context);
-
-////#if GTK_CHECK_VERSION(3,22,0)
-    //gdk_window_end_draw_frame (ptr_gdkwindowsensorstacho, context);
-     //cairo_region_destroy(region);
-////#else
-////#endif
 
     TRACE("leave gtk_sensorstacho_set_value\n");
 }
