@@ -38,6 +38,9 @@
 #include "interface.h"
 
 /* Local definitions */
+/**
+ *  Default size of the tacho widgets
+ */
 #define DEFAULT_SIZE_TACHOS 48
 
 /* foward declaration */
@@ -48,6 +51,11 @@ refresh_sensor_data (t_sensors_dialog *sd);
 /* actual implementations */
 
 /* -------------------------------------------------------------------------- */
+/** Internal function to refresh all sensors data for updating the displayed
+ * tachos
+ * @param ptr_sensors_dialog_structure: Pointer to sensors dialog structure
+ * @return TRUE: on success
+ */
 gboolean
 refresh_sensor_data (t_sensors_dialog *ptr_sensors_dialog_structure)
 {
@@ -160,17 +168,9 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
                     ptr_sensors_structure->tachos[idx_chip][idx_feature] = ptr_sensorstachowidget = gtk_sensorstacho_new(ptr_sensors_structure->orientation, DEFAULT_SIZE_TACHOS);
                     ptr_sensorstacho = GTK_SENSORSTACHO(ptr_sensorstachowidget);
 
-                    /* TODO: use ...set_text */
-                    if (ptr_sensorstacho->text != NULL)
-                      g_free(ptr_sensorstacho->text);
+                    gtk_sensorstacho_set_text(ptr_sensorstacho, ptr_chipfeature_structure->name);
 
-                    ptr_sensorstacho->text = g_strdup(ptr_chipfeature_structure->name);
-
-                    /* TODO: use gtk_sensorstacho_set_color */
-                    if (ptr_sensorstacho->color != NULL)
-                      g_free(ptr_sensorstacho->color);
-
-                    ptr_sensorstacho->color = g_strdup(ptr_chipfeature_structure->color);
+                    gtk_sensorstacho_set_color(ptr_sensorstacho, ptr_chipfeature_structure->color);
                 }
 
                 val_fill_degree = (ptr_chipfeature_structure->raw_value - ptr_chipfeature_structure->min_value) / ( ptr_chipfeature_structure->max_value - ptr_chipfeature_structure->min_value);
@@ -179,7 +179,7 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
                 else if (val_fill_degree>1.0)
                     val_fill_degree=1.0;
 
-                ptr_sensorstacho->sel = val_fill_degree;
+                gtk_sensorstacho_set_value(ptr_sensorstacho, val_fill_degree);
                 snprintf(str_widget_tooltip_text, 128, "<b>%s</b>\n%s: %s", ptr_chip_structure->sensorId, ptr_chipfeature_structure->name, ptr_chipfeature_structure->formatted_value);
                 gtk_widget_set_tooltip_markup (GTK_WIDGET(ptr_sensors_structure->tachos [idx_chip][idx_feature]), str_widget_tooltip_text);
 

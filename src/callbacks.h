@@ -32,10 +32,21 @@
 /* there should also be some "private" callbacks such as closing/qutting
  * the application.
  */
-void close_window_requested ();
-
+/**
+ * Callback when main window is closed; shall quit the Gtk main routine and
+ * perhaps also free some further allocated structures.
+ * @param dlg: pointer to dialog widget to be destroyed
+ * @param response: event number of close event
+ * @param sd: pointer to helpful sensors dialog structure
+ */
 void on_main_window_response (GtkWidget *dlg, int response, t_sensors_dialog *sd);
 
+/**
+ * Callback when new font is set in application and must be updated for the
+ * tacho widgets.
+ * @param widget: pointer to font button widget
+ * @param data: pointer to sensors dialog structure
+ */
 void on_font_set (GtkWidget *widget, gpointer data);
 
 /* Functions for implementing the sensors interface common callback functions */

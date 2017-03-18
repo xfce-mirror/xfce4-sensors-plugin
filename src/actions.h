@@ -29,7 +29,17 @@
 #include <sensors-interface-common.h>
 #include <tacho.h>
 
+/**
+ * Shall refresh the entire view of the application
+ * @param data: pointer to sensors dialog structure
+ * @return TRUE: argument is valid
+ */
 gboolean refresh_view (gpointer data);
+
+/**
+ * refreshes the tacho view of the application
+ * @param ptr_sensors_dialog_structure: pointer to sensors dialog structure
+ */
 void refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure);
 
 #endif /* ACTIONS_H */

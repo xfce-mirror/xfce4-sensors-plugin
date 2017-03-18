@@ -53,6 +53,9 @@ void print_version (void);
 t_sensors_dialog * initialize_sensors_structures (void);
 
 /* -------------------------------------------------------------------------- */
+/**
+ * Prints license information
+ */
 void
 print_license (void)
 {
@@ -66,6 +69,9 @@ print_license (void)
 
 
 /* -------------------------------------------------------------------------- */
+/**
+ * Prints help/usage information
+ */
 void
 print_usage (void)
 {
@@ -73,8 +79,8 @@ print_usage (void)
                       "Displays information about your hardware sensors, ACPI "
                                             "status, harddisk temperatures and Nvidia GPU's temperature.\n"
                       "Synopsis: \n"
-                      "  xfce4-sensors options\n"
-                      "where options are one or more of the following:\n"
+                      "  xfce4-sensors [options]\n"
+                      "where [options] are one or more of the following:\n"
                       "  -h, --help    Print this help dialog.\n"
                       "  -l, --license Print license information.\n"
                       "  -V, --version Print version information.\n"
@@ -85,6 +91,9 @@ print_usage (void)
 
 
 /* -------------------------------------------------------------------------- */
+/**
+ * Prints version information as requested by "xfce4-sensors -V"
+ */
 void
 print_version (void)
 {
@@ -93,6 +102,10 @@ print_version (void)
 
 
 /* -------------------------------------------------------------------------- */
+/**
+ * Initializes the required sensor structures.
+ * @return pointer to newly allocated sensors dialog information
+ */
 t_sensors_dialog *
 initialize_sensors_structures (void)
 {
@@ -118,6 +131,11 @@ initialize_sensors_structures (void)
 
 
 /* -------------------------------------------------------------------------- */
+/**
+ * Main routine.
+ * @param argc: number of arguments
+ * @param argv: array of strings passed as arguments
+ */
 int
 main (int argc, char **argv)
 {

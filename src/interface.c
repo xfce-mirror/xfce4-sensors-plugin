@@ -152,7 +152,6 @@ create_main_window (t_sensors_dialog *sd)
 
 
     g_signal_connect (G_OBJECT(dlg), "response", G_CALLBACK(on_main_window_response), sd); // also captures the dialog-destroy event and the closekeybinding-pressed event
-    //g_signal_connect (G_OBJECT(dlg), "destroy", G_CALLBACK(on_main_window_response), sd);
 
     return dlg;
 }

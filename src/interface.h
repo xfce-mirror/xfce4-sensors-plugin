@@ -25,4 +25,9 @@
 /* Package includes */
 #include <sensors-interface-common.h>
 
+/**
+ * Populate the application's main window
+ * @param sd: pointers to already filled sensors dialog structure
+ * @return newly allocated GtkWidget of main window
+ */
 GtkWidget * create_main_window (t_sensors_dialog *sd);

@@ -61,16 +61,6 @@ on_main_window_response (GtkWidget *dlg, int response, t_sensors_dialog *sd)
     // dialog OK button or close keybinding or window close button
     if (response==GTK_RESPONSE_OK) // || response==GTK_RESPONSE_DELETE_EVENT)
     {
-        //xfce_titled_dialog_close(GTK_DIALOG(dlg)); // not implemented in libxfcegui4/xfce-titled-dialog.h rev 21491 -- stay compatible
-
-        // g_free (sd->sensors)
-        //g_free(sd);
-
-        //gtk_widget_destroy (sd->sensors->widget_sensors);
-
-        //gtk_widget_destroy (sd->dialog);
-
-        //gtk_widget_destroy (sd->dialog);
     }
 
     TRACE ("leaves on_main_window_response");
