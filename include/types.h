@@ -37,11 +37,22 @@
  * sensors chip name structure from libsensors it is reused for the other
  * chiptypes as well
  */
- typedef struct sensors_chip_name {
-  char *prefix;
-  int bus; /* newer sensors.h has sensors_bus_id as struct{short,short} */
-  int addr;
-  char *path;    /* if dummy */
+typedef struct sensors_chip_name {
+    /** first part of textual sensor's chip name */
+    char *prefix;
+
+    /**
+     * lm sensors have several "busses"; this selects a special bus, kind of
+     *  array access.
+     *  newer sensors.h has sensors_bus_id as struct{short,short}
+     */
+    int bus;
+
+    /** address of the selected chip at the bus */
+    int addr;
+
+    /** path? unused in sensors plugin! */
+    char *path;    /* if dummy */
  } sensors_chip_name;
 #endif
 
@@ -84,16 +95,37 @@ typedef enum {
  * Information about a special feature on a chip
  */
 typedef struct {
+    /** name of chipfeature */
     gchar *name;
+
+    /** underlying device */
     gchar *devicename;
-    double raw_value; /* unformatted sensor feature values */
-    gchar *formatted_value; /* formatted (%f5.2) sensor feature values */
+
+    /** unformatted sensor feature values */
+    double raw_value;
+
+    /** formatted (%f5.2) sensor feature values */
+    gchar *formatted_value;
+
+    /** minimum value, used for visualization */
     float min_value;
+
+    /** maximum value, used for visualization */
     float max_value;
+
+    /** color for visualization */
     gchar *color;
+
+    /** whether to show the value (and name) */
     gboolean show;
-    gint address; /* specifies the mapping to the internal number in chip_name */
+
+    /** specifies the mapping to the internal number in chip_name */
+    gint address;
+
+    /** is the chipfeature valid at all? */
     gboolean valid;
+
+    /** class of chipfeature */
     t_chipfeature_class class;
 } t_chipfeature;
 
@@ -102,12 +134,25 @@ typedef struct {
  * Information about a whole chip, like asb-1-45
  */
 typedef struct {
+    /** ID of the sensors chip */
     gchar *sensorId;
+
+    /** name of the sensors chip */
     gchar *name;
+
+    /** description of the sensors chip */
     gchar *description;
+
+    /** number of known features for this chip */
     gint num_features;
+
+    /** pointer to libsensors chip_name structure */
     sensors_chip_name *chip_name;
+
+    /** array of pointers to child chip_features */
     GPtrArray *chip_features;
+
+    /** chiptype, required for middlelayer to distinguish */
     t_chiptype type;
 } t_chip;
 

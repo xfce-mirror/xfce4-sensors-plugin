@@ -47,119 +47,120 @@
  */
 typedef struct {
 
-    /* pointer for Xfce Panel */
+    /** pointer for Xfce Panel */
     XfcePanelPlugin *plugin;
 
-    /* eventbox to catch events */
+    /** eventbox to catch events */
     GtkWidget *eventbox;
 
-    /* our XfceSensors widget */
+    /** our XfceSensors widget */
     GtkWidget *widget_sensors;
 
-    /* panel value display */
+    /** panel value display */
     GtkWidget *panel_label_data;
 
-    /* optional label for plugin */
+    /** optional label for plugin */
     GtkWidget *panel_label_text;
 
-    /* update the tooltip */
+    /** update the tooltip */
     gint timeout_id;
 
-    /* font size for display in panel */
+    /** font size for display in panel */
     gchar *str_fontsize;
     gint val_fontsize;
 
-    /* temperature scale for display in panel */
+    /** temperature scale for display in panel */
     t_tempscale scale;
 
-    /* panel size to compute number of cols/columns */
+    /** panel size to compute number of cols/columns */
     gint panel_size;
 
-    /* Requested/allowed number of lines in text mode */
+    /** Requested/allowed number of lines in text mode */
     gint lines_size;
 
-    /* The panel plugins can cover all rows/columns of the panel, but default is to not do so */
+    /** The panel plugins can cover all rows/columns of the panel, but default is to not do so */
     gboolean cover_panel_rows;
 
-    /* panel orientation */
+    /** panel orientation */
     XfcePanelPluginMode orientation;
 
-    /* if the bars have been initialized */
+    /** if the bars have been initialized */
     gboolean bars_created;
 
-    /* if the tachos have been initialized */
+    /** if the tachos have been initialized */
     gboolean tachos_created;
 
-    /* show title in panel */
+    /** show title in panel */
     gboolean show_title;
 
-    /* show labels in panel (GUI mode only) */
+    /** show labels in panel (GUI mode only) */
     gboolean show_labels;
 
-    /* show units in textual view */
+    /** show units in textual view */
     gboolean show_units;
 
-    /* show small spacings only in textual view */
+    /** show small spacings only in textual view */
     gboolean show_smallspacings;
 
-    /* show colored bars (GUI mode only) */
+    /** show colored bars (GUI mode only) */
     gboolean show_colored_bars;
 
-    /* use the progress-bar UI */
-    //gboolean display_values_graphically;
+    /** use the progress-bar UI */
     e_displaystyles display_values_type;
 
-    /* suppress Hddtemp failure messages and any other messages */
+    /** suppress Hddtemp failure messages and any other messages */
     gboolean suppressmessage;
 
-    /* suppress tooltip from overlapping widget and thereby crashing the plugin or modifying the background */
+    /**
+     * suppress tooltip from overlapping widget and thereby crashing the plugin
+     * or modifying the background
+     */
     gboolean suppresstooltip;
 
-    /* sensor update time */
+    /** sensor update time */
     gint sensors_refresh_time;
 
     /* sensor relevant stuff */
-    /* no problem if less than 11 sensors, else will have to enlarge the
-        following arrays. NYI!! */
+    /**
+     * no problem if less than 11 sensors, else will have to enlarge the
+     * following arrays. NYI!!
+     */
     gint num_sensorchips;
 
-    /* gint sensorsCount[SENSORS]; */
-
-    /* contains the progress bar panels */
+    /** contains the progress bar panels */
     /* FIXME:    Might be replaced by GPtrArray as well */
     t_labelledlevelbar* panels[MAX_NUM_CHIPS][MAX_NUM_FEATURES];
-    GtkCssProvider  *css_provider;
     /*    GArray *panels_array; */
 
-    /* contains the tacho panels */
+    /** CSS provider for main dialog */
+    GtkCssProvider  *css_provider;
+
+    /** contains the tacho panels */
     /* FIXME:    Might be replaced by GPtrArray as well */
     GtkWidget* tachos[MAX_NUM_CHIPS][MAX_NUM_FEATURES];
 
-    /* sensor types to display values in appropriate format */
-    /* sensor_type sensor_types[SENSORS][FEATURES_PER_SENSOR]; */
+    /** sensor types to display values in appropriate format */
     GPtrArray *chips;
 
-    /* double-click improvement as suggested on xfce4-goodies@berlios.de */
-    /* whether to execute command on double click */
+    /**
+     * double-click improvement as suggested on xfce4-goodies@berlios.de.
+     * whether to execute command on double click
+     */
     gboolean exec_command;
 
-    /* command to excute */
+    /** command to excute */
     gchar* command_name;
 
-    /* callback_id for doubleclicks */
+    /** callback_id for doubleclicks */
     gint doubleclick_id;
 
-    /* hddtemp disks */
-    //GPtrArray *disklist;
-    /* gint num_disks; */
-
-    /* ACPI thermal zones */
-    /*GPtrArray *acpi_zones;
-    gint num_acpi_zones; */
-
+    /** file name of config file for plugin */
     gchar *plugin_config_file;
 
+    /** preferred dialog width */
     gint preferred_width;
+
+    /** preferred dialog height */
     gint preferred_height;
 }
 t_sensors;

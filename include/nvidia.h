@@ -45,6 +45,7 @@ void refresh_nvidia (gpointer chip_feature, gpointer data);
 /**
  * Read the temperature value from GPU
  * @param gpu: index of GPU to read its value
+ * @return temperature value
  */
 double get_nvidia_value (int gpu);
 

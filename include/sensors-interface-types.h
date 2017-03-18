@@ -26,16 +26,16 @@
  * compound widget displaying a levelbar and optional label
  */
 typedef struct {
-    /* the level bar */
+    /** the level bar */
     GtkWidget *progressbar;
 
-    /* the label */
+    /** the label */
     GtkWidget *label;
 
-    /* the surrounding box */
+    /** the surrounding box */
     GtkWidget *databox;
 
-    /* We seem to need a seperate css provider per levelbar */
+    /** We seem to need a seperate css provider per levelbar */
     GtkCssProvider  *css_provider;
 } t_labelledlevelbar;
 
@@ -49,4 +49,4 @@ typedef enum {
   DISPLAY_TACHO
 } e_displaystyles;
 
-#endif
+#endif /* __SENSORS_INTERFACE_TYPES */

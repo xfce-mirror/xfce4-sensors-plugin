@@ -52,38 +52,77 @@
  * itself.
  */
 typedef struct {
-    /* the sensors structure */
+    /** the sensors structure */
     t_sensors *sensors;
 
+    /** is it the dialog of the panel plugin? */
     gboolean plugin_dialog;
 
-    /* controls dialog */
+    /** controls dialog */
     GtkWidget *dialog;
 
     /* Gtk stuff */
+    /** pointer to combobox for choosing sensor chip */
     GtkWidget *myComboBox;
-    /* GtkWidget *myFrame; */
+
+    /** pointer to GtkLabel for displaying the chip's name */
     GtkWidget *mySensorLabel;
+
+    /** pointer to GtkTreeView widget */
     GtkWidget *myTreeView;
-    GtkTreeStore *myListStore[10]; /* replace by GPtrArray as well */
-    /* used to disable font size option when using graphical view */
+
+    /**
+     * array of pointers to tree stores, limited to 10 as well
+     * TODO: replace by GPtrArray as well
+     */
+    GtkTreeStore *myListStore[MAX_NUM_CHIPS];
+
+    /**
+     * box with font settings for text view; used to disable font size option
+     * when using graphical/tacho view
+     */
     GtkWidget *font_Box;
+
+    /** GtkBox for font settings in visual displays */
     GtkWidget *fontSettings_Box;
+
+    /** button for font settings in visual displays */
     GtkWidget *fontSettings_Button;
+
+    /** pointer to GtkCheckbox whether to display units in text mode */
     GtkWidget *unit_checkbox;
+
+    /** pointer to surrounding GtkBox for number of text lines in text mode */
     GtkWidget *Lines_Box;
+
+    /** pointer to GtkSpinButton for number of text lines */
     GtkWidget *Lines_Spin_Box;
+
+    /** pointer to GtkCheckbox for opting to suppress notifications */
     GtkWidget *suppressmessage_checkbox;
+
+    /** pointer to GtkCheckbox for opting to suppress tooltips */
     GtkWidget *suppresstooltip_checkbox;
+
+    /** pointer to GtkCheckbox for text mode to have smaller spacings */
     GtkWidget *smallspacing_checkbox;
-    /* used to enable 'show labels' option when using graphical view */
+
+    /** used to enable 'show labels' option when using graphical view */
     GtkWidget *labels_Box;
+
+    /**
+     * pointer to GtkCheckbox whether to colorize the checkboxes over the Gtk
+     * theme
+     */
     GtkWidget *coloredBars_Box;
-    GtkWidget *temperature_radio_group;
+
+    /** pointer to GtkSpinButton for selecting the refresh interval in seconds */
     GtkWidget *spin_button_update_time;
 
-    /* double-click improvement */
+    /** double-click improvement: check to activate */
     GtkWidget *myExecCommand_CheckBox;
+
+    /** double-click improvement: entry for command */
     GtkWidget *myCommandName_Entry;
 }
 t_sensors_dialog;
