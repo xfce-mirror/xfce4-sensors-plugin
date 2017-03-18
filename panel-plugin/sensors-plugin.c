@@ -343,11 +343,15 @@ sensors_update_tacho_panel (t_sensors *sensors)
 
                 val_percentage = sensors_get_percentage (ptr_chipfeature);
                 gtk_sensorstacho_set_size(GTK_SENSORSTACHO(ptr_tacho), size_panel);
-                gtk_sensorstacho_set_value(GTK_SENSORSTACHO(ptr_tacho), val_percentage);
                 gtk_sensorstacho_set_color(GTK_SENSORSTACHO(ptr_tacho), ptr_chipfeature->color);
+                gtk_sensorstacho_set_value(GTK_SENSORSTACHO(ptr_tacho), val_percentage);
             }
         }
     }
+
+    //gdk_window_invalidate_region(gtk_widget_get_window(sensors->eventbox /* or widget_sensors ? */, );
+
+    gtk_widget_queue_draw (GTK_WIDGET(sensors->eventbox));
 
     TRACE("leaves sensors_update_tacho_panel");
 }
