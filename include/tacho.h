@@ -25,72 +25,93 @@
 
 G_BEGIN_DECLS
 
-
-//#define GTK_TYPE_TACHO gtk_sensorstacho_get_type ()
-//#define gtk_sensorstacho(obj) GTK_CHECK_CAST(obj, GTK_TYPE_CPU, GtkSensorsTacho)
-//#define gtk_sensorstacho_CLASS(klass) GTK_CHECK_CLASS_CAST(klass, GTK_TYPE_CPU, GtkSensorsTachoClass)
-//#define GTK_IS_CPU(obj) GTK_CHECK_TYPE(obj, GTK_TYPE_CPU)
-
-//G_DEFINE_TYPE( GtkSensorsTacho, gtk_sensorstacho, GObject)
 G_DECLARE_FINAL_TYPE (GtkSensorsTacho, gtk_sensorstacho, GTK, SENSORSTACHO, GtkDrawingArea)
 
-//#define XFCE_TYPE_TACHO gtk_sensorstacho_get_type ()
-//G_DECLARE_DERIVABLE_TYPE (XfceTacho, xfce_tacho, XFCE, TACHO, GObject)
-
-
-//#define STROKER_TYPE_NODAL_CONTAINER                  (stroker_nodal_container_get_type ())
-//#define STROKER_NODAL_CONTAINER(obj)                  (G_TYPE_CHECK_INSTANCE_CAST ((obj), STROKER_TYPE_NODAL_CONTAINER, StrokerNodalContainer))
-//#define STROKER_NODAL_CONTAINER_CLASS(klass)          (G_TYPE_CHECK_CLASS_CAST  ((klass), STROKER_TYPE_NODAL_CONTAINER, StrokerNodalContainerClass))
-//#define STROKER_IS_NODAL_CONTAINER(obj)               (G_TYPE_CHECK_INSTANCE_TYPE ((obj), STROKER_TYPE_NODAL_CONTAINER))
-//#define STROKER_IS_NODAL_CONTAINER_CLASS(klass)       (G_TYPE_CHECK_CLASS_TYPE  ((klass), STROKER_TYPE_NODAL_CONTAINER))
-//#define STROKER_NODAL_CONTAINER_GET_CLASS(obj)        (G_TYPE_INSTANCE_GET_CLASS  ((obj), STROKER_TYPE_NODAL_CONTAINER, StrokerNodalContainerClass))
-
-//#define gtk_sensorstacho(obj) G_TYPE_CHECK_INSTANCE_CAST(obj, gtk_sensorstacho_get_type (), GtkSensorsTacho)
-//#define gtk_sensorstacho_CLASS(klass) G_TYPE_CHECK_CLASS_CAST(klass, gtk_sensorstacho_get_type(), GtkSensorsTachoClass)
-//#define GTK_IS_CPU(obj) G_TYPE_CHECK_INSTANCE_TYPE(obj, gtk_sensorstacho_get_type())
-//#define GTK_IS_CPU_CLASS(klass) G_TYPE_CHECK_CLASS_TYPE(klass, gtk_sensorstacho_get_type())
-//#define gtk_sensorstacho_GET_CLASS(obj) G_TYPE_INSTANCE_GET_CLASS(obj, gtk_sensorstacho_get_type(), GtkSensorsTachoClass)
-
-
-
-
 typedef struct _GtkSensorsTacho GtkSensorsTacho;
-//typedef struct _GtkSensorsTachoClass GtkSensorsTachoClass;
 
-
+/**
+ * pseudo widget for drawing a tacho
+ */
 struct _GtkSensorsTacho {
-  GtkDrawingArea widget;
-  //cairo_t *gc;
-  gdouble sel;
-  gchar *text;
-  gchar *color;
-  guint size;
-  GtkOrientation orientation;
+    /** real parent GtkDrawingArea widget */
+    GtkDrawingArea parent;
+
+    /** value to display */
+    gdouble sel;
+
+    /** pointer to string of sensor name to display */
+    gchar *text;
+
+    /** pointer to color as hexadecimal rgb value in a string */
+    gchar *color;
+
+    /** size of a side of the surrounding square area */
+    guint size;
+
+    /** orientation, used for vertical bars */
+    GtkOrientation orientation;
 };
 
-//struct _GtkSensorsTachoClass {
-  //GtkDrawingAreaClass parent_class;
-//};
+/**
+ * set the value in percent that has to be visualized
+ * @param ptr_sensorstacho: Pointer to SensorsTacho structure
+ * @param value: value in percent to visualize by the tacho display
+ */
+void gtk_sensorstacho_set_value (GtkSensorsTacho *ptr_sensorstacho, gdouble value);
 
-
-//GType gtk_sensorstacho_get_type(void);
-//void gtk_sensorstacho_set_sel(GtkSensorsTacho *tacho, gdouble sel);
-void gtk_sensorstacho_set_value (GtkSensorsTacho *tacho, gdouble value);
+/**
+ * create a new sensorstacho with orientation and initial size
+ * @param orientation: orientation of the tacho
+ * @param size: initial size of the tacho object
+ * @return allocated widget
+ */
 GtkWidget * gtk_sensorstacho_new(GtkOrientation orientation, guint size);
 
-/* set the text to be drawn. if NULL, no text is drawn */
-void gtk_sensorstacho_set_text (GtkSensorsTacho *tacho, gchar *text);
-void gtk_sensorstacho_unset_text (GtkSensorsTacho *tacho);
+/**
+ * set the text to be drawn. if NULL, no text is drawn.
+ * @param ptr_sensorstacho: Pointer to SensorsTacho structure
+ * @param ptr_text: Text to set and paint
+ */
+void gtk_sensorstacho_set_text (GtkSensorsTacho *ptr_sensorstacho, gchar *ptr_text);
 
-/* set and unset the color of the text if any text is to be drawn at all */
-void gtk_sensorstacho_set_color (GtkSensorsTacho *tacho, gchar *color);
-void gtk_sensorstacho_unset_color (GtkSensorsTacho *tacho);
+/**
+ * Unset the text to be drawn. Will also free the internal copy of the text
+ * @param ptr_sensorstacho: Pointer to SensorsTacho structure
+ */
+void gtk_sensorstacho_unset_text (GtkSensorsTacho *ptr_sensorstacho);
 
-gboolean gtk_sensorstacho_paint (GtkWidget *widget,
-                cairo_t *ptr_cairo_context/*, gpointer data*/);
+/** set the color of the text if any text is to be drawn at all
+ * @param ptr_sensorstacho: Pointer to SensorsTacho structure
+ * @param ptr_colorstring:
+ */
+void gtk_sensorstacho_set_color (GtkSensorsTacho *ptr_sensorstacho, gchar *ptr_colorstring);
 
-void gtk_sensorstacho_set_size(GtkSensorsTacho *tacho, guint size);
+/**
+ * Remove the color of the text
+ * @param ptr_sensorstacho: Pointer to SensorsTacho structure
+ */
+void gtk_sensorstacho_unset_color (GtkSensorsTacho *ptr_sensorstacho);
 
+/**
+ * Paint the SensorsTacho widget
+ * @param ptr_widget: Pointer to SensorsTacho structure; hidden behind the
+ *                    widget interface
+ * @param ptr_cairo: pointer to cairo drawing structure
+ */
+gboolean gtk_sensorstacho_paint (GtkWidget *ptr_widget, cairo_t *ptr_cairo);
+
+/**
+ * Set the new size to allocate for the widget and to fill with the painting
+ * @param ptr_sensorstacho: Pointer to SensorsTacho structure
+ * @param size: The new size in both x and y direction to allocate and paint
+ */
+void gtk_sensorstacho_set_size(GtkSensorsTacho *ptr_sensorstacho, guint size);
+
+/**
+ * directly exhibited internal string describing the currently set font for the
+ * tacho elements.
+ * TODO: Introduce getter/setter functions
+ */
 extern gchar *font;
 
 G_END_DECLS
