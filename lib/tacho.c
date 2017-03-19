@@ -111,26 +111,13 @@ gtk_sensorstacho_set_color (GtkSensorsTacho *ptr_sensorstacho, gchar *color)
     g_return_if_fail (ptr_sensorstacho != NULL);
 
     if (color == NULL) {
-        gtk_sensorstacho_unset_color(ptr_sensorstacho);
+        color = "#000000";
     }
-    else {
-        if (ptr_sensorstacho->color != NULL)
-            g_free(ptr_sensorstacho->color);
-
-        ptr_sensorstacho->color = g_strdup(color);
-    }
-}
-
-/* -------------------------------------------------------------------------- */
-void
-gtk_sensorstacho_unset_color (GtkSensorsTacho *ptr_sensorstacho)
-{
-    g_return_if_fail (ptr_sensorstacho != NULL);
 
     if (ptr_sensorstacho->color != NULL)
-        g_free (ptr_sensorstacho->color);
+        g_free(ptr_sensorstacho->color);
 
-    ptr_sensorstacho->color = g_strdup("#000000");
+    ptr_sensorstacho->color = g_strdup(color);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -168,7 +155,7 @@ gtk_sensorstacho_init (GtkSensorsTacho *ptr_sensorstacho)
 
     gtk_sensorstacho_unset_text(ptr_sensorstacho);
 
-    gtk_sensorstacho_unset_color(ptr_sensorstacho);
+    gtk_sensorstacho_set_color(ptr_sensorstacho, NULL);
 
     TRACE("leave gtk_sensorstacho_init\n");
 }
@@ -376,6 +363,7 @@ gtk_sensorstacho_paint (GtkWidget *widget,
     if (GTK_SENSORSTACHO(widget)->text != NULL) {
         PangoContext *ptr_style_context = gtk_widget_get_pango_context (widget);
         PangoLayout *ptr_layout = pango_layout_new (ptr_style_context);
+        /* TODO: Delete the pango layout when removing the widget? */
 
         pango_layout_set_alignment(ptr_layout, PANGO_ALIGN_CENTER);
         pango_layout_set_width (ptr_layout, width);

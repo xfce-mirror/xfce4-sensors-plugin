@@ -87,12 +87,6 @@ void gtk_sensorstacho_unset_text (GtkSensorsTacho *ptr_sensorstacho);
 void gtk_sensorstacho_set_color (GtkSensorsTacho *ptr_sensorstacho, gchar *ptr_colorstring);
 
 /**
- * Remove the color of the text
- * @param ptr_sensorstacho: Pointer to SensorsTacho structure
- */
-void gtk_sensorstacho_unset_color (GtkSensorsTacho *ptr_sensorstacho);
-
-/**
  * Paint the SensorsTacho widget
  * @param ptr_widget: Pointer to SensorsTacho structure; hidden behind the
  *                    widget interface
