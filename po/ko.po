@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-23 00:31+0100\n"
-"PO-Revision-Date: 2017-02-23 20:15+0000\n"
+"POT-Creation-Date: 2017-03-18 18:31+0100\n"
+"PO-Revision-Date: 2017-03-19 16:26+0000\n"
 "Last-Translator: 박정규(Jung-Kyu Park) <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/xfce/xfce-panel-plugins/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -21,19 +21,19 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.c:372 ../panel-plugin/sensors-plugin.c:478
-#: ../panel-plugin/sensors-plugin.c:1089
+#: ../panel-plugin/sensors-plugin.c:381 ../panel-plugin/sensors-plugin.c:504
+#: ../panel-plugin/sensors-plugin.c:1136
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>센서</b></span>"
 
 #. widget = sensors->eventbox;
-#: ../panel-plugin/sensors-plugin.c:959
+#: ../panel-plugin/sensors-plugin.c:996
 msgid "No sensors selected!"
 msgstr "센서를 선택하지 않았습니다!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:999
+#: ../panel-plugin/sensors-plugin.c:1036
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -41,110 +41,110 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "센서 플러그인:\n센서 기능 값을 읽는데 문제가 있는 것 같습니다.\n따라서 정상적인 동작을 보장할 수 없습니다.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1912
+#: ../panel-plugin/sensors-plugin.c:1943
 msgid "UI style:"
 msgstr "UI 형태:"
 
-#: ../panel-plugin/sensors-plugin.c:1913
+#: ../panel-plugin/sensors-plugin.c:1944
 msgid "_text"
 msgstr "본문(_T)"
 
-#: ../panel-plugin/sensors-plugin.c:1915
+#: ../panel-plugin/sensors-plugin.c:1946
 msgid "_progress bars"
 msgstr "진행 막대(_P)"
 
-#: ../panel-plugin/sensors-plugin.c:1917
+#: ../panel-plugin/sensors-plugin.c:1948
 msgid "_tachos"
 msgstr "타코(_T)"
 
-#: ../panel-plugin/sensors-plugin.c:1962
+#: ../panel-plugin/sensors-plugin.c:1994
 msgid "Show _labels"
 msgstr "레이블 표시(_L)"
 
-#: ../panel-plugin/sensors-plugin.c:1992
+#: ../panel-plugin/sensors-plugin.c:2026
 msgid "Show colored _bars"
 msgstr "색깔있는 막대 표시(_B)"
 
-#: ../panel-plugin/sensors-plugin.c:2020
+#: ../panel-plugin/sensors-plugin.c:2056
 msgid "_Show title"
 msgstr "제목 표시(_S)"
 
-#: ../panel-plugin/sensors-plugin.c:2044
+#: ../panel-plugin/sensors-plugin.c:2081
 msgid "_Number of text lines:"
 msgstr "본문 줄 수(_N):"
 
-#: ../panel-plugin/sensors-plugin.c:2080
+#: ../panel-plugin/sensors-plugin.c:2118
 msgid "_Cover all panel rows/columns"
 msgstr "모든 패널 행 / 열 전환(_C)"
 
-#: ../panel-plugin/sensors-plugin.c:2103
+#: ../panel-plugin/sensors-plugin.c:2142
 msgid "F_ont size:"
 msgstr "글꼴 크기(_O):"
 
 #. gtk_widget_set_sensitive(myFontBox,
 #. !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:2110
+#: ../panel-plugin/sensors-plugin.c:2149
 msgid "x-small"
 msgstr "아주 작게"
 
-#: ../panel-plugin/sensors-plugin.c:2111
+#: ../panel-plugin/sensors-plugin.c:2150
 msgid "small"
 msgstr "작게"
 
-#: ../panel-plugin/sensors-plugin.c:2112
+#: ../panel-plugin/sensors-plugin.c:2151
 msgid "medium"
 msgstr "중간"
 
-#: ../panel-plugin/sensors-plugin.c:2113
+#: ../panel-plugin/sensors-plugin.c:2152
 msgid "large"
 msgstr "크게"
 
-#: ../panel-plugin/sensors-plugin.c:2114
+#: ../panel-plugin/sensors-plugin.c:2153
 msgid "x-large"
 msgstr "아주 크게"
 
-#: ../panel-plugin/sensors-plugin.c:2145
+#: ../panel-plugin/sensors-plugin.c:2186
 msgid "F_ont:"
 msgstr "글꼴(_O):"
 
-#: ../panel-plugin/sensors-plugin.c:2179
+#: ../panel-plugin/sensors-plugin.c:2221
 msgid "Show _Units"
 msgstr "단위 표시(_U)"
 
-#: ../panel-plugin/sensors-plugin.c:2200
+#: ../panel-plugin/sensors-plugin.c:2244
 msgid "Small horizontal s_pacing"
 msgstr "좁은 수평 공간(_P)"
 
-#: ../panel-plugin/sensors-plugin.c:2222
+#: ../panel-plugin/sensors-plugin.c:2267
 msgid "Suppress messages"
 msgstr "메시지 숨김"
 
-#: ../panel-plugin/sensors-plugin.c:2240
+#: ../panel-plugin/sensors-plugin.c:2287
 msgid "Suppress tooltip"
 msgstr "풍선 도움말 숨김"
 
-#: ../panel-plugin/sensors-plugin.c:2265
+#: ../panel-plugin/sensors-plugin.c:2313
 msgid "E_xecute on double click:"
 msgstr "두번 누르면 실행(_X):"
 
-#: ../panel-plugin/sensors-plugin.c:2308
+#: ../panel-plugin/sensors-plugin.c:2357
 msgid "_View"
 msgstr "보기(_V)"
 
-#: ../panel-plugin/sensors-plugin.c:2343
+#: ../panel-plugin/sensors-plugin.c:2392
 msgid "_Miscellaneous"
 msgstr "기타(_M)"
 
-#: ../panel-plugin/sensors-plugin.c:2418 ../panel-plugin/sensors-plugin.h:31
-#: ../lib/hddtemp.c:161
+#: ../panel-plugin/sensors-plugin.c:2469 ../panel-plugin/sensors-plugin.h:31
+#: ../lib/hddtemp.c:167
 msgid "Sensors Plugin"
 msgstr "센서 플러그인"
 
-#: ../panel-plugin/sensors-plugin.c:2426
+#: ../panel-plugin/sensors-plugin.c:2477
 msgid "Properties"
 msgstr "속성"
 
-#: ../panel-plugin/sensors-plugin.c:2459
+#: ../panel-plugin/sensors-plugin.c:2510
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -156,36 +156,36 @@ msgstr "이름, 색, 최대/최소 값과 같은 기능 속성을 항목을 두�
 #. FIXME: compare strings, or also have hddtemp and acpi store numeric
 #. str_values
 #. assert correctly saved str_file
-#: ../lib/configuration.c:168 ../lib/configuration.c:374 ../lib/hddtemp.c:383
+#: ../lib/configuration.c:174 ../lib/configuration.c:396 ../lib/hddtemp.c:396
 msgid "Hard disks"
 msgstr "하드 디스크"
 
-#: ../lib/acpi.c:541 ../lib/acpi.c:550 ../lib/acpi.c:551
+#: ../lib/acpi.c:580 ../lib/acpi.c:592
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.c:543
+#: ../lib/acpi.c:583
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ACPI v%s zones"
 
-#: ../lib/acpi.c:686
+#: ../lib/acpi.c:724
 msgid "<Unknown>"
 msgstr "<알 수 없음>"
 
-#: ../lib/nvidia.c:61
+#: ../lib/nvidia.c:63
 msgid "NVidia GPU core temperature"
 msgstr "엔비디아 GPU 코어 온도"
 
-#: ../lib/nvidia.c:62
+#: ../lib/nvidia.c:64
 msgid "nvidia"
 msgstr "엔비디아"
 
-#: ../lib/hddtemp.c:382
+#: ../lib/hddtemp.c:395
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "S.M.A.R.T 하드디스크 온도 센서"
 
-#: ../lib/hddtemp.c:557
+#: ../lib/hddtemp.c:571
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
@@ -197,127 +197,127 @@ msgid ""
 "with a return value of %d.\n"
 msgstr "\"hddtemp\"가 실행 가능하지만 올바로 실행하지 않았습니다. 아마도 디스크에서 온도를 읽어들리려면 루트 권한이 필요하며, \"hddtemp\"를 루트가 실행하지 않아서 인 것 같습니다.\n\n쉽지만 지저분 맞은 해결책은 \"chmod u+s %s\"을(를) 루트 계정으로 실행하고 이 플러그인을 실행하거나 패널로 띄우는 방법입니다.\n\n\"%s\"을(를) 호출하는데 다음 오류\n%s이(가)\n반환 오류값 %d와(과) 함께 발생했습니다.\n"
 
-#: ../lib/hddtemp.c:571 ../lib/hddtemp.c:594
+#: ../lib/hddtemp.c:585 ../lib/hddtemp.c:608
 msgid "Suppress this message in future"
 msgstr "나중에 이 메시지 숨기기"
 
-#: ../lib/hddtemp.c:589
+#: ../lib/hddtemp.c:603
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr "\"%s\"을(를) 실행하는데 오류가 발생했습니다:\n%s"
 
-#: ../lib/lmsensors.c:95
+#: ../lib/lmsensors.c:97
 msgid "LM Sensors"
 msgstr "LM 센서"
 
-#: ../lib/lmsensors.c:361 ../lib/lmsensors.c:408
+#: ../lib/lmsensors.c:370 ../lib/lmsensors.c:417
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "오류: 센서에 연결할 수 없습니다!"
 
-#: ../lib/sensors-interface.c:88
+#: ../lib/sensors-interface.c:91
 msgid "Sensors Plugin Failure"
 msgstr "센서 플러그인 실패"
 
-#: ../lib/sensors-interface.c:89
+#: ../lib/sensors-interface.c:92
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr "센서 기능 값을 읽어들이는데 문제가 있는 것 같습니다.\n따라서 정상적인 동작을 보장할 수 없습니다."
 
-#: ../lib/sensors-interface.c:175
+#: ../lib/sensors-interface.c:178
 msgid "Sensors t_ype:"
 msgstr "센서 종류(_Y):"
 
-#: ../lib/sensors-interface.c:201
+#: ../lib/sensors-interface.c:204
 msgid "Description:"
 msgstr "설명:"
 
-#: ../lib/sensors-interface.c:234
+#: ../lib/sensors-interface.c:237
 msgid "U_pdate interval (seconds):"
 msgstr "검사 간격(초)(_P):"
 
-#: ../lib/sensors-interface.c:274
+#: ../lib/sensors-interface.c:278
 msgid "Name"
 msgstr "이름"
 
-#: ../lib/sensors-interface.c:286
+#: ../lib/sensors-interface.c:290
 msgid "Value"
 msgstr "값"
 
-#: ../lib/sensors-interface.c:294
+#: ../lib/sensors-interface.c:298
 msgid "Show"
 msgstr "보이기"
 
-#: ../lib/sensors-interface.c:303
+#: ../lib/sensors-interface.c:307
 msgid "Color"
 msgstr "색상"
 
-#: ../lib/sensors-interface.c:316
+#: ../lib/sensors-interface.c:320
 msgid "Min"
 msgstr "최소"
 
-#: ../lib/sensors-interface.c:333
+#: ../lib/sensors-interface.c:337
 msgid "Max"
 msgstr "최대"
 
-#: ../lib/sensors-interface.c:374
+#: ../lib/sensors-interface.c:379
 msgid "Temperature scale:"
 msgstr "온도 범위:"
 
-#: ../lib/sensors-interface.c:376
+#: ../lib/sensors-interface.c:381
 msgid "_Celsius"
 msgstr "섭씨(_C)"
 
-#: ../lib/sensors-interface.c:378
+#: ../lib/sensors-interface.c:383
 msgid "_Fahrenheit"
 msgstr "화씨(_F)"
 
-#: ../lib/sensors-interface.c:414
+#: ../lib/sensors-interface.c:419
 msgid "_Sensors"
 msgstr "센서(_S)"
 
-#: ../lib/sensors-interface-common.c:74 ../lib/sensors-interface-common.c:75
+#: ../lib/sensors-interface-common.c:75 ../lib/sensors-interface-common.c:76
 msgid "No sensors found!"
 msgstr "센서를 찾을 수 없습니다!"
 
-#: ../lib/sensors-interface-common.c:146
+#: ../lib/sensors-interface-common.c:149
 #, c-format
 msgid "%.0f °F"
 msgstr "%.0f °F"
 
 #. Celsius
-#: ../lib/sensors-interface-common.c:149
+#: ../lib/sensors-interface-common.c:152
 #, c-format
 msgid "%.0f °C"
 msgstr "%.0f °C"
 
-#: ../lib/sensors-interface-common.c:154
+#: ../lib/sensors-interface-common.c:157
 #, c-format
 msgid "%+.3f V"
 msgstr "%+.3f V"
 
-#: ../lib/sensors-interface-common.c:158
+#: ../lib/sensors-interface-common.c:161
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.c:163
+#: ../lib/sensors-interface-common.c:166
 msgid "off"
 msgstr "끄기"
 
-#: ../lib/sensors-interface-common.c:165
+#: ../lib/sensors-interface-common.c:168
 msgid "on"
 msgstr "켜기"
 
-#: ../lib/sensors-interface-common.c:169
+#: ../lib/sensors-interface-common.c:172
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f rpm"
 
-#: ../src/main.c:58
+#: ../src/main.c:62
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -325,31 +325,31 @@ msgid ""
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr "Xfce4 센서 %s\n이 프로그램은 GPL v2하에 나왔습니다.\n라이선스는 프로그램의 소스 아카이브 내 또는 /usr/share/apps/LICENSES/GPL_V2, http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt에서 찾을 수 있습니다\n"
 
-#: ../src/main.c:70
+#: ../src/main.c:78
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
 "Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
-"  xfce4-sensors options\n"
-"where options are one or more of the following:\n"
+"  xfce4-sensors [options]\n"
+"where [options] are one or more of the following:\n"
 "  -h, --help    Print this help dialog.\n"
 "  -l, --license Print license information.\n"
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Xfce4 센서 %s\n하드웨어 센서, ACPI 상태, 하드디스크 온도와 엔비디아 GPU 온도정보를 표시합니다.\n개요: \n  xfce4-sensors options\noptions 대신 다음 중 하나 이상을 사용할 수 있습니다:\n  -h, --help    이 도움말 대화상자를 엽니다.\n  -l, --license 라이선스 정보를 출력합니다.\n  -V, --version 버전 정보를 출력합니다.\n\n이 프로그램은 GPL v2하에 나왔습니다.\n"
+msgstr "Xfce4 센서 %s\n하드웨어 센서, ACPI 상태, 하드디스크 온도와 엔비디아 GPU 온도정보를 표시합니다.\n개요: \nxfce4-sensors [옵션]\n[옵션]으로 다음 중 하나 이상을 사용할 수 있습니다:\n-h, --help    이 도움말 대화상자를 엽니다.\n-l, --license 라이선스 정보를 출력합니다.\n-V, --version 버전 정보를 출력합니다.\n\n이 프로그램은 GPL v2하에 배포됩니다.\n"
 
-#: ../src/main.c:88
+#: ../src/main.c:100
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Xfce4 센서 %s\n"
 
-#: ../src/interface.c:85
+#: ../src/interface.c:86
 msgid "_Overview"
 msgstr "개요(_O)"
 
-#: ../src/interface.c:105
+#: ../src/interface.c:106
 msgid "_Tachometers"
 msgstr "타코메터(_T)"
 
@@ -359,7 +359,7 @@ msgstr "센서 보기"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../src/actions.c:79
+#: ../src/actions.c:92
 #, c-format
 msgid ""
 "Sensors Viewer:\n"
