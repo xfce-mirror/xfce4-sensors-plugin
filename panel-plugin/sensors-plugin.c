@@ -56,7 +56,7 @@
 /* Local includes */
 #include "sensors-plugin.h"
 
-/* Definitions DUE TO porting from Gtk2 to Gtk3 */
+/* Definitions due to porting from Gtk2 to Gtk3 */
 #define gtk_hbox_new(homogeneous, spacing) \
         gtk_box_new(GTK_ORIENTATION_HORIZONTAL, spacing)
 
@@ -134,7 +134,7 @@ sensors_set_bar_color (t_labelledlevelbar *ptr_labelledlevelbar, double val_perc
     }
 
     g_strlcat(str_gtkcssdata,   "   padding: 0px;\n"
-                                "   border-style: 1px none black;\n"
+                                "   border: 1px none black;\n"
                                 "}\n", sizeof(str_gtkcssdata));
 
     gtk_level_bar_add_offset_value (GTK_LEVEL_BAR(ptr_levelbar),
