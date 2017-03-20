@@ -1080,7 +1080,8 @@ sensors_show_panel (gpointer data)
         gtk_widget_set_valign(sensors->panel_label_text, GTK_ALIGN_CENTER);
     }
 
-    sensors_create_tooltip ((gpointer) sensors);
+    if (!sensors->suppresstooltip)
+        sensors_create_tooltip ((gpointer) sensors);
 
     TRACE ("leaves sensors_show_panel\n");
     return result;
@@ -1388,6 +1389,9 @@ suppresstooltip_changed (GtkWidget *widget, t_sensors_dialog* sd)
     sd->sensors->suppresstooltip = ! sd->sensors->suppresstooltip;
 
     gtk_widget_set_has_tooltip(sd->sensors->eventbox, !sd->sensors->suppresstooltip);
+
+if (! sd->sensors->suppresstooltip)
+        sensors_create_tooltip ((gpointer) sd->sensors);
 
     TRACE ("leaves suppresstooltip_changed");
 }
@@ -2572,6 +2576,9 @@ sensors_plugin_construct (XfcePanelPlugin *plugin)
 
     ptr_sensorsstruct->plugin_config_file = xfce_panel_plugin_lookup_rc_file(plugin);
     sensors_read_config (plugin, ptr_sensorsstruct);
+
+    /* use values from config file */
+    gtk_widget_set_has_tooltip(ptr_sensorsstruct->eventbox, !ptr_sensorsstruct->suppresstooltip);
 
     if (ptr_sensorsstruct->cover_panel_rows || xfce_panel_plugin_get_mode(plugin) == XFCE_PANEL_PLUGIN_MODE_DESKBAR)
         xfce_panel_plugin_set_small(plugin, FALSE);
