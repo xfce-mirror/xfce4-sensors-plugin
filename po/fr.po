@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# David D, 2017
 # Fabian Nowak <timystery@arcor.de>, 2005
 # jc1 <jc1.quebecos@gmail.com>, 2013
 # Maximilian Schleiss <maximilian@xfce.org>, 2006
@@ -13,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-18 18:31+0100\n"
-"PO-Revision-Date: 2017-03-19 15:59+0000\n"
-"Last-Translator: Yannick Le Guen <leguen.yannick@gmail.com>\n"
+"POT-Creation-Date: 2017-03-19 18:31+0100\n"
+"PO-Revision-Date: 2017-03-23 20:49+0000\n"
+"Last-Translator: David D\n"
 "Language-Team: French (http://www.transifex.com/xfce/xfce-panel-plugins/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -334,14 +335,14 @@ msgid ""
 "Xfce4 Sensors %s\n"
 "Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
-"  xfce4-sensors [options]\n"
-"where [options] are one or more of the following:\n"
+"  xfce4-sensors [option]\n"
+"where [option] is one of the following:\n"
 "  -h, --help    Print this help dialog.\n"
 "  -l, --license Print license information.\n"
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Capteurs Xfce4 %s\nAffiche des informations relatives à vos capteurs matériels, l’état ACPI, les températures de disque dur et la température des GPU Nvidia.\nSynopsis : \n  xfce4-sensors [options]\noù [options] est un ou plusieurs des choix suivants :\n  -h, --help    Affiche cette aide.\n  -l, --license Affiche les informations de licence.\n  -V, --version Affiche les informations de version.\n\nCe programme est publié sous la GPL v2.\n"
+msgstr "Capteurs Xfce4 %s\nAffiche des informations relatives à vos capteurs matériels, l’état ACPI, les températures de disque dur et la température des GPU Nvidia.\nSynopsis : \n  xfce4-sensors [option]\noù [option] est une ou plusieurs des choix suivants :\n  -h, --help    Affiche cette aide.\n  -l, --license Affiche les informations de licence.\n  -V, --version Affiche les informations de version.\n\nCe programme est publié sous la GPL v2.\n"
 
 #: ../src/main.c:100
 #, c-format
