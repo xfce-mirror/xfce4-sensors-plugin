@@ -210,11 +210,15 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
             {
                 DBG("Removing deselected widget from container.");
                 gtk_container_remove(GTK_CONTAINER(ptr_wdgt_table), ptr_sensorstachowidget);
-                if (ptr_sensorstacho->text)
+                if (ptr_sensorstacho->text) {
                     g_free(ptr_sensorstacho->text);
+                    ptr_sensorstacho->text = NULL;
+                }
 
-                if (ptr_sensorstacho->color)
+                if (ptr_sensorstacho->color) {
                     g_free(ptr_sensorstacho->color);
+                    ptr_sensorstacho->color = NULL;
+                }
                 ptr_sensors_structure->tachos[idx_chip][idx_feature] = NULL;
             }
 

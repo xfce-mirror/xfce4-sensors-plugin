@@ -569,6 +569,7 @@ sensors_show_graphical_display (t_sensors *sensors)
         sensors->css_provider = gtk_css_provider_new ();
         ptr_gdkdisplay = gdk_display_get_default ();
         ptr_gdkscreen = gdk_display_get_default_screen (ptr_gdkdisplay);
+        g_return_val_if_fail(ptr_gdkscreen!=NULL, FALSE);
 
         gtk_style_context_add_provider_for_screen (ptr_gdkscreen,
                                      GTK_STYLE_PROVIDER (sensors->css_provider),

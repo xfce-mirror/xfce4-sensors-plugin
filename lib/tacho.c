@@ -60,6 +60,7 @@ static void gtk_sensorstacho_size_allocate(GtkWidget *widget,
                                   GtkAllocation *allocation);
 static GtkSizeRequestMode gtk_sensorstacho_get_request_mode(GtkWidget *widget);
 
+void gtk_sensorstacho_destroy(GtkWidget *widget);
 
 gchar *font = NULL; // declared as extern in tacho.h
 
@@ -136,6 +137,7 @@ gtk_sensorstacho_class_init (GtkSensorsTachoClass *ptr_gtksensorstachoclass)
     ptr_widgetclass->get_preferred_height_for_width = gtk_sensorstacho_get_preferred_height_for_width;
     ptr_widgetclass->size_allocate = gtk_sensorstacho_size_allocate;
     ptr_widgetclass->draw = gtk_sensorstacho_paint;
+    ptr_widgetclass->destroy = gtk_sensorstacho_destroy;
 
     if (font==NULL)
         font = g_strdup("Sans 12");
@@ -386,6 +388,26 @@ gtk_sensorstacho_paint (GtkWidget *widget,
     TRACE("leave gtk_sensorstacho_paint\n");
     return TRUE;
 }
+
+
+/* -------------------------------------------------------------------------- */
+void
+gtk_sensorstacho_destroy(GtkWidget *widget)
+{
+    GtkSensorsTacho *ptr_sensorstacho = GTK_SENSORSTACHO(widget);
+    TRACE("enter gtk_sensorstacho_destroy\n");
+    g_return_if_fail(ptr_sensorstacho!=NULL);
+
+    if (ptr_sensorstacho->color != NULL)
+    {
+        g_free(ptr_sensorstacho->color);
+        ptr_sensorstacho->color = NULL;
+    }
+
+    gtk_sensorstacho_unset_text(ptr_sensorstacho);
+    TRACE("leave gtk_sensorstacho_destroy\n");
+}
+
 
 /* -------------------------------------------------------------------------- */
 void
