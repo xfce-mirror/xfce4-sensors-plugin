@@ -82,7 +82,7 @@ sensors_write_config (t_sensors *ptr_sensors)
     t_chip *ptr_chip;
     t_chipfeature *ptr_chipfeature;
 
-    TRACE ("enters sensors_write_config");
+    TRACE ("enters sensors_write_config: 0x%llX.", (unsigned long long int) ptr_sensors);
 
     g_return_if_fail(ptr_sensors!=NULL);
 
@@ -266,7 +266,7 @@ sensors_read_general_config (XfceRc *ptr_xfceresources, t_sensors *ptr_sensors)
         if (!ptr_sensors->suppressmessage)
             ptr_sensors->suppressmessage = xfce_rc_read_bool_entry (ptr_xfceresources, "Suppress_Hddtemp_Message", FALSE);
 
-        if (!ptr_sensors->suppresstooltip)
+        //if (!ptr_sensors->suppresstooltip)
             ptr_sensors->suppresstooltip = xfce_rc_read_bool_entry (ptr_xfceresources, "Suppress_Tooltip", FALSE);
 
         ptr_sensors->preferred_width = xfce_rc_read_int_entry (ptr_xfceresources, "Preferred_Width", 400);
