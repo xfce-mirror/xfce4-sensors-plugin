@@ -365,7 +365,6 @@ gtk_sensorstacho_paint (GtkWidget *widget,
     if (GTK_SENSORSTACHO(widget)->text != NULL) {
         PangoContext *ptr_style_context = gtk_widget_get_pango_context (widget);
         PangoLayout *ptr_layout = pango_layout_new (ptr_style_context);
-        /* TODO: Delete the pango layout when removing the widget? */
 
         pango_layout_set_alignment(ptr_layout, PANGO_ALIGN_CENTER);
         pango_layout_set_width (ptr_layout, width);
@@ -383,6 +382,7 @@ gtk_sensorstacho_paint (GtkWidget *widget,
 
         cairo_move_to (ptr_cairo, pos_xcenter, pos_ycenter - height / 2 / PANGO_SCALE);
         pango_cairo_show_layout (ptr_cairo, ptr_layout);
+        g_object_unref(ptr_layout);
     }
 
     TRACE("leave gtk_sensorstacho_paint\n");
