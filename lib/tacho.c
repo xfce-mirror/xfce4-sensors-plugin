@@ -371,6 +371,7 @@ gtk_sensorstacho_paint (GtkWidget *widget,
 
         ptr_text = g_strdup_printf("<span color=\"%s\">%s</span>", GTK_SENSORSTACHO(widget)->color, GTK_SENSORSTACHO(widget)->text);
         pango_layout_set_markup (ptr_layout, ptr_text, -1); // with null-termination, no need to give length explicitly
+        g_free(ptr_text);
 
         ptr_pangofontdescription = pango_font_description_from_string(font);
         pango_layout_set_font_description (ptr_layout, ptr_pangofontdescription);
