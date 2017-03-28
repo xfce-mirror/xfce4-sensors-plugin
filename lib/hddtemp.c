@@ -430,6 +430,7 @@ initialize_hddtemp (GPtrArray *arr_ptr_chips, gboolean *suppressmessage)
         result = 2;
     }
     else {
+        free_chip(ptr_chip, NULL);
         result = 0;
     }
 
