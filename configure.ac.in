@@ -6,7 +6,7 @@ dnl 2003,2004, 2007 Benedikt Meurer <benny@xfce.org>
 dnl 2007-2011,2014-2017 Fabian Nowak <timystery@arcor.de>
 dnl
 
-m4_define([libxfce4sensors_verinfo], [3:5:2])
+m4_define([libxfce4sensors_verinfo], [4:0:0])
 
 m4_define([xfce4_sensors_version_major], [1])
 m4_define([xfce4_sensors_version_minor], [2])
