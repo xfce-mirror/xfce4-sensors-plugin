@@ -194,10 +194,10 @@ main (int argc, char **argv)
 
     gtk_main();
 
-    gtk_widget_destroy(window);
-
     /* do the cleaning? */
     free_widgets(ptr_sensors_dialog); /* counterpart to init_widgets() inside create_main_window() */
+    gtk_widget_destroy(window);
+
     g_free (ptr_sensors_dialog->sensors);
     g_free (ptr_sensors_dialog);
 

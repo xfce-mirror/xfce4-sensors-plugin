@@ -85,7 +85,7 @@ void free_chip (gpointer chip, gpointer data);
 /**
  * Clean up structures and call library routines for ending "session".
  */
-void sensor_interface_cleanup ();
+void cleanup_interfaces ();
 
 
 /**

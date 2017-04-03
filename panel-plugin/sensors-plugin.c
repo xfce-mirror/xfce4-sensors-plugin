@@ -1203,7 +1203,7 @@ sensors_free (XfcePanelPlugin *plugin, t_sensors *sensors)
     g_return_if_fail (sensors != NULL);
 
     /* stop association to libsensors and others*/
-    sensor_interface_cleanup();
+    cleanup_interfaces();
 
     /* remove timeout functions */
     remove_gsource (sensors->timeout_id);

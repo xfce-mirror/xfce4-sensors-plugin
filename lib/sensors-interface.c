@@ -477,7 +477,7 @@ free_widgets (t_sensors_dialog *ptr_sensors_dialog)
     g_ptr_array_foreach (ptr_sensors_dialog->sensors->chips, free_chip, NULL);
 
     /* stop association to libsensors and others*/
-    sensor_interface_cleanup();
+    cleanup_interfaces();
 
     g_ptr_array_free (ptr_sensors_dialog->sensors->chips, TRUE);
 

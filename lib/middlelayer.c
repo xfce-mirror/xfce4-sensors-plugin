@@ -313,7 +313,7 @@ free_chip (gpointer chip, gpointer data)
 
 /* -------------------------------------------------------------------------- */
 void
-sensor_interface_cleanup (void)
+cleanup_interfaces (void)
 {
 #ifdef HAVE_LIBSENSORS
     sensors_cleanup();
