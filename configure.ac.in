@@ -161,12 +161,16 @@ if test x"$enable_netcat" = x"yes"; then
 
     AC_ARG_ENABLE([pathchecks], [AC_HELP_STRING([--enable-pathchecks], [Enable checks for paths, access and execution @<:@default=yes@:>@])],
     [
-        NETCAT_RUN=skip
     ], [
+        enable_pathchecks=yes
+    ])
+
+    NETCAT_RUN=skip
+    if test x"$enable_pathchecks" = x"yes"; then
         AC_MSG_CHECKING([for hddtemp being queryable via netcat])
         NETCAT_RUN=([`"$NETCAT_PATH" "$NETCAT_HOST" "$HDDTEMP_PORT" 2> /dev/null`])
         AC_MSG_RESULT([$NETCAT_RUN])
-    ])
+    fi
 
     if test x"$NETCAT_RUN" = x""; then
         enable_netcat=no
