@@ -37,10 +37,7 @@ xfce4_sensors_DEPENDENCIES = \
 # .desktop file
 desktop_in_files = xfce4-sensors.desktop.in
 
-
-manualdir = $(prefix)/man/man1
-manual_DATA = \
-	xfce4-sensors.1
+man_MANS = xfce4-sensors.1
 
 desktopdir = $(datadir)/applications
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
