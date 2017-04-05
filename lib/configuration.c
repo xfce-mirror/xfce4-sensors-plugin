@@ -284,7 +284,6 @@ sensors_read_general_config (XfceRc *ptr_xfceresources, t_sensors *ptr_sensors)
 void
 sensors_read_preliminary_config (XfcePanelPlugin *ptr_panelplugin, t_sensors *ptr_sensors)
 {
-    gchar *str_file;
     XfceRc *ptr_xfceresource;
 
     TRACE ("enters sensors_read_preliminary_config");
@@ -293,10 +292,9 @@ sensors_read_preliminary_config (XfcePanelPlugin *ptr_panelplugin, t_sensors *pt
     {
         g_return_if_fail(ptr_sensors!=NULL);
 
-        if ((str_file = ptr_sensors->plugin_config_file))
+        if ((ptr_sensors->plugin_config_file))
         {
-            ptr_xfceresource = xfce_rc_simple_open (str_file, TRUE);
-            g_free (str_file);
+            ptr_xfceresource = xfce_rc_simple_open (ptr_sensors->plugin_config_file, TRUE);
 
             if (ptr_xfceresource && xfce_rc_has_group (ptr_xfceresource, "General") ) {
                 xfce_rc_set_group (ptr_xfceresource, "General");
@@ -317,7 +315,6 @@ void
 sensors_read_config (XfcePanelPlugin *ptr_panelplugin, t_sensors *ptr_sensors)
 {
     const gchar *str_value;
-    gchar *str_file;
     XfceRc *ptr_xfceresource;
     gint idx_chip, idx_feature, idx_chiptmp;
     gchar str_rcchip[8], str_feature[20];
@@ -332,11 +329,10 @@ sensors_read_config (XfcePanelPlugin *ptr_panelplugin, t_sensors *ptr_sensors)
 
     g_return_if_fail(ptr_sensors!=NULL);
 
-    if (!(str_file = ptr_sensors->plugin_config_file))
+    if (!(ptr_sensors->plugin_config_file))
         return;
 
-    ptr_xfceresource = xfce_rc_simple_open (str_file, TRUE);
-    g_free (str_file);
+    ptr_xfceresource = xfce_rc_simple_open (ptr_sensors->plugin_config_file, TRUE);
 
     if (!ptr_xfceresource)
         return;
