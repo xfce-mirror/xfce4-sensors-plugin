@@ -399,25 +399,22 @@ sensors_read_config (XfcePanelPlugin *ptr_panelplugin, t_sensors *ptr_sensors)
                         else if ((str_value = xfce_rc_read_entry (ptr_xfceresource, "DeviceName", NULL))
                             && *str_value) {
                             if (ptr_chipfeature->devicename)
-                                free (ptr_chipfeature->devicename);
+                                g_free (ptr_chipfeature->devicename);
                             ptr_chipfeature->devicename = g_strdup(str_value);
-                            /* g_free (str_value); */
                         }
 
                         if ((str_value = xfce_rc_read_entry (ptr_xfceresource, "Name", NULL))
                                 && *str_value) {
                             if (ptr_chipfeature->name)
-                                free (ptr_chipfeature->name);
+                                g_free (ptr_chipfeature->name);
                             ptr_chipfeature->name = g_strdup (str_value);
-                            /* g_free (str_value); */
                         }
 
                         if ((str_value = xfce_rc_read_entry (ptr_xfceresource, "Color", NULL))
                                 && *str_value) {
                             if (ptr_chipfeature->color)
-                                free (ptr_chipfeature->color);
+                                g_free (ptr_chipfeature->color);
                             ptr_chipfeature->color = g_strdup (str_value);
-                            /* g_free (str_value); */
                         }
 
                         ptr_chipfeature->show =

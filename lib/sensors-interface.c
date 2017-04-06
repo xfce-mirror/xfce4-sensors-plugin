@@ -544,7 +544,7 @@ init_widgets (t_sensors_dialog *sd)
         chipfeature = (t_chipfeature *) g_ptr_array_index (ptr_chip_structure->chip_features, 0);
         g_assert (chipfeature!=NULL);
 
-        g_free(chipfeature->formatted_value);
+        //g_free(chipfeature->formatted_value);
         chipfeature->formatted_value = g_strdup ("0.0");
         chipfeature->raw_value = 0.0;
 
