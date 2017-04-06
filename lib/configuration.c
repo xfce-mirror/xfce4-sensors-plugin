@@ -74,7 +74,7 @@ get_Id_from_address (gint idx_chip, gint addr_chipfeature, t_sensors *ptr_sensor
 
 /* -------------------------------------------------------------------------- */
 void
-sensors_write_config (t_sensors *ptr_sensors)
+sensors_write_config (XfcePanelPlugin *plugin,t_sensors *ptr_sensors)
 {
     XfceRc *ptr_xfcerc;
     gchar *str_file, *str_tmp, str_chip[8], str_feature[20];

@@ -2414,7 +2414,7 @@ on_optionsDialog_response (GtkWidget *dlg, int response, t_sensors_dialog *sd)
                 sd->sensors->plugin_config_file = xfce_panel_plugin_save_location (sd->sensors->plugin, TRUE);
 
             if (sd->sensors->plugin_config_file)
-                sensors_write_config (sd->sensors);
+                sensors_write_config (sd->sensors->plugin, sd->sensors);
     }
     gtk_window_get_size ( GTK_WINDOW(dlg), &(sd->sensors->preferred_width), &(sd->sensors->preferred_height));
     gtk_widget_destroy (sd->dialog);
