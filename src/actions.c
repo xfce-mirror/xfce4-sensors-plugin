@@ -59,7 +59,7 @@ refresh_sensor_data (t_sensors_dialog *sd);
 gboolean
 refresh_sensor_data (t_sensors_dialog *ptr_sensors_dialog_structure)
 {
-  t_sensors *sensors;
+    t_sensors *sensors;
     int idx_chip, idx_feature, result;
     double val_sensor_feature;
     gchar *tmp;
