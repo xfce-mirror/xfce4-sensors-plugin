@@ -69,17 +69,17 @@ int sensor_get_value (t_chip *ptr_chip, int idx_chipfeature, double *outptr_valu
 /**
  * Free data in chipfeatures
  * @param ptr_chipfeature: pointer to chipfeature to free
- * @param ptr_data: currently unused
+ * @param ptr_unused: currently unused
  */
-void free_chipfeature (gpointer ptr_chipfeature, gpointer ptr_data);
+void free_chipfeature (gpointer ptr_chipfeature, gpointer ptr_unused);
 
 
 /**
  * Free remaining structures in chips and associated chipfeatures
  * @param ptr_chip: pointer to chip to free
- * @param ptr_data: currently unused
+ * @param ptr_unused: currently unused
  */
-void free_chip (gpointer ptr_chip, gpointer ptr_data);
+void free_chip (gpointer ptr_chip, gpointer ptr_unused);
 
 
 /**
