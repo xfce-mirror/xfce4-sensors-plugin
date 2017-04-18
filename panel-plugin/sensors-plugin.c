@@ -1648,7 +1648,7 @@ minimum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
     gtk_tree_model_get_iter (model, &iter, path);
 
     /* set new value according to chosen scale */
-    gtk_tree_store_set (GTK_TREE_STORE (model), &iter, 4, value, -1);
+    gtk_tree_store_set (GTK_TREE_STORE (model), &iter, eTreeColumn_Min, value, -1);
     chip = (t_chip *) g_ptr_array_index(sd->sensors->chips, gtk_combo_box_active);
 
     ptr_chipfeature = (t_chipfeature *) g_ptr_array_index(chip->chip_features, atoi(path_str));
@@ -1703,7 +1703,7 @@ maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
     gtk_tree_model_get_iter (model, &iter, path);
 
     /* set new value according to chosen scale */
-    gtk_tree_store_set (GTK_TREE_STORE (model), &iter, 5, value, -1);
+    gtk_tree_store_set (GTK_TREE_STORE (model), &iter, eTreeColumn_Max, value, -1);
     chip = (t_chip *) g_ptr_array_index(sd->sensors->chips, gtk_combo_box_active);
 
     ptr_chipfeature = (t_chipfeature *) g_ptr_array_index(chip->chip_features, atoi(path_str));
@@ -1767,7 +1767,7 @@ list_cell_color_edited_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
         gtk_tree_model_get_iter (model, &iter, path);
 
         /* set new value */
-        gtk_tree_store_set (GTK_TREE_STORE (model), &iter, 3, new_color, -1);
+        gtk_tree_store_set (GTK_TREE_STORE (model), &iter, eTreeColumn_Color, new_color, -1);
         chip = (t_chip *) g_ptr_array_index(sd->sensors->chips, gtk_combo_box_active);
 
         ptr_chipfeature = (t_chipfeature *) g_ptr_array_index(chip->chip_features, atoi(path_str));
@@ -1817,7 +1817,7 @@ list_cell_text_edited_ (GtkCellRendererText *cellrenderertext,
     gtk_tree_model_get_iter (model, &iter, path);
 
     /* set new value */
-    gtk_tree_store_set (GTK_TREE_STORE (model), &iter, 0, new_text, -1);
+    gtk_tree_store_set (GTK_TREE_STORE (model), &iter, eTreeColumn_Name, new_text, -1);
     chip = (t_chip *) g_ptr_array_index(sd->sensors->chips, gtk_combo_box_active);
 
     ptr_chipfeature = (t_chipfeature *) g_ptr_array_index (chip->chip_features,
@@ -1879,7 +1879,7 @@ list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,
     }
 
     /* set new value */
-    gtk_tree_store_set (GTK_TREE_STORE (model), &iter, 2, toggle_item, -1);
+    gtk_tree_store_set (GTK_TREE_STORE (model), &iter, eTreeColumn_Show, toggle_item, -1);
     chip = (t_chip *) g_ptr_array_index(sd->sensors->chips, gtk_combo_box_active);
 
     ptr_chipfeature = (t_chipfeature *) g_ptr_array_index(chip->chip_features, atoi(path_str));

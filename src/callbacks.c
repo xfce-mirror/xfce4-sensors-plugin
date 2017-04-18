@@ -40,24 +40,6 @@
 /* Forward declarations */
 gint set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *ptr_sensorsdialog, gchar *ptr_str_cellpath, gint col_treeview, GValue *ptr_value, t_chipfeature **ptr_ptr_chipfeature);
 
-/**
- * Enumeration of the colums for the used GtkTreeModel.
- */
-enum Enum_TreeColumn
-{
-    /// User chosen name of the chipfeature
-    eTreeColumn_Name = 0,
-    /// non-writable value of the chipfeature
-    eTreeColumn_Value = 1,
-    /// whether to show the chipfeature in the display or panel
-    eTreeColumn_Show = 2,
-    /// color to use for the font or bar
-    eTreeColumn_Color = 3,
-    /// expected minimum value, used also for calculating 0 percent
-    eTreeColumn_Min = 4,
-    /// expected maximum value, used also for calculating 100 percent
-    eTreeColumn_Max = 5
-};
 
 /* -------------------------------------------------------------------------- */
 void on_font_set (GtkWidget *ptr_widget, gpointer data)

@@ -31,6 +31,25 @@
 /* Initializing and filling functions */
 
 /**
+ * Enumeration of the colums for the used GtkTreeModel.
+ */
+enum Enum_TreeColumn
+{
+    /// User chosen name of the chipfeature
+    eTreeColumn_Name = 0,
+    /// non-writable value of the chipfeature
+    eTreeColumn_Value = 1,
+    /// whether to show the chipfeature in the display or panel
+    eTreeColumn_Show = 2,
+    /// color to use for the font or bar
+    eTreeColumn_Color = 3,
+    /// expected minimum value, used also for calculating 0 percent
+    eTreeColumn_Min = 4,
+    /// expected maximum value, used also for calculating 100 percent
+    eTreeColumn_Max = 5
+};
+
+/**
  * Populates the tree store from the obtained sensors data
  * @param ptr_treestore: Pointer to treestore that has to be filled
  * @param ptr_chip: Pointer to chip structure

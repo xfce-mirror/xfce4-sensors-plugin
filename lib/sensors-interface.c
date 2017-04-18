@@ -553,12 +553,12 @@ init_widgets (t_sensors_dialog *sd)
         //if (sd->plugin_dialog)
         gtk_tree_store_set ( GTK_TREE_STORE (sd->myListStore[0]),
                             &iter,
-                            0, chipfeature->name,
-                            1, "0.0",        /* chipfeature->formatted_value */
-                            2, FALSE,        /* chipfeature->show */
-                            3, "#000000",    /* chipfeature->color */
-                            4, 0.0,            /* chipfeature->min_value */
-                            5, 0.0,            /* chipfeature->max_value */
+                            eTreeColumn_Name, chipfeature->name,
+                            eTreeColumn_Value, "0.0",        /* chipfeature->formatted_value */
+                            eTreeColumn_Show, FALSE,        /* chipfeature->show */
+                            eTreeColumn_Color, "#000000",    /* chipfeature->color */
+                            eTreeColumn_Min, 0.0,            /* chipfeature->min_value */
+                            eTreeColumn_Max, 0.0,            /* chipfeature->max_value */
                             -1);
         //else
             //gtk_tree_store_set ( GTK_TREE_STORE (sd->myListStore[0]),
