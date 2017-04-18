@@ -44,7 +44,7 @@ gint get_Id_from_address (gint chipnumber, gint addr_chipfeature,
  * @param ptr_panelplugin: pointer to panel plugin structure
  * @param ptr_sensors: pointer to sensors structure
  */
-void sensors_write_config (XfcePanelPlugin *plugin,t_sensors *ptr_sensors);
+void sensors_write_config (XfcePanelPlugin *ptr_panelplugin,t_sensors *ptr_sensors);
 
 
 /**
