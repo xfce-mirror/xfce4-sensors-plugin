@@ -45,7 +45,7 @@
 
 /* foward declaration */
 gboolean
-refresh_sensor_data (t_sensors_dialog *sd);
+refresh_sensor_data (t_sensors_dialog *ptr_sensors_dialog_structure);
 
 
 /* actual implementations */
@@ -59,32 +59,32 @@ refresh_sensor_data (t_sensors_dialog *sd);
 gboolean
 refresh_sensor_data (t_sensors_dialog *ptr_sensors_dialog_structure)
 {
-    t_sensors *sensors;
+    t_sensors *ptr_sensors_structure;
     int idx_chip, idx_feature, result;
     double val_sensor_feature;
     gchar *tmp;
-    t_chipfeature *chipfeature;
+    t_chipfeature *ptr_chipfeature_structure;
     t_chip *ptr_chip_structure;
 
     TRACE ("enters refresh_sensor_data");
 
     g_return_val_if_fail (ptr_sensors_dialog_structure != NULL, FALSE);
 
-    sensors = ptr_sensors_dialog_structure->sensors;
+    ptr_sensors_structure = ptr_sensors_dialog_structure->sensors;
 
-    for (idx_chip=0; idx_chip < sensors->num_sensorchips; idx_chip++) {
-        ptr_chip_structure = (t_chip *) g_ptr_array_index (sensors->chips, idx_chip);
+    for (idx_chip=0; idx_chip < ptr_sensors_structure->num_sensorchips; idx_chip++) {
+        ptr_chip_structure = (t_chip *) g_ptr_array_index (ptr_sensors_structure->chips, idx_chip);
         g_assert (ptr_chip_structure!=NULL);
 
         for (idx_feature = 0; idx_feature<ptr_chip_structure->num_features; idx_feature++) {
-            chipfeature = g_ptr_array_index (ptr_chip_structure->chip_features, idx_feature);
-            g_assert (chipfeature!=NULL);
+            ptr_chipfeature_structure = g_ptr_array_index (ptr_chip_structure->chip_features, idx_feature);
+            g_assert (ptr_chipfeature_structure!=NULL);
 
-            if ( chipfeature->valid == TRUE)
+            if ( ptr_chipfeature_structure->valid == TRUE)
             {
-                result = sensor_get_value (ptr_chip_structure, chipfeature->address,
+                result = sensor_get_value (ptr_chip_structure, ptr_chipfeature_structure->address,
                                                     &val_sensor_feature,
-                                                    &(sensors->suppressmessage));
+                                                    &(ptr_sensors_structure->suppressmessage));
 
                 if ( result!=0 ) {
                     /* FIXME: either print nothing, or undertake appropriate action,
@@ -95,17 +95,17 @@ refresh_sensor_data (t_sensors_dialog *ptr_sensors_dialog_structure)
                     break;
                 }
                 tmp = g_new (gchar, 0);
-                format_sensor_value (sensors->scale, chipfeature,
+                format_sensor_value (ptr_sensors_structure->scale, ptr_chipfeature_structure,
                                      val_sensor_feature, &tmp);
 
-                if (chipfeature->formatted_value != NULL)
-                    g_free (chipfeature->formatted_value);
+                if (ptr_chipfeature_structure->formatted_value != NULL)
+                    g_free (ptr_chipfeature_structure->formatted_value);
 
-                chipfeature->formatted_value = g_strdup (tmp);
-                chipfeature->raw_value = val_sensor_feature;
+                ptr_chipfeature_structure->formatted_value = g_strdup (tmp);
+                ptr_chipfeature_structure->raw_value = val_sensor_feature;
 
                 g_free (tmp);
-            } /* end if chipfeature->valid */
+            } /* end if ptr_chipfeature_structure->valid */
         }
     }
 
@@ -206,7 +206,7 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
 
             }
             else if ( ptr_sensorstachowidget != NULL &&
-             gtk_widget_get_parent(ptr_sensorstachowidget) != NULL )
+                gtk_widget_get_parent(ptr_sensorstachowidget) != NULL )
             {
                 DBG("Removing deselected widget from container.");
                 gtk_container_remove(GTK_CONTAINER(ptr_wdgt_table), ptr_sensorstachowidget);
