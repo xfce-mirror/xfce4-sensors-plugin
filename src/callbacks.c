@@ -37,6 +37,8 @@
 #include "callbacks.h"
 #include "actions.h"
 
+/* Forward declarations */
+gint set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *ptr_sensorsdialog, gchar *ptr_str_cellpath, gint col_treeview, GValue *ptr_value, t_chipfeature **ptr_ptr_chipfeature);
 
 enum
 {
@@ -141,6 +143,7 @@ list_cell_text_edited_ (GtkCellRendererText *ptr_cellrenderertext,
     gint idx_active_combobox;
     t_chipfeature *ptr_chipfeature = NULL;
     GValue val_textstring = G_VALUE_INIT;
+    GtkWidget *ptr_tacho;
 
     TRACE ("enters list_cell_text_edited");
 
@@ -156,7 +159,7 @@ list_cell_text_edited_ (GtkCellRendererText *ptr_cellrenderertext,
     /* } */
 
     /* update panel */
-    GtkWidget *ptr_tacho = ptr_sensorsdialog->sensors->tachos [idx_active_combobox][atoi(ptr_str_cellpath)];
+    ptr_tacho = ptr_sensorsdialog->sensors->tachos [idx_active_combobox][atoi(ptr_str_cellpath)];
 
     if (ptr_tacho!=NULL)
         gtk_sensorstacho_set_text (GTK_SENSORSTACHO(ptr_tacho), ptr_str_newtext);
@@ -224,6 +227,7 @@ list_cell_color_edited_ (GtkCellRendererText *ptr_cellrenderertext, gchar *ptr_s
     gboolean has_sharpprefix;
     t_chipfeature *ptr_chipfeature;
     GValue val_colorstring = G_VALUE_INIT;
+    GtkWidget *ptr_tacho;
 
     TRACE ("enters list_cell_color_edited");
 
@@ -250,7 +254,7 @@ list_cell_color_edited_ (GtkCellRendererText *ptr_cellrenderertext, gchar *ptr_s
         ptr_chipfeature->color = g_strdup(ptr_str_newcolor);
 
         /* update color value */
-        GtkWidget *ptr_tacho = ptr_sensorsdialog->sensors->tachos [idx_active_combobox][atoi(ptr_str_cellpath)];
+        ptr_tacho = ptr_sensorsdialog->sensors->tachos [idx_active_combobox][atoi(ptr_str_cellpath)];
 
         if (ptr_tacho!=NULL)
             gtk_sensorstacho_set_color(GTK_SENSORSTACHO(ptr_sensorsdialog->sensors->tachos[idx_active_combobox][atoi(ptr_str_cellpath)]), ptr_str_newcolor);
