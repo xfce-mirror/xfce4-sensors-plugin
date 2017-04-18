@@ -140,7 +140,7 @@ gtk_sensorstacho_class_init (GtkSensorsTachoClass *ptr_gtksensorstachoclass)
     ptr_widgetclass->destroy = gtk_sensorstacho_destroy;
 
     if (font==NULL)
-        font = g_strdup("Sans 12");
+        font = g_strdup("Sans 11");
 
     TRACE("leave gtk_sensorstacho_class_init\n");
 }

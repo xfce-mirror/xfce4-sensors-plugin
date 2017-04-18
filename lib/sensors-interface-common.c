@@ -128,7 +128,7 @@ sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
 
     sensors->show_smallspacings = FALSE;
 
-    font = g_strdup("Sans 12");
+    font = g_strdup("Sans 11");
 
     TRACE ("leaves sensors_init_default_values");
 }

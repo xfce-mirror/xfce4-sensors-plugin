@@ -240,7 +240,7 @@ sensors_read_general_config (XfceRc *ptr_xfceresources, t_sensors *ptr_sensors)
             font = g_strdup(str_value); // in tacho.h for the tachometers
         }
         else if (font==NULL)
-            font = g_strdup("Sans 12");
+            font = g_strdup("Sans 11");
 
         ptr_sensors->val_fontsize = xfce_rc_read_int_entry (ptr_xfceresources,
                                                  "val_fontsize", 2);

@@ -99,6 +99,7 @@ add_notebook (GtkWidget *ptr_boxwidget, t_sensors_dialog *ptr_sensorsdialog)
 
     ptr_fontbutton = gtk_font_button_new();
     g_signal_connect (G_OBJECT(ptr_fontbutton), "font-set", G_CALLBACK(on_font_set), ptr_sensorsdialog);
+    gtk_font_button_set_font_name(GTK_FONT_BUTTON(ptr_fontbutton), "Sans 11");
     gtk_widget_show (ptr_fontbutton);
     gtk_box_pack_end (GTK_BOX(ptr_childvbox), ptr_fontbutton, FALSE, FALSE, 0);
 
