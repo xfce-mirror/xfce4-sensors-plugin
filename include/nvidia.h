@@ -30,23 +30,23 @@
 
 /**
  * Initialize nvidia sensor
- * @param chips: Pointer to pointer array to chips
+ * @param arr_ptr_chips: Pointer to pointer array to chips
  * @return number of detected chip features
  */
 int initialize_nvidia (GPtrArray *arr_ptr_chips);
 
 /**
  * Refresh an nvidia chip's feature
- * @param chip_feature: Pointer to chip feature to refresh
- * @param data: currently unused
+ * @param ptr_chipfeature: Pointer to chip feature to refresh
+ * @param ptr_unused: currently unused
  */
 void refresh_nvidia (gpointer ptr_chipfeature, gpointer ptr_unused);
 
 /**
  * Read the temperature value from GPU
- * @param gpu: index of GPU to read its value
+ * @param idx_gpu: index of GPU to read its value
  * @return temperature value
  */
-double get_nvidia_value (int gpu);
+double get_nvidia_value (int idx_gpu);
 
 #endif /* XFCE4_SENSORS_NVIDIA_H */
