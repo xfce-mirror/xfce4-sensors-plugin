@@ -23,10 +23,6 @@
 #endif
 
 /* Package includes */
-#include <X11/Xlib.h>
-#include <NVCtrl/NVCtrl.h>
-#include <NVCtrl/NVCtrlLib.h>
-#include <nvidia.h>
 #include <types.h>
 #include <sensors-interface-common.h>
 #include <middlelayer.h>
@@ -38,6 +34,11 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+
+#include <NVCtrl/NVCtrl.h>
+#include <NVCtrl/NVCtrlLib.h>
+#include <nvidia.h>
+#include <X11/Xlib.h>
 
 /* Global variables */
 Display *nvidia_sensors_display;
