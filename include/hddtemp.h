@@ -22,10 +22,12 @@
 #ifndef XFCE4_SENSORS_HDDTEMP_H
 #define XFCE4_SENSORS_HDDTEMP_H
 
+/* Package includes */
+#include <types.h>
+
 /* Gtk/Glib includes */
 #include <glib.h>
 
-#define ZERO_KELVIN                 -273 /*.15 */
 #define HDDTEMP_DISK_SLEEPING       ZERO_KELVIN /* must be larger than the remaining ones */
 #define NO_VALID_HDDTEMP_PROGRAM    ZERO_KELVIN-1 /* the calls/communication to hddtemp don't work */
 #define NO_VALID_TEMPERATURE_VALUE  ZERO_KELVIN-2 /* the value for a single disk is invalid */

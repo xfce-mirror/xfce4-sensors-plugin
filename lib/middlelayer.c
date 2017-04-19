@@ -90,9 +90,9 @@ refresh_chip (gpointer ptr_chip, gpointer ptr_data)
 {
     t_chip *ptr_chip_structure;
 
-    g_assert (ptr_chip != NULL);
-
     TRACE ("enters refresh_chip");
+
+    g_assert (ptr_chip != NULL);
 
     ptr_chip_structure = (t_chip*) ptr_chip;
 

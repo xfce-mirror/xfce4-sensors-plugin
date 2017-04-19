@@ -57,6 +57,8 @@ typedef struct sensors_chip_name {
 #endif
 
 
+#define ZERO_KELVIN -273 /*.15 */
+
 /**
  * temperature scale to show values in
  */
