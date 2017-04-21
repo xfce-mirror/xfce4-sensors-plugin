@@ -84,7 +84,7 @@ void reload_listbox (t_sensors_dialog *ptr_sensorsdialog);
  * @param ptr_widget_vbox: Pointer to vbox widget to add the settings box to
  * @param ptr_sensorsdialog: Pointer to sensors dialog data
  */
-void add_sensor_settings_box ( GtkWidget *ptr_widget_vbox, t_sensors_dialog * ptr_sensorsdialog);
+void add_sensor_settings_box (GtkWidget *ptr_widget_vbox, t_sensors_dialog * ptr_sensorsdialog);
 
 /**
  * Adds the sensors type chooser box to ptr_widget_vbox
