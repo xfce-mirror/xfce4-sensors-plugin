@@ -62,7 +62,7 @@ refresh_sensor_data (t_sensors_dialog *ptr_sensors_dialog_structure)
     t_sensors *ptr_sensors_structure;
     int idx_chip, idx_feature, result;
     double val_sensor_feature;
-    gchar *tmp;
+    gchar *str_formatted_sensor_value;
     t_chipfeature *ptr_chipfeature_structure;
     t_chip *ptr_chip_structure;
 
@@ -94,17 +94,15 @@ refresh_sensor_data (t_sensors_dialog *ptr_sensors_dialog_structure)
                     "value.\nProper proceeding cannot be guaranteed.\n") );
                     break;
                 }
-                tmp = g_new (gchar, 0);
                 format_sensor_value (ptr_sensors_structure->scale, ptr_chipfeature_structure,
-                                     val_sensor_feature, &tmp);
+                                     val_sensor_feature, &str_formatted_sensor_value);
 
                 if (ptr_chipfeature_structure->formatted_value != NULL)
                     g_free (ptr_chipfeature_structure->formatted_value);
 
-                ptr_chipfeature_structure->formatted_value = g_strdup (tmp);
+                ptr_chipfeature_structure->formatted_value = str_formatted_sensor_value;
                 ptr_chipfeature_structure->raw_value = val_sensor_feature;
 
-                g_free (tmp);
             } /* end if ptr_chipfeature_structure->valid */
         }
     }
