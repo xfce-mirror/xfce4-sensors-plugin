@@ -24,7 +24,6 @@
 #endif
 
 /* Xfce includes */
-// #include <libxfce4panel/xfce-panel-enums.h>
 #include <gtk/gtk.h>
 #include <libxfce4panel/xfce-panel-plugin.h>
 
@@ -36,97 +35,97 @@
 
 /* -------------------------------------------------------------------------- */
 t_sensors *
-sensors_new (XfcePanelPlugin *plugin, gchar *plugin_config_file)
+sensors_new (XfcePanelPlugin *ptr_xfcepanelplugin, gchar * ptr_plugin_config_filename)
 {
-    t_sensors *sensors;
+    t_sensors *ptr_sensors;
     gint result;
-    t_chip *chip;
-    t_chipfeature *chipfeature;
+    t_chip *ptr_chip;
+    t_chipfeature *ptr_chipfeature;
 
     TRACE ("enters sensors_new");
 
-    sensors = g_new0 (t_sensors, 1);
-    sensors->plugin_config_file = plugin_config_file; /* important as we check against NULL frequently */
+    ptr_sensors = g_new0 (t_sensors, 1);
+    ptr_sensors->plugin_config_file = ptr_plugin_config_filename; /* important as we check against NULL frequently */
 
     /* init xfce sensors stuff with default values */
-    sensors_init_default_values (sensors, plugin);
+    sensors_init_default_values (ptr_sensors, ptr_xfcepanelplugin);
 
     /* get suppressmessages */
-    sensors_read_preliminary_config(plugin, sensors);
+    sensors_read_preliminary_config(ptr_xfcepanelplugin, ptr_sensors);
 
     /* read all sensors from libraries */
-    result = initialize_all (&(sensors->chips), &(sensors->suppressmessage));
+    result = initialize_all (&(ptr_sensors->chips), &(ptr_sensors->suppressmessage));
     if (result==0)
         return NULL;
 
-    sensors->num_sensorchips = sensors->chips->len;
+    ptr_sensors->num_sensorchips = ptr_sensors->chips->len;
 
     /* error handling for no sensors */
-    if (!sensors->chips || sensors->num_sensorchips <= 0) {
-        if (!sensors->chips)
-            sensors->chips = g_ptr_array_new ();
+    if (!ptr_sensors->chips || ptr_sensors->num_sensorchips <= 0) {
+        if (!ptr_sensors->chips)
+            ptr_sensors->chips = g_ptr_array_new ();
 
-        chip = g_new ( t_chip, 1);
-        g_ptr_array_add (sensors->chips, chip);
-        chip->chip_features = g_ptr_array_new();
-        chipfeature = g_new (t_chipfeature, 1);
+        ptr_chip = g_new ( t_chip, 1);
+        g_ptr_array_add (ptr_sensors->chips, ptr_chip);
+        ptr_chip->chip_features = g_ptr_array_new();
+        ptr_chipfeature = g_new (t_chipfeature, 1);
 
-        chipfeature->address = 0;
-        chip->sensorId = g_strdup(_("No sensors found!"));
-        chip->description = g_strdup(_("No sensors found!"));
-        chip->num_features = 1;
-        chipfeature->color = g_strdup("#000000");
-        chipfeature->name = g_strdup("No sensor");
-        chipfeature->valid = TRUE;
-        chipfeature->formatted_value = g_strdup("0.0");
-        chipfeature->raw_value = 0.0;
-        chipfeature->min_value = 0;
-        chipfeature->max_value = 7000;
-        chipfeature->show = FALSE;
+        ptr_chipfeature->address = 0;
+        ptr_chip->sensorId = g_strdup(_("No sensors found!"));
+        ptr_chip->description = g_strdup(_("No sensors found!"));
+        ptr_chip->num_features = 1;
+        ptr_chipfeature->color = g_strdup("#000000");
+        ptr_chipfeature->name = g_strdup("No sensor");
+        ptr_chipfeature->valid = TRUE;
+        ptr_chipfeature->formatted_value = g_strdup("0.0");
+        ptr_chipfeature->raw_value = 0.0;
+        ptr_chipfeature->min_value = 0;
+        ptr_chipfeature->max_value = 7000;
+        ptr_chipfeature->show = FALSE;
 
-        g_ptr_array_add (chip->chip_features, chipfeature);
+        g_ptr_array_add (ptr_chip->chip_features, ptr_chipfeature);
     }
 
     TRACE ("leaves sensors_new");
 
-    return sensors;
+    return ptr_sensors;
 }
 
 
 /* -------------------------------------------------------------------------- */
 void
-sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
+sensors_init_default_values  (t_sensors *ptr_sensors, XfcePanelPlugin *ptr_xfcepanelplugin)
 {
     TRACE ("enters sensors_init_default_values");
 
-    g_return_if_fail(sensors!=NULL);
+    g_return_if_fail(ptr_sensors!=NULL);
 
-    sensors->show_title = TRUE;
-    sensors->show_labels = TRUE;
-    sensors->display_values_type = DISPLAY_TEXT;
-    sensors->bars_created = FALSE;
-    sensors->tachos_created = FALSE;
-    sensors->str_fontsize = g_strdup("medium");
-    sensors->val_fontsize = 2;
-    sensors->lines_size = 3;
+    ptr_sensors->show_title = TRUE;
+    ptr_sensors->show_labels = TRUE;
+    ptr_sensors->display_values_type = DISPLAY_TEXT;
+    ptr_sensors->bars_created = FALSE;
+    ptr_sensors->tachos_created = FALSE;
+    ptr_sensors->str_fontsize = g_strdup("medium");
+    ptr_sensors->val_fontsize = 2;
+    ptr_sensors->lines_size = 3;
 
-    sensors->show_colored_bars = TRUE;
-    sensors->sensors_refresh_time = 60;
-    sensors->scale = CELSIUS;
+    ptr_sensors->show_colored_bars = TRUE;
+    ptr_sensors->sensors_refresh_time = 60;
+    ptr_sensors->scale = CELSIUS;
 
-    sensors->plugin = plugin; // we prefer storing NULL in here in case it is NULL.
+    ptr_sensors->plugin = ptr_xfcepanelplugin; // we prefer storing NULL in here in case it is NULL.
 
     /* double-click improvement */
-    sensors->exec_command = TRUE;
-    sensors->command_name = g_strdup("xfce4-sensors");
-    sensors->doubleclick_id = 0;
+    ptr_sensors->exec_command = TRUE;
+    ptr_sensors->command_name = g_strdup("xfce4-sensors");
+    ptr_sensors->doubleclick_id = 0;
 
     /* show units */
-    sensors->show_units = TRUE;
+    ptr_sensors->show_units = TRUE;
 
-    sensors->suppressmessage = FALSE;
+    ptr_sensors->suppressmessage = FALSE;
 
-    sensors->show_smallspacings = FALSE;
+    ptr_sensors->show_smallspacings = FALSE;
 
     font = g_strdup("Sans 11");
 
@@ -136,46 +135,43 @@ sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
 
 /* -------------------------------------------------------------------------- */
 void
-format_sensor_value (t_tempscale scale, t_chipfeature *chipfeature,
-                     double sensorFeature, gchar **help)
+format_sensor_value (t_tempscale temperaturescale, t_chipfeature *ptr_chipfeature,
+                     double val_sensorfeature, gchar **dptr_str_formattedvalue)
 {
-    /* TRACE ("enters format_sensor_value"); */
-    g_return_if_fail(chipfeature!=NULL);
-    g_return_if_fail(help!=NULL);
+    g_return_if_fail(ptr_chipfeature!=NULL);
+    g_return_if_fail(dptr_str_formattedvalue!=NULL);
 
-    switch (chipfeature->class) {
+    switch (ptr_chipfeature->class) {
         case TEMPERATURE:
-           if (scale == FAHRENHEIT) {
-                *help = g_strdup_printf(_("%.0f °F"),
-                            (float) (sensorFeature * 9/5 + 32) );
+           if (temperaturescale == FAHRENHEIT) {
+                *dptr_str_formattedvalue = g_strdup_printf(_("%.0f °F"),
+                            (float) (val_sensorfeature * 9/5 + 32) );
            } else { /* Celsius */
-                *help = g_strdup_printf(_("%.0f °C"), sensorFeature);
+                *dptr_str_formattedvalue = g_strdup_printf(_("%.0f °C"), val_sensorfeature);
            }
            break;
 
         case VOLTAGE:
-               *help = g_strdup_printf(_("%+.3f V"), sensorFeature);
+               *dptr_str_formattedvalue = g_strdup_printf(_("%+.3f V"), val_sensorfeature);
                break;
 
         case ENERGY:
-               *help = g_strdup_printf(_("%.0f mWh"), sensorFeature);
+               *dptr_str_formattedvalue = g_strdup_printf(_("%.0f mWh"), val_sensorfeature);
                break;
 
         case STATE:
-                if (sensorFeature==0.0)
-                    *help = g_strdup (_("off"));
+                if (val_sensorfeature==0.0)
+                    *dptr_str_formattedvalue = g_strdup (_("off"));
                 else
-                    *help = g_strdup (_("on"));
+                    *dptr_str_formattedvalue = g_strdup (_("on"));
                break;
 
         case SPEED:
-               *help = g_strdup_printf(_("%.0f rpm"), sensorFeature);
+               *dptr_str_formattedvalue = g_strdup_printf(_("%.0f rpm"), val_sensorfeature);
                break;
 
         default:
-                *help = g_strdup_printf("%+.2f", sensorFeature);
+                *dptr_str_formattedvalue = g_strdup_printf("%+.2f", val_sensorfeature);
                break;
     } /* end switch */
-
-    /* TRACE ("leaves format_sensor_value"); */
 }

@@ -28,7 +28,6 @@
 #if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
 #include <libnotify/notify.h>
 #endif
-/* #include <stdlib.h> */
 
 /* Glib/Gtk includes */
 #include <glib.h>
@@ -381,8 +380,8 @@ add_sensors_frame (GtkWidget *ptr_widget_notebook, t_sensors_dialog * ptr_sensor
 
     TRACE ("enters add_sensors_frame");
 
-    ptr_vbox = gtk_vbox_new (FALSE, 4);
-    gtk_container_set_border_width (GTK_CONTAINER(ptr_vbox), 4);
+    ptr_vbox = gtk_vbox_new (FALSE, OUTER_BORDER);
+    gtk_container_set_border_width (GTK_CONTAINER(ptr_vbox), OUTER_BORDER);
     gtk_widget_show (ptr_vbox);
 
     ptr_label = gtk_label_new_with_mnemonic(_("_Sensors"));
@@ -407,7 +406,10 @@ void
 free_widgets (t_sensors_dialog *ptr_sensors_dialog)
 {
     int idx_chip;
+
     TRACE ("enters free_widgets");
+
+    g_return_if_fail(ptr_sensors_dialog != NULL);
 
     for (idx_chip=0; idx_chip < ptr_sensors_dialog->sensors->num_sensorchips; idx_chip++)
     {
