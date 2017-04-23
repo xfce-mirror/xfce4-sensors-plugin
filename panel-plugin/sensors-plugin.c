@@ -165,6 +165,8 @@ sensors_get_percentage (t_chipfeature *ptr_chipfeature)
     double val_chipfeature, val_min, val_max, res_percentage;
 
 
+    g_return_val_if_fail(ptr_chipfeature != NULL, 0.0);
+
     val_chipfeature = ptr_chipfeature->raw_value;
     val_min = ptr_chipfeature->min_value;
     val_max = ptr_chipfeature->max_value;
@@ -192,6 +194,7 @@ sensors_remove_graphical_panel (t_sensors *ptr_sensorsstructure)
 
     TRACE ("enters sensors_remove_graphical_panel");
 
+    g_return_if_fail(ptr_sensorsstructure != NULL);
 
     for (idx_sensorchips=0; idx_sensorchips < ptr_sensorsstructure->num_sensorchips; idx_sensorchips++) {
         ptr_chip = (t_chip *) g_ptr_array_index(ptr_sensorsstructure->chips, idx_sensorchips);
@@ -239,6 +242,7 @@ sensors_remove_tacho_panel (t_sensors *ptr_sensorsstructure)
 
     TRACE ("enters sensors_remove_tacho_panel");
 
+    g_return_if_fail(ptr_sensorsstructure != NULL);
 
     for (idx_sensorchips=0; idx_sensorchips < ptr_sensorsstructure->num_sensorchips; idx_sensorchips++) {
         ptr_chip = (t_chip *) g_ptr_array_index(ptr_sensorsstructure->chips, idx_sensorchips);
@@ -304,22 +308,25 @@ sensors_update_graphical_panel (t_sensors *ptr_sensorsstructure)
 
 /* -------------------------------------------------------------------------- */
 static void
-sensors_update_tacho_panel (t_sensors *sensors)
+sensors_update_tacho_panel (t_sensors *ptr_sensors)
 {
     gint idx_sensorchips = 0, idx_feature = 0;
     t_chip *ptr_chip = NULL;
     t_chipfeature *ptr_chipfeature = NULL;
     GtkWidget *ptr_tacho = NULL;
     double val_percentage = 0.0;
-    gint size_panel = sensors->panel_size;
-    if (!sensors->cover_panel_rows && xfce_panel_plugin_get_mode(sensors->plugin) != XFCE_PANEL_PLUGIN_MODE_DESKBAR)
-        size_panel /= xfce_panel_plugin_get_nrows (sensors->plugin);
+    gint size_panel = ptr_sensors->panel_size;
 
     TRACE("enters sensors_update_tacho_panel");
 
+    g_return_if_fail(ptr_sensors != NULL);
 
-    for (idx_sensorchips=0; idx_sensorchips < sensors->num_sensorchips; idx_sensorchips++) {
-        ptr_chip = (t_chip *) g_ptr_array_index(sensors->chips, idx_sensorchips);
+    if (!ptr_sensors->cover_panel_rows && xfce_panel_plugin_get_mode(ptr_sensors->plugin) != XFCE_PANEL_PLUGIN_MODE_DESKBAR)
+        size_panel /= xfce_panel_plugin_get_nrows (ptr_sensors->plugin);
+
+
+    for (idx_sensorchips=0; idx_sensorchips < ptr_sensors->num_sensorchips; idx_sensorchips++) {
+        ptr_chip = (t_chip *) g_ptr_array_index(ptr_sensors->chips, idx_sensorchips);
         g_assert (ptr_chip != NULL);
 
         for (idx_feature=0; idx_feature < ptr_chip->num_features; idx_feature++) {
@@ -327,7 +334,7 @@ sensors_update_tacho_panel (t_sensors *sensors)
             g_assert (ptr_chipfeature != NULL);
 
             if (ptr_chipfeature->show == TRUE) {
-                ptr_tacho = sensors->tachos[idx_sensorchips][idx_feature];
+                ptr_tacho = ptr_sensors->tachos[idx_sensorchips][idx_feature];
                 g_assert(ptr_tacho != NULL);
 
                 val_percentage = sensors_get_percentage (ptr_chipfeature);
@@ -338,7 +345,7 @@ sensors_update_tacho_panel (t_sensors *sensors)
         }
     }
 
-    gtk_widget_queue_draw (GTK_WIDGET(sensors->eventbox));
+    gtk_widget_queue_draw (GTK_WIDGET(ptr_sensors->eventbox));
 
     TRACE("leaves sensors_update_tacho_panel");
 }
@@ -346,7 +353,7 @@ sensors_update_tacho_panel (t_sensors *sensors)
 
 /* -------------------------------------------------------------------------- */
 static void
-sensors_add_graphical_display (t_sensors *sensors)
+sensors_add_graphical_display (t_sensors *ptr_sensors)
 {
     gint idx_sensorchips, idx_feature;
     t_chip *ptr_chip;
@@ -356,24 +363,25 @@ sensors_add_graphical_display (t_sensors *sensors)
     GtkWidget *widget_progbar, *widget_databox, *widget_label;
     gchar *str_barlabeltext, *str_panellabeltext;
     guint len_barlabeltext;
-    gint size_panel = (gint) sensors->panel_size;
+    gint size_panel = (gint) ptr_sensors->panel_size;
     GdkDisplay *ptr_gdkdisplay;
     GdkScreen *ptr_gdkscreen;
 
-    if (!sensors->cover_panel_rows && xfce_panel_plugin_get_mode(sensors->plugin) != XFCE_PANEL_PLUGIN_MODE_DESKBAR)
-        size_panel /= xfce_panel_plugin_get_nrows (sensors->plugin);
-
     TRACE ("enters sensors_add_graphical_display with size %d.", size_panel);
 
+    g_return_if_fail(ptr_sensors != NULL);
+
+    if (!ptr_sensors->cover_panel_rows && xfce_panel_plugin_get_mode(ptr_sensors->plugin) != XFCE_PANEL_PLUGIN_MODE_DESKBAR)
+        size_panel /= xfce_panel_plugin_get_nrows (ptr_sensors->plugin);
 
     str_panellabeltext = g_strdup (_("<span><b>Sensors</b></span>"));
-    gtk_label_set_markup (GTK_LABEL(sensors->panel_label_text), str_panellabeltext);
+    gtk_label_set_markup (GTK_LABEL(ptr_sensors->panel_label_text), str_panellabeltext);
     g_free (str_panellabeltext);
     str_panellabeltext = NULL;
 
-    gtk_container_set_border_width (GTK_CONTAINER(sensors->widget_sensors), 0);
-    for (idx_sensorchips=0; idx_sensorchips < sensors->num_sensorchips; idx_sensorchips++) {
-        ptr_chip = (t_chip *) g_ptr_array_index(sensors->chips, idx_sensorchips);
+    gtk_container_set_border_width (GTK_CONTAINER(ptr_sensors->widget_sensors), 0);
+    for (idx_sensorchips=0; idx_sensorchips < ptr_sensors->num_sensorchips; idx_sensorchips++) {
+        ptr_chip = (t_chip *) g_ptr_array_index(ptr_sensors->chips, idx_sensorchips);
         g_assert (ptr_chip != NULL);
 
         for (idx_feature=0; idx_feature < ptr_chip->num_features; idx_feature++) {
@@ -385,7 +393,7 @@ sensors_add_graphical_display (t_sensors *sensors)
 
                 widget_progbar = gtk_level_bar_new();
 
-                if (sensors->orientation == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL) {
+                if (ptr_sensors->orientation == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL) {
                     gtk_orientable_set_orientation (GTK_ORIENTABLE (widget_progbar),
                                                     GTK_ORIENTATION_VERTICAL);
                     gtk_level_bar_set_inverted(GTK_LEVEL_BAR(widget_progbar), TRUE);
@@ -399,7 +407,7 @@ sensors_add_graphical_display (t_sensors *sensors)
                 }
 
                 sensors_set_levelbar_size (widget_progbar, size_panel,
-                                           sensors->orientation);
+                                           ptr_sensors->orientation);
                 gtk_widget_show (widget_progbar);
 
                 gtk_widget_show (widget_databox);
@@ -417,7 +425,7 @@ sensors_add_graphical_display (t_sensors *sensors)
                                  GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
                 /* create the label stuff only if needed - saves some memory! */
-                if (sensors->show_labels == TRUE) {
+                if (ptr_sensors->show_labels == TRUE) {
                     str_barlabeltext = g_strdup (ptr_chipfeature->name);
                     widget_label = gtk_label_new (str_barlabeltext);
                     len_barlabeltext = strlen(str_barlabeltext);
@@ -434,7 +442,7 @@ sensors_add_graphical_display (t_sensors *sensors)
 
                     gtk_widget_show (widget_label);
 
-                    if (sensors->orientation == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
+                    if (ptr_sensors->orientation == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
                         gtk_label_set_angle (GTK_LABEL(widget_label), 270);
                     else
                         gtk_label_set_angle (GTK_LABEL(widget_label), 0);
@@ -450,24 +458,24 @@ sensors_add_graphical_display (t_sensors *sensors)
                 gtk_box_pack_start (GTK_BOX(widget_databox), widget_progbar, FALSE, FALSE, 0);
 
                 ptr_labelledlevelbar->databox = widget_databox;
-                sensors->panels[idx_sensorchips][idx_feature] = ptr_labelledlevelbar;
+                ptr_sensors->panels[idx_sensorchips][idx_feature] = ptr_labelledlevelbar;
 
-                gtk_box_pack_start (GTK_BOX (sensors->widget_sensors),
+                gtk_box_pack_start (GTK_BOX (ptr_sensors->widget_sensors),
                                     widget_databox, FALSE, FALSE, INNER_BORDER);
             }
         }
     }
 
-    if (has_bars && !sensors->show_title) {
-        gtk_widget_hide (sensors->panel_label_text);
+    if (has_bars && !ptr_sensors->show_title) {
+        gtk_widget_hide (ptr_sensors->panel_label_text);
     }
     else {
-        gtk_widget_show (sensors->panel_label_text);
+        gtk_widget_show (ptr_sensors->panel_label_text);
     }
 
-    gtk_widget_hide (sensors->panel_label_data);
+    gtk_widget_hide (ptr_sensors->panel_label_data);
 
-    sensors->bars_created = TRUE;
+    ptr_sensors->bars_created = TRUE;
 
     TRACE ("leaves sensors_add_graphical_display");
 }
@@ -475,7 +483,7 @@ sensors_add_graphical_display (t_sensors *sensors)
 
 /* -------------------------------------------------------------------------- */
 static void
-sensors_add_tacho_display (t_sensors *sensors)
+sensors_add_tacho_display (t_sensors *ptr_sensors)
 {
     int idx_sensorchips, idx_feature;
     t_chip *ptr_chip;
@@ -484,21 +492,23 @@ sensors_add_tacho_display (t_sensors *sensors)
     GtkWidget *ptr_tacho;
     gchar *str_panellabeltext;
 
-    gint size_panel = sensors->panel_size;
-    if (!sensors->cover_panel_rows && xfce_panel_plugin_get_mode(sensors->plugin) != XFCE_PANEL_PLUGIN_MODE_DESKBAR)
-        size_panel /= xfce_panel_plugin_get_nrows (sensors->plugin);
+    gint size_panel = ptr_sensors->panel_size;
 
     TRACE ("enters sensors_add_tacho_display with size %d.", size_panel);
 
+    g_return_if_fail(ptr_sensors != NULL);
+
+    if (!ptr_sensors->cover_panel_rows && xfce_panel_plugin_get_mode(ptr_sensors->plugin) != XFCE_PANEL_PLUGIN_MODE_DESKBAR)
+        size_panel /= xfce_panel_plugin_get_nrows (ptr_sensors->plugin);
 
     str_panellabeltext = g_strdup (_("<span><b>Sensors</b></span>"));
-    gtk_label_set_markup (GTK_LABEL(sensors->panel_label_text), str_panellabeltext);
+    gtk_label_set_markup (GTK_LABEL(ptr_sensors->panel_label_text), str_panellabeltext);
     g_free (str_panellabeltext);
     str_panellabeltext = NULL;
 
-    gtk_container_set_border_width (GTK_CONTAINER(sensors->widget_sensors), 0);
-    for (idx_sensorchips=0; idx_sensorchips < sensors->num_sensorchips; idx_sensorchips++) {
-        ptr_chip = (t_chip *) g_ptr_array_index(sensors->chips, idx_sensorchips);
+    gtk_container_set_border_width (GTK_CONTAINER(ptr_sensors->widget_sensors), 0);
+    for (idx_sensorchips=0; idx_sensorchips < ptr_sensors->num_sensorchips; idx_sensorchips++) {
+        ptr_chip = (t_chip *) g_ptr_array_index(ptr_sensors->chips, idx_sensorchips);
         g_assert (ptr_chip != NULL);
 
         for (idx_feature=0; idx_feature < ptr_chip->num_features; idx_feature++) {
@@ -508,10 +518,10 @@ sensors_add_tacho_display (t_sensors *sensors)
             if (ptr_chipfeature->show == TRUE) {
                 has_tachos = TRUE;
 
-                ptr_tacho = gtk_sensorstacho_new(sensors->orientation, size_panel);
+                ptr_tacho = gtk_sensorstacho_new(ptr_sensors->orientation, size_panel);
 
                 /* create the label stuff only if needed - saves some memory! */
-                if (sensors->show_labels == TRUE) {
+                if (ptr_sensors->show_labels == TRUE) {
                     gtk_sensorstacho_set_text(GTK_SENSORSTACHO(ptr_tacho), ptr_chipfeature->name);
                     gtk_sensorstacho_set_color(GTK_SENSORSTACHO(ptr_tacho), ptr_chipfeature->color);
                 }
@@ -519,25 +529,25 @@ sensors_add_tacho_display (t_sensors *sensors)
                     gtk_sensorstacho_unset_text(GTK_SENSORSTACHO(ptr_tacho));
                 }
 
-                sensors->tachos[idx_sensorchips][idx_feature] = (GtkWidget*) ptr_tacho;
+                ptr_sensors->tachos[idx_sensorchips][idx_feature] = (GtkWidget*) ptr_tacho;
 
                 gtk_widget_show (ptr_tacho);
-                gtk_box_pack_start (GTK_BOX (sensors->widget_sensors),
+                gtk_box_pack_start (GTK_BOX (ptr_sensors->widget_sensors),
                                     ptr_tacho, FALSE, FALSE, INNER_BORDER);
             }
         }
     }
 
-    if (has_tachos && !sensors->show_title) {
-        gtk_widget_hide (sensors->panel_label_text);
+    if (has_tachos && !ptr_sensors->show_title) {
+        gtk_widget_hide (ptr_sensors->panel_label_text);
     }
     else {
-        gtk_widget_show (sensors->panel_label_text);
+        gtk_widget_show (ptr_sensors->panel_label_text);
     }
 
-    gtk_widget_hide (sensors->panel_label_data);
+    gtk_widget_hide (ptr_sensors->panel_label_data);
 
-    sensors->tachos_created = TRUE;
+    ptr_sensors->tachos_created = TRUE;
 
     TRACE ("leaves sensors_add_tacho_display");
 }
@@ -545,7 +555,7 @@ sensors_add_tacho_display (t_sensors *sensors)
 
 /* -------------------------------------------------------------------------- */
 static gboolean
-sensors_show_graphical_display (t_sensors *sensors)
+sensors_show_graphical_display (t_sensors *ptr_sensors)
 {
     GdkDisplay *ptr_gdkdisplay;
     GdkScreen *ptr_gdkscreen;
@@ -563,16 +573,17 @@ sensors_show_graphical_display (t_sensors *sensors)
 
     TRACE ("enters sensors_show_graphical_display");
 
+    g_return_val_if_fail(ptr_sensors != NULL, FALSE);
 
-    if (sensors->bars_created == FALSE) {
+    if (ptr_sensors->bars_created == FALSE) {
 
-        sensors->css_provider = gtk_css_provider_new ();
+        ptr_sensors->css_provider = gtk_css_provider_new ();
         ptr_gdkdisplay = gdk_display_get_default ();
         ptr_gdkscreen = gdk_display_get_default_screen (ptr_gdkdisplay);
         g_return_val_if_fail(ptr_gdkscreen!=NULL, FALSE);
 
         gtk_style_context_add_provider_for_screen (ptr_gdkscreen,
-                                     GTK_STYLE_PROVIDER (sensors->css_provider),
+                                     GTK_STYLE_PROVIDER (ptr_sensors->css_provider),
                                      GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         g_snprintf(str_localcssfile, sizeof(str_localcssfile), "%s/%s",
@@ -588,7 +599,7 @@ sensors_show_graphical_display (t_sensors *sensors)
         }
 
         if (NULL != ptr_cssdatafile) {
-            gtk_css_provider_load_from_file(GTK_CSS_PROVIDER(sensors->css_provider),
+            gtk_css_provider_load_from_file(GTK_CSS_PROVIDER(ptr_sensors->css_provider),
                                     ptr_cssdatafile, NULL);
         }
         else {
@@ -620,16 +631,16 @@ sensors_show_graphical_display (t_sensors *sensors)
                                     ";\n"
                                     "}\n";
 
-            gtk_css_provider_load_from_data (GTK_CSS_PROVIDER(sensors->css_provider), ptr_cssstring,
+            gtk_css_provider_load_from_data (GTK_CSS_PROVIDER(ptr_sensors->css_provider), ptr_cssstring,
                                    strlen(ptr_cssstring), NULL);
         }
-        g_object_unref (sensors->css_provider);
-        sensors->css_provider = NULL;
+        g_object_unref (ptr_sensors->css_provider);
+        ptr_sensors->css_provider = NULL;
 
-        sensors_add_graphical_display (sensors);
+        sensors_add_graphical_display (ptr_sensors);
     }
 
-    sensors_update_graphical_panel (sensors);
+    sensors_update_graphical_panel (ptr_sensors);
 
     TRACE ("leaves sensors_show_graphical_display");
 
@@ -639,16 +650,17 @@ sensors_show_graphical_display (t_sensors *sensors)
 
 /* -------------------------------------------------------------------------- */
 static gboolean
-sensors_show_tacho_display (t_sensors *sensors)
+sensors_show_tacho_display (t_sensors *ptr_sensors)
 {
     TRACE ("enters sensors_show_tacho_display");
 
+    g_return_val_if_fail(ptr_sensors != NULL, FALSE);
 
-    if (sensors->tachos_created == FALSE) {
-        sensors_add_tacho_display (sensors);
+    if (ptr_sensors->tachos_created == FALSE) {
+        sensors_add_tacho_display (ptr_sensors);
     }
 
-    sensors_update_tacho_panel (sensors);
+    sensors_update_tacho_panel (ptr_sensors);
 
     TRACE ("leaves sensors_show_tacho_display");
 
@@ -658,136 +670,135 @@ sensors_show_tacho_display (t_sensors *sensors)
 
 /* -------------------------------------------------------------------------- */
 static int
-determine_number_of_rows (t_sensors *sensors)
+determine_number_of_rows (t_sensors *ptr_sensors)
 {
-    gint numRows, gtk_str_fontsize, additional_offset, avail_height;
+    gint num_rows = -1, siz_pangofont, val_additionaloffset, val_availableheight;
     gdouble divisor;
-    GtkStyleContext *stylecontext;
-    PangoFontDescription *descr = NULL;
-    PangoFontMask mask;
+    GtkStyleContext *ptr_stylecontext;
+    PangoFontDescription *ptr_fontdescr = NULL;
+    PangoFontMask ptr_fontmask;
     gboolean is_absolute;
 
     TRACE ("enters determine_number_of_rows");
 
+    g_return_val_if_fail(ptr_sensors != NULL, num_rows);
 
-    stylecontext = gtk_widget_get_style_context(sensors->panel_label_data);
+    ptr_stylecontext = gtk_widget_get_style_context(ptr_sensors->panel_label_data);
 
-    gtk_style_context_get(stylecontext, GTK_STATE_FLAG_NORMAL, "font", descr, NULL);
+    gtk_style_context_get(ptr_stylecontext, GTK_STATE_FLAG_NORMAL, "font", ptr_fontdescr, NULL);
 
     is_absolute = FALSE;
-    mask = pango_font_description_get_set_fields (descr);
-    if (mask>=PANGO_FONT_MASK_SIZE) {
-        is_absolute = pango_font_description_get_size_is_absolute (descr);
+    ptr_fontmask = pango_font_description_get_set_fields (ptr_fontdescr);
+    if (ptr_fontmask>=PANGO_FONT_MASK_SIZE) {
+        is_absolute = pango_font_description_get_size_is_absolute (ptr_fontdescr);
         if (!is_absolute) {
-            gtk_str_fontsize = pango_font_description_get_size (descr) / 1000;
+            siz_pangofont = pango_font_description_get_size (ptr_fontdescr) / 1000;
         }
     }
 
-    if (mask<PANGO_FONT_MASK_SIZE || is_absolute) {
-        gtk_str_fontsize = 10; /* not many people will want a bigger font size,
+    if (ptr_fontmask<PANGO_FONT_MASK_SIZE || is_absolute) {
+        siz_pangofont = 10; /* not many people will want a bigger font size,
                                 and so only few rows are gonna be displayed. */
     }
 
-    g_assert (gtk_str_fontsize!=0);
+    g_assert (siz_pangofont!=0);
 
-    if (sensors->orientation != XFCE_PANEL_PLUGIN_MODE_DESKBAR) {
-        switch (gtk_str_fontsize) {
+    if (ptr_sensors->orientation != XFCE_PANEL_PLUGIN_MODE_DESKBAR) {
+        switch (siz_pangofont) {
             case 8:
-                switch (sensors->val_fontsize) {
-                    case 0: additional_offset=10; divisor = 12; break;
-                    case 1: additional_offset=11; divisor = 12; break;
-                    case 2: additional_offset=12; divisor = 12; break;
-                    case 3: additional_offset=13; divisor = 13; break;
-                    default: additional_offset=16; divisor = 17;
+                switch (ptr_sensors->val_fontsize) {
+                    case 0: val_additionaloffset=10; divisor = 12; break;
+                    case 1: val_additionaloffset=11; divisor = 12; break;
+                    case 2: val_additionaloffset=12; divisor = 12; break;
+                    case 3: val_additionaloffset=13; divisor = 13; break;
+                    default: val_additionaloffset=16; divisor = 17;
                 }
                 break;
 
             case 9:
-                switch (sensors->val_fontsize) {
-                    case 0: additional_offset=12; divisor = 13; break;
-                    case 1: additional_offset=13; divisor = 13; break;
-                    case 2: additional_offset=14; divisor = 14; break;
-                    case 3: additional_offset=14; divisor = 17; break;
-                    default: additional_offset=16; divisor = 20;
+                switch (ptr_sensors->val_fontsize) {
+                    case 0: val_additionaloffset=12; divisor = 13; break;
+                    case 1: val_additionaloffset=13; divisor = 13; break;
+                    case 2: val_additionaloffset=14; divisor = 14; break;
+                    case 3: val_additionaloffset=14; divisor = 17; break;
+                    default: val_additionaloffset=16; divisor = 20;
                 }
                 break;
 
             default: /* case 10 */
-                 switch (sensors->val_fontsize) {
-                    case 0: additional_offset=13; divisor = 14; break;
-                    case 1: additional_offset=14; divisor = 14; break;
-                    case 2: additional_offset=14; divisor = 14; break;
-                    case 3: additional_offset=16; divisor = 17; break;
-                    default: additional_offset=20; divisor = 20;
+                 switch (ptr_sensors->val_fontsize) {
+                    case 0: val_additionaloffset=13; divisor = 14; break;
+                    case 1: val_additionaloffset=14; divisor = 14; break;
+                    case 2: val_additionaloffset=14; divisor = 14; break;
+                    case 3: val_additionaloffset=16; divisor = 17; break;
+                    default: val_additionaloffset=20; divisor = 20;
                 }
         }
-        avail_height = sensors->panel_size - additional_offset;
-        if (avail_height < 0)
-            avail_height = 0;
+        val_availableheight = ptr_sensors->panel_size - val_additionaloffset;
+        if (val_availableheight < 0)
+            val_availableheight = 0;
 
-        numRows = (int) floor (avail_height / divisor);
-        if (numRows < 0)
-            numRows = 0;
+        num_rows = (int) floor (val_availableheight / divisor);
+        if (num_rows < 0)
+            num_rows = 0;
 
-        numRows++;
+        num_rows++;
     }
-    else numRows = 1 << 30; /* that's enough, MAXINT would be nicer */
+    else num_rows = 1 << 30; /* that's enough, MAXINT would be nicer */
 
     /* fail-safe */
-    if (numRows<=0)
-        numRows = 1;
+    if (num_rows<=0)
+        num_rows = 1;
 
-    TRACE ("leaves determine_number_of_rows with rows=%d", numRows);
+    TRACE ("leaves determine_number_of_rows with rows=%d", num_rows);
 
-    return numRows;
+    return num_rows;
 }
 
 
 /* -------------------------------------------------------------------------- */
 static int
-determine_number_of_cols (gint numRows, gint num_itemsToDisplay)
+determine_number_of_cols (gint num_rows, gint num_itemstodisplay)
 {
-    gint numCols;
+    gint num_cols = 1;
 
     TRACE ("enters determine_number_of_cols");
 
 
-    if (numRows > 1) {
-        if (num_itemsToDisplay > numRows)
-            numCols = (gint) ceil (num_itemsToDisplay/ (float)numRows);
-        else
-            numCols = (gint) 1;
+    if (num_rows > 1) {
+        if (num_itemstodisplay > num_rows)
+            num_cols = (gint) ceil (num_itemstodisplay/ (float)num_rows);
     }
     else
-        numCols = num_itemsToDisplay;
+        num_cols = num_itemstodisplay;
 
-    TRACE ("leaves determine_number_of_cols width cols=%d", numCols);
+    TRACE ("leaves determine_number_of_cols width cols=%d", num_cols);
 
-    return numCols;
+    return num_cols;
 }
 
 
 /* -------------------------------------------------------------------------- */
 static void
-sensors_set_text_panel_label (t_sensors *ptr_sensors, gint numCols, gint num_itemsToDisplay)
+sensors_set_text_panel_label (t_sensors *ptr_sensors, gint num_cols, gint num_itemstodisplay)
 {
-    gint currentColumn, idx_sensorchips, idx_feature;
+    gint idx_currentcolumn, idx_sensorchips, idx_feature;
     t_chip *ptr_chipstructure;
     t_chipfeature *ptr_chipfeature;
-    gchar *myLabelText, *tmpstring;
+    gchar *ptr_str_labeltext, *ptr_str_help;
 
     TRACE ("enters ptr_sensors_set_text_panel_label");
 
 
     if (ptr_sensors == NULL)
         return;
-    else if (num_itemsToDisplay==0) {
+    else if (num_itemstodisplay==0) {
         gtk_widget_hide (ptr_sensors->panel_label_data);
         return;
     }
 
-    currentColumn = 0;
-    myLabelText = g_strdup (""); /* don't use NULL because of g_strconcat */
+    idx_currentcolumn = 0;
+    ptr_str_labeltext = g_strdup (""); /* don't use NULL because of g_strconcat */
 
     for (idx_sensorchips=0; idx_sensorchips < ptr_sensors->num_sensorchips; idx_sensorchips++) {
         ptr_chipstructure = (t_chip *) g_ptr_array_index (ptr_sensors->chips, idx_sensorchips);
@@ -799,72 +810,72 @@ sensors_set_text_panel_label (t_sensors *ptr_sensors, gint numCols, gint num_ite
 
             if (ptr_chipfeature->show == TRUE) {
                 if(ptr_sensors->show_labels == TRUE) {
-                  tmpstring = g_strconcat (myLabelText, "<span size=\"", ptr_sensors->str_fontsize, "\">",ptr_chipfeature->name, NULL);
+                  ptr_str_help = g_strconcat (ptr_str_labeltext, "<span size=\"", ptr_sensors->str_fontsize, "\">",ptr_chipfeature->name, NULL);
 
-                  g_free(myLabelText);
-                  myLabelText = g_strconcat (tmpstring, ":</span> ", NULL);
-                  g_free(tmpstring);
-                  tmpstring = NULL;
+                  g_free(ptr_str_labeltext);
+                  ptr_str_labeltext = g_strconcat (ptr_str_help, ":</span> ", NULL);
+                  g_free(ptr_str_help);
+                  ptr_str_help = NULL;
                 }
 
                 if (ptr_sensors->show_units) {
-                    tmpstring = g_strconcat (myLabelText,
+                    ptr_str_help = g_strconcat (ptr_str_labeltext,
                                             "<span foreground=\"",
                                             ptr_chipfeature->color, "\" size=\"",
                                             ptr_sensors->str_fontsize, "\">",
                                             ptr_chipfeature->formatted_value,
                                             NULL);
 
-                  g_free(myLabelText);
-                  myLabelText = g_strconcat (tmpstring,
+                  g_free(ptr_str_labeltext);
+                  ptr_str_labeltext = g_strconcat (ptr_str_help,
                                               "</span>", NULL);
 
-                  g_free (tmpstring);
-                  tmpstring = NULL;
+                  g_free (ptr_str_help);
+                  ptr_str_help = NULL;
                 }
                 else {
-                    tmpstring = g_strdup_printf("%s<span foreground=\"%s\" size=\"%s\">%.1f</span>", myLabelText,
+                    ptr_str_help = g_strdup_printf("%s<span foreground=\"%s\" size=\"%s\">%.1f</span>", ptr_str_labeltext,
                             ptr_chipfeature->color, ptr_sensors->str_fontsize,
                             ptr_chipfeature->raw_value);
-                    g_free(myLabelText);
-                    myLabelText = tmpstring;
+                    g_free(ptr_str_labeltext);
+                    ptr_str_labeltext = ptr_str_help;
                 }
 
 
                 if (ptr_sensors->orientation == XFCE_PANEL_PLUGIN_MODE_DESKBAR) {
-                    if (num_itemsToDisplay > 1) {
-                        tmpstring = g_strconcat (myLabelText, "\n", NULL);
-                        g_free(myLabelText);
-                        myLabelText = tmpstring;
+                    if (num_itemstodisplay > 1) {
+                        ptr_str_help = g_strconcat (ptr_str_labeltext, "\n", NULL);
+                        g_free(ptr_str_labeltext);
+                        ptr_str_labeltext = ptr_str_help;
                     }
                 }
-                else if (currentColumn < numCols-1) {
+                else if (idx_currentcolumn < num_cols-1) {
                     if (ptr_sensors->show_smallspacings) {
-                        tmpstring = g_strconcat (myLabelText, "  ", NULL);
-                        g_free(myLabelText);
-                        myLabelText = tmpstring;
+                        ptr_str_help = g_strconcat (ptr_str_labeltext, "  ", NULL);
+                        g_free(ptr_str_labeltext);
+                        ptr_str_labeltext = ptr_str_help;
                     }
                     else {
-                        tmpstring = g_strconcat (myLabelText, " \t", NULL);
-                        g_free(myLabelText);
-                        myLabelText = tmpstring;
+                        ptr_str_help = g_strconcat (ptr_str_labeltext, " \t", NULL);
+                        g_free(ptr_str_labeltext);
+                        ptr_str_labeltext = ptr_str_help;
                     }
-                    currentColumn++;
+                    idx_currentcolumn++;
                 }
-                else if (num_itemsToDisplay > 1) { /* do NOT add \n if last item */
-                    tmpstring = g_strconcat (myLabelText, " \n", NULL);
-                    g_free(myLabelText);
-                    myLabelText = tmpstring;
-                    currentColumn = 0;
+                else if (num_itemstodisplay > 1) { /* do NOT add \n if last item */
+                    ptr_str_help = g_strconcat (ptr_str_labeltext, " \n", NULL);
+                    g_free(ptr_str_labeltext);
+                    ptr_str_labeltext = ptr_str_help;
+                    idx_currentcolumn = 0;
                 }
-                num_itemsToDisplay--;
+                num_itemstodisplay--;
             }
         }
     }
 
-    g_assert (num_itemsToDisplay==0);
+    g_assert (num_itemstodisplay==0);
 
-    gtk_label_set_markup (GTK_LABEL(ptr_sensors->panel_label_data), myLabelText);
+    gtk_label_set_markup (GTK_LABEL(ptr_sensors->panel_label_data), ptr_str_labeltext);
 
     gtk_widget_show (ptr_sensors->panel_label_data);
 
@@ -879,7 +890,7 @@ sensors_set_text_panel_label (t_sensors *ptr_sensors, gint numCols, gint num_ite
         gtk_label_set_angle(GTK_LABEL(ptr_sensors->panel_label_data), 0.0);
     }
 
-    g_free(myLabelText);
+    g_free(ptr_str_labeltext);
 
     TRACE ("leaves sensors_set_text_panel_label");
 }
@@ -2338,7 +2349,7 @@ add_view_frame (GtkWidget * notebook, t_sensors_dialog * sd)
     TRACE ("enters add_view_frame");
 
 
-    _vbox = gtk_vbox_new (FALSE, 4);
+    _vbox = gtk_vbox_new (FALSE, OUTER_BORDER);
     gtk_widget_show (_vbox);
 
     _label = gtk_label_new_with_mnemonic(_("_View"));
@@ -2373,7 +2384,7 @@ add_miscellaneous_frame (GtkWidget * notebook, t_sensors_dialog * sd)
     TRACE ("enters add_miscellaneous_frame");
 
 
-    _vbox = gtk_vbox_new (FALSE, 4);
+    _vbox = gtk_vbox_new (FALSE, OUTER_BORDER);
     gtk_widget_show (_vbox);
 
     _label = gtk_label_new_with_mnemonic (_("_Miscellaneous"));
