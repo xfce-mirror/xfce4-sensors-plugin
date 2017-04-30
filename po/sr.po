@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Саша Петровић <salepetronije@gmail.com>, 2013-2014,2017
+# Саша Петровић <salepetronije@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-19 18:31+0100\n"
-"PO-Revision-Date: 2017-04-28 07:29+0000\n"
+"PO-Revision-Date: 2017-04-30 07:53+0000\n"
 "Last-Translator: Саша Петровић <salepetronije@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -193,7 +194,7 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "„hddtemp“ није правилно извршен, иако је извршна датотека. То је највероватније зато што дискови захтевају корена овлашћења за читање њихових температура, и „hddtemp“ нема кориснички лб корена.\n\nЛако и прљаво решење је покренути „chmod u+s %s“ као корени корисник и поново покренути овај прикључак, или његов панел.\n\nПозивање „%s“ је дало слдећу грешку:\n%s\nса излазном вредношћу %d.\n"
+msgstr "„hddtemp“ није правилно извршен, иако је извршна датотека. То је највероватније зато што дискови захтевају корена овлашћења за читање њихових температура, и „hddtemp“ нема кориснички лб корена.\n\nЛако и прљаво решење је покренути „chmod u+s %s“ као корени корисник и поново покренути овај прикључак, или његову полицу.\n\nПозивање „%s“ је дало следећу грешку:\n%s\nса излазном вредношћу %d.\n"
 
 #: ../lib/hddtemp.c:585 ../lib/hddtemp.c:608
 msgid "Suppress this message in future"
@@ -208,7 +209,7 @@ msgstr "Дошло је до грешке приликом извршавања 
 
 #: ../lib/lmsensors.c:97
 msgid "LM Sensors"
-msgstr "ЛМ пријемници"
+msgstr "Пријемници ЛМ-а"
 
 #: ../lib/lmsensors.c:370 ../lib/lmsensors.c:417
 #, c-format
@@ -263,7 +264,7 @@ msgstr "Највише"
 
 #: ../lib/sensors-interface.c:379
 msgid "Temperature scale:"
-msgstr "Температурна лествица:"
+msgstr "Топлотна лествица:"
 
 #: ../lib/sensors-interface.c:381
 msgid "_Celsius"
@@ -321,7 +322,7 @@ msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-msgstr "Пријемници ИксФЦЕ4-ја %s\nОвај програм је објављен под ОЈЛ в2.\nТекст дозволе се може наћи у складишту изворног кода програма, или у /usr/share/apps/LICENSES/GPL_V2, или на http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Пријемници ИксФЦЕ4-ја %s\nОвај програм је објављен под ОЈД в2.\nСадржај дозволе се може наћи у складишту изворног кода програма, или у /usr/share/apps/LICENSES/GPL_V2, или на http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:78
 #, c-format
@@ -336,12 +337,12 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr ""
+msgstr "Пријемници Иксфце4-ја %s\nПриказ података о пријемницима тврдотворина, стању АЦПИ-ја, топлоти чврстих дискова и Нвидијине картице\nСажетак\n  xfce4-sensors [могућност]\nгде је [могућност] једна од следећих:\n  -h, --help    Исписује овај садржај помоћи.\n  -l, --license Исписује податке о дозволи.\n  -V, --version Исписује податке о издању.\n\nОвај програм је објављен под ОЈД в2.\n"
 
 #: ../src/main.c:100
 #, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr "ИксФЦЕ4 пријемници %s\n"
+msgstr "Пријемници Иксфце4-ја %s\n"
 
 #: ../src/interface.c:86
 msgid "_Overview"
