@@ -810,7 +810,7 @@ sensors_set_text_panel_label (t_sensors *ptr_sensors, gint num_cols, gint num_it
 
             if (ptr_chipfeature->show == TRUE) {
                 if(ptr_sensors->show_labels == TRUE) {
-                  ptr_str_help = g_strconcat (ptr_str_labeltext, "<span size=\"", ptr_sensors->str_fontsize, "\">",ptr_chipfeature->name, NULL);
+                  ptr_str_help = g_strconcat (ptr_str_labeltext, "<span  foreground=\"", ptr_chipfeature->color, "\" size=\"", ptr_sensors->str_fontsize, "\">",ptr_chipfeature->name, NULL);
 
                   g_free(ptr_str_labeltext);
                   ptr_str_labeltext = g_strconcat (ptr_str_help, ":</span> ", NULL);
@@ -898,19 +898,19 @@ sensors_set_text_panel_label (t_sensors *ptr_sensors, gint num_cols, gint num_it
 
 /* -------------------------------------------------------------------------- */
 static int
-count_number_checked_sensor_features (t_sensors *sensors)
+count_number_checked_sensor_features (t_sensors *ptr_sensors)
 {
-    gint idx_sensorchips, idx_feature, num_itemsToDisplay;
+    gint idx_sensorchips, idx_feature, num_itemstodisplay;
     t_chipfeature *ptr_chipfeature;
     t_chip *ptr_chipstructure;
 
     TRACE ("enters count_number_checked_sensor_features");
 
 
-    num_itemsToDisplay = 0;
+    num_itemstodisplay = 0;
 
-    for (idx_sensorchips=0; idx_sensorchips < sensors->num_sensorchips; idx_sensorchips++) {
-        ptr_chipstructure = (t_chip *) g_ptr_array_index (sensors->chips, idx_sensorchips);
+    for (idx_sensorchips=0; idx_sensorchips < ptr_sensors->num_sensorchips; idx_sensorchips++) {
+        ptr_chipstructure = (t_chip *) g_ptr_array_index (ptr_sensors->chips, idx_sensorchips);
         g_assert (ptr_chipstructure!=NULL);
 
         for (idx_feature=0; idx_feature < ptr_chipstructure->num_features; idx_feature++) {
@@ -918,22 +918,22 @@ count_number_checked_sensor_features (t_sensors *sensors)
             g_assert (ptr_chipfeature!=NULL);
 
             if (ptr_chipfeature->valid == TRUE && ptr_chipfeature->show == TRUE)
-                num_itemsToDisplay++;
+                num_itemstodisplay++;
         }
     }
 
-    TRACE ("leaves count_number_checked_sensor_features with %d", num_itemsToDisplay);
+    TRACE ("leaves count_number_checked_sensor_features with %d", num_itemstodisplay);
 
-    return num_itemsToDisplay;
+    return num_itemstodisplay;
 }
 
 
 /* -------------------------------------------------------------------------- */
 /* draw label with sensor values into panel's vbox */
 static gboolean
-sensors_show_text_display (t_sensors *sensors)
+sensors_show_text_display (t_sensors *ptr_sensors)
 {
-    gint num_itemsToDisplay, numRows, numCols;
+    gint num_itemstodisplay, num_rows, num_cols;
 
     TRACE ("enters sensors_show_text_display");
 
@@ -941,18 +941,18 @@ sensors_show_text_display (t_sensors *sensors)
     /* count number of checked sensors to display.
        this could also be done by every toggle/untoggle action
        by putting this variable into t_sensors */
-    num_itemsToDisplay = count_number_checked_sensor_features (sensors);
+    num_itemstodisplay = count_number_checked_sensor_features (ptr_sensors);
 
-    numRows = sensors->lines_size; /* determine_number_of_rows (sensors); */
+    num_rows = ptr_sensors->lines_size; /* determine_number_of_rows (sensors); */
 
-    if (sensors->show_title == TRUE || num_itemsToDisplay == 0)
-        gtk_widget_show (sensors->panel_label_text);
+    if (ptr_sensors->show_title == TRUE || num_itemstodisplay == 0)
+        gtk_widget_show (ptr_sensors->panel_label_text);
     else
-        gtk_widget_hide (sensors->panel_label_text);
+        gtk_widget_hide (ptr_sensors->panel_label_text);
 
-    numCols = determine_number_of_cols (numRows, num_itemsToDisplay);
+    num_cols = determine_number_of_cols (num_rows, num_itemstodisplay);
 
-    sensors_set_text_panel_label (sensors, numCols, num_itemsToDisplay);
+    sensors_set_text_panel_label (ptr_sensors, num_cols, num_itemstodisplay);
 
     TRACE ("leaves sensors_show_text_display\n");
 
@@ -964,59 +964,59 @@ sensors_show_text_display (t_sensors *sensors)
 /* create tooltip
 Updates the sensor values, see lines 440 and following */
 static gboolean
-sensors_create_tooltip (gpointer data)
+sensors_create_tooltip (gpointer ptr_argument)
 {
-    t_sensors *sensors;
-    int i, index_feature, res;
-    double sensorFeature;
-    gboolean first, prependedChipName;
-    gchar *myToolTipText, *myToolTipText2, *tmp;
+    t_sensors *ptr_sensors;
+    int idx_sensorchips, index_feature, result;
+    double val_sensorfeature;
+    gboolean is_first_textline, is_chipname_already_prepended;
+    gchar *ptr_str_tooltip, *ptr_str_tooltiptext, *ptr_str_tmp;
     t_chipfeature *ptr_chipfeature;
-    t_chip *chip;
+    t_chip *ptr_chipstructure;
 
     TRACE ("enters sensors_create_tooltip");
 
 
-    g_return_val_if_fail (data != NULL, FALSE);
+    g_return_val_if_fail (ptr_argument != NULL, FALSE);
 
-    sensors = (t_sensors *) data;
-    myToolTipText = g_strdup (_("No sensors selected!"));
-    first = TRUE;
+    ptr_sensors = (t_sensors *) ptr_argument;
+    ptr_str_tooltip = g_strdup (_("No sensors selected!"));
+    is_first_textline = TRUE;
 
-    for (i=0; i < sensors->num_sensorchips; i++) {
-        chip = (t_chip *) g_ptr_array_index (sensors->chips, i);
-        g_assert (chip!=NULL);
+    for (idx_sensorchips=0; idx_sensorchips < ptr_sensors->num_sensorchips; idx_sensorchips++) {
+        ptr_chipstructure = (t_chip *) g_ptr_array_index (ptr_sensors->chips, idx_sensorchips);
+        g_assert (ptr_chipstructure!=NULL);
 
-        prependedChipName = FALSE;
+        is_chipname_already_prepended = FALSE;
 
-        for (index_feature = 0; index_feature<chip->num_features; index_feature++) {
-            ptr_chipfeature = g_ptr_array_index (chip->chip_features, index_feature);
+        for (index_feature = 0; index_feature<ptr_chipstructure->num_features; index_feature++) {
+            ptr_chipfeature = g_ptr_array_index (ptr_chipstructure->chip_features, index_feature);
             g_assert (ptr_chipfeature!=NULL);
 
             if ( ptr_chipfeature->valid == TRUE && ptr_chipfeature->show == TRUE ) {
 
-                if (prependedChipName != TRUE) {
+                if (is_chipname_already_prepended != TRUE) {
 
-                    if (first == TRUE) {
-                        g_free (myToolTipText);
-                        myToolTipText = g_strconcat ("<b>", chip->sensorId, "</b>", NULL);
-                        first = FALSE;
+                    if (is_first_textline == TRUE) {
+                        g_free (ptr_str_tooltip);
+                        ptr_str_tooltip = g_strconcat ("<b>", ptr_chipstructure->sensorId, "</b>", NULL);
+                        is_first_textline = FALSE;
                     }
                     else {
-                        myToolTipText2 = g_strconcat (myToolTipText, " \n<b>",
-                                                     chip->sensorId, "</b>", NULL);
-                        g_free (myToolTipText);
-                        myToolTipText = myToolTipText2;
+                        ptr_str_tooltiptext = g_strconcat (ptr_str_tooltip, " \n<b>",
+                                                     ptr_chipstructure->sensorId, "</b>", NULL);
+                        g_free (ptr_str_tooltip);
+                        ptr_str_tooltip = ptr_str_tooltiptext;
                     }
 
-                    prependedChipName = TRUE;
+                    is_chipname_already_prepended = TRUE;
                 }
 
-                res = sensor_get_value (chip, ptr_chipfeature->address,
-                                                    &sensorFeature,
-                                                    &(sensors->suppressmessage));
+                result = sensor_get_value (ptr_chipstructure, ptr_chipfeature->address,
+                                                    &val_sensorfeature,
+                                                    &(ptr_sensors->suppressmessage));
 
-                if ( res!=0 ) {
+                if (result != 0) {
                     /* FIXME: either print nothing, or undertake appropriate action,
                      * or pop up a message box. */
                     g_printf ( _("Sensors Plugin:\n"
@@ -1024,30 +1024,30 @@ sensors_create_tooltip (gpointer data)
                     "value.\nProper proceeding cannot be guaranteed.\n") );
                     break;
                 }
-                tmp = g_new (gchar, 0);
-                format_sensor_value (sensors->scale, ptr_chipfeature,
-                                     sensorFeature, &tmp);
+                ptr_str_tmp = g_new (gchar, 0);
+                format_sensor_value (ptr_sensors->scale, ptr_chipfeature,
+                                     val_sensorfeature, &ptr_str_tmp);
 
-                myToolTipText2 = g_strconcat (myToolTipText, "\n  ",
-                                             ptr_chipfeature->name, ": ", tmp,
+                ptr_str_tooltiptext = g_strconcat (ptr_str_tooltip, "\n  ",
+                                             ptr_chipfeature->name, ": ", ptr_str_tmp,
                                              NULL);
-                g_free (myToolTipText);
-                myToolTipText = myToolTipText2;
+                g_free (ptr_str_tooltip);
+                ptr_str_tooltip = ptr_str_tooltiptext;
 
                 if (ptr_chipfeature->formatted_value != NULL)
                     g_free (ptr_chipfeature->formatted_value);
 
-                ptr_chipfeature->formatted_value = g_strdup (tmp);
-                ptr_chipfeature->raw_value = sensorFeature;
+                ptr_chipfeature->formatted_value = g_strdup (ptr_str_tmp);
+                ptr_chipfeature->raw_value = val_sensorfeature;
 
-                g_free (tmp);
+                g_free (ptr_str_tmp);
             } /* end if ptr_chipfeature->valid */
         }
     }
 
-    gtk_widget_set_tooltip_markup (GTK_WIDGET(sensors->eventbox), myToolTipText);
+    gtk_widget_set_tooltip_markup (GTK_WIDGET(ptr_sensors->eventbox), ptr_str_tooltip);
 
-    g_free (myToolTipText);
+    g_free (ptr_str_tooltip);
 
     TRACE ("leaves sensors_create_tooltip");
 
@@ -1057,43 +1057,43 @@ sensors_create_tooltip (gpointer data)
 
 /* -------------------------------------------------------------------------- */
 static gboolean
-sensors_show_panel (gpointer data)
+sensors_show_panel (gpointer ptr_argument)
 {
-    t_sensors *sensors;
+    t_sensors *ptr_sensors;
     gboolean result;
 
     TRACE ("enters sensors_show_panel");
 
 
-    g_return_val_if_fail (data != NULL, FALSE);
+    g_return_val_if_fail (ptr_argument != NULL, FALSE);
 
-    sensors = (t_sensors *) data;
+    ptr_sensors = (t_sensors *) ptr_argument;
 
-    switch (sensors->display_values_type)
+    switch (ptr_sensors->display_values_type)
     {
       case DISPLAY_TACHO:
-        result = sensors_show_tacho_display (sensors);
+        result = sensors_show_tacho_display (ptr_sensors);
         break;
       case DISPLAY_BARS:
-        result = sensors_show_graphical_display (sensors);
+        result = sensors_show_graphical_display (ptr_sensors);
         break;
       default:
-        result = sensors_show_text_display (sensors);
+        result = sensors_show_text_display (ptr_sensors);
     }
 
-    if (sensors->orientation == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
+    if (ptr_sensors->orientation == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
     {
-        gtk_label_set_angle(GTK_LABEL(sensors->panel_label_text), 270.0);
-        gtk_widget_set_halign(sensors->panel_label_text, GTK_ALIGN_CENTER);
+        gtk_label_set_angle(GTK_LABEL(ptr_sensors->panel_label_text), 270.0);
+        gtk_widget_set_halign(ptr_sensors->panel_label_text, GTK_ALIGN_CENTER);
     }
     else
     {
-        gtk_label_set_angle(GTK_LABEL(sensors->panel_label_text), 0);
-        gtk_widget_set_valign(sensors->panel_label_text, GTK_ALIGN_CENTER);
+        gtk_label_set_angle(GTK_LABEL(ptr_sensors->panel_label_text), 0);
+        gtk_widget_set_valign(ptr_sensors->panel_label_text, GTK_ALIGN_CENTER);
     }
 
-    if (!sensors->suppresstooltip)
-        sensors_create_tooltip ((gpointer) sensors);
+    if (!ptr_sensors->suppresstooltip)
+        sensors_create_tooltip ((gpointer) ptr_sensors);
 
     TRACE ("leaves sensors_show_panel\n");
     return result;
@@ -1136,20 +1136,20 @@ create_panel_widget (t_sensors * ptr_sensorsstructure)
 
 /* -------------------------------------------------------------------------- */
 static void
-sensors_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode mode_panelplugin,
+sensors_set_mode (XfcePanelPlugin *ptr_xfcepanelplugin, XfcePanelPluginMode mode_panelplugin,
                          t_sensors *ptr_sensorsstructure)
 {
     TRACE ("enters sensors_set_mode: %d", mode_panelplugin);
 
 
-    g_return_if_fail (plugin!=NULL && ptr_sensorsstructure!=NULL);
+    g_return_if_fail (ptr_xfcepanelplugin!=NULL && ptr_sensorsstructure!=NULL);
 
     g_return_if_fail (mode_panelplugin != ptr_sensorsstructure->orientation);
 
     if (ptr_sensorsstructure->cover_panel_rows || mode_panelplugin == XFCE_PANEL_PLUGIN_MODE_DESKBAR)
-        xfce_panel_plugin_set_small(plugin, FALSE);
+        xfce_panel_plugin_set_small(ptr_xfcepanelplugin, FALSE);
     else
-        xfce_panel_plugin_set_small(plugin, TRUE);
+        xfce_panel_plugin_set_small(ptr_xfcepanelplugin, TRUE);
 
     ptr_sensorsstructure->orientation = mode_panelplugin; /* now assign the new orientation */
 
