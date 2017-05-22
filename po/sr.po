@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Саша Петровић <salepetronije@gmail.com>, 2013-2014,2017
+# Саша Петровић <salepetronije@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-23 00:31+0100\n"
-"PO-Revision-Date: 2017-02-25 15:32+0000\n"
+"POT-Creation-Date: 2017-03-19 18:31+0100\n"
+"PO-Revision-Date: 2017-04-30 07:53+0000\n"
 "Last-Translator: Саша Петровић <salepetronije@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -19,19 +20,19 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.c:372 ../panel-plugin/sensors-plugin.c:478
-#: ../panel-plugin/sensors-plugin.c:1089
+#: ../panel-plugin/sensors-plugin.c:381 ../panel-plugin/sensors-plugin.c:504
+#: ../panel-plugin/sensors-plugin.c:1136
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Пријемници</b></span>"
 
 #. widget = sensors->eventbox;
-#: ../panel-plugin/sensors-plugin.c:959
+#: ../panel-plugin/sensors-plugin.c:996
 msgid "No sensors selected!"
 msgstr "Нема изабраних пријемника!"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:999
+#: ../panel-plugin/sensors-plugin.c:1036
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -39,110 +40,110 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "Прикључак пријемника:\nИзгледа да се десио проблем читања вредности особина пријемника.\nНије могуће јемчити за правилан наставак.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1912
+#: ../panel-plugin/sensors-plugin.c:1943
 msgid "UI style:"
 msgstr "Изглед  корисничког сучеља:"
 
-#: ../panel-plugin/sensors-plugin.c:1913
+#: ../panel-plugin/sensors-plugin.c:1944
 msgid "_text"
-msgstr "_текст"
+msgstr "_натпис"
 
-#: ../panel-plugin/sensors-plugin.c:1915
+#: ../panel-plugin/sensors-plugin.c:1946
 msgid "_progress bars"
 msgstr "_траке напредака"
 
-#: ../panel-plugin/sensors-plugin.c:1917
+#: ../panel-plugin/sensors-plugin.c:1948
 msgid "_tachos"
 msgstr "_кружни мерачи"
 
-#: ../panel-plugin/sensors-plugin.c:1962
+#: ../panel-plugin/sensors-plugin.c:1994
 msgid "Show _labels"
 msgstr "Прикажи _натписе"
 
-#: ../panel-plugin/sensors-plugin.c:1992
+#: ../panel-plugin/sensors-plugin.c:2026
 msgid "Show colored _bars"
 msgstr "Прикажи обојене _траке"
 
-#: ../panel-plugin/sensors-plugin.c:2020
+#: ../panel-plugin/sensors-plugin.c:2056
 msgid "_Show title"
 msgstr "_Прикажи наслов"
 
-#: ../panel-plugin/sensors-plugin.c:2044
+#: ../panel-plugin/sensors-plugin.c:2081
 msgid "_Number of text lines:"
 msgstr "_Број линија текста:"
 
-#: ../panel-plugin/sensors-plugin.c:2080
+#: ../panel-plugin/sensors-plugin.c:2118
 msgid "_Cover all panel rows/columns"
 msgstr "_Сакриј све редове/колоне полице"
 
-#: ../panel-plugin/sensors-plugin.c:2103
+#: ../panel-plugin/sensors-plugin.c:2142
 msgid "F_ont size:"
 msgstr "Величина _словног лика:"
 
 #. gtk_widget_set_sensitive(myFontBox,
 #. !sd->sensors->display_values_graphically);
-#: ../panel-plugin/sensors-plugin.c:2110
+#: ../panel-plugin/sensors-plugin.c:2149
 msgid "x-small"
 msgstr "икс-мали"
 
-#: ../panel-plugin/sensors-plugin.c:2111
+#: ../panel-plugin/sensors-plugin.c:2150
 msgid "small"
 msgstr "мали"
 
-#: ../panel-plugin/sensors-plugin.c:2112
+#: ../panel-plugin/sensors-plugin.c:2151
 msgid "medium"
 msgstr "средњи"
 
-#: ../panel-plugin/sensors-plugin.c:2113
+#: ../panel-plugin/sensors-plugin.c:2152
 msgid "large"
 msgstr "велики"
 
-#: ../panel-plugin/sensors-plugin.c:2114
+#: ../panel-plugin/sensors-plugin.c:2153
 msgid "x-large"
 msgstr "икс-велики"
 
-#: ../panel-plugin/sensors-plugin.c:2145
+#: ../panel-plugin/sensors-plugin.c:2186
 msgid "F_ont:"
 msgstr "Сл_овни лик:"
 
-#: ../panel-plugin/sensors-plugin.c:2179
+#: ../panel-plugin/sensors-plugin.c:2221
 msgid "Show _Units"
 msgstr "Прикажи _јединице"
 
-#: ../panel-plugin/sensors-plugin.c:2200
+#: ../panel-plugin/sensors-plugin.c:2244
 msgid "Small horizontal s_pacing"
 msgstr "Мали водоравни р_азмаци"
 
-#: ../panel-plugin/sensors-plugin.c:2222
+#: ../panel-plugin/sensors-plugin.c:2267
 msgid "Suppress messages"
 msgstr "Потисни поруке"
 
-#: ../panel-plugin/sensors-plugin.c:2240
+#: ../panel-plugin/sensors-plugin.c:2287
 msgid "Suppress tooltip"
 msgstr "Потисни напомену"
 
-#: ../panel-plugin/sensors-plugin.c:2265
+#: ../panel-plugin/sensors-plugin.c:2313
 msgid "E_xecute on double click:"
 msgstr "П_окрени на двоклик:"
 
-#: ../panel-plugin/sensors-plugin.c:2308
+#: ../panel-plugin/sensors-plugin.c:2357
 msgid "_View"
 msgstr "_Преглед"
 
-#: ../panel-plugin/sensors-plugin.c:2343
+#: ../panel-plugin/sensors-plugin.c:2392
 msgid "_Miscellaneous"
 msgstr "_Разно"
 
-#: ../panel-plugin/sensors-plugin.c:2418 ../panel-plugin/sensors-plugin.h:31
-#: ../lib/hddtemp.c:161
+#: ../panel-plugin/sensors-plugin.c:2469 ../panel-plugin/sensors-plugin.h:31
+#: ../lib/hddtemp.c:167
 msgid "Sensors Plugin"
 msgstr "Прикључак пријемник"
 
-#: ../panel-plugin/sensors-plugin.c:2426
+#: ../panel-plugin/sensors-plugin.c:2477
 msgid "Properties"
 msgstr "Својства"
 
-#: ../panel-plugin/sensors-plugin.c:2459
+#: ../panel-plugin/sensors-plugin.c:2510
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -154,36 +155,36 @@ msgstr "Можете променити поставке одлика као ш�
 #. FIXME: compare strings, or also have hddtemp and acpi store numeric
 #. str_values
 #. assert correctly saved str_file
-#: ../lib/configuration.c:168 ../lib/configuration.c:374 ../lib/hddtemp.c:383
+#: ../lib/configuration.c:174 ../lib/configuration.c:396 ../lib/hddtemp.c:396
 msgid "Hard disks"
 msgstr "Чврсти дискови"
 
-#: ../lib/acpi.c:541 ../lib/acpi.c:550 ../lib/acpi.c:551
+#: ../lib/acpi.c:580 ../lib/acpi.c:592
 msgid "ACPI"
 msgstr "АЦПИ"
 
-#: ../lib/acpi.c:543
+#: ../lib/acpi.c:583
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "АЦПИ v%s области"
 
-#: ../lib/acpi.c:686
+#: ../lib/acpi.c:724
 msgid "<Unknown>"
 msgstr "<Непознато>"
 
-#: ../lib/nvidia.c:61
+#: ../lib/nvidia.c:63
 msgid "NVidia GPU core temperature"
 msgstr "Температура језгра ЕнВидиа ГПЈ"
 
-#: ../lib/nvidia.c:62
+#: ../lib/nvidia.c:64
 msgid "nvidia"
 msgstr "енвидиа"
 
-#: ../lib/hddtemp.c:382
+#: ../lib/hddtemp.c:395
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "С:М:А:Р:Т температуре чврстих дискова"
 
-#: ../lib/hddtemp.c:557
+#: ../lib/hddtemp.c:571
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
@@ -193,161 +194,161 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "„hddtemp“ није правилно извршен, иако је извршна датотека. То је највероватније зато што дискови захтевају корена овлашћења за читање њихових температура, и „hddtemp“ нема кориснички лб корена.\n\nЛако и прљаво решење је покренути „chmod u+s %s“ као корени корисник и поново покренути овај прикључак, или његов панел.\n\nПозивање „%s“ је дало слдећу грешку:\n%s\nса излазном вредношћу %d.\n"
+msgstr "„hddtemp“ није правилно извршен, иако је извршна датотека. То је највероватније зато што дискови захтевају корена овлашћења за читање њихових температура, и „hddtemp“ нема кориснички лб корена.\n\nЛако и прљаво решење је покренути „chmod u+s %s“ као корени корисник и поново покренути овај прикључак, или његову полицу.\n\nПозивање „%s“ је дало следећу грешку:\n%s\nса излазном вредношћу %d.\n"
 
-#: ../lib/hddtemp.c:571 ../lib/hddtemp.c:594
+#: ../lib/hddtemp.c:585 ../lib/hddtemp.c:608
 msgid "Suppress this message in future"
 msgstr "Потисни ове поруке убудуће"
 
-#: ../lib/hddtemp.c:589
+#: ../lib/hddtemp.c:603
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr "Дошло је до грешке приликом извршавања „%s“:\n%s"
 
-#: ../lib/lmsensors.c:95
+#: ../lib/lmsensors.c:97
 msgid "LM Sensors"
-msgstr "ЛМ пријемници"
+msgstr "Пријемници ЛМ-а"
 
-#: ../lib/lmsensors.c:361 ../lib/lmsensors.c:408
+#: ../lib/lmsensors.c:370 ../lib/lmsensors.c:417
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Грешка: не могу се повезати са пријемницима!"
 
-#: ../lib/sensors-interface.c:88
+#: ../lib/sensors-interface.c:91
 msgid "Sensors Plugin Failure"
 msgstr "Прикључак пријемника је неуспешан"
 
-#: ../lib/sensors-interface.c:89
+#: ../lib/sensors-interface.c:92
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr "Изгледа да се десио проблем читања вредности особина пријемника.\nНије могуће јемчити за правилан наставак."
 
-#: ../lib/sensors-interface.c:175
+#: ../lib/sensors-interface.c:178
 msgid "Sensors t_ype:"
 msgstr "В_рста пријемника:"
 
-#: ../lib/sensors-interface.c:201
+#: ../lib/sensors-interface.c:204
 msgid "Description:"
 msgstr "Опис:"
 
-#: ../lib/sensors-interface.c:234
+#: ../lib/sensors-interface.c:237
 msgid "U_pdate interval (seconds):"
 msgstr "Учесталост освежавања (секунде):"
 
-#: ../lib/sensors-interface.c:274
+#: ../lib/sensors-interface.c:278
 msgid "Name"
 msgstr "Назив"
 
-#: ../lib/sensors-interface.c:286
+#: ../lib/sensors-interface.c:290
 msgid "Value"
 msgstr "Вредност"
 
-#: ../lib/sensors-interface.c:294
+#: ../lib/sensors-interface.c:298
 msgid "Show"
 msgstr "Прикажи"
 
-#: ../lib/sensors-interface.c:303
+#: ../lib/sensors-interface.c:307
 msgid "Color"
 msgstr "Боја"
 
-#: ../lib/sensors-interface.c:316
+#: ../lib/sensors-interface.c:320
 msgid "Min"
 msgstr "Најмање"
 
-#: ../lib/sensors-interface.c:333
+#: ../lib/sensors-interface.c:337
 msgid "Max"
 msgstr "Највише"
 
-#: ../lib/sensors-interface.c:374
+#: ../lib/sensors-interface.c:379
 msgid "Temperature scale:"
-msgstr "Температурна лествица:"
+msgstr "Топлотна лествица:"
 
-#: ../lib/sensors-interface.c:376
+#: ../lib/sensors-interface.c:381
 msgid "_Celsius"
-msgstr "_Целзијус"
+msgstr "_Целзиј"
 
-#: ../lib/sensors-interface.c:378
+#: ../lib/sensors-interface.c:383
 msgid "_Fahrenheit"
 msgstr "_Фаренхајт"
 
-#: ../lib/sensors-interface.c:414
+#: ../lib/sensors-interface.c:419
 msgid "_Sensors"
 msgstr "_Пријемници"
 
-#: ../lib/sensors-interface-common.c:74 ../lib/sensors-interface-common.c:75
+#: ../lib/sensors-interface-common.c:75 ../lib/sensors-interface-common.c:76
 msgid "No sensors found!"
 msgstr "Нисам пронашао пријемнике!"
 
-#: ../lib/sensors-interface-common.c:146
+#: ../lib/sensors-interface-common.c:149
 #, c-format
 msgid "%.0f °F"
 msgstr "%.0f °F"
 
 #. Celsius
-#: ../lib/sensors-interface-common.c:149
+#: ../lib/sensors-interface-common.c:152
 #, c-format
 msgid "%.0f °C"
 msgstr "%.0f °C"
 
-#: ../lib/sensors-interface-common.c:154
+#: ../lib/sensors-interface-common.c:157
 #, c-format
 msgid "%+.3f V"
 msgstr "%+.3f V"
 
-#: ../lib/sensors-interface-common.c:158
+#: ../lib/sensors-interface-common.c:161
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.c:163
+#: ../lib/sensors-interface-common.c:166
 msgid "off"
 msgstr "искључи"
 
-#: ../lib/sensors-interface-common.c:165
+#: ../lib/sensors-interface-common.c:168
 msgid "on"
 msgstr "укључи"
 
-#: ../lib/sensors-interface-common.c:169
+#: ../lib/sensors-interface-common.c:172
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f rpm"
 
-#: ../src/main.c:58
+#: ../src/main.c:62
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-msgstr "ИксФЦЕ4 пријемници %s\nОвај програм је објављен под ОЈЛ в2.\nТекст дозволе се може наћи у архиви изворног кода програма, или у /usr/share/apps/LICENSES/GPL_V2, или на http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Пријемници ИксФЦЕ4-ја %s\nОвај програм је објављен под ОЈД в2.\nСадржај дозволе се може наћи у складишту изворног кода програма, или у /usr/share/apps/LICENSES/GPL_V2, или на http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
-#: ../src/main.c:70
+#: ../src/main.c:78
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
 "Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
 "Synopsis: \n"
-"  xfce4-sensors options\n"
-"where options are one or more of the following:\n"
+"  xfce4-sensors [option]\n"
+"where [option] is one of the following:\n"
 "  -h, --help    Print this help dialog.\n"
 "  -l, --license Print license information.\n"
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "ИксФЦЕ4 пријемници %s\nПриказју податке о пријемницима Вашег хардвера, АЦПИ стању, топлоти чврстих дискова, и топлоти ГПЈ.\nУвод: \n  xfce4-sensors могућности\nгде су могућности једна или више следећих:\n  -h, --help  Исписује ово прозорче помоћи.\n  -l, --license Исписује податке о лиценци.\n  -V, --version  Исписује податке о издању.\n\nОвај програм је објављен под ОЈЛ в2.\n"
+msgstr "Пријемници Иксфце4-ја %s\nПриказ података о пријемницима тврдотворина, стању АЦПИ-ја, топлоти чврстих дискова и Нвидијине картице\nСажетак\n  xfce4-sensors [могућност]\nгде је [могућност] једна од следећих:\n  -h, --help    Исписује овај садржај помоћи.\n  -l, --license Исписује податке о дозволи.\n  -V, --version Исписује податке о издању.\n\nОвај програм је објављен под ОЈД в2.\n"
 
-#: ../src/main.c:88
+#: ../src/main.c:100
 #, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr "ИксФЦЕ4 пријемници %s\n"
+msgstr "Пријемници Иксфце4-ја %s\n"
 
-#: ../src/interface.c:85
+#: ../src/interface.c:86
 msgid "_Overview"
 msgstr "_Преглед"
 
-#: ../src/interface.c:105
+#: ../src/interface.c:106
 msgid "_Tachometers"
 msgstr "_Кружни мерачи"
 
@@ -357,7 +358,7 @@ msgstr "Прегледник пријемника"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../src/actions.c:79
+#: ../src/actions.c:92
 #, c-format
 msgid ""
 "Sensors Viewer:\n"
