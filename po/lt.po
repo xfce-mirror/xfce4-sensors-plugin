@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-19 18:31+0100\n"
-"PO-Revision-Date: 2017-04-13 14:26+0000\n"
+"PO-Revision-Date: 2017-06-20 23:02+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -355,7 +355,7 @@ msgstr "_Tachometras"
 
 #: ../src/interface.c:122
 msgid "Sensors Viewer"
-msgstr "Jutiklių peržiūra"
+msgstr "Jutiklių žiūryklė"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
@@ -365,11 +365,11 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Jutiklių peržiūra:\nAtrodo, jog buvo problemų nuskaitant jutiklio funkcijos reikšmę.\nTvarkingas tolesnis darbas negali būti užtikrinamas.\n"
+msgstr "Jutiklių žiūryklė:\nAtrodo, jog buvo problemų nuskaitant jutiklio funkcijos reikšmę.\nTvarkingas tolimesnis darbas negali būti užtikrintas.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
-msgstr "Jutiklio peržiūra"
+msgstr "Jutiklių žiūryklė"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
@@ -378,7 +378,7 @@ msgstr "Parodyti jutiklio reikšmes."
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 msgid "Sensor Values Viewer"
-msgstr "Jutiklių reikšmių peržiūra"
+msgstr "Jutiklių reikšmių žiūryklė"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
 msgid "Sensor plugin"
