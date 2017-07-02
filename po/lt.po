@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-19 18:31+0100\n"
-"PO-Revision-Date: 2017-06-20 23:02+0000\n"
+"PO-Revision-Date: 2017-07-02 20:18+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -129,7 +129,7 @@ msgstr "_Vykdyti du kartus spustelėjus:"
 
 #: ../panel-plugin/sensors-plugin.c:2357
 msgid "_View"
-msgstr "_Rodymas"
+msgstr "_Rodinys"
 
 #: ../panel-plugin/sensors-plugin.c:2392
 msgid "_Miscellaneous"
@@ -347,7 +347,7 @@ msgstr "Xfce4 Jutikliai %s\n"
 
 #: ../src/interface.c:86
 msgid "_Overview"
-msgstr "P_eržiūra"
+msgstr "Apž_valga"
 
 #: ../src/interface.c:106
 msgid "_Tachometers"
