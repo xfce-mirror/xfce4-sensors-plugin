@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-19 18:31+0100\n"
-"PO-Revision-Date: 2017-09-30 14:22+0000\n"
+"PO-Revision-Date: 2017-11-01 16:47+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -41,7 +41,7 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Plugin for sensorer:\nDet lader til, at der var et problem med at læse en sensors funktionsværdi.\nKorrekt viderebehandling kan ikke garanteres.\n"
+msgstr "Sensorer-plugin:\nDet lader til, at der var et problem med at læse en sensors funktionsværdi.\nKorrekt viderebehandling kan ikke garanteres.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1943
 msgid "UI style:"
@@ -140,7 +140,7 @@ msgstr "_Diverse"
 #: ../panel-plugin/sensors-plugin.c:2469 ../panel-plugin/sensors-plugin.h:31
 #: ../lib/hddtemp.c:167
 msgid "Sensors Plugin"
-msgstr "Plugin for sensorer"
+msgstr "Sensorer-plugin"
 
 #: ../panel-plugin/sensors-plugin.c:2477
 msgid "Properties"
@@ -217,11 +217,11 @@ msgstr "LM-sensorer"
 #: ../lib/lmsensors.c:370 ../lib/lmsensors.c:417
 #, c-format
 msgid "Error: Could not connect to sensors!"
-msgstr "Fejl: Kunne ikke forbinde til sensorer!"
+msgstr "Fejl: Kunne ikke oprette forbindelse til sensorer!"
 
 #: ../lib/sensors-interface.c:91
 msgid "Sensors Plugin Failure"
-msgstr "Plugin for sensorer fejlede"
+msgstr "Sensorer-plugin fejlede"
 
 #: ../lib/sensors-interface.c:92
 msgid ""
@@ -384,4 +384,4 @@ msgstr "Fremvisning af sensorværdier"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
 msgid "Sensor plugin"
-msgstr "Plugin for sensor"
+msgstr "Sensor-plugin"
