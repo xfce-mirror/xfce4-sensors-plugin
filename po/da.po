@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-19 18:31+0100\n"
-"PO-Revision-Date: 2017-11-03 18:00+0000\n"
+"PO-Revision-Date: 2017-11-19 16:10+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -317,7 +317,7 @@ msgstr "tændt"
 #: ../lib/sensors-interface-common.c:172
 #, c-format
 msgid "%.0f rpm"
-msgstr "%.0f o/m."
+msgstr "%.0f o/m"
 
 #: ../src/main.c:62
 #, c-format
