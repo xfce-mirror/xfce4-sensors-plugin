@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-19 18:31+0100\n"
-"PO-Revision-Date: 2017-12-14 08:24+0000\n"
+"PO-Revision-Date: 2017-12-30 10:18+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +40,7 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Connector de sensors:\nSembla com si hi hagués un problema en llegir el valor d'alguna característica del sensor.\nNo es pot garantir que funcioni correctament.\n"
+msgstr "Connector dels sensors:\nSembla com si hi hagués un problema en llegir el valor d'alguna característica del sensor.\nNo es pot garantir que funcioni correctament.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1943
 msgid "UI style:"
@@ -220,7 +220,7 @@ msgstr "Error: No s'ha pogut connectar a sensors!"
 
 #: ../lib/sensors-interface.c:91
 msgid "Sensors Plugin Failure"
-msgstr "Fallida del connector de sensors"
+msgstr "Fallida del connector dels sensors"
 
 #: ../lib/sensors-interface.c:92
 msgid ""
@@ -370,12 +370,12 @@ msgstr "Visualitzador dels sensors:\nSembla que hi ha algun problema amb la lect
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
-msgstr "Visualitzador del sensor"
+msgstr "Visualitzador dels sensors"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
 msgid "Show sensor values."
-msgstr "Mostra els valors del sensor."
+msgstr "Vegeu els valors dels sensors."
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 msgid "Sensor Values Viewer"
@@ -383,4 +383,4 @@ msgstr "Visualitzador dels valors dels sensors"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
 msgid "Sensor plugin"
-msgstr "Connector del sensor"
+msgstr "Connector dels sensors"
