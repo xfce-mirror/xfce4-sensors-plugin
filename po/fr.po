@@ -3,8 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Charles Monzat <superboa@hotmail.fr>, 2018
 # David D, 2017
-# Fabian Nowak <timystery@arcor.de>, 2005
+# David D, 2017
+# Fabian <timystery@arcor.de>, 2005
+# jc1 <jc1.quebecos@gmail.com>, 2013
 # jc1 <jc1.quebecos@gmail.com>, 2013
 # Maximilian Schleiss <maximilian@xfce.org>, 2006
 # Stephane Roy <sroy@j2n.net>, 2005
@@ -15,8 +18,8 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-19 18:31+0100\n"
-"PO-Revision-Date: 2017-09-23 19:03+0000\n"
-"Last-Translator: Yannick Le Guen <leguen.yannick@gmail.com>\n"
+"PO-Revision-Date: 2018-03-17 22:52+0000\n"
+"Last-Translator: Charles Monzat <superboa@hotmail.fr>\n"
 "Language-Team: French (http://www.transifex.com/xfce/xfce-panel-plugins/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,7 +36,7 @@ msgstr "<span><b>Capteurs</b></span>"
 #. widget = sensors->eventbox;
 #: ../panel-plugin/sensors-plugin.c:996
 msgid "No sensors selected!"
-msgstr "Aucun capteur sélectionné !"
+msgstr "Aucun capteur sélectionné !"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
@@ -43,11 +46,11 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Greffon Capteurs :\nIl semblerait que la valeur d’un capteur n’ait pas été correctement lue.\nLe résultat de l’opération ne peut être garanti.\n\n\n\n"
+msgstr "Greffon Capteurs :\nIl semblerait que la valeur d’un capteur n’ait pas été correctement lue.\nLe résultat de l’opération ne peut être garanti.\n\n\n\n"
 
 #: ../panel-plugin/sensors-plugin.c:1943
 msgid "UI style:"
-msgstr "Style de l’interface :"
+msgstr "Style de l’interface :"
 
 #: ../panel-plugin/sensors-plugin.c:1944
 msgid "_text"
@@ -75,7 +78,7 @@ msgstr "Affi_cher le titre"
 
 #: ../panel-plugin/sensors-plugin.c:2081
 msgid "_Number of text lines:"
-msgstr "_Nombre de lignes de texte :"
+msgstr "_Nombre de lignes de texte :"
 
 #: ../panel-plugin/sensors-plugin.c:2118
 msgid "_Cover all panel rows/columns"
@@ -83,7 +86,7 @@ msgstr "_Couvrir toutes les lignes / colonnes du tableau de bord"
 
 #: ../panel-plugin/sensors-plugin.c:2142
 msgid "F_ont size:"
-msgstr "Taille de la _police :"
+msgstr "Taille de la _police :"
 
 #. gtk_widget_set_sensitive(myFontBox,
 #. !sd->sensors->display_values_graphically);
@@ -109,7 +112,7 @@ msgstr "très grande"
 
 #: ../panel-plugin/sensors-plugin.c:2186
 msgid "F_ont:"
-msgstr "P_olice :"
+msgstr "P_olice :"
 
 #: ../panel-plugin/sensors-plugin.c:2221
 msgid "Show _Units"
@@ -125,11 +128,11 @@ msgstr "Supprimer les messages"
 
 #: ../panel-plugin/sensors-plugin.c:2287
 msgid "Suppress tooltip"
-msgstr "Supprimer l’infobulle"
+msgstr "Supprimer l’info-bulle"
 
 #: ../panel-plugin/sensors-plugin.c:2313
 msgid "E_xecute on double click:"
-msgstr "E_xécuter sur un double clic :"
+msgstr "E_xécuter sur un double-clic :"
 
 #: ../panel-plugin/sensors-plugin.c:2357
 msgid "_View"
@@ -153,7 +156,7 @@ msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr "Vous pouvez modifier les caractéristiques d’une fonctionnalité comme son nom, ses couleurs ou sa valeur min/max. Double-cliquez sur l’entrée, modifiez son contenu et appuyez sur « Entrée » ou sélectionnez un autre champ."
+msgstr "Vous pouvez modifier les caractéristiques d’une fonctionnalité comme son nom, ses couleurs ou sa valeur min/max. Double-cliquez sur l’entrée, modifiez son contenu et appuyez sur « Entrée » ou sélectionnez un autre champ."
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -179,7 +182,7 @@ msgstr "<Inconnu>"
 
 #: ../lib/nvidia.c:63
 msgid "NVidia GPU core temperature"
-msgstr "Température du coeur du GPU NVidia"
+msgstr "Température du cœur du GPU NVidia"
 
 #: ../lib/nvidia.c:64
 msgid "nvidia"
@@ -199,7 +202,7 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "Bien qu’il soit exécutable, « hddtemp » n’a pas été correctement exécuté. Cela provient certainement du fait que les disques exigent des privilèges root, que « hddtemp » ne possède pas, pour accéder à leur température .\n\nUne solution simple, mais peu orthodoxe, consiste à exécuter la commande « chmod u+s %s » en tant que root et relancer le greffon ou son tableau de bord.\n\nAppeler « %s » a donné l’erreur suivante :\n%s\navec une valeur de retour de %d.\n"
+msgstr "Bien qu’il soit exécutable, « hddtemp » n’a pas été correctement exécuté. Cela provient certainement du fait que les disques exigent des privilèges administrateur, que « hddtemp » ne possède pas, pour accéder à leur température.\n\nUne solution simple, mais peu orthodoxe, consiste à exécuter la commande « chmod u+s %s » en tant qu’administrateur et relancer le greffon ou son tableau de bord.\n\nAppeler « %s » a donné l’erreur suivante :\n%s\navec une valeur de retour de %d.\n"
 
 #: ../lib/hddtemp.c:585 ../lib/hddtemp.c:608
 msgid "Suppress this message in future"
@@ -210,7 +213,7 @@ msgstr "Ne plus afficher ce message"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr "Une erreur s’est produite lors de l’exécution de « %s » :\n%s"
+msgstr "Une erreur s’est produite lors de l’exécution de « %s » :\n%s"
 
 #: ../lib/lmsensors.c:97
 msgid "LM Sensors"
@@ -219,7 +222,7 @@ msgstr " Capteurs LM"
 #: ../lib/lmsensors.c:370 ../lib/lmsensors.c:417
 #, c-format
 msgid "Error: Could not connect to sensors!"
-msgstr "Erreur : impossible de se connecter aux capteurs !"
+msgstr "Erreur : impossible de se connecter aux capteurs !"
 
 #: ../lib/sensors-interface.c:91
 msgid "Sensors Plugin Failure"
@@ -233,15 +236,15 @@ msgstr "Il semblerait que la valeur d’un capteur n’ait pas été correctemen
 
 #: ../lib/sensors-interface.c:178
 msgid "Sensors t_ype:"
-msgstr "T_ype de capteurs :"
+msgstr "T_ype de capteurs :"
 
 #: ../lib/sensors-interface.c:204
 msgid "Description:"
-msgstr "Description :"
+msgstr "Description :"
 
 #: ../lib/sensors-interface.c:237
 msgid "U_pdate interval (seconds):"
-msgstr "_Intervalle d’actualisation (secondes) :"
+msgstr "_Intervalle d’actualisation (secondes) :"
 
 #: ../lib/sensors-interface.c:278
 msgid "Name"
@@ -269,7 +272,7 @@ msgstr "Max"
 
 #: ../lib/sensors-interface.c:379
 msgid "Temperature scale:"
-msgstr "Échelle de température :"
+msgstr "Échelle de température :"
 
 #: ../lib/sensors-interface.c:381
 msgid "_Celsius"
@@ -285,7 +288,7 @@ msgstr "_Capteurs"
 
 #: ../lib/sensors-interface-common.c:75 ../lib/sensors-interface-common.c:76
 msgid "No sensors found!"
-msgstr "Aucun capteur trouvé !"
+msgstr "Aucun capteur trouvé !"
 
 #: ../lib/sensors-interface-common.c:149
 #, c-format
@@ -327,7 +330,7 @@ msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-msgstr "Capteurs Xfce4 %s\nCe programme est publié sous la licence GPL v2.\nLe texte de la licence peut être trouvé à l'intérieur de l'archive source du programme ou dans /usr/share/apps/LICENSES/GPL_V2 ou à http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Capteurs Xfce4 %s\nCe programme est publié sous la licence GPL v2.\nLe texte de la licence peut être trouvé à l’intérieur de l’archive source du programme ou dans /usr/share/apps/LICENSES/GPL_V2 ou à http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:78
 #, c-format
@@ -342,7 +345,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Capteurs Xfce4 %s\nAffiche des informations relatives à vos capteurs matériels, l’état ACPI, les températures de disque dur et la température des GPU Nvidia.\nSynopsis : \n  xfce4-sensors [option]\noù [option] est un ou plusieurs des choix suivants :\n  -h, --help    Affiche cette aide.\n  -l, --license Affiche les informations de licence.\n  -V, --version Affiche les informations de version.\n\nCe programme est publié sous la GPL v2.\n"
+msgstr "Capteurs Xfce4 %s\nAffiche des informations relatives à vos capteurs matériels, l’état ACPI, les températures de disque dur et la température des GPU Nvidia.\nSynopsis : \n  xfce4-sensors [option]\noù [option] est un ou plusieurs des choix suivants :\n  -h, --help    Affiche cette aide.\n  -l, --license Affiche les informations de licence.\n  -V, --version Affiche les informations de version.\n\nCe programme est publié sous la GPL v2.\n"
 
 #: ../src/main.c:100
 #, c-format
@@ -369,7 +372,7 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Visionneur de capteurs :\nIl semblerait que la valeur d’un capteur n’ait pas été correctement lue.\nLe résultat de l’opération ne peut être garanti.\n"
+msgstr "Visionneur de capteurs :\nIl semblerait que la valeur d’un capteur n’ait pas été correctement lue.\nLe résultat de l’opération ne peut être garanti.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
