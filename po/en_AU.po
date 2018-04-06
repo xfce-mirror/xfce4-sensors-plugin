@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# John Humphrys <john.humphrys@protonmail.com>, 2018
 # Michael Findlay <translate@cobber-linux.org>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-19 18:31+0100\n"
-"PO-Revision-Date: 2017-09-23 19:05+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2018-04-06 00:09+0000\n"
+"Last-Translator: John Humphrys <john.humphrys@protonmail.com>\n"
 "Language-Team: English (Australia) (http://www.transifex.com/xfce/xfce-panel-plugins/language/en_AU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -73,7 +74,7 @@ msgstr "_Number of text lines:"
 
 #: ../panel-plugin/sensors-plugin.c:2118
 msgid "_Cover all panel rows/columns"
-msgstr ""
+msgstr "_Cover all panel rows/columns"
 
 #: ../panel-plugin/sensors-plugin.c:2142
 msgid "F_ont size:"
@@ -336,7 +337,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr ""
+msgstr "Xfce4 Sensors %s\nDisplays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\nSynopsis: \n  xfce4-sensors [option]\nwhere [option] is one of the following:\n  -h, --help    Print this help dialog.\n  -l, --license Print license information.\n  -V, --version Print version information.\n\nThis program is published under the GPL v2.\n"
 
 #: ../src/main.c:100
 #, c-format
@@ -380,4 +381,4 @@ msgstr "Sensor Values Viewer"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
 msgid "Sensor plugin"
-msgstr ""
+msgstr "Sensor plugin"
