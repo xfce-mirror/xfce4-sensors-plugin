@@ -1,0 +1,383 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Zmicer Turok <zmicerturok@gmail.com>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-19 18:31+0100\n"
+"PO-Revision-Date: 2018-04-25 12:54+0000\n"
+"Last-Translator: Zmicer Turok <zmicerturok@gmail.com>\n"
+"Language-Team: Belarusian (http://www.transifex.com/xfce/xfce-panel-plugins/language/be/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: be\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#. initialize value label widget
+#: ../panel-plugin/sensors-plugin.c:381 ../panel-plugin/sensors-plugin.c:504
+#: ../panel-plugin/sensors-plugin.c:1136
+msgid "<span><b>Sensors</b></span>"
+msgstr "<span><b>Датчыкі</b></span>"
+
+#. widget = sensors->eventbox;
+#: ../panel-plugin/sensors-plugin.c:996
+msgid "No sensors selected!"
+msgstr "Датчыкаў не абрана!"
+
+#. FIXME: either print nothing, or undertake appropriate action,
+#. * or pop up a message box.
+#: ../panel-plugin/sensors-plugin.c:1036
+#, c-format
+msgid ""
+"Sensors Plugin:\n"
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr "Паведамленне:\nНемагчыма прачытаць паказанні сістэмы.\nАдлюстроўваемыя значэнні могуць быць хібнымі.\n"
+
+#: ../panel-plugin/sensors-plugin.c:1943
+msgid "UI style:"
+msgstr "Стыль адлюстравання:"
+
+#: ../panel-plugin/sensors-plugin.c:1944
+msgid "_text"
+msgstr "_тэкст"
+
+#: ../panel-plugin/sensors-plugin.c:1946
+msgid "_progress bars"
+msgstr "_панэль прагрэсу"
+
+#: ../panel-plugin/sensors-plugin.c:1948
+msgid "_tachos"
+msgstr "_тахометры"
+
+#: ../panel-plugin/sensors-plugin.c:1994
+msgid "Show _labels"
+msgstr "Паказваць _адмеціны"
+
+#: ../panel-plugin/sensors-plugin.c:2026
+msgid "Show colored _bars"
+msgstr "Паказваць каляровыя _панэлі"
+
+#: ../panel-plugin/sensors-plugin.c:2056
+msgid "_Show title"
+msgstr "_Паказваць загаловак"
+
+#: ../panel-plugin/sensors-plugin.c:2081
+msgid "_Number of text lines:"
+msgstr "_Колькасць радкоў тэксту:"
+
+#: ../panel-plugin/sensors-plugin.c:2118
+msgid "_Cover all panel rows/columns"
+msgstr "_Пакрываць усе радкі/слупкі панэлі"
+
+#: ../panel-plugin/sensors-plugin.c:2142
+msgid "F_ont size:"
+msgstr "П_амер шрыфту:"
+
+#. gtk_widget_set_sensitive(myFontBox,
+#. !sd->sensors->display_values_graphically);
+#: ../panel-plugin/sensors-plugin.c:2149
+msgid "x-small"
+msgstr "малюсенькі"
+
+#: ../panel-plugin/sensors-plugin.c:2150
+msgid "small"
+msgstr "маленькі"
+
+#: ../panel-plugin/sensors-plugin.c:2151
+msgid "medium"
+msgstr "сярэдні"
+
+#: ../panel-plugin/sensors-plugin.c:2152
+msgid "large"
+msgstr "вялікі"
+
+#: ../panel-plugin/sensors-plugin.c:2153
+msgid "x-large"
+msgstr "вялізны"
+
+#: ../panel-plugin/sensors-plugin.c:2186
+msgid "F_ont:"
+msgstr "_Шрыфт:"
+
+#: ../panel-plugin/sensors-plugin.c:2221
+msgid "Show _Units"
+msgstr "Паказваць _адзінкі вымярэння"
+
+#: ../panel-plugin/sensors-plugin.c:2244
+msgid "Small horizontal s_pacing"
+msgstr "Маленькі гарызантальны п_рагал"
+
+#: ../panel-plugin/sensors-plugin.c:2267
+msgid "Suppress messages"
+msgstr "Не паказваць паведамленні"
+
+#: ../panel-plugin/sensors-plugin.c:2287
+msgid "Suppress tooltip"
+msgstr "Не паказваць падказкі"
+
+#: ../panel-plugin/sensors-plugin.c:2313
+msgid "E_xecute on double click:"
+msgstr "_Запускаць падвойнай пстрычкай:"
+
+#: ../panel-plugin/sensors-plugin.c:2357
+msgid "_View"
+msgstr "_Выгляд"
+
+#: ../panel-plugin/sensors-plugin.c:2392
+msgid "_Miscellaneous"
+msgstr "_Рознае"
+
+#: ../panel-plugin/sensors-plugin.c:2469 ../panel-plugin/sensors-plugin.h:31
+#: ../lib/hddtemp.c:167
+msgid "Sensors Plugin"
+msgstr "Датчыкі"
+
+#: ../panel-plugin/sensors-plugin.c:2477
+msgid "Properties"
+msgstr "Уласцівасці"
+
+#: ../panel-plugin/sensors-plugin.c:2510
+msgid ""
+"You can change a feature's properties such as name, colours, min/max value "
+"by double-clicking the entry, editing the content, and pressing \"Return\" "
+"or selecting a different field."
+msgstr "Вы можаце змяніць уласцівасць (назва, колер, мін/макс значэнне) двойчы пстрыкнуўшы па радку, адрэдагаваць змесціва і націснуць «Enter», альбо абраць іншае поле."
+
+#. only use this if no hddtemp sensor
+#. or do only use this , if it is an lmsensors device. whatever.
+#. FIXME: compare strings, or also have hddtemp and acpi store numeric
+#. str_values
+#. assert correctly saved str_file
+#: ../lib/configuration.c:174 ../lib/configuration.c:396 ../lib/hddtemp.c:396
+msgid "Hard disks"
+msgstr "Цвёрдыя дыскі"
+
+#: ../lib/acpi.c:580 ../lib/acpi.c:592
+msgid "ACPI"
+msgstr "ACPI"
+
+#: ../lib/acpi.c:583
+#, c-format
+msgid "ACPI v%s zones"
+msgstr "ACPI v%s зоны"
+
+#: ../lib/acpi.c:724
+msgid "<Unknown>"
+msgstr "<Невядома>"
+
+#: ../lib/nvidia.c:63
+msgid "NVidia GPU core temperature"
+msgstr "Тэмпература ядра GPU NVidia"
+
+#: ../lib/nvidia.c:64
+msgid "nvidia"
+msgstr "nvidia"
+
+#: ../lib/hddtemp.c:395
+msgid "S.M.A.R.T. harddisk temperatures"
+msgstr "Тэмпература дыска згодна S.M.A.R.T."
+
+#: ../lib/hddtemp.c:571
+#, c-format
+msgid ""
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"\n"
+"Calling \"%s\" gave the following error:\n"
+"%s\n"
+"with a return value of %d.\n"
+msgstr "Загад \"hddtemp\" запушчаны некарэктна. Так можа здарыцца, калі для атрымання звестак пра тэмпературу дыскаў неабходныя правы суперкарыстальніка.\nСамы просты спосаб вырашыць гэта - запусціць загад \"chmod u+s %s\" ад імя суперкарыстальніка і перазапусціць убудову альбо панэль.\n\n\"%s\" паведамляе пра памылку:\n%s\nз кодам %d.\n"
+
+#: ../lib/hddtemp.c:585 ../lib/hddtemp.c:608
+msgid "Suppress this message in future"
+msgstr "Больш не паказваць гэтае паведамленне"
+
+#: ../lib/hddtemp.c:603
+#, c-format
+msgid ""
+"An error occurred when executing \"%s\":\n"
+"%s"
+msgstr "Памылка падчас запуску «%s»:\n%s"
+
+#: ../lib/lmsensors.c:97
+msgid "LM Sensors"
+msgstr "Датчыкі LM"
+
+#: ../lib/lmsensors.c:370 ../lib/lmsensors.c:417
+#, c-format
+msgid "Error: Could not connect to sensors!"
+msgstr "Памылка: немагчыма злучыцца з датчыкамі!"
+
+#: ../lib/sensors-interface.c:91
+msgid "Sensors Plugin Failure"
+msgstr "Збой убудовы"
+
+#: ../lib/sensors-interface.c:92
+msgid ""
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed."
+msgstr "Здаецца, пры чытанні паказанняў датчыкаў адбылася памылка.\nАдлюстроўваемыя значэнні могуць быць хібнымі."
+
+#: ../lib/sensors-interface.c:178
+msgid "Sensors t_ype:"
+msgstr "_Тып датчыкаў:"
+
+#: ../lib/sensors-interface.c:204
+msgid "Description:"
+msgstr "Апісанне:"
+
+#: ../lib/sensors-interface.c:237
+msgid "U_pdate interval (seconds):"
+msgstr "_Інтэрвал абнаўлення (секунд):"
+
+#: ../lib/sensors-interface.c:278
+msgid "Name"
+msgstr "Назва"
+
+#: ../lib/sensors-interface.c:290
+msgid "Value"
+msgstr "Значэнне"
+
+#: ../lib/sensors-interface.c:298
+msgid "Show"
+msgstr "Паказаць"
+
+#: ../lib/sensors-interface.c:307
+msgid "Color"
+msgstr "Колер"
+
+#: ../lib/sensors-interface.c:320
+msgid "Min"
+msgstr "Мін"
+
+#: ../lib/sensors-interface.c:337
+msgid "Max"
+msgstr "Макс"
+
+#: ../lib/sensors-interface.c:379
+msgid "Temperature scale:"
+msgstr "Тэмпературная шкала:"
+
+#: ../lib/sensors-interface.c:381
+msgid "_Celsius"
+msgstr "_Цэльсія"
+
+#: ../lib/sensors-interface.c:383
+msgid "_Fahrenheit"
+msgstr "_Фарэнгейта"
+
+#: ../lib/sensors-interface.c:419
+msgid "_Sensors"
+msgstr "_Датчыкі"
+
+#: ../lib/sensors-interface-common.c:75 ../lib/sensors-interface-common.c:76
+msgid "No sensors found!"
+msgstr "Датчыкаў не знойдзена!"
+
+#: ../lib/sensors-interface-common.c:149
+#, c-format
+msgid "%.0f °F"
+msgstr "%.0f °F"
+
+#. Celsius
+#: ../lib/sensors-interface-common.c:152
+#, c-format
+msgid "%.0f °C"
+msgstr "%.0f °C"
+
+#: ../lib/sensors-interface-common.c:157
+#, c-format
+msgid "%+.3f V"
+msgstr "%+.3f В"
+
+#: ../lib/sensors-interface-common.c:161
+#, c-format
+msgid "%.0f mWh"
+msgstr "%.0f МВт/г"
+
+#: ../lib/sensors-interface-common.c:166
+msgid "off"
+msgstr "выключыць"
+
+#: ../lib/sensors-interface-common.c:168
+msgid "on"
+msgstr "выключыць"
+
+#: ../lib/sensors-interface-common.c:172
+#, c-format
+msgid "%.0f rpm"
+msgstr "%5.0f аб/хвіл"
+
+#: ../src/main.c:62
+#, c-format
+msgid ""
+"Xfce4 Sensors %s\n"
+"This program is published under the GPL v2.\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Датчыкі Xfce4 %s\nГэтая праграма публікуецца згодна з умовамі ліцэнзіі GPL v2.\nТэкст ліцэнзіі можна знайсці ў архіве з зыходным кодам альбо ў /usr/share/apps/LICENSES/GPL_V2, і на http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+
+#: ../src/main.c:78
+#, c-format
+msgid ""
+"Xfce4 Sensors %s\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
+"Synopsis: \n"
+"  xfce4-sensors [option]\n"
+"where [option] is one of the following:\n"
+"  -h, --help    Print this help dialog.\n"
+"  -l, --license Print license information.\n"
+"  -V, --version Print version information.\n"
+"\n"
+"This program is published under the GPL v2.\n"
+msgstr "Датчыкі Xfce4 %s\nАдлюстраванне інфармацыі аб датчыках, стане ACPI, тэмпературы цвёрдых дыскаў і Nvidia GPU.\nДапаможнік:\nxfce4-sensors [параметр]\nдзе параметр:\n-h, --help выводзіць гэты дыялог.\n-l, --license выводзіць інфармацыю пра ліцэнзію.\n-V, --version выводзіць інфармацыю пра версію.\n\nГэтая праграма публікуецца згодна з умовамі ліцэнзіі GPL v2.\n"
+
+#: ../src/main.c:100
+#, c-format
+msgid "Xfce4 Sensors %s\n"
+msgstr "Датчыкі Xfce4 %s\n"
+
+#: ../src/interface.c:86
+msgid "_Overview"
+msgstr "_Агляд"
+
+#: ../src/interface.c:106
+msgid "_Tachometers"
+msgstr "_Тахометры"
+
+#: ../src/interface.c:122
+msgid "Sensors Viewer"
+msgstr "Прагляд датчыкаў"
+
+#. FIXME: either print nothing, or undertake appropriate action,
+#. * or pop up a message box.
+#: ../src/actions.c:92
+#, c-format
+msgid ""
+"Sensors Viewer:\n"
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr "Паведамленне:\nНемагчыма прачытаць паказанні сістэмы.\nАдлюстроўваемыя значэнні могуць быць хібнымі.\n"
+
+#: ../src/xfce4-sensors.desktop.in.h:1
+msgid "Sensor Viewer"
+msgstr "Прагляд датчыкаў"
+
+#: ../src/xfce4-sensors.desktop.in.h:2
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
+msgid "Show sensor values."
+msgstr "Прагляд паказанняў датчыкаў."
+
+#: ../src/xfce4-sensors.desktop.in.h:3
+msgid "Sensor Values Viewer"
+msgstr "Паглядзець паказанні датчыкаў"
+
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
+msgid "Sensor plugin"
+msgstr "Убудова датчыкаў"
