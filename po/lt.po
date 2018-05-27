@@ -4,21 +4,21 @@
 # 
 # Translators:
 # Algimantas Margevičius <margevicius.algimantas@gmail.com>, 2012
-# Moo, 2015-2017
+# Moo, 2015-2018
 # Rimas Kudelis <rq@akl.lt>, 2005
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-19 18:31+0100\n"
-"PO-Revision-Date: 2017-09-19 18:06+0000\n"
+"PO-Revision-Date: 2018-05-27 22:09+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lt\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
 
 #. initialize value label widget
 #: ../panel-plugin/sensors-plugin.c:381 ../panel-plugin/sensors-plugin.c:504
@@ -39,7 +39,7 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Jutiklių įskiepis:\nAtrodo, kad buvo problemų nuskaitant jutiklio funkcijos reikšmę.\nTvarkingas tolesnis darbas negali būti užtikrinamas.\n"
+msgstr "Jutiklių įskiepis:\nAtrodo, kad buvo problemų nuskaitant jutiklio funkcijos reikšmę.\nTvarkingas tolimesnis darbas negali būti užtikrintas.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1943
 msgid "UI style:"
@@ -175,7 +175,7 @@ msgstr "<Nežinoma>"
 
 #: ../lib/nvidia.c:63
 msgid "NVidia GPU core temperature"
-msgstr "NVidia GPU šerdies temperatūra"
+msgstr "NVidia GPU branduolio temperatūra"
 
 #: ../lib/nvidia.c:64
 msgid "nvidia"
@@ -237,7 +237,7 @@ msgstr "Aprašymas:"
 
 #: ../lib/sensors-interface.c:237
 msgid "U_pdate interval (seconds):"
-msgstr "Atnaujinimo _dažnumas (sek.):"
+msgstr "Atnaujinimo _dažnis (sek.):"
 
 #: ../lib/sensors-interface.c:278
 msgid "Name"
@@ -281,7 +281,7 @@ msgstr "_Jutikliai"
 
 #: ../lib/sensors-interface-common.c:75 ../lib/sensors-interface-common.c:76
 msgid "No sensors found!"
-msgstr "Jokių jutiklių nerasta!"
+msgstr "Nerasta jokių jutiklių!"
 
 #: ../lib/sensors-interface-common.c:149
 #, c-format
@@ -315,7 +315,7 @@ msgstr "įj."
 #: ../lib/sensors-interface-common.c:172
 #, c-format
 msgid "%.0f rpm"
-msgstr "%.0f rpm"
+msgstr "%.0f aps./min."
 
 #: ../src/main.c:62
 #, c-format
@@ -343,7 +343,7 @@ msgstr "Xfce4 jutikliai %s\nRodo informaciją apie jūsų aparatinės įrangos j
 #: ../src/main.c:100
 #, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr "Xfce4 Jutikliai %s\n"
+msgstr "Xfce4 jutikliai %s\n"
 
 #: ../src/interface.c:86
 msgid "_Overview"
@@ -374,7 +374,7 @@ msgstr "Jutiklių žiūryklė"
 #: ../src/xfce4-sensors.desktop.in.h:2
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
 msgid "Show sensor values."
-msgstr "Parodyti jutiklio reikšmes."
+msgstr "Parodyti jutiklių reikšmes."
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 msgid "Sensor Values Viewer"
