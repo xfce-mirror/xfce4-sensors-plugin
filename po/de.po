@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Fabian Nowak <timystery@arcor.de>, 2004 - 2007, 2009
+# Fabian Nowak <timystery@arcor.de>, 2004 - 2007, 2009, 2018
 # Tobias Bannert <tobannert@gmail.com>, 2014,2017
 msgid ""
 msgstr ""
@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-19 18:31+0100\n"
 "PO-Revision-Date: 2017-09-19 18:06+0000\n"
-"Last-Translator: Tobias Bannert <tobannert@gmail.com>\n"
+"Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German (http://www.transifex.com/xfce/xfce-panel-plugins/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -74,7 +74,7 @@ msgstr "A_nzahl der Textzeilen:"
 
 #: ../panel-plugin/sensors-plugin.c:2118
 msgid "_Cover all panel rows/columns"
-msgstr "Alle Leistenreihen und -spalten _verdecken"
+msgstr "Alle Leistenreihen und -spalten _verwenden"
 
 #: ../panel-plugin/sensors-plugin.c:2142
 msgid "F_ont size:"
