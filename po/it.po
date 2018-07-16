@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Cristian Marchi <cri.penta@gmail.com>, 2009,2014
+# Emanuele Petriglia <inbox@emanuelepetriglia.me>, 2018
 # Enrico B. <enricobe@hotmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-19 18:31+0100\n"
-"PO-Revision-Date: 2018-07-11 15:11+0000\n"
+"PO-Revision-Date: 2018-07-16 08:06+0000\n"
 "Last-Translator: Emanuele Petriglia <inbox@emanuelepetriglia.me>\n"
 "Language-Team: Italian (http://www.transifex.com/xfce/xfce-panel-plugins/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +39,7 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Plugin sensori:\nprobabilmente si è verificato un problema leggendo il valore di un sensore.\nNon è garantito il funzionamento corretto.\n"
+msgstr "Componente aggiuntivo per i sensori:\nprobabilmente si è verificato un problema leggendo il valore di un sensore.\nNon è garantito il funzionamento corretto.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1943
 msgid "UI style:"
@@ -120,11 +121,11 @@ msgstr "Non visualizzare i messaggi"
 
 #: ../panel-plugin/sensors-plugin.c:2287
 msgid "Suppress tooltip"
-msgstr "Disabilita i suggerimenti"
+msgstr "Non visualizzare i suggerimenti"
 
 #: ../panel-plugin/sensors-plugin.c:2313
 msgid "E_xecute on double click:"
-msgstr "Con un doppio clic _esegui:"
+msgstr "_Esegui con un doppio click:"
 
 #: ../panel-plugin/sensors-plugin.c:2357
 msgid "_View"
@@ -137,7 +138,7 @@ msgstr "Va_rie"
 #: ../panel-plugin/sensors-plugin.c:2469 ../panel-plugin/sensors-plugin.h:31
 #: ../lib/hddtemp.c:167
 msgid "Sensors Plugin"
-msgstr "Plugin per i sensori"
+msgstr "Componente aggiuntivo per i sensori"
 
 #: ../panel-plugin/sensors-plugin.c:2477
 msgid "Properties"
@@ -194,7 +195,7 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "\"hddtemp\" non è stato eseguito correttamente, anche se è eseguibile. Questo è probabilmente dovuto al fatto che i dischi richiedono i privilegi di root per leggere le proprie temperature, e  \"hddtemp\" non è stato impostato come root.\n\nUna semplice ma non rigorosa soluzione consiste nell'eseguire \"chmod u+s %s\" come utente root e riavviare questo plugin o il suo pannello.\n\nLa chiamata di \"%s\" ha fornito il seguente errore:\n%s\ncon un valore di ritorno di %d.\n"
+msgstr "\"hddtemp\" non è stato eseguito correttamente, anche se è eseguibile. Questo è probabilmente dovuto al fatto che i dischi richiedono i privilegi di root per leggere le proprie temperature, e \"hddtemp\" non è stato impostato come root.\n\nUna semplice ma non rigorosa soluzione consiste nell'eseguire \"chmod u+s %s\" come utente root e riavviare questo plugin o il suo pannello.\n\nLa chiamata di \"%s\" ha fornito il seguente errore:\n%s\ncon un valore di ritorno di %d.\n"
 
 #: ../lib/hddtemp.c:585 ../lib/hddtemp.c:608
 msgid "Suppress this message in future"
@@ -214,17 +215,17 @@ msgstr "Sensori LM"
 #: ../lib/lmsensors.c:370 ../lib/lmsensors.c:417
 #, c-format
 msgid "Error: Could not connect to sensors!"
-msgstr "Errore: impossibile connettersi al sensore"
+msgstr "Errore: impossibile connettersi ai sensori!"
 
 #: ../lib/sensors-interface.c:91
 msgid "Sensors Plugin Failure"
-msgstr "Errore del plugin per i sensori"
+msgstr "Errore del componente aggiuntivo per i sensori"
 
 #: ../lib/sensors-interface.c:92
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr "Probabilmente si è verificato un problema leggendo un valore del sensore.\nNon si garantisce il funzionamento corretto procedendo."
+msgstr "Probabilmente si è verificato un problema leggendo un valore del sensore.\nNon è garantito il funzionamento corretto."
 
 #: ../lib/sensors-interface.c:178
 msgid "Sensors t_ype:"
@@ -264,7 +265,7 @@ msgstr "Massimo"
 
 #: ../lib/sensors-interface.c:379
 msgid "Temperature scale:"
-msgstr "Scala della temperatura"
+msgstr "Scala della temperatura:"
 
 #: ../lib/sensors-interface.c:381
 msgid "_Celsius"
@@ -280,7 +281,7 @@ msgstr "_Sensori"
 
 #: ../lib/sensors-interface-common.c:75 ../lib/sensors-interface-common.c:76
 msgid "No sensors found!"
-msgstr "Non è stato trovato alcun sensore"
+msgstr "Non è stato trovato alcun sensore!"
 
 #: ../lib/sensors-interface-common.c:149
 #, c-format
@@ -337,7 +338,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Xfce4 Sensors %s\nMostra informazioni sul tuo hardware, sullo stato ACPI, sulle temperature dell'hard disk e quelle delle GPU Nvidia.\nSinossi:\nxfce4-sensors [opzione]\ndove [opzione] è una delle seguenti:\n-h, --help Mostra questo messaggio\n-l, --license Mostra le informazioni sulla licenza\n-V, --version Mostra le informazioni sulla versione\n\nQuesto programma è rilasciato sotto licenza GPL v2.\n\n"
+msgstr "Xfce4 Sensors %s\nMostra informazioni sul tuo hardware, sullo stato ACPI, sulle temperature dell'hard disk e quelle delle GPU Nvidia.\nSinossi:\n  xfce4-sensors [opzione]\ndove [opzione] è una delle seguenti:\n  -h, --help Mostra questo messaggio.\n  -l, --license Mostra le informazioni sulla licenza.\n  -V, --version Mostra le informazioni sulla versione.\n\nQuesto programma è rilasciato sotto licenza GPL v2.\n\n"
 
 #: ../src/main.c:100
 #, c-format
@@ -373,7 +374,7 @@ msgstr "Visualizzatore di sensore"
 #: ../src/xfce4-sensors.desktop.in.h:2
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
 msgid "Show sensor values."
-msgstr "Mostra i valori di un sensore"
+msgstr "Mostra i valori di un sensore."
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 msgid "Sensor Values Viewer"
@@ -381,4 +382,4 @@ msgstr "Visualizzatore dei valori dei sensori"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
 msgid "Sensor plugin"
-msgstr "Plugin Sensori"
+msgstr "Componente aggiuntivo per i sensori"
