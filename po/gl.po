@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Daniel Muñiz Fontoira <dani@damufo.com>, 2018
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2008-2009
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-19 18:31+0100\n"
-"PO-Revision-Date: 2017-09-19 18:06+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2018-08-03 14:59+0000\n"
+"Last-Translator: Daniel Muñiz Fontoira <dani@damufo.com>\n"
 "Language-Team: Galician (http://www.transifex.com/xfce/xfce-panel-plugins/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +23,7 @@ msgstr ""
 #: ../panel-plugin/sensors-plugin.c:381 ../panel-plugin/sensors-plugin.c:504
 #: ../panel-plugin/sensors-plugin.c:1136
 msgid "<span><b>Sensors</b></span>"
-msgstr ""
+msgstr "<span><b>Sensores</b></span>"
 
 #. widget = sensors->eventbox;
 #: ../panel-plugin/sensors-plugin.c:996
@@ -73,7 +74,7 @@ msgstr "_Número de liñas de texto:"
 
 #: ../panel-plugin/sensors-plugin.c:2118
 msgid "_Cover all panel rows/columns"
-msgstr ""
+msgstr "_Cubrir todas as filas/columnas do panel"
 
 #: ../panel-plugin/sensors-plugin.c:2142
 msgid "F_ont size:"
@@ -119,7 +120,7 @@ msgstr "Suprimir mensaxes"
 
 #: ../panel-plugin/sensors-plugin.c:2287
 msgid "Suppress tooltip"
-msgstr ""
+msgstr "Eliminar indicación"
 
 #: ../panel-plugin/sensors-plugin.c:2313
 msgid "E_xecute on double click:"
@@ -284,18 +285,18 @@ msgstr "Non se atoparon sensores!"
 #: ../lib/sensors-interface-common.c:149
 #, c-format
 msgid "%.0f °F"
-msgstr ""
+msgstr "%.0f °F"
 
 #. Celsius
 #: ../lib/sensors-interface-common.c:152
 #, c-format
 msgid "%.0f °C"
-msgstr ""
+msgstr "%.0f °C"
 
 #: ../lib/sensors-interface-common.c:157
 #, c-format
 msgid "%+.3f V"
-msgstr ""
+msgstr "%+.3f V"
 
 #: ../lib/sensors-interface-common.c:161
 #, c-format
@@ -336,7 +337,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr ""
+msgstr "Sensores do Xfce4 %s\nAmosa información sobre os sensores de hardware, estado da ACPI (configuración avanzada e interface de potencia), temperatura dos discos e temperatura da GPU (unidade de procesamento de gráficos)  Nvidia.\nSinopse: \nxfce4-sensors [opción]\nonde [opción] é unha das seguintes:\n-h, --help Imprime este diálogo de axuda.\n-l, --license Imprime información sobre a licenza\n.-V, --version Imprime información sobre a versión.\nEste aplicativo é publicado sobre a GPL v2.\n"
 
 #: ../src/main.c:100
 #, c-format
@@ -380,4 +381,4 @@ msgstr "Visor dos valores dos sensores"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
 msgid "Sensor plugin"
-msgstr ""
+msgstr "Engadido de sensores"
