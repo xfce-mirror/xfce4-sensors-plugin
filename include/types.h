@@ -89,6 +89,8 @@ typedef enum {
     SPEED,
     ENERGY,
     STATE,
+    POWER,
+    CURRENT,
     OTHER
 } t_chipfeature_class;
 

@@ -170,6 +170,41 @@ categorize_sensor_type_libsensors4 (t_chipfeature *ptr_chipfeature,
                 ptr_chipfeature->max_value = sensorFeature;
             break;
 
+        case SENSORS_FEATURE_POWER:
+            ptr_chipfeature->class = POWER;
+            ptr_chipfeature->min_value = 0.0;
+            ptr_chipfeature->max_value = 120.0;
+
+            if ((sub_feature = sensors_get_subfeature (c_ptr_sensors_chip_name, c_ptr_sensors_feature,
+                    SENSORS_SUBFEATURE_POWER_MAX)) &&
+                    !sensors_get_value (c_ptr_sensors_chip_name, address_chipfeature, &sensorFeature))
+                ptr_chipfeature->max_value = sensorFeature;
+
+            break;
+
+        case SENSORS_FEATURE_ENERGY:
+	    ptr_chipfeature->class = ENERGY;
+            ptr_chipfeature->min_value = 0.0;
+            ptr_chipfeature->max_value = 120.0;
+	    break;
+
+        case SENSORS_FEATURE_CURR:
+	    ptr_chipfeature->class = CURRENT;
+            ptr_chipfeature->min_value = 0.0;
+            ptr_chipfeature->max_value = 100.0;
+
+            if ((sub_feature = sensors_get_subfeature (c_ptr_sensors_chip_name, c_ptr_sensors_feature,
+                    SENSORS_SUBFEATURE_CURR_MIN)) &&
+                    !sensors_get_value (c_ptr_sensors_chip_name, address_chipfeature, &sensorFeature))
+                ptr_chipfeature->min_value = sensorFeature;
+
+            if ((sub_feature = sensors_get_subfeature (c_ptr_sensors_chip_name, c_ptr_sensors_feature,
+                    SENSORS_SUBFEATURE_CURR_MAX)) &&
+                    !sensors_get_value (c_ptr_sensors_chip_name, address_chipfeature, &sensorFeature))
+                ptr_chipfeature->max_value = sensorFeature;
+
+	    break;
+
         case SENSORS_FEATURE_VID:
             ptr_chipfeature->class = VOLTAGE;
             ptr_chipfeature->min_value = 1.0;
@@ -304,6 +339,18 @@ find_chipfeature (const sensors_chip_name *name, t_chip *chip,
         case SENSORS_FEATURE_BEEP_ENABLE:
             sub_feature = sensors_get_subfeature (name, feature,
                                                  SENSORS_SUBFEATURE_BEEP_ENABLE);
+            break;
+        case SENSORS_FEATURE_POWER:
+            sub_feature = sensors_get_subfeature (name, feature,
+                                                 SENSORS_SUBFEATURE_POWER_INPUT);
+            break;
+        case SENSORS_FEATURE_ENERGY:
+            sub_feature = sensors_get_subfeature (name, feature,
+                                                 SENSORS_SUBFEATURE_ENERGY_INPUT);
+            break;
+        case SENSORS_FEATURE_CURR:
+            sub_feature = sensors_get_subfeature (name, feature,
+                                                 SENSORS_SUBFEATURE_CURR_INPUT);
             break;
         default:
             sub_feature = sensors_get_subfeature (name, feature,

@@ -155,8 +155,16 @@ format_sensor_value (t_tempscale temperaturescale, t_chipfeature *ptr_chipfeatur
                *dptr_str_formattedvalue = g_strdup_printf(_("%+.3f V"), val_sensorfeature);
                break;
 
+        case CURRENT:
+               *dptr_str_formattedvalue = g_strdup_printf(_("%+.3f A"), val_sensorfeature);
+               break;
+
         case ENERGY:
                *dptr_str_formattedvalue = g_strdup_printf(_("%.0f mWh"), val_sensorfeature);
+               break;
+
+        case POWER:
+               *dptr_str_formattedvalue = g_strdup_printf(_("%.0f W"), val_sensorfeature);
                break;
 
         case STATE:
