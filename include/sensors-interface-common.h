@@ -37,9 +37,20 @@
 #include "sensors-interface-plugin.h"
 
 /* Definitions */
-#define BORDER 8
-#define OUTER_BORDER 4
-#define INNER_BORDER 2
+// Newer Gnome 2 spacing?
+//#define BORDER 18
+//#define OUTER_BORDER 12
+//#define INNER_BORDER 6
+
+// Old Xfce 4.2 spacing
+//#define BORDER 8
+//#define OUTER_BORDER 4
+//#define INNER_BORDER 2
+
+// somewhere in between :)
+#define BORDER 12
+#define OUTER_BORDER 12
+#define INNER_BORDER 6
 
 #define COLOR_ERROR     "#F00000"
 #define COLOR_WARN      "#F0F000"
