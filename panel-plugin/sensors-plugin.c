@@ -2563,6 +2563,30 @@ create_sensors_control (XfcePanelPlugin *plugin)
 }
 
 
+static void
+sensors_show_about(XfcePanelPlugin *plugin, t_sensors *ptr_sensorsstruct)
+{
+   GdkPixbuf *icon;
+   const gchar *auth[] = {"Fabian Nowak <timystery@xfce.org>",
+                          "Stefan Ott",
+                          NULL };
+   icon = xfce_panel_pixbuf_from_source("xfce-sensors", NULL, 32);
+   gtk_show_about_dialog(NULL,
+      "logo", icon,
+      "license", xfce_get_license_text (XFCE_LICENSE_TEXT_GPL),
+      "version", PACKAGE_VERSION,
+      "program-name", PACKAGE_NAME,
+      "comments", _("Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"),
+      "website", "http://goodies.xfce.org/projects/panel-plugins/xfce4-sensors-plugin",
+      "copyright", _("Copyright (c) 2004-2018\n"),
+      "authors", auth, NULL);
+  // TODO: add translators.
+
+   if(icon)
+      g_object_unref(G_OBJECT(icon));
+}
+
+
 /* -------------------------------------------------------------------------- */
 static void
 sensors_plugin_construct (XfcePanelPlugin *plugin)
@@ -2608,13 +2632,17 @@ sensors_plugin_construct (XfcePanelPlugin *plugin)
     g_signal_connect (plugin, "free-data", G_CALLBACK (sensors_free), ptr_sensorsstruct);
 
     ptr_sensorsstruct->plugin_config_file = xfce_panel_plugin_save_location (plugin, TRUE);
-    g_signal_connect (plugin, "save", G_CALLBACK (sensors_write_config),
-                      ptr_sensorsstruct);
+    /* saving seens to cause problems when closing the panel on fast multi-core CPUs; writing when closing the config dialog should suffice */
+    /*g_signal_connect (plugin, "save", G_CALLBACK (sensors_write_config),
+                      ptr_sensorsstruct);*/
 
     xfce_panel_plugin_menu_show_configure (plugin);
 
     g_signal_connect (plugin, "configure-plugin",
                       G_CALLBACK (sensors_create_options), ptr_sensorsstruct);
+
+    xfce_panel_plugin_menu_show_about(plugin);
+    g_signal_connect (plugin, "about", G_CALLBACK (sensors_show_about), ptr_sensorsstruct);
 
     g_signal_connect (plugin, "size-changed", G_CALLBACK (sensors_set_size),
                          ptr_sensorsstruct);
