@@ -13,7 +13,6 @@ TODO
 
 - decrease size of entries in min/max value fields... would have to change renderer for double values...
 
-- find reason why plugin crashes on exit
 
 Known bugs or user requests
 ---------------------------

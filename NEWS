@@ -41,3 +41,5 @@
         Bug 11596: Recover directory "m4" in autogen.sh
         Bug 11012: ACPI thermal zones not shown
 1.2.7:  ?
+1.2.98: Code cleanup and Gtk3 port
+1.3.1:  Various Bugfixes
