@@ -5,12 +5,13 @@
 # Translators:
 # Besnik <besnik@programeshqip.org>, 2007
 # Besnik <besnik@programeshqip.org>, 2007
+# Besnik <besnik@programeshqip.org>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-12 00:32+0200\n"
-"PO-Revision-Date: 2018-09-14 20:57+0000\n"
+"POT-Creation-Date: 2018-10-02 00:32+0200\n"
+"PO-Revision-Date: 2018-10-02 10:50+0000\n"
 "Last-Translator: Besnik <besnik@programeshqip.org>\n"
 "Language-Team: Albanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sq/)\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +38,7 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
+msgstr "Shtojcë Ndijuesish:\nDuket se pati një problem në leximin e vlerës së ndijuesit të një veçorie.\nS’garantohet dot vazhdimi si duhet.\n"
 
 #: ../panel-plugin/sensors-plugin.c:1943
 msgid "UI style:"
@@ -117,7 +118,7 @@ msgstr "Ndaloji mesazhet"
 
 #: ../panel-plugin/sensors-plugin.c:2288
 msgid "Suppress tooltip"
-msgstr ""
+msgstr "Mos lejo shfaqje ndihmëze"
 
 #: ../panel-plugin/sensors-plugin.c:2315
 msgid "E_xecute on double click:"
@@ -145,7 +146,15 @@ msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr ""
+msgstr "Vetitë e një veçorie, të tilla si emri, ngjyrat, vlera min./maks., mund t’i ndryshoni duke dyklikuar mbi zërin, përpunuar lëndën dhe shtypur \"Rikthehu\" ose duke përzgjedhur një fushë tjetër."
+
+#: ../panel-plugin/sensors-plugin.c:2579
+msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
+msgstr "Shfaq vlera ndijuesish për ndijues LM, ACPI, disqe, NVIDIA"
+
+#: ../panel-plugin/sensors-plugin.c:2581
+msgid "Copyright (c) 2004-2018\n"
+msgstr "Të drejta kopjimi (c) 2004-2018\n"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -171,7 +180,7 @@ msgstr "<I/e panjohur>"
 
 #: ../lib/nvidia.c:65
 msgid "NVidia GPU core temperature"
-msgstr ""
+msgstr "Temperaturë njësie GPU NVidia"
 
 #: ../lib/nvidia.c:66
 msgid "nvidia"
@@ -215,7 +224,7 @@ msgstr "Gabim: Nuk u lidh dot me ndijuesat!"
 
 #: ../lib/sensors-interface.c:90
 msgid "Sensors Plugin Failure"
-msgstr ""
+msgstr "Dështim Shtojce Ndijuesi"
 
 #: ../lib/sensors-interface.c:91
 msgid ""
@@ -329,7 +338,7 @@ msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-msgstr ""
+msgstr "Ndijues Xfce4 %s\nKy program botohet sipas GPL v2.\nTeksti ilicencës mund të gjendet brenda arkivit të burimit të programit ose te /usr/share/apps/LICENSES/GPL_V2 apo te http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:78
 #, c-format
@@ -344,12 +353,12 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr ""
+msgstr "Ndijues Xfce4 %s\nShfaq të dhëna mbi nidjuesit e hardware-it tuaj, gjendjesh ACPI, temperatura disqesh dhe temperaturë njësie GPU Nvidia.\nPërmbledhje: \n  xfce4-sensors [mundësi]\nku [mundësi] është një nga sa vijon:\n  -h, --help    Shtyp këtë dialog ndihme.\n  -l, --license Shtyp të dhëna licence.\n  -V, --version Shtyp të dhëna versioni.\n\nKy program botohet nën GPL v2.\n"
 
 #: ../src/main.c:100
 #, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr ""
+msgstr "Ndijues Xfce4 %s\n"
 
 #: ../src/interface.c:85
 msgid "_Overview"
@@ -371,11 +380,11 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
+msgstr "Parës Ndijuesish:\nDuket se pat  një problem në leximin e vlerës së ndijuesit për një veçori.\nS’garantohet dot vazhdim si duhet.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
-msgstr ""
+msgstr "Parës Ndijuesi"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
@@ -384,7 +393,7 @@ msgstr "Shfaq vlera ndijuesish."
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 msgid "Sensor Values Viewer"
-msgstr ""
+msgstr "Parës Vlerash Ndijuesi"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
 msgid "Sensor plugin"
