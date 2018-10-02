@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-12 00:32+0200\n"
-"PO-Revision-Date: 2018-09-12 09:06+0000\n"
+"POT-Creation-Date: 2018-10-02 00:32+0200\n"
+"PO-Revision-Date: 2018-10-02 07:00+0000\n"
 "Last-Translator: Edin Veskovic <edin.lockedin@gmail.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/xfce/xfce-panel-plugins/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -149,6 +149,14 @@ msgid ""
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "Svojstva značajki mjenjajte tako da dva puta kliknete na liniju, zatim uredite sadržaj i pritisnite Enter ili izaberite drugo polje."
+
+#: ../panel-plugin/sensors-plugin.c:2579
+msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
+msgstr "Pokazuje vrijednosti senzora LM senzora, ACPI senzora, tvrdih diskova, NVIDIA uređaja"
+
+#: ../panel-plugin/sensors-plugin.c:2581
+msgid "Copyright (c) 2004-2018\n"
+msgstr "Autorska prava (c) 2004-2018\n"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
