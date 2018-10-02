@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006
-# Jeff Huang <s8321414@gmail.com>, 2014,2017
+# Jeff Huang <s8321414@gmail.com>, 2014,2017-2018
 # Walter Cheuk <wwycheuk@gmail.com>, 2014
 # Jeff Huang <s8321414@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-19 18:31+0100\n"
-"PO-Revision-Date: 2017-09-19 18:06+0000\n"
+"POT-Creation-Date: 2018-10-02 00:32+0200\n"
+"PO-Revision-Date: 2018-10-02 05:09+0000\n"
 "Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/xfce/xfce-panel-plugins/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -22,19 +22,18 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.c:381 ../panel-plugin/sensors-plugin.c:504
-#: ../panel-plugin/sensors-plugin.c:1136
+#: ../panel-plugin/sensors-plugin.c:377 ../panel-plugin/sensors-plugin.c:504
+#: ../panel-plugin/sensors-plugin.c:1117
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>感測器</b></span>"
 
-#. widget = sensors->eventbox;
-#: ../panel-plugin/sensors-plugin.c:996
+#: ../panel-plugin/sensors-plugin.c:983
 msgid "No sensors selected!"
 msgstr "沒有感測器被選用！"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:1036
+#: ../panel-plugin/sensors-plugin.c:1022
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -62,15 +61,15 @@ msgstr "自紀器(_T)"
 msgid "Show _labels"
 msgstr "顯示標籤(_L)"
 
-#: ../panel-plugin/sensors-plugin.c:2026
+#: ../panel-plugin/sensors-plugin.c:2024
 msgid "Show colored _bars"
 msgstr "顯示色彩化橫列(_B)"
 
-#: ../panel-plugin/sensors-plugin.c:2056
+#: ../panel-plugin/sensors-plugin.c:2055
 msgid "_Show title"
 msgstr "顯示標題(_S)"
 
-#: ../panel-plugin/sensors-plugin.c:2081
+#: ../panel-plugin/sensors-plugin.c:2080
 msgid "_Number of text lines:"
 msgstr "文字列數(_N)："
 
@@ -78,12 +77,10 @@ msgstr "文字列數(_N)："
 msgid "_Cover all panel rows/columns"
 msgstr "覆蓋所有面板欄／列(_C)"
 
-#: ../panel-plugin/sensors-plugin.c:2142
+#: ../panel-plugin/sensors-plugin.c:2143
 msgid "F_ont size:"
 msgstr "字型大小(_O)："
 
-#. gtk_widget_set_sensitive(myFontBox,
-#. !sd->sensors->display_values_graphically);
 #: ../panel-plugin/sensors-plugin.c:2149
 msgid "x-small"
 msgstr "超小"
@@ -104,15 +101,15 @@ msgstr "大"
 msgid "x-large"
 msgstr "超大"
 
-#: ../panel-plugin/sensors-plugin.c:2186
+#: ../panel-plugin/sensors-plugin.c:2187
 msgid "F_ont:"
 msgstr "字型(_O)："
 
-#: ../panel-plugin/sensors-plugin.c:2221
+#: ../panel-plugin/sensors-plugin.c:2219
 msgid "Show _Units"
 msgstr "顯示單位(_U)"
 
-#: ../panel-plugin/sensors-plugin.c:2244
+#: ../panel-plugin/sensors-plugin.c:2243
 msgid "Small horizontal s_pacing"
 msgstr "小的水平間隔(_P)"
 
@@ -120,44 +117,52 @@ msgstr "小的水平間隔(_P)"
 msgid "Suppress messages"
 msgstr "抑制訊息"
 
-#: ../panel-plugin/sensors-plugin.c:2287
+#: ../panel-plugin/sensors-plugin.c:2288
 msgid "Suppress tooltip"
 msgstr "阻止提示框"
 
-#: ../panel-plugin/sensors-plugin.c:2313
+#: ../panel-plugin/sensors-plugin.c:2315
 msgid "E_xecute on double click:"
 msgstr "於雙擊時執行(_X)："
 
-#: ../panel-plugin/sensors-plugin.c:2357
+#: ../panel-plugin/sensors-plugin.c:2355
 msgid "_View"
 msgstr "檢視(_V)"
 
-#: ../panel-plugin/sensors-plugin.c:2392
+#: ../panel-plugin/sensors-plugin.c:2390
 msgid "_Miscellaneous"
 msgstr "雜項(_M)"
 
-#: ../panel-plugin/sensors-plugin.c:2469 ../panel-plugin/sensors-plugin.h:31
+#: ../panel-plugin/sensors-plugin.c:2458 ../panel-plugin/sensors-plugin.h:31
 #: ../lib/hddtemp.c:167
 msgid "Sensors Plugin"
 msgstr "感測器插件"
 
-#: ../panel-plugin/sensors-plugin.c:2477
+#: ../panel-plugin/sensors-plugin.c:2466
 msgid "Properties"
 msgstr "屬性"
 
-#: ../panel-plugin/sensors-plugin.c:2510
+#: ../panel-plugin/sensors-plugin.c:2492
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "您可以變更某些特色屬性，像是名稱、色彩、最小/最大值；只要雙擊該條目，編輯內容，接著按下「Enter」或選取不同的欄位即可。"
 
+#: ../panel-plugin/sensors-plugin.c:2579
+msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
+msgstr "顯示從 LM 感測器、ACPI、硬琊、NVIDIA 得來的數值"
+
+#: ../panel-plugin/sensors-plugin.c:2581
+msgid "Copyright (c) 2004-2018\n"
+msgstr "Copyright (c) 2004-2018\n"
+
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
 #. FIXME: compare strings, or also have hddtemp and acpi store numeric
 #. str_values
 #. assert correctly saved str_file
-#: ../lib/configuration.c:174 ../lib/configuration.c:396 ../lib/hddtemp.c:396
+#: ../lib/configuration.c:174 ../lib/configuration.c:392 ../lib/hddtemp.c:396
 msgid "Hard disks"
 msgstr "硬碟"
 
@@ -174,11 +179,11 @@ msgstr "ACPI v%s 區"
 msgid "<Unknown>"
 msgstr "<未知>"
 
-#: ../lib/nvidia.c:63
+#: ../lib/nvidia.c:65
 msgid "NVidia GPU core temperature"
 msgstr "NVidia GPU 核心溫度"
 
-#: ../lib/nvidia.c:64
+#: ../lib/nvidia.c:66
 msgid "nvidia"
 msgstr "nvidia"
 
@@ -186,7 +191,7 @@ msgstr "nvidia"
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "S.M.A.R.T. 硬碟溫度"
 
-#: ../lib/hddtemp.c:571
+#: ../lib/hddtemp.c:572
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
@@ -198,11 +203,11 @@ msgid ""
 "with a return value of %d.\n"
 msgstr "「hddtemp」未正確執行，雖然它可以執行。這很可能是因為磁碟需要 root 特權來讀取其溫度，而且「hddtemp」允可設定不是 setuid root。\n\n有個簡單但糟糕的解法：以 root 使用者的身份執行「chmod u+s %s」，並重新啟動此插件或面板。\n\n呼叫「%s」回給下列錯誤：\n%s\n傳回值為 %d。\n"
 
-#: ../lib/hddtemp.c:585 ../lib/hddtemp.c:608
+#: ../lib/hddtemp.c:586 ../lib/hddtemp.c:609
 msgid "Suppress this message in future"
 msgstr "抑制此訊息使未來不出現"
 
-#: ../lib/hddtemp.c:603
+#: ../lib/hddtemp.c:604
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
@@ -213,107 +218,117 @@ msgstr "當執行「%s」時遭遇錯誤：\n%s"
 msgid "LM Sensors"
 msgstr "LM 感測器"
 
-#: ../lib/lmsensors.c:370 ../lib/lmsensors.c:417
+#: ../lib/lmsensors.c:417 ../lib/lmsensors.c:464
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "錯誤：無法連結感測器！"
 
-#: ../lib/sensors-interface.c:91
+#: ../lib/sensors-interface.c:90
 msgid "Sensors Plugin Failure"
 msgstr "感測器插件開啟失敗"
 
-#: ../lib/sensors-interface.c:92
+#: ../lib/sensors-interface.c:91
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr "在讀取感測器數值時似乎有點問題。\n無法保證能夠正常運作。"
 
-#: ../lib/sensors-interface.c:178
+#: ../lib/sensors-interface.c:170
 msgid "Sensors t_ype:"
 msgstr "感測器類型(_Y)："
 
-#: ../lib/sensors-interface.c:204
+#: ../lib/sensors-interface.c:190
 msgid "Description:"
 msgstr "描述："
 
-#: ../lib/sensors-interface.c:237
+#: ../lib/sensors-interface.c:223
 msgid "U_pdate interval (seconds):"
 msgstr "更新間隔時間 (秒)(_P)："
 
-#: ../lib/sensors-interface.c:278
+#: ../lib/sensors-interface.c:263
 msgid "Name"
 msgstr "名稱"
 
-#: ../lib/sensors-interface.c:290
+#: ../lib/sensors-interface.c:274
 msgid "Value"
 msgstr "數值"
 
-#: ../lib/sensors-interface.c:298
+#: ../lib/sensors-interface.c:280
 msgid "Show"
 msgstr "顯示"
 
-#: ../lib/sensors-interface.c:307
+#: ../lib/sensors-interface.c:289
 msgid "Color"
 msgstr "色彩"
 
-#: ../lib/sensors-interface.c:320
+#: ../lib/sensors-interface.c:300
 msgid "Min"
 msgstr "最小"
 
-#: ../lib/sensors-interface.c:337
+#: ../lib/sensors-interface.c:311
 msgid "Max"
 msgstr "最大"
 
-#: ../lib/sensors-interface.c:379
+#: ../lib/sensors-interface.c:347
 msgid "Temperature scale:"
 msgstr "溫標："
 
-#: ../lib/sensors-interface.c:381
+#: ../lib/sensors-interface.c:349
 msgid "_Celsius"
 msgstr "攝氏(_C)"
 
-#: ../lib/sensors-interface.c:383
+#: ../lib/sensors-interface.c:351
 msgid "_Fahrenheit"
 msgstr "華氏(_F)"
 
-#: ../lib/sensors-interface.c:419
+#: ../lib/sensors-interface.c:387
 msgid "_Sensors"
 msgstr "感測器(_S)"
 
-#: ../lib/sensors-interface-common.c:75 ../lib/sensors-interface-common.c:76
+#: ../lib/sensors-interface-common.c:74 ../lib/sensors-interface-common.c:75
 msgid "No sensors found!"
 msgstr "找不到感測器！"
 
-#: ../lib/sensors-interface-common.c:149
+#: ../lib/sensors-interface-common.c:147
 #, c-format
 msgid "%.0f °F"
 msgstr "%.0f °F"
 
 #. Celsius
-#: ../lib/sensors-interface-common.c:152
+#: ../lib/sensors-interface-common.c:150
 #, c-format
 msgid "%.0f °C"
 msgstr "%.0f °C"
 
-#: ../lib/sensors-interface-common.c:157
+#: ../lib/sensors-interface-common.c:155
 #, c-format
 msgid "%+.3f V"
 msgstr "%+.3f V"
 
-#: ../lib/sensors-interface-common.c:161
+#: ../lib/sensors-interface-common.c:159
+#, c-format
+msgid "%+.3f A"
+msgstr "%+.3f A"
+
+#: ../lib/sensors-interface-common.c:163
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.c:166
+#: ../lib/sensors-interface-common.c:167
+#, c-format
+msgid "%.0f W"
+msgstr "%.0f W"
+
+#: ../lib/sensors-interface-common.c:172
 msgid "off"
 msgstr "關"
 
-#: ../lib/sensors-interface-common.c:168
+#: ../lib/sensors-interface-common.c:174
 msgid "on"
 msgstr "開"
 
-#: ../lib/sensors-interface-common.c:172
+#: ../lib/sensors-interface-common.c:178
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f rpm"
@@ -346,7 +361,7 @@ msgstr "Xfce4 感測器 %s\n顯示有關您的硬體感測器、ACPI 狀態、�
 msgid "Xfce4 Sensors %s\n"
 msgstr "Xfce4 感測器 %s\n"
 
-#: ../src/interface.c:86
+#: ../src/interface.c:85
 msgid "_Overview"
 msgstr "概覽(_O)"
 
