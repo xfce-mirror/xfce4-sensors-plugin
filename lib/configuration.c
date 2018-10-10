@@ -167,8 +167,6 @@ sensors_write_config (XfcePanelPlugin *plugin,t_sensors *ptr_sensors)
 
                        xfce_rc_set_group (ptr_xfcerc, str_feature);
 
-                       xfce_rc_write_int_entry (ptr_xfcerc, "Id", get_Id_from_address(idx_chips, idx_features, ptr_sensors));
-
                        /* only use this if no hddtemp sensor */
                        /* or do only use this , if it is an lmsensors device. whatever. */
                        if ( strcmp(ptr_chip->sensorId, _("Hard disks")) != 0 ) /* chip->name? */
@@ -384,19 +382,7 @@ sensors_read_config (XfcePanelPlugin *ptr_panelplugin, t_sensors *ptr_sensors)
 
                         address=0;
 
-                        id = (gint) xfce_rc_read_int_entry (ptr_xfceresource, "Id", 0);
-
-                        /* FIXME: compare strings, or also have hddtemp and acpi store numeric str_values */
-
-                        /* assert correctly saved str_file */
-                        if (id >= 0 && strcmp(ptr_chip->sensorId, _("Hard disks")) != 0) { /* chip->name? */
-                            ptr_chipfeature = g_ptr_array_index(ptr_chip->chip_features, id);
-                            address = (gint) xfce_rc_read_int_entry (ptr_xfceresource, "Address", 0);
-                            /* FIXME: it might be necessary to use sensors->addresses here */
-                            if (!ptr_chipfeature || ptr_chipfeature->address != address)
-                                continue;
-                        }
-                        else if ((str_value = xfce_rc_read_entry (ptr_xfceresource, "DeviceName", NULL))
+                        if ((str_value = xfce_rc_read_entry (ptr_xfceresource, "DeviceName", NULL))
                             && *str_value) {
                             if (ptr_chipfeature->devicename)
                                 g_free (ptr_chipfeature->devicename);
