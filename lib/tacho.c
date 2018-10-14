@@ -266,6 +266,10 @@ gtk_sensorstacho_size_allocate (GtkWidget *ptr_widget, GtkAllocation *ptr_alloca
   TRACE("leave gtk_sensorstacho_size_allocate\n");
 }
 
+#define MAX_HUE 0.8
+#define MAX_HUE_DOUBLE 2*MAX_HUE
+#define ALPHA_CHANNEL_VALUE 0.8
+
 /* -------------------------------------------------------------------------- */
 gboolean
 gtk_sensorstacho_paint (GtkWidget *widget,
@@ -281,6 +285,7 @@ gtk_sensorstacho_paint (GtkWidget *widget,
     double degrees_135 = (135) * G_PI / 180;
     double degrees_45minusI;
     GtkAllocation allocation;
+    GtkStyleContext *ptr_stylecontext = NULL;
 
     TRACE("enter gtk_sensorstacho_paint\n");
 
@@ -303,16 +308,16 @@ gtk_sensorstacho_paint (GtkWidget *widget,
     pos_ycenter = height / 2;
 
     /* initialize color values appropriately */
-    color.red = 1.0;
-    color.green = 1.0;
+    color.red = MAX_HUE;
+    color.green = MAX_HUE;
     color.blue = 0.0;
-    color.alpha = 1.0;
+    color.alpha = ALPHA_CHANNEL_VALUE;
 
     if (percent < 0.5)
-        color.red = 2 * percent;
+        color.red = MAX_HUE_DOUBLE * percent;
 
     if (percent > 0.5)
-        color.green = 2.0 - 2 * percent;
+        color.green = MAX_HUE_DOUBLE - MAX_HUE_DOUBLE * percent;
 
     /* draw circular gradient */
     for (i=(1-percent)*THREE_QUARTER_CIRCLE; i<THREE_QUARTER_CIRCLE; i++)
@@ -335,10 +340,10 @@ gtk_sensorstacho_paint (GtkWidget *widget,
         cairo_fill (ptr_cairo);
 
         if (i>(0.5*THREE_QUARTER_CIRCLE - 1))
-            color.red -= 2*COLOR_STEP;
+            color.red -= MAX_HUE_DOUBLE * COLOR_STEP;
 
         if (i<(0.5*THREE_QUARTER_CIRCLE - 1))
-            color.green += 2*COLOR_STEP;
+            color.green += MAX_HUE_DOUBLE * COLOR_STEP;
     }
 
     /* white right part */
@@ -355,9 +360,16 @@ gtk_sensorstacho_paint (GtkWidget *widget,
     /* black border */
     cairo_set_line_width (ptr_cairo, 0.5);
 
-    color.red = 0.0;
-    color.green = 0.0;
-    color.blue = 0.0;
+    ptr_stylecontext = gtk_widget_get_style_context(widget);
+    if (ptr_stylecontext != NULL)
+        gtk_style_context_get_color(ptr_stylecontext, GTK_STATE_NORMAL, &color);
+    else
+    {
+        color.red = 0.0f;
+        color.green = 0.0f;
+        color.blue = 0.0f;
+    }
+
     gdk_cairo_set_source_rgba (ptr_cairo, &color);
 
     cairo_stroke (ptr_cairo);
