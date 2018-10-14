@@ -89,6 +89,7 @@ remove_gsource (guint gsource_id)
     }
 }
 
+#define BAR_SIZE 8
 
 /* -------------------------------------------------------------------------- */
 static void
@@ -98,10 +99,10 @@ sensors_set_levelbar_size (GtkWidget *ptr_levelbar, int siz_panelheight, int pan
     g_return_if_fail (G_IS_OBJECT(ptr_levelbar));
 
     if (panelorientation == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL) {
-        gtk_widget_set_size_request (ptr_levelbar, BORDER+2, siz_panelheight-BORDER);
+        gtk_widget_set_size_request (ptr_levelbar, BAR_SIZE+2, siz_panelheight-BAR_SIZE);
     }
     else {
-        gtk_widget_set_size_request (ptr_levelbar, siz_panelheight-BORDER, BORDER+2);
+        gtk_widget_set_size_request (ptr_levelbar, siz_panelheight-BAR_SIZE, BAR_SIZE+2);
     }
 }
 
