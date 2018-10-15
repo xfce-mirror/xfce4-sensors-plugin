@@ -462,7 +462,7 @@ sensors_add_graphical_display (t_sensors *ptr_sensors)
                 ptr_sensors->panels[idx_sensorchips][idx_feature] = ptr_labelledlevelbar;
 
                 gtk_box_pack_start (GTK_BOX (ptr_sensors->widget_sensors),
-                                    widget_databox, FALSE, FALSE, INNER_BORDER);
+                                    widget_databox, FALSE, FALSE, INNER_BORDER/2);
             }
         }
     }
