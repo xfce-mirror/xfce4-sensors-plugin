@@ -108,6 +108,24 @@ void gtk_sensorstacho_set_size(GtkSensorsTacho *ptr_sensorstacho, guint size);
  */
 extern gchar *font;
 
+
+#define MAX_HUE 0.8
+#define ALPHA_CHANNEL_VALUE 0.8
+
+/**
+ * directly exhibited internal value describing the desired hue value for the
+ * tacho elements.
+ * TODO: Introduce getter/setter functions
+ */
+extern gfloat val_hue;
+
+/**
+ * directly exhibited internal value describing the desired alpha value for the
+ * tacho elements.
+ * TODO: Introduce getter/setter functions
+ */
+extern gfloat val_alpha;
+
 G_END_DECLS
 
 #endif /* __TACHO_H */

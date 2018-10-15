@@ -658,6 +658,9 @@ sensors_show_tacho_display (t_sensors *ptr_sensors)
     g_return_val_if_fail(ptr_sensors != NULL, FALSE);
 
     if (ptr_sensors->tachos_created == FALSE) {
+        val_hue = ptr_sensors->val_tachos_hue;
+        val_alpha = ptr_sensors->val_tachos_alpha;
+
         sensors_add_tacho_display (ptr_sensors);
     }
 
@@ -1353,8 +1356,10 @@ display_style_changed_text (GtkWidget *widget, t_sensors_dialog *sd)
     gtk_widget_hide(sd->fontSettings_Box);
     gtk_widget_show(sd->font_Box);
     gtk_widget_show(sd->Lines_Box);
-    gtk_widget_show (sd->unit_checkbox);
-    gtk_widget_show (sd->smallspacing_checkbox);
+    gtk_widget_show(sd->unit_checkbox);
+    gtk_widget_show(sd->smallspacing_checkbox);
+    gtk_widget_hide(sd->hue_slider_box);
+    gtk_widget_hide(sd->alpha_slider_box);
 
     sd->sensors->display_values_type = DISPLAY_TEXT;
 
@@ -1381,8 +1386,10 @@ display_style_changed_bars (GtkWidget *widget, t_sensors_dialog *sd)
     gtk_widget_hide(sd->fontSettings_Box);
     gtk_widget_hide(sd->font_Box);
     gtk_widget_hide(sd->Lines_Box);
-    gtk_widget_hide (sd->unit_checkbox);
-    gtk_widget_hide (sd->smallspacing_checkbox);
+    gtk_widget_hide(sd->unit_checkbox);
+    gtk_widget_hide(sd->smallspacing_checkbox);
+    gtk_widget_hide(sd->hue_slider_box);
+    gtk_widget_hide(sd->alpha_slider_box);
 
     sd->sensors->display_values_type = DISPLAY_BARS;
 
@@ -1427,8 +1434,10 @@ display_style_changed_tacho (GtkWidget *widget, t_sensors_dialog *sd)
     gtk_widget_show(sd->fontSettings_Box);
     gtk_widget_hide(sd->font_Box);
     gtk_widget_hide(sd->Lines_Box);
-    gtk_widget_hide (sd->unit_checkbox);
-    gtk_widget_hide (sd->smallspacing_checkbox);
+    gtk_widget_hide(sd->unit_checkbox);
+    gtk_widget_hide(sd->smallspacing_checkbox);
+    gtk_widget_show(sd->hue_slider_box);
+    gtk_widget_show(sd->alpha_slider_box);
 
     sd->sensors->display_values_type = DISPLAY_TACHO;
 
@@ -1912,20 +1921,58 @@ list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,
 static void
 on_font_set (GtkWidget *widget, gpointer data)
 {
-        t_sensors *sensors;
-        sensors = (t_sensors *) data;
-        g_assert (sensors!=NULL);
+    t_sensors *sensors;
+    sensors = (t_sensors *) data;
+    g_assert (sensors!=NULL);
 
-        if (font)
-            g_free (font);
+    if (font)
+        g_free (font);
 
-        font = g_strdup(gtk_font_button_get_font_name(GTK_FONT_BUTTON(widget)));
+    font = g_strdup(gtk_font_button_get_font_name(GTK_FONT_BUTTON(widget)));
 
-        if (sensors->display_values_type==DISPLAY_TACHO)
-        {
-            /* refresh the panel content */
-            sensors_update_tacho_panel (sensors);
-        }
+    if (sensors->display_values_type==DISPLAY_TACHO)
+    {
+        /* refresh the panel content */
+        sensors_update_tacho_panel (sensors);
+    }
+}
+
+
+/* -------------------------------------------------------------------------- */
+static void
+tachos_hue_changed_ (GtkWidget *ptr_widget, GtkScrollType type, gdouble value, t_sensors_dialog *ptr_sensorsdialog)
+{
+    t_sensors *sensors;
+    sensors = ptr_sensorsdialog->sensors;
+    g_assert (sensors!=NULL);
+
+    sensors->val_tachos_hue = val_hue = value; //gtk_scale_button_get_value(GTK_SCALE_BUTTON(ptr_widget));
+    DBG("new hue value is %f.", val_hue);
+
+    if (sensors->display_values_type==DISPLAY_TACHO)
+    {
+        /* refresh the panel content */
+        sensors_update_tacho_panel (sensors);
+    }
+}
+
+
+/* -------------------------------------------------------------------------- */
+static void
+tachos_alpha_changed_ (GtkWidget *ptr_widget, GtkScrollType type, gdouble value, t_sensors_dialog *ptr_sensorsdialog)
+{
+    t_sensors *sensors;
+    sensors = ptr_sensorsdialog->sensors;
+    g_assert (sensors!=NULL);
+
+    sensors->val_tachos_alpha = val_alpha = value; //gtk_scale_button_get_value(GTK_SCALE_BUTTON(ptr_widget));
+    DBG("new alpha value is %f.", val_alpha);
+
+    if (sensors->display_values_type==DISPLAY_TACHO)
+    {
+        /* refresh the panel content */
+        sensors_update_tacho_panel (sensors);
+    }
 }
 
 
@@ -2260,6 +2307,52 @@ add_smallspacings_box (GtkWidget * vbox, t_sensors_dialog * sd)
 
 /* -------------------------------------------------------------------------- */
 static void
+add_tachos_appearance_boxes(GtkWidget * vbox, t_sensors_dialog * sd)
+{
+    GtkWidget *widget_hscale;
+    GtkWidget *widget_label;
+    TRACE ("enters add_tachos_appearance_boxes");
+
+    sd->alpha_slider_box = gtk_hbox_new(FALSE, INNER_BORDER);
+    widget_label = gtk_label_new(_("Tacho color alpha value:"));
+    gtk_widget_show (widget_label);
+    gtk_box_pack_start (GTK_BOX (sd->alpha_slider_box), widget_label, FALSE, TRUE, 0);
+    widget_hscale = gtk_scale_new_with_range(GTK_ORIENTATION_HORIZONTAL, 0.0, 1.0, 0.01);
+    gtk_range_set_value(GTK_RANGE(widget_hscale), sd->sensors->val_tachos_alpha);
+    gtk_widget_show (widget_hscale);
+    g_signal_connect   (G_OBJECT (widget_hscale), "change-value",
+                        G_CALLBACK (tachos_alpha_changed_), sd );
+    gtk_box_pack_start (GTK_BOX (sd->alpha_slider_box), widget_hscale, TRUE, TRUE, 0);
+    gtk_widget_show (sd->alpha_slider_box);
+
+
+    sd->hue_slider_box = gtk_hbox_new(FALSE, INNER_BORDER);
+    widget_label = gtk_label_new(_("Tacho color hue value:"));
+    gtk_widget_show (widget_label);
+    gtk_box_pack_start (GTK_BOX (sd->hue_slider_box), widget_label, FALSE, TRUE, 0);
+    widget_hscale = gtk_scale_new_with_range(GTK_ORIENTATION_HORIZONTAL, 0.0, 1.0, 0.01);
+    gtk_range_set_value(GTK_RANGE(widget_hscale), sd->sensors->val_tachos_hue);
+    gtk_widget_show (widget_hscale);
+    g_signal_connect   (G_OBJECT (widget_hscale), "change-value",
+                        G_CALLBACK (tachos_hue_changed_), sd );
+    gtk_box_pack_start (GTK_BOX (sd->hue_slider_box), widget_hscale, TRUE, TRUE, 0);
+    gtk_widget_show (sd->hue_slider_box);
+
+    gtk_box_pack_start (GTK_BOX (vbox), sd->alpha_slider_box, FALSE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox), sd->hue_slider_box, FALSE, TRUE, 0);
+
+    if (sd->sensors->display_values_type!=DISPLAY_TACHO)
+    {
+        gtk_widget_hide(sd->alpha_slider_box);
+        gtk_widget_hide(sd->hue_slider_box);
+    }
+
+    TRACE ("leaves add_tachos_appearance_boxes");
+}
+
+
+/* -------------------------------------------------------------------------- */
+static void
 add_suppressmessage_box (GtkWidget * vbox, t_sensors_dialog * sd)
 {
     TRACE ("enters add_suppressmessage_box");
@@ -2364,13 +2457,14 @@ add_view_frame (GtkWidget * notebook, t_sensors_dialog * sd)
 
     add_ui_style_box (_vbox, sd);
     add_labels_box (_vbox, sd);
+    add_cover_rows_box(_vbox, sd);
     add_str_fontsize_box (_vbox, sd);
     add_font_settings_box (_vbox, sd);
     add_lines_box (_vbox, sd);
-    add_cover_rows_box(_vbox, sd);
     add_colored_bars_box (_vbox, sd);
     add_units_box (_vbox, sd);
     add_smallspacings_box(_vbox, sd);
+    add_tachos_appearance_boxes(_vbox, sd);
 
     TRACE ("leaves add_view_frame");
 }

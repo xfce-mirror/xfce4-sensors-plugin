@@ -143,6 +143,14 @@ sensors_write_config (XfcePanelPlugin *plugin,t_sensors *ptr_sensors)
             xfce_rc_write_int_entry (ptr_xfcerc, "Preferred_Width", ptr_sensors->preferred_width);
             xfce_rc_write_int_entry (ptr_xfcerc, "Preferred_Height", ptr_sensors->preferred_height);
 
+            str_tmp = g_strdup_printf("%.2f", ptr_sensors->val_tachos_hue);
+            xfce_rc_write_entry (ptr_xfcerc, "Tachos_Hue", str_tmp);
+            g_free (str_tmp);
+
+            str_tmp = g_strdup_printf("%.2f", ptr_sensors->val_tachos_alpha);
+            xfce_rc_write_entry (ptr_xfcerc, "Tachos_Alpha", str_tmp);
+            g_free (str_tmp);
+
             for (idx_chips=0; idx_chips<ptr_sensors->num_sensorchips; idx_chips++) {
 
                 ptr_chip = (t_chip *) g_ptr_array_index(ptr_sensors->chips, idx_chips);
@@ -269,6 +277,14 @@ sensors_read_general_config (XfceRc *ptr_xfceresources, t_sensors *ptr_sensors)
 
         ptr_sensors->preferred_width = xfce_rc_read_int_entry (ptr_xfceresources, "Preferred_Width", 400);
         ptr_sensors->preferred_height = xfce_rc_read_int_entry (ptr_xfceresources, "Preferred_Height", 400);
+
+        if ((str_value = xfce_rc_read_entry (ptr_xfceresources, "Tachos_Hue", NULL))
+                && *str_value)
+            ptr_sensors->val_tachos_hue = atof (str_value);
+
+        if ((str_value = xfce_rc_read_entry (ptr_xfceresources, "Tachos_Alpha", NULL))
+                && *str_value)
+            ptr_sensors->val_tachos_alpha = atof (str_value);
 
         //num_chips = xfce_rc_read_int_entry (ptr_xfceresources, "Number_Chips", 0);
         /* or could use 1 or the always existent dummy entry */

@@ -54,4 +54,5 @@ void maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *ptr_str_pat
 
 void temperature_unit_change_ (GtkWidget *ptr_widget, t_sensors_dialog *ptr_sensorsdialog);
 
+
 #endif /* XFCE4_SENSORS_SENSORS_H */

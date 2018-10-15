@@ -64,6 +64,9 @@ void gtk_sensorstacho_destroy(GtkWidget *widget);
 
 gchar *font = NULL; // declared as extern in tacho.h
 
+gfloat val_hue = MAX_HUE; // declared as extern in tacho.h
+gfloat val_alpha = ALPHA_CHANNEL_VALUE; // declared as extern in tacho.h
+
 G_DEFINE_TYPE( GtkSensorsTacho, gtk_sensorstacho, GTK_TYPE_DRAWING_AREA )
 
 
@@ -266,9 +269,6 @@ gtk_sensorstacho_size_allocate (GtkWidget *ptr_widget, GtkAllocation *ptr_alloca
   TRACE("leave gtk_sensorstacho_size_allocate\n");
 }
 
-#define MAX_HUE 0.8
-#define MAX_HUE_DOUBLE 2*MAX_HUE
-#define ALPHA_CHANNEL_VALUE 0.8
 
 /* -------------------------------------------------------------------------- */
 gboolean
@@ -308,16 +308,16 @@ gtk_sensorstacho_paint (GtkWidget *widget,
     pos_ycenter = height / 2;
 
     /* initialize color values appropriately */
-    color.red = MAX_HUE;
-    color.green = MAX_HUE;
+    color.red = val_hue;
+    color.green = val_hue;
     color.blue = 0.0;
-    color.alpha = ALPHA_CHANNEL_VALUE;
+    color.alpha = val_alpha;
 
     if (percent < 0.5)
-        color.red = MAX_HUE_DOUBLE * percent;
+        color.red = 2*val_hue * percent;
 
     if (percent > 0.5)
-        color.green = MAX_HUE_DOUBLE - MAX_HUE_DOUBLE * percent;
+        color.green = 2*val_hue * (1 - percent);
 
     /* draw circular gradient */
     for (i=(1-percent)*THREE_QUARTER_CIRCLE; i<THREE_QUARTER_CIRCLE; i++)
@@ -340,10 +340,10 @@ gtk_sensorstacho_paint (GtkWidget *widget,
         cairo_fill (ptr_cairo);
 
         if (i>(0.5*THREE_QUARTER_CIRCLE - 1))
-            color.red -= MAX_HUE_DOUBLE * COLOR_STEP;
+            color.red -= 2*val_hue * COLOR_STEP;
 
         if (i<(0.5*THREE_QUARTER_CIRCLE - 1))
-            color.green += MAX_HUE_DOUBLE * COLOR_STEP;
+            color.green += 2*val_hue * COLOR_STEP;
     }
 
     /* white right part */
