@@ -116,16 +116,18 @@ sensors_set_bar_color (t_labelledlevelbar *ptr_labelledlevelbar, double val_perc
 
     gchar str_gtkcssdata[256] = "levelbar block.";
     gchar str_levelbarid[32];
+    //gchar str_section_levelbarid[64];
 
     g_return_if_fail(ptr_labelledlevelbar != NULL);
     ptr_levelbar = ptr_labelledlevelbar->progressbar;
 
     g_return_if_fail (G_IS_OBJECT(ptr_levelbar));
 
-
     g_snprintf(str_levelbarid, 32, "warn-high%lX", (unsigned long int) ptr_levelbar);
 
     g_strlcat(str_gtkcssdata, str_levelbarid, sizeof(str_gtkcssdata));
+    //g_strlcpy(str_section_levelbarid, str_gtkcssdata, sizeof(str_section_levelbarid));
+
     g_strlcat(str_gtkcssdata, " {\n", sizeof(str_gtkcssdata));
 
     if (ptr_sensorsstructure->show_colored_bars) {
@@ -156,6 +158,9 @@ sensors_set_bar_color (t_labelledlevelbar *ptr_labelledlevelbar, double val_perc
 
     gtk_css_provider_load_from_data (GTK_CSS_PROVIDER(ptr_labelledlevelbar->css_provider),
                                    str_gtkcssdata, strlen(str_gtkcssdata), NULL);
+
+    //DBG("unreferencing section '%s'.", str_section_levelbarid);
+    //gtk_css_section_unref(str_section_levelbarid);
 }
 
 
@@ -1928,7 +1933,7 @@ on_font_set (GtkWidget *widget, gpointer data)
     if (font)
         g_free (font);
 
-    font = g_strdup(gtk_font_button_get_font_name(GTK_FONT_BUTTON(widget)));
+    font = g_strdup(gtk_font_chooser_get_font(GTK_FONT_CHOOSER(widget)));
 
     if (sensors->display_values_type==DISPLAY_TACHO)
     {
@@ -2234,7 +2239,8 @@ add_font_settings_box (GtkWidget * vbox, t_sensors_dialog * sd)
 
     myFontLabel = gtk_label_new_with_mnemonic (_("F_ont:"));
     myFontSettingsBox = gtk_hbox_new (FALSE, BORDER);
-    myFontSettingsButton = gtk_font_button_new_with_font(font);
+    myFontSettingsButton = gtk_font_button_new();
+    gtk_font_chooser_set_font(GTK_FONT_CHOOSER(myFontSettingsButton), font);
     gtk_font_button_set_use_font(GTK_FONT_BUTTON(myFontSettingsButton), TRUE);
 
     sd->fontSettings_Box = myFontSettingsBox;
