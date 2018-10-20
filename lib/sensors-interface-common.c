@@ -127,7 +127,7 @@ sensors_init_default_values  (t_sensors *ptr_sensors, XfcePanelPlugin *ptr_xfcep
 
     ptr_sensors->show_smallspacings = FALSE;
 
-    ptr_sensors->val_tachos_hue = MAX_HUE;
+    ptr_sensors->val_tachos_color = MAX_HUE;
     ptr_sensors->val_tachos_alpha = ALPHA_CHANNEL_VALUE;
 
     font = g_strdup("Sans 11");

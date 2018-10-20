@@ -121,8 +121,8 @@ typedef struct {
     /** used to enable 'show labels' option when using graphical view */
     GtkWidget *labels_Box;
 
-    /** used to customize hue value when using graphical view */
-    GtkWidget *hue_slider_box;
+    /** used to customize colorvalue value when using graphical view */
+    GtkWidget *colorvalue_slider_box;
 
     /** used to customize alpha value when using graphical view */
     GtkWidget *alpha_slider_box;

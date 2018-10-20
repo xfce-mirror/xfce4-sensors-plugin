@@ -143,8 +143,8 @@ sensors_write_config (XfcePanelPlugin *plugin,t_sensors *ptr_sensors)
             xfce_rc_write_int_entry (ptr_xfcerc, "Preferred_Width", ptr_sensors->preferred_width);
             xfce_rc_write_int_entry (ptr_xfcerc, "Preferred_Height", ptr_sensors->preferred_height);
 
-            str_tmp = g_strdup_printf("%.2f", ptr_sensors->val_tachos_hue);
-            xfce_rc_write_entry (ptr_xfcerc, "Tachos_Hue", str_tmp);
+            str_tmp = g_strdup_printf("%.2f", ptr_sensors->val_tachos_color);
+            xfce_rc_write_entry (ptr_xfcerc, "Tachos_ColorValue", str_tmp);
             g_free (str_tmp);
 
             str_tmp = g_strdup_printf("%.2f", ptr_sensors->val_tachos_alpha);
@@ -278,9 +278,9 @@ sensors_read_general_config (XfceRc *ptr_xfceresources, t_sensors *ptr_sensors)
         ptr_sensors->preferred_width = xfce_rc_read_int_entry (ptr_xfceresources, "Preferred_Width", 400);
         ptr_sensors->preferred_height = xfce_rc_read_int_entry (ptr_xfceresources, "Preferred_Height", 400);
 
-        if ((str_value = xfce_rc_read_entry (ptr_xfceresources, "Tachos_Hue", NULL))
+        if ((str_value = xfce_rc_read_entry (ptr_xfceresources, "Tachos_ColorValue", NULL))
                 && *str_value)
-            ptr_sensors->val_tachos_hue = atof (str_value);
+            ptr_sensors->val_tachos_color = atof (str_value);
 
         if ((str_value = xfce_rc_read_entry (ptr_xfceresources, "Tachos_Alpha", NULL))
                 && *str_value)

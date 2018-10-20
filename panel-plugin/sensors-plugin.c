@@ -663,7 +663,7 @@ sensors_show_tacho_display (t_sensors *ptr_sensors)
     g_return_val_if_fail(ptr_sensors != NULL, FALSE);
 
     if (ptr_sensors->tachos_created == FALSE) {
-        val_hue = ptr_sensors->val_tachos_hue;
+        val_colorvalue = ptr_sensors->val_tachos_color;
         val_alpha = ptr_sensors->val_tachos_alpha;
 
         sensors_add_tacho_display (ptr_sensors);
@@ -1026,8 +1026,7 @@ sensors_create_tooltip (gpointer ptr_argument)
                                                     &(ptr_sensors->suppressmessage));
 
                 if (result != 0) {
-                    /* FIXME: either print nothing, or undertake appropriate action,
-                     * or pop up a message box. */
+                    /* output to stdout on command line, not very useful for user, except for tracing problems */
                     g_printf ( _("Sensors Plugin:\n"
                     "Seems like there was a problem reading a sensor feature "
                     "value.\nProper proceeding cannot be guaranteed.\n") );
@@ -1363,7 +1362,7 @@ display_style_changed_text (GtkWidget *widget, t_sensors_dialog *sd)
     gtk_widget_show(sd->Lines_Box);
     gtk_widget_show(sd->unit_checkbox);
     gtk_widget_show(sd->smallspacing_checkbox);
-    gtk_widget_hide(sd->hue_slider_box);
+    gtk_widget_hide(sd->colorvalue_slider_box);
     gtk_widget_hide(sd->alpha_slider_box);
 
     sd->sensors->display_values_type = DISPLAY_TEXT;
@@ -1393,7 +1392,7 @@ display_style_changed_bars (GtkWidget *widget, t_sensors_dialog *sd)
     gtk_widget_hide(sd->Lines_Box);
     gtk_widget_hide(sd->unit_checkbox);
     gtk_widget_hide(sd->smallspacing_checkbox);
-    gtk_widget_hide(sd->hue_slider_box);
+    gtk_widget_hide(sd->colorvalue_slider_box);
     gtk_widget_hide(sd->alpha_slider_box);
 
     sd->sensors->display_values_type = DISPLAY_BARS;
@@ -1441,7 +1440,7 @@ display_style_changed_tacho (GtkWidget *widget, t_sensors_dialog *sd)
     gtk_widget_hide(sd->Lines_Box);
     gtk_widget_hide(sd->unit_checkbox);
     gtk_widget_hide(sd->smallspacing_checkbox);
-    gtk_widget_show(sd->hue_slider_box);
+    gtk_widget_show(sd->colorvalue_slider_box);
     gtk_widget_show(sd->alpha_slider_box);
 
     sd->sensors->display_values_type = DISPLAY_TACHO;
@@ -1945,14 +1944,14 @@ on_font_set (GtkWidget *widget, gpointer data)
 
 /* -------------------------------------------------------------------------- */
 static void
-tachos_hue_changed_ (GtkWidget *ptr_widget, GtkScrollType type, gdouble value, t_sensors_dialog *ptr_sensorsdialog)
+tachos_colorvalue_changed_ (GtkWidget *ptr_widget, GtkScrollType type, gdouble value, t_sensors_dialog *ptr_sensorsdialog)
 {
     t_sensors *sensors;
     sensors = ptr_sensorsdialog->sensors;
     g_assert (sensors!=NULL);
 
-    sensors->val_tachos_hue = val_hue = value; //gtk_scale_button_get_value(GTK_SCALE_BUTTON(ptr_widget));
-    DBG("new hue value is %f.", val_hue);
+    sensors->val_tachos_color = val_colorvalue = value; //gtk_scale_button_get_value(GTK_SCALE_BUTTON(ptr_widget));
+    DBG("new color value is %f.", val_colorvalue);
 
     if (sensors->display_values_type==DISPLAY_TACHO)
     {
@@ -2332,25 +2331,26 @@ add_tachos_appearance_boxes(GtkWidget * vbox, t_sensors_dialog * sd)
     gtk_widget_show (sd->alpha_slider_box);
 
 
-    sd->hue_slider_box = gtk_hbox_new(FALSE, INNER_BORDER);
-    widget_label = gtk_label_new(_("Tacho color hue value:"));
+    sd->colorvalue_slider_box = gtk_hbox_new(FALSE, INNER_BORDER);
+    // The value from HSV color model
+    widget_label = gtk_label_new(_("Tacho color value:"));
     gtk_widget_show (widget_label);
-    gtk_box_pack_start (GTK_BOX (sd->hue_slider_box), widget_label, FALSE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (sd->colorvalue_slider_box), widget_label, FALSE, TRUE, 0);
     widget_hscale = gtk_scale_new_with_range(GTK_ORIENTATION_HORIZONTAL, 0.0, 1.0, 0.01);
-    gtk_range_set_value(GTK_RANGE(widget_hscale), sd->sensors->val_tachos_hue);
+    gtk_range_set_value(GTK_RANGE(widget_hscale), sd->sensors->val_tachos_color);
     gtk_widget_show (widget_hscale);
     g_signal_connect   (G_OBJECT (widget_hscale), "change-value",
-                        G_CALLBACK (tachos_hue_changed_), sd );
-    gtk_box_pack_start (GTK_BOX (sd->hue_slider_box), widget_hscale, TRUE, TRUE, 0);
-    gtk_widget_show (sd->hue_slider_box);
+                        G_CALLBACK (tachos_colorvalue_changed_), sd );
+    gtk_box_pack_start (GTK_BOX (sd->colorvalue_slider_box), widget_hscale, TRUE, TRUE, 0);
+    gtk_widget_show (sd->colorvalue_slider_box);
 
     gtk_box_pack_start (GTK_BOX (vbox), sd->alpha_slider_box, FALSE, TRUE, 0);
-    gtk_box_pack_start (GTK_BOX (vbox), sd->hue_slider_box, FALSE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (vbox), sd->colorvalue_slider_box, FALSE, TRUE, 0);
 
     if (sd->sensors->display_values_type!=DISPLAY_TACHO)
     {
         gtk_widget_hide(sd->alpha_slider_box);
-        gtk_widget_hide(sd->hue_slider_box);
+        gtk_widget_hide(sd->colorvalue_slider_box);
     }
 
     TRACE ("leaves add_tachos_appearance_boxes");

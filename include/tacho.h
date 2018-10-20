@@ -117,7 +117,7 @@ extern gchar *font;
  * tacho elements.
  * TODO: Introduce getter/setter functions
  */
-extern gfloat val_hue;
+extern gfloat val_colorvalue;
 
 /**
  * directly exhibited internal value describing the desired alpha value for the

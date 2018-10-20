@@ -163,8 +163,8 @@ typedef struct {
     /** preferred dialog height */
     gint preferred_height;
 
-    /** hue value for the tachometers, useful for dark themes where lower brightness is required */
-    gfloat val_tachos_hue;
+    /** color value for the tachometers, useful for dark themes where lower brightness is required */
+    gfloat val_tachos_color;
 
     /** desired alpha value for the tachometers */
     gfloat val_tachos_alpha;
