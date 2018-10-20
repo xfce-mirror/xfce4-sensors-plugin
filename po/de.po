@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-20 21:53+0200\n"
+"POT-Creation-Date: 2018-10-21 00:47+0200\n"
 "PO-Revision-Date: 2017-09-19 18:06+0000\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German (http://www.transifex.com/xfce/xfce-panel-plugins/"
@@ -22,7 +22,7 @@ msgstr ""
 
 #. initialize value label widget
 #: ../panel-plugin/sensors-plugin.c:383 ../panel-plugin/sensors-plugin.c:510
-#: ../panel-plugin/sensors-plugin.c:1126
+#: ../panel-plugin/sensors-plugin.c:1125
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Sensoren</b></span>"
 
@@ -30,9 +30,8 @@ msgstr "<span><b>Sensoren</b></span>"
 msgid "No sensors selected!"
 msgstr "Keine Sensoren ausgewählt!"
 
-#. FIXME: either print nothing, or undertake appropriate action,
-#. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:1031
+#. output to stdout on command line, not very useful for user, except for tracing problems
+#: ../panel-plugin/sensors-plugin.c:1030
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -43,85 +42,86 @@ msgstr ""
 "Anscheinend gab es ein Problem beim Auslesen eines Wertes.\n"
 "Sauberes Weiterlaufen kann nicht gewährleistet werden.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1996
+#: ../panel-plugin/sensors-plugin.c:1995
 msgid "UI style:"
 msgstr "Darstellung:"
 
-#: ../panel-plugin/sensors-plugin.c:1997
+#: ../panel-plugin/sensors-plugin.c:1996
 msgid "_text"
 msgstr "Te_xt"
 
-#: ../panel-plugin/sensors-plugin.c:1999
+#: ../panel-plugin/sensors-plugin.c:1998
 msgid "_progress bars"
 msgstr "_Balken"
 
-#: ../panel-plugin/sensors-plugin.c:2001
+#: ../panel-plugin/sensors-plugin.c:2000
 msgid "_tachos"
 msgstr "_Tachoanzeigen"
 
-#: ../panel-plugin/sensors-plugin.c:2047
+#: ../panel-plugin/sensors-plugin.c:2046
 msgid "Show _labels"
 msgstr "_Beschriftungen anzeigen"
 
-#: ../panel-plugin/sensors-plugin.c:2077
+#: ../panel-plugin/sensors-plugin.c:2076
 msgid "Show colored _bars"
 msgstr "Bal_ken farbig darstellen"
 
-#: ../panel-plugin/sensors-plugin.c:2108
+#: ../panel-plugin/sensors-plugin.c:2107
 msgid "_Show title"
 msgstr "T_itel anzeigen"
 
-#: ../panel-plugin/sensors-plugin.c:2133
+#: ../panel-plugin/sensors-plugin.c:2132
 msgid "_Number of text lines:"
 msgstr "A_nzahl der Textzeilen:"
 
-#: ../panel-plugin/sensors-plugin.c:2171
+#: ../panel-plugin/sensors-plugin.c:2170
 msgid "_Cover all panel rows/columns"
 msgstr "Alle Leistenreihen/-spalten _verwenden"
 
-#: ../panel-plugin/sensors-plugin.c:2196
+#: ../panel-plugin/sensors-plugin.c:2195
 msgid "F_ont size:"
 msgstr "Sc_hriftgröße:"
 
-#: ../panel-plugin/sensors-plugin.c:2202
+#: ../panel-plugin/sensors-plugin.c:2201
 msgid "x-small"
 msgstr "extra-klein"
 
-#: ../panel-plugin/sensors-plugin.c:2203
+#: ../panel-plugin/sensors-plugin.c:2202
 msgid "small"
 msgstr "klein"
 
-#: ../panel-plugin/sensors-plugin.c:2204
+#: ../panel-plugin/sensors-plugin.c:2203
 msgid "medium"
 msgstr "normal"
 
-#: ../panel-plugin/sensors-plugin.c:2205
+#: ../panel-plugin/sensors-plugin.c:2204
 msgid "large"
 msgstr "groß"
 
-#: ../panel-plugin/sensors-plugin.c:2206
+#: ../panel-plugin/sensors-plugin.c:2205
 msgid "x-large"
 msgstr "extra-groß"
 
-#: ../panel-plugin/sensors-plugin.c:2240
+#: ../panel-plugin/sensors-plugin.c:2239
 msgid "F_ont:"
 msgstr "Sc_hrift:"
 
-#: ../panel-plugin/sensors-plugin.c:2273
+#: ../panel-plugin/sensors-plugin.c:2272
 msgid "Show _Units"
 msgstr "_Einheiten anzeigen"
 
-#: ../panel-plugin/sensors-plugin.c:2297
+#: ../panel-plugin/sensors-plugin.c:2296
 msgid "Small horizontal s_pacing"
 msgstr "K_leine horizontale Abstände"
 
-#: ../panel-plugin/sensors-plugin.c:2323
+#: ../panel-plugin/sensors-plugin.c:2322
 msgid "Tacho color alpha value:"
 msgstr "Alpha-Wert der Tacho-Farben"
 
+#. The value from HSV color model
 #: ../panel-plugin/sensors-plugin.c:2336
-msgid "Tacho color hue value:"
-msgstr "Sättigung der Tacho-Farben"
+msgid "Tacho color value:"
+msgstr "HSV-Farbwert der Tachos"
 
 #: ../panel-plugin/sensors-plugin.c:2367
 msgid "Suppress messages"
@@ -422,9 +422,8 @@ msgstr "_Tachoanzeigen"
 msgid "Sensors Viewer"
 msgstr "Sensorbetrachter"
 
-#. FIXME: either print nothing, or undertake appropriate action,
-#. * or pop up a message box.
-#: ../src/actions.c:92
+#. Output to command line, useful only for tracing errors
+#: ../src/actions.c:91
 #, c-format
 msgid ""
 "Sensors Viewer:\n"
