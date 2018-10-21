@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-12 00:32+0200\n"
-"PO-Revision-Date: 2018-09-12 09:24+0000\n"
+"POT-Creation-Date: 2018-10-21 06:33+0200\n"
+"PO-Revision-Date: 2018-10-21 12:03+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -21,18 +21,18 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.c:377 ../panel-plugin/sensors-plugin.c:504
-#: ../panel-plugin/sensors-plugin.c:1117
+#: ../panel-plugin/sensors-plugin.c:383 ../panel-plugin/sensors-plugin.c:510
+#: ../panel-plugin/sensors-plugin.c:1125
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Jutikliai</b></span>"
 
-#: ../panel-plugin/sensors-plugin.c:983
+#: ../panel-plugin/sensors-plugin.c:992
 msgid "No sensors selected!"
 msgstr "Nepasirinkti jokie jutikliai!"
 
-#. FIXME: either print nothing, or undertake appropriate action,
-#. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:1022
+#. output to stdout on command line, not very useful for user, except for
+#. tracing problems
+#: ../panel-plugin/sensors-plugin.c:1030
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -40,120 +40,134 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "Jutiklių įskiepis:\nAtrodo, kad buvo problemų nuskaitant jutiklio funkcijos reikšmę.\nTvarkingas tolimesnis darbas negali būti užtikrintas.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1943
+#: ../panel-plugin/sensors-plugin.c:1995
 msgid "UI style:"
 msgstr "Naudotojo sąsajos stilius:"
 
-#: ../panel-plugin/sensors-plugin.c:1944
+#: ../panel-plugin/sensors-plugin.c:1996
 msgid "_text"
 msgstr "_tekstas"
 
-#: ../panel-plugin/sensors-plugin.c:1946
+#: ../panel-plugin/sensors-plugin.c:1998
 msgid "_progress bars"
 msgstr "_eigos juostos"
 
-#: ../panel-plugin/sensors-plugin.c:1948
+#: ../panel-plugin/sensors-plugin.c:2000
 msgid "_tachos"
 msgstr "_tachometrai"
 
-#: ../panel-plugin/sensors-plugin.c:1994
+#: ../panel-plugin/sensors-plugin.c:2046
 msgid "Show _labels"
 msgstr "_Rodyti etiketes"
 
-#: ../panel-plugin/sensors-plugin.c:2024
+#: ../panel-plugin/sensors-plugin.c:2076
 msgid "Show colored _bars"
 msgstr "Rodyti spalvotas _juostas"
 
-#: ../panel-plugin/sensors-plugin.c:2055
+#: ../panel-plugin/sensors-plugin.c:2107
 msgid "_Show title"
 msgstr "Rodyti _antraštę"
 
-#: ../panel-plugin/sensors-plugin.c:2080
+#: ../panel-plugin/sensors-plugin.c:2132
 msgid "_Number of text lines:"
 msgstr "Teksto eilučių _skaičius:"
 
-#: ../panel-plugin/sensors-plugin.c:2118
+#: ../panel-plugin/sensors-plugin.c:2170
 msgid "_Cover all panel rows/columns"
 msgstr "_Padengti visas skydelio eilutes/stulpelius"
 
-#: ../panel-plugin/sensors-plugin.c:2143
+#: ../panel-plugin/sensors-plugin.c:2195
 msgid "F_ont size:"
 msgstr "Š_rifto dydis:"
 
-#: ../panel-plugin/sensors-plugin.c:2149
+#: ../panel-plugin/sensors-plugin.c:2201
 msgid "x-small"
 msgstr "labai mažas"
 
-#: ../panel-plugin/sensors-plugin.c:2150
+#: ../panel-plugin/sensors-plugin.c:2202
 msgid "small"
 msgstr "mažas"
 
-#: ../panel-plugin/sensors-plugin.c:2151
+#: ../panel-plugin/sensors-plugin.c:2203
 msgid "medium"
 msgstr "vidutinis"
 
-#: ../panel-plugin/sensors-plugin.c:2152
+#: ../panel-plugin/sensors-plugin.c:2204
 msgid "large"
 msgstr "didelis"
 
-#: ../panel-plugin/sensors-plugin.c:2153
+#: ../panel-plugin/sensors-plugin.c:2205
 msgid "x-large"
 msgstr "labai didelis"
 
-#: ../panel-plugin/sensors-plugin.c:2187
+#: ../panel-plugin/sensors-plugin.c:2239
 msgid "F_ont:"
 msgstr "Šr_iftas:"
 
-#: ../panel-plugin/sensors-plugin.c:2219
+#: ../panel-plugin/sensors-plugin.c:2272
 msgid "Show _Units"
 msgstr "R_odyti matavimo vienetus"
 
-#: ../panel-plugin/sensors-plugin.c:2243
+#: ../panel-plugin/sensors-plugin.c:2296
 msgid "Small horizontal s_pacing"
 msgstr "Maži horizontalūs tarpai"
 
-#: ../panel-plugin/sensors-plugin.c:2267
+#: ../panel-plugin/sensors-plugin.c:2322
+msgid "Tacho color alpha value:"
+msgstr "Tachometro spalvos alfa reikšmė:"
+
+#. The value from HSV color model
+#: ../panel-plugin/sensors-plugin.c:2336
+msgid "Tacho color value:"
+msgstr "Tachometro spalvos reikšmė:"
+
+#: ../panel-plugin/sensors-plugin.c:2367
 msgid "Suppress messages"
 msgstr "Nerodyti pranešimų"
 
-#: ../panel-plugin/sensors-plugin.c:2288
+#: ../panel-plugin/sensors-plugin.c:2388
 msgid "Suppress tooltip"
 msgstr "Nerodyti paaiškinimų"
 
-#: ../panel-plugin/sensors-plugin.c:2315
+#: ../panel-plugin/sensors-plugin.c:2415
 msgid "E_xecute on double click:"
 msgstr "_Vykdyti du kartus spustelėjus:"
 
-#: ../panel-plugin/sensors-plugin.c:2355
+#: ../panel-plugin/sensors-plugin.c:2455
 msgid "_View"
 msgstr "_Rodinys"
 
-#: ../panel-plugin/sensors-plugin.c:2390
+#: ../panel-plugin/sensors-plugin.c:2491
 msgid "_Miscellaneous"
 msgstr "Į_vairūs"
 
-#: ../panel-plugin/sensors-plugin.c:2458 ../panel-plugin/sensors-plugin.h:31
+#: ../panel-plugin/sensors-plugin.c:2559 ../panel-plugin/sensors-plugin.h:31
 #: ../lib/hddtemp.c:167
 msgid "Sensors Plugin"
 msgstr "Jutiklių įskiepis"
 
-#: ../panel-plugin/sensors-plugin.c:2466
+#: ../panel-plugin/sensors-plugin.c:2567
 msgid "Properties"
 msgstr "Savybės"
 
-#: ../panel-plugin/sensors-plugin.c:2492
+#: ../panel-plugin/sensors-plugin.c:2593
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "Jūs galite keisti tokias savybes kaip pavadinimas, spalvos, didžiausia/mažiausia reikšmė du kartus spustelėję ant įrašo, atlikę turinio redagavimą ir nuspaudę \"Return\" (Įvedimo arba angl. \"Enter\") klavišą arba pasirinkdami kitą lauką."
 
+#: ../panel-plugin/sensors-plugin.c:2680
+msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
+msgstr "Rodyti jutiklių reikšmes iš LM jutiklių, ACPI, standžiųjų diskų, NVIDIA"
+
+#: ../panel-plugin/sensors-plugin.c:2682
+msgid "Copyright (c) 2004-2018\n"
+msgstr "Autorių teisės (c) 2004-2018\n"
+
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
-#. FIXME: compare strings, or also have hddtemp and acpi store numeric
-#. str_values
-#. assert correctly saved str_file
-#: ../lib/configuration.c:174 ../lib/configuration.c:392 ../lib/hddtemp.c:396
+#: ../lib/configuration.c:180 ../lib/hddtemp.c:396
 msgid "Hard disks"
 msgstr "Standusis diskas"
 
@@ -280,46 +294,46 @@ msgstr "_Jutikliai"
 msgid "No sensors found!"
 msgstr "Nerasta jokių jutiklių!"
 
-#: ../lib/sensors-interface-common.c:147
+#: ../lib/sensors-interface-common.c:150
 #, c-format
 msgid "%.0f °F"
 msgstr "%.0f °F"
 
 #. Celsius
-#: ../lib/sensors-interface-common.c:150
+#: ../lib/sensors-interface-common.c:153
 #, c-format
 msgid "%.0f °C"
 msgstr "%.0f °C"
 
-#: ../lib/sensors-interface-common.c:155
+#: ../lib/sensors-interface-common.c:158
 #, c-format
 msgid "%+.3f V"
 msgstr "%+.3f V"
 
-#: ../lib/sensors-interface-common.c:159
+#: ../lib/sensors-interface-common.c:162
 #, c-format
 msgid "%+.3f A"
 msgstr "%+.3f A"
 
-#: ../lib/sensors-interface-common.c:163
+#: ../lib/sensors-interface-common.c:166
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.c:167
+#: ../lib/sensors-interface-common.c:170
 #, c-format
 msgid "%.0f W"
 msgstr "%.0f W"
 
-#: ../lib/sensors-interface-common.c:172
+#: ../lib/sensors-interface-common.c:175
 msgid "off"
 msgstr "išj."
 
-#: ../lib/sensors-interface-common.c:174
+#: ../lib/sensors-interface-common.c:177
 msgid "on"
 msgstr "įj."
 
-#: ../lib/sensors-interface-common.c:178
+#: ../lib/sensors-interface-common.c:181
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f aps./min."
