@@ -30,8 +30,19 @@
 #define ACPI_FILE_BATTERY_STATE "state"
 #define ACPI_FILE_BATTERY_INFO  "info"
 #define ACPI_FILE_FAN           "state"
-
 #define ACPI_INFO               "info"
+
+#define SYS_PATH "/sys/class/"
+#define SYS_POWER_MODEL_NAME "model_name"
+#define SYS_DIR_THERMAL "thermal"
+#define SYS_FILE_THERMAL "temp"
+#define SYS_DIR_POWER "power_supply"
+#define SYS_FILE_ENERGY "energy_now"
+#define SYS_FILE_ENERGY_MIN "alarm"
+#define SYS_FILE_ENERGY_MAX "energy_full"
+#define SYS_FILE_POWER "power_now"
+#define SYS_FILE_VOLTAGE "voltage_now"
+#define SYS_FILE_VOLTAGE_MIN "voltage_min_design"
 
 /* Gtk/Glib includes */
 #include <glib.h>

@@ -111,7 +111,7 @@ read_thermal_zone (t_chip *ptr_chip)
     TRACE ("enters read_thermal_zone");
 
 #ifdef HAVE_SYSFS_ACPI
-    if ((chdir ("/sys/class/") == 0) && (chdir ("thermal/") == 0))
+    if ((chdir (SYS_PATH) == 0) && (chdir (SYS_DIR_THERMAL) == 0))
 #else
     if ((chdir (ACPI_PATH) == 0) && (chdir (ACPI_DIR_THERMAL) == 0))
 #endif
@@ -128,7 +128,7 @@ read_thermal_zone (t_chip *ptr_chip)
                     continue;
 
     #ifdef HAVE_SYSFS_ACPI
-                str_filename = g_strdup_printf ("/sys/class/thermal/%s/temp", ptr_dirent->d_name);
+                str_filename = g_strdup_printf ("/%s/%s/%s/%s", SYS_PATH, SYS_DIR_THERMAL, ptr_dirent->d_name, SYS_FILE_THERMAL);
     #else
                 str_filename = g_strdup_printf ("%s/%s/%s/%s", ACPI_PATH,
                                             ACPI_DIR_THERMAL, ptr_dirent->d_name,
@@ -254,7 +254,7 @@ get_battery_zone_value (gchar *str_zone)
     TRACE ("enters get_battery_zone_value for %s", str_zone);
 
 #ifdef HAVE_SYSFS_ACPI
-    str_filename = g_strdup_printf ("/sys/class/power_supply/%s/energy_now", str_zone);
+    str_filename = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, str_zone, SYS_FILE_ENERGY);
 #else
     str_filename = g_strdup_printf ("%s/%s/%s/%s", ACPI_PATH, ACPI_DIR_BATTERY,
                                 str_zone, ACPI_FILE_BATTERY_STATE);
@@ -309,7 +309,7 @@ read_battery_zone (t_chip *ptr_chip)
     TRACE ("enters read_battery_zone");
 
 #ifdef HAVE_SYSFS_ACPI
-    if ((chdir ("/sys/class") == 0) && (chdir ("power_supply") == 0)) {
+    if ((chdir (SYS_PATH) == 0) && (chdir (SYS_DIR_POWER) == 0)) {
 #else
     if ((chdir (ACPI_PATH) == 0) && (chdir (ACPI_DIR_BATTERY) == 0)) {
 #endif
@@ -321,7 +321,7 @@ read_battery_zone (t_chip *ptr_chip)
             { /* have a battery subdirectory */
 
 #ifdef HAVE_SYSFS_ACPI
-                str_filename = g_strdup_printf ("/sys/class/power_supply/%s/model_name", ptr_dirent->d_name);
+                str_filename = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, ptr_dirent->d_name, SYS_POWER_MODEL_NAME);
 #else
                 str_filename = g_strdup_printf ("%s/%s/%s/%s", ACPI_PATH,
                                             ACPI_DIR_BATTERY, ptr_dirent->d_name,
@@ -356,7 +356,7 @@ read_battery_zone (t_chip *ptr_chip)
                     fclose (ptr_file);
                 }
                 g_free (str_filename);
-                str_filename = g_strdup_printf ("/sys/class/power_supply/%s/energy_now", ptr_dirent->d_name);
+                str_filename = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, ptr_dirent->d_name, SYS_FILE_ENERGY);
                 ptr_file = fopen (str_filename, "r");
                 if (ptr_file) {
 
@@ -369,7 +369,7 @@ read_battery_zone (t_chip *ptr_chip)
                     fclose (ptr_file);
                 }
                 g_free (str_filename);
-                str_filename = g_strdup_printf ("/sys/class/power_supply/%s/alarm", ptr_dirent->d_name);
+                str_filename = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, ptr_dirent->d_name, SYS_FILE_ENERGY_MIN);
                 ptr_file = fopen (str_filename, "r");
                 if (ptr_file) {
                     if (fgets (buffer, 1024, ptr_file)!=NULL)
@@ -449,7 +449,7 @@ get_battery_max_value (gchar *str_filename, t_chipfeature *ptr_chipfeature)
     TRACE ("enters get_battery_max_value");
 
 #ifdef HAVE_SYSFS_ACPI
-    str_pathtofile = g_strdup_printf ("/sys/class/power_supply/%s/energy_full", str_filename);
+    str_pathtofile = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, str_filename, SYS_FILE_ENERGY_MAX);
 #else
     str_pathtofile = g_strdup_printf ("%s/%s/%s/%s", ACPI_PATH,
                                             ACPI_DIR_BATTERY, str_filename,
@@ -630,7 +630,7 @@ refresh_acpi (gpointer ptr_chipfeature, gpointer ptr_unused)
     switch (cf->class) {
         case TEMPERATURE:
 #ifdef HAVE_SYSFS_ACPI
-            str_zone = g_strdup_printf ("/sys/class/thermal_zone/%s/temp", cf->devicename);
+            str_zone = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_THERMAL, cf->devicename, SYS_FILE_THERMAL);
             ptr_file = fopen(str_zone, "r");
             if (ptr_file)
             {
