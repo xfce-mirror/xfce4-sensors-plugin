@@ -159,7 +159,8 @@ categorize_sensor_type (t_chipfeature* ptr_chipfeature)
     g_assert (ptr_chipfeature != NULL);
 
     if ( strstr(ptr_chipfeature->name, "Temp")!=NULL
-    || strstr(ptr_chipfeature->name, "temp")!=NULL ) {
+    || strstr(ptr_chipfeature->name, "temp")!=NULL
+    || strstr(ptr_chipfeature->name, "thermal")!=NULL ) {
         ptr_chipfeature->class = TEMPERATURE;
         ptr_chipfeature->min_value = 0.0;
         ptr_chipfeature->max_value = 80.0;
@@ -178,6 +179,16 @@ categorize_sensor_type (t_chipfeature* ptr_chipfeature)
     } else if ( strstr(ptr_chipfeature->name, "alarm")!=NULL
     || strstr(ptr_chipfeature->name, "Alarm")!=NULL ) {
         ptr_chipfeature->class = STATE;
+        ptr_chipfeature->min_value = 0.0;
+        ptr_chipfeature->max_value = 1.0;
+    } else if ( strstr(ptr_chipfeature->name, "power")!=NULL
+    || strstr(ptr_chipfeature->name, "Power")!=NULL ) {
+        ptr_chipfeature->class = POWER;
+        ptr_chipfeature->min_value = 0.0;
+        ptr_chipfeature->max_value = 1.0;
+    } else if ( strstr(ptr_chipfeature->name, "current")!=NULL
+    || strstr(ptr_chipfeature->name, "Current")!=NULL ) {
+        ptr_chipfeature->class = CURRENT;
         ptr_chipfeature->min_value = 0.0;
         ptr_chipfeature->max_value = 1.0;
     } else {
