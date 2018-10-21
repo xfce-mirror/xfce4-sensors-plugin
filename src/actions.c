@@ -126,6 +126,7 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
     gdouble val_fill_degree;
     gchar str_widget_tooltip_text[128];
     gint num_max_cols, num_max_rows;
+    SensorsTachoStyle tacho_style = style_MinGYR; /* default as has been for 10 years */
 
     TRACE ("enters refresh_tacho_view");
 
@@ -163,7 +164,21 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
                 if (ptr_sensorstachowidget == NULL)
                 {
                     DBG("Newly adding selected widget from container.");
-                    ptr_sensors_structure->tachos[idx_chip][idx_feature] = ptr_sensorstachowidget = gtk_sensorstacho_new(ptr_sensors_structure->orientation, DEFAULT_SIZE_TACHOS);
+
+                switch (ptr_chipfeature_structure->class) {
+                    case VOLTAGE:
+                    case POWER:
+                    case CURRENT:
+                        tacho_style = style_MediumYGB;
+                        break;
+                    case ENERGY:
+                        tacho_style = style_MaxRYG;
+                        break;
+                    default: // tacho_style = style_MinGYR; // already set per default
+                        break;
+                }
+
+                    ptr_sensors_structure->tachos[idx_chip][idx_feature] = ptr_sensorstachowidget = gtk_sensorstacho_new(ptr_sensors_structure->orientation, DEFAULT_SIZE_TACHOS, tacho_style);
                     ptr_sensorstacho = GTK_SENSORSTACHO(ptr_sensorstachowidget);
 
                     gtk_sensorstacho_set_text(ptr_sensorstacho, ptr_chipfeature_structure->name);

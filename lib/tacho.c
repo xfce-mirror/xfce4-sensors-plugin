@@ -97,13 +97,14 @@ gtk_sensorstacho_unset_text (GtkSensorsTacho *ptr_sensorstacho)
 
 /* -------------------------------------------------------------------------- */
 GtkWidget *
-gtk_sensorstacho_new(GtkOrientation orientation, guint size)
+gtk_sensorstacho_new(GtkOrientation orientation, guint size, SensorsTachoStyle style)
 {
     GtkSensorsTacho *ptr_sensorstacho = g_object_new(gtk_sensorstacho_get_type(), NULL);
     TRACE("enter gtk_sensorstacho_new\n");
 
     ptr_sensorstacho->orientation = orientation;
     ptr_sensorstacho->size = size;
+    ptr_sensorstacho->style = style;
 
     return GTK_WIDGET(ptr_sensorstacho);
 }
@@ -286,6 +287,7 @@ gtk_sensorstacho_paint (GtkWidget *widget,
     double degrees_45minusI;
     GtkAllocation allocation;
     GtkStyleContext *ptr_stylecontext = NULL;
+    GtkSensorsTacho *ptr_tacho = GTK_SENSORSTACHO(widget);
 
     TRACE("enter gtk_sensorstacho_paint\n");
 
@@ -293,7 +295,7 @@ gtk_sensorstacho_paint (GtkWidget *widget,
 
     gtk_widget_get_allocation(widget, &allocation);
 
-    percent = GTK_SENSORSTACHO(widget)->sel;
+    percent = ptr_tacho->sel;
     if (percent>1.0)
         percent = 1.0;
 
@@ -308,16 +310,33 @@ gtk_sensorstacho_paint (GtkWidget *widget,
     pos_ycenter = height / 2;
 
     /* initialize color values appropriately */
-    color.red = val_colorvalue;
+    color.red = (ptr_tacho->style != style_MediumYGB) ? val_colorvalue : 0;
     color.green = val_colorvalue;
-    color.blue = 0.0;
+    color.blue = 0;
     color.alpha = val_alpha;
 
     if (percent < 0.5)
-        color.red = 2*val_colorvalue * percent;
+    {
+        if (ptr_tacho->style == style_MinGYR)
+            color.red = 2*val_colorvalue * percent;
+        else if (ptr_tacho->style == style_MaxRYG)
+            color.green = 2*val_colorvalue * percent;
+        else
+            color.red = 2*val_colorvalue * (0.5 - percent);
+    }
 
     if (percent > 0.5)
-        color.green = 2*val_colorvalue * (1 - percent);
+    {
+        if (ptr_tacho->style == style_MinGYR)
+            color.green = 2*val_colorvalue * (1 - percent);
+        else if (ptr_tacho->style == style_MaxRYG)
+            color.red = 2*val_colorvalue * (1 - percent);
+        else
+        {
+            color.green = 2*val_colorvalue * (1.0 - percent);
+            color.blue = 2*val_colorvalue * (percent - 0.5);
+        }
+    }
 
     /* draw circular gradient */
     for (i=(1-percent)*THREE_QUARTER_CIRCLE; i<THREE_QUARTER_CIRCLE; i++)
@@ -340,10 +359,27 @@ gtk_sensorstacho_paint (GtkWidget *widget,
         cairo_fill (ptr_cairo);
 
         if (i>(0.5*THREE_QUARTER_CIRCLE - 1))
-            color.red -= 2*val_colorvalue * COLOR_STEP;
+        {
+            if (ptr_tacho->style == style_MinGYR)
+                color.red -= 2*val_colorvalue * COLOR_STEP;
+            else if (ptr_tacho->style == style_MaxRYG)
+                color.green -= 2*val_colorvalue * COLOR_STEP;
+            else {
+                color.red += 2*val_colorvalue * COLOR_STEP;
+            }
+        }
 
         if (i<(0.5*THREE_QUARTER_CIRCLE - 1))
-            color.green += 2*val_colorvalue * COLOR_STEP;
+        {
+            if (ptr_tacho->style == style_MinGYR)
+                color.green += 2*val_colorvalue * COLOR_STEP;
+            else if (ptr_tacho->style == style_MaxRYG)
+                color.red += 2*val_colorvalue * COLOR_STEP;
+            else {
+                color.green += 2*val_colorvalue * COLOR_STEP;
+                color.blue -= 2*val_colorvalue * COLOR_STEP;
+            }
+        }
     }
 
     /* white right part */
@@ -374,14 +410,14 @@ gtk_sensorstacho_paint (GtkWidget *widget,
 
     cairo_stroke (ptr_cairo);
 
-    if (GTK_SENSORSTACHO(widget)->text != NULL) {
+    if (ptr_tacho->text != NULL) {
         PangoContext *ptr_style_context = gtk_widget_get_pango_context (widget);
         PangoLayout *ptr_layout = pango_layout_new (ptr_style_context);
 
         pango_layout_set_alignment(ptr_layout, PANGO_ALIGN_CENTER);
         pango_layout_set_width (ptr_layout, width);
 
-        ptr_text = g_strdup_printf("<span color=\"%s\">%s</span>", GTK_SENSORSTACHO(widget)->color, GTK_SENSORSTACHO(widget)->text);
+        ptr_text = g_strdup_printf("<span color=\"%s\">%s</span>", ptr_tacho->color, ptr_tacho->text);
         pango_layout_set_markup (ptr_layout, ptr_text, -1); // with null-termination, no need to give length explicitly
         g_free(ptr_text);
 

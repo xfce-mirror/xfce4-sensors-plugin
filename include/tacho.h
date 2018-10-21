@@ -30,6 +30,18 @@ G_DECLARE_FINAL_TYPE (GtkSensorsTacho, gtk_sensorstacho, GTK, SENSORSTACHO, GtkD
 typedef struct _GtkSensorsTacho GtkSensorsTacho;
 
 /**
+ * Enumeration of possible style for sensors tacho.
+ */
+typedef enum _SensorsTachoStyle {
+    /** temperatures, ranging from green over yellow to red */
+    style_MinGYR = 0,
+    /** voltage and power, from yellow over green to blue */
+    style_MediumYGB = 1,
+    /** fill level, mostly used for energy from red ove ryellow to green */
+    style_MaxRYG = 2
+} SensorsTachoStyle;
+
+/**
  * pseudo widget for drawing a tacho
  */
 struct _GtkSensorsTacho {
@@ -48,6 +60,9 @@ struct _GtkSensorsTacho {
     /** size of a side of the surrounding square area */
     guint size;
 
+    /** color style of tacho */
+    SensorsTachoStyle style;
+
     /** orientation, used for vertical bars */
     GtkOrientation orientation;
 };
@@ -63,9 +78,10 @@ void gtk_sensorstacho_set_value (GtkSensorsTacho *ptr_sensorstacho, gdouble valu
  * create a new sensorstacho with orientation and initial size
  * @param orientation: orientation of the tacho
  * @param size: initial size of the tacho object
+ * @param style: gradient style of the tacho object
  * @return allocated widget
  */
-GtkWidget * gtk_sensorstacho_new(GtkOrientation orientation, guint size);
+GtkWidget * gtk_sensorstacho_new(GtkOrientation orientation, guint size, SensorsTachoStyle style);
 
 /**
  * set the text to be drawn. if NULL, no text is drawn.

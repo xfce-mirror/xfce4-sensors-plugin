@@ -497,6 +497,7 @@ sensors_add_tacho_display (t_sensors *ptr_sensors)
     gboolean has_tachos = FALSE;
     GtkWidget *ptr_tacho;
     gchar *str_panellabeltext;
+    SensorsTachoStyle tacho_style = style_MinGYR; /* default as has been for 10 years */
 
     gint size_panel = ptr_sensors->panel_size;
 
@@ -524,7 +525,21 @@ sensors_add_tacho_display (t_sensors *ptr_sensors)
             if (ptr_chipfeature->show == TRUE) {
                 has_tachos = TRUE;
 
-                ptr_tacho = gtk_sensorstacho_new(ptr_sensors->orientation, size_panel);
+                switch (ptr_chipfeature->class) {
+                    case VOLTAGE:
+                    case POWER:
+                    case CURRENT:
+                    //case TEMPERATURE: // activate for devlopping only
+                        tacho_style = style_MediumYGB;
+                        break;
+                    case ENERGY:
+                        tacho_style = style_MaxRYG;
+                        break;
+                    default: // tacho_style = style_MinGYR; // already set per default
+                        break;
+                }
+
+                ptr_tacho = gtk_sensorstacho_new(ptr_sensors->orientation, size_panel, tacho_style);
 
                 /* create the label stuff only if needed - saves some memory! */
                 if (ptr_sensors->show_labels == TRUE) {
@@ -2316,7 +2331,10 @@ add_tachos_appearance_boxes(GtkWidget * vbox, t_sensors_dialog * sd)
 {
     GtkWidget *widget_hscale;
     GtkWidget *widget_label;
+    //GtkWidget *widget_groupbox;
     TRACE ("enters add_tachos_appearance_boxes");
+
+//widget_groupbox = xfce_groub_box ...
 
     sd->alpha_slider_box = gtk_hbox_new(FALSE, INNER_BORDER);
     widget_label = gtk_label_new(_("Tacho color alpha value:"));
@@ -2347,10 +2365,13 @@ add_tachos_appearance_boxes(GtkWidget * vbox, t_sensors_dialog * sd)
     gtk_box_pack_start (GTK_BOX (vbox), sd->alpha_slider_box, FALSE, TRUE, 0);
     gtk_box_pack_start (GTK_BOX (vbox), sd->colorvalue_slider_box, FALSE, TRUE, 0);
 
+    //gtk_box_pack_start (GTK_BOX (vbox), widget_groupbox, FALSE, TRUE, 0);
+
     if (sd->sensors->display_values_type!=DISPLAY_TACHO)
     {
         gtk_widget_hide(sd->alpha_slider_box);
         gtk_widget_hide(sd->colorvalue_slider_box);
+        //gtk_widget_hide(widget_groupbox);
     }
 
     TRACE ("leaves add_tachos_appearance_boxes");
