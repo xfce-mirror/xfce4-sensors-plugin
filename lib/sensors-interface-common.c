@@ -167,7 +167,7 @@ format_sensor_value (t_tempscale temperaturescale, t_chipfeature *ptr_chipfeatur
                break;
 
         case POWER:
-               *dptr_str_formattedvalue = g_strdup_printf(_("%.0f W"), val_sensorfeature);
+               *dptr_str_formattedvalue = g_strdup_printf(_("%.0f mW"), val_sensorfeature);
                break;
 
         case STATE:

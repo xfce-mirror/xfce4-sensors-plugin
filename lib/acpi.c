@@ -627,8 +627,8 @@ read_power_zone (t_chip *ptr_chip)
 
                     ptr_chipfeature->color = g_strdup("#0000B0");
                     ptr_chipfeature->address = ptr_chip->chip_features->len;
-                    ptr_chipfeature->devicename = g_strdup_printf (_("%s - %s"), ptr_dirent->d_name, _("Power"));
-                    ptr_chipfeature->name = g_strdup (ptr_chipfeature->devicename);
+                    ptr_chipfeature->devicename = g_strdup(ptr_dirent->d_name);
+                    ptr_chipfeature->name = g_strdup_printf (_("%s - %s"), ptr_dirent->d_name, _("Power"));
                     ptr_chipfeature->formatted_value = NULL;
                     ptr_chipfeature->raw_value = get_power_zone_value(ptr_dirent->d_name);
                     ptr_chipfeature->valid = TRUE;
@@ -755,6 +755,10 @@ refresh_acpi (gpointer ptr_chipfeature, gpointer ptr_unused)
 
         case ENERGY:
             cf->raw_value = get_battery_zone_value (cf->devicename);
+            break;
+
+        case POWER:
+            cf->raw_value = get_power_zone_value (cf->devicename);
             break;
 
         case STATE:
