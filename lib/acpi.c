@@ -563,6 +563,109 @@ read_fan_zone (t_chip *ptr_chip)
 
 
 /* -------------------------------------------------------------------------- */
+gdouble
+get_power_zone_value (gchar *str_zone)
+{
+    gdouble res_value = 0.0;
+
+    FILE *ptr_file;
+    gchar buffer [1024], *str_filename;
+
+    g_return_val_if_fail(str_zone!=NULL, res_value);
+
+    TRACE ("enters get_power_zone_value for %s", str_zone);
+
+    str_filename = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, str_zone, SYS_FILE_POWER);
+
+    DBG("str_filename=%s\n", str_filename);
+    ptr_file = fopen (str_filename, "r");
+    if (ptr_file) {
+        if (fgets (buffer, 1024, ptr_file)!=NULL)
+        {
+            cut_newline (buffer);
+            res_value = strtod (buffer, NULL) / 1000.0;
+        }
+        fclose (ptr_file);
+    }
+
+    g_free (str_filename);
+
+    return res_value;
+}
+
+
+/* -------------------------------------------------------------------------- */
+gint
+read_power_zone (t_chip *ptr_chip)
+{
+    gint res_value = -1;
+
+    DIR *ptr_dir;
+    FILE *ptr_file;
+    gchar *str_filename;
+    struct dirent *ptr_dirent;
+    t_chipfeature *ptr_chipfeature = NULL;
+
+    g_return_val_if_fail(ptr_chip!=NULL, res_value);
+
+    TRACE ("enters read_power_zone");
+
+    if ((chdir (SYS_PATH) == 0) && (chdir (SYS_DIR_POWER) == 0)) {
+        ptr_dir = opendir (".");
+
+        while (ptr_dir && (ptr_dirent = readdir (ptr_dir)))
+        {
+            if (strncmp(ptr_dirent->d_name, "BAT", 3)==0)
+            { /* have a battery subdirectory */
+
+                str_filename = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, ptr_dirent->d_name, SYS_FILE_POWER);
+                ptr_file = fopen (str_filename, "r");
+                if (ptr_file) {
+
+                    ptr_chipfeature = g_new0 (t_chipfeature, 1);
+                    g_return_val_if_fail(ptr_chipfeature != NULL, -1);
+
+                    ptr_chipfeature->color = g_strdup("#0000B0");
+                    ptr_chipfeature->address = ptr_chip->chip_features->len;
+                    ptr_chipfeature->devicename = g_strdup_printf (_("%s - %s"), ptr_dirent->d_name, _("Power"));
+                    ptr_chipfeature->name = g_strdup (ptr_chipfeature->devicename);
+                    ptr_chipfeature->formatted_value = NULL;
+                    ptr_chipfeature->raw_value = get_power_zone_value(ptr_dirent->d_name);
+                    ptr_chipfeature->valid = TRUE;
+                    ptr_chipfeature->min_value = 0.0;
+                    ptr_chipfeature->max_value = 2.0;
+                    ptr_chipfeature->class = POWER;
+
+                    g_ptr_array_add (ptr_chip->chip_features, ptr_chipfeature);
+
+                    ptr_chip->num_features++; /* FIXME: actually I am just the same as
+                    chip->chip_features->len */
+
+                    fclose (ptr_file);
+                }
+                g_free (str_filename);
+
+            }
+
+            res_value = 0;
+        }
+
+        if (ptr_dir)
+            closedir (ptr_dir);
+
+        TRACE ("leaves read_power_zone");
+    }
+    else
+    {
+        TRACE ("leaves read_power_zone");
+        res_value = -2;
+    }
+
+    return res_value;
+}
+
+
+/* -------------------------------------------------------------------------- */
 gint
 initialize_ACPI (GPtrArray *arr_ptr_chips)
 {
@@ -600,6 +703,7 @@ initialize_ACPI (GPtrArray *arr_ptr_chips)
     read_battery_zone (ptr_chip);
     read_thermal_zone (ptr_chip);
     read_fan_zone (ptr_chip);
+    read_power_zone(ptr_chip);
 
     g_ptr_array_add (arr_ptr_chips, ptr_chip);
 
