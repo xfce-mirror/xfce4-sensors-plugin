@@ -333,7 +333,7 @@ sensors_read_config (XfcePanelPlugin *ptr_panelplugin, t_sensors *ptr_sensors)
     gint idx_chip, idx_feature, idx_chiptmp;
     gchar str_rcchip[8], str_feature[20];
     gchar* str_sensorname=NULL;
-    gint num_sensorchip, id, address;
+    gint num_sensorchip;
     t_chip *ptr_chip;
     t_chipfeature *ptr_chipfeature;
 
@@ -395,8 +395,6 @@ sensors_read_config (XfcePanelPlugin *ptr_panelplugin, t_sensors *ptr_sensors)
 
                     if (xfce_rc_has_group (ptr_xfceresource, str_feature)) {
                         xfce_rc_set_group (ptr_xfceresource, str_feature);
-
-                        address=0;
 
                         if ((str_value = xfce_rc_read_entry (ptr_xfceresource, "DeviceName", NULL))
                             && *str_value) {
