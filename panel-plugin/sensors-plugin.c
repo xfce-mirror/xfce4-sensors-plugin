@@ -497,7 +497,7 @@ sensors_add_tacho_display (t_sensors *ptr_sensors)
     gboolean has_tachos = FALSE;
     GtkWidget *ptr_tacho;
     gchar *str_panellabeltext;
-    SensorsTachoStyle tacho_style = style_MinGYR; /* default as has been for 10 years */
+    SensorsTachoStyle tacho_style;
 
     gint size_panel = ptr_sensors->panel_size;
 
@@ -521,6 +521,7 @@ sensors_add_tacho_display (t_sensors *ptr_sensors)
         for (idx_feature=0; idx_feature < ptr_chip->num_features; idx_feature++) {
             ptr_chipfeature = g_ptr_array_index (ptr_chip->chip_features, idx_feature);
             g_assert (ptr_chipfeature != NULL);
+            tacho_style = style_MinGYR; /* default as has been for 10 years */
 
             if (ptr_chipfeature->show == TRUE) {
                 has_tachos = TRUE;
@@ -529,7 +530,7 @@ sensors_add_tacho_display (t_sensors *ptr_sensors)
                     case VOLTAGE:
                     case POWER:
                     case CURRENT:
-                    //case TEMPERATURE: // activate for devlopping only
+                    //case TEMPERATURE: // activate for developping only
                         tacho_style = style_MediumYGB;
                         break;
                     case ENERGY:
