@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-21 00:47+0200\n"
+"POT-Creation-Date: 2018-10-22 23:34+0200\n"
 "PO-Revision-Date: 2017-09-19 18:06+0000\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German (http://www.transifex.com/xfce/xfce-panel-plugins/"
@@ -21,17 +21,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.c:383 ../panel-plugin/sensors-plugin.c:510
-#: ../panel-plugin/sensors-plugin.c:1125
+#: ../panel-plugin/sensors-plugin.c:383 ../panel-plugin/sensors-plugin.c:511
+#: ../panel-plugin/sensors-plugin.c:1141
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Sensoren</b></span>"
 
-#: ../panel-plugin/sensors-plugin.c:992
+#: ../panel-plugin/sensors-plugin.c:1008
 msgid "No sensors selected!"
 msgstr "Keine Sensoren ausgewählt!"
 
 #. output to stdout on command line, not very useful for user, except for tracing problems
-#: ../panel-plugin/sensors-plugin.c:1030
+#: ../panel-plugin/sensors-plugin.c:1046
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -42,117 +42,117 @@ msgstr ""
 "Anscheinend gab es ein Problem beim Auslesen eines Wertes.\n"
 "Sauberes Weiterlaufen kann nicht gewährleistet werden.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1995
+#: ../panel-plugin/sensors-plugin.c:2011
 msgid "UI style:"
 msgstr "Darstellung:"
 
-#: ../panel-plugin/sensors-plugin.c:1996
+#: ../panel-plugin/sensors-plugin.c:2012
 msgid "_text"
 msgstr "Te_xt"
 
-#: ../panel-plugin/sensors-plugin.c:1998
+#: ../panel-plugin/sensors-plugin.c:2014
 msgid "_progress bars"
 msgstr "_Balken"
 
-#: ../panel-plugin/sensors-plugin.c:2000
+#: ../panel-plugin/sensors-plugin.c:2016
 msgid "_tachos"
 msgstr "_Tachoanzeigen"
 
-#: ../panel-plugin/sensors-plugin.c:2046
+#: ../panel-plugin/sensors-plugin.c:2062
 msgid "Show _labels"
 msgstr "_Beschriftungen anzeigen"
 
-#: ../panel-plugin/sensors-plugin.c:2076
+#: ../panel-plugin/sensors-plugin.c:2092
 msgid "Show colored _bars"
 msgstr "Bal_ken farbig darstellen"
 
-#: ../panel-plugin/sensors-plugin.c:2107
+#: ../panel-plugin/sensors-plugin.c:2123
 msgid "_Show title"
 msgstr "T_itel anzeigen"
 
-#: ../panel-plugin/sensors-plugin.c:2132
+#: ../panel-plugin/sensors-plugin.c:2148
 msgid "_Number of text lines:"
 msgstr "A_nzahl der Textzeilen:"
 
-#: ../panel-plugin/sensors-plugin.c:2170
+#: ../panel-plugin/sensors-plugin.c:2186
 msgid "_Cover all panel rows/columns"
 msgstr "Alle Leistenreihen/-spalten _verwenden"
 
-#: ../panel-plugin/sensors-plugin.c:2195
+#: ../panel-plugin/sensors-plugin.c:2211
 msgid "F_ont size:"
 msgstr "Sc_hriftgröße:"
 
-#: ../panel-plugin/sensors-plugin.c:2201
+#: ../panel-plugin/sensors-plugin.c:2217
 msgid "x-small"
 msgstr "extra-klein"
 
-#: ../panel-plugin/sensors-plugin.c:2202
+#: ../panel-plugin/sensors-plugin.c:2218
 msgid "small"
 msgstr "klein"
 
-#: ../panel-plugin/sensors-plugin.c:2203
+#: ../panel-plugin/sensors-plugin.c:2219
 msgid "medium"
 msgstr "normal"
 
-#: ../panel-plugin/sensors-plugin.c:2204
+#: ../panel-plugin/sensors-plugin.c:2220
 msgid "large"
 msgstr "groß"
 
-#: ../panel-plugin/sensors-plugin.c:2205
+#: ../panel-plugin/sensors-plugin.c:2221
 msgid "x-large"
 msgstr "extra-groß"
 
-#: ../panel-plugin/sensors-plugin.c:2239
+#: ../panel-plugin/sensors-plugin.c:2255
 msgid "F_ont:"
 msgstr "Sc_hrift:"
 
-#: ../panel-plugin/sensors-plugin.c:2272
+#: ../panel-plugin/sensors-plugin.c:2288
 msgid "Show _Units"
 msgstr "_Einheiten anzeigen"
 
-#: ../panel-plugin/sensors-plugin.c:2296
+#: ../panel-plugin/sensors-plugin.c:2312
 msgid "Small horizontal s_pacing"
 msgstr "K_leine horizontale Abstände"
 
-#: ../panel-plugin/sensors-plugin.c:2322
+#: ../panel-plugin/sensors-plugin.c:2341
 msgid "Tacho color alpha value:"
 msgstr "Alpha-Wert der Tacho-Farben"
 
 #. The value from HSV color model
-#: ../panel-plugin/sensors-plugin.c:2336
+#: ../panel-plugin/sensors-plugin.c:2355
 msgid "Tacho color value:"
 msgstr "HSV-Farbwert der Tachos"
 
-#: ../panel-plugin/sensors-plugin.c:2367
+#: ../panel-plugin/sensors-plugin.c:2389
 msgid "Suppress messages"
 msgstr "Nachrichtendialoge _unterbinden"
 
-#: ../panel-plugin/sensors-plugin.c:2388
+#: ../panel-plugin/sensors-plugin.c:2410
 msgid "Suppress tooltip"
 msgstr "Kurzinfo unterdrücken"
 
-#: ../panel-plugin/sensors-plugin.c:2415
+#: ../panel-plugin/sensors-plugin.c:2437
 msgid "E_xecute on double click:"
 msgstr "Bei _Doppelklick ausführen:"
 
-#: ../panel-plugin/sensors-plugin.c:2455
+#: ../panel-plugin/sensors-plugin.c:2477
 msgid "_View"
 msgstr "_Aussehen"
 
-#: ../panel-plugin/sensors-plugin.c:2491
+#: ../panel-plugin/sensors-plugin.c:2513
 msgid "_Miscellaneous"
 msgstr "S_onstige Einstellungen"
 
-#: ../panel-plugin/sensors-plugin.c:2559 ../panel-plugin/sensors-plugin.h:31
+#: ../panel-plugin/sensors-plugin.c:2581 ../panel-plugin/sensors-plugin.h:31
 #: ../lib/hddtemp.c:167
 msgid "Sensors Plugin"
 msgstr "Sensormodul"
 
-#: ../panel-plugin/sensors-plugin.c:2567
+#: ../panel-plugin/sensors-plugin.c:2589
 msgid "Properties"
 msgstr "Eigenschaften"
 
-#: ../panel-plugin/sensors-plugin.c:2593
+#: ../panel-plugin/sensors-plugin.c:2615
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
@@ -162,13 +162,13 @@ msgstr ""
 "verändert werden, indem man den Eintrag doppelklickt, den Inhalt ändert und "
 "»Eingabe« drückt oder ein anderes Feld wählt."
 
-#: ../panel-plugin/sensors-plugin.c:2680
+#: ../panel-plugin/sensors-plugin.c:2702
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr ""
 "Sensorwerte der Bibliothek LM-Sensoren, ACPI, Festplatten und NVIDIA-GPUs "
 "anzeigen"
 
-#: ../panel-plugin/sensors-plugin.c:2682
+#: ../panel-plugin/sensors-plugin.c:2704
 msgid "Copyright (c) 2004-2018\n"
 msgstr "Copyright (c) 2004-2018\n"
 
@@ -178,16 +178,25 @@ msgstr "Copyright (c) 2004-2018\n"
 msgid "Hard disks"
 msgstr "Festplatten"
 
-#: ../lib/acpi.c:580 ../lib/acpi.c:592
+#: ../lib/acpi.c:631
+#, c-format
+msgid "%s - %s"
+msgstr "%s - %s"
+
+#: ../lib/acpi.c:631
+msgid "Power"
+msgstr "Leistung"
+
+#: ../lib/acpi.c:683 ../lib/acpi.c:695
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.c:583
+#: ../lib/acpi.c:686
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ACPI-v%s-Zonen"
 
-#: ../lib/acpi.c:724
+#: ../lib/acpi.c:832
 msgid "<Unknown>"
 msgstr "<Unbekannt>"
 
@@ -347,8 +356,8 @@ msgstr "%.0f mWh"
 
 #: ../lib/sensors-interface-common.c:170
 #, c-format
-msgid "%.0f W"
-msgstr "%.0f W"
+msgid "%.0f mW"
+msgstr "%.0f mW"
 
 #: ../lib/sensors-interface-common.c:175
 msgid "off"
@@ -422,8 +431,9 @@ msgstr "_Tachoanzeigen"
 msgid "Sensors Viewer"
 msgstr "Sensorbetrachter"
 
-#. Output to command line, useful only for tracing errors
-#: ../src/actions.c:91
+#. FIXME: either print nothing, or undertake appropriate action,
+#. * or pop up a message box.
+#: ../src/actions.c:92
 #, c-format
 msgid ""
 "Sensors Viewer:\n"
@@ -450,3 +460,6 @@ msgstr "Betrachter für Sensorwerte"
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
 msgid "Sensor plugin"
 msgstr "Sensormodul"
+
+#~ msgid "%.0f W"
+#~ msgstr "%.0f W"
