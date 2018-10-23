@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-16 06:31+0200\n"
-"PO-Revision-Date: 2018-10-16 18:04+0000\n"
+"POT-Creation-Date: 2018-10-23 00:33+0200\n"
+"PO-Revision-Date: 2018-10-23 06:37+0000\n"
 "Last-Translator: Edin Veskovic <edin.lockedin@gmail.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/xfce/xfce-panel-plugins/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -23,18 +23,18 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.c:378 ../panel-plugin/sensors-plugin.c:505
-#: ../panel-plugin/sensors-plugin.c:1121
+#: ../panel-plugin/sensors-plugin.c:383 ../panel-plugin/sensors-plugin.c:511
+#: ../panel-plugin/sensors-plugin.c:1141
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Senzori</b></span>"
 
-#: ../panel-plugin/sensors-plugin.c:987
+#: ../panel-plugin/sensors-plugin.c:1008
 msgid "No sensors selected!"
 msgstr "NIjedan senzor nije odabran!"
 
-#. FIXME: either print nothing, or undertake appropriate action,
-#. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:1026
+#. output to stdout on command line, not very useful for user, except for
+#. tracing problems
+#: ../panel-plugin/sensors-plugin.c:1046
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -42,127 +42,128 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "Priključak za senzore:\nPostoji problem pri čitanju vrijednosti senzora.\nPravilan nastavak nije garantiran.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1991
+#: ../panel-plugin/sensors-plugin.c:2011
 msgid "UI style:"
 msgstr "UI stil:"
 
-#: ../panel-plugin/sensors-plugin.c:1992
+#: ../panel-plugin/sensors-plugin.c:2012
 msgid "_text"
 msgstr "_tekst"
 
-#: ../panel-plugin/sensors-plugin.c:1994
+#: ../panel-plugin/sensors-plugin.c:2014
 msgid "_progress bars"
 msgstr "_trake napretka"
 
-#: ../panel-plugin/sensors-plugin.c:1996
+#: ../panel-plugin/sensors-plugin.c:2016
 msgid "_tachos"
 msgstr "_tahometri"
 
-#: ../panel-plugin/sensors-plugin.c:2042
+#: ../panel-plugin/sensors-plugin.c:2062
 msgid "Show _labels"
 msgstr "Pokazuj _natpise"
 
-#: ../panel-plugin/sensors-plugin.c:2072
+#: ../panel-plugin/sensors-plugin.c:2092
 msgid "Show colored _bars"
 msgstr "Pokaži obojane _trake"
 
-#: ../panel-plugin/sensors-plugin.c:2103
+#: ../panel-plugin/sensors-plugin.c:2123
 msgid "_Show title"
 msgstr "_Pokaži naslov"
 
-#: ../panel-plugin/sensors-plugin.c:2128
+#: ../panel-plugin/sensors-plugin.c:2148
 msgid "_Number of text lines:"
 msgstr "_Broj redaka teksta:"
 
-#: ../panel-plugin/sensors-plugin.c:2166
+#: ../panel-plugin/sensors-plugin.c:2186
 msgid "_Cover all panel rows/columns"
 msgstr "_Prekrij sve retke/stupce ploče"
 
-#: ../panel-plugin/sensors-plugin.c:2191
+#: ../panel-plugin/sensors-plugin.c:2211
 msgid "F_ont size:"
 msgstr "V_eličina fonta:"
 
-#: ../panel-plugin/sensors-plugin.c:2197
+#: ../panel-plugin/sensors-plugin.c:2217
 msgid "x-small"
 msgstr "x-mali"
 
-#: ../panel-plugin/sensors-plugin.c:2198
+#: ../panel-plugin/sensors-plugin.c:2218
 msgid "small"
 msgstr "mali"
 
-#: ../panel-plugin/sensors-plugin.c:2199
+#: ../panel-plugin/sensors-plugin.c:2219
 msgid "medium"
 msgstr "srednji"
 
-#: ../panel-plugin/sensors-plugin.c:2200
+#: ../panel-plugin/sensors-plugin.c:2220
 msgid "large"
 msgstr "veliki"
 
-#: ../panel-plugin/sensors-plugin.c:2201
+#: ../panel-plugin/sensors-plugin.c:2221
 msgid "x-large"
 msgstr "x-veliki"
 
-#: ../panel-plugin/sensors-plugin.c:2235
+#: ../panel-plugin/sensors-plugin.c:2255
 msgid "F_ont:"
 msgstr "F_ont:"
 
-#: ../panel-plugin/sensors-plugin.c:2267
+#: ../panel-plugin/sensors-plugin.c:2288
 msgid "Show _Units"
 msgstr "Pokaži _jedinice"
 
-#: ../panel-plugin/sensors-plugin.c:2291
+#: ../panel-plugin/sensors-plugin.c:2312
 msgid "Small horizontal s_pacing"
 msgstr "Mali vodoravni r_azmak"
 
-#: ../panel-plugin/sensors-plugin.c:2317
+#: ../panel-plugin/sensors-plugin.c:2341
 msgid "Tacho color alpha value:"
 msgstr "Alfa vrijednost boje pokazivača:"
 
-#: ../panel-plugin/sensors-plugin.c:2330
-msgid "Tacho color hue value:"
-msgstr "Hue vrijednost boje pokazivača:"
+#. The value from HSV color model
+#: ../panel-plugin/sensors-plugin.c:2355
+msgid "Tacho color value:"
+msgstr "Vrijednost boje pokazivača:"
 
-#: ../panel-plugin/sensors-plugin.c:2361
+#: ../panel-plugin/sensors-plugin.c:2389
 msgid "Suppress messages"
 msgstr "Potisni poruke"
 
-#: ../panel-plugin/sensors-plugin.c:2382
+#: ../panel-plugin/sensors-plugin.c:2410
 msgid "Suppress tooltip"
 msgstr "Potisni oblačić"
 
-#: ../panel-plugin/sensors-plugin.c:2409
+#: ../panel-plugin/sensors-plugin.c:2437
 msgid "E_xecute on double click:"
 msgstr "I_zvrši nakon dvostrukog klika:"
 
-#: ../panel-plugin/sensors-plugin.c:2449
+#: ../panel-plugin/sensors-plugin.c:2477
 msgid "_View"
 msgstr "_Pogled"
 
-#: ../panel-plugin/sensors-plugin.c:2485
+#: ../panel-plugin/sensors-plugin.c:2513
 msgid "_Miscellaneous"
 msgstr "_Razno"
 
-#: ../panel-plugin/sensors-plugin.c:2553 ../panel-plugin/sensors-plugin.h:31
+#: ../panel-plugin/sensors-plugin.c:2581 ../panel-plugin/sensors-plugin.h:31
 #: ../lib/hddtemp.c:167
 msgid "Sensors Plugin"
 msgstr "Priključak senzora"
 
-#: ../panel-plugin/sensors-plugin.c:2561
+#: ../panel-plugin/sensors-plugin.c:2589
 msgid "Properties"
 msgstr "Svojstva"
 
-#: ../panel-plugin/sensors-plugin.c:2587
+#: ../panel-plugin/sensors-plugin.c:2615
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "Svojstva značajki mjenjajte tako da dva puta kliknete na liniju, zatim uredite sadržaj i pritisnite Enter ili izaberite drugo polje."
 
-#: ../panel-plugin/sensors-plugin.c:2674
+#: ../panel-plugin/sensors-plugin.c:2702
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Pokazuje vrijednosti senzora LM senzora, ACPI senzora, tvrdih diskova, NVIDIA uređaja"
 
-#: ../panel-plugin/sensors-plugin.c:2676
+#: ../panel-plugin/sensors-plugin.c:2704
 msgid "Copyright (c) 2004-2018\n"
 msgstr "Autorska prava (c) 2004-2018\n"
 
@@ -172,16 +173,25 @@ msgstr "Autorska prava (c) 2004-2018\n"
 msgid "Hard disks"
 msgstr "Tvrdi diskovi"
 
-#: ../lib/acpi.c:580 ../lib/acpi.c:592
+#: ../lib/acpi.c:631
+#, c-format
+msgid "%s - %s"
+msgstr "%s - %s"
+
+#: ../lib/acpi.c:631
+msgid "Power"
+msgstr "Snaga"
+
+#: ../lib/acpi.c:683 ../lib/acpi.c:695
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.c:583
+#: ../lib/acpi.c:686
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ACPI v%s zone"
 
-#: ../lib/acpi.c:724
+#: ../lib/acpi.c:832
 msgid "<Unknown>"
 msgstr "<Nepoznato>"
 
@@ -323,8 +333,8 @@ msgstr "%.0f mWh"
 
 #: ../lib/sensors-interface-common.c:170
 #, c-format
-msgid "%.0f W"
-msgstr "%.0f W"
+msgid "%.0f mW"
+msgstr "%.0f mW"
 
 #: ../lib/sensors-interface-common.c:175
 msgid "off"
