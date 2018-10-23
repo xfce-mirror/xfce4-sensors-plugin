@@ -583,7 +583,7 @@ get_power_zone_value (gchar *str_zone)
         if (fgets (buffer, 1024, ptr_file)!=NULL)
         {
             cut_newline (buffer);
-            res_value = strtod (buffer, NULL) / 1000.0;
+            res_value = strtod (buffer, NULL) / 1000000.0;
         }
         fclose (ptr_file);
     }
@@ -625,15 +625,16 @@ read_power_zone (t_chip *ptr_chip)
                     ptr_chipfeature = g_new0 (t_chipfeature, 1);
                     g_return_val_if_fail(ptr_chipfeature != NULL, -1);
 
-                    ptr_chipfeature->color = g_strdup("#0000B0");
+                    ptr_chipfeature->color = g_strdup("#00B0B0");
                     ptr_chipfeature->address = ptr_chip->chip_features->len;
                     ptr_chipfeature->devicename = g_strdup(ptr_dirent->d_name);
+                    // You might want to format this with a hyphen and without spacing, or with a dash; the result might be BAT1–Power or whatever fits your language most. Spaces allow line breaks over the tachometers.
                     ptr_chipfeature->name = g_strdup_printf (_("%s - %s"), ptr_dirent->d_name, _("Power"));
                     ptr_chipfeature->formatted_value = NULL;
                     ptr_chipfeature->raw_value = get_power_zone_value(ptr_dirent->d_name);
                     ptr_chipfeature->valid = TRUE;
                     ptr_chipfeature->min_value = 0.0;
-                    ptr_chipfeature->max_value = 2.0;
+                    ptr_chipfeature->max_value = 60.0; // a T440s charges with roughly 25 Watts
                     ptr_chipfeature->class = POWER;
 
                     g_ptr_array_add (ptr_chip->chip_features, ptr_chipfeature);
