@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-21 06:33+0200\n"
-"PO-Revision-Date: 2018-10-22 10:28+0000\n"
+"POT-Creation-Date: 2018-10-23 00:33+0200\n"
+"PO-Revision-Date: 2018-10-23 17:27+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -22,18 +22,18 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.c:383 ../panel-plugin/sensors-plugin.c:510
-#: ../panel-plugin/sensors-plugin.c:1125
+#: ../panel-plugin/sensors-plugin.c:383 ../panel-plugin/sensors-plugin.c:511
+#: ../panel-plugin/sensors-plugin.c:1141
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Sensors</b></span>"
 
-#: ../panel-plugin/sensors-plugin.c:992
+#: ../panel-plugin/sensors-plugin.c:1008
 msgid "No sensors selected!"
 msgstr "No s'ha seleccionat cap sensor"
 
 #. output to stdout on command line, not very useful for user, except for
 #. tracing problems
-#: ../panel-plugin/sensors-plugin.c:1030
+#: ../panel-plugin/sensors-plugin.c:1046
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -41,128 +41,128 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "Connector dels sensors:\nSembla com si hi hagués un problema en llegir el valor d'alguna característica del sensor.\nNo es pot garantir que funcioni correctament.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1995
+#: ../panel-plugin/sensors-plugin.c:2011
 msgid "UI style:"
 msgstr "Estil gràfic:"
 
-#: ../panel-plugin/sensors-plugin.c:1996
+#: ../panel-plugin/sensors-plugin.c:2012
 msgid "_text"
 msgstr "_text"
 
-#: ../panel-plugin/sensors-plugin.c:1998
+#: ../panel-plugin/sensors-plugin.c:2014
 msgid "_progress bars"
 msgstr "barres de _progrés"
 
-#: ../panel-plugin/sensors-plugin.c:2000
+#: ../panel-plugin/sensors-plugin.c:2016
 msgid "_tachos"
 msgstr "_instruments"
 
-#: ../panel-plugin/sensors-plugin.c:2046
+#: ../panel-plugin/sensors-plugin.c:2062
 msgid "Show _labels"
 msgstr "Mostra les _etiquetes"
 
-#: ../panel-plugin/sensors-plugin.c:2076
+#: ../panel-plugin/sensors-plugin.c:2092
 msgid "Show colored _bars"
 msgstr "Mostra les _barres amb acoloriment"
 
-#: ../panel-plugin/sensors-plugin.c:2107
+#: ../panel-plugin/sensors-plugin.c:2123
 msgid "_Show title"
 msgstr "_Mostra el títol"
 
-#: ../panel-plugin/sensors-plugin.c:2132
+#: ../panel-plugin/sensors-plugin.c:2148
 msgid "_Number of text lines:"
 msgstr "_Nombre de línies de text:"
 
-#: ../panel-plugin/sensors-plugin.c:2170
+#: ../panel-plugin/sensors-plugin.c:2186
 msgid "_Cover all panel rows/columns"
 msgstr "_Cobreix totes les files/columnes del tauler"
 
-#: ../panel-plugin/sensors-plugin.c:2195
+#: ../panel-plugin/sensors-plugin.c:2211
 msgid "F_ont size:"
 msgstr "Mida de la _lletra:"
 
-#: ../panel-plugin/sensors-plugin.c:2201
+#: ../panel-plugin/sensors-plugin.c:2217
 msgid "x-small"
 msgstr "molt petita"
 
-#: ../panel-plugin/sensors-plugin.c:2202
+#: ../panel-plugin/sensors-plugin.c:2218
 msgid "small"
 msgstr "petita"
 
-#: ../panel-plugin/sensors-plugin.c:2203
+#: ../panel-plugin/sensors-plugin.c:2219
 msgid "medium"
 msgstr "mitjana"
 
-#: ../panel-plugin/sensors-plugin.c:2204
+#: ../panel-plugin/sensors-plugin.c:2220
 msgid "large"
 msgstr "gran"
 
-#: ../panel-plugin/sensors-plugin.c:2205
+#: ../panel-plugin/sensors-plugin.c:2221
 msgid "x-large"
 msgstr "extra gran"
 
-#: ../panel-plugin/sensors-plugin.c:2239
+#: ../panel-plugin/sensors-plugin.c:2255
 msgid "F_ont:"
 msgstr "_Lletra:"
 
-#: ../panel-plugin/sensors-plugin.c:2272
+#: ../panel-plugin/sensors-plugin.c:2288
 msgid "Show _Units"
 msgstr "Mostra les _unitats"
 
-#: ../panel-plugin/sensors-plugin.c:2296
+#: ../panel-plugin/sensors-plugin.c:2312
 msgid "Small horizontal s_pacing"
 msgstr "_Espaiat petit horitzontal"
 
-#: ../panel-plugin/sensors-plugin.c:2322
+#: ../panel-plugin/sensors-plugin.c:2341
 msgid "Tacho color alpha value:"
 msgstr "Valor del color alfa de l'instrument:"
 
 #. The value from HSV color model
-#: ../panel-plugin/sensors-plugin.c:2336
+#: ../panel-plugin/sensors-plugin.c:2355
 msgid "Tacho color value:"
 msgstr "Valor del color de l'instrument:"
 
-#: ../panel-plugin/sensors-plugin.c:2367
+#: ../panel-plugin/sensors-plugin.c:2389
 msgid "Suppress messages"
 msgstr "Suprimeix els missatges"
 
-#: ../panel-plugin/sensors-plugin.c:2388
+#: ../panel-plugin/sensors-plugin.c:2410
 msgid "Suppress tooltip"
 msgstr "Suprimeix l'indicador de funció"
 
-#: ../panel-plugin/sensors-plugin.c:2415
+#: ../panel-plugin/sensors-plugin.c:2437
 msgid "E_xecute on double click:"
 msgstr "E_xecuta en fer doble clic:"
 
-#: ../panel-plugin/sensors-plugin.c:2455
+#: ../panel-plugin/sensors-plugin.c:2477
 msgid "_View"
 msgstr "_Mostra"
 
-#: ../panel-plugin/sensors-plugin.c:2491
+#: ../panel-plugin/sensors-plugin.c:2513
 msgid "_Miscellaneous"
 msgstr "_Miscel·lània"
 
-#: ../panel-plugin/sensors-plugin.c:2559 ../panel-plugin/sensors-plugin.h:31
+#: ../panel-plugin/sensors-plugin.c:2581 ../panel-plugin/sensors-plugin.h:31
 #: ../lib/hddtemp.c:167
 msgid "Sensors Plugin"
 msgstr "Connector de sensors"
 
-#: ../panel-plugin/sensors-plugin.c:2567
+#: ../panel-plugin/sensors-plugin.c:2589
 msgid "Properties"
 msgstr "Propietats"
 
-#: ../panel-plugin/sensors-plugin.c:2593
+#: ../panel-plugin/sensors-plugin.c:2615
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "Podeu canviar la propietat d'alguna característica com ara el nom, els colors o els valors màxims o mínims en fer doble clic al camp d'entrada, editant el contingut i pitjant la tecla de retorn o seleccionant un altre camp."
 
-#: ../panel-plugin/sensors-plugin.c:2680
+#: ../panel-plugin/sensors-plugin.c:2702
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Mostra els valors dels sensors de «lm_sensors», ACPI, discs durs i NVIDIA"
 
-#: ../panel-plugin/sensors-plugin.c:2682
+#: ../panel-plugin/sensors-plugin.c:2704
 msgid "Copyright (c) 2004-2018\n"
 msgstr "Drets d'autor (c) 2004-2018\n"
 
@@ -172,16 +172,25 @@ msgstr "Drets d'autor (c) 2004-2018\n"
 msgid "Hard disks"
 msgstr "Discs durs"
 
-#: ../lib/acpi.c:580 ../lib/acpi.c:592
+#: ../lib/acpi.c:631
+#, c-format
+msgid "%s - %s"
+msgstr "%s - %s"
+
+#: ../lib/acpi.c:631
+msgid "Power"
+msgstr "Potència"
+
+#: ../lib/acpi.c:683 ../lib/acpi.c:695
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.c:583
+#: ../lib/acpi.c:686
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "zones v%s d'ACPI"
 
-#: ../lib/acpi.c:724
+#: ../lib/acpi.c:832
 msgid "<Unknown>"
 msgstr "<desconegut>"
 
@@ -323,8 +332,8 @@ msgstr "%.0f mWh"
 
 #: ../lib/sensors-interface-common.c:170
 #, c-format
-msgid "%.0f W"
-msgstr "%.0f W"
+msgid "%.0f mW"
+msgstr "%.0f mW"
 
 #: ../lib/sensors-interface-common.c:175
 msgid "off"
