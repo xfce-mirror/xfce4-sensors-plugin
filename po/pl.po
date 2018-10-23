@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-21 06:33+0200\n"
-"PO-Revision-Date: 2018-10-21 11:14+0000\n"
+"POT-Creation-Date: 2018-10-23 00:33+0200\n"
+"PO-Revision-Date: 2018-10-23 04:51+0000\n"
 "Last-Translator: No Ne\n"
 "Language-Team: Polish (http://www.transifex.com/xfce/xfce-panel-plugins/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -23,18 +23,18 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.c:383 ../panel-plugin/sensors-plugin.c:510
-#: ../panel-plugin/sensors-plugin.c:1125
+#: ../panel-plugin/sensors-plugin.c:383 ../panel-plugin/sensors-plugin.c:511
+#: ../panel-plugin/sensors-plugin.c:1141
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Czujniki</b></span>"
 
-#: ../panel-plugin/sensors-plugin.c:992
+#: ../panel-plugin/sensors-plugin.c:1008
 msgid "No sensors selected!"
 msgstr "Nie wybrano czujników!"
 
 #. output to stdout on command line, not very useful for user, except for
 #. tracing problems
-#: ../panel-plugin/sensors-plugin.c:1030
+#: ../panel-plugin/sensors-plugin.c:1046
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -42,128 +42,128 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr " \nAplet panelu czujniki:\nPrawdopodobnie wystąpił problem podczas odczytywania wartości czujnika.\nWskazania mogą być niezgodne z prawdą.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1995
+#: ../panel-plugin/sensors-plugin.c:2011
 msgid "UI style:"
 msgstr "Styl interfejsu:"
 
-#: ../panel-plugin/sensors-plugin.c:1996
+#: ../panel-plugin/sensors-plugin.c:2012
 msgid "_text"
 msgstr "_Tekst"
 
-#: ../panel-plugin/sensors-plugin.c:1998
+#: ../panel-plugin/sensors-plugin.c:2014
 msgid "_progress bars"
 msgstr "_Paski"
 
-#: ../panel-plugin/sensors-plugin.c:2000
+#: ../panel-plugin/sensors-plugin.c:2016
 msgid "_tachos"
 msgstr "Wy_cinki"
 
-#: ../panel-plugin/sensors-plugin.c:2046
+#: ../panel-plugin/sensors-plugin.c:2062
 msgid "Show _labels"
 msgstr "_Etykiety"
 
-#: ../panel-plugin/sensors-plugin.c:2076
+#: ../panel-plugin/sensors-plugin.c:2092
 msgid "Show colored _bars"
 msgstr "_Kolory wskaźników"
 
-#: ../panel-plugin/sensors-plugin.c:2107
+#: ../panel-plugin/sensors-plugin.c:2123
 msgid "_Show title"
 msgstr "_Nazwa apletu"
 
-#: ../panel-plugin/sensors-plugin.c:2132
+#: ../panel-plugin/sensors-plugin.c:2148
 msgid "_Number of text lines:"
 msgstr "I_lość wierszy tekstu:"
 
-#: ../panel-plugin/sensors-plugin.c:2170
+#: ../panel-plugin/sensors-plugin.c:2186
 msgid "_Cover all panel rows/columns"
 msgstr "_Obejmij wszystkie rzędy/kolumny panelu"
 
-#: ../panel-plugin/sensors-plugin.c:2195
+#: ../panel-plugin/sensors-plugin.c:2211
 msgid "F_ont size:"
 msgstr "_Rozmiar czcionki:"
 
-#: ../panel-plugin/sensors-plugin.c:2201
+#: ../panel-plugin/sensors-plugin.c:2217
 msgid "x-small"
 msgstr "Bardzo mały"
 
-#: ../panel-plugin/sensors-plugin.c:2202
+#: ../panel-plugin/sensors-plugin.c:2218
 msgid "small"
 msgstr "Mały"
 
-#: ../panel-plugin/sensors-plugin.c:2203
+#: ../panel-plugin/sensors-plugin.c:2219
 msgid "medium"
 msgstr "Zwykły"
 
-#: ../panel-plugin/sensors-plugin.c:2204
+#: ../panel-plugin/sensors-plugin.c:2220
 msgid "large"
 msgstr "Duży"
 
-#: ../panel-plugin/sensors-plugin.c:2205
+#: ../panel-plugin/sensors-plugin.c:2221
 msgid "x-large"
 msgstr "Bardzo duży"
 
-#: ../panel-plugin/sensors-plugin.c:2239
+#: ../panel-plugin/sensors-plugin.c:2255
 msgid "F_ont:"
 msgstr "_Czcionka:"
 
-#: ../panel-plugin/sensors-plugin.c:2272
+#: ../panel-plugin/sensors-plugin.c:2288
 msgid "Show _Units"
 msgstr "Je_dnostki"
 
-#: ../panel-plugin/sensors-plugin.c:2296
+#: ../panel-plugin/sensors-plugin.c:2312
 msgid "Small horizontal s_pacing"
 msgstr "Wąski odstęp p_oziomy"
 
-#: ../panel-plugin/sensors-plugin.c:2322
+#: ../panel-plugin/sensors-plugin.c:2341
 msgid "Tacho color alpha value:"
 msgstr "Wartość alfa koloru prędkościomierza:"
 
 #. The value from HSV color model
-#: ../panel-plugin/sensors-plugin.c:2336
+#: ../panel-plugin/sensors-plugin.c:2355
 msgid "Tacho color value:"
 msgstr "Wartość koloru prędkościomierza:"
 
-#: ../panel-plugin/sensors-plugin.c:2367
+#: ../panel-plugin/sensors-plugin.c:2389
 msgid "Suppress messages"
 msgstr "Wyciszanie wiadomości"
 
-#: ../panel-plugin/sensors-plugin.c:2388
+#: ../panel-plugin/sensors-plugin.c:2410
 msgid "Suppress tooltip"
 msgstr "Zatajaj podpowiedzi"
 
-#: ../panel-plugin/sensors-plugin.c:2415
+#: ../panel-plugin/sensors-plugin.c:2437
 msgid "E_xecute on double click:"
 msgstr "Polecenie wy_konywane po dwukrotnym kliknięciu:"
 
-#: ../panel-plugin/sensors-plugin.c:2455
+#: ../panel-plugin/sensors-plugin.c:2477
 msgid "_View"
 msgstr "Wyśw_ietlanie"
 
-#: ../panel-plugin/sensors-plugin.c:2491
+#: ../panel-plugin/sensors-plugin.c:2513
 msgid "_Miscellaneous"
 msgstr "I_nne"
 
-#: ../panel-plugin/sensors-plugin.c:2559 ../panel-plugin/sensors-plugin.h:31
+#: ../panel-plugin/sensors-plugin.c:2581 ../panel-plugin/sensors-plugin.h:31
 #: ../lib/hddtemp.c:167
 msgid "Sensors Plugin"
 msgstr "Czujniki"
 
-#: ../panel-plugin/sensors-plugin.c:2567
+#: ../panel-plugin/sensors-plugin.c:2589
 msgid "Properties"
 msgstr "Właściwości"
 
-#: ../panel-plugin/sensors-plugin.c:2593
+#: ../panel-plugin/sensors-plugin.c:2615
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "Umożliwia zmianę cech wskazań, takich jak nazwa, kolor, wartość minimalna i maksymalna. Aby zmodyfikować cechę, proszę dwukrotnie kliknąć na wybrany element. Po zakończeniu modyfikowania należy przycisnąć klawisz Enter lub wybrać inne wskazanie."
 
-#: ../panel-plugin/sensors-plugin.c:2680
+#: ../panel-plugin/sensors-plugin.c:2702
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Wyświetla wskazania czujników sprzętowych z LM, ACPI, twardych dysków, NVIDIA"
 
-#: ../panel-plugin/sensors-plugin.c:2682
+#: ../panel-plugin/sensors-plugin.c:2704
 msgid "Copyright (c) 2004-2018\n"
 msgstr "Prawa autorskie (c) 2004-2018\n"
 
@@ -173,16 +173,25 @@ msgstr "Prawa autorskie (c) 2004-2018\n"
 msgid "Hard disks"
 msgstr "Dyski twarde"
 
-#: ../lib/acpi.c:580 ../lib/acpi.c:592
+#: ../lib/acpi.c:631
+#, c-format
+msgid "%s - %s"
+msgstr "%s - %s"
+
+#: ../lib/acpi.c:631
+msgid "Power"
+msgstr "Zasilanie"
+
+#: ../lib/acpi.c:683 ../lib/acpi.c:695
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.c:583
+#: ../lib/acpi.c:686
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ACPI wersja %s"
 
-#: ../lib/acpi.c:724
+#: ../lib/acpi.c:832
 msgid "<Unknown>"
 msgstr "<nieznana>"
 
@@ -324,8 +333,8 @@ msgstr "%.0f mWh"
 
 #: ../lib/sensors-interface-common.c:170
 #, c-format
-msgid "%.0f W"
-msgstr "%.0f W"
+msgid "%.0f mW"
+msgstr "%.0f mW"
 
 #: ../lib/sensors-interface-common.c:175
 msgid "off"
