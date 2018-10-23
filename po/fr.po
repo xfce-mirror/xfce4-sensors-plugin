@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-02 00:32+0200\n"
-"PO-Revision-Date: 2018-10-05 18:55+0000\n"
+"POT-Creation-Date: 2018-10-23 00:33+0200\n"
+"PO-Revision-Date: 2018-10-23 11:17+0000\n"
 "Last-Translator: Charles Monzat <c.monzat@laposte.net>\n"
 "Language-Team: French (http://www.transifex.com/xfce/xfce-panel-plugins/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -29,18 +29,18 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.c:377 ../panel-plugin/sensors-plugin.c:504
-#: ../panel-plugin/sensors-plugin.c:1117
+#: ../panel-plugin/sensors-plugin.c:383 ../panel-plugin/sensors-plugin.c:511
+#: ../panel-plugin/sensors-plugin.c:1141
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Capteurs</b></span>"
 
-#: ../panel-plugin/sensors-plugin.c:983
+#: ../panel-plugin/sensors-plugin.c:1008
 msgid "No sensors selected!"
 msgstr "Aucun capteur sélectionné !"
 
-#. FIXME: either print nothing, or undertake appropriate action,
-#. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:1022
+#. output to stdout on command line, not very useful for user, except for
+#. tracing problems
+#: ../panel-plugin/sensors-plugin.c:1046
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -48,141 +48,156 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "Greffon Capteurs :\nIl semblerait que la valeur d’un capteur n’ait pas été correctement lue.\nLe résultat de l’opération ne peut être garanti.\n\n\n\n"
 
-#: ../panel-plugin/sensors-plugin.c:1943
+#: ../panel-plugin/sensors-plugin.c:2011
 msgid "UI style:"
 msgstr "Style de l’interface :"
 
-#: ../panel-plugin/sensors-plugin.c:1944
+#: ../panel-plugin/sensors-plugin.c:2012
 msgid "_text"
 msgstr "t_exte"
 
-#: ../panel-plugin/sensors-plugin.c:1946
+#: ../panel-plugin/sensors-plugin.c:2014
 msgid "_progress bars"
 msgstr "_barres de progression"
 
-#: ../panel-plugin/sensors-plugin.c:1948
+#: ../panel-plugin/sensors-plugin.c:2016
 msgid "_tachos"
 msgstr "_tachymètres"
 
-#: ../panel-plugin/sensors-plugin.c:1994
+#: ../panel-plugin/sensors-plugin.c:2062
 msgid "Show _labels"
 msgstr "Affi_cher les étiquettes"
 
-#: ../panel-plugin/sensors-plugin.c:2024
+#: ../panel-plugin/sensors-plugin.c:2092
 msgid "Show colored _bars"
 msgstr "Afficher les _barres en couleur"
 
-#: ../panel-plugin/sensors-plugin.c:2055
+#: ../panel-plugin/sensors-plugin.c:2123
 msgid "_Show title"
 msgstr "Affi_cher le titre"
 
-#: ../panel-plugin/sensors-plugin.c:2080
+#: ../panel-plugin/sensors-plugin.c:2148
 msgid "_Number of text lines:"
 msgstr "_Nombre de lignes de texte :"
 
-#: ../panel-plugin/sensors-plugin.c:2118
+#: ../panel-plugin/sensors-plugin.c:2186
 msgid "_Cover all panel rows/columns"
 msgstr "_Couvrir toutes les lignes / colonnes du tableau de bord"
 
-#: ../panel-plugin/sensors-plugin.c:2143
+#: ../panel-plugin/sensors-plugin.c:2211
 msgid "F_ont size:"
 msgstr "Taille de la _police :"
 
-#: ../panel-plugin/sensors-plugin.c:2149
+#: ../panel-plugin/sensors-plugin.c:2217
 msgid "x-small"
 msgstr "très petite"
 
-#: ../panel-plugin/sensors-plugin.c:2150
+#: ../panel-plugin/sensors-plugin.c:2218
 msgid "small"
 msgstr "petite"
 
-#: ../panel-plugin/sensors-plugin.c:2151
+#: ../panel-plugin/sensors-plugin.c:2219
 msgid "medium"
 msgstr "moyenne"
 
-#: ../panel-plugin/sensors-plugin.c:2152
+#: ../panel-plugin/sensors-plugin.c:2220
 msgid "large"
 msgstr "grande"
 
-#: ../panel-plugin/sensors-plugin.c:2153
+#: ../panel-plugin/sensors-plugin.c:2221
 msgid "x-large"
 msgstr "très grande"
 
-#: ../panel-plugin/sensors-plugin.c:2187
+#: ../panel-plugin/sensors-plugin.c:2255
 msgid "F_ont:"
 msgstr "P_olice :"
 
-#: ../panel-plugin/sensors-plugin.c:2219
+#: ../panel-plugin/sensors-plugin.c:2288
 msgid "Show _Units"
 msgstr "Afficher les _unités"
 
-#: ../panel-plugin/sensors-plugin.c:2243
+#: ../panel-plugin/sensors-plugin.c:2312
 msgid "Small horizontal s_pacing"
 msgstr "Faible e_spacement horizontal"
 
-#: ../panel-plugin/sensors-plugin.c:2267
+#: ../panel-plugin/sensors-plugin.c:2341
+msgid "Tacho color alpha value:"
+msgstr ""
+
+#. The value from HSV color model
+#: ../panel-plugin/sensors-plugin.c:2355
+msgid "Tacho color value:"
+msgstr ""
+
+#: ../panel-plugin/sensors-plugin.c:2389
 msgid "Suppress messages"
 msgstr "Supprimer les messages"
 
-#: ../panel-plugin/sensors-plugin.c:2288
+#: ../panel-plugin/sensors-plugin.c:2410
 msgid "Suppress tooltip"
 msgstr "Supprimer l’info-bulle"
 
-#: ../panel-plugin/sensors-plugin.c:2315
+#: ../panel-plugin/sensors-plugin.c:2437
 msgid "E_xecute on double click:"
 msgstr "E_xécuter sur un double-clic :"
 
-#: ../panel-plugin/sensors-plugin.c:2355
+#: ../panel-plugin/sensors-plugin.c:2477
 msgid "_View"
 msgstr "_Affichage"
 
-#: ../panel-plugin/sensors-plugin.c:2390
+#: ../panel-plugin/sensors-plugin.c:2513
 msgid "_Miscellaneous"
 msgstr "_Divers"
 
-#: ../panel-plugin/sensors-plugin.c:2458 ../panel-plugin/sensors-plugin.h:31
+#: ../panel-plugin/sensors-plugin.c:2581 ../panel-plugin/sensors-plugin.h:31
 #: ../lib/hddtemp.c:167
 msgid "Sensors Plugin"
 msgstr "Greffon Capteurs"
 
-#: ../panel-plugin/sensors-plugin.c:2466
+#: ../panel-plugin/sensors-plugin.c:2589
 msgid "Properties"
 msgstr "Propriétés"
 
-#: ../panel-plugin/sensors-plugin.c:2492
+#: ../panel-plugin/sensors-plugin.c:2615
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "Vous pouvez modifier les caractéristiques d’une fonctionnalité comme son nom, ses couleurs ou sa valeur min/max. Double-cliquez sur l’entrée, modifiez son contenu et appuyez sur « Entrée » ou sélectionnez un autre champ."
 
-#: ../panel-plugin/sensors-plugin.c:2579
+#: ../panel-plugin/sensors-plugin.c:2702
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Afficher les valeurs de capteur à partir des capteurs LM, ACPI, disques durs, NVIDIA"
 
-#: ../panel-plugin/sensors-plugin.c:2581
+#: ../panel-plugin/sensors-plugin.c:2704
 msgid "Copyright (c) 2004-2018\n"
 msgstr "Copyright (c) 2004-2018\n"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
-#. FIXME: compare strings, or also have hddtemp and acpi store numeric
-#. str_values
-#. assert correctly saved str_file
-#: ../lib/configuration.c:174 ../lib/configuration.c:392 ../lib/hddtemp.c:396
+#: ../lib/configuration.c:180 ../lib/hddtemp.c:396
 msgid "Hard disks"
 msgstr "Disques durs"
 
-#: ../lib/acpi.c:580 ../lib/acpi.c:592
+#: ../lib/acpi.c:631
+#, c-format
+msgid "%s - %s"
+msgstr "%s - %s"
+
+#: ../lib/acpi.c:631
+msgid "Power"
+msgstr ""
+
+#: ../lib/acpi.c:683 ../lib/acpi.c:695
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.c:583
+#: ../lib/acpi.c:686
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "Zones ACPI v%s"
 
-#: ../lib/acpi.c:724
+#: ../lib/acpi.c:832
 msgid "<Unknown>"
 msgstr "<Inconnu>"
 
@@ -296,46 +311,46 @@ msgstr "_Capteurs"
 msgid "No sensors found!"
 msgstr "Aucun capteur trouvé !"
 
-#: ../lib/sensors-interface-common.c:147
+#: ../lib/sensors-interface-common.c:150
 #, c-format
 msgid "%.0f °F"
 msgstr "%.0f °F"
 
 #. Celsius
-#: ../lib/sensors-interface-common.c:150
+#: ../lib/sensors-interface-common.c:153
 #, c-format
 msgid "%.0f °C"
 msgstr "%.0f °C"
 
-#: ../lib/sensors-interface-common.c:155
+#: ../lib/sensors-interface-common.c:158
 #, c-format
 msgid "%+.3f V"
 msgstr "%+.3f V"
 
-#: ../lib/sensors-interface-common.c:159
+#: ../lib/sensors-interface-common.c:162
 #, c-format
 msgid "%+.3f A"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:163
+#: ../lib/sensors-interface-common.c:166
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.c:167
+#: ../lib/sensors-interface-common.c:170
 #, c-format
-msgid "%.0f W"
+msgid "%.0f mW"
 msgstr ""
 
-#: ../lib/sensors-interface-common.c:172
+#: ../lib/sensors-interface-common.c:175
 msgid "off"
 msgstr "inactif"
 
-#: ../lib/sensors-interface-common.c:174
+#: ../lib/sensors-interface-common.c:177
 msgid "on"
 msgstr "actif"
 
-#: ../lib/sensors-interface-common.c:178
+#: ../lib/sensors-interface-common.c:181
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f tr/min"
