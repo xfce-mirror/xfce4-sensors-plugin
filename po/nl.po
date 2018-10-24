@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-23 00:33+0200\n"
-"PO-Revision-Date: 2018-10-23 08:32+0000\n"
+"POT-Creation-Date: 2018-10-24 00:31+0200\n"
+"PO-Revision-Date: 2018-10-24 15:22+0000\n"
 "Last-Translator: Pjotr <pjotrvertaalt@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/xfce/xfce-panel-plugins/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -169,25 +169,28 @@ msgstr "Auteursrecht (c) 2004-2018\n"
 msgid "Hard disks"
 msgstr "Harde schijven"
 
-#: ../lib/acpi.c:631
+#. You might want to format this with a hyphen and without spacing, or with a
+#. dash; the result might be BAT1–Power or whatever fits your language most.
+#. Spaces allow line breaks over the tachometers.
+#: ../lib/acpi.c:632
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: ../lib/acpi.c:631
+#: ../lib/acpi.c:632
 msgid "Power"
 msgstr "Vermogen"
 
-#: ../lib/acpi.c:683 ../lib/acpi.c:695
+#: ../lib/acpi.c:684 ../lib/acpi.c:696
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.c:686
+#: ../lib/acpi.c:687
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ACPI v%s zones"
 
-#: ../lib/acpi.c:832
+#: ../lib/acpi.c:833
 msgid "<Unknown>"
 msgstr "<Unknown>"
 
@@ -329,8 +332,8 @@ msgstr "%.0f mWh"
 
 #: ../lib/sensors-interface-common.c:170
 #, c-format
-msgid "%.0f mW"
-msgstr "%.0f mW"
+msgid "%.3f W"
+msgstr "%.3f W"
 
 #: ../lib/sensors-interface-common.c:175
 msgid "off"
