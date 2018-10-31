@@ -2466,7 +2466,7 @@ add_command_box (GtkWidget * vbox,  t_sensors_dialog * sd)
 static void
 add_view_frame (GtkWidget * notebook, t_sensors_dialog * sd)
 {
-    GtkWidget *_vbox, *_label;
+    GtkWidget *_vbox, *_label, *_frame;
 
     TRACE ("enters add_view_frame");
 
@@ -2486,6 +2486,17 @@ add_view_frame (GtkWidget * notebook, t_sensors_dialog * sd)
     add_ui_style_box (_vbox, sd);
     add_labels_box (_vbox, sd);
     add_cover_rows_box(_vbox, sd);
+
+    _frame = gtk_frame_new(_("UI style options"));
+    gtk_frame_set_shadow_type(GTK_FRAME(_frame), GTK_SHADOW_ETCHED_IN);
+    gtk_box_pack_start (GTK_BOX (_vbox), _frame, FALSE, FALSE, 0);
+    gtk_widget_show (_frame);
+
+    _vbox = gtk_vbox_new (FALSE, OUTER_BORDER);
+    gtk_container_set_border_width(GTK_CONTAINER(_vbox), OUTER_BORDER);
+    gtk_container_add(GTK_CONTAINER(_frame), _vbox);
+    gtk_widget_show (_vbox);
+
     add_str_fontsize_box (_vbox, sd);
     add_font_settings_box (_vbox, sd);
     add_lines_box (_vbox, sd);
