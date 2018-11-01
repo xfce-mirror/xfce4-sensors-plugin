@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Fabian Nowak <timystery@arcor.de>, 2004 - 2007, 2009
 # Tobias Bannert <tobannert@gmail.com>, 2014,2017
@@ -12,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-24 00:31+0200\n"
 "PO-Revision-Date: 2018-10-29 19:05+0000\n"
-"Last-Translator: Vinzenz Vietzke <vinz@vinzv.de>\n"
+"Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German (http://www.transifex.com/xfce/xfce-panel-plugins/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -74,7 +74,7 @@ msgstr "A_nzahl der Textzeilen:"
 
 #: ../panel-plugin/sensors-plugin.c:2186
 msgid "_Cover all panel rows/columns"
-msgstr "Alle Leistenreihen und -spalten _verdecken"
+msgstr "Alle Leistenreihen und -spalten _verwenden"
 
 #: ../panel-plugin/sensors-plugin.c:2211
 msgid "F_ont size:"
@@ -114,12 +114,12 @@ msgstr "K_leine horizontale Abstände"
 
 #: ../panel-plugin/sensors-plugin.c:2341
 msgid "Tacho color alpha value:"
-msgstr "Tachofarbe Alpha-Wert:"
+msgstr "Alpha-Wert der Tachofarben:"
 
 #. The value from HSV color model
 #: ../panel-plugin/sensors-plugin.c:2355
 msgid "Tacho color value:"
-msgstr "Tachofarbwert:"
+msgstr "HSV-Farbwert der Tachos:"
 
 #: ../panel-plugin/sensors-plugin.c:2389
 msgid "Suppress messages"
@@ -159,7 +159,7 @@ msgstr "Die Eigenschaften eines Merkmals wie Name, Farbe, Minimum/Maximum könne
 
 #: ../panel-plugin/sensors-plugin.c:2702
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
-msgstr "Zeigt Sensorwerte von LM sensors, ACPI, Festplatten und NVIDIA an."
+msgstr "Sensorwerte von LM sensors, ACPI, Festplatten und NVIDIA anzeigen"
 
 #: ../panel-plugin/sensors-plugin.c:2704
 msgid "Copyright (c) 2004-2018\n"
@@ -181,7 +181,7 @@ msgstr "%s - %s"
 
 #: ../lib/acpi.c:632
 msgid "Power"
-msgstr "Energie"
+msgstr "Leistung"
 
 #: ../lib/acpi.c:684 ../lib/acpi.c:696
 msgid "ACPI"
@@ -198,7 +198,7 @@ msgstr "<Unbekannt>"
 
 #: ../lib/nvidia.c:65
 msgid "NVidia GPU core temperature"
-msgstr "Nvidia-GPU-Kerntemperatur"
+msgstr "NVIDIA-GPU-Kerntemperatur"
 
 #: ../lib/nvidia.c:66
 msgid "nvidia"
