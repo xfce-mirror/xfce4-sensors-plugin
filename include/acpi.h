@@ -105,6 +105,15 @@ double get_power_zone_value (gchar *str_zonename);
 
 
 /**
+ * Read a double value from status file for battery power.
+ * When status is on, result is 1.0; else it is 0.0.
+ * @param str_zonename: file to read information from, e.g. state.
+ * @return valued from any line starting with "status:", converted to 1 or 0
+ */
+double get_voltage_zone_value (gchar *str_zonename);
+
+
+/**
  * Read information from the thermal zone.
  * @param ptr_chip: Pointer to already allocated chip, where values can be added.
  * @return 0 on success
@@ -134,6 +143,14 @@ gint read_fan_zone (t_chip *ptr_chip);
  * @return 0 on success
  */
 gint read_power_zone (t_chip *ptr_chip);
+
+
+/**
+ * Read information from the fan zone.
+ * @param ptr_chip: Pointer to already allocated chip, where values can be added.
+ * @return 0 on success
+ */
+gint read_voltage_zone (t_chip *ptr_chip);
 
 
 /**

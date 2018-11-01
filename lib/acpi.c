@@ -338,7 +338,12 @@ read_battery_zone (t_chip *ptr_chip)
                     if (fgets (buffer, 1024, ptr_file)!=NULL)
                     {
                         cut_newline (buffer);
-                        ptr_chipfeature->name = g_strdup (buffer);
+                        // Note for translators: As some laptops have several batteries such as the T440s,
+                        // there might be some perturbation with the battery name here and BAT0/BAT1 for
+                        // power/voltage. So we prepend BAT0/1 to the battery name as well, with the result
+                        // being something like "BAT1 - 45N1127". Users can then rename the batteries to
+                        // their own will while keeping consistency to their power/voltage features.
+                        ptr_chipfeature->name = g_strdup_printf (_("%s - %s"),ptr_dirent->d_name, buffer);
                         DBG ("Name=%s\n", buffer);
                     }
 #else
@@ -595,6 +600,38 @@ get_power_zone_value (gchar *str_zone)
 
 
 /* -------------------------------------------------------------------------- */
+gdouble
+get_voltage_zone_value (gchar *str_zone)
+{
+    gdouble res_value = 0.0;
+
+    FILE *ptr_file;
+    gchar buffer [1024], *str_filename;
+
+    g_return_val_if_fail(str_zone!=NULL, res_value);
+
+    TRACE ("enters get_voltage_zone_value for %s", str_zone);
+
+    str_filename = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, str_zone,  SYS_FILE_VOLTAGE);
+
+    DBG("str_filename=%s\n", str_filename);
+    ptr_file = fopen (str_filename, "r");
+    if (ptr_file) {
+        if (fgets (buffer, 1024, ptr_file)!=NULL)
+        {
+            cut_newline (buffer);
+            res_value = strtod (buffer, NULL) / 1000000.0;
+        }
+        fclose (ptr_file);
+    }
+
+    g_free (str_filename);
+
+    return res_value;
+}
+
+
+/* -------------------------------------------------------------------------- */
 gint
 read_power_zone (t_chip *ptr_chip)
 {
@@ -668,6 +705,86 @@ read_power_zone (t_chip *ptr_chip)
 
 /* -------------------------------------------------------------------------- */
 gint
+read_voltage_zone (t_chip *ptr_chip)
+{
+    gint res_value = -1;
+
+    DIR *ptr_dir;
+    FILE *ptr_file;
+    gchar *str_filename, *str_zone, *str_min_voltage;
+    struct dirent *ptr_dirent;
+    t_chipfeature *ptr_chipfeature = NULL;
+
+    g_return_val_if_fail(ptr_chip!=NULL, res_value);
+
+    TRACE ("enters read_voltage_zone");
+
+    if ((chdir (SYS_PATH) == 0) && (chdir (SYS_DIR_POWER) == 0)) {
+        ptr_dir = opendir (".");
+
+        while (ptr_dir && (ptr_dirent = readdir (ptr_dir)))
+        {
+            if (strncmp(ptr_dirent->d_name, "BAT", 3)==0)
+            { /* have a battery subdirectory */
+
+                str_filename = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, ptr_dirent->d_name, SYS_FILE_VOLTAGE);
+                ptr_file = fopen (str_filename, "r");
+                if (ptr_file) {
+
+                    ptr_chipfeature = g_new0 (t_chipfeature, 1);
+                    g_return_val_if_fail(ptr_chipfeature != NULL, -1);
+
+                    ptr_chipfeature->color = g_strdup("#00B0B0");
+                    ptr_chipfeature->address = ptr_chip->chip_features->len;
+                    ptr_chipfeature->devicename = g_strdup(ptr_dirent->d_name);
+                    // You might want to format this with a hyphen and without spacing, or with a dash; the result might be BAT1–Voltage or whatever fits your language most. Spaces allow line breaks over the tachometers.
+                    ptr_chipfeature->name = g_strdup_printf (_("%s - %s"), ptr_dirent->d_name, _("Voltage"));
+                    ptr_chipfeature->formatted_value = NULL;
+                    ptr_chipfeature->raw_value = get_voltage_zone_value(ptr_dirent->d_name);
+                    ptr_chipfeature->valid = TRUE;
+                    str_zone = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, ptr_dirent->d_name, SYS_FILE_VOLTAGE_MIN);
+                    str_min_voltage = get_acpi_value(str_zone);
+                    g_free(str_zone);
+                    ptr_chipfeature->min_value = ptr_chipfeature->raw_value;
+                    if (str_min_voltage)
+                    {
+                        ptr_chipfeature->min_value = strtod(str_min_voltage, NULL) / 1000000.0;
+                        g_free(str_min_voltage);
+                    }
+                    ptr_chipfeature->max_value = ptr_chipfeature->raw_value; // a T440s charges with roughly 25 Watts
+                    ptr_chipfeature->class = VOLTAGE;
+
+                    g_ptr_array_add (ptr_chip->chip_features, ptr_chipfeature);
+
+                    ptr_chip->num_features++; /* FIXME: actually I am just the same as
+                    chip->chip_features->len */
+
+                    fclose (ptr_file);
+                }
+                g_free (str_filename);
+
+            }
+
+            res_value = 0;
+        }
+
+        if (ptr_dir)
+            closedir (ptr_dir);
+
+        TRACE ("leaves read_voltage_zone");
+    }
+    else
+    {
+        TRACE ("leaves read_voltage_zone");
+        res_value = -2;
+    }
+
+    return res_value;
+}
+
+
+/* -------------------------------------------------------------------------- */
+gint
 initialize_ACPI (GPtrArray *arr_ptr_chips)
 {
     t_chip *ptr_chip = NULL;
@@ -704,7 +821,11 @@ initialize_ACPI (GPtrArray *arr_ptr_chips)
     read_battery_zone (ptr_chip);
     read_thermal_zone (ptr_chip);
     read_fan_zone (ptr_chip);
-    read_power_zone(ptr_chip);
+
+#ifdef HAVE_SYSFS_ACPI
+    read_power_zone (ptr_chip);
+    read_voltage_zone (ptr_chip);
+#endif
 
     g_ptr_array_add (arr_ptr_chips, ptr_chip);
 
@@ -760,6 +881,10 @@ refresh_acpi (gpointer ptr_chipfeature, gpointer ptr_unused)
 
         case POWER:
             cf->raw_value = get_power_zone_value (cf->devicename);
+            break;
+
+        case VOLTAGE:
+            cf->raw_value = get_voltage_zone_value (cf->devicename);
             break;
 
         case STATE:
