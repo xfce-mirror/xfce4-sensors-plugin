@@ -2335,9 +2335,8 @@ add_tachos_appearance_boxes(GtkWidget * vbox, t_sensors_dialog * sd)
     //GtkWidget *widget_groupbox;
     TRACE ("enters add_tachos_appearance_boxes");
 
-//widget_groupbox = xfce_groub_box ...
-
     sd->alpha_slider_box = gtk_hbox_new(FALSE, INNER_BORDER);
+    // Alpha value of the tacho coloring
     widget_label = gtk_label_new(_("Tacho color alpha value:"));
     gtk_widget_show (widget_label);
     gtk_box_pack_start (GTK_BOX (sd->alpha_slider_box), widget_label, FALSE, TRUE, 0);
