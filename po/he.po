@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-02 00:32+0200\n"
-"PO-Revision-Date: 2018-10-13 15:03+0000\n"
+"POT-Creation-Date: 2018-10-24 00:31+0200\n"
+"PO-Revision-Date: 2018-10-27 15:16+0000\n"
 "Last-Translator: Elishai Eliyahu <e1907@mm.st>\n"
 "Language-Team: Hebrew (http://www.transifex.com/xfce/xfce-panel-plugins/language/he/)\n"
 "MIME-Version: 1.0\n"
@@ -19,18 +19,18 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.c:377 ../panel-plugin/sensors-plugin.c:504
-#: ../panel-plugin/sensors-plugin.c:1117
+#: ../panel-plugin/sensors-plugin.c:383 ../panel-plugin/sensors-plugin.c:511
+#: ../panel-plugin/sensors-plugin.c:1141
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>חיישנים</b></span>"
 
-#: ../panel-plugin/sensors-plugin.c:983
+#: ../panel-plugin/sensors-plugin.c:1008
 msgid "No sensors selected!"
 msgstr "לא נבחרו חיישנים!"
 
-#. FIXME: either print nothing, or undertake appropriate action,
-#. * or pop up a message box.
-#: ../panel-plugin/sensors-plugin.c:1022
+#. output to stdout on command line, not very useful for user, except for
+#. tracing problems
+#: ../panel-plugin/sensors-plugin.c:1046
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -38,141 +38,159 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "תוסף חיישנים:\nנראה שהיתה בעיה בקריאת ערך אופייני של חיישן.\nלא ניתן להבטיח התקדמות נאותה.\n"
 
-#: ../panel-plugin/sensors-plugin.c:1943
+#: ../panel-plugin/sensors-plugin.c:2011
 msgid "UI style:"
 msgstr "סגנון ממשק משתמש:"
 
-#: ../panel-plugin/sensors-plugin.c:1944
+#: ../panel-plugin/sensors-plugin.c:2012
 msgid "_text"
 msgstr "_טקסט"
 
-#: ../panel-plugin/sensors-plugin.c:1946
+#: ../panel-plugin/sensors-plugin.c:2014
 msgid "_progress bars"
 msgstr "_סרגלי התקדמות"
 
-#: ../panel-plugin/sensors-plugin.c:1948
+#: ../panel-plugin/sensors-plugin.c:2016
 msgid "_tachos"
 msgstr "_מדי מהירות"
 
-#: ../panel-plugin/sensors-plugin.c:1994
+#: ../panel-plugin/sensors-plugin.c:2062
 msgid "Show _labels"
 msgstr "הצג _תוויות"
 
-#: ../panel-plugin/sensors-plugin.c:2024
+#: ../panel-plugin/sensors-plugin.c:2092
 msgid "Show colored _bars"
 msgstr "הצג _סרגלים צבעוניים"
 
-#: ../panel-plugin/sensors-plugin.c:2055
+#: ../panel-plugin/sensors-plugin.c:2123
 msgid "_Show title"
 msgstr "_הצג שם"
 
-#: ../panel-plugin/sensors-plugin.c:2080
+#: ../panel-plugin/sensors-plugin.c:2148
 msgid "_Number of text lines:"
 msgstr "_מספר שורות טקסט:"
 
-#: ../panel-plugin/sensors-plugin.c:2118
+#: ../panel-plugin/sensors-plugin.c:2186
 msgid "_Cover all panel rows/columns"
 msgstr "_כסה את כל שורות/עמודות הלוח"
 
-#: ../panel-plugin/sensors-plugin.c:2143
+#: ../panel-plugin/sensors-plugin.c:2211
 msgid "F_ont size:"
 msgstr "גודל ג_ופן:"
 
-#: ../panel-plugin/sensors-plugin.c:2149
+#: ../panel-plugin/sensors-plugin.c:2217
 msgid "x-small"
 msgstr "קטן מאוד"
 
-#: ../panel-plugin/sensors-plugin.c:2150
+#: ../panel-plugin/sensors-plugin.c:2218
 msgid "small"
 msgstr "קטן"
 
-#: ../panel-plugin/sensors-plugin.c:2151
+#: ../panel-plugin/sensors-plugin.c:2219
 msgid "medium"
 msgstr "בינוני"
 
-#: ../panel-plugin/sensors-plugin.c:2152
+#: ../panel-plugin/sensors-plugin.c:2220
 msgid "large"
 msgstr "גדול"
 
-#: ../panel-plugin/sensors-plugin.c:2153
+#: ../panel-plugin/sensors-plugin.c:2221
 msgid "x-large"
 msgstr "גדול מאוד"
 
-#: ../panel-plugin/sensors-plugin.c:2187
+#: ../panel-plugin/sensors-plugin.c:2255
 msgid "F_ont:"
 msgstr "ג_ופן:"
 
-#: ../panel-plugin/sensors-plugin.c:2219
+#: ../panel-plugin/sensors-plugin.c:2288
 msgid "Show _Units"
 msgstr "הצג _יחידות"
 
-#: ../panel-plugin/sensors-plugin.c:2243
+#: ../panel-plugin/sensors-plugin.c:2312
 msgid "Small horizontal s_pacing"
 msgstr "ר_יווח אופקי קטן"
 
-#: ../panel-plugin/sensors-plugin.c:2267
+#: ../panel-plugin/sensors-plugin.c:2341
+msgid "Tacho color alpha value:"
+msgstr "ערך אלפא של צבע טכו:"
+
+#. The value from HSV color model
+#: ../panel-plugin/sensors-plugin.c:2355
+msgid "Tacho color value:"
+msgstr "ערך צבע טכו:"
+
+#: ../panel-plugin/sensors-plugin.c:2389
 msgid "Suppress messages"
 msgstr "הסתר מסרים"
 
-#: ../panel-plugin/sensors-plugin.c:2288
+#: ../panel-plugin/sensors-plugin.c:2410
 msgid "Suppress tooltip"
 msgstr "הסתר טיפ עזר"
 
-#: ../panel-plugin/sensors-plugin.c:2315
+#: ../panel-plugin/sensors-plugin.c:2437
 msgid "E_xecute on double click:"
 msgstr "ב_צע בקליק כפול:"
 
-#: ../panel-plugin/sensors-plugin.c:2355
+#: ../panel-plugin/sensors-plugin.c:2477
 msgid "_View"
 msgstr "ת_צוגה"
 
-#: ../panel-plugin/sensors-plugin.c:2390
+#: ../panel-plugin/sensors-plugin.c:2513
 msgid "_Miscellaneous"
 msgstr "_שונות"
 
-#: ../panel-plugin/sensors-plugin.c:2458 ../panel-plugin/sensors-plugin.h:31
+#: ../panel-plugin/sensors-plugin.c:2581 ../panel-plugin/sensors-plugin.h:31
 #: ../lib/hddtemp.c:167
 msgid "Sensors Plugin"
 msgstr "תוסף חיישנים"
 
-#: ../panel-plugin/sensors-plugin.c:2466
+#: ../panel-plugin/sensors-plugin.c:2589
 msgid "Properties"
 msgstr "מאפיינים"
 
-#: ../panel-plugin/sensors-plugin.c:2492
+#: ../panel-plugin/sensors-plugin.c:2615
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "אתה יכול לשנות תכונות מאפיין כמו שם, צבעים, ערכי מינימום/מקסימום ע\"י ביצוע קליק כפול בערך, עריכת התוכן, ולחיצה על \"חזור\" או בחירת שדה אחר."
 
-#: ../panel-plugin/sensors-plugin.c:2579
+#: ../panel-plugin/sensors-plugin.c:2702
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "הצג ערכי חיישן מחיישני LM, ACPI, כוננים קשיחים, NVIDIA"
 
-#: ../panel-plugin/sensors-plugin.c:2581
+#: ../panel-plugin/sensors-plugin.c:2704
 msgid "Copyright (c) 2004-2018\n"
 msgstr "זכויות יוצרים (c) 2004-2018\n"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
-#. FIXME: compare strings, or also have hddtemp and acpi store numeric
-#. str_values
-#. assert correctly saved str_file
-#: ../lib/configuration.c:174 ../lib/configuration.c:392 ../lib/hddtemp.c:396
+#: ../lib/configuration.c:180 ../lib/hddtemp.c:396
 msgid "Hard disks"
 msgstr "כוננים קשיחים"
 
-#: ../lib/acpi.c:580 ../lib/acpi.c:592
+#. You might want to format this with a hyphen and without spacing, or with a
+#. dash; the result might be BAT1–Power or whatever fits your language most.
+#. Spaces allow line breaks over the tachometers.
+#: ../lib/acpi.c:632
+#, c-format
+msgid "%s - %s"
+msgstr "%s - %s"
+
+#: ../lib/acpi.c:632
+msgid "Power"
+msgstr "חשמל"
+
+#: ../lib/acpi.c:684 ../lib/acpi.c:696
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.c:583
+#: ../lib/acpi.c:687
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ACPI v%s אזורי"
 
-#: ../lib/acpi.c:724
+#: ../lib/acpi.c:833
 msgid "<Unknown>"
 msgstr "<Unknown>"
 
@@ -286,46 +304,46 @@ msgstr "_חיישנים"
 msgid "No sensors found!"
 msgstr "לא נמצאו חיישנים!"
 
-#: ../lib/sensors-interface-common.c:147
+#: ../lib/sensors-interface-common.c:150
 #, c-format
 msgid "%.0f °F"
 msgstr "%.0f °F"
 
 #. Celsius
-#: ../lib/sensors-interface-common.c:150
+#: ../lib/sensors-interface-common.c:153
 #, c-format
 msgid "%.0f °C"
 msgstr "%.0f °C"
 
-#: ../lib/sensors-interface-common.c:155
+#: ../lib/sensors-interface-common.c:158
 #, c-format
 msgid "%+.3f V"
 msgstr "%+.3f V"
 
-#: ../lib/sensors-interface-common.c:159
+#: ../lib/sensors-interface-common.c:162
 #, c-format
 msgid "%+.3f A"
 msgstr "%+.3f A"
 
-#: ../lib/sensors-interface-common.c:163
+#: ../lib/sensors-interface-common.c:166
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.c:167
+#: ../lib/sensors-interface-common.c:170
 #, c-format
-msgid "%.0f W"
-msgstr "%.0f W"
+msgid "%.3f W"
+msgstr "%.3f W"
 
-#: ../lib/sensors-interface-common.c:172
+#: ../lib/sensors-interface-common.c:175
 msgid "off"
 msgstr "מכובה"
 
-#: ../lib/sensors-interface-common.c:174
+#: ../lib/sensors-interface-common.c:177
 msgid "on"
 msgstr "דלוק"
 
-#: ../lib/sensors-interface-common.c:178
+#: ../lib/sensors-interface-common.c:181
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f rpm"
