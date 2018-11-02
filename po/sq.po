@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-24 00:31+0200\n"
-"PO-Revision-Date: 2018-10-24 07:19+0000\n"
+"POT-Creation-Date: 2018-11-02 00:32+0100\n"
+"PO-Revision-Date: 2018-11-02 09:05+0000\n"
 "Last-Translator: Besnik <besnik@programeshqip.org>\n"
 "Language-Team: Albanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sq/)\n"
 "MIME-Version: 1.0\n"
@@ -112,56 +112,61 @@ msgstr "Shfaq titull"
 msgid "Small horizontal s_pacing"
 msgstr "_Hapësirë horizontale e vogël"
 
-#: ../panel-plugin/sensors-plugin.c:2341
+#. Alpha value of the tacho coloring
+#: ../panel-plugin/sensors-plugin.c:2340
 msgid "Tacho color alpha value:"
 msgstr ""
 
 #. The value from HSV color model
-#: ../panel-plugin/sensors-plugin.c:2355
+#: ../panel-plugin/sensors-plugin.c:2354
 msgid "Tacho color value:"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:2389
+#: ../panel-plugin/sensors-plugin.c:2388
 msgid "Suppress messages"
 msgstr "Ndaloji mesazhet"
 
-#: ../panel-plugin/sensors-plugin.c:2410
+#: ../panel-plugin/sensors-plugin.c:2409
 msgid "Suppress tooltip"
 msgstr "Mos lejo shfaqje ndihmëze"
 
-#: ../panel-plugin/sensors-plugin.c:2437
+#: ../panel-plugin/sensors-plugin.c:2436
 msgid "E_xecute on double click:"
 msgstr "Për_mbushe kur dyklikohet:"
 
-#: ../panel-plugin/sensors-plugin.c:2477
+#: ../panel-plugin/sensors-plugin.c:2476
 msgid "_View"
 msgstr "_Parje"
 
-#: ../panel-plugin/sensors-plugin.c:2513
+#: ../panel-plugin/sensors-plugin.c:2489
+msgid "UI style options"
+msgstr "Mundësi stili UI"
+
+#: ../panel-plugin/sensors-plugin.c:2523
 msgid "_Miscellaneous"
 msgstr "Të _ndryshme"
 
-#: ../panel-plugin/sensors-plugin.c:2581 ../panel-plugin/sensors-plugin.h:31
+#: ../panel-plugin/sensors-plugin.c:2591 ../panel-plugin/sensors-plugin.h:31
 #: ../lib/hddtemp.c:167
 msgid "Sensors Plugin"
 msgstr "Shtojcë Ndijuesish"
 
-#: ../panel-plugin/sensors-plugin.c:2589
+#: ../panel-plugin/sensors-plugin.c:2599
 msgid "Properties"
 msgstr "Veti"
 
-#: ../panel-plugin/sensors-plugin.c:2615
+#: ../panel-plugin/sensors-plugin.c:2625
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "Vetitë e një veçorie, të tilla si emri, ngjyrat, vlera min./maks., mund t’i ndryshoni duke dyklikuar mbi zërin, përpunuar lëndën dhe shtypur \"Rikthehu\" ose duke përzgjedhur një fushë tjetër."
 
-#: ../panel-plugin/sensors-plugin.c:2702
+#: ../panel-plugin/sensors-plugin.c:2712
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Shfaq vlera ndijuesish për ndijues LM, ACPI, disqe, NVIDIA"
 
-#: ../panel-plugin/sensors-plugin.c:2704
+#: ../panel-plugin/sensors-plugin.c:2714
 msgid "Copyright (c) 2004-2018\n"
 msgstr "Të drejta kopjimi (c) 2004-2018\n"
 
@@ -171,28 +176,44 @@ msgstr "Të drejta kopjimi (c) 2004-2018\n"
 msgid "Hard disks"
 msgstr "Hard disqe"
 
+#. Note for translators: As some laptops have several batteries such as the
+#. T440s,
+#. there might be some perturbation with the battery name here and BAT0/BAT1
+#. for
+#. power/voltage. So we prepend BAT0/1 to the battery name as well, with the
+#. result
+#. being something like "BAT1 - 45N1127". Users can then rename the batteries
+#. to
+#. their own will while keeping consistency to their power/voltage features.
 #. You might want to format this with a hyphen and without spacing, or with a
 #. dash; the result might be BAT1–Power or whatever fits your language most.
 #. Spaces allow line breaks over the tachometers.
-#: ../lib/acpi.c:632
+#. You might want to format this with a hyphen and without spacing, or with a
+#. dash; the result might be BAT1–Voltage or whatever fits your language most.
+#. Spaces allow line breaks over the tachometers.
+#: ../lib/acpi.c:346 ../lib/acpi.c:669 ../lib/acpi.c:741
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: ../lib/acpi.c:632
+#: ../lib/acpi.c:669
 msgid "Power"
 msgstr "Fuqi"
 
-#: ../lib/acpi.c:684 ../lib/acpi.c:696
+#: ../lib/acpi.c:741
+msgid "Voltage"
+msgstr "Voltazh "
+
+#: ../lib/acpi.c:801 ../lib/acpi.c:813
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.c:687
+#: ../lib/acpi.c:804
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "Zona ACPI v%s"
 
-#: ../lib/acpi.c:833
+#: ../lib/acpi.c:958
 msgid "<Unknown>"
 msgstr "<I/e panjohur>"
 
