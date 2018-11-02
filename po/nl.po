@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-24 00:31+0200\n"
-"PO-Revision-Date: 2018-10-24 15:22+0000\n"
+"POT-Creation-Date: 2018-11-02 00:32+0100\n"
+"PO-Revision-Date: 2018-11-02 21:25+0000\n"
 "Last-Translator: Pjotr <pjotrvertaalt@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/xfce/xfce-panel-plugins/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -110,56 +110,61 @@ msgstr "Toon _eenheden"
 msgid "Small horizontal s_pacing"
 msgstr "Geringe horizontale _tussenruimtes"
 
-#: ../panel-plugin/sensors-plugin.c:2341
+#. Alpha value of the tacho coloring
+#: ../panel-plugin/sensors-plugin.c:2340
 msgid "Tacho color alpha value:"
 msgstr "Tacho-kleur alphawaarde:"
 
 #. The value from HSV color model
-#: ../panel-plugin/sensors-plugin.c:2355
+#: ../panel-plugin/sensors-plugin.c:2354
 msgid "Tacho color value:"
 msgstr "Kleurwaarde snelheidsmeter:"
 
-#: ../panel-plugin/sensors-plugin.c:2389
+#: ../panel-plugin/sensors-plugin.c:2388
 msgid "Suppress messages"
 msgstr "Onderdruk boodschappen"
 
-#: ../panel-plugin/sensors-plugin.c:2410
+#: ../panel-plugin/sensors-plugin.c:2409
 msgid "Suppress tooltip"
 msgstr "Onderdruk gereedschaptip"
 
-#: ../panel-plugin/sensors-plugin.c:2437
+#: ../panel-plugin/sensors-plugin.c:2436
 msgid "E_xecute on double click:"
 msgstr "_Uitvoeren bij dubbelklikken:"
 
-#: ../panel-plugin/sensors-plugin.c:2477
+#: ../panel-plugin/sensors-plugin.c:2476
 msgid "_View"
 msgstr "_Weergeven"
 
-#: ../panel-plugin/sensors-plugin.c:2513
+#: ../panel-plugin/sensors-plugin.c:2489
+msgid "UI style options"
+msgstr "Stijlopties voor de grafische schil"
+
+#: ../panel-plugin/sensors-plugin.c:2523
 msgid "_Miscellaneous"
 msgstr "_Gemengd"
 
-#: ../panel-plugin/sensors-plugin.c:2581 ../panel-plugin/sensors-plugin.h:31
+#: ../panel-plugin/sensors-plugin.c:2591 ../panel-plugin/sensors-plugin.h:31
 #: ../lib/hddtemp.c:167
 msgid "Sensors Plugin"
 msgstr "Sensoren-invoegsel"
 
-#: ../panel-plugin/sensors-plugin.c:2589
+#: ../panel-plugin/sensors-plugin.c:2599
 msgid "Properties"
 msgstr "Eigenschappen"
 
-#: ../panel-plugin/sensors-plugin.c:2615
+#: ../panel-plugin/sensors-plugin.c:2625
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "U kunt de eigenschappen van een functie veranderen, zoals naam, kleuren of min/max-waarde, door te dubbelklikken op het veld, de inhoud te bewerken, en te drukken op 'Return' of een ander veld te kiezen."
 
-#: ../panel-plugin/sensors-plugin.c:2702
+#: ../panel-plugin/sensors-plugin.c:2712
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Toon sensorwaarden van LM sensors, ACPI, harde schijven, NVIDIA"
 
-#: ../panel-plugin/sensors-plugin.c:2704
+#: ../panel-plugin/sensors-plugin.c:2714
 msgid "Copyright (c) 2004-2018\n"
 msgstr "Auteursrecht (c) 2004-2018\n"
 
@@ -169,28 +174,44 @@ msgstr "Auteursrecht (c) 2004-2018\n"
 msgid "Hard disks"
 msgstr "Harde schijven"
 
+#. Note for translators: As some laptops have several batteries such as the
+#. T440s,
+#. there might be some perturbation with the battery name here and BAT0/BAT1
+#. for
+#. power/voltage. So we prepend BAT0/1 to the battery name as well, with the
+#. result
+#. being something like "BAT1 - 45N1127". Users can then rename the batteries
+#. to
+#. their own will while keeping consistency to their power/voltage features.
 #. You might want to format this with a hyphen and without spacing, or with a
 #. dash; the result might be BAT1–Power or whatever fits your language most.
 #. Spaces allow line breaks over the tachometers.
-#: ../lib/acpi.c:632
+#. You might want to format this with a hyphen and without spacing, or with a
+#. dash; the result might be BAT1–Voltage or whatever fits your language most.
+#. Spaces allow line breaks over the tachometers.
+#: ../lib/acpi.c:346 ../lib/acpi.c:669 ../lib/acpi.c:741
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: ../lib/acpi.c:632
+#: ../lib/acpi.c:669
 msgid "Power"
 msgstr "Vermogen"
 
-#: ../lib/acpi.c:684 ../lib/acpi.c:696
+#: ../lib/acpi.c:741
+msgid "Voltage"
+msgstr "Voltage"
+
+#: ../lib/acpi.c:801 ../lib/acpi.c:813
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.c:687
+#: ../lib/acpi.c:804
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ACPI v%s zones"
 
-#: ../lib/acpi.c:833
+#: ../lib/acpi.c:958
 msgid "<Unknown>"
 msgstr "<Unknown>"
 
