@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-24 00:31+0200\n"
-"PO-Revision-Date: 2018-10-24 21:41+0000\n"
+"POT-Creation-Date: 2018-11-02 00:32+0100\n"
+"PO-Revision-Date: 2018-11-03 08:07+0000\n"
 "Last-Translator: Demiray Muhterem <mdemiray@msn.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/xfce/xfce-panel-plugins/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -114,56 +114,61 @@ msgstr "Birimleri Göst_er"
 msgid "Small horizontal s_pacing"
 msgstr "Küçük yatay ara_lık"
 
-#: ../panel-plugin/sensors-plugin.c:2341
+#. Alpha value of the tacho coloring
+#: ../panel-plugin/sensors-plugin.c:2340
 msgid "Tacho color alpha value:"
 msgstr "Tacho renk alfa değeri:"
 
 #. The value from HSV color model
-#: ../panel-plugin/sensors-plugin.c:2355
+#: ../panel-plugin/sensors-plugin.c:2354
 msgid "Tacho color value:"
 msgstr "Tacho renk değeri:"
 
-#: ../panel-plugin/sensors-plugin.c:2389
+#: ../panel-plugin/sensors-plugin.c:2388
 msgid "Suppress messages"
 msgstr "Mesajları gizle"
 
-#: ../panel-plugin/sensors-plugin.c:2410
+#: ../panel-plugin/sensors-plugin.c:2409
 msgid "Suppress tooltip"
 msgstr "Araç bilgisini ortadan kaldır"
 
-#: ../panel-plugin/sensors-plugin.c:2437
+#: ../panel-plugin/sensors-plugin.c:2436
 msgid "E_xecute on double click:"
 msgstr "Çift tıklandığında çalıştı_r:"
 
-#: ../panel-plugin/sensors-plugin.c:2477
+#: ../panel-plugin/sensors-plugin.c:2476
 msgid "_View"
 msgstr "_Görünüm"
 
-#: ../panel-plugin/sensors-plugin.c:2513
+#: ../panel-plugin/sensors-plugin.c:2489
+msgid "UI style options"
+msgstr "Kullanıcı arabirim seçenekleri"
+
+#: ../panel-plugin/sensors-plugin.c:2523
 msgid "_Miscellaneous"
 msgstr "_Muhtelif"
 
-#: ../panel-plugin/sensors-plugin.c:2581 ../panel-plugin/sensors-plugin.h:31
+#: ../panel-plugin/sensors-plugin.c:2591 ../panel-plugin/sensors-plugin.h:31
 #: ../lib/hddtemp.c:167
 msgid "Sensors Plugin"
 msgstr "Sensors Eklentisi"
 
-#: ../panel-plugin/sensors-plugin.c:2589
+#: ../panel-plugin/sensors-plugin.c:2599
 msgid "Properties"
 msgstr "Özellikler"
 
-#: ../panel-plugin/sensors-plugin.c:2615
+#: ../panel-plugin/sensors-plugin.c:2625
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "Bir özelliğin ismini, rengini, minimum/maksimum değerini o değerin üzerine çift tıklayarak, o değeri istediğiniz gibi biçimlendirip, \"Enter\" tuşuna basarak  değiştirebilirsiniz."
 
-#: ../panel-plugin/sensors-plugin.c:2702
+#: ../panel-plugin/sensors-plugin.c:2712
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "LM, ACPI, sabit diskler ve NVIDIA sensör değerlerini göster"
 
-#: ../panel-plugin/sensors-plugin.c:2704
+#: ../panel-plugin/sensors-plugin.c:2714
 msgid "Copyright (c) 2004-2018\n"
 msgstr "Telif Hakkı (c) 2004-2018\n"
 
@@ -173,28 +178,44 @@ msgstr "Telif Hakkı (c) 2004-2018\n"
 msgid "Hard disks"
 msgstr "Sabit diskler "
 
+#. Note for translators: As some laptops have several batteries such as the
+#. T440s,
+#. there might be some perturbation with the battery name here and BAT0/BAT1
+#. for
+#. power/voltage. So we prepend BAT0/1 to the battery name as well, with the
+#. result
+#. being something like "BAT1 - 45N1127". Users can then rename the batteries
+#. to
+#. their own will while keeping consistency to their power/voltage features.
 #. You might want to format this with a hyphen and without spacing, or with a
 #. dash; the result might be BAT1–Power or whatever fits your language most.
 #. Spaces allow line breaks over the tachometers.
-#: ../lib/acpi.c:632
+#. You might want to format this with a hyphen and without spacing, or with a
+#. dash; the result might be BAT1–Voltage or whatever fits your language most.
+#. Spaces allow line breaks over the tachometers.
+#: ../lib/acpi.c:346 ../lib/acpi.c:669 ../lib/acpi.c:741
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: ../lib/acpi.c:632
+#: ../lib/acpi.c:669
 msgid "Power"
 msgstr "Güç"
 
-#: ../lib/acpi.c:684 ../lib/acpi.c:696
+#: ../lib/acpi.c:741
+msgid "Voltage"
+msgstr "Gerilim"
+
+#: ../lib/acpi.c:801 ../lib/acpi.c:813
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.c:687
+#: ../lib/acpi.c:804
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ACPI v%s alanları"
 
-#: ../lib/acpi.c:833
+#: ../lib/acpi.c:958
 msgid "<Unknown>"
 msgstr "<Bilinmiyor>"
 
