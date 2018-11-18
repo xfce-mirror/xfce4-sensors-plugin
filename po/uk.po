@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2018-11-17 21:55+0000\n"
+"PO-Revision-Date: 2018-11-18 13:12+0000\n"
 "Last-Translator: Yarema aka Knedlyk <yupadmin@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/xfce/xfce-panel-plugins/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -114,12 +114,12 @@ msgstr "Малі горизонтальні про_міжки"
 #. Alpha value of the tacho coloring
 #: ../panel-plugin/sensors-plugin.c:2340
 msgid "Tacho color alpha value:"
-msgstr ""
+msgstr "Значення альфа-кольору тахометра:"
 
 #. The value from HSV color model
 #: ../panel-plugin/sensors-plugin.c:2354
 msgid "Tacho color value:"
-msgstr ""
+msgstr "Значення кольору тахометра:"
 
 #: ../panel-plugin/sensors-plugin.c:2388
 msgid "Suppress messages"
