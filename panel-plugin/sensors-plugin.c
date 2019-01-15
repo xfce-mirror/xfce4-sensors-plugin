@@ -986,16 +986,75 @@ sensors_show_text_display (t_sensors *ptr_sensors)
 
 
 /* -------------------------------------------------------------------------- */
-/* create tooltip
-Updates the sensor values, see lines 440 and following */
+/* Updates the sensor values */
 static gboolean
-sensors_create_tooltip (gpointer ptr_argument)
+sensors_update_values (gpointer ptr_argument)
 {
     t_sensors *ptr_sensors;
     int idx_sensorchips, index_feature, result;
     double val_sensorfeature;
+    gchar *ptr_str_tmp;
+    t_chipfeature *ptr_chipfeature;
+    t_chip *ptr_chipstructure;
+
+    TRACE ("enters sensors_update_values");
+
+
+    g_return_val_if_fail (ptr_argument != NULL, FALSE);
+
+    ptr_sensors = (t_sensors *) ptr_argument;
+
+    for (idx_sensorchips=0; idx_sensorchips < ptr_sensors->num_sensorchips; idx_sensorchips++) {
+        ptr_chipstructure = (t_chip *) g_ptr_array_index (ptr_sensors->chips, idx_sensorchips);
+        g_assert (ptr_chipstructure!=NULL);
+
+
+        for (index_feature = 0; index_feature<ptr_chipstructure->num_features; index_feature++) {
+            ptr_chipfeature = g_ptr_array_index (ptr_chipstructure->chip_features, index_feature);
+            g_assert (ptr_chipfeature!=NULL);
+
+            if ( ptr_chipfeature->valid == TRUE && ptr_chipfeature->show == TRUE ) {
+
+                result = sensor_get_value (ptr_chipstructure, ptr_chipfeature->address,
+                                                    &val_sensorfeature,
+                                                    &(ptr_sensors->suppressmessage));
+
+                if (result != 0) {
+                    /* output to stdout on command line, not very useful for user, except for tracing problems */
+                    g_printf ( _("Sensors Plugin:\n"
+                    "Seems like there was a problem reading a sensor feature "
+                    "value.\nProper proceeding cannot be guaranteed.\n") );
+                    break;
+                }
+                ptr_str_tmp = g_new (gchar, 0);
+                format_sensor_value (ptr_sensors->scale, ptr_chipfeature,
+                                     val_sensorfeature, &ptr_str_tmp);
+
+                if (ptr_chipfeature->formatted_value != NULL)
+                    g_free (ptr_chipfeature->formatted_value);
+
+                ptr_chipfeature->formatted_value = g_strdup (ptr_str_tmp);
+                ptr_chipfeature->raw_value = val_sensorfeature;
+
+                g_free (ptr_str_tmp);
+            } /* end if ptr_chipfeature->valid */
+        }
+    }
+
+    TRACE ("leaves sensors_update_values");
+
+    return TRUE;
+}
+
+/* -------------------------------------------------------------------------- */
+/* create tooltip,see lines 440 and following */
+static gboolean
+sensors_create_tooltip (gpointer ptr_argument)
+{
+    t_sensors *ptr_sensors;
+    int idx_sensorchips, index_feature;
     gboolean is_first_textline, is_chipname_already_prepended;
-    gchar *ptr_str_tooltip, *ptr_str_tooltiptext, *ptr_str_tmp;
+    gchar *ptr_str_tooltip, *ptr_str_tooltiptext;
     t_chipfeature *ptr_chipfeature;
     t_chip *ptr_chipstructure;
 
@@ -1037,34 +1096,11 @@ sensors_create_tooltip (gpointer ptr_argument)
                     is_chipname_already_prepended = TRUE;
                 }
 
-                result = sensor_get_value (ptr_chipstructure, ptr_chipfeature->address,
-                                                    &val_sensorfeature,
-                                                    &(ptr_sensors->suppressmessage));
-
-                if (result != 0) {
-                    /* output to stdout on command line, not very useful for user, except for tracing problems */
-                    g_printf ( _("Sensors Plugin:\n"
-                    "Seems like there was a problem reading a sensor feature "
-                    "value.\nProper proceeding cannot be guaranteed.\n") );
-                    break;
-                }
-                ptr_str_tmp = g_new (gchar, 0);
-                format_sensor_value (ptr_sensors->scale, ptr_chipfeature,
-                                     val_sensorfeature, &ptr_str_tmp);
-
                 ptr_str_tooltiptext = g_strconcat (ptr_str_tooltip, "\n  ",
-                                             ptr_chipfeature->name, ": ", ptr_str_tmp,
+                                             ptr_chipfeature->name, ": ", ptr_chipfeature->formatted_value,
                                              NULL);
                 g_free (ptr_str_tooltip);
                 ptr_str_tooltip = ptr_str_tooltiptext;
-
-                if (ptr_chipfeature->formatted_value != NULL)
-                    g_free (ptr_chipfeature->formatted_value);
-
-                ptr_chipfeature->formatted_value = g_strdup (ptr_str_tmp);
-                ptr_chipfeature->raw_value = val_sensorfeature;
-
-                g_free (ptr_str_tmp);
             } /* end if ptr_chipfeature->valid */
         }
     }
@@ -1092,6 +1128,8 @@ sensors_show_panel (gpointer ptr_argument)
     g_return_val_if_fail (ptr_argument != NULL, FALSE);
 
     ptr_sensors = (t_sensors *) ptr_argument;
+
+    sensors_update_values(ptr_argument);
 
     switch (ptr_sensors->display_values_type)
     {
