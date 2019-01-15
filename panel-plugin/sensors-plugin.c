@@ -2221,6 +2221,9 @@ add_cover_rows_box (GtkWidget * vbox, t_sensors_dialog * sd)
 
     if (xfce_panel_plugin_get_mode(sd->sensors->plugin) != XFCE_PANEL_PLUGIN_MODE_DESKBAR)
     {
+        // The Xfce 4 panel can have several rows or columns. With such a mode,
+        //  the plugins are allowed to span over all available rows/columns.
+        //  When translating, "cover" might be replaced by "use" or "span".
         myCheckBox = gtk_check_button_new_with_mnemonic (_("_Cover all panel rows/columns"));
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(myCheckBox), sd->sensors->cover_panel_rows);
 
