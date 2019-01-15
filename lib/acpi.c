@@ -666,7 +666,9 @@ read_power_zone (t_chip *ptr_chip)
                     ptr_chipfeature->address = ptr_chip->chip_features->len;
                     ptr_chipfeature->devicename = g_strdup(ptr_dirent->d_name);
                     // You might want to format this with a hyphen and without spacing, or with a dash; the result might be BAT1–Power or whatever fits your language most. Spaces allow line breaks over the tachometers.
-                    ptr_chipfeature->name = g_strdup_printf (_("%s - %s"), ptr_dirent->d_name, _("Power"));
+                    ptr_chipfeature->name = g_strdup_printf (_("%s - %s"),
+                                                             // Power with unit Watts, not Energy with Joules or kWh
+                                                             ptr_dirent->d_name, _("Power"));
                     ptr_chipfeature->formatted_value = NULL;
                     ptr_chipfeature->raw_value = get_power_zone_value(ptr_dirent->d_name);
                     ptr_chipfeature->valid = TRUE;
