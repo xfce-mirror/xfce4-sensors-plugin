@@ -1,10 +1,10 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Andreas Eitel, 2018
-# Fabian Nowak <timystery@arcor.de>, 2004 - 2007, 2009
+# Fabian Nowak <timystery@arcor.de>, 2004 - 2019
 # Tobias Bannert <tobannert@gmail.com>, 2014,2017
 # Vinzenz Vietzke <vinz@vinzv.de>, 2018
 msgid ""
@@ -75,7 +75,7 @@ msgstr "A_nzahl der Textzeilen:"
 
 #: ../panel-plugin/sensors-plugin.c:2186
 msgid "_Cover all panel rows/columns"
-msgstr "Alle Leistenreihen und -spalten _verdecken"
+msgstr "Alle Leistenreihen und -spalten _verwenden"
 
 #: ../panel-plugin/sensors-plugin.c:2211
 msgid "F_ont size:"
@@ -116,12 +116,12 @@ msgstr "K_leine horizontale Abstände"
 #. Alpha value of the tacho coloring
 #: ../panel-plugin/sensors-plugin.c:2340
 msgid "Tacho color alpha value:"
-msgstr "Tachofarbe Alpha-Wert:"
+msgstr "Alpha-Wert der Tachofarben:"
 
 #. The value from HSV color model
 #: ../panel-plugin/sensors-plugin.c:2354
 msgid "Tacho color value:"
-msgstr "Tachofarbwert:"
+msgstr "HSV-Farbwert der Tachos:"
 
 #: ../panel-plugin/sensors-plugin.c:2388
 msgid "Suppress messages"
@@ -165,7 +165,7 @@ msgstr "Die Eigenschaften eines Merkmals wie Name, Farbe, Minimum/Maximum könne
 
 #: ../panel-plugin/sensors-plugin.c:2712
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
-msgstr "Zeigt Sensorwerte von LM sensors, ACPI, Festplatten und NVIDIA an."
+msgstr "Sensorwerte von LM sensors, ACPI, Festplatten und NVIDIA anzeigen"
 
 #: ../panel-plugin/sensors-plugin.c:2714
 msgid "Copyright (c) 2004-2018\n"
@@ -199,7 +199,7 @@ msgstr "%s - %s"
 
 #: ../lib/acpi.c:669
 msgid "Power"
-msgstr "Energie"
+msgstr "Leistung"
 
 #: ../lib/acpi.c:741
 msgid "Voltage"
