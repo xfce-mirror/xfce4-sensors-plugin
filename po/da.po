@@ -7,13 +7,13 @@
 # Chris Darnell <chris@cedeel.com>, 2013
 # Jens Hyllegaard <jens.hyllegaard@gmail.com>, 2007
 # Per Kongstad <p_kongstad@op.pl>, 2008
-# scootergrisen, 2017-2018
+# scootergrisen, 2017-2019
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2018-11-02 23:21+0000\n"
+"PO-Revision-Date: 2019-03-07 14:27+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -80,7 +80,7 @@ msgstr "_Dæk alle panelrækker/-kolonner"
 
 #: ../panel-plugin/sensors-plugin.c:2211
 msgid "F_ont size:"
-msgstr "_Skrifttypestørrelse:"
+msgstr "_Størrelse på skrifttype:"
 
 #: ../panel-plugin/sensors-plugin.c:2217
 msgid "x-small"
@@ -204,7 +204,7 @@ msgstr "Strøm"
 
 #: ../lib/acpi.c:741
 msgid "Voltage"
-msgstr "Volt"
+msgstr "Spænding"
 
 #: ../lib/acpi.c:801 ../lib/acpi.c:813
 msgid "ACPI"
@@ -394,7 +394,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Xfce4-sensorere %s\nViser information om dine hardwaresensorere, ACPI-status, harddisk-temperaturere og Nvidia GPU'ers temperature.\nOpsummering: \n  xfce4-sensors [tilvalg]\nhvor [tilvalg] er en af de følgende:\n  -h, --help    Print denne hjælp-dialog.\n  -l, --license Print licensinformation.\n  -V, --version Print versionsinformation.\n\nDette program er udgivet under GPL v2.\n"
+msgstr "Xfce4-sensorere %s\nViser information om dine hardwaresensorere, ACPI-status, harddisk-temperaturere og Nvidia GPU'ers temperature.\nOpsummering: \n  xfce4-sensors [tilvalg]\nhvor [tilvalg] er en af de følgende:\n  -h, --help    Udskriv denne hjælp-dialog.\n  -l, --license Udskriv licensinformation.\n  -V, --version Udskriv versionsinformation.\n\nDette program er udgivet under GPL v2.\n"
 
 #: ../src/main.c:100
 #, c-format
