@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2019-03-07 14:27+0000\n"
+"PO-Revision-Date: 2019-05-16 19:06+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -265,7 +265,7 @@ msgstr "Fejl: Kunne ikke oprette forbindelse til sensorer!"
 
 #: ../lib/sensors-interface.c:90
 msgid "Sensors Plugin Failure"
-msgstr "Sensorer-plugin fejlede"
+msgstr "Sensorer-plugin mislykkedes"
 
 #: ../lib/sensors-interface.c:91
 msgid ""
