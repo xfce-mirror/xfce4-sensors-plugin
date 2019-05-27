@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2019-05-26 14:44+0000\n"
+"PO-Revision-Date: 2019-05-27 11:02+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -241,7 +241,7 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "\"hddtemp\" blev ikke udført korrekt, selvom den er kørbar. Det skyldes sandsynligvist, at diskene kræver root-tilladelser for at læse deres temperaturer, og at \"hddtemp\" ikke er setuid root.\n\nEn let ufin løsning er at køre \"chmod u+s %s\" som root-bruger og genstarte pluginet eller dets panel.\n\nKald af \"%s\" gav følgende fejl:\n%s\nmed returværdien %d.\n"
+msgstr "\"hddtemp\" blev ikke udført korrekt, selvom den er eksekverbar. Det skyldes sandsynligvist, at diskene kræver root-tilladelser for at læse deres temperaturer, og at \"hddtemp\" ikke er setuid root.\n\nEn let ufin løsning er at køre \"chmod u+s %s\" som root-bruger og genstarte pluginet eller dets panel.\n\nKald af \"%s\" gav følgende fejl:\n%s\nmed returværdien %d.\n"
 
 #: ../lib/hddtemp.c:586 ../lib/hddtemp.c:609
 msgid "Suppress this message in future"
@@ -252,7 +252,7 @@ msgstr "Undertryk meddelelsen fremover"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr "Der opstod en fejl ved kørsel af \"%s\":\n%s"
+msgstr "Der opstod en fejl ved eksekvering af \"%s\":\n%s"
 
 #: ../lib/lmsensors.c:97
 msgid "LM Sensors"
@@ -403,7 +403,7 @@ msgstr "Xfce4 sensorere %s\n"
 
 #: ../src/interface.c:85
 msgid "_Overview"
-msgstr "_Oversigt"
+msgstr "_Overblik"
 
 #: ../src/interface.c:106
 msgid "_Tachometers"
