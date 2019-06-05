@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2019-06-05 13:49+0000\n"
+"PO-Revision-Date: 2019-06-05 19:21+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -394,7 +394,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Xfce4 sensorer %s\nViser information om dine hardwaresensorere, ACPI-status, harddisktemperaturere og Nvidia GPU'ers temperatur.\nSammendrag: \n  xfce4-sensors [tilvalg]\nhvor [tilvalg] er en af følgende:\n  -h, --help    Udskriv denne hjælp-dialog.\n  -l, --license Udskriv licensinformation.\n  -V, --version Udskriv versionsinformation.\n\nDette program er udgivet under GPL v2.\n"
+msgstr "Xfce4 sensorer %s\nViser information om dine hardwaresensorer, ACPI-status, harddisktemperaturer og Nvidia GPU'ers temperatur.\nSammendrag: \n  xfce4-sensors [tilvalg]\nhvor [tilvalg] er en af følgende:\n  -h, --help    Udskriv denne hjælp-dialog.\n  -l, --license Udskriv licensinformation.\n  -V, --version Udskriv versionsinformation.\n\nDette program er udgivet under GPL v2.\n"
 
 #: ../src/main.c:100
 #, c-format
