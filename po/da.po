@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2019-05-27 11:02+0000\n"
+"PO-Revision-Date: 2019-06-05 13:49+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -241,7 +241,7 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "\"hddtemp\" blev ikke udført korrekt, selvom den er eksekverbar. Det skyldes sandsynligvist, at diskene kræver root-tilladelser for at læse deres temperaturer, og at \"hddtemp\" ikke er setuid root.\n\nEn let ufin løsning er at køre \"chmod u+s %s\" som root-bruger og genstarte pluginet eller dets panel.\n\nKald af \"%s\" gav følgende fejl:\n%s\nmed returværdien %d.\n"
+msgstr "\"hddtemp\" blev ikke udført korrekt, selvom den er eksekverbar. Det skyldes sandsynligvis, at diskene kræver root-tilladelser for at læse deres temperaturer, og at \"hddtemp\" ikke er setuid root.\n\nEn let ufin løsning er at køre \"chmod u+s %s\" som root-bruger og genstarte pluginet eller dets panel.\n\nKald af \"%s\" gav følgende fejl:\n%s\nmed returværdien %d.\n"
 
 #: ../lib/hddtemp.c:586 ../lib/hddtemp.c:609
 msgid "Suppress this message in future"
@@ -394,12 +394,12 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Xfce4 sensorere %s\nViser information om dine hardwaresensorere, ACPI-status, harddisktemperaturere og Nvidia GPU'ers temperatur.\nSammendrag: \n  xfce4-sensors [tilvalg]\nhvor [tilvalg] er en af følgende:\n  -h, --help    Udskriv denne hjælp-dialog.\n  -l, --license Udskriv licensinformation.\n  -V, --version Udskriv versionsinformation.\n\nDette program er udgivet under GPL v2.\n"
+msgstr "Xfce4 sensorer %s\nViser information om dine hardwaresensorere, ACPI-status, harddisktemperaturere og Nvidia GPU'ers temperatur.\nSammendrag: \n  xfce4-sensors [tilvalg]\nhvor [tilvalg] er en af følgende:\n  -h, --help    Udskriv denne hjælp-dialog.\n  -l, --license Udskriv licensinformation.\n  -V, --version Udskriv versionsinformation.\n\nDette program er udgivet under GPL v2.\n"
 
 #: ../src/main.c:100
 #, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr "Xfce4 sensorere %s\n"
+msgstr "Xfce4 sensorer %s\n"
 
 #: ../src/interface.c:85
 msgid "_Overview"
