@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2019-06-05 19:21+0000\n"
+"PO-Revision-Date: 2019-06-10 19:03+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -379,7 +379,7 @@ msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-msgstr "Xfce4 sensorer %s \nDette program er udgivet under GPL v2.\nLicensteksten kan findes i programmets kildearkiv eller under /usr/share/apps/LICENSES/GPL_V2 eller på http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Xfce4 Sensorer %s \nDette program er udgivet under GPL v2.\nLicensteksten kan findes i programmets kildearkiv eller under /usr/share/apps/LICENSES/GPL_V2 eller på http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:78
 #, c-format
@@ -394,12 +394,12 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Xfce4 sensorer %s\nViser information om dine hardwaresensorer, ACPI-status, harddisktemperaturer og Nvidia GPU'ers temperatur.\nSammendrag: \n  xfce4-sensors [tilvalg]\nhvor [tilvalg] er en af følgende:\n  -h, --help    Udskriv denne hjælp-dialog.\n  -l, --license Udskriv licensinformation.\n  -V, --version Udskriv versionsinformation.\n\nDette program er udgivet under GPL v2.\n"
+msgstr "Xfce4 Sensorer %s\nViser information om dine hardwaresensorer, ACPI-status, harddisktemperaturer og Nvidia GPU'ers temperatur.\nSammendrag: \n  xfce4-sensors [tilvalg]\nhvor [tilvalg] er en af følgende:\n  -h, --help    Udskriv denne hjælp-dialog.\n  -l, --license Udskriv licensinformation.\n  -V, --version Udskriv versionsinformation.\n\nDette program er udgivet under GPL v2.\n"
 
 #: ../src/main.c:100
 #, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr "Xfce4 sensorer %s\n"
+msgstr "Xfce4 Sensorer %s\n"
 
 #: ../src/interface.c:85
 msgid "_Overview"
