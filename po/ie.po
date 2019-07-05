@@ -3,31 +3,29 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Sveinn í Felli <sv1@fellsnet.is>, 2013-2016,2018-2019
-# Sveinn í Felli <sv1@fellsnet.is>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2019-05-10 11:27+0000\n"
-"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic (http://www.transifex.com/xfce/xfce-panel-plugins/language/is/)\n"
+"PO-Revision-Date: 2019-05-17 11:24+0000\n"
+"Last-Translator: Ольга Смирнова\n"
+"Language-Team: Interlingue (http://www.transifex.com/xfce/xfce-panel-plugins/language/ie/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: is\n"
-"Plural-Forms: nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);\n"
+"Language: ie\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. initialize value label widget
 #: ../panel-plugin/sensors-plugin.c:383 ../panel-plugin/sensors-plugin.c:511
 #: ../panel-plugin/sensors-plugin.c:1141
 msgid "<span><b>Sensors</b></span>"
-msgstr "<span><b>Skynjarar</b></span>"
+msgstr "<span><b>Sensores</b></span>"
 
 #: ../panel-plugin/sensors-plugin.c:1008
 msgid "No sensors selected!"
-msgstr "Engir skynjarar valdir!"
+msgstr "Null sensor selectet!"
 
 #. output to stdout on command line, not very useful for user, except for
 #. tracing problems
@@ -37,143 +35,143 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Skynjaraviðbót:\nÞað lítur út fyrir að vandamál hafi komið upp við að lesa gildi frá skynjara.\nEkki er víst að hægt sé að halda áfram svo vel sé.\n"
+msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:2011
 msgid "UI style:"
-msgstr "Stíll viðmóts:"
+msgstr "Stil de intefacie:"
 
 #: ../panel-plugin/sensors-plugin.c:2012
 msgid "_text"
-msgstr "_texti"
+msgstr "_textu"
 
 #: ../panel-plugin/sensors-plugin.c:2014
 msgid "_progress bars"
-msgstr "_framvindustikur"
+msgstr "_progresse"
 
 #: ../panel-plugin/sensors-plugin.c:2016
 msgid "_tachos"
-msgstr "snúnings_mælar"
+msgstr "_tacometre"
 
 #: ../panel-plugin/sensors-plugin.c:2062
 msgid "Show _labels"
-msgstr "Sý_na skýringar"
+msgstr "Monstrar _etiquettes"
 
 #: ../panel-plugin/sensors-plugin.c:2092
 msgid "Show colored _bars"
-msgstr "Sýna litaðar súlur"
+msgstr "Colorat _barras"
 
 #: ../panel-plugin/sensors-plugin.c:2123
 msgid "_Show title"
-msgstr "_Birta titil"
+msgstr "M_onstrar li titul"
 
 #: ../panel-plugin/sensors-plugin.c:2148
 msgid "_Number of text lines:"
-msgstr "Fjöldi te_xtalína:"
+msgstr "_Númere de lineas de textu:"
 
 #: ../panel-plugin/sensors-plugin.c:2186
 msgid "_Cover all panel rows/columns"
-msgstr "_Hylja allar raðir/dálka á spjaldi"
+msgstr "O_cupar omni ranges/columnes de panel"
 
 #: ../panel-plugin/sensors-plugin.c:2211
 msgid "F_ont size:"
-msgstr "_Leturstærð:"
+msgstr "Dimension de f_onde:"
 
 #: ../panel-plugin/sensors-plugin.c:2217
 msgid "x-small"
-msgstr "mjög lítið"
+msgstr "Extra micri"
 
 #: ../panel-plugin/sensors-plugin.c:2218
 msgid "small"
-msgstr "lítilð"
+msgstr "Micri"
 
 #: ../panel-plugin/sensors-plugin.c:2219
 msgid "medium"
-msgstr "miðlungs"
+msgstr "Medial"
 
 #: ../panel-plugin/sensors-plugin.c:2220
 msgid "large"
-msgstr "stórt"
+msgstr "Grand"
 
 #: ../panel-plugin/sensors-plugin.c:2221
 msgid "x-large"
-msgstr "mjög stórt"
+msgstr "Extra grand"
 
 #: ../panel-plugin/sensors-plugin.c:2255
 msgid "F_ont:"
-msgstr "_Letur:"
+msgstr "F_onde:"
 
 #: ../panel-plugin/sensors-plugin.c:2288
 msgid "Show _Units"
-msgstr "Sýna _einingar"
+msgstr "Monstrar _unités"
 
 #: ../panel-plugin/sensors-plugin.c:2312
 msgid "Small horizontal s_pacing"
-msgstr "Lítið lárétt _millibil"
+msgstr "Reducter horizontal inters_pacie"
 
 #. Alpha value of the tacho coloring
 #: ../panel-plugin/sensors-plugin.c:2340
 msgid "Tacho color alpha value:"
-msgstr "Gegnsæisgildi litar á mæli:"
+msgstr "Alfa-valore de color de tac.:"
 
 #. The value from HSV color model
 #: ../panel-plugin/sensors-plugin.c:2354
 msgid "Tacho color value:"
-msgstr "Gildi litar á mæli:"
+msgstr "Color de tacometre:"
 
 #: ../panel-plugin/sensors-plugin.c:2388
 msgid "Suppress messages"
-msgstr "Ekki birta tilkynningar"
+msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:2409
 msgid "Suppress tooltip"
-msgstr "Ekki birta vísbendingar"
+msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:2436
 msgid "E_xecute on double click:"
-msgstr "Ke_yra við tvísmell:"
+msgstr "E_xecuter pos un duplic clic:"
 
 #: ../panel-plugin/sensors-plugin.c:2476
 msgid "_View"
-msgstr "S_koða"
+msgstr "_Vise"
 
 #: ../panel-plugin/sensors-plugin.c:2489
 msgid "UI style options"
-msgstr "Valkostir viðmótsstíls"
+msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:2523
 msgid "_Miscellaneous"
-msgstr "Ý_mislegt"
+msgstr "_Diversi"
 
 #: ../panel-plugin/sensors-plugin.c:2591 ../panel-plugin/sensors-plugin.h:31
 #: ../lib/hddtemp.c:167
 msgid "Sensors Plugin"
-msgstr "Skynjaraviðbót"
+msgstr "Plugin de sensores"
 
 #: ../panel-plugin/sensors-plugin.c:2599
 msgid "Properties"
-msgstr "Eiginleikar"
+msgstr "Proprietás"
 
 #: ../panel-plugin/sensors-plugin.c:2625
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr "Þú getur breytt eiginleikum atriða með því að tvísmella á færsluna, breyta efninu, og ýta síðan á 'Enter' eða velja annan reit."
+msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:2712
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
-msgstr "Sýna gildi skynjara frá LM-sensors, ACPI, hörðum diskum, NVIDIA"
+msgstr "Monstrar valores de sensors LM, ACPI, discos dur, Nvidia"
 
 #: ../panel-plugin/sensors-plugin.c:2714
 msgid "Copyright (c) 2004-2018\n"
-msgstr "Höfundarréttur (c) 2004-2018\n"
+msgstr "Copyright (c) 2004-2018\n"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
 #: ../lib/configuration.c:180 ../lib/hddtemp.c:396
 msgid "Hard disks"
-msgstr "Harðir diskar"
+msgstr "Discos dur"
 
 #. Note for translators: As some laptops have several batteries such as the
 #. T440s,
@@ -193,15 +191,15 @@ msgstr "Harðir diskar"
 #: ../lib/acpi.c:346 ../lib/acpi.c:669 ../lib/acpi.c:741
 #, c-format
 msgid "%s - %s"
-msgstr "%s - %s"
+msgstr ""
 
 #: ../lib/acpi.c:669
 msgid "Power"
-msgstr "Afl"
+msgstr "Energie"
 
 #: ../lib/acpi.c:741
 msgid "Voltage"
-msgstr "Spenna"
+msgstr "Voltage"
 
 #: ../lib/acpi.c:801 ../lib/acpi.c:813
 msgid "ACPI"
@@ -210,15 +208,15 @@ msgstr "ACPI"
 #: ../lib/acpi.c:804
 #, c-format
 msgid "ACPI v%s zones"
-msgstr "ACPI m%s svæðum"
+msgstr "Zones de ACPI v%s"
 
 #: ../lib/acpi.c:958
 msgid "<Unknown>"
-msgstr "<Óþekkt>"
+msgstr "<Ínconosset>"
 
 #: ../lib/nvidia.c:65
 msgid "NVidia GPU core temperature"
-msgstr "Hitastig NVidia GPU-kjarna"
+msgstr "Temperatura del nucleo GPU NVidia"
 
 #: ../lib/nvidia.c:66
 msgid "nvidia"
@@ -226,7 +224,7 @@ msgstr "nvidia"
 
 #: ../lib/hddtemp.c:395
 msgid "S.M.A.R.T. harddisk temperatures"
-msgstr "Hitastig S.M.A.R.T. harðdiska"
+msgstr "Temperaturas de discos dur de S.M.A.R.T."
 
 #: ../lib/hddtemp.c:572
 #, c-format
@@ -238,81 +236,81 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "Ekki tókst að keyra \"hddtemp\" rétt, þrátt fyrir að það sé keyrsluskrá. Það er væntanlega því um að kenna að diskarnir þurfa kerfisstjóraaðgang/root svo hægt sé að lesa hitastig þeirra, og að \"hddtemp\" noti ekki setuid-auðkennið root.\n\nAuðveld en ekki svo hreinleg aðferð til að leysa þetta væri að keyra \"chmod u+s %s\" sem kerfisstjóri/root og endurræsa þessa viðbót eða skjástiku hennar.\n\nKallið \"%s\" gaf eftirfarandi villu:\n%s\nmeð svargildinu %d.\n"
+msgstr ""
 
 #: ../lib/hddtemp.c:586 ../lib/hddtemp.c:609
 msgid "Suppress this message in future"
-msgstr "Ekki sýna þessi skilaboð framar"
+msgstr ""
 
 #: ../lib/hddtemp.c:604
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr "Villa kom upp við að keyra \"%s\":\n%s"
+msgstr "Un errore evenit executent «%s»:\n%s."
 
 #: ../lib/lmsensors.c:97
 msgid "LM Sensors"
-msgstr "LM Sensors"
+msgstr "Sensores LM"
 
 #: ../lib/lmsensors.c:417 ../lib/lmsensors.c:464
 #, c-format
 msgid "Error: Could not connect to sensors!"
-msgstr "Villa: gat ekki tengst við skynjara!"
+msgstr "Errore: Ne successat conexer a sensores!"
 
 #: ../lib/sensors-interface.c:90
 msgid "Sensors Plugin Failure"
-msgstr "Villa í skynjaraviðbót"
+msgstr "Errore de plugin de sensores"
 
 #: ../lib/sensors-interface.c:91
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr "Það lítur út fyrir að vandamál hafi komið upp við að lesa gildi frá skynjara.\nEkki er víst að hægt sé að halda áfram svo vel sé."
+msgstr ""
 
 #: ../lib/sensors-interface.c:170
 msgid "Sensors t_ype:"
-msgstr "Tegund s_kynjara:"
+msgstr "T_ip de sensores:"
 
 #: ../lib/sensors-interface.c:190
 msgid "Description:"
-msgstr "Lýsing:"
+msgstr "Descrition:"
 
 #: ../lib/sensors-interface.c:223
 msgid "U_pdate interval (seconds):"
-msgstr "U_ppfærslutíðni (sekúndur):"
+msgstr "A_ctualisar chascun (sec):"
 
 #: ../lib/sensors-interface.c:263
 msgid "Name"
-msgstr "Heiti"
+msgstr "Nómine"
 
 #: ../lib/sensors-interface.c:274
 msgid "Value"
-msgstr "Gildi"
+msgstr "Valore"
 
 #: ../lib/sensors-interface.c:280
 msgid "Show"
-msgstr "Birta"
+msgstr "Monstrar"
 
 #: ../lib/sensors-interface.c:289
 msgid "Color"
-msgstr "Litur"
+msgstr "Color"
 
 #: ../lib/sensors-interface.c:300
 msgid "Min"
-msgstr "Lágmark"
+msgstr "Min"
 
 #: ../lib/sensors-interface.c:311
 msgid "Max"
-msgstr "Hámark"
+msgstr "Max"
 
 #: ../lib/sensors-interface.c:347
 msgid "Temperature scale:"
-msgstr "Hitastigskvarði:"
+msgstr "Scala de temperatura:"
 
 #: ../lib/sensors-interface.c:349
 msgid "_Celsius"
-msgstr "_Selsíus"
+msgstr "_Centigrad"
 
 #: ../lib/sensors-interface.c:351
 msgid "_Fahrenheit"
@@ -320,11 +318,11 @@ msgstr "_Fahrenheit"
 
 #: ../lib/sensors-interface.c:387
 msgid "_Sensors"
-msgstr "_Skynjarar"
+msgstr "_Sensores"
 
 #: ../lib/sensors-interface-common.c:74 ../lib/sensors-interface-common.c:75
 msgid "No sensors found!"
-msgstr "Engir skynjarar fundust!"
+msgstr "Null sensores trovat!"
 
 #: ../lib/sensors-interface-common.c:150
 #, c-format
@@ -359,16 +357,16 @@ msgstr "%.3f W"
 
 #: ../lib/sensors-interface-common.c:175
 msgid "off"
-msgstr "óvirkt"
+msgstr "no"
 
 #: ../lib/sensors-interface-common.c:177
 msgid "on"
-msgstr "virkt"
+msgstr "yes"
 
 #: ../lib/sensors-interface-common.c:181
 #, c-format
 msgid "%.0f rpm"
-msgstr "%.0f snú/mín"
+msgstr "%.0f rpm"
 
 #: ../src/main.c:62
 #, c-format
@@ -376,7 +374,7 @@ msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-msgstr "Xfce4 skynjarar %s\nÞetta forrit er gefið út með GPL v2 notkunarleyfi.\nTexta leyfisins má finna í grunnkóðasafni forritsins eða í /usr/share/apps/LICENSES/GPL_V2 eða á vefnum http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Sensores de Xfce4 %s\nThis program is published under the GPL v2.\nThe license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:78
 #, c-format
@@ -391,24 +389,24 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "XFCE4-skynjarar %s\nBirtir upplýsingar um vélbúnaðarskynjara, stöðu á ACPI, hitastig harðra diska og hitastig Nvidia GPU-skjákortsörgjörva.\nSamantekt: \n  xfce4-sensors [rofi]\nþar sem [rofi] er eitt eftirtalins:\n  -h, --help    Birta þennan hjálpartexta.\n  -l, --license Birta upplýsingar um notkunarleyfi.\n  -V, --version Birta upplýsingar um útgáfu.\n\nÞetta forrit er gefið út með GPL v2. notkunarleyfi\n"
+msgstr "Sensores de Xfce4 %s\nMonstra information pri vor sensors hardware, statu de ACPI, tempreratura de discos dur e GPU Nvidia.\nSinopse: \n  xfce4-sensors [option]\nu [option] es un del sequent:\n  -h, --help    Monstrar ti-ci textu.\n  -l, --license Monstrar information pri licentie.\n  -V, --version Monstrar li version.\n\nThis program is published under the GPL v2.\n"
 
 #: ../src/main.c:100
 #, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr "Xfce4 skynjarar %s\n"
+msgstr "Sensores de Xfce4 %s\n"
 
 #: ../src/interface.c:85
 msgid "_Overview"
-msgstr "_Yfirlit"
+msgstr ""
 
 #: ../src/interface.c:106
 msgid "_Tachometers"
-msgstr "Snúnings_mælar"
+msgstr "_Tacometres"
 
 #: ../src/interface.c:122
 msgid "Sensors Viewer"
-msgstr "Skoðari fyrir skynjara"
+msgstr ""
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
@@ -418,21 +416,21 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Skynjaraskoðun:\nÞað lítur út fyrir að vandamál hafi komið upp við að lesa gildi frá skynjara.\nEkki er víst að hægt sé að halda áfram svo vel sé.\n"
+msgstr ""
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
-msgstr "Skoðari fyrir skynjara"
+msgstr "Visor de sensores"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
 msgid "Show sensor values."
-msgstr "Sýna gildi skynjara."
+msgstr "Monstrar valores de sensors."
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 msgid "Sensor Values Viewer"
-msgstr "Skoðari fyrir skynjaragildi"
+msgstr "Visor de valores de sensores"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
 msgid "Sensor plugin"
-msgstr "Skynjaraviðbót"
+msgstr "Plugin de sensores"
