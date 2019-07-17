@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2019-07-16 22:03+0000\n"
+"PO-Revision-Date: 2019-07-17 08:42+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (http://www.transifex.com/xfce/xfce-panel-plugins/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -164,7 +164,7 @@ msgstr "Voit muokata kohteen ominaisuuksia kuten sen nimeä, väriä sekä ala- 
 
 #: ../panel-plugin/sensors-plugin.c:2712
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
-msgstr ""
+msgstr "Näytä anturiarvoja LM-antureista, ACPI:sta, kiintolevyistä ja NVIDIA:lta"
 
 #: ../panel-plugin/sensors-plugin.c:2714
 msgid "Copyright (c) 2004-2018\n"
@@ -377,7 +377,7 @@ msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-msgstr "Xfce4 anturit %s\nJulkaistu GPL-lisenssin versiolla 2.\nLisenssiehdot löytyvät sovelluksen lähdekoodipaketista, tiedostosta /usr/share/apps/LICENSES/GPL_V2 tai osoitteesta http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Xfce4-anturit %s\nJulkaistu GPL-lisenssin versiolla 2.\nLisenssiehdot löytyvät sovelluksen lähdekoodipaketista, tiedostosta /usr/share/apps/LICENSES/GPL_V2 tai osoitteesta http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:78
 #, c-format
