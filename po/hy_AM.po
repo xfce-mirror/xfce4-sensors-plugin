@@ -1,0 +1,437 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Real School <translator_students@realschool.am>, 2019
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-11-02 00:32+0100\n"
+"PO-Revision-Date: 2019-07-26 08:59+0000\n"
+"Last-Translator: Real School <translator_students@realschool.am>\n"
+"Language-Team: Armenian (Armenia) (http://www.transifex.com/xfce/xfce-panel-plugins/language/hy_AM/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hy_AM\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. initialize value label widget
+#: ../panel-plugin/sensors-plugin.c:383 ../panel-plugin/sensors-plugin.c:511
+#: ../panel-plugin/sensors-plugin.c:1141
+msgid "<span><b>Sensors</b></span>"
+msgstr "<span><b>Զգայակներ</b></span>"
+
+#: ../panel-plugin/sensors-plugin.c:1008
+msgid "No sensors selected!"
+msgstr "Զգայակներ չեն ընտրուել։"
+
+#. output to stdout on command line, not very useful for user, except for
+#. tracing problems
+#: ../panel-plugin/sensors-plugin.c:1046
+#, c-format
+msgid ""
+"Sensors Plugin:\n"
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr "Զգայակների ներդրաւն․\nԿարծես խնդիր առաջացաւ զգայակի յատկութիւնների արժէքի տուեալները ընթերցելիս։\nՀնարաւոր չէ շարունակել պատշաճ։\n"
+
+#: ../panel-plugin/sensors-plugin.c:2011
+msgid "UI style:"
+msgstr "UI ոճ․"
+
+#: ../panel-plugin/sensors-plugin.c:2012
+msgid "_text"
+msgstr "_գրոյթ"
+
+#: ../panel-plugin/sensors-plugin.c:2014
+msgid "_progress bars"
+msgstr "_առաջընթացի գաւտիներ"
+
+#: ../panel-plugin/sensors-plugin.c:2016
+msgid "_tachos"
+msgstr ""
+
+#: ../panel-plugin/sensors-plugin.c:2062
+msgid "Show _labels"
+msgstr "Ցուցադրել _պիտակները"
+
+#: ../panel-plugin/sensors-plugin.c:2092
+msgid "Show colored _bars"
+msgstr "Ցուցադրել գունաւորուած _գաւտիներ"
+
+#: ../panel-plugin/sensors-plugin.c:2123
+msgid "_Show title"
+msgstr "_Ցուցադրել վերնագիր"
+
+#: ../panel-plugin/sensors-plugin.c:2148
+msgid "_Number of text lines:"
+msgstr "_Գրոյթային գծերի քանակ․"
+
+#: ../panel-plugin/sensors-plugin.c:2186
+msgid "_Cover all panel rows/columns"
+msgstr "_Կազմել բոլոր վահանակների տողեր/սիւնակները"
+
+#: ../panel-plugin/sensors-plugin.c:2211
+msgid "F_ont size:"
+msgstr "Տ_առատեսակի չափս․"
+
+#: ../panel-plugin/sensors-plugin.c:2217
+msgid "x-small"
+msgstr "x-փոքր"
+
+#: ../panel-plugin/sensors-plugin.c:2218
+msgid "small"
+msgstr "փոքր"
+
+#: ../panel-plugin/sensors-plugin.c:2219
+msgid "medium"
+msgstr "միջին"
+
+#: ../panel-plugin/sensors-plugin.c:2220
+msgid "large"
+msgstr "լայն"
+
+#: ../panel-plugin/sensors-plugin.c:2221
+msgid "x-large"
+msgstr "x-լայն"
+
+#: ../panel-plugin/sensors-plugin.c:2255
+msgid "F_ont:"
+msgstr "Տ_առատեսակ․"
+
+#: ../panel-plugin/sensors-plugin.c:2288
+msgid "Show _Units"
+msgstr "Ցուցադրել _միաւորներըUnits"
+
+#: ../panel-plugin/sensors-plugin.c:2312
+msgid "Small horizontal s_pacing"
+msgstr "Փոքր հորիզոնական բ_ացատում"
+
+#. Alpha value of the tacho coloring
+#: ../panel-plugin/sensors-plugin.c:2340
+msgid "Tacho color alpha value:"
+msgstr ""
+
+#. The value from HSV color model
+#: ../panel-plugin/sensors-plugin.c:2354
+msgid "Tacho color value:"
+msgstr ""
+
+#: ../panel-plugin/sensors-plugin.c:2388
+msgid "Suppress messages"
+msgstr "Սեղմել նամակները"
+
+#: ../panel-plugin/sensors-plugin.c:2409
+msgid "Suppress tooltip"
+msgstr "Սեղմել գերծիքայուշը"
+
+#: ../panel-plugin/sensors-plugin.c:2436
+msgid "E_xecute on double click:"
+msgstr "Կ_ատարել զոյգ սեղմումով․"
+
+#: ../panel-plugin/sensors-plugin.c:2476
+msgid "_View"
+msgstr "_Տեսք"
+
+#: ../panel-plugin/sensors-plugin.c:2489
+msgid "UI style options"
+msgstr "UI ոճի ընտրանքներ"
+
+#: ../panel-plugin/sensors-plugin.c:2523
+msgid "_Miscellaneous"
+msgstr "_Խառնաբոյթ"
+
+#: ../panel-plugin/sensors-plugin.c:2591 ../panel-plugin/sensors-plugin.h:31
+#: ../lib/hddtemp.c:167
+msgid "Sensors Plugin"
+msgstr "Զգայակների ներդրաւն"
+
+#: ../panel-plugin/sensors-plugin.c:2599
+msgid "Properties"
+msgstr "Յատկութիւններ"
+
+#: ../panel-plugin/sensors-plugin.c:2625
+msgid ""
+"You can change a feature's properties such as name, colours, min/max value "
+"by double-clicking the entry, editing the content, and pressing \"Return\" "
+"or selecting a different field."
+msgstr ""
+
+#: ../panel-plugin/sensors-plugin.c:2712
+msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
+msgstr "Ցուցադրել զգայակների արժէքները LM զգայակներից, ACPI, կոշտ սկաւառակներ, NVIDIA"
+
+#: ../panel-plugin/sensors-plugin.c:2714
+msgid "Copyright (c) 2004-2018\n"
+msgstr "Հեղինակային իրաւունք (c) 2004-2018\n"
+
+#. only use this if no hddtemp sensor
+#. or do only use this , if it is an lmsensors device. whatever.
+#: ../lib/configuration.c:180 ../lib/hddtemp.c:396
+msgid "Hard disks"
+msgstr "Կոշտ սկաւառակներ"
+
+#. Note for translators: As some laptops have several batteries such as the
+#. T440s,
+#. there might be some perturbation with the battery name here and BAT0/BAT1
+#. for
+#. power/voltage. So we prepend BAT0/1 to the battery name as well, with the
+#. result
+#. being something like "BAT1 - 45N1127". Users can then rename the batteries
+#. to
+#. their own will while keeping consistency to their power/voltage features.
+#. You might want to format this with a hyphen and without spacing, or with a
+#. dash; the result might be BAT1–Power or whatever fits your language most.
+#. Spaces allow line breaks over the tachometers.
+#. You might want to format this with a hyphen and without spacing, or with a
+#. dash; the result might be BAT1–Voltage or whatever fits your language most.
+#. Spaces allow line breaks over the tachometers.
+#: ../lib/acpi.c:346 ../lib/acpi.c:669 ../lib/acpi.c:741
+#, c-format
+msgid "%s - %s"
+msgstr "%s - %s"
+
+#: ../lib/acpi.c:669
+msgid "Power"
+msgstr "Հոսանք"
+
+#: ../lib/acpi.c:741
+msgid "Voltage"
+msgstr "Լարում"
+
+#: ../lib/acpi.c:801 ../lib/acpi.c:813
+msgid "ACPI"
+msgstr "ACPI"
+
+#: ../lib/acpi.c:804
+#, c-format
+msgid "ACPI v%s zones"
+msgstr "ACPI v%s տարածքներ"
+
+#: ../lib/acpi.c:958
+msgid "<Unknown>"
+msgstr "<Unknown>"
+
+#: ../lib/nvidia.c:65
+msgid "NVidia GPU core temperature"
+msgstr "NVidia GPU միջւկի ջերմաստիճան"
+
+#: ../lib/nvidia.c:66
+msgid "nvidia"
+msgstr "nvidia"
+
+#: ../lib/hddtemp.c:395
+msgid "S.M.A.R.T. harddisk temperatures"
+msgstr "S.M.A.R.T. կոշտ սկաւառակի ջերմաստիճան"
+
+#: ../lib/hddtemp.c:572
+#, c-format
+msgid ""
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"\n"
+"Calling \"%s\" gave the following error:\n"
+"%s\n"
+"with a return value of %d.\n"
+msgstr ""
+
+#: ../lib/hddtemp.c:586 ../lib/hddtemp.c:609
+msgid "Suppress this message in future"
+msgstr "Սեղմել այս նամակը յետագայում"
+
+#: ../lib/hddtemp.c:604
+#, c-format
+msgid ""
+"An error occurred when executing \"%s\":\n"
+"%s"
+msgstr ""
+
+#: ../lib/lmsensors.c:97
+msgid "LM Sensors"
+msgstr "LM Զգայակներ"
+
+#: ../lib/lmsensors.c:417 ../lib/lmsensors.c:464
+#, c-format
+msgid "Error: Could not connect to sensors!"
+msgstr "Սխալ․ Չյաջողուեց միանալ զգայակներին․"
+
+#: ../lib/sensors-interface.c:90
+msgid "Sensors Plugin Failure"
+msgstr "Զգայակների ներդրաւնի վնասուածք"
+
+#: ../lib/sensors-interface.c:91
+msgid ""
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed."
+msgstr ""
+
+#: ../lib/sensors-interface.c:170
+msgid "Sensors t_ype:"
+msgstr "Զգայակների տ_եսակներ․"
+
+#: ../lib/sensors-interface.c:190
+msgid "Description:"
+msgstr "Նկարագրութիւն․"
+
+#: ../lib/sensors-interface.c:223
+msgid "U_pdate interval (seconds):"
+msgstr "Ա_րդիացման ընդմիջում (վայրկեաններ)․"
+
+#: ../lib/sensors-interface.c:263
+msgid "Name"
+msgstr "Անուն"
+
+#: ../lib/sensors-interface.c:274
+msgid "Value"
+msgstr "Արժէք"
+
+#: ../lib/sensors-interface.c:280
+msgid "Show"
+msgstr "Ցուցադրել"
+
+#: ../lib/sensors-interface.c:289
+msgid "Color"
+msgstr "Գոյն"
+
+#: ../lib/sensors-interface.c:300
+msgid "Min"
+msgstr "Րոպէ"
+
+#: ../lib/sensors-interface.c:311
+msgid "Max"
+msgstr "Առաւել․"
+
+#: ../lib/sensors-interface.c:347
+msgid "Temperature scale:"
+msgstr "Ջերմութեան սանդղակ․"
+
+#: ../lib/sensors-interface.c:349
+msgid "_Celsius"
+msgstr "_Ցելսիուս"
+
+#: ../lib/sensors-interface.c:351
+msgid "_Fahrenheit"
+msgstr ""
+
+#: ../lib/sensors-interface.c:387
+msgid "_Sensors"
+msgstr "_Զգայակներ"
+
+#: ../lib/sensors-interface-common.c:74 ../lib/sensors-interface-common.c:75
+msgid "No sensors found!"
+msgstr "Զգայակներ չեն գտնուել։"
+
+#: ../lib/sensors-interface-common.c:150
+#, c-format
+msgid "%.0f °F"
+msgstr "%.0f °F"
+
+#. Celsius
+#: ../lib/sensors-interface-common.c:153
+#, c-format
+msgid "%.0f °C"
+msgstr "%.0f °C"
+
+#: ../lib/sensors-interface-common.c:158
+#, c-format
+msgid "%+.3f V"
+msgstr "%+.3f Վ"
+
+#: ../lib/sensors-interface-common.c:162
+#, c-format
+msgid "%+.3f A"
+msgstr "%+.3f Ա"
+
+#: ../lib/sensors-interface-common.c:166
+#, c-format
+msgid "%.0f mWh"
+msgstr ""
+
+#: ../lib/sensors-interface-common.c:170
+#, c-format
+msgid "%.3f W"
+msgstr ""
+
+#: ../lib/sensors-interface-common.c:175
+msgid "off"
+msgstr ""
+
+#: ../lib/sensors-interface-common.c:177
+msgid "on"
+msgstr ""
+
+#: ../lib/sensors-interface-common.c:181
+#, c-format
+msgid "%.0f rpm"
+msgstr ""
+
+#: ../src/main.c:62
+#, c-format
+msgid ""
+"Xfce4 Sensors %s\n"
+"This program is published under the GPL v2.\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr ""
+
+#: ../src/main.c:78
+#, c-format
+msgid ""
+"Xfce4 Sensors %s\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
+"Synopsis: \n"
+"  xfce4-sensors [option]\n"
+"where [option] is one of the following:\n"
+"  -h, --help    Print this help dialog.\n"
+"  -l, --license Print license information.\n"
+"  -V, --version Print version information.\n"
+"\n"
+"This program is published under the GPL v2.\n"
+msgstr ""
+
+#: ../src/main.c:100
+#, c-format
+msgid "Xfce4 Sensors %s\n"
+msgstr ""
+
+#: ../src/interface.c:85
+msgid "_Overview"
+msgstr "_Վերադիտում"
+
+#: ../src/interface.c:106
+msgid "_Tachometers"
+msgstr ""
+
+#: ../src/interface.c:122
+msgid "Sensors Viewer"
+msgstr "Զգայակների դիտում"
+
+#. FIXME: either print nothing, or undertake appropriate action,
+#. * or pop up a message box.
+#: ../src/actions.c:92
+#, c-format
+msgid ""
+"Sensors Viewer:\n"
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr "Զգայակների դիտում․\nԿարծես խնդիր առաջացաւ զգայակի յատկութիւնների արժէքի տուեալները ընթերցելիս։\nՀնարաւոր չէ շարունակել պատշաճ։\n"
+
+#: ../src/xfce4-sensors.desktop.in.h:1
+msgid "Sensor Viewer"
+msgstr "Զգայակների դիտում"
+
+#: ../src/xfce4-sensors.desktop.in.h:2
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
+msgid "Show sensor values."
+msgstr "Ցուցադրել զգայակների արժէքները։"
+
+#: ../src/xfce4-sensors.desktop.in.h:3
+msgid "Sensor Values Viewer"
+msgstr ""
+
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
+msgid "Sensor plugin"
+msgstr "Զգայակի ներդրաւն"
