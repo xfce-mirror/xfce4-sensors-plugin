@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Daniel Muñiz Fontoira <dani@damufo.com>, 2018
+# Daniel Muñiz Fontoira <dani@damufo.com>, 2018-2019
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2008-2009
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2018-11-09 17:40+0000\n"
+"PO-Revision-Date: 2019-08-03 06:11+0000\n"
 "Last-Translator: Daniel Muñiz Fontoira <dani@damufo.com>\n"
 "Language-Team: Galician (http://www.transifex.com/xfce/xfce-panel-plugins/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -57,15 +57,15 @@ msgstr "_tacógrafos"
 
 #: ../panel-plugin/sensors-plugin.c:2062
 msgid "Show _labels"
-msgstr "Mostrar as _etiquetas"
+msgstr "Amosar as _etiquetas"
 
 #: ../panel-plugin/sensors-plugin.c:2092
 msgid "Show colored _bars"
-msgstr "Mostrar _barras de cores"
+msgstr "Amosar _barras de cores"
 
 #: ../panel-plugin/sensors-plugin.c:2123
 msgid "_Show title"
-msgstr "_Mostrar o título"
+msgstr "_Amosar o título"
 
 #: ../panel-plugin/sensors-plugin.c:2148
 msgid "_Number of text lines:"
@@ -105,7 +105,7 @@ msgstr "_Tipo de letra:"
 
 #: ../panel-plugin/sensors-plugin.c:2288
 msgid "Show _Units"
-msgstr "Mostrar as _unidades"
+msgstr "Amosar as _unidades"
 
 #: ../panel-plugin/sensors-plugin.c:2312
 msgid "Small horizontal s_pacing"
@@ -292,7 +292,7 @@ msgstr "Valor"
 
 #: ../lib/sensors-interface.c:280
 msgid "Show"
-msgstr "Mostrar"
+msgstr "Amosar"
 
 #: ../lib/sensors-interface.c:289
 msgid "Color"
@@ -376,7 +376,7 @@ msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-msgstr "Xfce4 Sensors %s\nEste programa publicouse baixo a GPL v2.\nO texto da licena pódese atopar no arquivo do código fonte do programa ou en /usr/share/apps/LICENSES/GPL_V2 ou en http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Xfce4 Sensors %s\nEste programa está publicado baixo a GPL v2.\nO texto da licenza pode atoparse no arquivo do código fonte do programa ou en /usr/share/apps/LICENSES/GPL_V2 ou en http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:78
 #, c-format
@@ -391,7 +391,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Sensores do Xfce4 %s\nAmosa información sobre os sensores de hardware, estado da ACPI (configuración avanzada e interface de potencia), temperatura dos discos e temperatura da GPU (unidade de procesamento de gráficos)  Nvidia.\nSinopse: \nxfce4-sensors [opción]\nonde [opción] é unha das seguintes:\n-h, --help Imprime este diálogo de axuda.\n-l, --license Imprime información sobre a licenza\n.-V, --version Imprime información sobre a versión.\nEste aplicativo é publicado sobre a GPL v2.\n"
+msgstr "Sensores do Xfce4 %s\nAmosa información sobre os sensores do soporte físico (hardware), estado da ACPI (configuración avanzada e interface de potencia), temperatura dos discos duros e temperatura da GPU (unidade de procesamento de gráficos) Nvidia.\nSinopse: \nxfce4-sensors [opción]\nonde [opción] é unha das seguintes:\n-h, --help Imprime este diálogo de axuda.\n-l, --license Imprime información sobre a licenza\n.-V, --version Imprime información sobre a versión.\nEste aplicativo está publicado sobre a GPL v2.\n"
 
 #: ../src/main.c:100
 #, c-format
@@ -427,7 +427,7 @@ msgstr "Visor de sensor"
 #: ../src/xfce4-sensors.desktop.in.h:2
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
 msgid "Show sensor values."
-msgstr "Mostrar os valores do sensor."
+msgstr "Amosar os valores do sensor."
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 msgid "Sensor Values Viewer"
