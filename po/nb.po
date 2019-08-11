@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2019-07-24 11:59+0000\n"
+"PO-Revision-Date: 2019-08-11 06:00+0000\n"
 "Last-Translator: Kjell Cato Heskjestad <cato@heskjestad.xyz>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/xfce/xfce-panel-plugins/language/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -75,7 +75,7 @@ msgstr "Antall tekstlinjer:"
 
 #: ../panel-plugin/sensors-plugin.c:2186
 msgid "_Cover all panel rows/columns"
-msgstr "_Dekk alle panel- rader/-kolonner"
+msgstr "_Dekk alle panelrader/-kolonner"
 
 #: ../panel-plugin/sensors-plugin.c:2211
 msgid "F_ont size:"
@@ -133,7 +133,7 @@ msgstr "Undertrykk hjelpeboble"
 
 #: ../panel-plugin/sensors-plugin.c:2436
 msgid "E_xecute on double click:"
-msgstr "K_kjør ved dobbeltklikk"
+msgstr "K_jør ved dobbeltklikk"
 
 #: ../panel-plugin/sensors-plugin.c:2476
 msgid "_View"
@@ -260,7 +260,7 @@ msgstr "LM-sensorer"
 #: ../lib/lmsensors.c:417 ../lib/lmsensors.c:464
 #, c-format
 msgid "Error: Could not connect to sensors!"
-msgstr "Feil: Kunne ikke koble til sensorer!"
+msgstr "Feil: Klarte ikke koble til sensorer!"
 
 #: ../lib/sensors-interface.c:90
 msgid "Sensors Plugin Failure"
@@ -326,7 +326,7 @@ msgstr "_Sensorer"
 
 #: ../lib/sensors-interface-common.c:74 ../lib/sensors-interface-common.c:75
 msgid "No sensors found!"
-msgstr "Ingen sensorer ble funnet!"
+msgstr "Fant ingen sensorer."
 
 #: ../lib/sensors-interface-common.c:150
 #, c-format
