@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2019-08-03 06:11+0000\n"
+"PO-Revision-Date: 2019-08-16 05:40+0000\n"
 "Last-Translator: Daniel Muñiz Fontoira <dani@damufo.com>\n"
 "Language-Team: Galician (http://www.transifex.com/xfce/xfce-panel-plugins/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -238,7 +238,7 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "Non se executou correctamente \"hddtemp\", aínda que é executable. O máis probable é que sexa debido a que os discos requiren privilexios de root para ler as súas temperaturas, e \"hddtemp\" non se asignou o id de root (setuid).\n\nUnha solución fácil pero trapalleira é executar \"chmod u+s %s\" co usuario root e reiniciar este engadido ou o panel.\n\nA chamada de  \"%s\" devolveu o seguinte erro:\n%s\nco valor de retorno %d.\n"
+msgstr "Non se executou correctamente \"hddtemp\", aínda que é executábel. O máis probábel é que sexa debido a que os discos requiren privilexios de root para ler as súas temperaturas, e o \"hddtemp\" non ten o «setuid» de root.\n\nUnha solución fácil pero trapalleira é executar \"chmod u+s %s\" co usuario root e reiniciar este engadido ou o panel.\n\nA chamada \"%s\" devolveu o seguinte erro:\n%s\nco valor de retorno %d.\n"
 
 #: ../lib/hddtemp.c:586 ../lib/hddtemp.c:609
 msgid "Suppress this message in future"
@@ -359,7 +359,7 @@ msgstr "%.3f W"
 
 #: ../lib/sensors-interface-common.c:175
 msgid "off"
-msgstr "desactivado"
+msgstr "apagado"
 
 #: ../lib/sensors-interface-common.c:177
 msgid "on"
