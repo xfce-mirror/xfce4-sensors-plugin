@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2019-08-16 05:40+0000\n"
+"PO-Revision-Date: 2019-08-21 19:51+0000\n"
 "Last-Translator: Daniel Muñiz Fontoira <dani@damufo.com>\n"
 "Language-Team: Galician (http://www.transifex.com/xfce/xfce-panel-plugins/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -391,7 +391,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Sensores do Xfce4 %s\nAmosa información sobre os sensores do soporte físico (hardware), estado da ACPI (configuración avanzada e interface de potencia), temperatura dos discos duros e temperatura da GPU (unidade de procesamento de gráficos) Nvidia.\nSinopse: \nxfce4-sensors [opción]\nonde [opción] é unha das seguintes:\n-h, --help Imprime este diálogo de axuda.\n-l, --license Imprime información sobre a licenza\n.-V, --version Imprime información sobre a versión.\nEste aplicativo está publicado sobre a GPL v2.\n"
+msgstr "Sensores do Xfce4 %s\nAmosa información sobre os sensores do soporte físico (hardware), estado da ACPI (configuración avanzada e interface de potencia), temperatura dos discos duros e temperatura da GPU (unidade de procesamento de gráficos) Nvidia.\nSinopse: \nxfce4-sensors [opción]\nonde [opción] é unha das seguintes:\n-h, --help Imprime este diálogo de axuda.\n-l, --license Imprime información sobre a licenza\n.-V, --version Imprime información sobre a versión.\nEsta aplicación está publicada sobre a GPL v2.\n"
 
 #: ../src/main.c:100
 #, c-format
