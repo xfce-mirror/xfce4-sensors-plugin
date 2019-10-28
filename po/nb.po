@@ -6,13 +6,14 @@
 # Allan Nordhøy <epost@anotheragency.no>, 2014
 # Allan Nordhøy <epost@anotheragency.no>, 2017
 # Harald H. <haarektrans@gmail.com>, 2014
+# Kjell Cato Heskjestad <cato@heskjestad.xyz>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2018-11-01 23:32+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2019-08-11 06:00+0000\n"
+"Last-Translator: Kjell Cato Heskjestad <cato@heskjestad.xyz>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/xfce/xfce-panel-plugins/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -74,7 +75,7 @@ msgstr "Antall tekstlinjer:"
 
 #: ../panel-plugin/sensors-plugin.c:2186
 msgid "_Cover all panel rows/columns"
-msgstr "_Dekk alle panel- rader/-kolonner"
+msgstr "_Dekk alle panelrader/-kolonner"
 
 #: ../panel-plugin/sensors-plugin.c:2211
 msgid "F_ont size:"
@@ -115,12 +116,12 @@ msgstr "Liten horisontal o_ppdeling"
 #. Alpha value of the tacho coloring
 #: ../panel-plugin/sensors-plugin.c:2340
 msgid "Tacho color alpha value:"
-msgstr ""
+msgstr "Takometerfargens alfaverdi:"
 
 #. The value from HSV color model
 #: ../panel-plugin/sensors-plugin.c:2354
 msgid "Tacho color value:"
-msgstr ""
+msgstr "Takometerfarge:"
 
 #: ../panel-plugin/sensors-plugin.c:2388
 msgid "Suppress messages"
@@ -132,7 +133,7 @@ msgstr "Undertrykk hjelpeboble"
 
 #: ../panel-plugin/sensors-plugin.c:2436
 msgid "E_xecute on double click:"
-msgstr "K_kjør ved dobbeltklikk"
+msgstr "K_jør ved dobbeltklikk"
 
 #: ../panel-plugin/sensors-plugin.c:2476
 msgid "_View"
@@ -140,7 +141,7 @@ msgstr "_Vis"
 
 #: ../panel-plugin/sensors-plugin.c:2489
 msgid "UI style options"
-msgstr ""
+msgstr "Innstillinger for brukergrensesnittets stil"
 
 #: ../panel-plugin/sensors-plugin.c:2523
 msgid "_Miscellaneous"
@@ -164,11 +165,11 @@ msgstr "Du kan endre en funksjons egenskaper, som navn, farger, min/maks verdi v
 
 #: ../panel-plugin/sensors-plugin.c:2712
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
-msgstr ""
+msgstr "Vis sensorverdier fra LM-sensorer, ACPI, harddisker, NVIDIA"
 
 #: ../panel-plugin/sensors-plugin.c:2714
 msgid "Copyright (c) 2004-2018\n"
-msgstr ""
+msgstr "Opphavsrett (c) 2004-2018\n"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -194,15 +195,15 @@ msgstr "Harddisker"
 #: ../lib/acpi.c:346 ../lib/acpi.c:669 ../lib/acpi.c:741
 #, c-format
 msgid "%s - %s"
-msgstr ""
+msgstr "%s – %s"
 
 #: ../lib/acpi.c:669
 msgid "Power"
-msgstr ""
+msgstr "Effekt"
 
 #: ../lib/acpi.c:741
 msgid "Voltage"
-msgstr ""
+msgstr "Spenning"
 
 #: ../lib/acpi.c:801 ../lib/acpi.c:813
 msgid "ACPI"
@@ -211,15 +212,15 @@ msgstr "ACPI"
 #: ../lib/acpi.c:804
 #, c-format
 msgid "ACPI v%s zones"
-msgstr "ACPI v%s soner"
+msgstr "ACPI v%s-soner"
 
 #: ../lib/acpi.c:958
 msgid "<Unknown>"
-msgstr "<Unknown>"
+msgstr "<ukjent>"
 
 #: ../lib/nvidia.c:65
 msgid "NVidia GPU core temperature"
-msgstr "NVidia GPU kjernetemperatur"
+msgstr "NVidia GPUs kjernetemperatur"
 
 #: ../lib/nvidia.c:66
 msgid "nvidia"
@@ -239,7 +240,7 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "\"hddtemp\" ble ikke kjørt rett, selv om det er kjørbart. Dette er ganske sikkert fordi diskene krever root-tilgang for å lese temperaturer, og \"hddtemp\" er ikke setuid som root.\n\nEn enkel og tarvelig løsning er å kjøre \"chmod u+s %s\" som root-bruker og starte dette tillegget og dets panel om igjen.\n\nKallet til \"%s\" ga følgende feil.\n%s\nog returnerte verdien %d.\n"
+msgstr "«hddtemp» ble ikke riktig utført selv om det er kjørbart. Dette er sannsynligvis fordi diskene krever root-tilgang for å lese temperaturer, og «hddtemp» er ikke setuid som root.\n\nEn enkel og tarvelig løsning er å kjøre «chmod u+s %s» som root-bruker og starte dette tillegget og dets panel om igjen.\n\nKallet til «%s» ga følgende feil.\n%s\nog returnerte verdien %d.\n"
 
 #: ../lib/hddtemp.c:586 ../lib/hddtemp.c:609
 msgid "Suppress this message in future"
@@ -250,20 +251,20 @@ msgstr "Undertrykk denne meldingen i framtiden"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr "Feil ved kjøring av \"%s\":\n%s"
+msgstr "Feil ved kjøring av «%s»:\n%s"
 
 #: ../lib/lmsensors.c:97
 msgid "LM Sensors"
-msgstr "Lm-sensors"
+msgstr "LM-sensorer"
 
 #: ../lib/lmsensors.c:417 ../lib/lmsensors.c:464
 #, c-format
 msgid "Error: Could not connect to sensors!"
-msgstr "Feil: Kunne ikke koble til sensorer!"
+msgstr "Feil: Klarte ikke koble til sensorer!"
 
 #: ../lib/sensors-interface.c:90
 msgid "Sensors Plugin Failure"
-msgstr "Sensor-tillegg misslyktes"
+msgstr "Sensor-tillegget mislyktes"
 
 #: ../lib/sensors-interface.c:91
 msgid ""
@@ -317,7 +318,7 @@ msgstr "_Celsius"
 
 #: ../lib/sensors-interface.c:351
 msgid "_Fahrenheit"
-msgstr "_Farenheit"
+msgstr "_Fahrenheit"
 
 #: ../lib/sensors-interface.c:387
 msgid "_Sensors"
@@ -325,7 +326,7 @@ msgstr "_Sensorer"
 
 #: ../lib/sensors-interface-common.c:74 ../lib/sensors-interface-common.c:75
 msgid "No sensors found!"
-msgstr "Ingen sensorer ble funnet!"
+msgstr "Fant ingen sensorer."
 
 #: ../lib/sensors-interface-common.c:150
 #, c-format
@@ -346,7 +347,7 @@ msgstr "%+.3f V"
 #: ../lib/sensors-interface-common.c:162
 #, c-format
 msgid "%+.3f A"
-msgstr ""
+msgstr "%+.3f A"
 
 #: ../lib/sensors-interface-common.c:166
 #, c-format
@@ -356,7 +357,7 @@ msgstr "%.0f mWh"
 #: ../lib/sensors-interface-common.c:170
 #, c-format
 msgid "%.3f W"
-msgstr ""
+msgstr "%.3f W"
 
 #: ../lib/sensors-interface-common.c:175
 msgid "off"

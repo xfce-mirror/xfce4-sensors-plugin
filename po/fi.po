@@ -5,14 +5,14 @@
 # Translators:
 # Ammuu5, 2019
 # Elias Julkunen <elias.julkunen@gmail.com>, 2008
-# Jiri Grönroos <jiri.gronroos@iki.fi>, 2013
+# Jiri Grönroos <jiri.gronroos@iki.fi>, 2013,2019
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2019-01-26 07:26+0000\n"
-"Last-Translator: Ammuu5\n"
+"PO-Revision-Date: 2019-07-17 08:42+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (http://www.transifex.com/xfce/xfce-panel-plugins/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -78,7 +78,7 @@ msgstr ""
 
 #: ../panel-plugin/sensors-plugin.c:2211
 msgid "F_ont size:"
-msgstr "_Kirjasimen koko:"
+msgstr "_Fontin koko:"
 
 #: ../panel-plugin/sensors-plugin.c:2217
 msgid "x-small"
@@ -102,7 +102,7 @@ msgstr "Hyvin suuri"
 
 #: ../panel-plugin/sensors-plugin.c:2255
 msgid "F_ont:"
-msgstr "_Kirjasin:"
+msgstr "_Fontti:"
 
 #: ../panel-plugin/sensors-plugin.c:2288
 msgid "Show _Units"
@@ -164,7 +164,7 @@ msgstr "Voit muokata kohteen ominaisuuksia kuten sen nimeä, väriä sekä ala- 
 
 #: ../panel-plugin/sensors-plugin.c:2712
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
-msgstr ""
+msgstr "Näytä anturiarvoja LM-antureista, ACPI:sta, kiintolevyistä ja NVIDIA:lta"
 
 #: ../panel-plugin/sensors-plugin.c:2714
 msgid "Copyright (c) 2004-2018\n"
@@ -219,7 +219,7 @@ msgstr "<Unknown>"
 
 #: ../lib/nvidia.c:65
 msgid "NVidia GPU core temperature"
-msgstr "NVidia GPU ytimen lämpötila"
+msgstr "NVidian GPU-ytimen lämpötila"
 
 #: ../lib/nvidia.c:66
 msgid "nvidia"
@@ -377,7 +377,7 @@ msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-msgstr "Xfce4 anturit %s\nJulkaistu GPL-lisenssin versiolla 2.\nLisenssiehdot löytyvät sovelluksen lähdekoodipaketista, tiedostosta /usr/share/apps/LICENSES/GPL_V2 tai osoitteesta http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Xfce4-anturit %s\nJulkaistu GPL-lisenssin versiolla 2.\nLisenssiehdot löytyvät sovelluksen lähdekoodipaketista, tiedostosta /usr/share/apps/LICENSES/GPL_V2 tai osoitteesta http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:78
 #, c-format
@@ -397,7 +397,7 @@ msgstr ""
 #: ../src/main.c:100
 #, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr "Xfce4 Anturit %s\n"
+msgstr "Xfce4-anturit %s\n"
 
 #: ../src/interface.c:85
 msgid "_Overview"
