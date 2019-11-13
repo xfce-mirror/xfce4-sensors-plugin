@@ -2751,7 +2751,7 @@ sensors_show_about(XfcePanelPlugin *plugin, t_sensors *ptr_sensorsstruct)
       "version", PACKAGE_VERSION,
       "program-name", PACKAGE_NAME,
       "comments", _("Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"),
-      "website", "http://goodies.xfce.org/projects/panel-plugins/xfce4-sensors-plugin",
+      "website", "https://docs.xfce.org/panel-plugins/xfce4-sensors-plugin",
       "copyright", _("Copyright (c) 2004-2018\n"),
       "authors", auth, NULL);
   // TODO: add translators.
