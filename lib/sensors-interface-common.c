@@ -28,6 +28,7 @@
 #include <libxfce4panel/xfce-panel-plugin.h>
 
 /* Local/package includes */
+#define XFCE4_SENSORS_INTERFACE_COMMON_DEFINING
 #include <configuration.h>
 #include <sensors-interface-common.h>
 #include <middlelayer.h>
