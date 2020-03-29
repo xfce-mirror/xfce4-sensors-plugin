@@ -5,14 +5,14 @@
 # Translators:
 # Alexandre Fidalgo <alexandremagnos15@gmail.com>, 2014
 # José Vieira <jvieira33@sapo.pt>, 2017
-# Nuno Miguel <nunomgue@gmail.com>, 2019
+# Nuno Miguel <nunomgue@gmail.com>, 2019-2020
 # Sérgio Marques <smarquespt@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2019-05-19 11:25+0000\n"
+"PO-Revision-Date: 2020-03-29 18:47+0000\n"
 "Last-Translator: Nuno Miguel <nunomgue@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/xfce/xfce-panel-plugins/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -212,7 +212,7 @@ msgstr "ACPI"
 #: ../lib/acpi.c:804
 #, c-format
 msgid "ACPI v%s zones"
-msgstr "Zonas v%s ACPI"
+msgstr "Zonas ACPI v%s"
 
 #: ../lib/acpi.c:958
 msgid "<Unknown>"
@@ -240,7 +240,7 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "O \"hddtemp\" não foi executado corretamente, apesar de ser executável. Provavelmente, o disco requer privilégios \"root\" para ler a temperatura e o \"hddtemp\" não está definido como tal.\n\nUma maneira fácil, mas incorreta, de forçar a execução é executar \"chmod u+s %s\" como \"root\" e reiniciar este \"plugin\" ou o painel.\n\nA invocação de \"%s\" deu o seguinte erro:\n%s\ncom um valor de retorno %d.\n"
+msgstr "O \"hddtemp\" não foi executado corretamente, apesar de ser executável. Provavelmente, o disco requer privilégios de root para ler a temperatura e o \"hddtemp\" não está definido como tal.\n\nUma maneira fácil, mas incorreta, de forçar a execução é executar \"chmod u+s %s\" como root e reiniciar este módulo ou o painel.\n\nA invocação de \"%s\" deu o seguinte erro:\n%s\ncom um valor de retorno %d.\n"
 
 #: ../lib/hddtemp.c:586 ../lib/hddtemp.c:609
 msgid "Suppress this message in future"
@@ -260,7 +260,7 @@ msgstr "Sensores LM"
 #: ../lib/lmsensors.c:417 ../lib/lmsensors.c:464
 #, c-format
 msgid "Error: Could not connect to sensors!"
-msgstr "Erro: ligação aos sensores não é possível."
+msgstr "Erro: não é possível ligar aos sensores!"
 
 #: ../lib/sensors-interface.c:90
 msgid "Sensors Plugin Failure"
