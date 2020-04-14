@@ -4,9 +4,9 @@
 # 
 # Translators:
 # Andhika Padmawan <andhika.padmawan@gmail.com>, 2008
-# se7entime <se7entime@openmailbox.org>, 2014
-# se7entime <se7entime@openmailbox.org>, 2014
-# se7entime <se7entime@openmailbox.org>, 2014
+# se7entime <se7entime@disroot.org>, 2014
+# se7entime <se7entime@disroot.org>, 2014
+# se7entime <se7entime@disroot.org>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
