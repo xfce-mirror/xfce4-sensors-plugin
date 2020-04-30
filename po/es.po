@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2020-04-21 01:54+0000\n"
+"PO-Revision-Date: 2020-04-30 16:01+0000\n"
 "Last-Translator: Ignacio Poggi <ignaciop.3@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -175,7 +175,7 @@ msgstr "Mostrar los valores de sensor de los sensores LM, ACPI, discos duros, NV
 
 #: ../panel-plugin/sensors-plugin.c:2714
 msgid "Copyright (c) 2004-2018\n"
-msgstr "Copyright (c) 2004-2018\n"
+msgstr "Derechos de autor (c) 2004-2018\n"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
