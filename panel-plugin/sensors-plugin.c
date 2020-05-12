@@ -2587,7 +2587,7 @@ on_optionsDialog_response (GtkWidget *dlg, int response, t_sensors_dialog *sd)
     TRACE ("enters on_optionsDialog_response");
 
 
-    if (response==GTK_RESPONSE_OK) {
+    if (response==GTK_RESPONSE_OK || response==GTK_RESPONSE_DELETE_EVENT) {
         /* FIXME: save most of the content in this function,
            remove those toggle functions where possible. NYI */
         /* sensors_apply_options (sd); */
