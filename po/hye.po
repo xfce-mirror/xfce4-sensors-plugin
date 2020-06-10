@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2020-06-10 08:38+0000\n"
+"PO-Revision-Date: 2020-06-10 12:58+0000\n"
 "Last-Translator: Vahe Safaryan <vahe.safaryan@realschool.am>\n"
 "Language-Team: Eastern Armenian (http://www.transifex.com/xfce/xfce-panel-plugins/language/hye/)\n"
 "MIME-Version: 1.0\n"
@@ -316,7 +316,7 @@ msgstr "_Ցելսիուս"
 
 #: ../lib/sensors-interface.c:351
 msgid "_Fahrenheit"
-msgstr ""
+msgstr "_Ֆարենհեյթ"
 
 #: ../lib/sensors-interface.c:387
 msgid "_Sensors"
@@ -396,7 +396,7 @@ msgstr ""
 #: ../src/main.c:100
 #, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr ""
+msgstr "Xfce4 Զգաեակներ %s\n"
 
 #: ../src/interface.c:85
 msgid "_Overview"
@@ -431,7 +431,7 @@ msgstr "Ցուցադրել զգայակների արժէքները։"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 msgid "Sensor Values Viewer"
-msgstr ""
+msgstr "Դիտել զգաեակների արժէքը"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
 msgid "Sensor plugin"
