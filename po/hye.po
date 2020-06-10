@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Real School <localization@ehayq.am>, 2019
+# Vahe Safaryan <vahe.safaryan@realschool.am>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2020-05-25 08:05+0000\n"
-"Last-Translator: Arman Harutyunyan <arman.harut468@gmail.com>\n"
+"PO-Revision-Date: 2020-06-10 08:38+0000\n"
+"Last-Translator: Vahe Safaryan <vahe.safaryan@realschool.am>\n"
 "Language-Team: Eastern Armenian (http://www.transifex.com/xfce/xfce-panel-plugins/language/hye/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,7 +53,7 @@ msgstr "_առաջընթացի գաւտիներ"
 
 #: ../panel-plugin/sensors-plugin.c:2016
 msgid "_tachos"
-msgstr ""
+msgstr "_տախոմետրեր"
 
 #: ../panel-plugin/sensors-plugin.c:2062
 msgid "Show _labels"
@@ -113,12 +114,12 @@ msgstr "Փոքր հորիզոնական բ_ացատում"
 #. Alpha value of the tacho coloring
 #: ../panel-plugin/sensors-plugin.c:2340
 msgid "Tacho color alpha value:"
-msgstr ""
+msgstr "Տախոմետրի գոյնի ալֆայի արժԷքը;"
 
 #. The value from HSV color model
 #: ../panel-plugin/sensors-plugin.c:2354
 msgid "Tacho color value:"
-msgstr ""
+msgstr "Տախոմետրի գոյնի  արժԷքը"
 
 #: ../panel-plugin/sensors-plugin.c:2388
 msgid "Suppress messages"
@@ -158,7 +159,7 @@ msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr ""
+msgstr "Դուք կարող եք փոխել հատկութիւնները,ինչպիսին են անունը,գոյնը,նուազագոյն եւ առաւելագոյն արժէքը երկու անգամ սեղմելով տարին եւ սեղմելով \"վերադարձ\" սեղմակին կամ ընտրել ուրիշ դաշտեր:"
 
 #: ../panel-plugin/sensors-plugin.c:2712
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
@@ -248,7 +249,7 @@ msgstr "Սեղմել այս նամակը յետագայում"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr ""
+msgstr "Չյաջողուեց կատարել \"%s\".\n%s"
 
 #: ../lib/lmsensors.c:97
 msgid "LM Sensors"
@@ -349,25 +350,25 @@ msgstr "%+.3f Ա"
 #: ../lib/sensors-interface-common.c:166
 #, c-format
 msgid "%.0f mWh"
-msgstr ""
+msgstr "%.0f mWh"
 
 #: ../lib/sensors-interface-common.c:170
 #, c-format
 msgid "%.3f W"
-msgstr ""
+msgstr "%.3f W"
 
 #: ../lib/sensors-interface-common.c:175
 msgid "off"
-msgstr ""
+msgstr "անջանտել"
 
 #: ../lib/sensors-interface-common.c:177
 msgid "on"
-msgstr ""
+msgstr "Միացնել"
 
 #: ../lib/sensors-interface-common.c:181
 #, c-format
 msgid "%.0f rpm"
-msgstr ""
+msgstr "%.0f ռպմ"
 
 #: ../src/main.c:62
 #, c-format
@@ -403,7 +404,7 @@ msgstr "_Վերադիտում"
 
 #: ../src/interface.c:106
 msgid "_Tachometers"
-msgstr ""
+msgstr "_Տախոմետրեր"
 
 #: ../src/interface.c:122
 msgid "Sensors Viewer"
