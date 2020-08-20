@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Algimantas Margevičius <margevicius.algimantas@gmail.com>, 2012
-# Moo, 2015-2018
+# Moo, 2015-2018,2020
 # Rimas Kudelis <rq@akl.lt>, 2005
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2018-11-02 13:13+0000\n"
+"PO-Revision-Date: 2020-08-20 09:36+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -160,7 +160,7 @@ msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr "Jūs galite keisti tokias savybes kaip pavadinimas, spalvos, didžiausia/mažiausia reikšmė du kartus spustelėję ant įrašo, atlikę turinio redagavimą ir nuspaudę \"Return\" (Įvedimo arba angl. \"Enter\") klavišą arba pasirinkdami kitą lauką."
+msgstr "Jūs galite keisti tokias savybes kaip pavadinimas, spalvos, didžiausia/mažiausia reikšmė du kartus spustelėję ant įrašo, atlikę turinio redagavimą ir nuspaudę „Return“ (Įvedimo arba angl. „Enter“) klavišą arba pasirinkdami kitą lauką."
 
 #: ../panel-plugin/sensors-plugin.c:2712
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
@@ -250,7 +250,7 @@ msgstr "Nerodyti šios žinutės ateityje "
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr "Įvyko klaida vykdant \"%s\":\n%s"
+msgstr "Įvyko klaida vykdant „%s“:\n%s"
 
 #: ../lib/lmsensors.c:97
 msgid "LM Sensors"
