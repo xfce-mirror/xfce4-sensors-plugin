@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2020-03-01 22:56+0000\n"
+"PO-Revision-Date: 2020-10-02 16:47+0000\n"
 "Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
 "Language-Team: Swedish (http://www.transifex.com/xfce/xfce-panel-plugins/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -115,12 +115,12 @@ msgstr "Små horisontella _avstånd"
 #. Alpha value of the tacho coloring
 #: ../panel-plugin/sensors-plugin.c:2340
 msgid "Tacho color alpha value:"
-msgstr ""
+msgstr "Tacho färg alfavärde:"
 
 #. The value from HSV color model
 #: ../panel-plugin/sensors-plugin.c:2354
 msgid "Tacho color value:"
-msgstr ""
+msgstr "Tacho färgvärde:"
 
 #: ../panel-plugin/sensors-plugin.c:2388
 msgid "Suppress messages"
@@ -140,7 +140,7 @@ msgstr "_Visa"
 
 #: ../panel-plugin/sensors-plugin.c:2489
 msgid "UI style options"
-msgstr ""
+msgstr "UI-stil alternativ"
 
 #: ../panel-plugin/sensors-plugin.c:2523
 msgid "_Miscellaneous"
@@ -164,7 +164,7 @@ msgstr "Du kan ändra en funktions egenskaper som namn, färg, min/max värde ge
 
 #: ../panel-plugin/sensors-plugin.c:2712
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
-msgstr ""
+msgstr "Visa sensor värden från LM sensors, ACPI, hårddiskar, NVIDIA"
 
 #: ../panel-plugin/sensors-plugin.c:2714
 msgid "Copyright (c) 2004-2018\n"
