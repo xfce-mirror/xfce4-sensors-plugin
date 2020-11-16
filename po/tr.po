@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Demiray Muhterem <mdemiray@msn.com>, 2018
+# Emin Tufan <etcetin@gmail.com>, 2020
 # Natavan Mirzayeva <mirzayevanatavan@gmail.com>, 2014
 # Necdet Yücel <necdetyucel@gmail.com>, 2013,2017
 # Recep, 2014
@@ -13,8 +14,8 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2018-11-03 08:07+0000\n"
-"Last-Translator: Demiray Muhterem <mdemiray@msn.com>\n"
+"PO-Revision-Date: 2020-11-16 01:28+0000\n"
+"Last-Translator: Emin Tufan <etcetin@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/xfce/xfce-panel-plugins/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,7 +41,7 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Sensors Eklentisi:\nAlgılayıcı değerleri okunurken sorun oluştu.\nDüzgün çalışma garantisi bulunmamaktadır.\n"
+msgstr "Algılayıcı Eklentisi:\nAlgılayıcı değerleri okunurken sorun oluştu.\nDüzgün çalışma garantisi bulunmamaktadır.\n"
 
 #: ../panel-plugin/sensors-plugin.c:2011
 msgid "UI style:"
@@ -80,7 +81,7 @@ msgstr "Tüm panel satır/sütunlarını _kapla"
 
 #: ../panel-plugin/sensors-plugin.c:2211
 msgid "F_ont size:"
-msgstr "Yazıtipi b_oyutu: "
+msgstr "Yazı tipi b_oyutu: "
 
 #: ../panel-plugin/sensors-plugin.c:2217
 msgid "x-small"
@@ -92,7 +93,7 @@ msgstr "küçük"
 
 #: ../panel-plugin/sensors-plugin.c:2219
 msgid "medium"
-msgstr "normal"
+msgstr "olağan"
 
 #: ../panel-plugin/sensors-plugin.c:2220
 msgid "large"
@@ -104,7 +105,7 @@ msgstr "çok büyük"
 
 #: ../panel-plugin/sensors-plugin.c:2255
 msgid "F_ont:"
-msgstr "Yazı tipi:"
+msgstr "Yazı Tipi:"
 
 #: ../panel-plugin/sensors-plugin.c:2288
 msgid "Show _Units"
@@ -126,11 +127,11 @@ msgstr "Tacho renk değeri:"
 
 #: ../panel-plugin/sensors-plugin.c:2388
 msgid "Suppress messages"
-msgstr "Mesajları gizle"
+msgstr "İletileri gizle"
 
 #: ../panel-plugin/sensors-plugin.c:2409
 msgid "Suppress tooltip"
-msgstr "Araç bilgisini ortadan kaldır"
+msgstr "Araç bilgisini gizle"
 
 #: ../panel-plugin/sensors-plugin.c:2436
 msgid "E_xecute on double click:"
@@ -146,12 +147,12 @@ msgstr "Kullanıcı arabirim seçenekleri"
 
 #: ../panel-plugin/sensors-plugin.c:2523
 msgid "_Miscellaneous"
-msgstr "_Muhtelif"
+msgstr "_Türlü"
 
 #: ../panel-plugin/sensors-plugin.c:2591 ../panel-plugin/sensors-plugin.h:31
 #: ../lib/hddtemp.c:167
 msgid "Sensors Plugin"
-msgstr "Sensors Eklentisi"
+msgstr "Algılayıcılar Eklentisi"
 
 #: ../panel-plugin/sensors-plugin.c:2599
 msgid "Properties"
@@ -162,11 +163,11 @@ msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr "Bir özelliğin ismini, rengini, minimum/maksimum değerini o değerin üzerine çift tıklayarak, o değeri istediğiniz gibi biçimlendirip, \"Enter\" tuşuna basarak  değiştirebilirsiniz."
+msgstr "Bir özelliğin adını, rengini, asgari/azami değerini o değerin üzerine çift tıklayarak, o değeri istediğiniz gibi biçimlendirip, \"Enter\" tuşuna basarak  değiştirebilirsiniz."
 
 #: ../panel-plugin/sensors-plugin.c:2712
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
-msgstr "LM, ACPI, sabit diskler ve NVIDIA sensör değerlerini göster"
+msgstr "LM, ACPI, sabit diskler ve NVIDIA algılayıcı değerlerini göster"
 
 #: ../panel-plugin/sensors-plugin.c:2714
 msgid "Copyright (c) 2004-2018\n"
@@ -221,7 +222,7 @@ msgstr "<Bilinmiyor>"
 
 #: ../lib/nvidia.c:65
 msgid "NVidia GPU core temperature"
-msgstr "NVidia GPU çekirdek sıcaklığı"
+msgstr "NVidia GPU çekirdek ısı dereceleri"
 
 #: ../lib/nvidia.c:66
 msgid "nvidia"
@@ -229,7 +230,7 @@ msgstr "nvidia"
 
 #: ../lib/hddtemp.c:395
 msgid "S.M.A.R.T. harddisk temperatures"
-msgstr "S.M.A.R.T. sabit disk ısı dereceleri"
+msgstr "S.M.A.R.T. sabit ısı dereceleri"
 
 #: ../lib/hddtemp.c:572
 #, c-format
@@ -241,7 +242,7 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "\"hddtemp\" çalıştırılabilir olmasına rağmen çalıştırılamadı. Bu genellikle disklerin ısı derecelerini okumak için root yetkisine ihtiyacından kaynaklanmaktadır ve bu yüzden \"hddtemp\" çalışmamaktadır.\n\nBu sorunu çözmek için root kullanıcısı ile \"chmod u+s %s\" komutunu verip, eklentiyi veya paneli tekrar başlatın.\n\n\"%s\" şu hatayı verdi:\n%s\n%d değeri dönüşü.\n"
+msgstr "\"hddtemp\" çalıştırılabilir olmasına rağmen çalıştırılamadı. Bu, genellikle disklerin ısı derecelerini okumak için kök yetkisi gerekmesinden kaynaklanmaktadır.\n\nBu sorunu çözmek için kök kullanıcısı ile \"chmod u+s %s\" komutunu verip, eklentiyi veya paneli yeniden başlatın.\n\n\"%s\" çağrılırken şu hatayı alındı:\n%s\n%d değeri döndürüldü.\n"
 
 #: ../lib/hddtemp.c:586 ../lib/hddtemp.c:609
 msgid "Suppress this message in future"
@@ -252,11 +253,11 @@ msgstr "Bu mesajı ileride gizle"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr "\"%s\" çalıştırılırken bir hata meydana geldi:\n%s"
+msgstr "\"%s\" çalıştırılırken hata oluştu:\n%s"
 
 #: ../lib/lmsensors.c:97
 msgid "LM Sensors"
-msgstr "LM Sensors"
+msgstr "LM Algılayıcıları"
 
 #: ../lib/lmsensors.c:417 ../lib/lmsensors.c:464
 #, c-format
@@ -265,13 +266,13 @@ msgstr "Hata: Algılayacılara bağlanılamadı!"
 
 #: ../lib/sensors-interface.c:90
 msgid "Sensors Plugin Failure"
-msgstr "Sensors Eklentisi Çalışmıyor"
+msgstr "Algılayıcılar Eklentisi Çalışmıyor"
 
 #: ../lib/sensors-interface.c:91
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr "Algılayıcı değerleri okunurken sorun meydana geldi.\nDüzgün çalışma garantisi bulunmamaktadır."
+msgstr "Algılayıcı değerleri okunurken sorun oluştu.\nDüzgün çalışma garantisi bulunmamaktadır."
 
 #: ../lib/sensors-interface.c:170
 msgid "Sensors t_ype:"
@@ -287,7 +288,7 @@ msgstr "Güncelle_me aralığı (saniye):"
 
 #: ../lib/sensors-interface.c:263
 msgid "Name"
-msgstr "İsim"
+msgstr "Ad"
 
 #: ../lib/sensors-interface.c:274
 msgid "Value"
@@ -303,15 +304,15 @@ msgstr "Renk"
 
 #: ../lib/sensors-interface.c:300
 msgid "Min"
-msgstr "Min"
+msgstr "Azami"
 
 #: ../lib/sensors-interface.c:311
 msgid "Max"
-msgstr "Maks"
+msgstr "Asgari"
 
 #: ../lib/sensors-interface.c:347
 msgid "Temperature scale:"
-msgstr "Derece Ölçüsü:"
+msgstr "Isı derecesi ölçüsü:"
 
 #: ../lib/sensors-interface.c:349
 msgid "_Celsius"
@@ -394,7 +395,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Xfce4 Algılayıcıları %s\nDonanım algılayıcılarınız hakkındaki bilgileri görüntüler, ACPI durumu, sabit disk sıcaklığı ve Nvidia GPU sıcaklığı.\nÖzet: \n  xfce4-sensors [seçenek]\n[seçenek] aşağıdakilerden biridir:\n  -h, --help    Yardım içeriğini yazdır.\n  -l, --license Lisans bilgisini yazdır.\n  -V, --version Sürüm bilgisini yazdır.\n\nBu program GPL v2 ile lisanslanmıştır.\n"
+msgstr "Xfce4 Algılayıcıları %s\nDonanım algılayıcılarınız hakkındaki bilgileri görüntüler, ACPI durumu, sabit disk ısı derecesi ve Nvidia GPU ısı derecesi.\nÖzet: \n  xfce4-sensors [seçenek]\n[seçenek] aşağıdakilerden biridir:\n  -h, --help    Yardım içeriğini yazdır.\n  -l, --license Lisans bilgisini yazdır.\n  -V, --version Sürüm bilgisini yazdır.\n\nBu program GPL v2 ile lisanslanmıştır.\n"
 
 #: ../src/main.c:100
 #, c-format
@@ -403,7 +404,7 @@ msgstr "Xfce4 Sensors %s\n"
 
 #: ../src/interface.c:85
 msgid "_Overview"
-msgstr "Ön izleme"
+msgstr "_Genel Görünüm"
 
 #: ../src/interface.c:106
 msgid "_Tachometers"
@@ -421,7 +422,7 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Algılayıcı Görüntüleyici:\nAlgılayıcı özellik değeri okunurken bir sorun oluşmuş gibi görünüyor.\nSorunsuz devam etme mümkün olmayabilir.\n"
+msgstr "Algılayıcı Görüntüleyici:\nAlgılayıcı özellik değeri okunurken sorun oluşmuş gibi görünüyor.\nDüzgün çalışma garantisi bulunmamaktadır.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
