@@ -1124,9 +1124,6 @@ sensors_show_panel (gpointer ptr_argument)
 
     TRACE ("enters sensors_show_panel");
 
-
-    g_return_val_if_fail (ptr_argument != NULL, FALSE);
-
     ptr_sensors = ptr_argument;
 
     sensors_update_values(ptr_argument);
