@@ -1127,7 +1127,7 @@ sensors_show_panel (gpointer ptr_argument)
 
     g_return_val_if_fail (ptr_argument != NULL, FALSE);
 
-    ptr_sensors = (t_sensors *) ptr_argument;
+    ptr_sensors = ptr_argument;
 
     sensors_update_values(ptr_argument);
 
@@ -1627,7 +1627,7 @@ adjustment_value_changed_ (GtkWidget *widget, t_sensors_dialog* sd)
     /* ... and start them again */
     sd->sensors->timeout_id  = g_timeout_add (
         sd->sensors->sensors_refresh_time * 1000,
-        (GSourceFunc) sensors_show_panel, (gpointer) sd->sensors);
+        sensors_show_panel, sd->sensors);
 
     TRACE ("leaves adjustment_value_changed ");
 }
@@ -2800,8 +2800,7 @@ sensors_plugin_construct (XfcePanelPlugin *plugin)
     sensors_show_panel ((gpointer) ptr_sensorsstruct);
 
     ptr_sensorsstruct->timeout_id = g_timeout_add (ptr_sensorsstruct->sensors_refresh_time * 1000,
-                                         (GSourceFunc) sensors_show_panel,
-                                         (gpointer) ptr_sensorsstruct);
+                                         sensors_show_panel, ptr_sensorsstruct);
 
     g_signal_connect (plugin, "free-data", G_CALLBACK (sensors_free), ptr_sensorsstruct);
 

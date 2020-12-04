@@ -185,7 +185,7 @@ main (int argc, char **argv)
     /* automatic refresh callback */
     ptr_sensors_dialog->sensors->timeout_id  = g_timeout_add (
         ptr_sensors_dialog->sensors->sensors_refresh_time * 1000,
-        (GSourceFunc) refresh_view, (gpointer) ptr_sensors_dialog
+        refresh_view, ptr_sensors_dialog
     );
 
     /* show window and run forever */
