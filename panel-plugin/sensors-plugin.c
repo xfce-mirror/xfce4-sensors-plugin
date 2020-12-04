@@ -1324,7 +1324,7 @@ sensors_set_size (XfcePanelPlugin *plugin, int size, t_sensors *sensors)
         xfce_panel_plugin_set_small(plugin, TRUE);
 
     /* update the panel widget */
-    sensors_show_panel ((gpointer) sensors);
+    sensors_show_panel (sensors);
 
     TRACE ("leaves sensors_set_size");
 }
@@ -1346,7 +1346,7 @@ show_title_toggled (GtkWidget *widget, t_sensors_dialog *sd)
     sd->sensors->show_title = gtk_toggle_button_get_active
         ( GTK_TOGGLE_BUTTON(widget) );
 
-    sensors_show_panel ((gpointer) sd->sensors);
+    sensors_show_panel (sd->sensors);
 
     TRACE ("leaves show_title_toggled");
 }
@@ -1369,7 +1369,7 @@ show_labels_toggled (GtkWidget *widget, t_sensors_dialog *sd)
     sd->sensors->show_labels = gtk_toggle_button_get_active
         ( GTK_TOGGLE_BUTTON(widget) );
 
-    sensors_show_panel ((gpointer) sd->sensors);
+    sensors_show_panel (sd->sensors);
 
     TRACE ("leaves show_labels_toggled");
 }
@@ -1389,7 +1389,7 @@ show_colored_bars_toggled (GtkWidget *widget, t_sensors_dialog *sd)
     sd->sensors->show_colored_bars = gtk_toggle_button_get_active
         ( GTK_TOGGLE_BUTTON(widget) );
 
-    sensors_show_panel ((gpointer) sd->sensors);
+    sensors_show_panel (sd->sensors);
 
     TRACE ("leaves show_colored_bars_toggled");
 }
@@ -1421,7 +1421,7 @@ display_style_changed_text (GtkWidget *widget, t_sensors_dialog *sd)
 
     sd->sensors->display_values_type = DISPLAY_TEXT;
 
-    sensors_show_panel ((gpointer) sd->sensors);
+    sensors_show_panel (sd->sensors);
 
     TRACE ("leaves display_style_changed_text");
 }
@@ -1451,7 +1451,7 @@ display_style_changed_bars (GtkWidget *widget, t_sensors_dialog *sd)
 
     sd->sensors->display_values_type = DISPLAY_BARS;
 
-    sensors_show_panel ((gpointer) sd->sensors);
+    sensors_show_panel (sd->sensors);
 
     TRACE ("leaves display_style_changed_bars");
 }
@@ -1499,7 +1499,7 @@ display_style_changed_tacho (GtkWidget *widget, t_sensors_dialog *sd)
 
     sd->sensors->display_values_type = DISPLAY_TACHO;
 
-    sensors_show_panel ((gpointer) sd->sensors);
+    sensors_show_panel (sd->sensors);
 
     TRACE ("leaves display_style_changed_tacho");
 }
@@ -1553,7 +1553,7 @@ str_fontsize_change (GtkWidget *widget, t_sensors_dialog *sd)
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(sd->Lines_Spin_Box), (gdouble) rows);
 
     /* refresh the panel content */
-    sensors_show_panel ((gpointer) sd->sensors);
+    sensors_show_panel (sd->sensors);
 
     TRACE ("leaves str_fontsize_change");
 }
@@ -1569,7 +1569,7 @@ lines_size_change (GtkWidget *widget, t_sensors_dialog *sd)
     sd->sensors->lines_size = (int) gtk_spin_button_get_value(GTK_SPIN_BUTTON(widget));
 
     /* refresh the panel content */
-    sensors_show_panel ((gpointer) sd->sensors);
+    sensors_show_panel (sd->sensors);
 
     TRACE ("leaves lines_size_change");
 }
@@ -1604,7 +1604,7 @@ temperature_unit_change_ (GtkWidget *widget, t_sensors_dialog *sd)
     sd->sensors->scale = 1 - sd->sensors->scale;
 
     /* refresh the panel content */
-    sensors_show_panel ((gpointer) sd->sensors);
+    sensors_show_panel (sd->sensors);
 
     reload_listbox (sd);
 
@@ -1746,7 +1746,7 @@ minimum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
     }
 
     /* update panel */
-    sensors_show_panel ((gpointer) sd->sensors);
+    sensors_show_panel (sd->sensors);
 
     TRACE ("leaves minimum_changed");
 }
@@ -1801,7 +1801,7 @@ maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
     }
 
     /* update panel */
-    sensors_show_panel ((gpointer) sd->sensors);
+    sensors_show_panel (sd->sensors);
 
     TRACE ("leaves maximum_changed");
 }
@@ -1857,7 +1857,7 @@ list_cell_color_edited_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
         gtk_tree_path_free (path);
 
         /* update panel */
-        sensors_show_panel ((gpointer) sd->sensors);
+        sensors_show_panel (sd->sensors);
     }
 
     TRACE ("leaves list_cell_color_edited");
@@ -1908,7 +1908,7 @@ list_cell_text_edited_ (GtkCellRendererText *cellrenderertext,
     gtk_tree_path_free (path);
 
     /* update panel */
-    sensors_show_panel ((gpointer) sd->sensors);
+    sensors_show_panel (sd->sensors);
 
     TRACE ("leaves list_cell_text_edited");
 }
@@ -1969,7 +1969,7 @@ list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,
     gtk_tree_path_free (path);
 
     /* update tooltip and panel widget */
-    sensors_show_panel ((gpointer) sd->sensors);
+    sensors_show_panel (sd->sensors);
 
     TRACE ("leaves list_cell_toggle");
 }
@@ -2797,7 +2797,7 @@ sensors_plugin_construct (XfcePanelPlugin *plugin)
 
     /* Try to resize the ptr_sensorsstruct to fit the user settings.
        Do also modify the tooltip text. */
-    sensors_show_panel ((gpointer) ptr_sensorsstruct);
+    sensors_show_panel (ptr_sensorsstruct);
 
     ptr_sensorsstruct->timeout_id = g_timeout_add (ptr_sensorsstruct->sensors_refresh_time * 1000,
                                          sensors_show_panel, ptr_sensorsstruct);
