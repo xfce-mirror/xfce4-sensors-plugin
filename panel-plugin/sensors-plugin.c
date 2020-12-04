@@ -1963,11 +1963,15 @@ static void
 on_font_set (GtkWidget *widget, gpointer data)
 {
     t_sensors *sensors = data;
+    gchar *new_font, *tmp;
 
-    if (font)
-        g_free (font);
-
-    font = g_strdup(gtk_font_chooser_get_font(GTK_FONT_CHOOSER(widget)));
+    new_font = g_strdup(gtk_font_chooser_get_font(GTK_FONT_CHOOSER(widget)));
+    if (new_font)
+    {
+        tmp = font;
+        font = new_font;
+        g_free (tmp);
+    }
 
     if (sensors->display_values_type==DISPLAY_TACHO)
     {
