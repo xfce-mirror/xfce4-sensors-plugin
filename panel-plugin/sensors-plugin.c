@@ -325,8 +325,6 @@ sensors_update_tacho_panel (t_sensors *ptr_sensors)
 
     TRACE("enters sensors_update_tacho_panel");
 
-    g_return_if_fail(ptr_sensors != NULL);
-
     if (!ptr_sensors->cover_panel_rows && xfce_panel_plugin_get_mode(ptr_sensors->plugin) != XFCE_PANEL_PLUGIN_MODE_DESKBAR)
         size_panel /= xfce_panel_plugin_get_nrows (ptr_sensors->plugin);
 
