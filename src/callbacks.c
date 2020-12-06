@@ -342,7 +342,7 @@ adjustment_value_changed_ (GtkWidget *ptr_adjustmentwidget, t_sensors_dialog* pt
     /* ... and start them again */
     ptr_sensorsdialog->sensors->timeout_id  = g_timeout_add (
         ptr_sensorsdialog->sensors->sensors_refresh_time * 1000,
-        (GSourceFunc) refresh_view, (gpointer) ptr_sensorsdialog);
+        refresh_view_cb, ptr_sensorsdialog);
 
     TRACE ("leaves adjustment_value_changed ");
 }

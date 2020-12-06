@@ -35,6 +35,7 @@
  * @return TRUE: argument is valid
  */
 gboolean refresh_view (gpointer data);
+gboolean refresh_view_cb (gpointer user_data);
 
 /**
  * refreshes the tacho view of the application

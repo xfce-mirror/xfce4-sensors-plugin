@@ -267,3 +267,12 @@ refresh_view (gpointer data)
     TRACE ("leaves refresh_view");
     return return_value;
 }
+
+gboolean
+refresh_view_cb (gpointer user_data)
+{
+    t_sensors_dialog *ptr_sensors_dialog = user_data;
+
+    refresh_view (ptr_sensors_dialog);
+    return TRUE;
+}

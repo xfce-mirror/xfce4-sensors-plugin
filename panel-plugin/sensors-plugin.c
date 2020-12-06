@@ -1611,6 +1611,14 @@ temperature_unit_change_ (GtkWidget *widget, t_sensors_dialog *sd)
     TRACE ("laeves temperature_unit_change ");
 }
 
+static gboolean
+sensors_show_panel_cb (gpointer user_data)
+{
+    t_sensors *sensors = user_data;;
+
+    sensors_show_panel (sensors);
+    return TRUE;
+}
 
 /* -------------------------------------------------------------------------- */
 void
@@ -1627,7 +1635,7 @@ adjustment_value_changed_ (GtkWidget *widget, t_sensors_dialog* sd)
     /* ... and start them again */
     sd->sensors->timeout_id  = g_timeout_add (
         sd->sensors->sensors_refresh_time * 1000,
-        (GSourceFunc) sensors_show_panel, (gpointer) sd->sensors);
+        sensors_show_panel_cb, sd->sensors);
 
     TRACE ("leaves adjustment_value_changed ");
 }
@@ -2800,8 +2808,7 @@ sensors_plugin_construct (XfcePanelPlugin *plugin)
     sensors_show_panel ((gpointer) ptr_sensorsstruct);
 
     ptr_sensorsstruct->timeout_id = g_timeout_add (ptr_sensorsstruct->sensors_refresh_time * 1000,
-                                         (GSourceFunc) sensors_show_panel,
-                                         (gpointer) ptr_sensorsstruct);
+                                         sensors_show_panel_cb, ptr_sensorsstruct);
 
     g_signal_connect (plugin, "free-data", G_CALLBACK (sensors_free), ptr_sensorsstruct);
 
