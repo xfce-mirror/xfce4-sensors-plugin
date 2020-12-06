@@ -1027,10 +1027,9 @@ sensors_update_values (t_sensors *ptr_sensors)
 
 /* -------------------------------------------------------------------------- */
 /* create tooltip,see lines 440 and following */
-static gboolean
-sensors_create_tooltip (gpointer ptr_argument)
+static void
+sensors_create_tooltip (t_sensors *ptr_sensors)
 {
-    t_sensors *ptr_sensors;
     int idx_sensorchips, index_feature;
     gboolean is_first_textline, is_chipname_already_prepended;
     gchar *ptr_str_tooltip, *ptr_str_tooltiptext;
@@ -1039,10 +1038,6 @@ sensors_create_tooltip (gpointer ptr_argument)
 
     TRACE ("enters sensors_create_tooltip");
 
-
-    g_return_val_if_fail (ptr_argument != NULL, FALSE);
-
-    ptr_sensors = (t_sensors *) ptr_argument;
     ptr_str_tooltip = g_strdup (_("No sensors selected!"));
     is_first_textline = TRUE;
 
@@ -1089,8 +1084,6 @@ sensors_create_tooltip (gpointer ptr_argument)
     g_free (ptr_str_tooltip);
 
     TRACE ("leaves sensors_create_tooltip");
-
-    return TRUE;
 }
 
 
@@ -1127,7 +1120,7 @@ sensors_show_panel (t_sensors *ptr_sensors)
     }
 
     if (!ptr_sensors->suppresstooltip)
-        sensors_create_tooltip ((gpointer) ptr_sensors);
+        sensors_create_tooltip (ptr_sensors);
 
     TRACE ("leaves sensors_show_panel\n");
 }
@@ -1439,8 +1432,8 @@ suppresstooltip_changed (GtkWidget *widget, t_sensors_dialog* sd)
 
     gtk_widget_set_has_tooltip(sd->sensors->eventbox, !sd->sensors->suppresstooltip);
 
-if (! sd->sensors->suppresstooltip)
-        sensors_create_tooltip ((gpointer) sd->sensors);
+    if (! sd->sensors->suppresstooltip)
+        sensors_create_tooltip (sd->sensors);
 
     TRACE ("leaves suppresstooltip_changed");
 }
