@@ -236,24 +236,16 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
 
 
 /* -------------------------------------------------------------------------- */
-gboolean
-refresh_view (gpointer data)
+void
+refresh_view (t_sensors_dialog *ptr_sensors_dialog)
 {
-    t_sensors_dialog *ptr_sensors_dialog;
-    gboolean return_value = FALSE;
-
     TRACE ("enters refresh_view");
-
-    g_return_val_if_fail (data != NULL, FALSE);
-    ptr_sensors_dialog = (t_sensors_dialog *) data;
 
     refresh_sensor_data (ptr_sensors_dialog);
     reload_listbox (ptr_sensors_dialog);
     refresh_tacho_view (ptr_sensors_dialog); /* refresh all the tacho elements in the notebook/table view */
-    return_value = TRUE;
 
     TRACE ("leaves refresh_view");
-    return return_value;
 }
 
 gboolean
