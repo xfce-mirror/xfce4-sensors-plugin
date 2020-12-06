@@ -1966,9 +1966,7 @@ list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,
 static void
 on_font_set (GtkWidget *widget, gpointer data)
 {
-    t_sensors *sensors;
-    sensors = (t_sensors *) data;
-    g_assert (sensors!=NULL);
+    t_sensors *sensors = data;
 
     if (font)
         g_free (font);
