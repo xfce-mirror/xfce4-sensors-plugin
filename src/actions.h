@@ -34,7 +34,8 @@
  * @param data: pointer to sensors dialog structure
  * @return TRUE: argument is valid
  */
-gboolean refresh_view (gpointer data);
+void refresh_view (t_sensors_dialog *ptr_sensors_dialog);
+gboolean refresh_view_cb (gpointer user_data);
 
 /**
  * refreshes the tacho view of the application

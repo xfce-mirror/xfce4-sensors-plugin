@@ -43,10 +43,6 @@
  */
 #define DEFAULT_SIZE_TACHOS 48
 
-/* foward declaration */
-gboolean
-refresh_sensor_data (t_sensors_dialog *ptr_sensors_dialog_structure);
-
 
 /* actual implementations */
 
@@ -54,9 +50,8 @@ refresh_sensor_data (t_sensors_dialog *ptr_sensors_dialog_structure);
 /** Internal function to refresh all sensors data for updating the displayed
  * tachos
  * @param ptr_sensors_dialog_structure: Pointer to sensors dialog structure
- * @return TRUE: on success
  */
-gboolean
+static void
 refresh_sensor_data (t_sensors_dialog *ptr_sensors_dialog_structure)
 {
     t_sensors *ptr_sensors_structure;
@@ -67,8 +62,6 @@ refresh_sensor_data (t_sensors_dialog *ptr_sensors_dialog_structure)
     t_chip *ptr_chip_structure;
 
     TRACE ("enters refresh_sensor_data");
-
-    g_return_val_if_fail (ptr_sensors_dialog_structure != NULL, FALSE);
 
     ptr_sensors_structure = ptr_sensors_dialog_structure->sensors;
 
@@ -108,8 +101,6 @@ refresh_sensor_data (t_sensors_dialog *ptr_sensors_dialog_structure)
     }
 
     TRACE ("leaves refresh_sensor_data");
-
-    return TRUE;
 }
 
 
@@ -245,25 +236,23 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
 
 
 /* -------------------------------------------------------------------------- */
-gboolean
-refresh_view (gpointer data)
+void
+refresh_view (t_sensors_dialog *ptr_sensors_dialog)
 {
-    t_sensors_dialog *ptr_sensors_dialog;
-    gboolean return_value = FALSE;
-
     TRACE ("enters refresh_view");
 
-    g_return_val_if_fail (data != NULL, FALSE);
-    ptr_sensors_dialog = (t_sensors_dialog *) data;
+    refresh_sensor_data (ptr_sensors_dialog);
+    reload_listbox (ptr_sensors_dialog);
+    refresh_tacho_view (ptr_sensors_dialog); /* refresh all the tacho elements in the notebook/table view */
 
-    if (refresh_sensor_data (ptr_sensors_dialog))
-    {
-        reload_listbox(ptr_sensors_dialog);
-
-        refresh_tacho_view (ptr_sensors_dialog); /* refresh all the tacho elements in the notebook/table view */
-
-        return_value = TRUE;
-    }
     TRACE ("leaves refresh_view");
-    return return_value;
+}
+
+gboolean
+refresh_view_cb (gpointer user_data)
+{
+    t_sensors_dialog *ptr_sensors_dialog = user_data;
+
+    refresh_view (ptr_sensors_dialog);
+    return TRUE;
 }

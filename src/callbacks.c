@@ -164,7 +164,7 @@ list_cell_text_edited_ (GtkCellRendererText *ptr_cellrenderertext,
     if (ptr_tacho!=NULL)
         gtk_sensorstacho_set_text (GTK_SENSORSTACHO(ptr_tacho), ptr_str_newtext);
 
-    refresh_view ((gpointer) ptr_sensorsdialog);
+    refresh_view (ptr_sensorsdialog);
 
     TRACE ("leaves list_cell_text_edited");
 }
@@ -212,7 +212,7 @@ list_cell_toggle_ (GtkCellRendererToggle *ptr_cellrenderertoggle, gchar *ptr_str
     ptr_chipfeature->show = toggle_item;
 
     /* update tooltip and panel widget */
-    refresh_view ((gpointer) ptr_sensorsdialog);
+    refresh_view (ptr_sensorsdialog);
 
     TRACE ("leaves list_cell_toggle");
 }
@@ -290,7 +290,7 @@ minimum_changed_ (GtkCellRendererText *cellrenderertext, gchar *ptr_str_cellpath
 
     /* update panel */
     if (ptr_sensorsdialog->sensors->tachos [idx_active_combobox][atoi(ptr_str_cellpath)]!=NULL)
-        refresh_view ((gpointer) ptr_sensorsdialog);
+        refresh_view (ptr_sensorsdialog);
 
     TRACE ("leaves minimum_changed");
 }
@@ -322,7 +322,7 @@ maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *ptr_str_cellpath
 
     /* update panel */
     if (ptr_sensorsdialog->sensors->tachos [idx_active_combobox][atoi(ptr_str_cellpath)]!=NULL)
-      refresh_view ((gpointer) ptr_sensorsdialog);
+      refresh_view (ptr_sensorsdialog);
 
     TRACE ("leaves maximum_changed");
 }
@@ -342,7 +342,7 @@ adjustment_value_changed_ (GtkWidget *ptr_adjustmentwidget, t_sensors_dialog* pt
     /* ... and start them again */
     ptr_sensorsdialog->sensors->timeout_id  = g_timeout_add (
         ptr_sensorsdialog->sensors->sensors_refresh_time * 1000,
-        (GSourceFunc) refresh_view, (gpointer) ptr_sensorsdialog);
+        refresh_view_cb, ptr_sensorsdialog);
 
     TRACE ("leaves adjustment_value_changed ");
 }
