@@ -576,7 +576,7 @@ sensors_add_tacho_display (t_sensors *ptr_sensors)
 
 
 /* -------------------------------------------------------------------------- */
-static gboolean
+static void
 sensors_show_graphical_display (t_sensors *ptr_sensors)
 {
     GdkDisplay *ptr_gdkdisplay;
@@ -595,14 +595,11 @@ sensors_show_graphical_display (t_sensors *ptr_sensors)
 
     TRACE ("enters sensors_show_graphical_display");
 
-    g_return_val_if_fail(ptr_sensors != NULL, FALSE);
-
     if (ptr_sensors->bars_created == FALSE) {
 
         ptr_sensors->css_provider = gtk_css_provider_new ();
         ptr_gdkdisplay = gdk_display_get_default ();
         ptr_gdkscreen = gdk_display_get_default_screen (ptr_gdkdisplay);
-        g_return_val_if_fail(ptr_gdkscreen!=NULL, FALSE);
 
         gtk_style_context_add_provider_for_screen (ptr_gdkscreen,
                                      GTK_STYLE_PROVIDER (ptr_sensors->css_provider),
@@ -665,18 +662,14 @@ sensors_show_graphical_display (t_sensors *ptr_sensors)
     sensors_update_graphical_panel (ptr_sensors);
 
     TRACE ("leaves sensors_show_graphical_display");
-
-    return TRUE;
 }
 
 
 /* -------------------------------------------------------------------------- */
-static gboolean
+static void
 sensors_show_tacho_display (t_sensors *ptr_sensors)
 {
     TRACE ("enters sensors_show_tacho_display");
-
-    g_return_val_if_fail(ptr_sensors != NULL, FALSE);
 
     if (ptr_sensors->tachos_created == FALSE) {
         val_colorvalue = ptr_sensors->val_tachos_color;
@@ -688,8 +681,6 @@ sensors_show_tacho_display (t_sensors *ptr_sensors)
     sensors_update_tacho_panel (ptr_sensors);
 
     TRACE ("leaves sensors_show_tacho_display");
-
-    return TRUE;
 }
 
 
@@ -955,7 +946,7 @@ count_number_checked_sensor_features (t_sensors *ptr_sensors)
 
 /* -------------------------------------------------------------------------- */
 /* draw label with sensor values into panel's vbox */
-static gboolean
+static void
 sensors_show_text_display (t_sensors *ptr_sensors)
 {
     gint num_itemstodisplay, num_rows, num_cols;
@@ -980,8 +971,6 @@ sensors_show_text_display (t_sensors *ptr_sensors)
     sensors_set_text_panel_label (ptr_sensors, num_cols, num_itemstodisplay);
 
     TRACE ("leaves sensors_show_text_display\n");
-
-    return TRUE;
 }
 
 
@@ -1116,31 +1105,24 @@ sensors_create_tooltip (gpointer ptr_argument)
 
 
 /* -------------------------------------------------------------------------- */
-static gboolean
-sensors_show_panel (gpointer ptr_argument)
+static void
+sensors_show_panel (t_sensors *ptr_sensors)
 {
-    t_sensors *ptr_sensors;
-    gboolean result;
-
     TRACE ("enters sensors_show_panel");
 
-
-    g_return_val_if_fail (ptr_argument != NULL, FALSE);
-
-    ptr_sensors = (t_sensors *) ptr_argument;
-
-    sensors_update_values(ptr_argument);
+    sensors_update_values(ptr_sensors);
 
     switch (ptr_sensors->display_values_type)
     {
       case DISPLAY_TACHO:
-        result = sensors_show_tacho_display (ptr_sensors);
+        sensors_show_tacho_display (ptr_sensors);
         break;
       case DISPLAY_BARS:
-        result = sensors_show_graphical_display (ptr_sensors);
+        sensors_show_graphical_display (ptr_sensors);
         break;
       default:
-        result = sensors_show_text_display (ptr_sensors);
+        sensors_show_text_display (ptr_sensors);
+	break;
     }
 
     if (ptr_sensors->orientation == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
@@ -1158,7 +1140,6 @@ sensors_show_panel (gpointer ptr_argument)
         sensors_create_tooltip ((gpointer) ptr_sensors);
 
     TRACE ("leaves sensors_show_panel\n");
-    return result;
 }
 
 
