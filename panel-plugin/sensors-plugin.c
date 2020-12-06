@@ -974,10 +974,9 @@ sensors_show_text_display (t_sensors *ptr_sensors)
 
 /* -------------------------------------------------------------------------- */
 /* Updates the sensor values */
-static gboolean
-sensors_update_values (gpointer ptr_argument)
+static void
+sensors_update_values (t_sensors *ptr_sensors)
 {
-    t_sensors *ptr_sensors;
     int idx_sensorchips, index_feature, result;
     double val_sensorfeature;
     gchar *ptr_str_tmp;
@@ -985,11 +984,6 @@ sensors_update_values (gpointer ptr_argument)
     t_chip *ptr_chipstructure;
 
     TRACE ("enters sensors_update_values");
-
-
-    g_return_val_if_fail (ptr_argument != NULL, FALSE);
-
-    ptr_sensors = (t_sensors *) ptr_argument;
 
     for (idx_sensorchips=0; idx_sensorchips < ptr_sensors->num_sensorchips; idx_sensorchips++) {
         ptr_chipstructure = (t_chip *) g_ptr_array_index (ptr_sensors->chips, idx_sensorchips);
@@ -1029,8 +1023,6 @@ sensors_update_values (gpointer ptr_argument)
     }
 
     TRACE ("leaves sensors_update_values");
-
-    return TRUE;
 }
 
 /* -------------------------------------------------------------------------- */
