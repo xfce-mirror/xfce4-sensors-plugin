@@ -85,7 +85,7 @@ void free_chip (gpointer ptr_chip, gpointer ptr_unused);
 /**
  * Clean up structures and call library routines for ending "session".
  */
-void cleanup_interfaces ();
+void cleanup_interfaces (void);
 
 
 /**
