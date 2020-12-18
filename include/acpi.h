@@ -157,7 +157,7 @@ gint read_voltage_zone (t_chip *ptr_chip);
  * Returns the ACPI version number from /proc/acpi/info file.
  * @return versionnumber as string!
  */
-char * get_acpi_info ();
+char * get_acpi_info (void);
 
 
 /**
