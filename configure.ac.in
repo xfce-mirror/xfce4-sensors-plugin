@@ -3,17 +3,17 @@ dnl
 dnl xfce4-sensors-plugin - Sensors plugin for xfce4-panel
 dnl
 dnl 2003,2004, 2007 Benedikt Meurer <benny@xfce.org>
-dnl 2007-2011,2014-2018 Fabian Nowak <timystery@arcor.de>
+dnl 2007-2011,2014-2020 Fabian Nowak <timystery@arcor.de>
 dnl
 
 m4_define([libxfce4sensors_verinfo], [5:1:0])
 
 m4_define([xfce4_sensors_version_major], [1])
 m4_define([xfce4_sensors_version_minor], [3])
-m4_define([xfce4_sensors_version_micro], [93])
+m4_define([xfce4_sensors_version_micro], [94])
 m4_define([xfce4_sensors_version_nano], [])
 m4_define([xfce4_sensors_version_build], [@REVISION@])
-m4_define([xfce4_sensors_version_tag], [git]) dnl may be set to 'git'
+m4_define([xfce4_sensors_version_tag], []) dnl may be set to 'git'
 m4_define([xfce4_sensors_version], [xfce4_sensors_version_major().xfce4_sensors_version_minor().xfce4_sensors_version_micro()ifelse(xfce4_sensors_version_nano(), [], [], [.xfce4_sensors_version_nano()])ifelse(xfce4_sensors_version_tag(), [git], [xfce4_sensors_version_tag()-xfce4_sensors_version_build()], [xfce4_sensors_version_tag()])])
 
 
@@ -27,6 +27,7 @@ AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_SRCDIR([src/main.c])
 AM_MAINTAINER_MODE
+m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
 dnl Check for UNIX variants
 AC_AIX

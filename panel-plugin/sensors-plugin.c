@@ -138,7 +138,7 @@ sensors_set_bar_color (t_labelledlevelbar *ptr_labelledlevelbar, double val_perc
 
     g_strlcat(str_gtkcssdata,   "   padding: 0px;\n"
                                 "   border: 1px none black;\n"
-                                "}\n", sizeof(str_gtkcssdata));
+                                "}", sizeof(str_gtkcssdata));
 
     gtk_level_bar_add_offset_value (GTK_LEVEL_BAR(ptr_levelbar),
                                   GTK_LEVEL_BAR_OFFSET_LOW,
@@ -157,7 +157,7 @@ sensors_set_bar_color (t_labelledlevelbar *ptr_labelledlevelbar, double val_perc
                                   0.9);
 
     gtk_css_provider_load_from_data (GTK_CSS_PROVIDER(ptr_labelledlevelbar->css_provider),
-                                   str_gtkcssdata, strlen(str_gtkcssdata), NULL);
+                                   str_gtkcssdata, -1, NULL);
 
     //DBG("unreferencing section '%s'.", str_section_levelbarid);
     //gtk_css_section_unref(str_section_levelbarid);
