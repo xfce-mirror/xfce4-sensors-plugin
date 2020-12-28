@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Zmicer Turok <zmicerturok@gmail.com>, 2018
+# Zmicer Turok <nashtlumach@gmail.com>, 2018
+# Zmicer Turok <nashtlumach@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2018-11-22 16:25+0000\n"
-"Last-Translator: Zmicer Turok <zmicerturok@gmail.com>\n"
+"PO-Revision-Date: 2020-03-05 11:34+0000\n"
+"Last-Translator: Zmicer Turok <nashtlumach@gmail.com>\n"
 "Language-Team: Belarusian (http://www.transifex.com/xfce/xfce-panel-plugins/language/be/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +37,7 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Паведамленне:\nНемагчыма прачытаць паказанні сістэмы.\nАдлюстроўваемыя значэнні могуць быць хібнымі.\n"
+msgstr "Паведамленне:\nНемагчыма прачытаць паказанні сістэмы.\nПаказаныя значэнні могуць быць хібнымі.\n"
 
 #: ../panel-plugin/sensors-plugin.c:2011
 msgid "UI style:"
@@ -162,7 +163,7 @@ msgstr "Вы можаце змяніць уласцівасць (назва, к�
 
 #: ../panel-plugin/sensors-plugin.c:2712
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
-msgstr "Паказваць значэнні датчыкаў з LM sensors, ACPI, жорсткіх дыскаў, NVIDIA"
+msgstr "Паказваць значэнні датчыкаў з LM sensors, ACPI, цвёрдых дыскаў, NVIDIA"
 
 #: ../panel-plugin/sensors-plugin.c:2714
 msgid "Copyright (c) 2004-2018\n"
@@ -267,7 +268,7 @@ msgstr "Збой убудовы"
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr "Здаецца, пры чытанні паказанняў датчыкаў адбылася памылка.\nАдлюстроўваемыя значэнні могуць быць хібнымі."
+msgstr "Здаецца, пры чытанні паказанняў датчыкаў адбылася памылка.\nПаказаныя значэнні могуць быць хібнымі."
 
 #: ../lib/sensors-interface.c:170
 msgid "Sensors t_ype:"
@@ -362,7 +363,7 @@ msgstr "выключыць"
 
 #: ../lib/sensors-interface-common.c:177
 msgid "on"
-msgstr "выключыць"
+msgstr "уключыць"
 
 #: ../lib/sensors-interface-common.c:181
 #, c-format
@@ -390,7 +391,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Датчыкі Xfce4 %s\nАдлюстраванне інфармацыі аб датчыках, стане ACPI, тэмпературы цвёрдых дыскаў і Nvidia GPU.\nДапаможнік:\nxfce4-sensors [параметр]\nдзе параметр:\n-h, --help выводзіць гэты дыялог.\n-l, --license выводзіць інфармацыю пра ліцэнзію.\n-V, --version выводзіць інфармацыю пра версію.\n\nГэтая праграма публікуецца згодна з умовамі ліцэнзіі GPL v2.\n"
+msgstr "Датчыкі Xfce4 %s\nАдлюстраванне інфармацыі пра датчыкі, стан ACPI, тэмпературу цвёрдых дыскаў і Nvidia GPU.\nДапаможнік:\nxfce4-sensors [параметр]\nдзе параметр:\n-h, --help выводзіць гэты дыялог.\n-l, --license выводзіць інфармацыю пра ліцэнзію.\n-V, --version выводзіць інфармацыю пра версію.\n\nГэтая праграма публікуецца згодна з умовамі ліцэнзіі GPL v2.\n"
 
 #: ../src/main.c:100
 #, c-format
@@ -417,7 +418,7 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Паведамленне:\nНемагчыма прачытаць паказанні сістэмы.\nАдлюстроўваемыя значэнні могуць быць хібнымі.\n"
+msgstr "Паведамленне:\nНемагчыма прачытаць паказанні сістэмы.\nПаказаныя значэнні могуць быць хібнымі.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
