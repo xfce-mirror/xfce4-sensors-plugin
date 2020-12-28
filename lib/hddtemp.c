@@ -138,12 +138,13 @@ quick_message_dialog (gchar *str_message)
                                   GTK_DIALOG_DESTROY_WITH_PARENT,
                                   GTK_MESSAGE_INFO,
                                   GTK_BUTTONS_CLOSE,
-                                  message, NULL);
+                                  str_message, NULL);
 
-    g_signal_connect_swapped (dialog, "response",
+    g_signal_connect_swapped (ptr_dialog, "response",
                              G_CALLBACK (gtk_widget_destroy), ptr_dialog);
 
-    gtk_dialog_run(GTK_DIALOG(ptr_dialog));
+    // gtk_dialog_run(GTK_DIALOG(ptr_dialog));
+    gtk_widget_show_all(ptr_dialog);
 
     TRACE ("leaves quick_message");
 }
@@ -153,7 +154,7 @@ quick_message_dialog (gchar *str_message)
 gboolean
 quick_message_with_checkbox (gchar *str_message, gchar *str_checkboxtext)
 {
-    GtkWidget *ptr_dialog, *ptr_checkbox;
+    GtkWidget *ptr_dialog, *ptr_checkbox, *ptr_contentarea;
     gboolean is_active;
 
     TRACE ("enters quick_message");
@@ -168,7 +169,8 @@ quick_message_with_checkbox (gchar *str_message, gchar *str_checkboxtext)
 
     ptr_checkbox = gtk_check_button_new_with_mnemonic (str_checkboxtext);
 
-    gtk_box_pack_start (GTK_BOX(GTK_DIALOG(ptr_dialog)->vbox), ptr_checkbox, FALSE, FALSE, 0);
+    ptr_contentarea = gtk_dialog_get_content_area (GTK_DIALOG (ptr_dialog));
+    gtk_container_add(GTK_CONTAINER(ptr_contentarea), ptr_checkbox);
     gtk_widget_show(ptr_checkbox);
 
     gtk_dialog_run(GTK_DIALOG(ptr_dialog));
