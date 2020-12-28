@@ -75,7 +75,7 @@ msgstr "A_nzahl der Textzeilen:"
 
 #: ../panel-plugin/sensors-plugin.c:2186
 msgid "_Cover all panel rows/columns"
-msgstr "Alle Leistenreihen und -spalten _verdecken"
+msgstr "Alle Leistenzeil/-spalten _bedecken"
 
 #: ../panel-plugin/sensors-plugin.c:2211
 msgid "F_ont size:"
