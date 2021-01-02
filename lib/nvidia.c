@@ -35,10 +35,10 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
+#include <X11/Xlib.h> /* Must be before NVCtrl includes */
 #include <NVCtrl/NVCtrl.h>
 #include <NVCtrl/NVCtrlLib.h>
 #include <nvidia.h>
-#include <X11/Xlib.h>
 
 /* Global variables */
 Display *nvidia_sensors_display;
