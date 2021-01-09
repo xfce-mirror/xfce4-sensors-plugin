@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# beriain, 2021
 # Piarres Beobide <pi@beobide.net>, 2006,2008-2009
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2018-11-01 23:32+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2021-01-09 19:25+0000\n"
+"Last-Translator: beriain\n"
 "Language-Team: Basque (http://www.transifex.com/xfce/xfce-panel-plugins/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +23,7 @@ msgstr ""
 #: ../panel-plugin/sensors-plugin.c:383 ../panel-plugin/sensors-plugin.c:511
 #: ../panel-plugin/sensors-plugin.c:1141
 msgid "<span><b>Sensors</b></span>"
-msgstr ""
+msgstr "<span><b>Sentsoreak</b></span>"
 
 #: ../panel-plugin/sensors-plugin.c:1008
 msgid "No sensors selected!"
@@ -72,7 +73,7 @@ msgstr "_Testu lerro kopurua:"
 
 #: ../panel-plugin/sensors-plugin.c:2186
 msgid "_Cover all panel rows/columns"
-msgstr ""
+msgstr "Panelaren lerro/zutabe guztiak estali"
 
 #: ../panel-plugin/sensors-plugin.c:2211
 msgid "F_ont size:"
@@ -113,12 +114,12 @@ msgstr "Ikusi _zuriune horizontala"
 #. Alpha value of the tacho coloring
 #: ../panel-plugin/sensors-plugin.c:2340
 msgid "Tacho color alpha value:"
-msgstr ""
+msgstr "Takometroaren kolorearen alfa balioa:"
 
 #. The value from HSV color model
 #: ../panel-plugin/sensors-plugin.c:2354
 msgid "Tacho color value:"
-msgstr ""
+msgstr "Takometroaren kolorearen balioa:"
 
 #: ../panel-plugin/sensors-plugin.c:2388
 msgid "Suppress messages"
@@ -126,7 +127,7 @@ msgstr "Ezabatu mezuak"
 
 #: ../panel-plugin/sensors-plugin.c:2409
 msgid "Suppress tooltip"
-msgstr ""
+msgstr "Argibide leihoa kendu"
 
 #: ../panel-plugin/sensors-plugin.c:2436
 msgid "E_xecute on double click:"
@@ -138,7 +139,7 @@ msgstr "_Ikusi"
 
 #: ../panel-plugin/sensors-plugin.c:2489
 msgid "UI style options"
-msgstr ""
+msgstr "Erabiltzaile-interfazearen estilo aukerak"
 
 #: ../panel-plugin/sensors-plugin.c:2523
 msgid "_Miscellaneous"
@@ -162,11 +163,11 @@ msgstr "Izena, koloreak, geh/gut balioa bezalako propietateak aldatu ditzakezu s
 
 #: ../panel-plugin/sensors-plugin.c:2712
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
-msgstr ""
+msgstr "Sentsoreetako balioak ikusi LM sentsoreetatik, ACPI, disko gogor edota NVIDIAtik"
 
 #: ../panel-plugin/sensors-plugin.c:2714
 msgid "Copyright (c) 2004-2018\n"
-msgstr ""
+msgstr "Copyright (c) 2004-2018\n"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
@@ -192,15 +193,15 @@ msgstr "Disko gogorrak"
 #: ../lib/acpi.c:346 ../lib/acpi.c:669 ../lib/acpi.c:741
 #, c-format
 msgid "%s - %s"
-msgstr ""
+msgstr "%s - %s"
 
 #: ../lib/acpi.c:669
 msgid "Power"
-msgstr ""
+msgstr "Energia"
 
 #: ../lib/acpi.c:741
 msgid "Voltage"
-msgstr ""
+msgstr "Tentsioa"
 
 #: ../lib/acpi.c:801 ../lib/acpi.c:813
 msgid "ACPI"
@@ -344,7 +345,7 @@ msgstr "%+.3f V"
 #: ../lib/sensors-interface-common.c:162
 #, c-format
 msgid "%+.3f A"
-msgstr ""
+msgstr "%+.3f A"
 
 #: ../lib/sensors-interface-common.c:166
 #, c-format
@@ -354,7 +355,7 @@ msgstr "%.0f mWh"
 #: ../lib/sensors-interface-common.c:170
 #, c-format
 msgid "%.3f W"
-msgstr ""
+msgstr "%.3f W"
 
 #: ../lib/sensors-interface-common.c:175
 msgid "off"
@@ -390,7 +391,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr ""
+msgstr "Xfce4 sentsoreak %s\nHardware sentsoreen inguruko informazioa, ACPI egoera, disko gogorren tenperatura eta Nvidiaren GPUen tenperatura erakusten du.\nSinopsia:\n   xfce4-sensors [aukera]\nnon [aukera] hurrengoetako bat edo gehiago diren:\n  -h, --help Laguntza hau inprimatu.\n  -l, --license Lizentzia argibideak inprimatu.\n  -V, --version Bertsio argibideak inprimatu.\n\nPrograma hau GPL v2 lizentziapean argitaratu da.\n"
 
 #: ../src/main.c:100
 #, c-format
@@ -434,4 +435,4 @@ msgstr "Sentsore balio ikustailea"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
 msgid "Sensor plugin"
-msgstr ""
+msgstr "Sentsore plugina"
