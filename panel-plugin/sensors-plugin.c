@@ -538,7 +538,7 @@ sensors_add_tacho_display (t_sensors *ptr_sensors)
                         break;
                 }
 
-                ptr_tacho = gtk_sensorstacho_new(ptr_sensors->orientation, size_panel, tacho_style);
+                ptr_tacho = gtk_sensorstacho_new((GtkOrientation)ptr_sensors->orientation, size_panel, tacho_style);
 
                 /* create the label stuff only if needed - saves some memory! */
                 if (ptr_sensors->show_labels == TRUE) {
@@ -2693,7 +2693,7 @@ create_sensors_control (XfcePanelPlugin *plugin)
 
     ptr_sensorsstruct = sensors_new (plugin, str_name_rc_file);
 
-    ptr_sensorsstruct->orientation = xfce_panel_plugin_get_orientation (plugin);
+    ptr_sensorsstruct->orientation = (XfcePanelPluginMode)xfce_panel_plugin_get_orientation (plugin);
     ptr_sensorsstruct->panel_size = xfce_panel_plugin_get_size (plugin);
 
     add_event_box (ptr_sensorsstruct);
