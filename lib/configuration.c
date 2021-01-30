@@ -273,7 +273,7 @@ sensors_read_general_config (XfceRc *ptr_xfceresources, t_sensors *ptr_sensors)
             ptr_sensors->suppressmessage = xfce_rc_read_bool_entry (ptr_xfceresources, "Suppress_Hddtemp_Message", FALSE);
 
         //if (!ptr_sensors->suppresstooltip)
-            ptr_sensors->suppresstooltip = xfce_rc_read_bool_entry (ptr_xfceresources, "Suppress_Tooltip", FALSE);
+        ptr_sensors->suppresstooltip = xfce_rc_read_bool_entry (ptr_xfceresources, "Suppress_Tooltip", FALSE);
 
         ptr_sensors->preferred_width = xfce_rc_read_int_entry (ptr_xfceresources, "Preferred_Width", 400);
         ptr_sensors->preferred_height = xfce_rc_read_int_entry (ptr_xfceresources, "Preferred_Height", 400);
