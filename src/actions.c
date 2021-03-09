@@ -169,7 +169,7 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
                         break;
                 }
 
-                    ptr_sensors_structure->tachos[idx_chip][idx_feature] = ptr_sensorstachowidget = gtk_sensorstacho_new(ptr_sensors_structure->orientation, DEFAULT_SIZE_TACHOS, tacho_style);
+                    ptr_sensors_structure->tachos[idx_chip][idx_feature] = ptr_sensorstachowidget = gtk_sensorstacho_new((GtkOrientation)ptr_sensors_structure->orientation, DEFAULT_SIZE_TACHOS, tacho_style);
                     ptr_sensorstacho = GTK_SENSORSTACHO(ptr_sensorstachowidget);
 
                     gtk_sensorstacho_set_text(ptr_sensorstacho, ptr_chipfeature_structure->name);
