@@ -82,7 +82,7 @@ typedef struct {
     gboolean cover_panel_rows;
 
     /** panel orientation */
-    XfcePanelPluginMode orientation;
+    XfcePanelPluginMode plugin_mode;
 
     /** if the bars have been initialized */
     gboolean bars_created;

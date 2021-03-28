@@ -158,6 +158,8 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
 
                 if (ptr_sensorstachowidget == NULL)
                 {
+                    GtkOrientation orientation;
+
                     DBG("Newly adding selected widget from container.");
 
                     switch (ptr_chipfeature_structure->class) {
@@ -173,7 +175,8 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
                             break;
                     }
 
-                    ptr_sensors_structure->tachos[idx_chip][idx_feature] = ptr_sensorstachowidget = gtk_sensorstacho_new(ptr_sensors_structure->orientation, DEFAULT_SIZE_TACHOS, tacho_style);
+                    orientation = (ptr_sensors_structure->plugin_mode != XFCE_PANEL_PLUGIN_MODE_VERTICAL) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
+                    ptr_sensors_structure->tachos[idx_chip][idx_feature] = ptr_sensorstachowidget = gtk_sensorstacho_new(orientation, DEFAULT_SIZE_TACHOS, tacho_style);
                     ptr_sensorstacho = GTK_SENSORSTACHO(ptr_sensorstachowidget);
 
                     gtk_sensorstacho_set_text(ptr_sensorstacho, ptr_chipfeature_structure->name);

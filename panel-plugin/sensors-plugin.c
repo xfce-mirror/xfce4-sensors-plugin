@@ -93,12 +93,12 @@ remove_gsource (guint gsource_id)
 
 /* -------------------------------------------------------------------------- */
 static void
-sensors_set_levelbar_size (GtkWidget *ptr_levelbar, int siz_panelheight, int panelorientation)
+sensors_set_levelbar_size (GtkWidget *ptr_levelbar, int siz_panelheight, XfcePanelPluginMode plugin_mode)
 {
     /* check arguments */
     g_return_if_fail (G_IS_OBJECT(ptr_levelbar));
 
-    if (panelorientation == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL) {
+    if (plugin_mode == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL) {
         gtk_widget_set_size_request (ptr_levelbar, BAR_SIZE+2, siz_panelheight-BAR_SIZE);
     }
     else {
@@ -300,7 +300,7 @@ sensors_update_graphical_panel (t_sensors *ptr_sensorsstructure)
                 g_return_if_fail (G_IS_OBJECT(ptr_levelbar));
 
                 sensors_set_levelbar_size (ptr_levelbar, (int) ptr_sensorsstructure->panel_size,
-                                      ptr_sensorsstructure->orientation);
+                                      ptr_sensorsstructure->plugin_mode);
                 val_percentage = sensors_get_percentage (ptr_chipfeature);
                 sensors_set_bar_color (ptr_labelledlevelbar, val_percentage, ptr_chipfeature->color,
                                        ptr_sensorsstructure);
@@ -396,7 +396,7 @@ sensors_add_graphical_display (t_sensors *ptr_sensors)
 
                 widget_progbar = gtk_level_bar_new();
 
-                if (ptr_sensors->orientation == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL) {
+                if (ptr_sensors->plugin_mode == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL) {
                     gtk_orientable_set_orientation (GTK_ORIENTABLE (widget_progbar),
                                                     GTK_ORIENTATION_VERTICAL);
                     gtk_level_bar_set_inverted(GTK_LEVEL_BAR(widget_progbar), TRUE);
@@ -410,7 +410,7 @@ sensors_add_graphical_display (t_sensors *ptr_sensors)
                 }
 
                 sensors_set_levelbar_size (widget_progbar, size_panel,
-                                           ptr_sensors->orientation);
+                                           ptr_sensors->plugin_mode);
                 gtk_widget_show (widget_progbar);
 
                 gtk_widget_show (widget_databox);
@@ -445,7 +445,7 @@ sensors_add_graphical_display (t_sensors *ptr_sensors)
 
                     gtk_widget_show (widget_label);
 
-                    if (ptr_sensors->orientation == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
+                    if (ptr_sensors->plugin_mode == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
                         gtk_label_set_angle (GTK_LABEL(widget_label), 270);
                     else
                         gtk_label_set_angle (GTK_LABEL(widget_label), 0);
@@ -520,6 +520,8 @@ sensors_add_tacho_display (t_sensors *ptr_sensors)
             tacho_style = style_MinGYR; /* default as has been for 10 years */
 
             if (ptr_chipfeature->show == TRUE) {
+                GtkOrientation orientation;
+
                 has_tachos = TRUE;
 
                 switch (ptr_chipfeature->class) {
@@ -536,7 +538,8 @@ sensors_add_tacho_display (t_sensors *ptr_sensors)
                         break;
                 }
 
-                ptr_tacho = gtk_sensorstacho_new(ptr_sensors->orientation, size_panel, tacho_style);
+                orientation = (ptr_sensors->plugin_mode != XFCE_PANEL_PLUGIN_MODE_VERTICAL) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
+                ptr_tacho = gtk_sensorstacho_new(orientation, size_panel, tacho_style);
 
                 /* create the label stuff only if needed - saves some memory! */
                 if (ptr_sensors->show_labels == TRUE) {
@@ -714,7 +717,7 @@ determine_number_of_rows (t_sensors *ptr_sensors)
 
     g_assert (siz_pangofont!=0);
 
-    if (ptr_sensors->orientation != XFCE_PANEL_PLUGIN_MODE_DESKBAR) {
+    if (ptr_sensors->plugin_mode != XFCE_PANEL_PLUGIN_MODE_DESKBAR) {
         switch (siz_pangofont) {
             case 8:
                 switch (ptr_sensors->val_fontsize) {
@@ -851,7 +854,7 @@ sensors_set_text_panel_label (t_sensors *ptr_sensors, gint num_cols, gint num_it
                 }
 
 
-                if (ptr_sensors->orientation == XFCE_PANEL_PLUGIN_MODE_DESKBAR) {
+                if (ptr_sensors->plugin_mode == XFCE_PANEL_PLUGIN_MODE_DESKBAR) {
                     if (num_itemstodisplay > 1) {
                         ptr_str_help = g_strconcat (ptr_str_labeltext, "\n", NULL);
                         g_free(ptr_str_labeltext);
@@ -888,7 +891,7 @@ sensors_set_text_panel_label (t_sensors *ptr_sensors, gint num_cols, gint num_it
 
     gtk_widget_show (ptr_sensors->panel_label_data);
 
-    if (ptr_sensors->orientation == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
+    if (ptr_sensors->plugin_mode == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
     {
         gtk_widget_set_halign(ptr_sensors->panel_label_data, GTK_ALIGN_CENTER);
         gtk_label_set_angle(GTK_LABEL(ptr_sensors->panel_label_data), 270.0);
@@ -1101,7 +1104,7 @@ sensors_show_panel (t_sensors *ptr_sensors)
 	break;
     }
 
-    if (ptr_sensors->orientation == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
+    if (ptr_sensors->plugin_mode == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
     {
         gtk_label_set_angle(GTK_LABEL(ptr_sensors->panel_label_text), 270.0);
         gtk_widget_set_halign(ptr_sensors->panel_label_text, GTK_ALIGN_CENTER);
@@ -1126,9 +1129,8 @@ create_panel_widget (t_sensors *ptr_sensorsstructure)
 {
     TRACE ("enters create_panel_widget");
 
-
     /* initialize a new vbox widget */
-    ptr_sensorsstructure->widget_sensors = (ptr_sensorsstructure->orientation == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL) ? gtk_hbox_new (FALSE, 0) : gtk_vbox_new (FALSE, 0);
+    ptr_sensorsstructure->widget_sensors = (ptr_sensorsstructure->plugin_mode == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL) ? gtk_hbox_new (FALSE, 0) : gtk_vbox_new (FALSE, 0);
 
     gtk_widget_show (ptr_sensorsstructure->widget_sensors);
 
@@ -1162,14 +1164,14 @@ sensors_set_mode (XfcePanelPlugin *ptr_xfcepanelplugin, XfcePanelPluginMode mode
 
     g_return_if_fail (ptr_xfcepanelplugin!=NULL && ptr_sensorsstructure!=NULL);
 
-    g_return_if_fail (mode_panelplugin != ptr_sensorsstructure->orientation);
+    g_return_if_fail (mode_panelplugin != ptr_sensorsstructure->plugin_mode);
 
     if (ptr_sensorsstructure->cover_panel_rows || mode_panelplugin == XFCE_PANEL_PLUGIN_MODE_DESKBAR)
         xfce_panel_plugin_set_small(ptr_xfcepanelplugin, FALSE);
     else
         xfce_panel_plugin_set_small(ptr_xfcepanelplugin, TRUE);
 
-    ptr_sensorsstructure->orientation = mode_panelplugin; /* now assign the new orientation */
+    ptr_sensorsstructure->plugin_mode = mode_panelplugin; /* now assign the new orientation */
 
     gtk_widget_destroy (ptr_sensorsstructure->panel_label_text);
     gtk_widget_destroy (ptr_sensorsstructure->panel_label_data);
@@ -1186,7 +1188,7 @@ sensors_set_mode (XfcePanelPlugin *ptr_xfcepanelplugin, XfcePanelPluginMode mode
     gtk_container_add (GTK_CONTAINER (ptr_sensorsstructure->eventbox),
                        ptr_sensorsstructure->widget_sensors);
 
-    TRACE ("leaves sensors_set_orientation");
+    TRACE ("leaves sensors_set_mode");
 }
 
 
@@ -2637,7 +2639,7 @@ create_sensors_control (XfcePanelPlugin *plugin)
 
     ptr_sensorsstruct = sensors_new (plugin, str_name_rc_file);
 
-    ptr_sensorsstruct->orientation = xfce_panel_plugin_get_orientation (plugin);
+    ptr_sensorsstruct->plugin_mode = xfce_panel_plugin_get_mode (plugin);
     ptr_sensorsstruct->panel_size = xfce_panel_plugin_get_size (plugin);
 
     add_event_box (ptr_sensorsstruct);
