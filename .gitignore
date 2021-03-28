@@ -1,7 +1,10 @@
-*.o
-.gitignore
 *.bz2
-*.gz
-Makefile
-*.swp
 *.gmo
+*.lo
+*.o
+*.swp
+.deps
+.gitignore
+.libs
+Makefile
+nbproject

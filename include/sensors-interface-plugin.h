@@ -82,7 +82,7 @@ typedef struct {
     gboolean cover_panel_rows;
 
     /** panel orientation */
-    XfcePanelPluginMode orientation;
+    XfcePanelPluginMode plugin_mode;
 
     /** if the bars have been initialized */
     gboolean bars_created;
@@ -137,7 +137,7 @@ typedef struct {
 
     /** contains the tacho panels */
     /* FIXME:    Might be replaced by GPtrArray as well */
-    GtkWidget* tachos[MAX_NUM_CHIPS][MAX_NUM_FEATURES];
+    GtkWidget *tachos[MAX_NUM_CHIPS][MAX_NUM_FEATURES];
 
     /** sensor types to display values in appropriate format */
     GPtrArray *chips;

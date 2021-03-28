@@ -105,7 +105,11 @@ refresh_sensor_data (t_sensors_dialog *ptr_sensors_dialog_structure)
 
 
 /* -------------------------------------------------------------------------- */
-void
+/**
+ * refreshes the tacho view of the application
+ * @param ptr_sensors_dialog_structure: pointer to sensors dialog structure
+ */
+static void
 refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
 {
     gint idx_chip, idx_feature, row_tacho_table=0, col_tacho_table=0;
@@ -140,7 +144,7 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
 
         for (idx_feature = 0; idx_feature<ptr_chip_structure->num_features; idx_feature++)
         {
-            GtkWidget *ptr_sensorstachowidget = ptr_sensors_structure->tachos [idx_chip][idx_feature];
+            GtkWidget *ptr_sensorstachowidget = ptr_sensors_structure->tachos[idx_chip][idx_feature];
             GtkSensorsTacho *ptr_sensorstacho = GTK_SENSORSTACHO(ptr_sensorstachowidget);
 
             if (row_tacho_table>=num_max_rows)
@@ -149,27 +153,30 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
             ptr_chipfeature_structure = g_ptr_array_index (ptr_chip_structure->chip_features, idx_feature);
             g_assert (ptr_chipfeature_structure!=NULL);
 
-            if ( ptr_chipfeature_structure->valid == TRUE && ptr_chipfeature_structure->show == TRUE)
+            if (ptr_chipfeature_structure->valid == TRUE && ptr_chipfeature_structure->show == TRUE)
             {
 
                 if (ptr_sensorstachowidget == NULL)
                 {
+                    GtkOrientation orientation;
+
                     DBG("Newly adding selected widget from container.");
 
-                switch (ptr_chipfeature_structure->class) {
-                    case VOLTAGE:
-                    case POWER:
-                    case CURRENT:
-                        tacho_style = style_MediumYGB;
-                        break;
-                    case ENERGY:
-                        tacho_style = style_MaxRYG;
-                        break;
-                    default: // tacho_style = style_MinGYR; // already set per default
-                        break;
-                }
+                    switch (ptr_chipfeature_structure->class) {
+                        case VOLTAGE:
+                        case POWER:
+                        case CURRENT:
+                            tacho_style = style_MediumYGB;
+                            break;
+                        case ENERGY:
+                            tacho_style = style_MaxRYG;
+                            break;
+                        default: // tacho_style = style_MinGYR; // already set per default
+                            break;
+                    }
 
-                    ptr_sensors_structure->tachos[idx_chip][idx_feature] = ptr_sensorstachowidget = gtk_sensorstacho_new(ptr_sensors_structure->orientation, DEFAULT_SIZE_TACHOS, tacho_style);
+                    orientation = (ptr_sensors_structure->plugin_mode != XFCE_PANEL_PLUGIN_MODE_VERTICAL) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
+                    ptr_sensors_structure->tachos[idx_chip][idx_feature] = ptr_sensorstachowidget = gtk_sensorstacho_new(orientation, DEFAULT_SIZE_TACHOS, tacho_style);
                     ptr_sensorstacho = GTK_SENSORSTACHO(ptr_sensorstachowidget);
 
                     gtk_sensorstacho_set_text(ptr_sensorstacho, ptr_chipfeature_structure->name);
