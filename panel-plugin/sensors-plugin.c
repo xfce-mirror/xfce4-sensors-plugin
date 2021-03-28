@@ -2663,7 +2663,7 @@ sensors_show_about(XfcePanelPlugin *plugin, t_sensors *ptr_sensorsstruct)
    const gchar *auth[] = {"Fabian Nowak <timystery@xfce.org>",
                           "Stefan Ott",
                           NULL };
-   icon = xfce_panel_pixbuf_from_source("xfce-sensors", NULL, 32);
+   icon = xfce_panel_pixbuf_from_source("xfce-sensors", NULL, 48);
    gtk_show_about_dialog(NULL,
       "logo", icon,
       "license", xfce_get_license_text (XFCE_LICENSE_TEXT_GPL),
