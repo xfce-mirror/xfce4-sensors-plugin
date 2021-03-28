@@ -1128,8 +1128,6 @@ create_panel_widget (t_sensors *ptr_sensorsstructure)
     /* initialize a new vbox widget */
     ptr_sensorsstructure->widget_sensors = (ptr_sensorsstructure->plugin_mode == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL) ? gtk_hbox_new (FALSE, 0) : gtk_vbox_new (FALSE, 0);
 
-    gtk_widget_show (ptr_sensorsstructure->widget_sensors);
-
     /* initialize value label widget */
     ptr_sensorsstructure->panel_label_text = gtk_widget_new (GTK_TYPE_LABEL, "label", _("<span><b>Sensors</b></span>"), "use-markup", TRUE, "xalign", 0.0, "yalign", 0.5, "margin", INNER_BORDER, NULL);
 
@@ -1138,14 +1136,14 @@ create_panel_widget (t_sensors *ptr_sensorsstructure)
     ptr_sensorsstructure->panel_label_data = gtk_label_new (NULL);
     gtk_widget_show (ptr_sensorsstructure->panel_label_data);
 
+    /* add newly created label to box */
+    gtk_box_pack_start (GTK_BOX (ptr_sensorsstructure->widget_sensors), ptr_sensorsstructure->panel_label_text, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (ptr_sensorsstructure->widget_sensors), ptr_sensorsstructure->panel_label_data, TRUE, TRUE, 0);
+
     /* create 'valued' label */
     sensors_show_panel (ptr_sensorsstructure);
 
-    /* add newly created label to box */
-    gtk_box_pack_start (GTK_BOX (ptr_sensorsstructure->widget_sensors),
-                        ptr_sensorsstructure->panel_label_text, FALSE, FALSE, 0);
-    gtk_box_pack_start (GTK_BOX (ptr_sensorsstructure->widget_sensors),
-                        ptr_sensorsstructure->panel_label_data, TRUE, TRUE, 0);
+    gtk_widget_show (ptr_sensorsstructure->widget_sensors);
 
     TRACE ("leaves create_panel_widget");
 }
