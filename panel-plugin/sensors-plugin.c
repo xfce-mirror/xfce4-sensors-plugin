@@ -2671,7 +2671,7 @@ sensors_show_about(XfcePanelPlugin *plugin, t_sensors *ptr_sensorsstruct)
       "program-name", PACKAGE_NAME,
       "comments", _("Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"),
       "website", "https://docs.xfce.org/panel-plugins/xfce4-sensors-plugin",
-      "copyright", _("Copyright (c) 2004-2018\n"),
+      "copyright", _("Copyright (c) 2004-2021\n"),
       "authors", auth, NULL);
 
    if(icon)
