@@ -37,10 +37,4 @@
 void refresh_view (t_sensors_dialog *ptr_sensors_dialog);
 gboolean refresh_view_cb (gpointer user_data);
 
-/**
- * refreshes the tacho view of the application
- * @param ptr_sensors_dialog_structure: pointer to sensors dialog structure
- */
-void refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure);
-
 #endif /* ACTIONS_H */

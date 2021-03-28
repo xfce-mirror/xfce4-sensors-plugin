@@ -105,7 +105,11 @@ refresh_sensor_data (t_sensors_dialog *ptr_sensors_dialog_structure)
 
 
 /* -------------------------------------------------------------------------- */
-void
+/**
+ * refreshes the tacho view of the application
+ * @param ptr_sensors_dialog_structure: pointer to sensors dialog structure
+ */
+static void
 refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
 {
     gint idx_chip, idx_feature, row_tacho_table=0, col_tacho_table=0;
