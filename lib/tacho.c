@@ -399,7 +399,7 @@ gtk_sensorstacho_paint (GtkWidget *widget,
 
     ptr_stylecontext = gtk_widget_get_style_context(widget);
     if (ptr_stylecontext != NULL)
-        gtk_style_context_get_color(ptr_stylecontext, GTK_STATE_NORMAL, &color);
+        gtk_style_context_get_color(ptr_stylecontext, GTK_STATE_FLAG_NORMAL, &color);
     else
     {
         color.red = 0.0f;
