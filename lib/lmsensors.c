@@ -68,8 +68,6 @@ setup_chip (GPtrArray *chips, const sensors_chip_name *c_ptr_sensors_chip_name,
 {
     t_chip* chip;
 
-    TRACE ("enters setup_chip");
-
     chip = g_new0 (t_chip, 1);
 
     g_ptr_array_add (chips, chip);
@@ -104,8 +102,6 @@ setup_chip (GPtrArray *chips, const sensors_chip_name *c_ptr_sensors_chip_name,
         chip->description = g_strdup (
                                 sensors_get_adapter_name (&c_ptr_sensors_chip_name->bus));
     #endif
-
-    TRACE ("leaves setup_chip");
 
     return chip;
 }
@@ -247,13 +243,9 @@ void
 setup_chipfeature (t_chipfeature *chipfeature, int address_chipfeature,
                    double val_sensor_feature)
 {
-    TRACE ("enters setup_chipfeature");
-
     setup_chipfeature_common (chipfeature, address_chipfeature, val_sensor_feature);
 
     categorize_sensor_type (chipfeature);
-
-    TRACE ("leaves setup_chipfeature");
 }
 #else
 /* -------------------------------------------------------------------------- */
@@ -282,8 +274,6 @@ find_chipfeature (const sensors_chip_name *name, t_chip *chip,
     double sensorFeature;
     t_chipfeature *chipfeature;
 
-    //TRACE ("enters find_chipfeature");
-
     chipfeature = g_new0 (t_chipfeature, 1);
 
     if (sensors_get_ignored (*(name), address_chipfeature)==1) {
@@ -296,14 +286,12 @@ find_chipfeature (const sensors_chip_name *name, t_chip *chip,
             if (res==0) {
                 setup_chipfeature (chipfeature, address_chipfeature, sensorFeature);
                 chip->num_features++;
-                //TRACE("leaves find_chipfeature");
                 return chipfeature;
             }
         }
     }
 
     g_free (chipfeature);
-    //TRACE ("leaves find_chipfeature with null");
     return NULL;
 }
 #else
@@ -316,8 +304,6 @@ find_chipfeature (const sensors_chip_name *name, t_chip *chip,
     int res, number = -1;
     double sensorFeature;
     t_chipfeature *chipfeature;
-
-    //TRACE ("enters find_chipfeature");
 
     switch (feature->type) {
         case SENSORS_FEATURE_IN:
@@ -376,7 +362,6 @@ find_chipfeature (const sensors_chip_name *name, t_chip *chip,
                 setup_chipfeature_libsensors4 (chipfeature, feature, number,
                                                sensorFeature, name);
                 chip->num_features++;
-                //TRACE("leaves find_chipfeature");
                 return chipfeature;
             }
         }
@@ -385,7 +370,6 @@ find_chipfeature (const sensors_chip_name *name, t_chip *chip,
         g_free(chipfeature);
     }
 
-    //TRACE("leaves find_chipfeature with null");
     return NULL;
 }
 #endif
@@ -403,8 +387,6 @@ initialize_libsensors (GPtrArray *arr_ptr_chips)
     FILE *file;
     const sensors_feature_data *sfd;
         int nr2;
-
-    TRACE("enters initialize_libsensors");
 
     errno = 0;
     file = fopen("/etc/sensors.conf", "r");
@@ -446,17 +428,14 @@ initialize_libsensors (GPtrArray *arr_ptr_chips)
         } /* end while sensor chipNames */
 
         fclose (file);
-        TRACE ("leaves initialize_libsensors with 1");
         return 1;
     }
     else {
         fclose (file);
-        TRACE ("leaves initialize_libsensors with -1");
         return -1;
     }
 #else
     const sensors_feature *sfd;
-    TRACE("enters initialize_libsensors");
 
     sensorsInit = sensors_init (NULL);
     if (sensorsInit != 0)
@@ -489,7 +468,6 @@ initialize_libsensors (GPtrArray *arr_ptr_chips)
         detected_chip = sensors_get_detected_chips (NULL, &num_sensorchips);
     } /* end while sensor chipNames */
 
-    TRACE ("leaves initialize_libsensors with 1");
     return 1;
 #endif
 }
@@ -499,11 +477,7 @@ initialize_libsensors (GPtrArray *arr_ptr_chips)
 void
 refresh_lmsensors (gpointer ptr_chip_feature, gpointer ptr_unused)
 {
-    TRACE ("enters refresh_lmsensors");
-
     g_assert(ptr_chip_feature!=NULL);
-
-    TRACE ("leaves refresh_lmsensors");
 }
 
 

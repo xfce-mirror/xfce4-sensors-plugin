@@ -55,8 +55,6 @@ initialize_nvidia (GPtrArray *arr_ptr_chips)
     t_chip *ptr_chip;
     t_chipfeature *ptr_chipfeature;
 
-    TRACE ("enters initialize_nvidia");
-
     g_assert (arr_ptr_chips != NULL);
 
     ptr_chip = g_new0 (t_chip, 1);
@@ -89,8 +87,6 @@ initialize_nvidia (GPtrArray *arr_ptr_chips)
     else
         retval = 0;
 
-    TRACE ("leaves initialize_nvidia with %d.", retval);
-
     return retval;
 }
 
@@ -102,8 +98,6 @@ get_nvidia_value (int idx_gpu)
     int val_temperature = 0;
     double result = ZERO_KELVIN;
 
-    TRACE ("enters get_nvidia_value for GPU %d.", idx_gpu);
-
     if (XNVCTRLQueryTargetAttribute (nvidia_sensors_display,
                                      NV_CTRL_TARGET_TYPE_GPU,
                                      idx_gpu,
@@ -112,8 +106,6 @@ get_nvidia_value (int idx_gpu)
                                      &val_temperature)) {
         result = (double) (1.0 * val_temperature);
     }
-
-    TRACE ("leaves get_nvidia_value for GPU %d with %f.", idx_gpu, result);
 
     return result;
 }
@@ -126,16 +118,12 @@ refresh_nvidia (gpointer ptr_chipfeature, gpointer ptr_unused)
     t_chipfeature *ptr_localchipfeature;
     double value;
 
-    TRACE ("enters refresh_nvidia");
-
     ptr_localchipfeature = (t_chipfeature *) ptr_chipfeature;
     g_assert (ptr_localchipfeature != NULL);
 
     value = get_nvidia_value (ptr_localchipfeature->address);
     if (value != ZERO_KELVIN)
         ptr_localchipfeature->raw_value = value;
-
-    TRACE ("leaves refresh_nvidia");
 }
 
 
@@ -148,7 +136,6 @@ read_gpus (t_chip *ptr_chip)
     int event, error;
     int idx_gpu;
 
-    TRACE ("enters read_gpus");
     g_assert (ptr_chip != NULL);
 
     /* create the connection to the X server */
@@ -175,7 +162,6 @@ read_gpus (t_chip *ptr_chip)
                                                NV_CTRL_STRING_PRODUCT_NAME,
                                                &ptr_str_gpuname)) {
             g_assert (ptr_str_gpuname != NULL);
-            TRACE ("GPU %d: %s", idx_gpu, ptr_str_gpuname);
             ptr_chipfeature->devicename = ptr_str_gpuname;  /* "it is the caller's responsibility to free ..." */
         }
         else
@@ -187,8 +173,6 @@ read_gpus (t_chip *ptr_chip)
         g_ptr_array_add (ptr_chip->chip_features, ptr_chipfeature);
         ptr_chip->num_features++;
     }
-
-    TRACE ("leaves read_gpus with %d.", num_gpus);
 
     return num_gpus;
 }

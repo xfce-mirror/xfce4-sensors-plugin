@@ -108,8 +108,6 @@ read_thermal_zone (t_chip *ptr_chip)
 
     g_return_val_if_fail(ptr_chip!=NULL, res_value);
 
-    TRACE ("enters read_thermal_zone");
-
 #ifdef HAVE_SYSFS_ACPI
     if ((chdir (SYS_PATH) == 0) && (chdir (SYS_DIR_THERMAL) == 0))
 #else
@@ -181,13 +179,9 @@ read_thermal_zone (t_chip *ptr_chip)
             } /* while */
 
             closedir (ptr_directory);
-            TRACE ("leaves read_thermal_zone");
 
             res_value = 0;
         } /* if */
-    }
-    else {
-        TRACE ("leaves read_thermal_zone");
     }
 
     return res_value;
@@ -204,8 +198,6 @@ get_fan_zone_value (gchar *str_zonename)
     gchar buffer [1024], *str_filename, *ptr_strippedbuffer;
 
     g_return_val_if_fail(str_zonename!=NULL, res_value);
-
-    TRACE ("enters get_fan_zone_value for %s", str_zonename);
 
     str_filename = g_strdup_printf ("%s/%s/%s/%s", ACPI_PATH, ACPI_DIR_FAN,
                                 str_zonename, ACPI_FILE_FAN);
@@ -250,8 +242,6 @@ get_battery_zone_value (gchar *str_zone)
 #endif
 
     g_return_val_if_fail(str_zone!=NULL, res_value);
-
-    TRACE ("enters get_battery_zone_value for %s", str_zone);
 
 #ifdef HAVE_SYSFS_ACPI
     str_filename = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, str_zone, SYS_FILE_ENERGY);
@@ -305,8 +295,6 @@ read_battery_zone (t_chip *ptr_chip)
     t_chipfeature *ptr_chipfeature = NULL;
 
     g_return_val_if_fail(ptr_chip!=NULL, res_value);
-
-    TRACE ("enters read_battery_zone");
 
 #ifdef HAVE_SYSFS_ACPI
     if ((chdir (SYS_PATH) == 0) && (chdir (SYS_DIR_POWER) == 0)) {
@@ -424,12 +412,9 @@ read_battery_zone (t_chip *ptr_chip)
 
         if (ptr_dir)
             closedir (ptr_dir);
-
-        TRACE ("leaves read_battery_zone");
     }
     else
     {
-        TRACE ("leaves read_battery_zone");
         res_value = -2;
     }
 
@@ -450,8 +435,6 @@ get_battery_max_value (gchar *str_filename, t_chipfeature *ptr_chipfeature)
     g_return_if_fail(str_filename!=NULL);
 
     g_return_if_fail(ptr_chipfeature!=NULL);
-
-    TRACE ("enters get_battery_max_value");
 
 #ifdef HAVE_SYSFS_ACPI
     str_pathtofile = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, str_filename, SYS_FILE_ENERGY_MAX);
@@ -487,8 +470,6 @@ get_battery_max_value (gchar *str_filename, t_chipfeature *ptr_chipfeature)
     }
 
     g_free (str_pathtofile);
-
-    TRACE ("leaves get_battery_max_value");
 }
 
 
@@ -504,8 +485,6 @@ read_fan_zone (t_chip *ptr_chip)
     t_chipfeature *ptr_chipfeature = NULL;
 
     g_return_val_if_fail(ptr_chip != NULL, res_value);
-
-    TRACE ("enters read_fan_zone");
 
     if ((chdir (ACPI_PATH) == 0) && (chdir (ACPI_DIR_FAN) == 0))
     {
@@ -556,11 +535,8 @@ read_fan_zone (t_chip *ptr_chip)
 
         if (ptr_dir)
             closedir (ptr_dir);
-
-        TRACE ("leaves read_fan_zone");
     }
     else {
-        TRACE ("leaves read_fan_zone");
         res_value = -2;
     }
     return res_value;
@@ -577,8 +553,6 @@ get_power_zone_value (gchar *str_zone)
     gchar buffer [1024], *str_filename;
 
     g_return_val_if_fail(str_zone!=NULL, res_value);
-
-    TRACE ("enters get_power_zone_value for %s", str_zone);
 
     str_filename = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, str_zone, SYS_FILE_POWER);
 
@@ -609,8 +583,6 @@ get_voltage_zone_value (gchar *str_zone)
     gchar buffer [1024], *str_filename;
 
     g_return_val_if_fail(str_zone!=NULL, res_value);
-
-    TRACE ("enters get_voltage_zone_value for %s", str_zone);
 
     str_filename = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, str_zone,  SYS_FILE_VOLTAGE);
 
@@ -644,8 +616,6 @@ read_power_zone (t_chip *ptr_chip)
     t_chipfeature *ptr_chipfeature = NULL;
 
     g_return_val_if_fail(ptr_chip!=NULL, res_value);
-
-    TRACE ("enters read_power_zone");
 
     if ((chdir (SYS_PATH) == 0) && (chdir (SYS_DIR_POWER) == 0)) {
         ptr_dir = opendir (".");
@@ -692,12 +662,9 @@ read_power_zone (t_chip *ptr_chip)
 
         if (ptr_dir)
             closedir (ptr_dir);
-
-        TRACE ("leaves read_power_zone");
     }
     else
     {
-        TRACE ("leaves read_power_zone");
         res_value = -2;
     }
 
@@ -718,8 +685,6 @@ read_voltage_zone (t_chip *ptr_chip)
     t_chipfeature *ptr_chipfeature = NULL;
 
     g_return_val_if_fail(ptr_chip!=NULL, res_value);
-
-    TRACE ("enters read_voltage_zone");
 
     if ((chdir (SYS_PATH) == 0) && (chdir (SYS_DIR_POWER) == 0)) {
         ptr_dir = opendir (".");
@@ -772,12 +737,9 @@ read_voltage_zone (t_chip *ptr_chip)
 
         if (ptr_dir)
             closedir (ptr_dir);
-
-        TRACE ("leaves read_voltage_zone");
     }
     else
     {
-        TRACE ("leaves read_voltage_zone");
         res_value = -2;
     }
 
@@ -794,8 +756,6 @@ initialize_ACPI (GPtrArray *arr_ptr_chips)
     gchar *str_acpi_info = NULL;
 
     g_return_val_if_fail(arr_ptr_chips != NULL, -1);
-
-    TRACE ("enters initialize_ACPI");
 
     ptr_chip = g_new0 (t_chip, 1);
     g_return_val_if_fail(ptr_chip != NULL, -1);
@@ -831,8 +791,6 @@ initialize_ACPI (GPtrArray *arr_ptr_chips)
 
     g_ptr_array_add (arr_ptr_chips, ptr_chip);
 
-    TRACE ("leaves initialize_ACPI");
-
     return 4;
 }
 
@@ -848,8 +806,6 @@ refresh_acpi (gpointer ptr_chipfeature, gpointer ptr_unused)
     FILE *ptr_file = NULL;
     gchar buffer[1024];
 #endif
-
-    TRACE ("enters refresh_acpi");
 
     cf = (t_chipfeature *) ptr_chipfeature;
 
@@ -910,8 +866,6 @@ refresh_acpi (gpointer ptr_chipfeature, gpointer ptr_unused)
             printf ("Unknown ACPI type. Please check your ACPI installation "
                     "and restart the plugin.\n");
     }
-
-    TRACE ("leaves refresh_acpi");
 }
 
 
@@ -919,8 +873,6 @@ refresh_acpi (gpointer ptr_chipfeature, gpointer ptr_unused)
 gint
 acpi_ignore_directory_entry (struct dirent *ptr_dirent)
 {
-    TRACE ("enters and leaves acpi_ignore_directory_entry");
-
     g_return_val_if_fail(ptr_dirent!=NULL, INT_MAX);
 
     return strcmp (ptr_dirent->d_name, "temperature");
@@ -936,8 +888,6 @@ gchar *
 get_acpi_info (void)
 {
     gchar *str_filename, *str_version;
-
-    TRACE ("enters get_acpi_info");
 
     str_filename = g_strdup_printf ("%s/%s", ACPI_PATH, ACPI_INFO);
     str_version = get_acpi_value (str_filename);
@@ -959,8 +909,6 @@ get_acpi_info (void)
     else
         str_version = g_strdup(_("<Unknown>"));
 
-    TRACE ("leaves get_acpi_info");
-
     return str_version;
 }
 
@@ -980,13 +928,9 @@ get_acpi_zone_value (gchar *str_zone, gchar *str_filename)
 
     g_return_val_if_fail(str_filename != NULL, res_value);
 
-    TRACE ("enters get_acpi_zone_value for %s/%s", str_zone, str_filename);
-
     str_localfilename = g_strdup_printf ("%s/%s/%s", ACPI_PATH, str_zone, str_filename);
     str_value = get_acpi_value (str_localfilename);
     g_free(str_localfilename);
-
-    TRACE ("leaves get_acpi_zone_value with correctly converted value");
 
     /* Return it as a double */
     if (str_value)
@@ -1008,8 +952,6 @@ get_acpi_value (gchar *str_filename)
 
     g_return_val_if_fail(str_filename != NULL, str_result);
 
-    TRACE ("enters get_acpi_value for %s", str_filename);
-
     ptr_file = fopen (str_filename, "r");
     if (ptr_file)
     {
@@ -1018,8 +960,6 @@ get_acpi_value (gchar *str_filename)
 
         ptr_valueinstring = strip_key_colon_spaces (buffer);
         g_assert(ptr_valueinstring!=NULL); /* points to beginning of buffer at least */
-
-        TRACE ("leaves get_acpi_value with %s", ptr_valueinstring);
 
         str_result = g_strdup (ptr_valueinstring);
     }

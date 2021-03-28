@@ -56,8 +56,6 @@ initialize_all (GPtrArray **outptr_arr_ptr_chips, gboolean *outptr_suppressmessa
 {
     int result = 0;
 
-    TRACE ("enters initialize_all");
-
     g_assert (outptr_arr_ptr_chips != NULL);
 
     *outptr_arr_ptr_chips = g_ptr_array_new(); //_with_free_func(free_chip);
@@ -78,8 +76,6 @@ initialize_all (GPtrArray **outptr_arr_ptr_chips, gboolean *outptr_suppressmessa
     result += initialize_nvidia (*outptr_arr_ptr_chips);
     #endif
 
-    TRACE ("leaves initialize_all, chips->len=%d", (*outptr_arr_ptr_chips)->len);
-
     return result;
 }
 
@@ -89,8 +85,6 @@ void
 refresh_chip (gpointer ptr_chip, gpointer ptr_data)
 {
     t_chip *ptr_chip_structure;
-
-    TRACE ("enters refresh_chip");
 
     g_assert (ptr_chip != NULL);
 
@@ -131,8 +125,6 @@ refresh_chip (gpointer ptr_chip, gpointer ptr_data)
             break;
         }
     }
-
-    TRACE ("leaves refresh_chip");
 }
 
 
@@ -140,14 +132,10 @@ refresh_chip (gpointer ptr_chip, gpointer ptr_data)
 void
 refresh_all_chips (GPtrArray *arr_ptr_chips, t_sensors *ptr_sensors )
 {
-    TRACE ("enters refresh_all_chips");
-
     g_assert (arr_ptr_chips != NULL);
     g_assert (ptr_sensors != NULL);
 
     g_ptr_array_foreach (arr_ptr_chips, refresh_chip, ptr_sensors);
-
-    TRACE ("leaves refresh_all_chips");
 }
 
 
@@ -155,7 +143,6 @@ refresh_all_chips (GPtrArray *arr_ptr_chips, t_sensors *ptr_sensors )
 void
 categorize_sensor_type (t_chipfeature* ptr_chipfeature)
 {
-    TRACE ("enters categorize_sensor_type");
     g_assert (ptr_chipfeature != NULL);
 
     if ( strstr(ptr_chipfeature->name, "Temp")!=NULL
@@ -196,8 +183,6 @@ categorize_sensor_type (t_chipfeature* ptr_chipfeature)
         ptr_chipfeature->min_value = 0.0;
         ptr_chipfeature->max_value = 7000.0;
     }
-
-    TRACE ("leaves categorize_sensor_type");
 }
 
 

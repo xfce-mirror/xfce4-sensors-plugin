@@ -132,8 +132,6 @@ quick_message_dialog (gchar *str_message)
 {
     GtkWidget *ptr_dialog;
 
-    TRACE ("enters quick_message");
-
     ptr_dialog = gtk_message_dialog_new (NULL,
                                   GTK_DIALOG_DESTROY_WITH_PARENT,
                                   GTK_MESSAGE_INFO,
@@ -145,8 +143,6 @@ quick_message_dialog (gchar *str_message)
 
     // gtk_dialog_run(GTK_DIALOG(ptr_dialog));
     gtk_widget_show_all(ptr_dialog);
-
-    TRACE ("leaves quick_message");
 }
 
 
@@ -156,8 +152,6 @@ quick_message_with_checkbox (gchar *str_message, gchar *str_checkboxtext)
 {
     GtkWidget *ptr_dialog, *ptr_checkbox, *ptr_contentarea;
     gboolean is_active;
-
-    TRACE ("enters quick_message");
 
     ptr_dialog = gtk_message_dialog_new (NULL,
                                   0, /* GTK_DIALOG_DESTROY_WITH_PARENT */
@@ -178,8 +172,6 @@ quick_message_with_checkbox (gchar *str_message, gchar *str_checkboxtext)
     is_active = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON(ptr_checkbox));
 
     gtk_widget_destroy (ptr_dialog);
-
-    TRACE ("leaves quick_message");
 
     return is_active;
 }
@@ -243,8 +235,6 @@ read_disks_fallback (t_chip *ptr_chip)
     t_chipfeature *ptr_chipfeature;
     const gchar* str_devicename;
 
-    TRACE ("enters read_disks_fallback");
-
     /* read from /proc/ide */
     ptr_error = NULL;
     ptr_dir = g_dir_open ("/proc/ide/", 0, &ptr_error);
@@ -263,8 +253,6 @@ read_disks_fallback (t_chip *ptr_chip)
     g_dir_close (ptr_dir);
 
     /* FIXME: read SCSI info from where? SATA?  */
-
-    TRACE ("leaves read_disks_fallback");
 }
 
 
@@ -275,8 +263,6 @@ read_disks_linux26 (t_chip *ptr_chip)
     GDir *ptr_dir;
     t_chipfeature *ptr_chipfeature;
     const gchar* str_devicename;
-
-    TRACE ("enters read_disks_linux26");
 
     /* read from /sys/block */
     ptr_dir = g_dir_open ("/sys/block/", 0, NULL);
@@ -299,8 +285,6 @@ read_disks_linux26 (t_chip *ptr_chip)
     }
 
     g_dir_close (ptr_dir);
-
-    TRACE ("leaves read_disks_linux26");
 }
 #endif
 
@@ -311,8 +295,6 @@ remove_unmonitored_drives (t_chip *ptr_chip, gboolean *suppressmessage)
 {
     int idx_features, val_disk_temperature;
     t_chipfeature *ptr_chipfeature;
-
-    TRACE ("enters remove_unmonitored_drives");
 
     for (idx_features=0; idx_features<ptr_chip->num_features; idx_features++)
     {
@@ -339,8 +321,6 @@ remove_unmonitored_drives (t_chip *ptr_chip, gboolean *suppressmessage)
             return;
         }
     }
-
-    TRACE ("leaves remove_unmonitored_drives");
 }
 
 
@@ -350,8 +330,6 @@ populate_detected_drives (t_chip *ptr_chip)
 {
     int idx_disks;
     t_chipfeature *ptr_chipfeature;
-
-    TRACE ("enters populate_detected_drives");
 
     for (idx_disks=0; idx_disks < ptr_chip->num_features; idx_disks++)
     {
@@ -370,8 +348,6 @@ populate_detected_drives (t_chip *ptr_chip)
 
        ptr_chipfeature->show = FALSE;
     }
-
-    TRACE ("leaves populate_detected_drives");
 }
 
 
@@ -387,8 +363,6 @@ initialize_hddtemp (GPtrArray *arr_ptr_chips, gboolean *suppressmessage)
     t_chip *ptr_chip;
 
     g_assert (arr_ptr_chips!=NULL);
-
-    TRACE ("enters initialize_hddtemp");
 
     ptr_chip = g_new0 (t_chip, 1);
 
@@ -435,8 +409,6 @@ initialize_hddtemp (GPtrArray *arr_ptr_chips, gboolean *suppressmessage)
         free_chip(ptr_chip, NULL);
         result = 0;
     }
-
-    TRACE ("leaves initialize_hddtemp");
 
     return result;
 }
@@ -521,8 +493,6 @@ get_hddtemp_value (char* str_disk, gboolean *ptr_suppressmessage)
         f_nevershowagain = *ptr_suppressmessage;
     else
         f_nevershowagain = FALSE;
-
-    TRACE ("enters get_hddtemp_value for %s with suppress=%d", str_disk, f_nevershowagain); /* *ptr_suppressmessage); */
 
 #ifdef HAVE_NETCAT
 
@@ -648,8 +618,6 @@ get_hddtemp_value (char* str_disk, gboolean *ptr_suppressmessage)
     if (ptr_f_error)
       g_error_free(ptr_f_error);
 
-    TRACE ("leaves get_hddtemp_value");
-
     return val_drive_temperature;
 }
 
@@ -665,8 +633,6 @@ refresh_hddtemp (gpointer chip_feature, gpointer ptr_sensors)
 
     g_assert (chip_feature!=NULL);
 
-    TRACE ("enters refresh_hddtemp");
-
     if (ptr_sensors != NULL)
     {
         ptr_sensors_plugin_data = (t_sensors *) ptr_sensors;
@@ -678,6 +644,4 @@ refresh_hddtemp (gpointer chip_feature, gpointer ptr_sensors)
     val_drive_temperature = get_hddtemp_value (ptr_chipfeature->devicename, ptr_f_suppress);
 
     ptr_chipfeature->raw_value = val_drive_temperature;
-
-    TRACE ("leaves refresh_hddtemp");
 }
