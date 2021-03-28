@@ -242,27 +242,23 @@ static void
 sensors_remove_tacho_panel (t_sensors *ptr_sensorsstructure)
 {
     gint idx_sensorchips, idx_feature;
-    t_chip *ptr_chip;
-    t_chipfeature *ptr_chipfeature;
-    GtkWidget *ptr_tacho;
 
     TRACE ("enters sensors_remove_tacho_panel");
 
     g_return_if_fail(ptr_sensorsstructure != NULL);
 
     for (idx_sensorchips=0; idx_sensorchips < ptr_sensorsstructure->num_sensorchips; idx_sensorchips++) {
-        ptr_chip = (t_chip *) g_ptr_array_index(ptr_sensorsstructure->chips, idx_sensorchips);
+        t_chip *ptr_chip = (t_chip *) g_ptr_array_index(ptr_sensorsstructure->chips, idx_sensorchips);
         g_assert (ptr_chip != NULL);
 
         for (idx_feature=0; idx_feature < ptr_chip->num_features; idx_feature++) {
-            ptr_chipfeature = g_ptr_array_index(ptr_chip->chip_features, idx_feature);
+            t_chipfeature *ptr_chipfeature = g_ptr_array_index(ptr_chip->chip_features, idx_feature);
             g_assert (ptr_chipfeature != NULL);
 
-            if (ptr_chipfeature->show == TRUE) {
-                ptr_tacho = ptr_sensorsstructure->tachos[idx_sensorchips][idx_feature];
-                gtk_widget_hide (ptr_tacho);
-                gtk_widget_destroy (ptr_tacho);
-                ptr_tacho = NULL;
+            if (ptr_chipfeature->show) {
+                GtkWidget *tacho = ptr_sensorsstructure->tachos[idx_sensorchips][idx_feature];
+                gtk_widget_hide (tacho);
+                gtk_widget_destroy (tacho);
             }
         }
     }
@@ -1864,7 +1860,6 @@ list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,
     GtkTreePath *path;
     GtkTreeIter iter;
     gboolean toggle_item;
-    GtkWidget *tacho;
 
     TRACE ("enters list_cell_toggle");
 
@@ -1889,10 +1884,10 @@ list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,
 
     if (!toggle_item)
     {
-        tacho = sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)];
+        GtkWidget *tacho = sd->sensors->tachos[gtk_combo_box_active][atoi(path_str)];
         gtk_container_remove(GTK_CONTAINER(sd->sensors->widget_sensors), tacho);
         gtk_widget_destroy(tacho);
-        sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)] = NULL;
+        sd->sensors->tachos[gtk_combo_box_active][atoi(path_str)] = NULL;
     }
 
     /* set new value */
