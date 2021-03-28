@@ -1095,7 +1095,7 @@ sensors_show_panel (t_sensors *ptr_sensors)
       case DISPLAY_BARS:
         sensors_show_graphical_display (ptr_sensors);
         break;
-      default:
+      case DISPLAY_TEXT:
         sensors_show_text_display (ptr_sensors);
 	break;
     }
@@ -1169,20 +1169,27 @@ sensors_set_mode (XfcePanelPlugin *ptr_xfcepanelplugin, XfcePanelPluginMode mode
 
     ptr_sensorsstructure->plugin_mode = mode_panelplugin; /* now assign the new orientation */
 
-    gtk_widget_destroy (ptr_sensorsstructure->panel_label_text);
+    switch (ptr_sensorsstructure->display_values_type) {
+        case DISPLAY_BARS:
+            sensors_remove_graphical_panel (ptr_sensorsstructure);
+            break;
+        case DISPLAY_TACHO:
+            sensors_remove_tacho_panel (ptr_sensorsstructure);
+            break;
+        case DISPLAY_TEXT:
+            break;
+    }
+
     gtk_widget_destroy (ptr_sensorsstructure->panel_label_data);
-
+    gtk_widget_destroy (ptr_sensorsstructure->panel_label_text);
     gtk_widget_destroy (ptr_sensorsstructure->widget_sensors);
+    ptr_sensorsstructure->panel_label_data = NULL;
+    ptr_sensorsstructure->panel_label_text = NULL;
+    ptr_sensorsstructure->widget_sensors = NULL;
 
-    if (ptr_sensorsstructure->display_values_type == DISPLAY_BARS)
-        sensors_remove_graphical_panel (ptr_sensorsstructure);
-    else if (ptr_sensorsstructure->display_values_type == DISPLAY_TACHO)
-        sensors_remove_tacho_panel (ptr_sensorsstructure);
+    create_panel_widget (ptr_sensorsstructure);
 
-    create_panel_widget(ptr_sensorsstructure);
-
-    gtk_container_add (GTK_CONTAINER (ptr_sensorsstructure->eventbox),
-                       ptr_sensorsstructure->widget_sensors);
+    gtk_container_add (GTK_CONTAINER (ptr_sensorsstructure->eventbox), ptr_sensorsstructure->widget_sensors);
 
     TRACE ("leaves sensors_set_mode");
 }
