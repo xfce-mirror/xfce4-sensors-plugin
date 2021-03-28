@@ -46,8 +46,6 @@ get_Id_from_address (gint idx_chip, gint addr_chipfeature, t_sensors *ptr_sensor
     t_chip *ptr_chip = NULL;
     t_chipfeature *ptr_chipfeature = NULL;
 
-    TRACE ("enters get_Id_from_address");
-
     g_return_val_if_fail(ptr_sensors!=NULL, result);
 
     ptr_chip = (t_chip *) g_ptr_array_index (ptr_sensors->chips, idx_chip);
@@ -67,7 +65,6 @@ get_Id_from_address (gint idx_chip, gint addr_chipfeature, t_sensors *ptr_sensor
         }
     }
 
-    TRACE ("leaves get_Id_from_address with %d", result);
     return result;
 }
 
@@ -82,23 +79,15 @@ sensors_write_config (XfcePanelPlugin *plugin,t_sensors *ptr_sensors)
     t_chip *ptr_chip;
     t_chipfeature *ptr_chipfeature;
 
-    TRACE ("enters sensors_write_config: 0x%llX.", (unsigned long long int) ptr_sensors);
-
     g_return_if_fail(ptr_sensors!=NULL);
 
-    if ( ! (str_file = ptr_sensors->plugin_config_file) ) {
-        TRACE ("leaves sensors_write_config: No file location specified.");
-    }
-    else
+    if ((str_file = ptr_sensors->plugin_config_file) != NULL)
     {
         unlink (str_file);
 
         ptr_xfcerc = xfce_rc_simple_open (str_file, FALSE);
 
-        if (!ptr_xfcerc) {
-            TRACE ("leaves sensors_write_config: No rc file opened");
-        }
-        else
+        if (ptr_xfcerc)
         {
             xfce_rc_set_group (ptr_xfcerc, "General");
 
@@ -202,8 +191,6 @@ sensors_write_config (XfcePanelPlugin *plugin,t_sensors *ptr_sensors)
             } /* end for idx_chips */
 
             xfce_rc_close (ptr_xfcerc);
-
-            TRACE ("leaves sensors_write_config");
         }
     }
 }
@@ -214,8 +201,6 @@ void
 sensors_read_general_config (XfceRc *ptr_xfceresources, t_sensors *ptr_sensors)
 {
     const gchar *str_value;
-
-    TRACE ("enters sensors_read_general_config");
 
     g_return_if_fail(ptr_xfceresources!=NULL);
 
@@ -285,8 +270,6 @@ sensors_read_general_config (XfceRc *ptr_xfceresources, t_sensors *ptr_sensors)
         //num_chips = xfce_rc_read_int_entry (ptr_xfceresources, "Number_Chips", 0);
         /* or could use 1 or the always existent dummy entry */
     }
-
-    TRACE ("leaves sensors_read_general_config");
 }
 
 
@@ -295,8 +278,6 @@ void
 sensors_read_preliminary_config (XfcePanelPlugin *ptr_panelplugin, t_sensors *ptr_sensors)
 {
     XfceRc *ptr_xfceresource;
-
-    TRACE ("enters sensors_read_preliminary_config");
 
     if (ptr_panelplugin)
     {
@@ -312,8 +293,6 @@ sensors_read_preliminary_config (XfcePanelPlugin *ptr_panelplugin, t_sensors *pt
             }
         }
     }
-
-    TRACE ("leaves sensors_read_preliminary_config");
 }
 
 
@@ -332,8 +311,6 @@ sensors_read_config (XfcePanelPlugin *ptr_panelplugin, t_sensors *ptr_sensors)
     gint num_sensorchip;
     t_chip *ptr_chip;
     t_chipfeature *ptr_chipfeature;
-
-    TRACE ("enters sensors_read_config");
 
     g_return_if_fail(ptr_panelplugin!=NULL);
 
@@ -443,6 +420,4 @@ sensors_read_config (XfcePanelPlugin *ptr_panelplugin, t_sensors *ptr_sensors)
     if (!ptr_sensors->exec_command) {
         g_signal_handler_block ( G_OBJECT(ptr_sensors->eventbox), ptr_sensors->doubleclick_id );
     }
-
-    TRACE ("leaves sensors_read_config");
 }

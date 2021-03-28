@@ -61,8 +61,6 @@ refresh_sensor_data (t_sensors_dialog *ptr_sensors_dialog_structure)
     t_chipfeature *ptr_chipfeature_structure;
     t_chip *ptr_chip_structure;
 
-    TRACE ("enters refresh_sensor_data");
-
     ptr_sensors_structure = ptr_sensors_dialog_structure->sensors;
 
     for (idx_chip=0; idx_chip < ptr_sensors_structure->num_sensorchips; idx_chip++) {
@@ -99,8 +97,6 @@ refresh_sensor_data (t_sensors_dialog *ptr_sensors_dialog_structure)
             } /* end if ptr_chipfeature_structure->valid */
         }
     }
-
-    TRACE ("leaves refresh_sensor_data");
 }
 
 
@@ -122,8 +118,6 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
     gchar str_widget_tooltip_text[128];
     gint num_max_cols, num_max_rows;
     SensorsTachoStyle tacho_style = style_MinGYR; /* default as has been for 10 years */
-
-    TRACE ("enters refresh_tacho_view");
 
     g_return_if_fail (ptr_sensors_dialog_structure!=NULL);
 
@@ -237,8 +231,6 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
     }
 
     /* TODO: Rearrange all widgets in order to distribute evenly */
-
-    TRACE ("leaves refresh_tacho_view");
 }
 
 
@@ -246,13 +238,9 @@ refresh_tacho_view (t_sensors_dialog *ptr_sensors_dialog_structure)
 void
 refresh_view (t_sensors_dialog *ptr_sensors_dialog)
 {
-    TRACE ("enters refresh_view");
-
     refresh_sensor_data (ptr_sensors_dialog);
     reload_listbox (ptr_sensors_dialog);
     refresh_tacho_view (ptr_sensors_dialog); /* refresh all the tacho elements in the notebook/table view */
-
-    TRACE ("leaves refresh_view");
 }
 
 gboolean

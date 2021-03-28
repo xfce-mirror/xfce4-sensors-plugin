@@ -43,8 +43,6 @@ sensors_new (XfcePanelPlugin *ptr_xfcepanelplugin, gchar * ptr_plugin_config_fil
     t_chip *ptr_chip;
     t_chipfeature *ptr_chipfeature;
 
-    TRACE ("enters sensors_new");
-
     ptr_sensors = g_new0 (t_sensors, 1);
     ptr_sensors->plugin_config_file = ptr_plugin_config_filename; /* important as we check against NULL frequently */
 
@@ -87,8 +85,6 @@ sensors_new (XfcePanelPlugin *ptr_xfcepanelplugin, gchar * ptr_plugin_config_fil
         g_ptr_array_add (ptr_chip->chip_features, ptr_chipfeature);
     }
 
-    TRACE ("leaves sensors_new");
-
     return ptr_sensors;
 }
 
@@ -97,8 +93,6 @@ sensors_new (XfcePanelPlugin *ptr_xfcepanelplugin, gchar * ptr_plugin_config_fil
 void
 sensors_init_default_values  (t_sensors *ptr_sensors, XfcePanelPlugin *ptr_xfcepanelplugin)
 {
-    TRACE ("enters sensors_init_default_values");
-
     g_return_if_fail(ptr_sensors!=NULL);
 
     ptr_sensors->show_title = TRUE;
@@ -132,8 +126,6 @@ sensors_init_default_values  (t_sensors *ptr_sensors, XfcePanelPlugin *ptr_xfcep
     ptr_sensors->val_tachos_alpha = ALPHA_CHANNEL_VALUE;
 
     font = g_strdup("Sans 11");
-
-    TRACE ("leaves sensors_init_default_values");
 }
 
 

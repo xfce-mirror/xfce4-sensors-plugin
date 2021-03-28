@@ -95,8 +95,6 @@ fill_gtkTreeStore (GtkTreeStore *ptr_treestore, t_chip *ptr_chip, t_tempscale te
     ptr_iconpath = "xfce-sensors";
 #endif
 
-    TRACE ("enters fill_gtkTreeStore");
-
     ptr_suppressnotifications = &(ptr_sensorsdialog->sensors->suppressmessage);
 
     for (idx_chipfeature=0; idx_chipfeature < ptr_chip->num_features; idx_chipfeature++)
@@ -148,8 +146,6 @@ fill_gtkTreeStore (GtkTreeStore *ptr_treestore, t_chip *ptr_chip, t_tempscale te
                                 -1);
         } /* end if sensors-valid */
     }
-
-    TRACE ("leaves fill_gtkTreeStore");
 }
 
 
@@ -160,8 +156,6 @@ add_type_box (GtkWidget *ptr_widget_vbox, t_sensors_dialog *ptr_sensorsdialog)
     GtkWidget *ptr_hbox, *ptr_labelwidget;
     t_chip *ptr_chip;
     gint idx_activecomboboxentry;
-
-    TRACE ("enters add_type_box");
 
     ptr_hbox = gtk_hbox_new (FALSE, BORDER);
     gtk_widget_show (ptr_hbox);
@@ -199,8 +193,6 @@ add_type_box (GtkWidget *ptr_widget_vbox, t_sensors_dialog *ptr_sensorsdialog)
 
     g_signal_connect (G_OBJECT (ptr_sensorsdialog->myComboBox), "changed",
                       G_CALLBACK (sensor_entry_changed), ptr_sensorsdialog );
-
-    TRACE ("leaves add_type_box");
 }
 
 
@@ -210,8 +202,6 @@ add_update_time_box (GtkWidget *ptr_widget_vbox, t_sensors_dialog *ptr_sensorsdi
 {
     GtkWidget *ptr_labelwidget, *ptr_hbox;
     GtkAdjustment *ptr_spinneradjustment;
-
-    TRACE ("enters add_update_time_box");
 
     ptr_spinneradjustment = (GtkAdjustment *) gtk_adjustment_new (
         /* TODO: restore original */
@@ -235,8 +225,6 @@ add_update_time_box (GtkWidget *ptr_widget_vbox, t_sensors_dialog *ptr_sensorsdi
 
     g_signal_connect   (G_OBJECT (ptr_spinneradjustment), "value_changed",
                         G_CALLBACK (adjustment_value_changed), ptr_sensorsdialog );
-
-    TRACE ("leaves add_update_time_box");
 }
 
 
@@ -248,8 +236,6 @@ add_sensor_settings_box (GtkWidget *ptr_widget_vbox, t_sensors_dialog *ptr_senso
     GtkCellRenderer *ptr_textcellrenderer, *ptr_togglecellrenderer;
     GtkWidget *ptr_scrolledwindow;
     gint idx_activecomboboxentry;
-
-    TRACE ("enters add_sensor_settings_box");
 
     idx_activecomboboxentry =
         gtk_combo_box_get_active(GTK_COMBO_BOX(ptr_sensorsdialog->myComboBox));
@@ -328,8 +314,6 @@ add_sensor_settings_box (GtkWidget *ptr_widget_vbox, t_sensors_dialog *ptr_senso
 
     gtk_widget_show (ptr_sensorsdialog->myTreeView);
     gtk_widget_show (ptr_scrolledwindow);
-
-    TRACE ("leaves add_sensor_settings_box");
 }
 
 
@@ -338,8 +322,6 @@ void
 add_temperature_unit_box (GtkWidget *ptr_widget_vbox, t_sensors_dialog *ptr_sensorsdialog)
 {
     GtkWidget *ptr_hbox, *ptr_labelwidget, *ptr_radiobutton_celsius, *ptr_radiobutton_fahrenheit;
-
-    TRACE ("enters add_temperature_unit_box");
 
     ptr_hbox = gtk_hbox_new (FALSE, BORDER);
     gtk_widget_show (ptr_hbox);
@@ -367,8 +349,6 @@ add_temperature_unit_box (GtkWidget *ptr_widget_vbox, t_sensors_dialog *ptr_sens
 
     g_signal_connect (G_OBJECT (ptr_radiobutton_celsius), "toggled",
                       G_CALLBACK (temperature_unit_change), ptr_sensorsdialog );
-
-    TRACE ("leaves add_temperature_unit_box");
 }
 
 
@@ -377,8 +357,6 @@ void
 add_sensors_frame (GtkWidget *ptr_widget_notebook, t_sensors_dialog * ptr_sensorsdialog)
 {
     GtkWidget *ptr_vbox, *ptr_label;
-
-    TRACE ("enters add_sensors_frame");
 
     ptr_vbox = gtk_vbox_new (FALSE, OUTER_BORDER);
     gtk_container_set_border_width (GTK_CONTAINER(ptr_vbox), OUTER_BORDER);
@@ -396,8 +374,6 @@ add_sensors_frame (GtkWidget *ptr_widget_notebook, t_sensors_dialog * ptr_sensor
     add_sensor_settings_box (ptr_vbox, ptr_sensorsdialog);
 
     add_temperature_unit_box (ptr_vbox, ptr_sensorsdialog);
-
-    TRACE ("leaves add_sensors_frame");
 }
 
 
@@ -406,8 +382,6 @@ void
 free_widgets (t_sensors_dialog *ptr_sensors_dialog)
 {
     int idx_chip;
-
-    TRACE ("enters free_widgets");
 
     g_return_if_fail(ptr_sensors_dialog != NULL);
 
@@ -442,8 +416,6 @@ free_widgets (t_sensors_dialog *ptr_sensors_dialog)
 
     g_free (ptr_sensors_dialog->sensors->str_fontsize);
     ptr_sensors_dialog->sensors->str_fontsize = NULL;
-
-    TRACE ("leaves free_widgets");
 }
 
 
@@ -457,8 +429,6 @@ init_widgets (t_sensors_dialog *ptr_sensorsdialog)
     GtkTreeIter iter;
     t_sensors *ptr_sensors;
     GtkTreeStore *ptr_treemodel;
-
-    TRACE ("enters init_widgets");
 
     g_return_if_fail(ptr_sensorsdialog != NULL);
 
@@ -505,7 +475,6 @@ init_widgets (t_sensors_dialog *ptr_sensorsdialog)
                             eTreeColumn_Max, 0.0,            /* chipfeature->max_value */
                             -1);
     }
-    TRACE ("leaves init_widgets");
 }
 
 
@@ -517,8 +486,6 @@ reload_listbox (t_sensors_dialog *ptr_sensorsdialog)
     t_chip *ptr_chip_structure;
     GtkTreeStore *ptr_tree_store;
     t_sensors *ptr_sensors_structure;
-
-    TRACE ("enters reload_listbox");
 
     g_return_if_fail(ptr_sensorsdialog != NULL);
 
@@ -534,5 +501,4 @@ reload_listbox (t_sensors_dialog *ptr_sensorsdialog)
         fill_gtkTreeStore (ptr_tree_store, ptr_chip_structure, ptr_sensors_structure->scale, ptr_sensorsdialog);
 
     }
-    TRACE ("leaves reload_listbox");
 }

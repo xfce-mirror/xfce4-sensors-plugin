@@ -56,11 +56,7 @@ void on_font_set (GtkWidget *ptr_widget, gpointer data)
 void
 on_main_window_response (GtkWidget *ptr_dialog, int response, t_sensors_dialog *ptr_sensorsdialog)
 {
-    TRACE ("enters on_main_window_response");
-
     gtk_main_quit();
-
-    TRACE ("leaves on_main_window_response");
 }
 
 
@@ -71,8 +67,6 @@ sensor_entry_changed_ (GtkWidget *ptr_comboboxwidget, t_sensors_dialog *ptr_sens
     gint idx_active_combobox;
     t_chip *ptr_chip;
 
-    TRACE ("enters sensor_entry_changed");
-
     idx_active_combobox = gtk_combo_box_get_active(GTK_COMBO_BOX (ptr_comboboxwidget));
 
     ptr_chip = (t_chip *) g_ptr_array_index (ptr_sensorsdialog->sensors->chips,
@@ -82,8 +76,6 @@ sensor_entry_changed_ (GtkWidget *ptr_comboboxwidget, t_sensors_dialog *ptr_sens
 
     gtk_tree_view_set_model (GTK_TREE_VIEW (ptr_sensorsdialog->myTreeView),
                     GTK_TREE_MODEL ( ptr_sensorsdialog->myListStore[idx_active_combobox] ) );
-
-    TRACE ("leaves sensor_entry_changed");
 }
 
 /**
@@ -104,8 +96,6 @@ gint set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *ptr_s
     GtkTreeIter iter_treemodel;
     t_chip *ptr_chip;
     t_chipfeature *ptr_chipfeature;
-
-    TRACE ("enters list_cell_text_edited");
 
     idx_active_combobox =
         gtk_combo_box_get_active(GTK_COMBO_BOX (ptr_sensorsdialog->myComboBox));
@@ -145,8 +135,6 @@ list_cell_text_edited_ (GtkCellRendererText *ptr_cellrenderertext,
     GValue val_textstring = G_VALUE_INIT;
     GtkWidget *ptr_tacho;
 
-    TRACE ("enters list_cell_text_edited");
-
     g_value_init(&val_textstring, G_TYPE_STRING);
     g_value_set_static_string(&val_textstring, ptr_str_newtext);
     idx_active_combobox = set_value_in_treemodel_and_return_index_and_feature(
@@ -165,8 +153,6 @@ list_cell_text_edited_ (GtkCellRendererText *ptr_cellrenderertext,
         gtk_sensorstacho_set_text (GTK_SENSORSTACHO(ptr_tacho), ptr_str_newtext);
 
     refresh_view (ptr_sensorsdialog);
-
-    TRACE ("leaves list_cell_text_edited");
 }
 
 
@@ -182,8 +168,6 @@ list_cell_toggle_ (GtkCellRendererToggle *ptr_cellrenderertoggle, gchar *ptr_str
     GtkTreePath *ptr_treepath;
     GtkTreeIter treeiter;
     gboolean toggle_item;
-
-    TRACE ("enters list_cell_toggle");
 
     idx_active_combobox =
         gtk_combo_box_get_active(GTK_COMBO_BOX (ptr_sensorsdialog->myComboBox));
@@ -213,8 +197,6 @@ list_cell_toggle_ (GtkCellRendererToggle *ptr_cellrenderertoggle, gchar *ptr_str
 
     /* update tooltip and panel widget */
     refresh_view (ptr_sensorsdialog);
-
-    TRACE ("leaves list_cell_toggle");
 }
 
 
@@ -228,8 +210,6 @@ list_cell_color_edited_ (GtkCellRendererText *ptr_cellrenderertext, gchar *ptr_s
     t_chipfeature *ptr_chipfeature;
     GValue val_colorstring = G_VALUE_INIT;
     GtkWidget *ptr_tacho;
-
-    TRACE ("enters list_cell_color_edited");
 
     /* store new color in appropriate array */
     has_sharpprefix = g_str_has_prefix (ptr_str_newcolor, "#");
@@ -259,8 +239,6 @@ list_cell_color_edited_ (GtkCellRendererText *ptr_cellrenderertext, gchar *ptr_s
         if (ptr_tacho!=NULL)
             gtk_sensorstacho_set_color(GTK_SENSORSTACHO(ptr_sensorsdialog->sensors->tachos[idx_active_combobox][atoi(ptr_str_cellpath)]), ptr_str_newcolor);
     }
-
-    TRACE ("leaves list_cell_color_edited");
 }
 
 
@@ -273,8 +251,6 @@ minimum_changed_ (GtkCellRendererText *cellrenderertext, gchar *ptr_str_cellpath
     t_chipfeature *ptr_chipfeature;
     gfloat val_float;
     GValue val_minimum = G_VALUE_INIT;
-
-    TRACE ("enters minimum_changed");
 
     val_float = atof (new_value);
 
@@ -291,8 +267,6 @@ minimum_changed_ (GtkCellRendererText *cellrenderertext, gchar *ptr_str_cellpath
     /* update panel */
     if (ptr_sensorsdialog->sensors->tachos [idx_active_combobox][atoi(ptr_str_cellpath)]!=NULL)
         refresh_view (ptr_sensorsdialog);
-
-    TRACE ("leaves minimum_changed");
 }
 
 
@@ -305,8 +279,6 @@ maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *ptr_str_cellpath
     t_chipfeature *ptr_chipfeature;
     gfloat val_float;
     GValue val_maximum = G_VALUE_INIT;
-
-    TRACE ("enters maximum_changed");
 
     val_float = atof (new_value);
 
@@ -323,8 +295,6 @@ maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *ptr_str_cellpath
     /* update panel */
     if (ptr_sensorsdialog->sensors->tachos [idx_active_combobox][atoi(ptr_str_cellpath)]!=NULL)
       refresh_view (ptr_sensorsdialog);
-
-    TRACE ("leaves maximum_changed");
 }
 
 
@@ -332,8 +302,6 @@ maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *ptr_str_cellpath
 void
 adjustment_value_changed_ (GtkWidget *ptr_adjustmentwidget, t_sensors_dialog* ptr_sensorsdialog)
 {
-    TRACE ("enters adjustment_value_changed ");
-
     ptr_sensorsdialog->sensors->sensors_refresh_time =
         (gint) gtk_adjustment_get_value ( GTK_ADJUSTMENT (ptr_adjustmentwidget) );
 
@@ -343,8 +311,6 @@ adjustment_value_changed_ (GtkWidget *ptr_adjustmentwidget, t_sensors_dialog* pt
     ptr_sensorsdialog->sensors->timeout_id  = g_timeout_add (
         ptr_sensorsdialog->sensors->sensors_refresh_time * 1000,
         refresh_view_cb, ptr_sensorsdialog);
-
-    TRACE ("leaves adjustment_value_changed ");
 }
 
 
@@ -352,13 +318,9 @@ adjustment_value_changed_ (GtkWidget *ptr_adjustmentwidget, t_sensors_dialog* pt
 void
 temperature_unit_change_ (GtkWidget *ptr_unused, t_sensors_dialog *ptr_sensorsdialog)
 {
-    TRACE ("enters temperature_unit_change ");
-
     /* toggle celsius-fahrenheit by use of mathematics ;) */
     ptr_sensorsdialog->sensors->scale = 1 - ptr_sensorsdialog->sensors->scale;
 
     /* refresh the panel content */
     reload_listbox (ptr_sensorsdialog);
-
-    TRACE ("laeves temperature_unit_change ");
 }
