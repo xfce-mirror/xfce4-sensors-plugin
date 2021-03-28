@@ -241,22 +241,19 @@ sensors_read_general_config (XfceRc *ptr_xfceresources, t_sensors *ptr_sensors)
         }
 
         if ((str_value = xfce_rc_read_entry (ptr_xfceresources, "Font", NULL)) && *str_value) {
-            if (font)
-                g_free(font); // font is initialized to NULL
+            g_free(font);
             font = g_strdup(str_value); // in tacho.h for the tachometers
         }
         else if (font==NULL)
             font = g_strdup("Sans 11");
 
-        ptr_sensors->val_fontsize = xfce_rc_read_int_entry (ptr_xfceresources,
-                                                 "val_fontsize", 2);
+        ptr_sensors->val_fontsize = xfce_rc_read_int_entry (ptr_xfceresources, "val_fontsize", 2);
 
         ptr_sensors->lines_size = xfce_rc_read_int_entry (ptr_xfceresources, "Lines_Size", 3);
 
         ptr_sensors->cover_panel_rows = xfce_rc_read_bool_entry (ptr_xfceresources, "Cover_All_Panel_Rows", FALSE);
 
-        ptr_sensors->sensors_refresh_time = xfce_rc_read_int_entry (ptr_xfceresources, "Update_Interval",
-                                                  60);
+        ptr_sensors->sensors_refresh_time = xfce_rc_read_int_entry (ptr_xfceresources, "Update_Interval", 60);
 
         ptr_sensors->exec_command = xfce_rc_read_bool_entry (ptr_xfceresources, "Exec_Command", TRUE);
 
@@ -272,8 +269,7 @@ sensors_read_general_config (XfceRc *ptr_xfceresources, t_sensors *ptr_sensors)
         if (!ptr_sensors->suppressmessage)
             ptr_sensors->suppressmessage = xfce_rc_read_bool_entry (ptr_xfceresources, "Suppress_Hddtemp_Message", FALSE);
 
-        //if (!ptr_sensors->suppresstooltip)
-            ptr_sensors->suppresstooltip = xfce_rc_read_bool_entry (ptr_xfceresources, "Suppress_Tooltip", FALSE);
+        ptr_sensors->suppresstooltip = xfce_rc_read_bool_entry (ptr_xfceresources, "Suppress_Tooltip", FALSE);
 
         ptr_sensors->preferred_width = xfce_rc_read_int_entry (ptr_xfceresources, "Preferred_Width", 400);
         ptr_sensors->preferred_height = xfce_rc_read_int_entry (ptr_xfceresources, "Preferred_Height", 400);

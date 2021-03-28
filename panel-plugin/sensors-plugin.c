@@ -463,8 +463,7 @@ sensors_add_graphical_display (t_sensors *ptr_sensors)
                 ptr_labelledlevelbar->databox = widget_databox;
                 ptr_sensors->panels[idx_sensorchips][idx_feature] = ptr_labelledlevelbar;
 
-                gtk_box_pack_start (GTK_BOX (ptr_sensors->widget_sensors),
-                                    widget_databox, FALSE, FALSE, INNER_BORDER/2);
+                gtk_box_pack_start (GTK_BOX (ptr_sensors->widget_sensors), widget_databox, FALSE, FALSE, INNER_BORDER/2);
             }
         }
     }
@@ -548,11 +547,10 @@ sensors_add_tacho_display (t_sensors *ptr_sensors)
                     gtk_sensorstacho_unset_text(GTK_SENSORSTACHO(ptr_tacho));
                 }
 
-                ptr_sensors->tachos[idx_sensorchips][idx_feature] = (GtkWidget*) ptr_tacho;
+                ptr_sensors->tachos[idx_sensorchips][idx_feature] = ptr_tacho;
 
                 gtk_widget_show (ptr_tacho);
-                gtk_box_pack_start (GTK_BOX (ptr_sensors->widget_sensors),
-                                    ptr_tacho, FALSE, FALSE, INNER_BORDER);
+                gtk_box_pack_start (GTK_BOX (ptr_sensors->widget_sensors), ptr_tacho, FALSE, FALSE, INNER_BORDER);
             }
         }
     }
@@ -1124,7 +1122,7 @@ sensors_show_panel (t_sensors *ptr_sensors)
 /* -------------------------------------------------------------------------- */
 /* initialize box and label to pack them together */
 static void
-create_panel_widget (t_sensors * ptr_sensorsstructure)
+create_panel_widget (t_sensors *ptr_sensorsstructure)
 {
     TRACE ("enters create_panel_widget");
 
@@ -1158,7 +1156,7 @@ create_panel_widget (t_sensors * ptr_sensorsstructure)
 /* -------------------------------------------------------------------------- */
 static void
 sensors_set_mode (XfcePanelPlugin *ptr_xfcepanelplugin, XfcePanelPluginMode mode_panelplugin,
-                         t_sensors *ptr_sensorsstructure)
+                  t_sensors *ptr_sensorsstructure)
 {
     TRACE ("enters sensors_set_mode: %d", mode_panelplugin);
 
@@ -1319,8 +1317,7 @@ show_labels_toggled (GtkWidget *widget, t_sensors_dialog *sd)
         sensors_remove_tacho_panel (sd->sensors);
     }
 
-    sd->sensors->show_labels = gtk_toggle_button_get_active
-        ( GTK_TOGGLE_BUTTON(widget) );
+    sd->sensors->show_labels = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON(widget));
 
     sensors_show_panel (sd->sensors);
 
@@ -1632,11 +1629,9 @@ execCommand_toggled (GtkWidget *widget, t_sensors_dialog* sd)
         gtk_toggle_button_get_active ( GTK_TOGGLE_BUTTON (widget) );
 
     if ( sd->sensors->exec_command )
-        g_signal_handler_unblock (sd->sensors->eventbox,
-            sd->sensors->doubleclick_id);
+        g_signal_handler_unblock (sd->sensors->eventbox, sd->sensors->doubleclick_id);
     else
-        g_signal_handler_block (sd->sensors->eventbox,
-            sd->sensors->doubleclick_id );
+        g_signal_handler_block (sd->sensors->eventbox, sd->sensors->doubleclick_id);
 
     TRACE ("leaves execCommand_toggled");
 }
@@ -1890,7 +1885,7 @@ list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,
     /* do something with the value */
     toggle_item ^= 1;
 
-    if (toggle_item==FALSE)
+    if (!toggle_item)
     {
         tacho = sd->sensors->tachos [gtk_combo_box_active][atoi(path_str)];
         gtk_container_remove(GTK_CONTAINER(sd->sensors->widget_sensors), tacho);
@@ -2307,7 +2302,7 @@ add_tachos_appearance_boxes(GtkWidget * vbox, t_sensors_dialog * sd)
 {
     GtkWidget *widget_hscale;
     GtkWidget *widget_label;
-    //GtkWidget *widget_groupbox;
+
     TRACE ("enters add_tachos_appearance_boxes");
 
     sd->alpha_slider_box = gtk_hbox_new(FALSE, INNER_BORDER);
@@ -2340,13 +2335,10 @@ add_tachos_appearance_boxes(GtkWidget * vbox, t_sensors_dialog * sd)
     gtk_box_pack_start (GTK_BOX (vbox), sd->alpha_slider_box, FALSE, TRUE, 0);
     gtk_box_pack_start (GTK_BOX (vbox), sd->colorvalue_slider_box, FALSE, TRUE, 0);
 
-    //gtk_box_pack_start (GTK_BOX (vbox), widget_groupbox, FALSE, TRUE, 0);
-
     if (sd->sensors->display_values_type!=DISPLAY_TACHO)
     {
         gtk_widget_hide(sd->alpha_slider_box);
         gtk_widget_hide(sd->colorvalue_slider_box);
-        //gtk_widget_hide(widget_groupbox);
     }
 
     TRACE ("leaves add_tachos_appearance_boxes");
@@ -2654,8 +2646,7 @@ create_sensors_control (XfcePanelPlugin *plugin)
     create_panel_widget (ptr_sensorsstruct);
 
     /* finally add panel "sensors" to eventbox */
-    gtk_container_add (GTK_CONTAINER (ptr_sensorsstruct->eventbox),
-                       ptr_sensorsstruct->widget_sensors);
+    gtk_container_add (GTK_CONTAINER (ptr_sensorsstruct->eventbox), ptr_sensorsstruct->widget_sensors);
 
     TRACE ("leaves create_sensors_control");
 
@@ -2680,7 +2671,6 @@ sensors_show_about(XfcePanelPlugin *plugin, t_sensors *ptr_sensorsstruct)
       "website", "https://docs.xfce.org/panel-plugins/xfce4-sensors-plugin",
       "copyright", _("Copyright (c) 2004-2018\n"),
       "authors", auth, NULL);
-  // TODO: add translators.
 
    if(icon)
       g_object_unref(G_OBJECT(icon));
