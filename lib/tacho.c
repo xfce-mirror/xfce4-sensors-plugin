@@ -100,7 +100,7 @@ GtkWidget *
 gtk_sensorstacho_new(GtkOrientation orientation, guint size, SensorsTachoStyle style)
 {
     GtkSensorsTacho *ptr_sensorstacho = g_object_new(gtk_sensorstacho_get_type(), NULL);
-    TRACE("enter gtk_sensorstacho_new\n");
+    TRACE("enter gtk_sensorstacho_new");
 
     ptr_sensorstacho->orientation = orientation;
     ptr_sensorstacho->size = size;
@@ -130,7 +130,7 @@ static void
 gtk_sensorstacho_class_init (GtkSensorsTachoClass *ptr_gtksensorstachoclass)
 {
     GtkWidgetClass *ptr_widgetclass;
-    TRACE("enter gtk_sensorstacho_class_init\n");
+    TRACE("enter gtk_sensorstacho_class_init");
 
     ptr_widgetclass = GTK_WIDGET_CLASS (ptr_gtksensorstachoclass);
 
@@ -146,14 +146,14 @@ gtk_sensorstacho_class_init (GtkSensorsTachoClass *ptr_gtksensorstachoclass)
     if (font==NULL)
         font = g_strdup("Sans 11");
 
-    TRACE("leave gtk_sensorstacho_class_init\n");
+    TRACE("leave gtk_sensorstacho_class_init");
 }
 
 /* -------------------------------------------------------------------------- */
 static void
 gtk_sensorstacho_init (GtkSensorsTacho *ptr_sensorstacho)
 {
-    TRACE("enter gtk_sensorstacho_init\n");
+    TRACE("enter gtk_sensorstacho_init");
 
     g_return_if_fail (ptr_sensorstacho != NULL);
 
@@ -163,7 +163,7 @@ gtk_sensorstacho_init (GtkSensorsTacho *ptr_sensorstacho)
 
     gtk_sensorstacho_set_color(ptr_sensorstacho, NULL);
 
-    TRACE("leave gtk_sensorstacho_init\n");
+    TRACE("leave gtk_sensorstacho_init");
 }
 
 /* -------------------------------------------------------------------------- */
@@ -248,7 +248,8 @@ gtk_sensorstacho_size_allocate (GtkWidget *ptr_widget, GtkAllocation *ptr_alloca
 {
   gint min_widthheight;
 
-  TRACE("enter gtk_sensorstacho_size_allocate\n");
+  TRACE("enter gtk_sensorstacho_size_allocate");
+
   g_return_if_fail(ptr_widget != NULL);
   g_return_if_fail(GTK_IS_SENSORSTACHO(ptr_widget));
   g_return_if_fail(ptr_allocation != NULL);
@@ -267,7 +268,7 @@ gtk_sensorstacho_size_allocate (GtkWidget *ptr_widget, GtkAllocation *ptr_alloca
      );
   }
 
-  TRACE("leave gtk_sensorstacho_size_allocate\n");
+  TRACE("leave gtk_sensorstacho_size_allocate");
 }
 
 
@@ -289,7 +290,7 @@ gtk_sensorstacho_paint (GtkWidget *widget,
     GtkStyleContext *ptr_stylecontext = NULL;
     GtkSensorsTacho *ptr_tacho = GTK_SENSORSTACHO(widget);
 
-    TRACE("enter gtk_sensorstacho_paint\n");
+    TRACE("enter gtk_sensorstacho_paint");
 
     g_return_val_if_fail (ptr_cairo!=NULL, FALSE);
 
@@ -434,7 +435,7 @@ gtk_sensorstacho_paint (GtkWidget *widget,
         g_object_unref(ptr_layout);
     }
 
-    TRACE("leave gtk_sensorstacho_paint\n");
+    TRACE("leave gtk_sensorstacho_paint");
     return TRUE;
 }
 
@@ -444,7 +445,9 @@ void
 gtk_sensorstacho_destroy(GtkWidget *widget)
 {
     GtkSensorsTacho *ptr_sensorstacho = GTK_SENSORSTACHO(widget);
-    TRACE("enter gtk_sensorstacho_destroy\n");
+
+    TRACE("enter gtk_sensorstacho_destroy");
+
     g_return_if_fail(ptr_sensorstacho!=NULL);
 
     if (ptr_sensorstacho->color != NULL)
@@ -454,7 +457,8 @@ gtk_sensorstacho_destroy(GtkWidget *widget)
     }
 
     gtk_sensorstacho_unset_text(ptr_sensorstacho);
-    TRACE("leave gtk_sensorstacho_destroy\n");
+
+    TRACE("leave gtk_sensorstacho_destroy");
 }
 
 
@@ -462,7 +466,7 @@ gtk_sensorstacho_destroy(GtkWidget *widget)
 void
 gtk_sensorstacho_set_value (GtkSensorsTacho *ptr_sensorstacho, gdouble value)
 {
-    TRACE("enter gtk_sensorstacho_set_value\n");
+    TRACE("enter gtk_sensorstacho_set_value");
 
     if (value < 0)
         value = 0.0;
@@ -473,7 +477,7 @@ gtk_sensorstacho_set_value (GtkSensorsTacho *ptr_sensorstacho, gdouble value)
 
     ptr_sensorstacho->sel = value;
 
-    TRACE("leave gtk_sensorstacho_set_value\n");
+    TRACE("leave gtk_sensorstacho_set_value");
 }
 
 /* -------------------------------------------------------------------------- */
