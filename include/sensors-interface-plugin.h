@@ -175,8 +175,7 @@ t_sensors;
  * @param ptr_plugin_config_filename
  * @return pointer to newly allocated sensors object
  */
-t_sensors * sensors_new (XfcePanelPlugin *ptr_xfcepanelplugin, gchar * ptr_plugin_config_filename);
-
+t_sensors* sensors_new (XfcePanelPlugin *ptr_xfcepanelplugin, gchar * ptr_plugin_config_filename);
 
 /**
  * Initialize sensors structure with default values

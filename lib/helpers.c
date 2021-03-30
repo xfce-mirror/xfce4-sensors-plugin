@@ -64,7 +64,7 @@ char *str_split_position;
  * @param delim String of the complete delimiting string, order and content are important.
  * @return pointer onto next token, or NULL on end, or NULL on bad delimiter.
  */
-char *
+char*
 str_split (char *string, char *delim)
 {
     char *p, *retval;

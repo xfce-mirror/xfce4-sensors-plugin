@@ -38,25 +38,33 @@
 #define THREE_QUARTER_CIRCLE 270
 #define COLOR_STEP 1.0/THREE_QUARTER_CIRCLE // colors range from 0 to 2^16; we want 270 colors, hence 242
 
-/* forward declarations that are not published in the header
- * and only meant for internal access. */
-static void gtk_sensorstacho_get_preferred_width_for_height(GtkWidget *widget,
-                                        gint      height,
-                                        gint      *minimal_width,
-                                        gint      *natural_width);
-static void gtk_sensorstacho_get_preferred_height_for_width(GtkWidget *widget,
-                                         gint      width,
-                                         gint      *minimal_height,
-                                         gint      *natural_height);
-static void gtk_sensorstacho_get_preferred_width(GtkWidget *widget,
-                                        gint      *minimal_width,
-                                        gint      *natural_width);
-static void gtk_sensorstacho_get_preferred_height(GtkWidget *widget,
-                                         gint      *minimal_height,
-                                         gint      *natural_height);
-static void gtk_sensorstacho_size_allocate(GtkWidget *widget,
-                                  GtkAllocation *allocation);
-static GtkSizeRequestMode gtk_sensorstacho_get_request_mode(GtkWidget *widget);
+static void
+gtk_sensorstacho_get_preferred_width_for_height(GtkWidget *widget,
+                                                gint       height,
+                                                gint      *minimal_width,
+                                                gint      *natural_width);
+
+static void
+gtk_sensorstacho_get_preferred_height_for_width(GtkWidget *widget,
+                                                gint       width,
+                                                gint      *minimal_height,
+                                                gint      *natural_height);
+
+static void
+gtk_sensorstacho_get_preferred_width(GtkWidget *widget,
+                                     gint      *minimal_width,
+                                     gint      *natural_width);
+
+static void
+gtk_sensorstacho_get_preferred_height(GtkWidget *widget,
+                                      gint      *minimal_height,
+                                      gint      *natural_height);
+
+static void
+gtk_sensorstacho_size_allocate(GtkWidget *widget, GtkAllocation *allocation);
+
+static GtkSizeRequestMode
+gtk_sensorstacho_get_request_mode(GtkWidget *widget);
 
 void gtk_sensorstacho_destroy(GtkWidget *widget);
 
