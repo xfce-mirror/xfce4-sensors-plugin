@@ -31,24 +31,24 @@
 
 /* Functions for implementing the sensors interface common callback functions */
 
-void adjustment_value_changed_  (GtkWidget *ptr_widget, t_sensors_dialog *v); // for update timer box
+void adjustment_value_changed_ (GtkWidget *ptr_widget, t_sensors_dialog *v);
 
 void sensor_entry_changed_ (GtkWidget *ptr_widget, t_sensors_dialog *ptr_sensorsdialog);
 
 void list_cell_text_edited_ (GtkCellRendererText *cellrenderertext,
-                      gchar *ptr_str_newtext, gchar *new_text, t_sensors_dialog *ptr_sensorsdialog);
+                             gchar *ptr_str_newtext, gchar *new_text, t_sensors_dialog *ptr_sensorsdialog);
 
 void list_cell_toggle_ (GtkCellRendererToggle *ptr_cellrenderertoggle, gchar *ptr_str_path,
-                  t_sensors_dialog *ptr_sensorsdialog);
+                        t_sensors_dialog *ptr_sensorsdialog);
 
 void list_cell_color_edited_ (GtkCellRendererText *cellrenderertext, gchar *ptr_str_path,
-                       gchar *ptr_str_newcolor, t_sensors_dialog *v);
+                              gchar *ptr_str_newcolor, t_sensors_dialog *v);
 
 void minimum_changed_ (GtkCellRendererText *cellrenderertext, gchar *ptr_str_path,
-                 gchar *ptr_str_newmin, t_sensors_dialog *ptr_sensorsdialog);
+                       gchar *ptr_str_newmin, t_sensors_dialog *ptr_sensorsdialog);
 
 void maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *ptr_str_path,
-            gchar *ptr_str_newmax, t_sensors_dialog *ptr_sensorsdialog);
+                       gchar *ptr_str_newmax, t_sensors_dialog *ptr_sensorsdialog);
 
 void temperature_unit_change_ (GtkWidget *ptr_widget, t_sensors_dialog *ptr_sensorsdialog);
 

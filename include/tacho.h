@@ -81,7 +81,7 @@ void gtk_sensorstacho_set_value (GtkSensorsTacho *ptr_sensorstacho, gdouble valu
  * @param style: gradient style of the tacho object
  * @return allocated widget
  */
-GtkWidget * gtk_sensorstacho_new(GtkOrientation orientation, guint size, SensorsTachoStyle style);
+GtkWidget* gtk_sensorstacho_new(GtkOrientation orientation, guint size, SensorsTachoStyle style);
 
 /**
  * set the text to be drawn. if NULL, no text is drawn.
