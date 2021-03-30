@@ -1,44 +1,36 @@
-/* file: callbacks.c
+/* File: callbacks.c
  *
- *  Copyright 2008-2017 Fabian Nowak (timystery@arcor.de)
+ * Copyright 2008-2017 Fabian Nowak (timystery@arcor.de)
  *
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
  *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-/* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
-
 #ifdef HAVE_CONFIG_H
-# include <config.h>
+#include <config.h>
 #endif
 
-/* Global includes */
-#include <stdlib.h>
-
-/* Xfce includes */
 #include <libxfce4ui/libxfce4ui.h>
+#include <stdlib.h>
 
 /* Package includes */
 #include <sensors-interface.h>
-#include <tacho.h> /* contains "extern gchar * font" */
+#include <tacho.h>
 
 /* Local includes */
-#include "callbacks.h"
 #include "actions.h"
-
-/* Forward declarations */
-gint set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *ptr_sensorsdialog, gchar *ptr_str_cellpath, gint col_treeview, GValue *ptr_value, t_chipfeature **ptr_ptr_chipfeature);
+#include "callbacks.h"
 
 
 /* -------------------------------------------------------------------------- */
@@ -88,7 +80,8 @@ sensor_entry_changed_ (GtkWidget *ptr_comboboxwidget, t_sensors_dialog *ptr_sens
  * @param ptr_ptr_chipfeature: out pointer of determined chipfeature
  * @return index of chipfeature for ptr_str_cellpath
  */
-gint set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *ptr_sensorsdialog, gchar *ptr_str_cellpath, gint col_treeview, GValue *ptr_value, t_chipfeature **ptr_ptr_chipfeature)
+static gint
+set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *ptr_sensorsdialog, gchar *ptr_str_cellpath, gint col_treeview, GValue *ptr_value, t_chipfeature **ptr_ptr_chipfeature)
 {
     gint idx_active_combobox = -1;
     GtkTreeModel *ptr_treemodel;
