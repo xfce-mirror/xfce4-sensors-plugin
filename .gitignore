@@ -7,4 +7,5 @@
 .gitignore
 .libs
 Makefile
+Makefile.in
 nbproject
