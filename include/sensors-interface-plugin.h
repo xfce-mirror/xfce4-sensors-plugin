@@ -21,20 +21,16 @@
 #define XFCE4_SENSORS_INTERFACE_PLUGIN_H
 
 #ifdef HAVE_CONFIG_H
- #include <config.h>
+#include <config.h>
 #endif
 
-/* Glib/Gtk includes */
-#include <gtk/gtk.h>
 #include <glib.h>
-/* #include <glib/gprintf.h>  */
-
-/* Xfce includes */
+#include <gtk/gtk.h>
 #include <libxfce4panel/libxfce4panel.h>
 
 /* Package includes */
-#include "types.h"
 #include "sensors-interface-types.h"
+#include "types.h"
 
 #define MAX_NUM_CHIPS 10
 #define MAX_NUM_FEATURES 256

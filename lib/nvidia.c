@@ -22,18 +22,15 @@
 #include <config.h>
 #endif
 
-/* Package includes */
-#include <types.h>
-#include <sensors-interface-common.h>
-#include <middlelayer.h>
-
-/* Gtk/Glib includes */
 #include <glib.h>
-
-/* Global includes */
-#include <stdio.h>
 #include <stdbool.h>
+#include <stdio.h>
 #include <stdlib.h>
+
+/* Package includes */
+#include <middlelayer.h>
+#include <sensors-interface-common.h>
+#include <types.h>
 
 #include <X11/Xlib.h> /* Must be before NVCtrl includes */
 #include <NVCtrl/NVCtrl.h>

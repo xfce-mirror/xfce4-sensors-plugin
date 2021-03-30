@@ -20,11 +20,10 @@
 #ifndef __CALLBACKS_H
 #define __CALLBACKS_H
 
+#include <gtk/gtk.h>
+
 /* Package includes */
 #include <sensors-interface-common.h>
-
-/* Global includes */
-#include <gtk/gtk.h>
 
 
 /* there should also be some "private" callbacks such as closing/qutting

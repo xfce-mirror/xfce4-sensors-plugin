@@ -20,10 +20,7 @@
 #ifndef XFCE4_SENSORS_INTERFACE_H
 #define XFCE4_SENSORS_INTERFACE_H
 
-/* Gtk includes */
 #include <gtk/gtk.h>
-
-/* Local includes */
 #include "sensors-interface-common.h"
 
 /* Initializing and filling functions */

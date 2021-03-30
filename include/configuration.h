@@ -18,9 +18,8 @@
  */
 
 #ifndef XFCE4_SENSORS_CONFIGURATION_H
- #define XFCE4_SENSORS_CONFIGURATION_H
+#define XFCE4_SENSORS_CONFIGURATION_H
 
-/* Gtk/Glib includes */
 #include <glib.h>
 
 /* Local includes */

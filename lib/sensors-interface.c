@@ -17,27 +17,22 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-/* Definitions */
 #ifdef HAVE_CONFIG_H
-# include <config.h>
+#include <config.h>
 #endif
 
-/* Global includes */
 #if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
 #include <libnotify/notify.h>
 #endif
 
-/* Glib/Gtk includes */
 #include <glib.h>
 #include <gtk/gtk.h>
-
-/* Xfce includes */
 #include <libxfce4ui/libxfce4ui.h>
 
 /* Package includes */
-#include <sensors-interface-common.h>
-#include <sensors-interface.h>
 #include <middlelayer.h>
+#include <sensors-interface.h>
+#include <sensors-interface-common.h>
 
 
 #define gtk_hbox_new(homogeneous, spacing) \

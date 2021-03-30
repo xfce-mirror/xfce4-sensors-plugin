@@ -18,34 +18,29 @@
  */
 
 #ifdef HAVE_CONFIG_H
-# include <config.h>
+#include <config.h>
 #endif
 
 /* Package includes */
 #include <hddtemp.h>
 #include <middlelayer.h>
-#include <types.h>
 #include <sensors-interface-common.h>
+#include <types.h>
 
-/* Gtk/Glib includes */
 #include <glib.h>
 #include <gtk/gtk.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <sys/utsname.h>
+#include <unistd.h>
 
-/* Global includes */
 #if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
 #include <libnotify/notify.h>
 #endif
-#include <stdlib.h>
-#include <string.h>
-
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <netdb.h>
-
-#include <sys/utsname.h>
-
-#include <unistd.h>
 
 #ifdef HAVE_NETCAT
 # include "helpers.c"

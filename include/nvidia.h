@@ -24,9 +24,7 @@
 #include "config.h"
 #endif
 
-/* Gtk/Glib includes */
 #include <glib.h>
-#include <NVCtrl/NVCtrl.h>
 
 /**
  * Initialize nvidia sensor

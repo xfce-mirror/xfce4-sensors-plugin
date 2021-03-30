@@ -18,22 +18,18 @@
  */
 
 #ifdef HAVE_CONFIG_H
-# include <config.h>
+#include <config.h>
 #endif
+
+#include <glib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 /* Package includes */
 #include <acpi.h>
 #include <types.h>
-
-/* Glib includes */
-#include <glib.h>
-
-/* Global includes */
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include <unistd.h>
 
 
 /* -------------------------------------------------------------------------- */
