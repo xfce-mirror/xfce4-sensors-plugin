@@ -17,8 +17,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-/* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
-
 #ifndef __CALLBACKS_H
 #define __CALLBACKS_H
 
