@@ -949,13 +949,15 @@ get_acpi_value (gchar *str_filename)
     ptr_file = fopen (str_filename, "r");
     if (ptr_file)
     {
-        fgets (buffer, sizeof(buffer), ptr_file); /* appends null-byte character at end */
+        if (fgets (buffer, sizeof(buffer), ptr_file)) /* appends null-byte character at end */
+        {
+            ptr_valueinstring = strip_key_colon_spaces (buffer);
+            g_assert(ptr_valueinstring!=NULL); /* points to beginning of buffer at least */
+
+            str_result = g_strdup (ptr_valueinstring);
+        }
+
         fclose (ptr_file);
-
-        ptr_valueinstring = strip_key_colon_spaces (buffer);
-        g_assert(ptr_valueinstring!=NULL); /* points to beginning of buffer at least */
-
-        str_result = g_strdup (ptr_valueinstring);
     }
 
     /* Have read the data */
