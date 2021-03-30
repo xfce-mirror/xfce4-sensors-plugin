@@ -32,9 +32,6 @@
 #include "actions.h"
 #include "callbacks.h"
 
-/* Forward declarations */
-gint set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *ptr_sensorsdialog, gchar *ptr_str_cellpath, gint col_treeview, GValue *ptr_value, t_chipfeature **ptr_ptr_chipfeature);
-
 
 /* -------------------------------------------------------------------------- */
 void on_font_set (GtkWidget *ptr_widget, gpointer data)
@@ -83,7 +80,8 @@ sensor_entry_changed_ (GtkWidget *ptr_comboboxwidget, t_sensors_dialog *ptr_sens
  * @param ptr_ptr_chipfeature: out pointer of determined chipfeature
  * @return index of chipfeature for ptr_str_cellpath
  */
-gint set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *ptr_sensorsdialog, gchar *ptr_str_cellpath, gint col_treeview, GValue *ptr_value, t_chipfeature **ptr_ptr_chipfeature)
+static gint
+set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *ptr_sensorsdialog, gchar *ptr_str_cellpath, gint col_treeview, GValue *ptr_value, t_chipfeature **ptr_ptr_chipfeature)
 {
     gint idx_active_combobox = -1;
     GtkTreeModel *ptr_treemodel;
