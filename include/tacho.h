@@ -1,27 +1,27 @@
 /* File: tacho.h
  *
- *  Copyright 2009-2017 Fabian Nowak (timystery@arcor.de)
+ * Copyright 2009-2017 Fabian Nowak (timystery@arcor.de)
  *
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
  *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #ifndef __TACHO_H
 #define __TACHO_H
 
-#include <gtk/gtk.h>
 #include <cairo.h>
+#include <gtk/gtk.h>
 
 G_BEGIN_DECLS
 
@@ -81,7 +81,7 @@ void gtk_sensorstacho_set_value (GtkSensorsTacho *ptr_sensorstacho, gdouble valu
  * @param style: gradient style of the tacho object
  * @return allocated widget
  */
-GtkWidget * gtk_sensorstacho_new(GtkOrientation orientation, guint size, SensorsTachoStyle style);
+GtkWidget* gtk_sensorstacho_new(GtkOrientation orientation, guint size, SensorsTachoStyle style);
 
 /**
  * set the text to be drawn. if NULL, no text is drawn.

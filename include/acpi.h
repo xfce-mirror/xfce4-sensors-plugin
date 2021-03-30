@@ -1,23 +1,21 @@
-/* File acpi.h
+/* File: acpi.h
  *
- *  Copyright 2004-2017 Fabian Nowak (timystery@arcor.de)
+ * Copyright 2004-2017 Fabian Nowak (timystery@arcor.de)
  *
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
  *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-
-/* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
 
 #ifndef XFCE4_SENSORS_ACPI_H
 #define XFCE4_SENSORS_ACPI_H
@@ -44,11 +42,8 @@
 #define SYS_FILE_VOLTAGE "voltage_now"
 #define SYS_FILE_VOLTAGE_MIN "voltage_min_design"
 
-/* Gtk/Glib includes */
+#include <dirent.h>
 #include <glib.h>
-
-/* Global includes */
-#include <dirent.h>    /* directory listing and reading */
 
 /* Package/local includes */
 #include "types.h"

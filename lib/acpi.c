@@ -1,41 +1,35 @@
 /* File: acpi.c
  *
- *  Copyright 2004-2017 Fabian Nowak (timystery@arcor.de)
+ * Copyright 2004-2017 Fabian Nowak (timystery@arcor.de)
  *
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
  *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-/* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
-
 #ifdef HAVE_CONFIG_H
-# include <config.h>
+#include <config.h>
 #endif
+
+#include <glib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 /* Package includes */
 #include <acpi.h>
 #include <types.h>
-
-/* Glib includes */
-#include <glib.h>
-
-/* Global includes */
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include <unistd.h>
 
 
 /* -------------------------------------------------------------------------- */
@@ -955,13 +949,15 @@ get_acpi_value (gchar *str_filename)
     ptr_file = fopen (str_filename, "r");
     if (ptr_file)
     {
-        fgets (buffer, sizeof(buffer), ptr_file); /* appends null-byte character at end */
+        if (fgets (buffer, sizeof(buffer), ptr_file)) /* appends null-byte character at end */
+        {
+            ptr_valueinstring = strip_key_colon_spaces (buffer);
+            g_assert(ptr_valueinstring!=NULL); /* points to beginning of buffer at least */
+
+            str_result = g_strdup (ptr_valueinstring);
+        }
+
         fclose (ptr_file);
-
-        ptr_valueinstring = strip_key_colon_spaces (buffer);
-        g_assert(ptr_valueinstring!=NULL); /* points to beginning of buffer at least */
-
-        str_result = g_strdup (ptr_valueinstring);
     }
 
     /* Have read the data */

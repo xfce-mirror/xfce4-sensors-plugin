@@ -1,20 +1,20 @@
 /* File: sensors-plugin.c
  *
- *  Copyright 2004-2017 Fabian Nowak (timystery@arcor.de)
+ * Copyright 2004-2017 Fabian Nowak (timystery@arcor.de)
  *
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
  *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 /* This plugin requires libsensors-3 and its headers in order to monitor
@@ -24,22 +24,17 @@
  * functionality.
  */
 
-/* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
-
 #ifdef HAVE_CONFIG_H
-# include <config.h>
+#include <config.h>
 #endif
 
-/* Global includes */
-#include <math.h>
-#include <stdlib.h>
-#include <string.h>
-
-/* Gtk/Glib includes */
 #include <gio/gio.h>
 #include <glib.h>
 #include <glib/gprintf.h> /* ain't included in glib.h! */
 #include <gtk/gtk.h>
+#include <math.h>
+#include <stdlib.h>
+#include <string.h>
 
 /* Xfce includes */
 #include <libxfce4util/libxfce4util.h>
@@ -48,9 +43,9 @@
 
 /* Package includes */
 #include <configuration.h>
-#include <sensors-interface.h>
-#include <sensors-interface-plugin.h> // includes sensors-interface-common.h
 #include <middlelayer.h>
+#include <sensors-interface.h>
+#include <sensors-interface-plugin.h>
 #include <tacho.h>
 
 /* Local includes */

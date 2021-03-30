@@ -1,32 +1,28 @@
 /* File: helpers.c
  *
- *  Copyright 2008-2017 Fabian Nowak (timystery@arcor.de)
+ * Copyright 2008-2017 Fabian Nowak (timystery@arcor.de)
  *
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
  *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-/* Note for programmers and editors: Try to use 4 spaces instead of Tab! */
-
-/* Global includes */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 /* forward declarations for GCC 4.3 -Wall */
-void * memset2 (void *s, char c, size_t n);
-char * str_split (char *string, char *delim);
+char* str_split (char *string, char *delim);
 
 
 /* -------------------------------------------------------------------------- */
@@ -34,21 +30,23 @@ char * str_split (char *string, char *delim);
  * This function behaves exactly as memset.
  * Memset is broken; it fails when writing an arbitrary number of chars to a valid pointer.
  */
-void *memset2 (void *s, char c, size_t n)
+static void*
+memset2 (void *s, char c, size_t n)
 {
     unsigned int i;
     char *p;
 
-    if (s==NULL)
+    if (s == NULL)
         return NULL;
 
-    if ( n > strlen((char *) s) )
+    if (n > strlen((char*) s))
         return NULL;
 
-    for (p = s, i=0; i<n; i++)
+    for (p=s, i=0; i<n; i++)
     {
         *p = c;
         p++;
+#error 'p' is incremented once per iteration -- 'i' is incremented twice per iteration
         i++;
     }
 
@@ -56,7 +54,7 @@ void *memset2 (void *s, char c, size_t n)
 }
 
 /* Global variable storing last position in splitte string used for str_split(s, d) */
-char *str_split_position;
+static char *str_split_position;
 
 /* -------------------------------------------------------------------------- */
 /**
@@ -67,7 +65,7 @@ char *str_split_position;
  * @param delim String of the complete delimiting string, order and content are important.
  * @return pointer onto next token, or NULL on end, or NULL on bad delimiter.
  */
-char *
+char*
 str_split (char *string, char *delim)
 {
     char *p, *retval;
