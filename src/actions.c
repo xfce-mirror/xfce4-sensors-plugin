@@ -138,7 +138,7 @@ refresh_tacho_view (t_sensors_dialog *dialog)
             feature = g_ptr_array_index (chip->chip_features, idx_feature);
             g_assert (feature!=NULL);
 
-            if (feature->valid == TRUE && feature->show == TRUE)
+            if (feature->valid && feature->show)
             {
                 gdouble fill_degree;
                 gchar widget_tooltip_text[128];

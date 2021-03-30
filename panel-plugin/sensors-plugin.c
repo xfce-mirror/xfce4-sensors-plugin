@@ -203,7 +203,7 @@ sensors_remove_graphical_panel (t_sensors *sensors)
                 g_object_unref (labelled_level_bar->css_provider);
                 labelled_level_bar->css_provider = NULL;
 
-                if (sensors->show_labels == TRUE) {
+                if (sensors->show_labels) {
                     gtk_widget_hide (labelled_level_bar->label);
                     gtk_widget_destroy (labelled_level_bar->label);
                 }
@@ -264,7 +264,7 @@ sensors_update_graphical_panel (const t_sensors *sensors)
             t_chipfeature *feature = g_ptr_array_index(chip->chip_features, idx_feature);
             g_assert (feature != NULL);
 
-            if (feature->show == TRUE) {
+            if (feature->show) {
                 GtkWidget *level_bar;
                 t_labelledlevelbar *labelled_level_bar;
                 double percentage;
@@ -303,7 +303,7 @@ sensors_update_tacho_panel (const t_sensors *sensors)
             t_chipfeature *feature = g_ptr_array_index(chip->chip_features, idx_feature);
             g_assert (feature != NULL);
 
-            if (feature->show == TRUE) {
+            if (feature->show) {
                 double percentage;
                 GtkWidget *tacho = sensors->tachos[idx_sensorchips][idx_feature];
                 g_assert(tacho != NULL);
@@ -390,7 +390,7 @@ sensors_add_graphical_display (t_sensors *sensors)
                                  GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
                 /* create the label stuff only if needed - saves some memory! */
-                if (sensors->show_labels == TRUE) {
+                if (sensors->show_labels) {
                     gchar *bar_label_text;
                     guint len_barlabeltext;
 
@@ -481,7 +481,7 @@ sensors_add_tacho_display (t_sensors *sensors)
 
             style = style_MinGYR; /* default as has been for 10 years */
 
-            if (feature->show == TRUE) {
+            if (feature->show) {
                 GtkOrientation orientation;
                 GtkWidget *tacho;
 
@@ -505,7 +505,7 @@ sensors_add_tacho_display (t_sensors *sensors)
                 tacho = gtk_sensorstacho_new(orientation, panel_size, style);
 
                 /* create the label stuff only if needed - saves some memory! */
-                if (sensors->show_labels == TRUE) {
+                if (sensors->show_labels) {
                     gtk_sensorstacho_set_text(GTK_SENSORSTACHO(tacho), feature->name);
                     gtk_sensorstacho_set_color(GTK_SENSORSTACHO(tacho), feature->color);
                 }
@@ -548,7 +548,7 @@ sensors_show_graphical_display (t_sensors *sensors)
                                  "/plugins/"
                                  XFCE4SENSORSPLUGINCSSFILE;
 
-    if (sensors->bars_created == FALSE) {
+    if (!sensors->bars_created) {
         GdkDisplay *display;
         GdkScreen *screen;
         GFile *cssdatafile = NULL;
@@ -866,7 +866,7 @@ count_number_checked_sensor_features (const t_sensors *sensors)
             t_chipfeature *feature = g_ptr_array_index (chip->chip_features, idx_feature);
             g_assert (feature!=NULL);
 
-            if (feature->valid == TRUE && feature->show == TRUE)
+            if (feature->valid && feature->show)
                 num_items_to_display++;
         }
     }
@@ -889,7 +889,7 @@ sensors_show_text_display (const t_sensors *sensors)
 
     num_rows = sensors->lines_size; /* determine_number_of_rows (sensors); */
 
-    if (sensors->show_title == TRUE || num_items_to_display == 0)
+    if (sensors->show_title || num_items_to_display == 0)
         gtk_widget_show (sensors->panel_label_text);
     else
         gtk_widget_hide (sensors->panel_label_text);

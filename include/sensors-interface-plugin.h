@@ -27,6 +27,7 @@
 #include <glib.h>
 #include <gtk/gtk.h>
 #include <libxfce4panel/libxfce4panel.h>
+#include <stdbool.h>
 
 /* Package includes */
 #include "sensors-interface-types.h"
@@ -72,44 +73,44 @@ typedef struct {
     /** Requested/allowed number of lines in text mode */
     gint lines_size;
 
-    /** The panel plugins can cover all rows/columns of the panel, but default is to not do so */
-    gboolean cover_panel_rows:1;
-
     /** panel orientation */
     XfcePanelPluginMode plugin_mode;
 
+    /** The panel plugins can cover all rows/columns of the panel, but default is to not do so */
+    bool cover_panel_rows:1;
+
     /** if the bars have been initialized */
-    gboolean bars_created:1;
+    bool bars_created:1;
 
     /** if the tachos have been initialized */
-    gboolean tachos_created:1;
+    bool tachos_created:1;
 
     /** show title in panel */
-    gboolean show_title:1;
+    bool show_title:1;
 
     /** show labels in panel (GUI mode only) */
-    gboolean show_labels:1;
+    bool show_labels:1;
 
     /** show units in textual view */
-    gboolean show_units:1;
+    bool show_units:1;
 
     /** show small spacings only in textual view */
-    gboolean show_smallspacings:1;
+    bool show_smallspacings:1;
 
     /** show colored bars (GUI mode only) */
-    gboolean show_colored_bars:1;
+    bool show_colored_bars:1;
 
     /**
      * suppress tooltip from overlapping widget and thereby crashing the plugin
      * or modifying the background
      */
-    gboolean suppresstooltip:1;
+    bool suppresstooltip:1;
 
     /**
      * double-click improvement as suggested on xfce4-goodies@berlios.de.
      * whether to execute command on double click
      */
-    gboolean exec_command:1;
+    bool exec_command:1;
 
     /** suppress Hddtemp failure messages and any other messages */
     gboolean suppressmessage;
