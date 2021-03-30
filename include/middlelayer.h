@@ -29,57 +29,55 @@
 
 /**
  * Initialize all sensors detected by iterating and calling init-routines
- * @param outptr_arr_ptr_chips: Double-pointer to pointer array of chips
- * @param outptr_suppressmessage [out]: whether to suppress messages when reading the
- *                               chip
+ * @param out_chips: Double-pointer to pointer array of chips
+ * @param out_suppressmessage [out]: whether to suppress messages when reading the chip
  * @return Number of initialized features
  */
-int initialize_all (GPtrArray **outptr_arr_ptr_chips, gboolean *outptr_suppressmessage);
+int initialize_all (GPtrArray **out_chips, gboolean *out_suppressmessage);
 
 
 /**
  * Refresh all features of a chip
- * @param ptr_chip: Pointer to chip
- * @param ptr_data: pointer to t_sensors or NULL;
+ * @param chip: Pointer to chip
+ * @param data: pointer to t_sensors or NULL;
  */
-void refresh_chip (gpointer ptr_chip, gpointer ptr_data);
+void refresh_chip (gpointer chip, gpointer data);
 
 
 /**
  * Classifies sensor type
- * @param ptr_chipfeature: Pointer to feature
+ * @param feature: Pointer to feature
  */
-void categorize_sensor_type (t_chipfeature *ptr_chipfeature);
+void categorize_sensor_type (t_chipfeature *feature);
 
 
 /**
  * Gets value of specified number in chip_name
- * @param ptr_chip: specifies bus and stuff of
- * the sensors chip feature
+ * @param chip: specifies bus and stuff of the sensors chip feature
  * @param idx_chipfeature: number of chipfeature to look for
- * @param outptr_value: address where double value can be stored
- * @param outptr_suppressmessage: valid pointer to boolean indicating suppression of
+ * @param out_value: address where double value can be stored
+ * @param out_suppressmessage: valid pointer to boolean indicating suppression of
  *                         messages, or NULL.
  * @return 0 on success, >0 else.
  */
-int sensor_get_value (t_chip *ptr_chip, int idx_chipfeature, double *outptr_value,
-                      gboolean *outptr_suppressmessage);
+int sensor_get_value (t_chip *chip, int idx_chipfeature, double *out_value,
+                      gboolean *out_suppressmessage);
 
 
 /**
  * Free data in chipfeatures
- * @param ptr_chipfeature: pointer to chipfeature to free
- * @param ptr_unused: currently unused
+ * @param chip_feature: pointer to chipfeature to free
+ * @param unused: currently unused
  */
-void free_chipfeature (gpointer ptr_chipfeature, gpointer ptr_unused);
+void free_chipfeature (gpointer chip_feature, gpointer unused);
 
 
 /**
  * Free remaining structures in chips and associated chipfeatures
- * @param ptr_chip: pointer to chip to free
- * @param ptr_unused: currently unused
+ * @param chip: pointer to chip to free
+ * @param unused: currently unused
  */
-void free_chip (gpointer ptr_chip, gpointer ptr_unused);
+void free_chip (gpointer chip, gpointer unused);
 
 
 /**
@@ -90,9 +88,9 @@ void cleanup_interfaces (void);
 
 /**
  * Refreshes all chips at once.
- * @param arr_ptr_chips: Pointer to pointer array to chips
- * @param ptr_sensors: pointer to sensors structure
+ * @param chips: Pointer to pointer array to chips
+ * @param sensors: pointer to sensors structure
  */
-void refresh_all_chips (GPtrArray *arr_ptr_chips, t_sensors *ptr_sensors);
+void refresh_all_chips (GPtrArray *chips, t_sensors *sensors);
 
 #endif /* XFCE4_SENSORS_MIDDLELAYER_H */

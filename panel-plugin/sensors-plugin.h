@@ -31,26 +31,26 @@
 
 /* Functions for implementing the sensors interface common callback functions */
 
-void adjustment_value_changed_ (GtkWidget *ptr_widget, t_sensors_dialog *v);
+void adjustment_value_changed_ (GtkWidget *widget, t_sensors_dialog *dialog);
 
-void sensor_entry_changed_ (GtkWidget *ptr_widget, t_sensors_dialog *ptr_sensorsdialog);
+void sensor_entry_changed_ (GtkWidget *widget, t_sensors_dialog *dialog);
 
-void list_cell_text_edited_ (GtkCellRendererText *cellrenderertext,
-                             gchar *ptr_str_newtext, gchar *new_text, t_sensors_dialog *ptr_sensorsdialog);
+void list_cell_text_edited_ (GtkCellRendererText *cell_renderer_text, gchar *path,
+                             gchar *new_text, t_sensors_dialog *dialog);
 
-void list_cell_toggle_ (GtkCellRendererToggle *ptr_cellrenderertoggle, gchar *ptr_str_path,
-                        t_sensors_dialog *ptr_sensorsdialog);
+void list_cell_toggle_ (GtkCellRendererToggle *cell_renderer_toggle, gchar *path,
+                        t_sensors_dialog *dialog);
 
-void list_cell_color_edited_ (GtkCellRendererText *cellrenderertext, gchar *ptr_str_path,
-                              gchar *ptr_str_newcolor, t_sensors_dialog *v);
+void list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, gchar *path,
+                              gchar *newcolor, t_sensors_dialog *dialog);
 
-void minimum_changed_ (GtkCellRendererText *cellrenderertext, gchar *ptr_str_path,
-                       gchar *ptr_str_newmin, t_sensors_dialog *ptr_sensorsdialog);
+void minimum_changed_ (GtkCellRendererText *cell_renderer_text, gchar *path,
+                       gchar *newmin, t_sensors_dialog *dialog);
 
-void maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *ptr_str_path,
-                       gchar *ptr_str_newmax, t_sensors_dialog *ptr_sensorsdialog);
+void maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path,
+                       gchar *newmax, t_sensors_dialog *dialog);
 
-void temperature_unit_change_ (GtkWidget *ptr_widget, t_sensors_dialog *ptr_sensorsdialog);
+void temperature_unit_change_ (GtkWidget *widget, t_sensors_dialog *dialog);
 
 
 #endif /* XFCE4_SENSORS_SENSORS_H */

@@ -34,9 +34,9 @@
  * perhaps also free some further allocated structures.
  * @param dlg: pointer to dialog widget to be destroyed
  * @param response: event number of close event
- * @param sd: pointer to helpful sensors dialog structure
+ * @param dialog: pointer to helpful sensors dialog structure
  */
-void on_main_window_response (GtkWidget *dlg, int response, t_sensors_dialog *sd);
+void on_main_window_response (GtkWidget *dlg, int response, t_sensors_dialog *dialog);
 
 /**
  * Callback when new font is set in application and must be updated for the
@@ -51,47 +51,46 @@ void on_font_set (GtkWidget *widget, gpointer data);
 /**
  * Implementation of interface callback adjustment_value_changed
  */
-void adjustment_value_changed_  (GtkWidget *widget, t_sensors_dialog *sd); // for update timer box
+void adjustment_value_changed_  (GtkWidget *widget, t_sensors_dialog *dialog); // for update timer box
 
 /**
  * Implementation of interface callback sensor_entry_changed_
  */
-void sensor_entry_changed_ (GtkWidget *widget, t_sensors_dialog *sd);
+void sensor_entry_changed_ (GtkWidget *widget, t_sensors_dialog *dialog);
 
 /**
  * Implementation of interface callback list_cell_text_edited_
  */
-void list_cell_text_edited_ (GtkCellRendererText *cellrenderertext,
-                      gchar *path_str, gchar *new_text, t_sensors_dialog *sd);
+void list_cell_text_edited_ (GtkCellRendererText *cellrenderertext, gchar *path,
+                             gchar *new_text, t_sensors_dialog *dialog);
 
 /**
  * Implementation of interface callback list_cell_toggle_
  */
-void list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,
-                  t_sensors_dialog *sd);
+void list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path, t_sensors_dialog *dialog);
 
 /**
  * Implementation of interface callback list_cell_color_edited_
  */
-void list_cell_color_edited_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
-                       gchar *new_color, t_sensors_dialog *sd);
+void list_cell_color_edited_ (GtkCellRendererText *cellrenderertext, gchar *path,
+                              gchar *new_color, t_sensors_dialog *dialog);
 
 /**
  * Implementation of interface callback minimum_changed_
  */
-void minimum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
-                 gchar *new_value, t_sensors_dialog *sd);
+void minimum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path,
+                       gchar *new_value, t_sensors_dialog *dialog);
 
 /**
  * Implementation of interface callback maximum_changed
  */
-void maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path_str,
-            gchar *new_value, t_sensors_dialog *sd);
+void maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path,
+                       gchar *new_value, t_sensors_dialog *dialog);
 
 /**
  * Implementation of interface callback temperature_unit_change
  */
-void temperature_unit_change_ (GtkWidget *widget, t_sensors_dialog *sd);
+void temperature_unit_change_ (GtkWidget *widget, t_sensors_dialog *dialog);
 
 
 #endif /* __CALLBACKS_H */

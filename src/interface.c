@@ -40,82 +40,76 @@
         gtk_box_new(GTK_ORIENTATION_VERTICAL, spacing)
 
 
-/* forward declarations */
-void add_tachos_box (GtkWidget *ptr_childwidget, t_sensors_dialog *ptr_sensorsdialog);
-void add_notebook (GtkWidget *ptr_boxwidget, t_sensors_dialog *ptr_sensorsdialog);
-
-/* actual implementations */
-
 /* -------------------------------------------------------------------------- */
-void
-add_tachos_box (GtkWidget *ptr_childwidget, t_sensors_dialog *ptr_sensorsdialog)
+static void
+add_tachos_box (GtkWidget *child_widget, t_sensors_dialog *dialog)
 {
-    GtkWidget *ptr_gridwidget;
+    GtkWidget *grid;
 
-    ptr_gridwidget = gtk_grid_new();
-    gtk_grid_set_row_spacing(GTK_GRID(ptr_gridwidget), BORDER);
-    gtk_grid_set_column_spacing(GTK_GRID(ptr_gridwidget), BORDER);
-    gtk_widget_show (ptr_gridwidget);
-    ptr_sensorsdialog->sensors->widget_sensors = ptr_gridwidget;
-    gtk_container_add (GTK_CONTAINER(ptr_childwidget), ptr_gridwidget);
+    grid = gtk_grid_new();
+    gtk_grid_set_row_spacing (GTK_GRID(grid), BORDER);
+    gtk_grid_set_column_spacing (GTK_GRID(grid), BORDER);
+    gtk_widget_show (grid);
+    dialog->sensors->widget_sensors = grid;
+    gtk_container_add (GTK_CONTAINER(child_widget), grid);
 }
 
 
 /* -------------------------------------------------------------------------- */
-void
-add_notebook (GtkWidget *ptr_boxwidget, t_sensors_dialog *ptr_sensorsdialog)
+static void
+add_notebook (GtkWidget *box, t_sensors_dialog *dialog)
 {
-    GtkWidget *ptr_notebook, *ptr_childvbox, *ptr_tablabel, *ptr_scrolledwindow, *ptr_fontbutton;
+    GtkWidget *notebook, *child_vbox, *tab_label, *scrolled_window, *font_button;
 
-    ptr_notebook = gtk_notebook_new();
-    gtk_widget_show (ptr_notebook);
+    notebook = gtk_notebook_new();
+    gtk_widget_show (notebook);
 
-    ptr_childvbox = gtk_vbox_new (FALSE, BORDER);
-    gtk_container_set_border_width (GTK_CONTAINER (ptr_childvbox), BORDER);
-    gtk_widget_show (ptr_childvbox);
+    child_vbox = gtk_vbox_new (FALSE, BORDER);
+    gtk_container_set_border_width (GTK_CONTAINER (child_vbox), BORDER);
+    gtk_widget_show (child_vbox);
 
-    add_type_box(ptr_childvbox, ptr_sensorsdialog);
-    add_sensor_settings_box(ptr_childvbox, ptr_sensorsdialog);
-    add_temperature_unit_box(ptr_childvbox, ptr_sensorsdialog);
-    add_update_time_box (ptr_childvbox, ptr_sensorsdialog);
+    add_type_box(child_vbox, dialog);
+    add_sensor_settings_box(child_vbox, dialog);
+    add_temperature_unit_box(child_vbox, dialog);
+    add_update_time_box (child_vbox, dialog);
 
-    ptr_tablabel = gtk_label_new_with_mnemonic(_("_Overview"));
-    gtk_widget_show (ptr_tablabel);
-    gtk_notebook_append_page (GTK_NOTEBOOK(ptr_notebook), ptr_childvbox, ptr_tablabel);
+    tab_label = gtk_label_new_with_mnemonic(_("_Overview"));
+    gtk_widget_show (tab_label);
+    gtk_notebook_append_page (GTK_NOTEBOOK(notebook), child_vbox, tab_label);
 
-    ptr_childvbox = gtk_vbox_new (FALSE, BORDER);
-    gtk_container_set_border_width (GTK_CONTAINER (ptr_childvbox), BORDER);
-    gtk_widget_show (ptr_childvbox);
+    child_vbox = gtk_vbox_new (FALSE, BORDER);
+    gtk_container_set_border_width (GTK_CONTAINER (child_vbox), BORDER);
+    gtk_widget_show (child_vbox);
 
-    ptr_scrolledwindow  = gtk_scrolled_window_new( NULL,  NULL);
-    gtk_box_pack_start(GTK_BOX(ptr_childvbox), ptr_scrolledwindow, TRUE, TRUE, 0);
-    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(ptr_scrolledwindow), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-    gtk_widget_show_all (ptr_scrolledwindow);
+    scrolled_window  = gtk_scrolled_window_new( NULL,  NULL);
+    gtk_box_pack_start(GTK_BOX(child_vbox), scrolled_window, TRUE, TRUE, 0);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+    gtk_widget_show_all (scrolled_window);
 
-    add_tachos_box (ptr_scrolledwindow, ptr_sensorsdialog);
+    add_tachos_box (scrolled_window, dialog);
 
-    ptr_fontbutton = gtk_font_button_new();
-    g_signal_connect (G_OBJECT(ptr_fontbutton), "font-set", G_CALLBACK(on_font_set), ptr_sensorsdialog);
-    gtk_font_chooser_set_font (GTK_FONT_CHOOSER(ptr_fontbutton), "Sans 11");
-    gtk_widget_show (ptr_fontbutton);
-    gtk_box_pack_end (GTK_BOX(ptr_childvbox), ptr_fontbutton, FALSE, FALSE, 0);
+    font_button = gtk_font_button_new();
+    g_signal_connect (G_OBJECT(font_button), "font-set", G_CALLBACK(on_font_set), dialog);
+    gtk_font_chooser_set_font (GTK_FONT_CHOOSER(font_button), "Sans 11");
+    gtk_widget_show (font_button);
+    gtk_box_pack_end (GTK_BOX(child_vbox), font_button, FALSE, FALSE, 0);
 
-    ptr_tablabel = gtk_label_new_with_mnemonic(_("_Tachometers"));
-    gtk_widget_show (ptr_tablabel);
-    gtk_notebook_append_page (GTK_NOTEBOOK(ptr_notebook), ptr_childvbox, ptr_tablabel);
+    tab_label = gtk_label_new_with_mnemonic(_("_Tachometers"));
+    gtk_widget_show (tab_label);
+    gtk_notebook_append_page (GTK_NOTEBOOK(notebook), child_vbox, tab_label);
 
-    gtk_box_pack_start(GTK_BOX(ptr_boxwidget), ptr_notebook, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(box), notebook, TRUE, TRUE, 0);
 }
 
 
 /* -------------------------------------------------------------------------- */
 GtkWidget *
-create_main_window (t_sensors_dialog *ptr_sensorsdialog)
+create_main_window (t_sensors_dialog *dialog)
 {
-    GtkWidget *ptr_xfcedialog, *ptr_contentareavbox;
+    GtkWidget *xfce_dialog, *content_area_vbox;
 
     /* start and populate */
-    ptr_xfcedialog = xfce_titled_dialog_new_with_buttons(
+    xfce_dialog = xfce_titled_dialog_new_with_buttons(
                 _("Sensors Viewer"), // title
                 NULL, // parent window
                 0, // flags
@@ -123,31 +117,31 @@ create_main_window (t_sensors_dialog *ptr_sensorsdialog)
                 GTK_RESPONSE_OK, // response id for previous button
                 NULL
             );
-    gtk_widget_show (ptr_xfcedialog);
+    gtk_window_set_icon_name(GTK_WINDOW(xfce_dialog),"xfce-sensors");
 
-    gtk_window_set_icon_name(GTK_WINDOW(ptr_xfcedialog),"xfce-sensors");
+    gtk_container_set_border_width (GTK_CONTAINER (xfce_dialog), BORDER>>1);
 
-    gtk_container_set_border_width (GTK_CONTAINER (ptr_xfcedialog), BORDER>>1);
+    content_area_vbox = gtk_dialog_get_content_area(GTK_DIALOG (xfce_dialog));
+    gtk_box_set_spacing(GTK_BOX(content_area_vbox), BORDER>>1);
 
-    ptr_contentareavbox = gtk_dialog_get_content_area(GTK_DIALOG (ptr_xfcedialog));
-    gtk_box_set_spacing(GTK_BOX(ptr_contentareavbox), BORDER>>1);
+    gtk_widget_show (content_area_vbox);
 
-    gtk_widget_show (ptr_contentareavbox);
+    dialog->dialog = xfce_dialog;
 
-    ptr_sensorsdialog->dialog = ptr_xfcedialog;
+    dialog->myComboBox = gtk_combo_box_text_new();
+    gtk_widget_show (dialog->myComboBox);
 
-    ptr_sensorsdialog->myComboBox = gtk_combo_box_text_new();
-    gtk_widget_show (ptr_sensorsdialog->myComboBox);
+    init_widgets (dialog);
 
-    init_widgets (ptr_sensorsdialog);
+    gtk_combo_box_set_active (GTK_COMBO_BOX(dialog->myComboBox), 0);
 
-    gtk_combo_box_set_active (GTK_COMBO_BOX(ptr_sensorsdialog->myComboBox), 0);
+    add_notebook (content_area_vbox, dialog);
 
-    add_notebook (ptr_contentareavbox, ptr_sensorsdialog);
+    gtk_window_set_default_size (GTK_WINDOW(xfce_dialog), dialog->sensors->preferred_width, dialog->sensors->preferred_height);
 
-    gtk_window_set_default_size (GTK_WINDOW(ptr_xfcedialog), ptr_sensorsdialog->sensors->preferred_width, ptr_sensorsdialog->sensors->preferred_height);
+    g_signal_connect (G_OBJECT(xfce_dialog), "response", G_CALLBACK(on_main_window_response), dialog); // also captures the dialog-destroy event and the closekeybinding-pressed event
 
-    g_signal_connect (G_OBJECT(ptr_xfcedialog), "response", G_CALLBACK(on_main_window_response), ptr_sensorsdialog); // also captures the dialog-destroy event and the closekeybinding-pressed event
+    gtk_widget_show (xfce_dialog);
 
-    return ptr_xfcedialog;
+    return xfce_dialog;
 }

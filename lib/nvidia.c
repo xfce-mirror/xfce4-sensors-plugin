@@ -41,44 +41,43 @@
 Display *nvidia_sensors_display;
 
 /* Local functions */
-int read_gpus (t_chip *chip);
+static int read_gpus (t_chip *chip);
 
 /* -------------------------------------------------------------------------- */
 int
-initialize_nvidia (GPtrArray *arr_ptr_chips)
+initialize_nvidia (GPtrArray *chips)
 {
-    int retval;
-    int num_gpus;
-    t_chip *ptr_chip;
-    t_chipfeature *ptr_chipfeature;
+    int num_gpus, retval;
+    t_chip *chip;
+    t_chipfeature *feature;
 
-    g_assert (arr_ptr_chips != NULL);
+    g_assert (chips != NULL);
 
-    ptr_chip = g_new0 (t_chip, 1);
-    ptr_chip->chip_features = g_ptr_array_new ();
-    ptr_chip->num_features = 0;
-    ptr_chip->description = g_strdup(_("NVidia GPU core temperature"));
-    ptr_chip->name = g_strdup(_("nvidia"));
-    ptr_chip->sensorId = g_strdup("nvidia");
-    ptr_chip->type = GPU;
+    chip = g_new0 (t_chip, 1);
+    chip->chip_features = g_ptr_array_new ();
+    chip->num_features = 0;
+    chip->description = g_strdup (_("NVidia GPU core temperature"));
+    chip->name = g_strdup (_("nvidia"));
+    chip->sensorId = g_strdup ("nvidia");
+    chip->type = GPU;
 
-    num_gpus = read_gpus (ptr_chip);
-    if (ptr_chip->num_features > 0) {
+    num_gpus = read_gpus (chip);
+    if (chip->num_features > 0) {
         int i;
         for (i = 0; i < num_gpus; i++) {
-            ptr_chipfeature = g_ptr_array_index (ptr_chip->chip_features, i);
-            g_assert (ptr_chipfeature != NULL);
-            ptr_chipfeature->address = i;
-            ptr_chipfeature->name = g_strdup(ptr_chipfeature->devicename);
-            ptr_chipfeature->color = g_strdup ("#000000");
-            ptr_chipfeature->valid = TRUE;
-            ptr_chipfeature->raw_value = 0.0;
-            ptr_chipfeature->class = TEMPERATURE;
-            ptr_chipfeature->min_value = 10.0;
-            ptr_chipfeature->max_value = 70.0;
-            ptr_chipfeature->show = FALSE;
+            feature = g_ptr_array_index (chip->chip_features, i);
+            g_assert (feature != NULL);
+            feature->address = i;
+            feature->name = g_strdup (feature->devicename);
+            feature->color = g_strdup ("#000000");
+            feature->valid = TRUE;
+            feature->raw_value = 0.0;
+            feature->class = TEMPERATURE;
+            feature->min_value = 10.0;
+            feature->max_value = 70.0;
+            feature->show = FALSE;
         }
-        g_ptr_array_add (arr_ptr_chips, ptr_chip);
+        g_ptr_array_add (chips, chip);
         retval = 2;
     }
     else
@@ -92,7 +91,7 @@ initialize_nvidia (GPtrArray *arr_ptr_chips)
 double
 get_nvidia_value (int idx_gpu)
 {
-    int val_temperature = 0;
+    int temperature = 0;
     double result = ZERO_KELVIN;
 
     if (XNVCTRLQueryTargetAttribute (nvidia_sensors_display,
@@ -100,8 +99,8 @@ get_nvidia_value (int idx_gpu)
                                      idx_gpu,
                                      0,
                                      NV_CTRL_GPU_CORE_TEMPERATURE,
-                                     &val_temperature)) {
-        result = (double) (1.0 * val_temperature);
+                                     &temperature)) {
+        result = temperature;
     }
 
     return result;
@@ -110,30 +109,30 @@ get_nvidia_value (int idx_gpu)
 
 /* -------------------------------------------------------------------------- */
 void
-refresh_nvidia (gpointer ptr_chipfeature, gpointer ptr_unused)
+refresh_nvidia (gpointer chip_feature, gpointer unused)
 {
-    t_chipfeature *ptr_localchipfeature;
+    t_chipfeature *feature;
     double value;
 
-    ptr_localchipfeature = (t_chipfeature *) ptr_chipfeature;
-    g_assert (ptr_localchipfeature != NULL);
+    feature = (t_chipfeature *) chip_feature;
+    g_assert (feature != NULL);
 
-    value = get_nvidia_value (ptr_localchipfeature->address);
+    value = get_nvidia_value (feature->address);
     if (value != ZERO_KELVIN)
-        ptr_localchipfeature->raw_value = value;
+        feature->raw_value = value;
 }
 
 
 /* -------------------------------------------------------------------------- */
-int
-read_gpus (t_chip *ptr_chip)
+static int
+read_gpus (t_chip *chip)
 {
-    t_chipfeature *ptr_chipfeature;
+    t_chipfeature *feature;
     int num_gpus = 0;
     int event, error;
     int idx_gpu;
 
-    g_assert (ptr_chip != NULL);
+    g_assert (chip != NULL);
 
     /* create the connection to the X server */
     nvidia_sensors_display = XOpenDisplay (NULL);
@@ -149,26 +148,26 @@ read_gpus (t_chip *ptr_chip)
     }
 
     for (idx_gpu = 0; idx_gpu < num_gpus; idx_gpu++) {
-        gchar* ptr_str_gpuname = NULL; /* allocated by libxnvctrl */
-        ptr_chipfeature = g_new0 (t_chipfeature, 1);
+        gchar* gpuname = NULL; /* allocated by libxnvctrl */
+        feature = g_new0 (t_chipfeature, 1);
 
         if (XNVCTRLQueryTargetStringAttribute (nvidia_sensors_display,
                                                NV_CTRL_TARGET_TYPE_GPU,
                                                idx_gpu,
                                                0,
                                                NV_CTRL_STRING_PRODUCT_NAME,
-                                               &ptr_str_gpuname)) {
-            g_assert (ptr_str_gpuname != NULL);
-            ptr_chipfeature->devicename = ptr_str_gpuname;  /* "it is the caller's responsibility to free ..." */
+                                               &gpuname)) {
+            g_assert (gpuname != NULL);
+            feature->devicename = gpuname;  /* "it is the caller's responsibility to free ..." */
         }
         else
         {
-            ptr_chipfeature->devicename = g_strdup_printf ("GPU %d", idx_gpu);
+            feature->devicename = g_strdup_printf ("GPU %d", idx_gpu);
         }
-        ptr_chipfeature->name = g_strdup (ptr_chipfeature->devicename);
+        feature->name = g_strdup (feature->devicename);
 
-        g_ptr_array_add (ptr_chip->chip_features, ptr_chipfeature);
-        ptr_chip->num_features++;
+        g_ptr_array_add (chip->chip_features, feature);
+        chip->num_features++;
     }
 
     return num_gpus;

@@ -33,28 +33,28 @@
 
 /**
  * Initialize hddtemp by finding disks to monitor
- * @param arr_ptr_chips: Pointer to array of chips
- * @param ptr_suppressmessage: returns whether messages shall be suppressed
+ * @param chips: Pointer to array of chips
+ * @param suppress_message: returns whether messages shall be suppressed
  * @return Number of initialized chips
  */
-int initialize_hddtemp (GPtrArray *arr_ptr_chips, gboolean *ptr_suppressmessage);
+int initialize_hddtemp (GPtrArray *chips, gboolean *suppress_message);
 
 
 /**
  * Refreshs a hddtemp chip's feature in sense of raw and formatted value
  *
- * @param ptr_chip_feature: Pointer to feature
- * @param ptr_sensors: Pointer to t_sensors or NULL
+ * @param chip_feature: Pointer to feature
+ * @param sensors: Pointer to t_sensors or NULL
  */
-void refresh_hddtemp (gpointer ptr_chip_feature, gpointer ptr_sensors);
+void refresh_hddtemp (gpointer chip_feature, gpointer sensors);
 
 
 /**
  * Gets the hddtemp value of a disk
- * @param str_disk: disk name
- * @param ptr_suppressmessage: returns whether messages shall be suppressed
+ * @param disk: disk name
+ * @param suppress_message: returns whether messages shall be suppressed
  * @return Temperature of disk
  */
-double get_hddtemp_value (char* str_disk, gboolean *ptr_suppressmessage);
+double get_hddtemp_value (char *disk, gboolean *suppress_message);
 
 #endif /* XFCE4_SENSORS_HDDTEMP_H */

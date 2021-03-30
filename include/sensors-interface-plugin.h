@@ -129,11 +129,11 @@ typedef struct {
 
     /** contains the progress bar panels */
     /* FIXME:    Might be replaced by GPtrArray as well */
-    t_labelledlevelbar* panels[MAX_NUM_CHIPS][MAX_NUM_FEATURES];
+    t_labelledlevelbar *panels[MAX_NUM_CHIPS][MAX_NUM_FEATURES];
     /*    GArray *panels_array; */
 
     /** CSS provider for main dialog */
-    GtkCssProvider  *css_provider;
+    GtkCssProvider *css_provider;
 
     /** contains the tacho panels */
     /* FIXME:    Might be replaced by GPtrArray as well */
@@ -143,7 +143,7 @@ typedef struct {
     GPtrArray *chips;
 
     /** command to excute */
-    gchar* command_name;
+    gchar *command_name;
 
     /** callback_id for doubleclicks */
     gint doubleclick_id;
@@ -171,17 +171,17 @@ t_sensors;
 
 /**
  * Create new sensors plugin data object
- * @param ptr_xfcepanelplugin: Pointer to panel plugin data
- * @param ptr_plugin_config_filename
+ * @param plugin: Pointer to panel plugin data
+ * @param plugin_config_filename
  * @return pointer to newly allocated sensors object
  */
-t_sensors* sensors_new (XfcePanelPlugin *ptr_xfcepanelplugin, gchar * ptr_plugin_config_filename);
+t_sensors* sensors_new (XfcePanelPlugin *plugin, gchar *plugin_config_filename);
 
 /**
  * Initialize sensors structure with default values
- * @param ptr_sensors: pointer to sensors plugin data
- * @param ptr_xfcepanelplugin: Pointer to panel plugin data
+ * @param sensors: pointer to sensors plugin data
+ * @param plugin: Pointer to panel plugin data
  */
-void sensors_init_default_values (t_sensors *ptr_sensors, XfcePanelPlugin *ptr_xfcepanelplugin);
+void sensors_init_default_values (t_sensors *sensors, XfcePanelPlugin *plugin);
 
 #endif /* XFCE4_SENSORS_INTERFACE_PLUGIN_H */

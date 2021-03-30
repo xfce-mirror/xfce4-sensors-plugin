@@ -28,10 +28,11 @@
 
 /**
  * Shall refresh the entire view of the application
- * @param data: pointer to sensors dialog structure
+ * @param dialog: pointer to sensors dialog structure
  * @return TRUE: argument is valid
  */
-void refresh_view (t_sensors_dialog *ptr_sensors_dialog);
+void refresh_view (t_sensors_dialog *dialog);
+
 gboolean refresh_view_cb (gpointer user_data);
 
 #endif /* ACTIONS_H */

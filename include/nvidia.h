@@ -28,17 +28,17 @@
 
 /**
  * Initialize nvidia sensor
- * @param arr_ptr_chips: Pointer to pointer array to chips
+ * @param chips: Pointer to pointer array to chips
  * @return number of detected chip features
  */
-int initialize_nvidia (GPtrArray *arr_ptr_chips);
+int initialize_nvidia (GPtrArray *chips);
 
 /**
  * Refresh an nvidia chip's feature
- * @param ptr_chipfeature: Pointer to chip feature to refresh
- * @param ptr_unused: currently unused
+ * @param chip_feature: Pointer to chip feature to refresh
+ * @param unused: currently unused
  */
-void refresh_nvidia (gpointer ptr_chipfeature, gpointer ptr_unused);
+void refresh_nvidia (gpointer chip_feature, gpointer unused);
 
 /**
  * Read the temperature value from GPU
