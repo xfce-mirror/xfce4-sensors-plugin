@@ -18,10 +18,9 @@
  */
 
 #ifdef HAVE_CONFIG_H
-# include <config.h>
+#include <config.h>
 #endif
 
-/* Xfce includes */
 #include <libxfce4ui/libxfce4ui.h>
 
 /* Package includes */

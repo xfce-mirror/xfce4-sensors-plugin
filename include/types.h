@@ -21,17 +21,14 @@
 #define XFCE4_SENSORS_TYPES_H
 
 #ifdef HAVE_CONFIG_H
-  #include "config.h"
+#include "config.h"
 #endif
 
-/* Glib includes */
 #include <glib.h>
-
-/* Xfce includes */
 #include <libxfce4util/libxfce4util.h>
 
 #ifdef HAVE_LIBSENSORS
- #include <sensors/sensors.h>
+#include <sensors/sensors.h>
 #else
 /**
  * sensors chip name structure from libsensors it is reused for the other

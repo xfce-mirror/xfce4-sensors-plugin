@@ -18,21 +18,18 @@
  */
 
 #ifdef HAVE_CONFIG_H
-# include <config.h>
+#include <config.h>
 #endif
 
-/* Global includes */
+#include <libxfce4panel/xfce-panel-plugin.h>
+#include <libxfce4util/libxfce4util.h>
 #include <stdlib.h>
 #include <unistd.h>
 
-/* Xfce includes */
-#include <libxfce4util/libxfce4util.h>
-#include <libxfce4panel/xfce-panel-plugin.h>
-
 /* Package includes */
 #include <configuration.h>
-#include <tacho.h>
 #include <sensors-interface.h>
+#include <tacho.h>
 #include <types.h>
 
 

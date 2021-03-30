@@ -42,11 +42,8 @@
 #define SYS_FILE_VOLTAGE "voltage_now"
 #define SYS_FILE_VOLTAGE_MIN "voltage_min_design"
 
-/* Gtk/Glib includes */
+#include <dirent.h>
 #include <glib.h>
-
-/* Global includes */
-#include <dirent.h>    /* directory listing and reading */
 
 /* Package/local includes */
 #include "types.h"

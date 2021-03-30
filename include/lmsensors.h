@@ -21,7 +21,7 @@
 #define XFCE4_SENSORS_LMSENSORS_H
 
 #ifdef HAVE_CONFIG_H
-# include "config.h"
+#include "config.h"
 #endif
 
 /* Gtk/Glib includes */

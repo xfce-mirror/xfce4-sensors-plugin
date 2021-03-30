@@ -18,14 +18,11 @@
  */
 
 #ifdef HAVE_CONFIG_H
-# include <config.h>
+#include <config.h>
 #endif
 
-/* Gtk includes */
 #include <glib/gprintf.h>
 #include <gtk/gtk.h>
-
-/* Xfce includes */
 #include <libxfce4ui/libxfce4ui.h>
 
 /* Package includes */

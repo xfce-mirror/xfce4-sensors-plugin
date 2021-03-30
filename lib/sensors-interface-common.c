@@ -18,18 +18,17 @@
  */
 
 #ifdef HAVE_CONFIG_H
-# include <config.h>
+#include <config.h>
 #endif
 
-/* Xfce includes */
 #include <gtk/gtk.h>
 #include <libxfce4panel/xfce-panel-plugin.h>
 
 /* Local/package includes */
 #define XFCE4_SENSORS_INTERFACE_COMMON_DEFINING
 #include <configuration.h>
-#include <sensors-interface-common.h>
 #include <middlelayer.h>
+#include <sensors-interface-common.h>
 #include <tacho.h>
 
 /* -------------------------------------------------------------------------- */

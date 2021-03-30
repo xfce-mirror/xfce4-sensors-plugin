@@ -20,8 +20,8 @@
 #ifndef __TACHO_H
 #define __TACHO_H
 
-#include <gtk/gtk.h>
 #include <cairo.h>
+#include <gtk/gtk.h>
 
 G_BEGIN_DECLS
 

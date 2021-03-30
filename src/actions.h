@@ -20,7 +20,6 @@
 #ifndef ACTIONS_H
 #define ACTIONS_H
 
-/* Glib includes */
 #include <glib.h>
 
 /* Package includes */

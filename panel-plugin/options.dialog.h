@@ -21,15 +21,12 @@
 #define XFCE4_SENSORS_OPTIONSDIALOG_H
 
 #ifdef HAVE_CONFIG_H
- #include <config.h>
+#include <config.h>
 #endif
 
 /* Package includes */
 #include <configuration.h>
 #include <sensors-interface.h>
-#include <sensors-interface-plugin.h> // includes sensors-interface-common.h
-
-
-
+#include <sensors-interface-plugin.h>
 
 #endif /* XFCE4_SENSORS_OPTIONSDIALOG_H */

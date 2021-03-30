@@ -21,18 +21,15 @@
 #define XFCE4_SENSORS_INTERFACE_COMMON_H
 
 #ifdef HAVE_CONFIG_H
- #include <config.h>
+#include <config.h>
 #endif
 
-/* Glib/Gtk includes */
-#include <gtk/gtk.h>
 #include <glib.h>
-/* #include <glib/gprintf.h>  */
-
+#include <gtk/gtk.h>
 
 /* Package includes */
-#include "types.h"
 #include "sensors-interface-plugin.h"
+#include "types.h"
 
 /* Definitions */
 // Newer Gnome 2 spacing?

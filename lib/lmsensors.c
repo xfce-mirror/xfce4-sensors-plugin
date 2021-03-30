@@ -18,22 +18,19 @@
  */
 
 #ifdef HAVE_CONFIG_H
-# include <config.h>
+#include <config.h>
 #endif
+
+#include <errno.h>
+#include <glib.h>
+#include <glib/gprintf.h>
+#include <stdio.h>
+#include <string.h>
 
 /* Package includes */
 #include <lmsensors.h>
 #include <middlelayer.h>
 #include <types.h>
-
-/* Gtk/Glib includes */
-#include <glib.h>
-#include <glib/gprintf.h>
-
-/* Global includes */
-#include <errno.h>
-#include <stdio.h>
-#include <string.h>
 
 /* internal forward declaration so that GCC 4.4 does not complain */
 t_chip * setup_chip (GPtrArray *chips, const sensors_chip_name *c_ptr_sensors_chip_name, int num_sensorchips);

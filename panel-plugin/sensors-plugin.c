@@ -25,19 +25,16 @@
  */
 
 #ifdef HAVE_CONFIG_H
-# include <config.h>
+#include <config.h>
 #endif
 
-/* Global includes */
-#include <math.h>
-#include <stdlib.h>
-#include <string.h>
-
-/* Gtk/Glib includes */
 #include <gio/gio.h>
 #include <glib.h>
 #include <glib/gprintf.h> /* ain't included in glib.h! */
 #include <gtk/gtk.h>
+#include <math.h>
+#include <stdlib.h>
+#include <string.h>
 
 /* Xfce includes */
 #include <libxfce4util/libxfce4util.h>
@@ -46,9 +43,9 @@
 
 /* Package includes */
 #include <configuration.h>
-#include <sensors-interface.h>
-#include <sensors-interface-plugin.h> // includes sensors-interface-common.h
 #include <middlelayer.h>
+#include <sensors-interface.h>
+#include <sensors-interface-plugin.h>
 #include <tacho.h>
 
 /* Local includes */

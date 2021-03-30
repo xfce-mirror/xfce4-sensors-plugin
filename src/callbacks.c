@@ -18,22 +18,19 @@
  */
 
 #ifdef HAVE_CONFIG_H
-# include <config.h>
+#include <config.h>
 #endif
 
-/* Global includes */
-#include <stdlib.h>
-
-/* Xfce includes */
 #include <libxfce4ui/libxfce4ui.h>
+#include <stdlib.h>
 
 /* Package includes */
 #include <sensors-interface.h>
-#include <tacho.h> /* contains "extern gchar * font" */
+#include <tacho.h>
 
 /* Local includes */
-#include "callbacks.h"
 #include "actions.h"
+#include "callbacks.h"
 
 /* Forward declarations */
 gint set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *ptr_sensorsdialog, gchar *ptr_str_cellpath, gint col_treeview, GValue *ptr_value, t_chipfeature **ptr_ptr_chipfeature);

@@ -17,12 +17,10 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-/* tacho.c */
-
 #include <cairo.h>
-#include <math.h>
 #include <gdk/gdk.h>
 #include <glib/gprintf.h>
+#include <math.h>
 #include <stdlib.h>
 
 /* Package includes */

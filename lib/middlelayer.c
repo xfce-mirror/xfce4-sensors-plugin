@@ -18,19 +18,15 @@
  */
 
 #ifdef HAVE_CONFIG_H
-# include <config.h>
+#include <config.h>
 #endif
 
+#include <glib.h>
+#include <string.h>
 
 #ifdef HAVE_LINUX
 #include <sys/utsname.h>
 #endif
-
-/* Gtk/Glib includes */
-#include <glib.h>
-
-/* Global includes */
-#include <string.h>
 
 /* Package includes */
 #include <middlelayer.h>

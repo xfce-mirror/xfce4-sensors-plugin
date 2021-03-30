@@ -21,8 +21,8 @@
 #define XFCE4_SENSORS_MIDDLELAYER_H
 
 /* Package/Local includes in same folder */
-#include "types.h"
 #include "sensors-interface-plugin.h" // includes ....common.h
+#include "types.h"
 
 /* Gtk/Glib includes */
 #include <glib.h>
