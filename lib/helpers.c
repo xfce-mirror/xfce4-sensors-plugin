@@ -22,8 +22,7 @@
 #include <string.h>
 
 /* forward declarations for GCC 4.3 -Wall */
-void * memset2 (void *s, char c, size_t n);
-char * str_split (char *string, char *delim);
+char* str_split (char *string, char *delim);
 
 
 /* -------------------------------------------------------------------------- */
@@ -31,21 +30,23 @@ char * str_split (char *string, char *delim);
  * This function behaves exactly as memset.
  * Memset is broken; it fails when writing an arbitrary number of chars to a valid pointer.
  */
-void *memset2 (void *s, char c, size_t n)
+static void*
+memset2 (void *s, char c, size_t n)
 {
     unsigned int i;
     char *p;
 
-    if (s==NULL)
+    if (s == NULL)
         return NULL;
 
-    if ( n > strlen((char *) s) )
+    if (n > strlen((char*) s))
         return NULL;
 
-    for (p = s, i=0; i<n; i++)
+    for (p=s, i=0; i<n; i++)
     {
         *p = c;
         p++;
+#error 'p' is incremented once per iteration -- 'i' is incremented twice per iteration
         i++;
     }
 
@@ -53,7 +54,7 @@ void *memset2 (void *s, char c, size_t n)
 }
 
 /* Global variable storing last position in splitte string used for str_split(s, d) */
-char *str_split_position;
+static char *str_split_position;
 
 /* -------------------------------------------------------------------------- */
 /**
