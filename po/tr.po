@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Demiray Muhterem <mdemiray@msn.com>, 2018
+# Emin Tufan Çetin <etcetin@gmail.com>, 2021
 # Emin Tufan Çetin <etcetin@gmail.com>, 2020
 # Natavan Mirzayeva <mirzayevanatavan@gmail.com>, 2014
 # Necdet Yücel <necdetyucel@gmail.com>, 2013,2017
@@ -13,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2020-11-16 01:28+0000\n"
+"POT-Creation-Date: 2021-03-29 00:47+0200\n"
+"PO-Revision-Date: 2021-03-30 20:20+0000\n"
 "Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/xfce/xfce-panel-plugins/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -24,18 +25,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.c:383 ../panel-plugin/sensors-plugin.c:511
-#: ../panel-plugin/sensors-plugin.c:1141
+#: ../panel-plugin/sensors-plugin.c:362 ../panel-plugin/sensors-plugin.c:485
+#: ../panel-plugin/sensors-plugin.c:1070
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Algılayıcılar</b></span>"
 
-#: ../panel-plugin/sensors-plugin.c:1008
-msgid "No sensors selected!"
-msgstr "Algılayıcı seçilmedi!"
-
 #. output to stdout on command line, not very useful for user, except for
 #. tracing problems
-#: ../panel-plugin/sensors-plugin.c:1046
+#: ../panel-plugin/sensors-plugin.c:947
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -43,139 +40,146 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "Algılayıcı Eklentisi:\nAlgılayıcı değerleri okunurken sorun oluştu.\nDüzgün çalışma garantisi bulunmamaktadır.\n"
 
-#: ../panel-plugin/sensors-plugin.c:2011
+#: ../panel-plugin/sensors-plugin.c:979
+msgid "No sensors selected!"
+msgstr "Algılayıcı seçilmedi!"
+
+#: ../panel-plugin/sensors-plugin.c:1818
 msgid "UI style:"
 msgstr "Kullanıcı arabirimi stili:"
 
-#: ../panel-plugin/sensors-plugin.c:2012
+#: ../panel-plugin/sensors-plugin.c:1819
 msgid "_text"
 msgstr "_yazı"
 
-#: ../panel-plugin/sensors-plugin.c:2014
+#: ../panel-plugin/sensors-plugin.c:1821
 msgid "_progress bars"
 msgstr "_ilerleme çubukları"
 
-#: ../panel-plugin/sensors-plugin.c:2016
+#: ../panel-plugin/sensors-plugin.c:1823
 msgid "_tachos"
 msgstr "_sayaçlar"
 
-#: ../panel-plugin/sensors-plugin.c:2062
+#: ../panel-plugin/sensors-plugin.c:1861
 msgid "Show _labels"
 msgstr "_Etiketleri görüntüle"
 
-#: ../panel-plugin/sensors-plugin.c:2092
+#: ../panel-plugin/sensors-plugin.c:1885
 msgid "Show colored _bars"
 msgstr "Renkli çu_bukları görüntüle"
 
-#: ../panel-plugin/sensors-plugin.c:2123
+#: ../panel-plugin/sensors-plugin.c:1910
 msgid "_Show title"
 msgstr "_Başlığı görüntüle"
 
-#: ../panel-plugin/sensors-plugin.c:2148
+#: ../panel-plugin/sensors-plugin.c:1930
 msgid "_Number of text lines:"
 msgstr "_Satır sayısı:"
 
-#: ../panel-plugin/sensors-plugin.c:2186
+#. The Xfce 4 panel can have several rows or columns. With such a mode,
+#. the plugins are allowed to span over all available rows/columns.
+#. When translating, "cover" might be replaced by "use" or "span".
+#: ../panel-plugin/sensors-plugin.c:1965
 msgid "_Cover all panel rows/columns"
 msgstr "Tüm panel satır/sütunlarını _kapla"
 
-#: ../panel-plugin/sensors-plugin.c:2211
+#: ../panel-plugin/sensors-plugin.c:1985
 msgid "F_ont size:"
 msgstr "Yazı tipi b_oyutu: "
 
-#: ../panel-plugin/sensors-plugin.c:2217
+#: ../panel-plugin/sensors-plugin.c:1991
 msgid "x-small"
 msgstr "çok küçük"
 
-#: ../panel-plugin/sensors-plugin.c:2218
+#: ../panel-plugin/sensors-plugin.c:1992
 msgid "small"
 msgstr "küçük"
 
-#: ../panel-plugin/sensors-plugin.c:2219
+#: ../panel-plugin/sensors-plugin.c:1993
 msgid "medium"
 msgstr "olağan"
 
-#: ../panel-plugin/sensors-plugin.c:2220
+#: ../panel-plugin/sensors-plugin.c:1994
 msgid "large"
 msgstr "büyük"
 
-#: ../panel-plugin/sensors-plugin.c:2221
+#: ../panel-plugin/sensors-plugin.c:1995
 msgid "x-large"
 msgstr "çok büyük"
 
-#: ../panel-plugin/sensors-plugin.c:2255
+#: ../panel-plugin/sensors-plugin.c:2023
 msgid "F_ont:"
 msgstr "Yazı Tipi:"
 
-#: ../panel-plugin/sensors-plugin.c:2288
+#: ../panel-plugin/sensors-plugin.c:2051
 msgid "Show _Units"
 msgstr "Birimleri Göst_er"
 
-#: ../panel-plugin/sensors-plugin.c:2312
+#: ../panel-plugin/sensors-plugin.c:2069
 msgid "Small horizontal s_pacing"
 msgstr "Küçük yatay ara_lık"
 
 #. Alpha value of the tacho coloring
-#: ../panel-plugin/sensors-plugin.c:2340
+#: ../panel-plugin/sensors-plugin.c:2092
 msgid "Tacho color alpha value:"
 msgstr "Tacho renk alfa değeri:"
 
 #. The value from HSV color model
-#: ../panel-plugin/sensors-plugin.c:2354
+#: ../panel-plugin/sensors-plugin.c:2105
 msgid "Tacho color value:"
 msgstr "Tacho renk değeri:"
 
-#: ../panel-plugin/sensors-plugin.c:2388
+#: ../panel-plugin/sensors-plugin.c:2130
 msgid "Suppress messages"
 msgstr "İletileri gizle"
 
-#: ../panel-plugin/sensors-plugin.c:2409
+#: ../panel-plugin/sensors-plugin.c:2145
 msgid "Suppress tooltip"
 msgstr "Araç bilgisini gizle"
 
-#: ../panel-plugin/sensors-plugin.c:2436
+#: ../panel-plugin/sensors-plugin.c:2166
 msgid "E_xecute on double click:"
 msgstr "Çift tıklandığında çalıştı_r:"
 
-#: ../panel-plugin/sensors-plugin.c:2476
+#: ../panel-plugin/sensors-plugin.c:2200
 msgid "_View"
 msgstr "_Görünüm"
 
-#: ../panel-plugin/sensors-plugin.c:2489
+#: ../panel-plugin/sensors-plugin.c:2213
 msgid "UI style options"
 msgstr "Kullanıcı arabirim seçenekleri"
 
-#: ../panel-plugin/sensors-plugin.c:2523
+#: ../panel-plugin/sensors-plugin.c:2242
 msgid "_Miscellaneous"
 msgstr "_Türlü"
 
-#: ../panel-plugin/sensors-plugin.c:2591 ../panel-plugin/sensors-plugin.h:31
-#: ../lib/hddtemp.c:167
+#: ../panel-plugin/sensors-plugin.c:2300 ../panel-plugin/sensors-plugin.h:31
+#: ../lib/hddtemp.c:162
 msgid "Sensors Plugin"
 msgstr "Algılayıcılar Eklentisi"
 
-#: ../panel-plugin/sensors-plugin.c:2599
+#: ../panel-plugin/sensors-plugin.c:2308
 msgid "Properties"
 msgstr "Özellikler"
 
-#: ../panel-plugin/sensors-plugin.c:2625
+#: ../panel-plugin/sensors-plugin.c:2334
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "Bir özelliğin adını, rengini, asgari/azami değerini o değerin üzerine çift tıklayarak, o değeri istediğiniz gibi biçimlendirip, \"Enter\" tuşuna basarak  değiştirebilirsiniz."
 
-#: ../panel-plugin/sensors-plugin.c:2712
+#: ../panel-plugin/sensors-plugin.c:2412
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "LM, ACPI, sabit diskler ve NVIDIA algılayıcı değerlerini göster"
 
-#: ../panel-plugin/sensors-plugin.c:2714
-msgid "Copyright (c) 2004-2018\n"
-msgstr "Telif Hakkı (c) 2004-2018\n"
+#: ../panel-plugin/sensors-plugin.c:2414
+msgid "Copyright (c) 2004-2021\n"
+msgstr "Telif Hakkı (c) 2004-2021\n"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
-#: ../lib/configuration.c:180 ../lib/hddtemp.c:396
+#: ../lib/configuration.c:169 ../lib/hddtemp.c:372
 msgid "Hard disks"
 msgstr "Sabit diskler "
 
@@ -194,45 +198,46 @@ msgstr "Sabit diskler "
 #. You might want to format this with a hyphen and without spacing, or with a
 #. dash; the result might be BAT1–Voltage or whatever fits your language most.
 #. Spaces allow line breaks over the tachometers.
-#: ../lib/acpi.c:346 ../lib/acpi.c:669 ../lib/acpi.c:741
+#: ../lib/acpi.c:334 ../lib/acpi.c:639 ../lib/acpi.c:708
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: ../lib/acpi.c:669
+#. Power with unit Watts, not Energy with Joules or kWh
+#: ../lib/acpi.c:641
 msgid "Power"
 msgstr "Güç"
 
-#: ../lib/acpi.c:741
+#: ../lib/acpi.c:708
 msgid "Voltage"
 msgstr "Gerilim"
 
-#: ../lib/acpi.c:801 ../lib/acpi.c:813
+#: ../lib/acpi.c:763 ../lib/acpi.c:775
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.c:804
+#: ../lib/acpi.c:766
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ACPI v%s alanları"
 
-#: ../lib/acpi.c:958
+#: ../lib/acpi.c:910
 msgid "<Unknown>"
 msgstr "<Bilinmiyor>"
 
-#: ../lib/nvidia.c:65
+#: ../lib/nvidia.c:63
 msgid "NVidia GPU core temperature"
 msgstr "NVidia GPU çekirdek ısı dereceleri"
 
-#: ../lib/nvidia.c:66
+#: ../lib/nvidia.c:64
 msgid "nvidia"
 msgstr "nvidia"
 
-#: ../lib/hddtemp.c:395
+#: ../lib/hddtemp.c:371
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "S.M.A.R.T. sabit ısı dereceleri"
 
-#: ../lib/hddtemp.c:572
+#: ../lib/hddtemp.c:544
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
@@ -244,22 +249,22 @@ msgid ""
 "with a return value of %d.\n"
 msgstr "\"hddtemp\" çalıştırılabilir olmasına rağmen çalıştırılamadı. Bu, genellikle disklerin ısı derecelerini okumak için kök yetkisi gerekmesinden kaynaklanmaktadır.\n\nBu sorunu çözmek için kök kullanıcısı ile \"chmod u+s %s\" komutunu verip, eklentiyi veya paneli yeniden başlatın.\n\n\"%s\" çağrılırken şu hatayı alındı:\n%s\n%d değeri döndürüldü.\n"
 
-#: ../lib/hddtemp.c:586 ../lib/hddtemp.c:609
+#: ../lib/hddtemp.c:558 ../lib/hddtemp.c:581
 msgid "Suppress this message in future"
 msgstr "Bu mesajı ileride gizle"
 
-#: ../lib/hddtemp.c:604
+#: ../lib/hddtemp.c:576
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr "\"%s\" çalıştırılırken hata oluştu:\n%s"
 
-#: ../lib/lmsensors.c:97
+#: ../lib/lmsensors.c:95
 msgid "LM Sensors"
 msgstr "LM Algılayıcıları"
 
-#: ../lib/lmsensors.c:417 ../lib/lmsensors.c:464
+#: ../lib/lmsensors.c:399 ../lib/lmsensors.c:443
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Hata: Algılayacılara bağlanılamadı!"
@@ -274,102 +279,102 @@ msgid ""
 "Proper proceeding cannot be guaranteed."
 msgstr "Algılayıcı değerleri okunurken sorun oluştu.\nDüzgün çalışma garantisi bulunmamaktadır."
 
-#: ../lib/sensors-interface.c:170
+#: ../lib/sensors-interface.c:164
 msgid "Sensors t_ype:"
 msgstr "Algıla_yıcı türü:"
 
-#: ../lib/sensors-interface.c:190
+#: ../lib/sensors-interface.c:184
 msgid "Description:"
 msgstr "Açıklama"
 
-#: ../lib/sensors-interface.c:223
+#: ../lib/sensors-interface.c:213
 msgid "U_pdate interval (seconds):"
 msgstr "Güncelle_me aralığı (saniye):"
 
-#: ../lib/sensors-interface.c:263
+#: ../lib/sensors-interface.c:249
 msgid "Name"
 msgstr "Ad"
 
-#: ../lib/sensors-interface.c:274
+#: ../lib/sensors-interface.c:260
 msgid "Value"
 msgstr "Değer"
 
-#: ../lib/sensors-interface.c:280
+#: ../lib/sensors-interface.c:266
 msgid "Show"
 msgstr "Göster"
 
-#: ../lib/sensors-interface.c:289
+#: ../lib/sensors-interface.c:275
 msgid "Color"
 msgstr "Renk"
 
-#: ../lib/sensors-interface.c:300
+#: ../lib/sensors-interface.c:286
 msgid "Min"
 msgstr "Azami"
 
-#: ../lib/sensors-interface.c:311
+#: ../lib/sensors-interface.c:297
 msgid "Max"
 msgstr "Asgari"
 
-#: ../lib/sensors-interface.c:347
+#: ../lib/sensors-interface.c:329
 msgid "Temperature scale:"
 msgstr "Isı derecesi ölçüsü:"
 
-#: ../lib/sensors-interface.c:349
+#: ../lib/sensors-interface.c:331
 msgid "_Celsius"
 msgstr "_Santigrat"
 
-#: ../lib/sensors-interface.c:351
+#: ../lib/sensors-interface.c:333
 msgid "_Fahrenheit"
 msgstr "_Fahrenhayt"
 
-#: ../lib/sensors-interface.c:387
+#: ../lib/sensors-interface.c:365
 msgid "_Sensors"
 msgstr "_Algılayıcı"
 
-#: ../lib/sensors-interface-common.c:74 ../lib/sensors-interface-common.c:75
+#: ../lib/sensors-interface-common.c:73 ../lib/sensors-interface-common.c:74
 msgid "No sensors found!"
 msgstr "Algılayıcı bulunamadı!"
 
-#: ../lib/sensors-interface-common.c:150
+#: ../lib/sensors-interface-common.c:143
 #, c-format
 msgid "%.0f °F"
 msgstr "%.0f °F"
 
 #. Celsius
-#: ../lib/sensors-interface-common.c:153
+#: ../lib/sensors-interface-common.c:146
 #, c-format
 msgid "%.0f °C"
 msgstr "%.0f °C"
 
-#: ../lib/sensors-interface-common.c:158
+#: ../lib/sensors-interface-common.c:151
 #, c-format
 msgid "%+.3f V"
 msgstr "%+.3f V"
 
-#: ../lib/sensors-interface-common.c:162
+#: ../lib/sensors-interface-common.c:155
 #, c-format
 msgid "%+.3f A"
 msgstr "%+.3f A"
 
-#: ../lib/sensors-interface-common.c:166
+#: ../lib/sensors-interface-common.c:159
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.c:170
+#: ../lib/sensors-interface-common.c:163
 #, c-format
 msgid "%.3f W"
 msgstr "%.3f W"
 
-#: ../lib/sensors-interface-common.c:175
+#: ../lib/sensors-interface-common.c:168
 msgid "off"
 msgstr "kapalı"
 
-#: ../lib/sensors-interface-common.c:177
+#: ../lib/sensors-interface-common.c:170
 msgid "on"
 msgstr "açık"
 
-#: ../lib/sensors-interface-common.c:181
+#: ../lib/sensors-interface-common.c:174
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f devir"
@@ -416,7 +421,7 @@ msgstr "Algılayıcı Görüntüleyici"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../src/actions.c:92
+#: ../src/actions.c:83
 #, c-format
 msgid ""
 "Sensors Viewer:\n"
