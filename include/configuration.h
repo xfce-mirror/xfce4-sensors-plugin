@@ -27,47 +27,44 @@
 
 /**
  * Gets the internally used chipfeature index for the given parameters.
- * @param chipnumber: number of the chip to search for
+ * @param chip_number: number of the chip to search for
  * @param addr_chipfeature: address of the chipfeature
- * @param ptr_sensors: pointer to sensors structure
+ * @param sensors: pointer to sensors structure
  * @return -1 on error; else chipfeature index for the parameters
  */
-gint get_Id_from_address (gint chipnumber, gint addr_chipfeature,
-                          t_sensors *ptr_sensors);
+gint get_Id_from_address (gint chip_number, gint addr_chipfeature, t_sensors *sensors);
 
 
 /**
  * Write the configuration, e.g., when exiting the plugin.
- * @param ptr_panelplugin: pointer to panel plugin structure
- * @param ptr_sensors: pointer to sensors structure
+ * @param plugin: pointer to panel plugin structure
+ * @param sensors: pointer to sensors structure
  */
-void sensors_write_config (XfcePanelPlugin *ptr_panelplugin,t_sensors *ptr_sensors);
+void sensors_write_config (XfcePanelPlugin *plugin, const t_sensors *sensors);
 
 
 /**
  * Read the general settings stuff.
- * @param ptr_xfcerc: pointer to xfce settings resource
- * @param ptr_sensors: pointer to sensors structure
+ * @param rc: pointer to xfce settings resource
+ * @param sensors: pointer to sensors structure
  */
-void sensors_read_general_config (XfceRc *ptr_xfcerc, t_sensors *ptr_sensors);
+void sensors_read_general_config (XfceRc *rc, t_sensors *sensors);
 
 
 /**
  * Read the configuration file at init:
  * Open the resource file and read down to the per-feature settings.
- * @param ptr_panelplugin: pointer to panel plugin structure
- * @param ptr_sensors: pointer to sensors structure
+ * @param plugin: pointer to panel plugin structure
+ * @param sensors: pointer to sensors structure
  */
-void sensors_read_config (XfcePanelPlugin *ptr_panelplugin,
-                          t_sensors *ptr_sensors);
+void sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors);
 
 
 /**
  * Read the preliminary config, i.e, "suppress hdd tooltips".
- * @param ptr_panelplugin: pointer to panel plugin structure
- * @param ptr_sensors: pointer to sensors structure
+ * @param plugin: pointer to panel plugin structure
+ * @param sensors: pointer to sensors structure
  */
-void sensors_read_preliminary_config (XfcePanelPlugin *ptr_panelplugin,
-                                      t_sensors *ptr_sensors);
+void sensors_read_preliminary_config (XfcePanelPlugin *plugin, t_sensors *sensors);
 
 #endif  /* define XFCE4_SENSORS_CONFIGURATION_H */

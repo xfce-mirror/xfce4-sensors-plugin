@@ -35,36 +35,36 @@
 
 /**
  * Initialize libsensors by reading sensor config and other stuff
- * @param arr_ptr_chips: Pointer to array of chips
+ * @param chips: Pointer to array of chips
  * @return Number of found chip_features
  */
-int initialize_libsensors (GPtrArray *arr_ptr_chips);
+int initialize_libsensors (GPtrArray *chips);
 
 
 /**
  * Refreshs an lmsensors chip's feature in sense of raw and formatted value
- * @param ptr_chip_feature: Pointer to feature
- * @param ptr_unused: pointer to sensors structure
+ * @param chip_feature: Pointer to feature
+ * @param unused: pointer to sensors structure
  */
-void refresh_lmsensors (gpointer ptr_chip_feature, gpointer ptr_unused);
+void refresh_lmsensors (gpointer chip_feature, gpointer unused);
 
 
 /**
  * Get the value of subsensor/feature that is number in array of sensors.
- * @param ptr_sensorschipname: Structure of sensor description.
+ * @param chip_name: Structure of sensor description.
  * @param idx_feature: number of feature to read the value from
- * @param ptr_returnvalue: pointer where the double feature value is to be stored
+ * @param out_value: pointer where the feature value is to be stored
  * @return 0 on success
  */
-int sensors_get_feature_wrapper (const sensors_chip_name *ptr_sensorschipname,
-                                 int idx_feature, double *ptr_returnvalue);
+int sensors_get_feature_wrapper (const sensors_chip_name *chip_name,
+                                 int idx_feature, double *out_value);
 
 
 /**
  * Free the additionally allocated structures in the sensors_chip_name
  * according to the version of libsensors.
- * @param ptr_chip: Pointer to t_chip
+ * @param chip: Pointer to t_chip
  */
-void free_lmsensors_chip (gpointer ptr_chip);
+void free_lmsensors_chip (gpointer chip);
 
 #endif /* XFCE4_SENSORS_LMSENSORS_H */

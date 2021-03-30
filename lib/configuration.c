@@ -35,24 +35,23 @@
 
 /* -------------------------------------------------------------------------- */
 gint
-get_Id_from_address (gint idx_chip, gint addr_chipfeature, t_sensors *ptr_sensors)
+get_Id_from_address (gint chip_number, gint addr_chipfeature, t_sensors *sensors)
 {
     gint idx_feature, result = -1;
-    t_chip *ptr_chip = NULL;
-    t_chipfeature *ptr_chipfeature = NULL;
+    t_chip *chip;
 
-    g_return_val_if_fail(ptr_sensors!=NULL, result);
+    g_return_val_if_fail (sensors!=NULL, result);
 
-    ptr_chip = (t_chip *) g_ptr_array_index (ptr_sensors->chips, idx_chip);
+    chip = (t_chip *) g_ptr_array_index (sensors->chips, chip_number);
 
-    if (ptr_chip)
+    if (chip)
     {
-        for (idx_feature=0; idx_feature<ptr_chip->num_features; idx_feature++) {
-            ptr_chipfeature = g_ptr_array_index(ptr_chip->chip_features, idx_feature);
-            if (ptr_chipfeature)
+        for (idx_feature=0; idx_feature<chip->num_features; idx_feature++) {
+            t_chipfeature *feature = g_ptr_array_index(chip->chip_features, idx_feature);
+            if (feature)
             {
-                DBG("address: %d", ptr_chipfeature->address);
-                if (addr_chipfeature == ptr_chipfeature->address) {
+                DBG("address: %d", feature->address);
+                if (addr_chipfeature == feature->address) {
                     result = idx_feature;
                     break;
                 }
@@ -66,126 +65,124 @@ get_Id_from_address (gint idx_chip, gint addr_chipfeature, t_sensors *ptr_sensor
 
 /* -------------------------------------------------------------------------- */
 void
-sensors_write_config (XfcePanelPlugin *plugin,t_sensors *ptr_sensors)
+sensors_write_config (XfcePanelPlugin *plugin, const t_sensors *sensors)
 {
-    XfceRc *ptr_xfcerc;
-    gchar *str_file, *str_tmp, str_chip[8], str_feature[20];
-    gint idx_chips, idx_features;
-    t_chip *ptr_chip;
-    t_chipfeature *ptr_chipfeature;
+    gchar *file;
 
-    g_return_if_fail(ptr_sensors!=NULL);
+    g_return_if_fail (sensors != NULL);
 
-    if ((str_file = ptr_sensors->plugin_config_file) != NULL)
+    if ((file = sensors->plugin_config_file) != NULL)
     {
-        unlink (str_file);
+        XfceRc *rc;
 
-        ptr_xfcerc = xfce_rc_simple_open (str_file, FALSE);
+        unlink (file);
 
-        if (ptr_xfcerc)
+        rc = xfce_rc_simple_open (file, FALSE);
+        if (rc)
         {
-            xfce_rc_set_group (ptr_xfcerc, "General");
+            gchar *tmp, str_chip[8], str_feature[20];
+            gint idx_chip, idx_feature;
 
-            xfce_rc_write_bool_entry (ptr_xfcerc, "Show_Title", ptr_sensors->show_title);
+            xfce_rc_set_group (rc, "General");
 
-            xfce_rc_write_bool_entry (ptr_xfcerc, "Show_Labels", ptr_sensors->show_labels);
+            xfce_rc_write_bool_entry (rc, "Show_Title", sensors->show_title);
 
-            xfce_rc_write_int_entry (ptr_xfcerc, "Use_Bar_UI", ptr_sensors->display_values_type);
+            xfce_rc_write_bool_entry (rc, "Show_Labels", sensors->show_labels);
 
-            xfce_rc_write_bool_entry (ptr_xfcerc, "Show_Colored_Bars", ptr_sensors->show_colored_bars);
+            xfce_rc_write_int_entry (rc, "Use_Bar_UI", sensors->display_values_type);
 
-            xfce_rc_write_int_entry (ptr_xfcerc, "Scale", ptr_sensors->scale);
+            xfce_rc_write_bool_entry (rc, "Show_Colored_Bars", sensors->show_colored_bars);
 
-            xfce_rc_write_entry (ptr_xfcerc, "str_fontsize", ptr_sensors->str_fontsize);
+            xfce_rc_write_int_entry (rc, "Scale", sensors->scale);
 
-            xfce_rc_write_int_entry (ptr_xfcerc, "val_fontsize",
-                                        ptr_sensors->val_fontsize);
+            xfce_rc_write_entry (rc, "str_fontsize", sensors->str_fontsize);
+
+            xfce_rc_write_int_entry (rc, "val_fontsize",
+                                        sensors->val_fontsize);
 
             if (font)
-                xfce_rc_write_entry (ptr_xfcerc, "Font", font); // the font for the tachometers exported from tacho.h
+                xfce_rc_write_entry (rc, "Font", font); // the font for the tachometers exported from tacho.h
 
-            xfce_rc_write_int_entry (ptr_xfcerc, "Lines_Size", ptr_sensors->lines_size);
+            xfce_rc_write_int_entry (rc, "Lines_Size", sensors->lines_size);
 
-            xfce_rc_write_bool_entry (ptr_xfcerc, "Cover_All_Panel_Rows", ptr_sensors->cover_panel_rows);
+            xfce_rc_write_bool_entry (rc, "Cover_All_Panel_Rows", sensors->cover_panel_rows);
 
-            xfce_rc_write_int_entry (ptr_xfcerc, "Update_Interval", ptr_sensors->sensors_refresh_time);
+            xfce_rc_write_int_entry (rc, "Update_Interval", sensors->sensors_refresh_time);
 
-            xfce_rc_write_bool_entry (ptr_xfcerc, "Exec_Command", ptr_sensors->exec_command);
+            xfce_rc_write_bool_entry (rc, "Exec_Command", sensors->exec_command);
 
-            xfce_rc_write_bool_entry (ptr_xfcerc, "Show_Units", ptr_sensors->show_units);
+            xfce_rc_write_bool_entry (rc, "Show_Units", sensors->show_units);
 
-            xfce_rc_write_bool_entry(ptr_xfcerc, "Small_Spacings", ptr_sensors->show_smallspacings);
+            xfce_rc_write_bool_entry(rc, "Small_Spacings", sensors->show_smallspacings);
 
-            xfce_rc_write_entry (ptr_xfcerc, "Command_Name", ptr_sensors->command_name);
+            xfce_rc_write_entry (rc, "Command_Name", sensors->command_name);
 
-            xfce_rc_write_int_entry (ptr_xfcerc, "Number_Chips", ptr_sensors->num_sensorchips);
+            xfce_rc_write_int_entry (rc, "Number_Chips", sensors->num_sensorchips);
 
-            xfce_rc_write_bool_entry (ptr_xfcerc, "Suppress_Hddtemp_Message", ptr_sensors->suppressmessage);
+            xfce_rc_write_bool_entry (rc, "Suppress_Hddtemp_Message", sensors->suppressmessage);
 
-            xfce_rc_write_bool_entry (ptr_xfcerc, "Suppress_Tooltip", ptr_sensors->suppresstooltip);
+            xfce_rc_write_bool_entry (rc, "Suppress_Tooltip", sensors->suppresstooltip);
 
-            xfce_rc_write_int_entry (ptr_xfcerc, "Preferred_Width", ptr_sensors->preferred_width);
-            xfce_rc_write_int_entry (ptr_xfcerc, "Preferred_Height", ptr_sensors->preferred_height);
+            xfce_rc_write_int_entry (rc, "Preferred_Width", sensors->preferred_width);
+            xfce_rc_write_int_entry (rc, "Preferred_Height", sensors->preferred_height);
 
-            str_tmp = g_strdup_printf("%.2f", ptr_sensors->val_tachos_color);
-            xfce_rc_write_entry (ptr_xfcerc, "Tachos_ColorValue", str_tmp);
-            g_free (str_tmp);
+            tmp = g_strdup_printf("%.2f", sensors->val_tachos_color);
+            xfce_rc_write_entry (rc, "Tachos_ColorValue", tmp);
+            g_free (tmp);
 
-            str_tmp = g_strdup_printf("%.2f", ptr_sensors->val_tachos_alpha);
-            xfce_rc_write_entry (ptr_xfcerc, "Tachos_Alpha", str_tmp);
-            g_free (str_tmp);
+            tmp = g_strdup_printf("%.2f", sensors->val_tachos_alpha);
+            xfce_rc_write_entry (rc, "Tachos_Alpha", tmp);
+            g_free (tmp);
 
-            for (idx_chips=0; idx_chips<ptr_sensors->num_sensorchips; idx_chips++) {
+            for (idx_chip=0; idx_chip<sensors->num_sensorchips; idx_chip++)
+            {
+                t_chip *chip = g_ptr_array_index (sensors->chips, idx_chip);
+                g_assert (chip!=NULL);
 
-                ptr_chip = (t_chip *) g_ptr_array_index(ptr_sensors->chips, idx_chips);
-                g_assert (ptr_chip!=NULL);
+                g_snprintf (str_chip, 8, "Chip%d", idx_chip);
 
-                g_snprintf (str_chip, 8, "Chip%d", idx_chips);
+                xfce_rc_set_group (rc, str_chip);
 
-                xfce_rc_set_group (ptr_xfcerc, str_chip);
-
-                xfce_rc_write_entry (ptr_xfcerc, "Name", ptr_chip->sensorId);
+                xfce_rc_write_entry (rc, "Name", chip->sensorId);
 
                 /* number of sensors is still limited */
-                xfce_rc_write_int_entry (ptr_xfcerc, "Number", idx_chips);
+                xfce_rc_write_int_entry (rc, "Number", idx_chip);
 
-                for (idx_features=0; idx_features<ptr_chip->num_features; idx_features++) {
-                    ptr_chipfeature = g_ptr_array_index(ptr_chip->chip_features, idx_features);
-                    g_assert (ptr_chipfeature!=NULL);
+                for (idx_feature=0; idx_feature<chip->num_features; idx_feature++) {
+                    t_chipfeature *feature = g_ptr_array_index(chip->chip_features, idx_feature);
+                    g_assert (feature!=NULL);
 
-                    if (ptr_chipfeature->show) {
+                    if (feature->show)
+                    {
+                       g_snprintf (str_feature, 20, "%s_Feature%d", str_chip, idx_feature);
 
-                       g_snprintf (str_feature, 20, "%s_Feature%d", str_chip, idx_features);
-
-                       xfce_rc_set_group (ptr_xfcerc, str_feature);
+                       xfce_rc_set_group (rc, str_feature);
 
                        /* only use this if no hddtemp sensor */
                        /* or do only use this , if it is an lmsensors device. whatever. */
-                       if ( strcmp(ptr_chip->sensorId, _("Hard disks")) != 0 ) /* chip->name? */
-                            xfce_rc_write_int_entry (ptr_xfcerc, "Address", idx_features);
+                       if ( strcmp(chip->sensorId, _("Hard disks")) != 0 ) /* chip->name? */
+                            xfce_rc_write_int_entry (rc, "Address", idx_feature);
                         else
-                            xfce_rc_write_entry (ptr_xfcerc, "DeviceName", ptr_chipfeature->devicename);
+                            xfce_rc_write_entry (rc, "DeviceName", feature->devicename);
 
-                       xfce_rc_write_entry (ptr_xfcerc, "Name", ptr_chipfeature->name);
+                       xfce_rc_write_entry (rc, "Name", feature->name);
 
-                       xfce_rc_write_entry (ptr_xfcerc, "Color", ptr_chipfeature->color);
+                       xfce_rc_write_entry (rc, "Color", feature->color);
 
-                       xfce_rc_write_bool_entry (ptr_xfcerc, "Show", ptr_chipfeature->show);
+                       xfce_rc_write_bool_entry (rc, "Show", feature->show);
 
-                       str_tmp = g_strdup_printf("%.2f", ptr_chipfeature->min_value);
-                       xfce_rc_write_entry (ptr_xfcerc, "Min", str_tmp);
-                       g_free (str_tmp);
+                       tmp = g_strdup_printf("%.2f", feature->min_value);
+                       xfce_rc_write_entry (rc, "Min", tmp);
+                       g_free (tmp);
 
-                       str_tmp = g_strdup_printf("%.2f", ptr_chipfeature->max_value);
-                       xfce_rc_write_entry (ptr_xfcerc, "Max", str_tmp);
-                       g_free (str_tmp);
-                    } /* end if */
+                       tmp = g_strdup_printf("%.2f", feature->max_value);
+                       xfce_rc_write_entry (rc, "Max", tmp);
+                       g_free (tmp);
+                    }
+                }
+            }
 
-                } /* end for idx_features */
-
-            } /* end for idx_chips */
-
-            xfce_rc_close (ptr_xfcerc);
+            xfce_rc_close (rc);
         }
     }
 }
@@ -193,74 +190,71 @@ sensors_write_config (XfcePanelPlugin *plugin,t_sensors *ptr_sensors)
 
 /* -------------------------------------------------------------------------- */
 void
-sensors_read_general_config (XfceRc *ptr_xfceresources, t_sensors *ptr_sensors)
+sensors_read_general_config (XfceRc *rc, t_sensors *sensors)
 {
-    const gchar *str_value;
+    g_return_if_fail(rc!=NULL);
+    g_return_if_fail(sensors!=NULL);
 
-    g_return_if_fail(ptr_xfceresources!=NULL);
+    if (xfce_rc_has_group (rc, "General") )
+    {
+        const gchar *str_value;
 
-    g_return_if_fail(ptr_sensors!=NULL);
+        xfce_rc_set_group (rc, "General");
 
-    if (xfce_rc_has_group (ptr_xfceresources, "General") ) {
+        sensors->show_title = xfce_rc_read_bool_entry (rc, "Show_Title", TRUE);
 
-        xfce_rc_set_group (ptr_xfceresources, "General");
+        sensors->show_labels = xfce_rc_read_bool_entry (rc, "Show_Labels", TRUE);
 
-        ptr_sensors->show_title = xfce_rc_read_bool_entry (ptr_xfceresources, "Show_Title", TRUE);
+        sensors->display_values_type = xfce_rc_read_int_entry (rc, "Use_Bar_UI", 0);
 
-        ptr_sensors->show_labels = xfce_rc_read_bool_entry (ptr_xfceresources, "Show_Labels", TRUE);
+        sensors->show_colored_bars = xfce_rc_read_bool_entry (rc, "Show_Colored_Bars", FALSE);
 
-        ptr_sensors->display_values_type = xfce_rc_read_int_entry (ptr_xfceresources, "Use_Bar_UI", 0);
+        sensors->scale = xfce_rc_read_int_entry (rc, "Scale", 0);
 
-        ptr_sensors->show_colored_bars = xfce_rc_read_bool_entry (ptr_xfceresources, "Show_Colored_Bars", FALSE);
-
-        ptr_sensors->scale = xfce_rc_read_int_entry (ptr_xfceresources, "Scale", 0);
-
-        if ((str_value = xfce_rc_read_entry (ptr_xfceresources, "str_fontsize", NULL)) && *str_value) {
-            g_free(ptr_sensors->str_fontsize);
-            ptr_sensors->str_fontsize = g_strdup(str_value);
+        if ((str_value = xfce_rc_read_entry (rc, "str_fontsize", NULL)) && *str_value) {
+            g_free(sensors->str_fontsize);
+            sensors->str_fontsize = g_strdup(str_value);
         }
 
-        if ((str_value = xfce_rc_read_entry (ptr_xfceresources, "Font", NULL)) && *str_value) {
+        if ((str_value = xfce_rc_read_entry (rc, "Font", NULL)) && *str_value) {
             g_free(font);
-            font = g_strdup(str_value); // in tacho.h for the tachometers
+            font = g_strdup (str_value); // in tacho.h for the tachometers
         }
         else if (font==NULL)
-            font = g_strdup("Sans 11");
+            font = g_strdup ("Sans 11");
 
-        ptr_sensors->val_fontsize = xfce_rc_read_int_entry (ptr_xfceresources, "val_fontsize", 2);
+        sensors->val_fontsize = xfce_rc_read_int_entry (rc, "val_fontsize", 2);
 
-        ptr_sensors->lines_size = xfce_rc_read_int_entry (ptr_xfceresources, "Lines_Size", 3);
+        sensors->lines_size = xfce_rc_read_int_entry (rc, "Lines_Size", 3);
 
-        ptr_sensors->cover_panel_rows = xfce_rc_read_bool_entry (ptr_xfceresources, "Cover_All_Panel_Rows", FALSE);
+        sensors->cover_panel_rows = xfce_rc_read_bool_entry (rc, "Cover_All_Panel_Rows", FALSE);
 
-        ptr_sensors->sensors_refresh_time = xfce_rc_read_int_entry (ptr_xfceresources, "Update_Interval", 60);
+        sensors->sensors_refresh_time = xfce_rc_read_int_entry (rc, "Update_Interval", 60);
 
-        ptr_sensors->exec_command = xfce_rc_read_bool_entry (ptr_xfceresources, "Exec_Command", TRUE);
+        sensors->exec_command = xfce_rc_read_bool_entry (rc, "Exec_Command", TRUE);
 
-        ptr_sensors->show_units= xfce_rc_read_bool_entry (ptr_xfceresources, "Show_Units", TRUE);
+        sensors->show_units= xfce_rc_read_bool_entry (rc, "Show_Units", TRUE);
 
-        ptr_sensors->show_smallspacings= xfce_rc_read_bool_entry (ptr_xfceresources, "Small_Spacings", FALSE);
+        sensors->show_smallspacings= xfce_rc_read_bool_entry (rc, "Small_Spacings", FALSE);
 
-        if ((str_value = xfce_rc_read_entry (ptr_xfceresources, "Command_Name", NULL)) && *str_value) {
-            g_free(ptr_sensors->command_name);
-            ptr_sensors->command_name = g_strdup (str_value);
+        if ((str_value = xfce_rc_read_entry (rc, "Command_Name", NULL)) && *str_value) {
+            g_free(sensors->command_name);
+            sensors->command_name = g_strdup (str_value);
         }
 
-        if (!ptr_sensors->suppressmessage)
-            ptr_sensors->suppressmessage = xfce_rc_read_bool_entry (ptr_xfceresources, "Suppress_Hddtemp_Message", FALSE);
+        if (!sensors->suppressmessage)
+            sensors->suppressmessage = xfce_rc_read_bool_entry (rc, "Suppress_Hddtemp_Message", FALSE);
 
-        ptr_sensors->suppresstooltip = xfce_rc_read_bool_entry (ptr_xfceresources, "Suppress_Tooltip", FALSE);
+        sensors->suppresstooltip = xfce_rc_read_bool_entry (rc, "Suppress_Tooltip", FALSE);
 
-        ptr_sensors->preferred_width = xfce_rc_read_int_entry (ptr_xfceresources, "Preferred_Width", 400);
-        ptr_sensors->preferred_height = xfce_rc_read_int_entry (ptr_xfceresources, "Preferred_Height", 400);
+        sensors->preferred_width = xfce_rc_read_int_entry (rc, "Preferred_Width", 400);
+        sensors->preferred_height = xfce_rc_read_int_entry (rc, "Preferred_Height", 400);
 
-        if ((str_value = xfce_rc_read_entry (ptr_xfceresources, "Tachos_ColorValue", NULL))
-                && *str_value)
-            ptr_sensors->val_tachos_color = atof (str_value);
+        if ((str_value = xfce_rc_read_entry (rc, "Tachos_ColorValue", NULL)) && *str_value)
+            sensors->val_tachos_color = atof (str_value);
 
-        if ((str_value = xfce_rc_read_entry (ptr_xfceresources, "Tachos_Alpha", NULL))
-                && *str_value)
-            ptr_sensors->val_tachos_alpha = atof (str_value);
+        if ((str_value = xfce_rc_read_entry (rc, "Tachos_Alpha", NULL)) && *str_value)
+            sensors->val_tachos_alpha = atof (str_value);
 
         //num_chips = xfce_rc_read_int_entry (ptr_xfceresources, "Number_Chips", 0);
         /* or could use 1 or the always existent dummy entry */
@@ -270,21 +264,18 @@ sensors_read_general_config (XfceRc *ptr_xfceresources, t_sensors *ptr_sensors)
 
 /* -------------------------------------------------------------------------- */
 void
-sensors_read_preliminary_config (XfcePanelPlugin *ptr_panelplugin, t_sensors *ptr_sensors)
+sensors_read_preliminary_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 {
-    XfceRc *ptr_xfceresource;
-
-    if (ptr_panelplugin)
+    if (plugin)
     {
-        g_return_if_fail(ptr_sensors!=NULL);
-
-        if ((ptr_sensors->plugin_config_file))
+        g_return_if_fail (sensors != NULL);
+        if (sensors->plugin_config_file)
         {
-            ptr_xfceresource = xfce_rc_simple_open (ptr_sensors->plugin_config_file, TRUE);
+            XfceRc *rc = xfce_rc_simple_open (sensors->plugin_config_file, TRUE);
 
-            if (ptr_xfceresource && xfce_rc_has_group (ptr_xfceresource, "General") ) {
-                xfce_rc_set_group (ptr_xfceresource, "General");
-                ptr_sensors->suppressmessage = xfce_rc_read_bool_entry (ptr_xfceresource, "Suppress_Hddtemp_Message", FALSE);
+            if (rc && xfce_rc_has_group (rc, "General")) {
+                xfce_rc_set_group (rc, "General");
+                sensors->suppressmessage = xfce_rc_read_bool_entry (rc, "Suppress_Hddtemp_Message", FALSE);
             }
         }
     }
@@ -296,123 +287,111 @@ sensors_read_preliminary_config (XfcePanelPlugin *ptr_panelplugin, t_sensors *pt
 // this will require differently storing the stuff as well.
 // targeted for 1.3 or 1.4 release
 void
-sensors_read_config (XfcePanelPlugin *ptr_panelplugin, t_sensors *ptr_sensors)
+sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 {
-    const gchar *str_value;
-    XfceRc *ptr_xfceresource;
-    gint idx_chip, idx_feature, idx_chiptmp;
-    gchar str_rcchip[8], str_feature[20];
-    gchar* str_sensorname=NULL;
-    gint num_sensorchip;
-    t_chip *ptr_chip;
-    t_chipfeature *ptr_chipfeature;
+    XfceRc *rc;
+    gint idx_chip;
 
-    g_return_if_fail(ptr_panelplugin!=NULL);
+    g_return_if_fail(plugin!=NULL);
+    g_return_if_fail(sensors!=NULL);
 
-    g_return_if_fail(ptr_sensors!=NULL);
-
-    if (!(ptr_sensors->plugin_config_file))
+    if (!sensors->plugin_config_file)
         return;
 
-    ptr_xfceresource = xfce_rc_simple_open (ptr_sensors->plugin_config_file, TRUE);
-
-    if (!ptr_xfceresource)
+    rc = xfce_rc_simple_open (sensors->plugin_config_file, TRUE);
+    if (!rc)
         return;
 
-    sensors_read_general_config (ptr_xfceresource, ptr_sensors);
+    sensors_read_general_config (rc, sensors);
 
-    for (idx_chip = 0; idx_chip<ptr_sensors->num_sensorchips; idx_chip++) {
+    for (idx_chip = 0; idx_chip<sensors->num_sensorchips; idx_chip++)
+    {
+        gchar str_rcchip[8];
 
         g_snprintf (str_rcchip, 8, "Chip%d", idx_chip);
 
-        if (xfce_rc_has_group (ptr_xfceresource, str_rcchip)) {
+        if (xfce_rc_has_group (rc, str_rcchip))
+        {
+            t_chip *chip;
+            gint idx_chiptmp, num_sensorchip;
+            gchar* sensor_name = NULL;
+            const gchar *str_value;
 
-            xfce_rc_set_group (ptr_xfceresource, str_rcchip);
+            xfce_rc_set_group (rc, str_rcchip);
 
             num_sensorchip=0;
 
-            if ((str_value = xfce_rc_read_entry (ptr_xfceresource, "Name", NULL)) && *str_value) {
-                str_sensorname = g_strdup (str_value);
-            }
+            if ((str_value = xfce_rc_read_entry (rc, "Name", NULL)) && *str_value)
+                sensor_name = g_strdup (str_value);
 
-            num_sensorchip = (gint) xfce_rc_read_int_entry (ptr_xfceresource, "Number", 0);
+            num_sensorchip = xfce_rc_read_int_entry (rc, "Number", 0);
 
             /* assert that str_file does not contain more information
               than does exist on system */
               /* ??? At least, it works. */
-            g_return_if_fail (num_sensorchip < ptr_sensors->num_sensorchips);
+            g_return_if_fail (num_sensorchip < sensors->num_sensorchips);
 
             /* now featuring enhanced string comparison */
             idx_chiptmp = 0;
             do {
-              ptr_chip = (t_chip *) g_ptr_array_index (ptr_sensors->chips, idx_chiptmp++);
-              if (ptr_chip==NULL || idx_chiptmp==ptr_sensors->num_sensorchips)
+              chip = (t_chip *) g_ptr_array_index (sensors->chips, idx_chiptmp++);
+              if (chip==NULL || idx_chiptmp==sensors->num_sensorchips)
                   break;
             }
-            while (ptr_chip!=NULL && str_sensorname != NULL && strcmp(ptr_chip->sensorId, str_sensorname) != 0 );
+            while (chip!=NULL && sensor_name != NULL && strcmp(chip->sensorId, sensor_name) != 0 );
 
-            if ( ptr_chip!=NULL && str_sensorname != NULL && strcmp(ptr_chip->sensorId, str_sensorname)==0 ) {
+            if ( chip!=NULL && sensor_name != NULL && strcmp(chip->sensorId, sensor_name)==0 )
+            {
+                gint idx_feature;
+                for (idx_feature = 0; idx_feature < chip->num_features; idx_feature++)
+                {
+                    t_chipfeature *feature;
+                    gchar str_feature[20];
 
-                for (idx_feature=0; idx_feature<ptr_chip->num_features; idx_feature++) {
-                    ptr_chipfeature = (t_chipfeature *) g_ptr_array_index (
-                                                        ptr_chip->chip_features,
-                                                        idx_feature);
-                    g_assert (ptr_chipfeature!=NULL);
+                    feature = g_ptr_array_index (chip->chip_features, idx_feature);
+                    g_assert (feature!=NULL);
 
                     g_snprintf (str_feature, 20, "%s_Feature%d", str_rcchip, idx_feature);
 
-                    if (xfce_rc_has_group (ptr_xfceresource, str_feature)) {
-                        xfce_rc_set_group (ptr_xfceresource, str_feature);
+                    if (xfce_rc_has_group (rc, str_feature))
+                    {
+                        xfce_rc_set_group (rc, str_feature);
 
-                        if ((str_value = xfce_rc_read_entry (ptr_xfceresource, "DeviceName", NULL))
-                            && *str_value) {
-                            if (ptr_chipfeature->devicename)
-                                g_free (ptr_chipfeature->devicename);
-                            ptr_chipfeature->devicename = g_strdup(str_value);
+                        if ((str_value = xfce_rc_read_entry (rc, "DeviceName", NULL)) && *str_value)
+                        {
+                            g_free (feature->devicename);
+                            feature->devicename = g_strdup(str_value);
                         }
 
-                        if ((str_value = xfce_rc_read_entry (ptr_xfceresource, "Name", NULL))
-                                && *str_value) {
-                            if (ptr_chipfeature->name)
-                                g_free (ptr_chipfeature->name);
-                            ptr_chipfeature->name = g_strdup (str_value);
+                        if ((str_value = xfce_rc_read_entry (rc, "Name", NULL)) && *str_value)
+                        {
+                            g_free (feature->name);
+                            feature->name = g_strdup (str_value);
                         }
 
-                        if ((str_value = xfce_rc_read_entry (ptr_xfceresource, "Color", NULL))
-                                && *str_value) {
-                            if (ptr_chipfeature->color)
-                                g_free (ptr_chipfeature->color);
-                            ptr_chipfeature->color = g_strdup (str_value);
+                        if ((str_value = xfce_rc_read_entry (rc, "Color", NULL)) && *str_value)
+                        {
+                            g_free (feature->color);
+                            feature->color = g_strdup (str_value);
                         }
 
-                        ptr_chipfeature->show =
-                            xfce_rc_read_bool_entry (ptr_xfceresource, "Show", FALSE);
+                        feature->show = xfce_rc_read_bool_entry (rc, "Show", FALSE);
 
-                        if ((str_value = xfce_rc_read_entry (ptr_xfceresource, "Min", NULL))
-                                && *str_value)
-                            ptr_chipfeature->min_value = atof (str_value);
+                        if ((str_value = xfce_rc_read_entry (rc, "Min", NULL)) && *str_value)
+                            feature->min_value = atof (str_value);
 
-                        if ((str_value = xfce_rc_read_entry (ptr_xfceresource, "Max", NULL))
-                                && *str_value)
-                            ptr_chipfeature->max_value = atof (str_value);
+                        if ((str_value = xfce_rc_read_entry (rc, "Max", NULL)) && *str_value)
+                            feature->max_value = atof (str_value);
+                    }
+                }
+            }
 
-
-                    } /* end if rc_grup has str_feature*/
-
-                } /* end for str_features */
-
-            } /* end if chip && strcmp */
-
-            if (str_sensorname != NULL)
-              g_free (str_sensorname);
-
-        } /* end if xfce_rc_has_group (ptr_xfceresource, str_rcchip) */
-
-    } /* end for num_sensorchips */
-
-    xfce_rc_close (ptr_xfceresource);
-
-    if (!ptr_sensors->exec_command) {
-        g_signal_handler_block ( G_OBJECT(ptr_sensors->eventbox), ptr_sensors->doubleclick_id );
+            g_free (sensor_name);
+        }
     }
+
+    xfce_rc_close (rc);
+
+    if (!sensors->exec_command)
+        g_signal_handler_block ( G_OBJECT(sensors->eventbox), sensors->doubleclick_id);
 }

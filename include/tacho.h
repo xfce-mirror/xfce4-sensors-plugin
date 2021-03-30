@@ -69,10 +69,10 @@ struct _GtkSensorsTacho {
 
 /**
  * set the value in percent that has to be visualized
- * @param ptr_sensorstacho: Pointer to SensorsTacho structure
+ * @param tacho: Pointer to SensorsTacho structure
  * @param value: value in percent to visualize by the tacho display
  */
-void gtk_sensorstacho_set_value (GtkSensorsTacho *ptr_sensorstacho, gdouble value);
+void gtk_sensorstacho_set_value (GtkSensorsTacho *tacho, gdouble value);
 
 /**
  * create a new sensorstacho with orientation and initial size
@@ -85,37 +85,36 @@ GtkWidget* gtk_sensorstacho_new(GtkOrientation orientation, guint size, SensorsT
 
 /**
  * set the text to be drawn. if NULL, no text is drawn.
- * @param ptr_sensorstacho: Pointer to SensorsTacho structure
- * @param ptr_text: Text to set and paint
+ * @param tacho: Pointer to SensorsTacho structure
+ * @param text: Text to set and paint
  */
-void gtk_sensorstacho_set_text (GtkSensorsTacho *ptr_sensorstacho, gchar *ptr_text);
+void gtk_sensorstacho_set_text (GtkSensorsTacho *tacho, const gchar *text);
 
 /**
  * Unset the text to be drawn. Will also free the internal copy of the text
- * @param ptr_sensorstacho: Pointer to SensorsTacho structure
+ * @param tacho: Pointer to SensorsTacho structure
  */
-void gtk_sensorstacho_unset_text (GtkSensorsTacho *ptr_sensorstacho);
+void gtk_sensorstacho_unset_text (GtkSensorsTacho *tacho);
 
 /** set the color of the text if any text is to be drawn at all
- * @param ptr_sensorstacho: Pointer to SensorsTacho structure
- * @param ptr_colorstring:
+ * @param tacho: Pointer to SensorsTacho structure
+ * @param color:
  */
-void gtk_sensorstacho_set_color (GtkSensorsTacho *ptr_sensorstacho, gchar *ptr_colorstring);
+void gtk_sensorstacho_set_color (GtkSensorsTacho *tacho, const gchar *color);
 
 /**
  * Paint the SensorsTacho widget
- * @param ptr_widget: Pointer to SensorsTacho structure; hidden behind the
- *                    widget interface
- * @param ptr_cairo: pointer to cairo drawing structure
+ * @param widget: Pointer to SensorsTacho structure; hidden behind the widget interface
+ * @param cr: pointer to cairo drawing structure
  */
-gboolean gtk_sensorstacho_paint (GtkWidget *ptr_widget, cairo_t *ptr_cairo);
+gboolean gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr);
 
 /**
  * Set the new size to allocate for the widget and to fill with the painting
- * @param ptr_sensorstacho: Pointer to SensorsTacho structure
+ * @param tacho: Pointer to SensorsTacho structure
  * @param size: The new size in both x and y direction to allocate and paint
  */
-void gtk_sensorstacho_set_size(GtkSensorsTacho *ptr_sensorstacho, guint size);
+void gtk_sensorstacho_set_size(GtkSensorsTacho *tacho, guint size);
 
 /**
  * directly exhibited internal string describing the currently set font for the

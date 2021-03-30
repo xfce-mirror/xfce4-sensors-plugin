@@ -46,67 +46,67 @@ enum Enum_TreeColumn
 
 /**
  * Populates the tree store from the obtained sensors data
- * @param ptr_treestore: Pointer to treestore that has to be filled
- * @param ptr_chip: Pointer to chip structure
+ * @param treestore: Pointer to treestore that has to be filled
+ * @param chip: Pointer to chip structure
  * @param tempscale: temperature scale
- * @param ptr_sensorsdialog: Pointer to sensors dialog data
+ * @param dialog: Pointer to sensors dialog data
  */
-void fill_gtkTreeStore (GtkTreeStore *ptr_treestore, t_chip *ptr_chip, t_tempscale tempscale, t_sensors_dialog *ptr_sensorsdialog);
+void fill_gtkTreeStore (GtkTreeStore *treestore, t_chip *chip, t_tempscale tempscale, t_sensors_dialog *dialog);
 
 /**
  * Frees the allocated and added dialog widgets
- * @param ptr_sensorsdialog: Pointer to sensors dialog data
+ * @param dialog: Pointer to sensors dialog data
  */
-void free_widgets (t_sensors_dialog *ptr_sensorsdialog);
+void free_widgets (t_sensors_dialog *dialog);
 
 /**
  * Initializes the widgets with the proper values
- * @param ptr_sensorsdialog: Pointer to sensors dialog data
+ * @param dialog: Pointer to sensors dialog data
  */
-void init_widgets (t_sensors_dialog *ptr_sensorsdialog);
+void init_widgets (t_sensors_dialog *dialog);
 
 /**
  * Reloads the data in the listbox
- * @param ptr_sensorsdialog: Pointer to sensors dialog data
+ * @param dialog: Pointer to sensors dialog data
  */
-void reload_listbox (t_sensors_dialog *ptr_sensorsdialog);
+void reload_listbox (t_sensors_dialog *dialog);
 
 
 /* GUI builder functions */
 
 /**
- * Adds the settings box to ptr_widget_vbox
- * @param ptr_widget_vbox: Pointer to vbox widget to add the settings box to
- * @param ptr_sensorsdialog: Pointer to sensors dialog data
+ * Adds the settings box to vbox
+ * @param vbox: Pointer to vbox widget to add the settings box to
+ * @param dialog: Pointer to sensors dialog data
  */
-void add_sensor_settings_box (GtkWidget *ptr_widget_vbox, t_sensors_dialog * ptr_sensorsdialog);
+void add_sensor_settings_box (GtkWidget *vbox, t_sensors_dialog *dialog);
 
 /**
- * Adds the sensors type chooser box to ptr_widget_vbox
- * @param ptr_widget_vbox: Pointer to vbox widget to add the type box to
- * @param ptr_sensorsdialog: Pointer to sensors dialog data
+ * Adds the sensors type chooser box to vbox
+ * @param vbox: Pointer to vbox widget to add the type box to
+ * @param dialog: Pointer to sensors dialog data
  */
-void add_type_box (GtkWidget *ptr_widget_vbox, t_sensors_dialog * ptr_sensorsdialog);
+void add_type_box (GtkWidget *vbox, t_sensors_dialog *dialog);
 
 /**
  * Ads the termperature unit chooser box
- * @param ptr_widget_vbox:  Pointer to vbox widget to add the unit box to
- * @param ptr_sensorsdialog: Pointer to sensors dialog data
+ * @param vbox:  Pointer to vbox widget to add the unit box to
+ * @param dialog: Pointer to sensors dialog data
  */
-void add_temperature_unit_box (GtkWidget *ptr_widget_vbox, t_sensors_dialog *ptr_sensorsdialog);
+void add_temperature_unit_box (GtkWidget *vbox, t_sensors_dialog *dialog);
 
 /**
  * Adds the entire sensors settings frame to the options dialog as new notebook
- * @param ptr_widget_notebook: Pointer to notebook to attach the new content to
- * @param ptr_sensorsdialog: Pointer to sensors dialog data
+ * @param notebook: Pointer to notebook to attach the new content to
+ * @param dialog: Pointer to sensors dialog data
  */
-void add_sensors_frame (GtkWidget *ptr_widget_notebook, t_sensors_dialog * ptr_sensorsdialog);
+void add_sensors_frame (GtkWidget *notebook, t_sensors_dialog *dialog);
 
 /**
  * Adds the update tim box
- * @param ptr_widget_vbox:  Pointer to vbox widget to add the update time box to
- * @param ptr_sensorsdialog: Pointer to sensors dialog data
+ * @param vbox:  Pointer to vbox widget to add the update time box to
+ * @param dialog: Pointer to sensors dialog data
  */
-void add_update_time_box (GtkWidget *ptr_widget_vbox, t_sensors_dialog * ptr_sensorsdialog);
+void add_update_time_box (GtkWidget *vbox, t_sensors_dialog *dialog);
 
 #endif /* XFCE4_SENSORS_INTERFACE_H */

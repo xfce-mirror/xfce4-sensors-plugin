@@ -34,19 +34,17 @@
 
 
 /* -------------------------------------------------------------------------- */
-void on_font_set (GtkWidget *ptr_widget, gpointer data)
+void on_font_set (GtkWidget *widget, gpointer data)
 {
-    if (font!=NULL)
-        g_free (font);
-
-    font = g_strdup(gtk_font_chooser_get_font(GTK_FONT_CHOOSER(ptr_widget)));
-    refresh_view(data); /* data is pointer to sensors_dialog */
+    g_free (font);
+    font = g_strdup(gtk_font_chooser_get_font (GTK_FONT_CHOOSER (widget)));
+    refresh_view (data); /* data is pointer to sensors_dialog */
 }
 
 
 /* -------------------------------------------------------------------------- */
 void
-on_main_window_response (GtkWidget *ptr_dialog, int response, t_sensors_dialog *ptr_sensorsdialog)
+on_main_window_response (GtkWidget *widget, int response, t_sensors_dialog *dialog)
 {
     gtk_main_quit();
 }
@@ -54,123 +52,117 @@ on_main_window_response (GtkWidget *ptr_dialog, int response, t_sensors_dialog *
 
 /* -------------------------------------------------------------------------- */
 void
-sensor_entry_changed_ (GtkWidget *ptr_comboboxwidget, t_sensors_dialog *ptr_sensorsdialog)
+sensor_entry_changed_ (GtkWidget *combobox, t_sensors_dialog *dialog)
 {
-    gint idx_active_combobox;
-    t_chip *ptr_chip;
+    gint active_combobox;
+    t_chip *chip;
 
-    idx_active_combobox = gtk_combo_box_get_active(GTK_COMBO_BOX (ptr_comboboxwidget));
+    active_combobox = gtk_combo_box_get_active (GTK_COMBO_BOX(combobox));
 
-    ptr_chip = (t_chip *) g_ptr_array_index (ptr_sensorsdialog->sensors->chips,
-                                         idx_active_combobox);
+    chip = g_ptr_array_index (dialog->sensors->chips, active_combobox);
 
-    gtk_label_set_label (GTK_LABEL(ptr_sensorsdialog->mySensorLabel), ptr_chip->description);
+    gtk_label_set_label (GTK_LABEL (dialog->mySensorLabel), chip->description);
 
-    gtk_tree_view_set_model (GTK_TREE_VIEW (ptr_sensorsdialog->myTreeView),
-                    GTK_TREE_MODEL ( ptr_sensorsdialog->myListStore[idx_active_combobox] ) );
+    gtk_tree_view_set_model (GTK_TREE_VIEW (dialog->myTreeView),
+                             GTK_TREE_MODEL (dialog->myListStore[active_combobox]));
 }
 
 /**
  * Sets the value in the determined column for the given path to a cell in the
  *  GtkTree.
- * @param ptr_sensorsdialog: pointer to sensors dialog structure
+ * @param dialog: pointer to sensors dialog structure
  * @param ptr_str_cellpath: Path in GtkTree
  * @param col_treeview: column in treeview
- * @param ptr_value: pointer to value to store
+ * @param value: pointer to value to store
  * @param ptr_ptr_chipfeature: out pointer of determined chipfeature
  * @return index of chipfeature for ptr_str_cellpath
  */
 static gint
-set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *ptr_sensorsdialog, gchar *ptr_str_cellpath, gint col_treeview, GValue *ptr_value, t_chipfeature **ptr_ptr_chipfeature)
+set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *dialog, gchar *ptr_str_cellpath, gint col_treeview, GValue *value, t_chipfeature **out_feature)
 {
-    gint idx_active_combobox = -1;
-    GtkTreeModel *ptr_treemodel;
-    GtkTreePath *ptr_treepath;
+    gint active_combobox = -1;
+    GtkTreeModel *treemodel;
+    GtkTreePath *treepath;
     GtkTreeIter iter_treemodel;
-    t_chip *ptr_chip;
-    t_chipfeature *ptr_chipfeature;
+    t_chip *chip;
+    t_chipfeature *feature;
 
-    idx_active_combobox =
-        gtk_combo_box_get_active(GTK_COMBO_BOX (ptr_sensorsdialog->myComboBox));
+    active_combobox = gtk_combo_box_get_active (GTK_COMBO_BOX (dialog->myComboBox));
 
-    ptr_treemodel =
-        (GtkTreeModel *) ptr_sensorsdialog->myListStore [idx_active_combobox];
-    ptr_treepath = gtk_tree_path_new_from_string (ptr_str_cellpath);
+    treemodel = (GtkTreeModel*) dialog->myListStore [active_combobox];
+    treepath = gtk_tree_path_new_from_string (ptr_str_cellpath);
 
     /* get model iterator */
-    gtk_tree_model_get_iter (ptr_treemodel, &iter_treemodel, ptr_treepath);
+    gtk_tree_model_get_iter (treemodel, &iter_treemodel, treepath);
 
     /* set new value */
-    ptr_chip = (t_chip *) g_ptr_array_index(ptr_sensorsdialog->sensors->chips, idx_active_combobox);
+    chip = g_ptr_array_index(dialog->sensors->chips, active_combobox);
 
-    gtk_tree_store_set_value (GTK_TREE_STORE (ptr_treemodel), &iter_treemodel, col_treeview, ptr_value);
-    ptr_chip = (t_chip *) g_ptr_array_index(ptr_sensorsdialog->sensors->chips, idx_active_combobox);
+    gtk_tree_store_set_value (GTK_TREE_STORE (treemodel), &iter_treemodel, col_treeview, value);
+    chip = g_ptr_array_index(dialog->sensors->chips, active_combobox);
 
-    ptr_chipfeature = (t_chipfeature *) g_ptr_array_index (ptr_chip->chip_features,
-                                                        atoi(ptr_str_cellpath));
+    feature = g_ptr_array_index (chip->chip_features, atoi (ptr_str_cellpath));
 
     /* clean up */
-    gtk_tree_path_free (ptr_treepath);
+    gtk_tree_path_free (treepath);
 
-    *ptr_ptr_chipfeature = ptr_chipfeature;
+    *out_feature = feature;
 
-    return idx_active_combobox;
+    return active_combobox;
 }
 
 
 /* -------------------------------------------------------------------------- */
 void
-list_cell_text_edited_ (GtkCellRendererText *ptr_cellrenderertext,
-                      gchar *ptr_str_cellpath, gchar *ptr_str_newtext, t_sensors_dialog *ptr_sensorsdialog)
+list_cell_text_edited_ (GtkCellRendererText *cell_renderer_text,
+                        gchar *cellpath, gchar *new_text, t_sensors_dialog *dialog)
 {
-    gint idx_active_combobox;
-    t_chipfeature *ptr_chipfeature = NULL;
-    GValue val_textstring = G_VALUE_INIT;
-    GtkWidget *ptr_tacho;
+    gint active_combobox;
+    t_chipfeature *feature = NULL;
+    GValue text_string = G_VALUE_INIT;
+    GtkWidget *tacho;
 
-    g_value_init(&val_textstring, G_TYPE_STRING);
-    g_value_set_static_string(&val_textstring, ptr_str_newtext);
-    idx_active_combobox = set_value_in_treemodel_and_return_index_and_feature(
-        ptr_sensorsdialog, ptr_str_cellpath, eTreeColumn_Name, &val_textstring,
-        &ptr_chipfeature);
+    g_value_init(&text_string, G_TYPE_STRING);
+    g_value_set_static_string(&text_string, new_text);
+    active_combobox = set_value_in_treemodel_and_return_index_and_feature(
+        dialog, cellpath, eTreeColumn_Name, &text_string,
+        &feature);
 
-        if (ptr_chipfeature->name != NULL)
-            g_free(ptr_chipfeature->name);
-        ptr_chipfeature->name = g_strdup (ptr_str_newtext);
-    /* } */
+    if (feature->name != NULL)
+        g_free(feature->name);
+    feature->name = g_strdup (new_text);
 
     /* update panel */
-    ptr_tacho = ptr_sensorsdialog->sensors->tachos [idx_active_combobox][atoi(ptr_str_cellpath)];
+    tacho = dialog->sensors->tachos[active_combobox][atoi(cellpath)];
 
-    if (ptr_tacho!=NULL)
-        gtk_sensorstacho_set_text (GTK_SENSORSTACHO(ptr_tacho), ptr_str_newtext);
+    if (tacho != NULL)
+        gtk_sensorstacho_set_text (GTK_SENSORSTACHO (tacho), new_text);
 
-    refresh_view (ptr_sensorsdialog);
+    refresh_view (dialog);
 }
 
 
 /* -------------------------------------------------------------------------- */
 void
-list_cell_toggle_ (GtkCellRendererToggle *ptr_cellrenderertoggle, gchar *ptr_str_cellpath,
-                  t_sensors_dialog *ptr_sensorsdialog)
+list_cell_toggle_ (GtkCellRendererToggle *cell_renderer_toggle, gchar *cellpath,
+                   t_sensors_dialog *dialog)
 {
-    t_chip *ptr_chip;
-    t_chipfeature *ptr_chipfeature;
-    gint idx_active_combobox;
-    GtkTreeModel *ptr_treemodel;
-    GtkTreePath *ptr_treepath;
-    GtkTreeIter treeiter;
+    t_chip *chip;
+    t_chipfeature *feature;
+    gint active_combobox;
+    GtkTreeModel *tree_model;
+    GtkTreePath *tree_path;
+    GtkTreeIter tree_iter;
     gboolean toggle_item;
 
-    idx_active_combobox =
-        gtk_combo_box_get_active(GTK_COMBO_BOX (ptr_sensorsdialog->myComboBox));
+    active_combobox = gtk_combo_box_get_active(GTK_COMBO_BOX (dialog->myComboBox));
 
-    ptr_treemodel = (GtkTreeModel *) ptr_sensorsdialog->myListStore[idx_active_combobox];
-    ptr_treepath = gtk_tree_path_new_from_string (ptr_str_cellpath);
+    tree_model = (GtkTreeModel*) dialog->myListStore[active_combobox];
+    tree_path = gtk_tree_path_new_from_string (cellpath);
 
     /* get toggled iter */
-    gtk_tree_model_get_iter (ptr_treemodel, &treeiter, ptr_treepath);
-    gtk_tree_model_get (ptr_treemodel, &treeiter, 2, &toggle_item, -1);
+    gtk_tree_model_get_iter (tree_model, &tree_iter, tree_path);
+    gtk_tree_model_get (tree_model, &tree_iter, 2, &toggle_item, -1);
 
     /* do something with the value */
     toggle_item ^= 1;
@@ -178,142 +170,140 @@ list_cell_toggle_ (GtkCellRendererToggle *ptr_cellrenderertoggle, gchar *ptr_str
     DBG("toggle item is %d.", toggle_item);
 
     /* set new value */
-    gtk_tree_store_set (GTK_TREE_STORE (ptr_treemodel), &treeiter, eTreeColumn_Show, toggle_item, -1);
-    ptr_chip = (t_chip *) g_ptr_array_index(ptr_sensorsdialog->sensors->chips, idx_active_combobox);
+    gtk_tree_store_set (GTK_TREE_STORE (tree_model), &tree_iter, eTreeColumn_Show, toggle_item, -1);
+    chip = g_ptr_array_index(dialog->sensors->chips, active_combobox);
 
-    ptr_chipfeature = (t_chipfeature *) g_ptr_array_index(ptr_chip->chip_features, atoi(ptr_str_cellpath));
+    feature = g_ptr_array_index(chip->chip_features, atoi(cellpath));
 
     /* clean up */
-    gtk_tree_path_free (ptr_treepath);
+    gtk_tree_path_free (tree_path);
 
-    ptr_chipfeature->show = toggle_item;
+    feature->show = toggle_item;
 
     /* update tooltip and panel widget */
-    refresh_view (ptr_sensorsdialog);
+    refresh_view (dialog);
 }
 
 
 /* -------------------------------------------------------------------------- */
 void
-list_cell_color_edited_ (GtkCellRendererText *ptr_cellrenderertext, gchar *ptr_str_cellpath,
-                       gchar *ptr_str_newcolor, t_sensors_dialog *ptr_sensorsdialog)
+list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, gchar *cellpath,
+                         gchar *new_color, t_sensors_dialog *dialog)
 {
-    gint idx_active_combobox;
+    gint active_combobox;
     gboolean has_sharpprefix;
-    t_chipfeature *ptr_chipfeature;
-    GValue val_colorstring = G_VALUE_INIT;
-    GtkWidget *ptr_tacho;
+    t_chipfeature *feature;
+    GValue color_string = G_VALUE_INIT;
+    GtkWidget *tacho;
 
     /* store new color in appropriate array */
-    has_sharpprefix = g_str_has_prefix (ptr_str_newcolor, "#");
+    has_sharpprefix = g_str_has_prefix (new_color, "#");
 
-    if (has_sharpprefix && strlen(ptr_str_newcolor) == 7) {
+    if (has_sharpprefix && strlen(new_color) == 7) {
         int i;
         for (i=1; i<7; i++) {
             /* only save hex numbers! */
-            if ( ! g_ascii_isxdigit (ptr_str_newcolor[i]) )
+            if ( ! g_ascii_isxdigit (new_color[i]) )
                 return;
         }
 
-        g_value_init(&val_colorstring, G_TYPE_STRING);
-        g_value_set_static_string(&val_colorstring, ptr_str_newcolor);
-        idx_active_combobox = set_value_in_treemodel_and_return_index_and_feature(
-        ptr_sensorsdialog, ptr_str_cellpath, eTreeColumn_Color, &val_colorstring,
-        &ptr_chipfeature);
+        g_value_init(&color_string, G_TYPE_STRING);
+        g_value_set_static_string(&color_string, new_color);
+        active_combobox = set_value_in_treemodel_and_return_index_and_feature(
+            dialog, cellpath, eTreeColumn_Color, &color_string,
+            &feature);
 
-        if (ptr_chipfeature->color!=NULL)
-            g_free (ptr_chipfeature->color);
-
-        ptr_chipfeature->color = g_strdup(ptr_str_newcolor);
+        g_free (feature->color);
+        feature->color = g_strdup(new_color);
 
         /* update color value */
-        ptr_tacho = ptr_sensorsdialog->sensors->tachos [idx_active_combobox][atoi(ptr_str_cellpath)];
+        tacho = dialog->sensors->tachos [active_combobox][atoi(cellpath)];
 
-        if (ptr_tacho!=NULL)
-            gtk_sensorstacho_set_color(GTK_SENSORSTACHO(ptr_sensorsdialog->sensors->tachos[idx_active_combobox][atoi(ptr_str_cellpath)]), ptr_str_newcolor);
+        if (tacho!=NULL)
+            gtk_sensorstacho_set_color(GTK_SENSORSTACHO(dialog->sensors->tachos[active_combobox][atoi(cellpath)]), new_color);
     }
 }
 
 
 /* -------------------------------------------------------------------------- */
 void
-minimum_changed_ (GtkCellRendererText *cellrenderertext, gchar *ptr_str_cellpath,
-                 gchar *new_value, t_sensors_dialog *ptr_sensorsdialog)
+minimum_changed_ (GtkCellRendererText *cell_renderer_text, gchar *cellpath,
+                  gchar *new_value, t_sensors_dialog *dialog)
 {
-    gint idx_active_combobox;
-    t_chipfeature *ptr_chipfeature;
-    gfloat val_float;
-    GValue val_minimum = G_VALUE_INIT;
+    gint active_combobox;
+    t_chipfeature *feature;
+    gfloat value;
+    GValue value_min = G_VALUE_INIT;
 
-    val_float = atof (new_value);
+    value = atof (new_value);
 
-    g_value_init(&val_minimum, G_TYPE_FLOAT);
-    g_value_set_float(&val_minimum, val_float);
-    idx_active_combobox = set_value_in_treemodel_and_return_index_and_feature(
-        ptr_sensorsdialog, ptr_str_cellpath, eTreeColumn_Min, &val_minimum,
-        &ptr_chipfeature);
+    g_value_init(&value_min, G_TYPE_FLOAT);
+    g_value_set_float(&value_min, value);
+    active_combobox = set_value_in_treemodel_and_return_index_and_feature(
+        dialog, cellpath, eTreeColumn_Min, &value_min,
+        &feature);
 
-    if (ptr_sensorsdialog->sensors->scale==FAHRENHEIT)
-        val_float = (val_float - 32) * 5/9;
-    ptr_chipfeature->min_value = val_float;
+    if (dialog->sensors->scale == FAHRENHEIT)
+        value = (value - 32) * 5/9;
+    feature->min_value = value;
 
     /* update panel */
-    if (ptr_sensorsdialog->sensors->tachos [idx_active_combobox][atoi(ptr_str_cellpath)]!=NULL)
-        refresh_view (ptr_sensorsdialog);
+    if (dialog->sensors->tachos[active_combobox][atoi(cellpath)] != NULL)
+        refresh_view (dialog);
 }
 
 
 /* -------------------------------------------------------------------------- */
 void
-maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *ptr_str_cellpath,
-            gchar *new_value, t_sensors_dialog *ptr_sensorsdialog)
+maximum_changed_ (GtkCellRendererText *cell_renderer_text, gchar *cellpath,
+                  gchar *new_value, t_sensors_dialog *dialog)
 {
-    gint idx_active_combobox;
-    t_chipfeature *ptr_chipfeature;
-    gfloat val_float;
-    GValue val_maximum = G_VALUE_INIT;
+    gint active_combobox;
+    t_chipfeature *feature;
+    gfloat value;
+    GValue value_max = G_VALUE_INIT;
 
-    val_float = atof (new_value);
+    value = atof (new_value);
 
-    g_value_init(&val_maximum, G_TYPE_FLOAT);
-    g_value_set_float(&val_maximum, val_float);
-    idx_active_combobox = set_value_in_treemodel_and_return_index_and_feature(
-        ptr_sensorsdialog, ptr_str_cellpath, eTreeColumn_Max, &val_maximum,
-        &ptr_chipfeature);
+    g_value_init(&value_max, G_TYPE_FLOAT);
+    g_value_set_float(&value_max, value);
+    active_combobox = set_value_in_treemodel_and_return_index_and_feature(
+        dialog, cellpath, eTreeColumn_Max, &value_max,
+        &feature);
 
-    if (ptr_sensorsdialog->sensors->scale==FAHRENHEIT)
-      val_float = (val_float - 32) * 5/9;
-    ptr_chipfeature->max_value = val_float;
+    if (dialog->sensors->scale == FAHRENHEIT)
+      value = (value - 32) * 5/9;
+    feature->max_value = value;
 
     /* update panel */
-    if (ptr_sensorsdialog->sensors->tachos [idx_active_combobox][atoi(ptr_str_cellpath)]!=NULL)
-      refresh_view (ptr_sensorsdialog);
+    if (dialog->sensors->tachos[active_combobox][atoi(cellpath)] != NULL)
+      refresh_view (dialog);
 }
 
 
 /* -------------------------------------------------------------------------- */
 void
-adjustment_value_changed_ (GtkWidget *ptr_adjustmentwidget, t_sensors_dialog* ptr_sensorsdialog)
+adjustment_value_changed_ (GtkWidget *adjustment_widget, t_sensors_dialog *dialog)
 {
-    ptr_sensorsdialog->sensors->sensors_refresh_time =
-        (gint) gtk_adjustment_get_value ( GTK_ADJUSTMENT (ptr_adjustmentwidget) );
+    dialog->sensors->sensors_refresh_time =
+        (gint) gtk_adjustment_get_value (GTK_ADJUSTMENT (adjustment_widget));
 
     /* stop the timeout functions ... */
-    g_source_remove (ptr_sensorsdialog->sensors->timeout_id);
+    g_source_remove (dialog->sensors->timeout_id);
     /* ... and start them again */
-    ptr_sensorsdialog->sensors->timeout_id  = g_timeout_add (
-        ptr_sensorsdialog->sensors->sensors_refresh_time * 1000,
-        refresh_view_cb, ptr_sensorsdialog);
+    dialog->sensors->timeout_id  = g_timeout_add (
+        dialog->sensors->sensors_refresh_time * 1000,
+        refresh_view_cb, dialog);
 }
 
 
 /* -------------------------------------------------------------------------- */
 void
-temperature_unit_change_ (GtkWidget *ptr_unused, t_sensors_dialog *ptr_sensorsdialog)
+temperature_unit_change_ (GtkWidget *unused, t_sensors_dialog *dialog)
 {
     /* toggle celsius-fahrenheit by use of mathematics ;) */
-    ptr_sensorsdialog->sensors->scale = 1 - ptr_sensorsdialog->sensors->scale;
+    dialog->sensors->scale = 1 - dialog->sensors->scale;
 
     /* refresh the panel content */
-    reload_listbox (ptr_sensorsdialog);
+    reload_listbox (dialog);
 }

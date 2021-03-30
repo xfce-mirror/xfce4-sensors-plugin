@@ -48,28 +48,28 @@
 
 /* -------------------------------------------------------------------------- */
 int
-initialize_all (GPtrArray **outptr_arr_ptr_chips, gboolean *outptr_suppressmessage)
+initialize_all (GPtrArray **chips, gboolean *out_suppressmessage)
 {
     int result = 0;
 
-    g_assert (outptr_arr_ptr_chips != NULL);
+    g_assert (chips != NULL);
 
-    *outptr_arr_ptr_chips = g_ptr_array_new(); //_with_free_func(free_chip);
+    *chips = g_ptr_array_new(); //_with_free_func(free_chip);
 
      #ifdef HAVE_LIBSENSORS
-    result += initialize_libsensors (*outptr_arr_ptr_chips);
+    result += initialize_libsensors (*chips);
     #endif
 
     #ifdef HAVE_HDDTEMP
-    result += initialize_hddtemp (*outptr_arr_ptr_chips, outptr_suppressmessage);
+    result += initialize_hddtemp (*chips, out_suppressmessage);
     #endif
 
     #ifdef HAVE_ACPI
-    result += initialize_ACPI (*outptr_arr_ptr_chips);
+    result += initialize_ACPI (*chips);
     #endif
 
     #ifdef HAVE_NVIDIA
-    result += initialize_nvidia (*outptr_arr_ptr_chips);
+    result += initialize_nvidia (*chips);
     #endif
 
     return result;
@@ -78,127 +78,134 @@ initialize_all (GPtrArray **outptr_arr_ptr_chips, gboolean *outptr_suppressmessa
 
 /* -------------------------------------------------------------------------- */
 void
-refresh_chip (gpointer ptr_chip, gpointer ptr_data)
+refresh_chip (gpointer ptr_chip, gpointer data)
 {
-    t_chip *ptr_chip_structure;
+    t_chip *chip;
 
     g_assert (ptr_chip != NULL);
 
-    ptr_chip_structure = (t_chip*) ptr_chip;
+    chip = (t_chip*) ptr_chip;
 
-    switch (ptr_chip_structure->type)
+    switch (chip->type)
     {
     #ifdef HAVE_ACPI
-        case ACPI: {
-            g_ptr_array_foreach (ptr_chip_structure->chip_features, refresh_acpi, NULL);
+        case ACPI:
+            g_ptr_array_foreach (chip->chip_features, refresh_acpi, NULL);
             break;
-        }
     #endif
 
     #ifdef HAVE_LIBSENSORS
-        case LMSENSOR: {
-            g_ptr_array_foreach (ptr_chip_structure->chip_features, refresh_lmsensors, NULL);
+        case LMSENSOR:
+            g_ptr_array_foreach (chip->chip_features, refresh_lmsensors, NULL);
             break;
-        }
     #endif
 
     #ifdef HAVE_HDDTEMP
-        case HDD: {
-            g_assert (ptr_data != NULL);
-            g_ptr_array_foreach (ptr_chip_structure->chip_features, refresh_hddtemp, ptr_data); /* note that data is of *t_sensors! */
+        case HDD:
+            g_assert (data != NULL);
+            g_ptr_array_foreach (chip->chip_features, refresh_hddtemp, data); /* note that data is of *t_sensors! */
             break;
-        }
     #endif
 
     #ifdef HAVE_NVIDIA
-        case GPU: {
-            g_ptr_array_foreach (ptr_chip_structure->chip_features, refresh_nvidia, NULL);
+        case GPU:
+            g_ptr_array_foreach (chip->chip_features, refresh_nvidia, NULL);
             break;
-        }
     #endif
 
-        default: {
-            break;
-        }
+        default:;
     }
 }
 
 
 /* -------------------------------------------------------------------------- */
 void
-refresh_all_chips (GPtrArray *arr_ptr_chips, t_sensors *ptr_sensors )
+refresh_all_chips (GPtrArray *chips, t_sensors *sensors)
 {
-    g_assert (arr_ptr_chips != NULL);
-    g_assert (ptr_sensors != NULL);
+    g_assert (chips != NULL);
+    g_assert (sensors != NULL);
 
-    g_ptr_array_foreach (arr_ptr_chips, refresh_chip, ptr_sensors);
+    g_ptr_array_foreach (chips, refresh_chip, sensors);
 }
 
 
 /* -------------------------------------------------------------------------- */
 void
-categorize_sensor_type (t_chipfeature* ptr_chipfeature)
+categorize_sensor_type (t_chipfeature *feature)
 {
-    g_assert (ptr_chipfeature != NULL);
+    g_assert (feature != NULL);
 
-    if ( strstr(ptr_chipfeature->name, "Temp")!=NULL
-    || strstr(ptr_chipfeature->name, "temp")!=NULL
-    || strstr(ptr_chipfeature->name, "thermal")!=NULL ) {
-        ptr_chipfeature->class = TEMPERATURE;
-        ptr_chipfeature->min_value = 0.0;
-        ptr_chipfeature->max_value = 80.0;
-    } else if ( strstr(ptr_chipfeature->name, "VCore")!=NULL
-    || strstr(ptr_chipfeature->name, "3V")!=NULL
-    || strstr(ptr_chipfeature->name, "5V")!=NULL
-    || strstr(ptr_chipfeature->name, "12V")!=NULL ) {
-        ptr_chipfeature->class = VOLTAGE;
-        ptr_chipfeature->min_value = 1.0;
-        ptr_chipfeature->max_value = 12.2;
-    } else if ( strstr(ptr_chipfeature->name, "Fan")!=NULL
-    || strstr(ptr_chipfeature->name, "fan")!=NULL ) {
-        ptr_chipfeature->class = SPEED;
-        ptr_chipfeature->min_value = 1000.0;
-        ptr_chipfeature->max_value = 3500.0;
-    } else if ( strstr(ptr_chipfeature->name, "alarm")!=NULL
-    || strstr(ptr_chipfeature->name, "Alarm")!=NULL ) {
-        ptr_chipfeature->class = STATE;
-        ptr_chipfeature->min_value = 0.0;
-        ptr_chipfeature->max_value = 1.0;
-    } else if ( strstr(ptr_chipfeature->name, "power")!=NULL
-    || strstr(ptr_chipfeature->name, "Power")!=NULL ) {
-        ptr_chipfeature->class = POWER;
-        ptr_chipfeature->min_value = 0.0;
-        ptr_chipfeature->max_value = 1.0;
-    } else if ( strstr(ptr_chipfeature->name, "current")!=NULL
-    || strstr(ptr_chipfeature->name, "Current")!=NULL ) {
-        ptr_chipfeature->class = CURRENT;
-        ptr_chipfeature->min_value = 0.0;
-        ptr_chipfeature->max_value = 1.0;
-    } else {
-        ptr_chipfeature->class = OTHER;
-        ptr_chipfeature->min_value = 0.0;
-        ptr_chipfeature->max_value = 7000.0;
+    if (strstr(feature->name, "Temp")!=NULL
+        || strstr(feature->name, "temp")!=NULL
+        || strstr(feature->name, "thermal")!=NULL)
+    {
+        feature->class = TEMPERATURE;
+        feature->min_value = 0.0;
+        feature->max_value = 80.0;
+    }
+    else if (strstr(feature->name, "VCore")!=NULL
+        || strstr(feature->name, "3V")!=NULL
+        || strstr(feature->name, "5V")!=NULL
+        || strstr(feature->name, "12V")!=NULL)
+    {
+        feature->class = VOLTAGE;
+        feature->min_value = 1.0;
+        feature->max_value = 12.2;
+    }
+    else if (strstr(feature->name, "Fan")!=NULL
+        || strstr(feature->name, "fan")!=NULL)
+    {
+        feature->class = SPEED;
+        feature->min_value = 1000.0;
+        feature->max_value = 3500.0;
+    }
+    else if (strstr(feature->name, "alarm")!=NULL
+        || strstr(feature->name, "Alarm")!=NULL)
+    {
+        feature->class = STATE;
+        feature->min_value = 0.0;
+        feature->max_value = 1.0;
+    }
+    else if (strstr(feature->name, "power")!=NULL
+        || strstr(feature->name, "Power")!=NULL)
+    {
+        feature->class = POWER;
+        feature->min_value = 0.0;
+        feature->max_value = 1.0;
+    }
+    else if (strstr(feature->name, "current")!=NULL
+        || strstr (feature->name, "Current")!=NULL)
+    {
+        feature->class = CURRENT;
+        feature->min_value = 0.0;
+        feature->max_value = 1.0;
+    }
+    else
+    {
+        feature->class = OTHER;
+        feature->min_value = 0.0;
+        feature->max_value = 7000.0;
     }
 }
 
 
 /* -------------------------------------------------------------------------- */
 int
-sensor_get_value (t_chip *ptr_chip, int idx_chipfeature, double *outptr_value, gboolean *outptr_suppressmessage)
+sensor_get_value (t_chip *chip, int idx_chipfeature, double *out_value, gboolean *out_suppressmessage)
 {
-    t_chipfeature *ptr_feature;
+    t_chipfeature *feature;
     #ifdef HAVE_HDDTEMP
-        gboolean *ptr_suppress = outptr_suppressmessage;
-        g_assert (ptr_suppress != NULL);
+        gboolean *suppress = out_suppressmessage;
+        g_assert (suppress != NULL);
     #endif
 
-    g_assert (ptr_chip != NULL);
-    g_assert (outptr_value != NULL);
+    g_assert (chip != NULL);
+    g_assert (out_value != NULL);
 
-    switch (ptr_chip->type) {
+    switch (chip->type) {
         case LMSENSOR: {
             #ifdef HAVE_LIBSENSORS
-                return sensors_get_feature_wrapper (ptr_chip->chip_name, idx_chipfeature, outptr_value);
+                return sensors_get_feature_wrapper (chip->chip_name, idx_chipfeature, out_value);
             #else
                 return -1;
             #endif
@@ -206,11 +213,11 @@ sensor_get_value (t_chip *ptr_chip, int idx_chipfeature, double *outptr_value, g
         }
         case HDD: {
             #ifdef HAVE_HDDTEMP
-                g_assert (idx_chipfeature < ptr_chip->num_features);
-                ptr_feature = (t_chipfeature *) g_ptr_array_index (ptr_chip->chip_features, idx_chipfeature);
-                g_assert (ptr_feature != NULL);
-                *outptr_value = get_hddtemp_value (ptr_feature->devicename, ptr_suppress);
-                if (*outptr_value==NO_VALID_HDDTEMP_PROGRAM) {
+                g_assert (idx_chipfeature < chip->num_features);
+                feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, idx_chipfeature);
+                g_assert (feature != NULL);
+                *out_value = get_hddtemp_value (feature->devicename, suppress);
+                if (*out_value==NO_VALID_HDDTEMP_PROGRAM) {
                     return NO_VALID_HDDTEMP_PROGRAM;
                 }
                 return 0;
@@ -221,12 +228,12 @@ sensor_get_value (t_chip *ptr_chip, int idx_chipfeature, double *outptr_value, g
         }
         case ACPI: {
             #ifdef HAVE_ACPI
-                g_assert (idx_chipfeature < ptr_chip->num_features);
-                ptr_feature = (t_chipfeature *) g_ptr_array_index (ptr_chip->chip_features, idx_chipfeature);
-                g_assert (ptr_feature != NULL);
+                g_assert (idx_chipfeature < chip->num_features);
+                feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, idx_chipfeature);
+                g_assert (feature != NULL);
                 /* TODO: seperate refresh from get operation! */
-                refresh_acpi ((gpointer) ptr_feature, NULL);
-                *outptr_value = ptr_feature->raw_value;
+                refresh_acpi ((gpointer) feature, NULL);
+                *out_value = feature->raw_value;
                 return 0;
             #else
                 return -1;
@@ -235,12 +242,12 @@ sensor_get_value (t_chip *ptr_chip, int idx_chipfeature, double *outptr_value, g
         }
         case GPU: {
             #ifdef HAVE_NVIDIA
-                g_assert (idx_chipfeature < ptr_chip->num_features);
-                ptr_feature = (t_chipfeature *) g_ptr_array_index (ptr_chip->chip_features, idx_chipfeature);
-                g_assert (ptr_feature != NULL);
+                g_assert (idx_chipfeature < chip->num_features);
+                feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, idx_chipfeature);
+                g_assert (feature != NULL);
                 /* TODO: seperate refresh from get operation! */
-                refresh_nvidia ((gpointer) ptr_feature, NULL);
-                *outptr_value = ptr_feature->raw_value;
+                refresh_nvidia ((gpointer) feature, NULL);
+                *out_value = feature->raw_value;
                 return 0;
             #else
                 return -1;
@@ -248,7 +255,7 @@ sensor_get_value (t_chip *ptr_chip, int idx_chipfeature, double *outptr_value, g
             break;
         }
         default: {
-            ptr_feature = NULL;
+            feature = NULL;
             return -1;
             break;
         }
@@ -260,37 +267,37 @@ sensor_get_value (t_chip *ptr_chip, int idx_chipfeature, double *outptr_value, g
 
 /* -------------------------------------------------------------------------- */
 void
-free_chipfeature (gpointer ptr_chipfeature, gpointer ptr_unused)
+free_chipfeature (gpointer chip_feature, gpointer unused)
 {
-    t_chipfeature *ptr_localchipfeature = (t_chipfeature *) ptr_chipfeature;
-    g_assert (ptr_localchipfeature!=NULL);
+    t_chipfeature *feature = (t_chipfeature *) chip_feature;
+    g_assert (feature!=NULL);
 
-    g_free (ptr_localchipfeature->name);
-    g_free (ptr_localchipfeature->devicename);
-    g_free (ptr_localchipfeature->formatted_value);
-    g_free (ptr_localchipfeature->color);
-    g_free (ptr_localchipfeature);
+    g_free (feature->name);
+    g_free (feature->devicename);
+    g_free (feature->formatted_value);
+    g_free (feature->color);
+    g_free (feature);
 }
 
 
 /* -------------------------------------------------------------------------- */
 void
-free_chip (gpointer ptr_chip, gpointer ptr_unused)
+free_chip (gpointer ptr_chip, gpointer unused)
 {
-    t_chip *ptr_chip_structure = (t_chip *) ptr_chip;
-    g_assert (ptr_chip_structure != NULL);
+    t_chip *chip = (t_chip *) ptr_chip;
+    g_assert (chip != NULL);
 
-    g_free (ptr_chip_structure->description);
-    g_free (ptr_chip_structure->name);
-    g_free (ptr_chip_structure->sensorId);
+    g_free (chip->description);
+    g_free (chip->name);
+    g_free (chip->sensorId);
 
 #ifdef HAVE_LIBSENSORS
-    if (ptr_chip_structure->type==LMSENSOR) {
+    if (chip->type==LMSENSOR) {
         free_lmsensors_chip (ptr_chip);
     }
 #endif
 #ifdef HAVE_ACPI
-    if (ptr_chip_structure->type==ACPI) {
+    if (chip->type==ACPI) {
         free_acpi_chip (ptr_chip);
     }
 #endif
@@ -300,10 +307,10 @@ free_chip (gpointer ptr_chip, gpointer ptr_unused)
     //}
 //#endif
 
-    g_ptr_array_foreach (ptr_chip_structure->chip_features, free_chipfeature, NULL);
-    g_ptr_array_free (ptr_chip_structure->chip_features, TRUE);
-    g_free (ptr_chip_structure->chip_name);
-    g_free(ptr_chip_structure);
+    g_ptr_array_foreach (chip->chip_features, free_chipfeature, NULL);
+    g_ptr_array_free (chip->chip_features, TRUE);
+    g_free (chip->chip_name);
+    g_free(chip);
 }
 
 

@@ -73,43 +73,49 @@ typedef struct {
     gint lines_size;
 
     /** The panel plugins can cover all rows/columns of the panel, but default is to not do so */
-    gboolean cover_panel_rows;
+    gboolean cover_panel_rows:1;
 
     /** panel orientation */
     XfcePanelPluginMode plugin_mode;
 
     /** if the bars have been initialized */
-    gboolean bars_created;
+    gboolean bars_created:1;
 
     /** if the tachos have been initialized */
-    gboolean tachos_created;
+    gboolean tachos_created:1;
 
     /** show title in panel */
-    gboolean show_title;
+    gboolean show_title:1;
 
     /** show labels in panel (GUI mode only) */
-    gboolean show_labels;
+    gboolean show_labels:1;
 
     /** show units in textual view */
-    gboolean show_units;
+    gboolean show_units:1;
 
     /** show small spacings only in textual view */
-    gboolean show_smallspacings;
+    gboolean show_smallspacings:1;
 
     /** show colored bars (GUI mode only) */
-    gboolean show_colored_bars;
-
-    /** use the progress-bar UI */
-    e_displaystyles display_values_type;
-
-    /** suppress Hddtemp failure messages and any other messages */
-    gboolean suppressmessage;
+    gboolean show_colored_bars:1;
 
     /**
      * suppress tooltip from overlapping widget and thereby crashing the plugin
      * or modifying the background
      */
-    gboolean suppresstooltip;
+    gboolean suppresstooltip:1;
+
+    /**
+     * double-click improvement as suggested on xfce4-goodies@berlios.de.
+     * whether to execute command on double click
+     */
+    gboolean exec_command:1;
+
+    /** suppress Hddtemp failure messages and any other messages */
+    gboolean suppressmessage;
+
+    /** use the progress-bar UI */
+    e_displaystyles display_values_type;
 
     /** sensor update time */
     gint sensors_refresh_time;
@@ -123,11 +129,11 @@ typedef struct {
 
     /** contains the progress bar panels */
     /* FIXME:    Might be replaced by GPtrArray as well */
-    t_labelledlevelbar* panels[MAX_NUM_CHIPS][MAX_NUM_FEATURES];
+    t_labelledlevelbar *panels[MAX_NUM_CHIPS][MAX_NUM_FEATURES];
     /*    GArray *panels_array; */
 
     /** CSS provider for main dialog */
-    GtkCssProvider  *css_provider;
+    GtkCssProvider *css_provider;
 
     /** contains the tacho panels */
     /* FIXME:    Might be replaced by GPtrArray as well */
@@ -136,14 +142,8 @@ typedef struct {
     /** sensor types to display values in appropriate format */
     GPtrArray *chips;
 
-    /**
-     * double-click improvement as suggested on xfce4-goodies@berlios.de.
-     * whether to execute command on double click
-     */
-    gboolean exec_command;
-
     /** command to excute */
-    gchar* command_name;
+    gchar *command_name;
 
     /** callback_id for doubleclicks */
     gint doubleclick_id;
@@ -171,17 +171,17 @@ t_sensors;
 
 /**
  * Create new sensors plugin data object
- * @param ptr_xfcepanelplugin: Pointer to panel plugin data
- * @param ptr_plugin_config_filename
+ * @param plugin: Pointer to panel plugin data
+ * @param plugin_config_filename
  * @return pointer to newly allocated sensors object
  */
-t_sensors* sensors_new (XfcePanelPlugin *ptr_xfcepanelplugin, gchar * ptr_plugin_config_filename);
+t_sensors* sensors_new (XfcePanelPlugin *plugin, gchar *plugin_config_filename);
 
 /**
  * Initialize sensors structure with default values
- * @param ptr_sensors: pointer to sensors plugin data
- * @param ptr_xfcepanelplugin: Pointer to panel plugin data
+ * @param sensors: pointer to sensors plugin data
+ * @param plugin: Pointer to panel plugin data
  */
-void sensors_init_default_values (t_sensors *ptr_sensors, XfcePanelPlugin *ptr_xfcepanelplugin);
+void sensors_init_default_values (t_sensors *sensors, XfcePanelPlugin *plugin);
 
 #endif /* XFCE4_SENSORS_INTERFACE_PLUGIN_H */
