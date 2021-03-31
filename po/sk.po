@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-29 00:47+0200\n"
-"PO-Revision-Date: 2021-03-29 19:26+0000\n"
+"PO-Revision-Date: 2021-03-31 20:36+0000\n"
 "Last-Translator: Jan Ziak <0xe2.0x9a.0x9b@gmail.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/xfce/xfce-panel-plugins/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +40,7 @@ msgstr "Zásuvný modul Senzory:\nPri čítaní hodnoty senzora sa vyskytla chyb
 
 #: ../panel-plugin/sensors-plugin.c:979
 msgid "No sensors selected!"
-msgstr "Neboli nájdené žiadne senzory!"
+msgstr "Nie sú vybrané žiadne senzory!"
 
 #: ../panel-plugin/sensors-plugin.c:1818
 msgid "UI style:"
@@ -52,7 +52,7 @@ msgstr "_text"
 
 #: ../panel-plugin/sensors-plugin.c:1821
 msgid "_progress bars"
-msgstr "ukazovateľ _priebehu"
+msgstr "ukazovatele _priebehu"
 
 #: ../panel-plugin/sensors-plugin.c:1823
 msgid "_tachos"
@@ -120,12 +120,12 @@ msgstr "Malý vodorovný oddeľovací _priestor"
 #. Alpha value of the tacho coloring
 #: ../panel-plugin/sensors-plugin.c:2092
 msgid "Tacho color alpha value:"
-msgstr "Priehľadnosť farby tachografu:"
+msgstr "Priehľadnosť farby tachometra:"
 
 #. The value from HSV color model
 #: ../panel-plugin/sensors-plugin.c:2105
 msgid "Tacho color value:"
-msgstr "Farba tachografu:"
+msgstr "Farba tachometra:"
 
 #: ../panel-plugin/sensors-plugin.c:2130
 msgid "Suppress messages"
@@ -225,7 +225,7 @@ msgstr "<Neznámy>"
 
 #: ../lib/nvidia.c:63
 msgid "NVidia GPU core temperature"
-msgstr "Teplota grafického procesora NVidia"
+msgstr "Teplota grafického procesora NVIDIA"
 
 #: ../lib/nvidia.c:64
 msgid "nvidia"
