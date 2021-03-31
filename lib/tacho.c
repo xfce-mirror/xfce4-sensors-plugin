@@ -384,8 +384,9 @@ gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr)
         PangoContext *style_context1 = gtk_widget_get_pango_context (widget);
         PangoLayout *layout = pango_layout_new (style_context1);
         gchar *text;
+        gdouble baseline;
 
-        pango_layout_set_alignment(layout, PANGO_ALIGN_CENTER);
+        pango_layout_set_alignment (layout, PANGO_ALIGN_CENTER);
         pango_layout_set_width (layout, width);
 
         text = g_strdup_printf ("<span color=\"%s\">%s</span>", tacho->color, tacho->text);
@@ -398,9 +399,9 @@ gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr)
 
         pango_cairo_update_layout (cr, layout);
 
-        pango_layout_get_size (layout, &width, &height);
+        baseline = pango_layout_get_baseline (layout);
 
-        cairo_move_to (cr, pos_xcenter, pos_ycenter - height / 2 / PANGO_SCALE);
+        cairo_move_to (cr, pos_xcenter, pos_ycenter - baseline / PANGO_SCALE - 1);
         pango_cairo_show_layout (cr, layout);
         g_object_unref(layout);
     }
