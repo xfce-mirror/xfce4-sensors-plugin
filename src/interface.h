@@ -17,10 +17,13 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <glib.h>
 #include <gtk/gtk.h>
 
 /* Package includes */
 #include <sensors-interface-common.h>
+
+G_BEGIN_DECLS
 
 /**
  * Populate the application's main window
@@ -28,3 +31,5 @@
  * @return newly allocated GtkWidget of main window
  */
 GtkWidget* create_main_window (t_sensors_dialog *dialog);
+
+G_END_DECLS

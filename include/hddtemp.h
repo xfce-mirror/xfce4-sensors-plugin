@@ -20,11 +20,11 @@
 #ifndef XFCE4_SENSORS_HDDTEMP_H
 #define XFCE4_SENSORS_HDDTEMP_H
 
-/* Package includes */
-#include <types.h>
-
-/* Gtk/Glib includes */
 #include <glib.h>
+
+#include "types.h"
+
+G_BEGIN_DECLS
 
 #define HDDTEMP_DISK_SLEEPING       ZERO_KELVIN /* must be larger than the remaining ones */
 #define NO_VALID_HDDTEMP_PROGRAM    ZERO_KELVIN-1 /* the calls/communication to hddtemp don't work */
@@ -56,5 +56,7 @@ void refresh_hddtemp (gpointer chip_feature, gpointer sensors);
  * @return Temperature of disk
  */
 double get_hddtemp_value (char *disk, gboolean *suppress_message);
+
+G_END_DECLS
 
 #endif /* XFCE4_SENSORS_HDDTEMP_H */
