@@ -53,10 +53,15 @@ initialize_nvidia (GPtrArray *chips)
 
     g_assert (chips != NULL);
 
+    /*
+     * According to "Brand Guidelines for the NVIDIA Partner Network" PDF, May 2020:
+     * Always write NVIDIA with all caps, not nvidia nor NVidia.
+     */
+
     chip = g_new0 (t_chip, 1);
     chip->chip_features = g_ptr_array_new ();
     chip->num_features = 0;
-    chip->description = g_strdup (_("NVidia GPU core temperature"));
+    chip->description = g_strdup (_("NVIDIA GPU core temperature"));
     chip->name = g_strdup (_("nvidia"));
     chip->sensorId = g_strdup ("nvidia");
     chip->type = GPU;
