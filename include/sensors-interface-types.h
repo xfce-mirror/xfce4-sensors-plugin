@@ -20,7 +20,10 @@
 #ifndef __SENSORS_INTERFACE_TYPES
 #define __SENSORS_INTERFACE_TYPES
 
+#include <glib.h>
 #include <gtk/gtk.h>
+
+G_BEGIN_DECLS
 
 /**
  * compound widget displaying a levelbar and optional label
@@ -48,5 +51,7 @@ typedef enum {
   DISPLAY_BARS,
   DISPLAY_TACHO
 } e_displaystyles;
+
+G_END_DECLS
 
 #endif /* __SENSORS_INTERFACE_TYPES */

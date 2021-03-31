@@ -20,11 +20,13 @@
 #ifndef __CALLBACKS_H
 #define __CALLBACKS_H
 
+#include <glib.h>
 #include <gtk/gtk.h>
 
 /* Package includes */
 #include <sensors-interface-common.h>
 
+G_BEGIN_DECLS
 
 /* there should also be some "private" callbacks such as closing/qutting
  * the application.
@@ -92,5 +94,6 @@ void maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path,
  */
 void temperature_unit_change_ (GtkWidget *widget, t_sensors_dialog *dialog);
 
+G_END_DECLS
 
 #endif /* __CALLBACKS_H */

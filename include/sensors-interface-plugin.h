@@ -33,6 +33,8 @@
 #include "sensors-interface-types.h"
 #include "types.h"
 
+G_BEGIN_DECLS
+
 #define MAX_NUM_CHIPS 10
 #define MAX_NUM_FEATURES 256
 
@@ -184,5 +186,7 @@ t_sensors* sensors_new (XfcePanelPlugin *plugin, gchar *plugin_config_filename);
  * @param plugin: Pointer to panel plugin data
  */
 void sensors_init_default_values (t_sensors *sensors, XfcePanelPlugin *plugin);
+
+G_END_DECLS
 
 #endif /* XFCE4_SENSORS_INTERFACE_PLUGIN_H */

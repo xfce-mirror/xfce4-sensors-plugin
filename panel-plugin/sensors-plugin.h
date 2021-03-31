@@ -24,7 +24,9 @@
 #include <config.h>
 #endif
 
+#include <libxfce4util/libxfce4util.h>
 
+G_BEGIN_DECLS
 
 #define APP_NAME N_("Sensors Plugin")
 
@@ -52,5 +54,6 @@ void maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path,
 
 void temperature_unit_change_ (GtkWidget *widget, t_sensors_dialog *dialog);
 
+G_END_DECLS
 
 #endif /* XFCE4_SENSORS_SENSORS_H */

@@ -27,15 +27,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Package includes */
-#include <middlelayer.h>
-#include <sensors-interface-common.h>
-#include <types.h>
-
 #include <X11/Xlib.h> /* Must be before NVCtrl includes */
 #include <NVCtrl/NVCtrl.h>
 #include <NVCtrl/NVCtrlLib.h>
 #include <nvidia.h>
+
+/* Package includes */
+#include <middlelayer.h>
+#include <sensors-interface-common.h>
+#include <types.h>
 
 /* Global variables */
 Display *nvidia_sensors_display;

@@ -53,6 +53,7 @@ typedef struct sensors_chip_name {
  } sensors_chip_name;
 #endif
 
+G_BEGIN_DECLS
 
 #define ZERO_KELVIN -273 /*.15 */
 
@@ -156,5 +157,7 @@ typedef struct {
     /** chiptype, required for middlelayer to distinguish */
     t_chiptype type;
 } t_chip;
+
+G_END_DECLS
 
 #endif /* XFCE4_SENSORS_TYPES_H */
