@@ -116,7 +116,7 @@ typedef struct {
     float max_value;
 
     /** color for visualization */
-    gchar *color;
+    gchar *color_orNull;
 
     /** whether to show the value (and name) */
     gboolean show;

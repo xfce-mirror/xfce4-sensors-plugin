@@ -74,7 +74,7 @@ initialize_nvidia (GPtrArray *chips)
             g_assert (feature != NULL);
             feature->address = i;
             feature->name = g_strdup (feature->devicename);
-            feature->color = g_strdup ("#000000");
+            feature->color_orNull = NULL;
             feature->valid = TRUE;
             feature->raw_value = 0.0;
             feature->class = TEMPERATURE;

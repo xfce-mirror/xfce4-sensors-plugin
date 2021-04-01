@@ -101,7 +101,7 @@ sensors_set_levelbar_size (GtkWidget *level_bar, int panel_height, XfcePanelPlug
 
 /* -------------------------------------------------------------------------- */
 static void
-sensors_set_bar_color (t_labelledlevelbar *labelled_level_bar, const gchar *user_bar_color,
+sensors_set_bar_color (t_labelledlevelbar *labelled_level_bar, const gchar *color_orNull,
                        const t_sensors *sensors)
 {
     GtkWidget *level_bar;
@@ -121,9 +121,9 @@ sensors_set_bar_color (t_labelledlevelbar *labelled_level_bar, const gchar *user
 
     g_strlcat(gtk_css_data, " {\n", sizeof(gtk_css_data));
 
-    if (sensors->show_colored_bars) {
+    if (sensors->show_colored_bars && color_orNull) {
         g_strlcat(gtk_css_data, "   background-color: ", sizeof(gtk_css_data));
-        g_strlcat(gtk_css_data, user_bar_color, sizeof(gtk_css_data));
+        g_strlcat(gtk_css_data, color_orNull, sizeof(gtk_css_data));
         g_strlcat(gtk_css_data, ";\n", sizeof(gtk_css_data));
     }
 
@@ -276,7 +276,7 @@ sensors_update_graphical_panel (const t_sensors *sensors)
 
                 sensors_set_levelbar_size (level_bar, (int) sensors->panel_size, sensors->plugin_mode);
                 percentage = sensors_get_percentage (feature);
-                sensors_set_bar_color (labelled_level_bar, feature->color, sensors);
+                sensors_set_bar_color (labelled_level_bar, feature->color_orNull, sensors);
 
                 gtk_level_bar_set_value(GTK_LEVEL_BAR(level_bar), percentage);
             }
@@ -310,7 +310,7 @@ sensors_update_tacho_panel (const t_sensors *sensors)
 
                 percentage = sensors_get_percentage (feature);
                 gtk_sensorstacho_set_size(GTK_SENSORSTACHO(tacho), panel_size);
-                gtk_sensorstacho_set_color(GTK_SENSORSTACHO(tacho), feature->color);
+                gtk_sensorstacho_set_color(GTK_SENSORSTACHO(tacho), feature->color_orNull);
                 gtk_sensorstacho_set_value(GTK_SENSORSTACHO(tacho), percentage);
             }
         }
@@ -506,11 +506,12 @@ sensors_add_tacho_display (t_sensors *sensors)
 
                 /* create the label stuff only if needed - saves some memory! */
                 if (sensors->show_labels) {
-                    gtk_sensorstacho_set_text(GTK_SENSORSTACHO(tacho), feature->name);
-                    gtk_sensorstacho_set_color(GTK_SENSORSTACHO(tacho), feature->color);
+                    gtk_sensorstacho_set_color (GTK_SENSORSTACHO(tacho), feature->color_orNull);
+                    gtk_sensorstacho_set_text (GTK_SENSORSTACHO(tacho), feature->name);
                 }
                 else {
-                    gtk_sensorstacho_unset_text(GTK_SENSORSTACHO(tacho));
+                    gtk_sensorstacho_unset_color (GTK_SENSORSTACHO(tacho));
+                    gtk_sensorstacho_unset_text (GTK_SENSORSTACHO(tacho));
                 }
 
                 sensors->tachos[idx_sensorchips][idx_feature] = tacho;
@@ -764,35 +765,39 @@ sensors_set_text_panel_label (const t_sensors *sensors, gint num_cols, gint num_
             feature = g_ptr_array_index (chip->chip_features, idx_feature);
             g_assert (feature != NULL);
 
-            if (feature->show) {
-                if(sensors->show_labels) {
-                  help = g_strconcat (label_text, "<span  foreground=\"", feature->color, "\" size=\"", sensors->str_fontsize, "\">",feature->name, NULL);
+            if (feature->show)
+            {
+                if(sensors->show_labels)
+                {
+                    if (feature->color_orNull)
+                        help = g_strconcat (label_text, "<span foreground=\"", feature->color_orNull, "\" size=\"", sensors->str_fontsize, "\">", feature->name, NULL);
+                    else
+                        help = g_strconcat (label_text, "<span size=\"", sensors->str_fontsize, "\">", feature->name, NULL);
 
-                  g_free(label_text);
-                  label_text = g_strconcat (help, ":</span> ", NULL);
-                  g_free(help);
-                  help = NULL;
+                    g_free(label_text);
+                    label_text = g_strconcat (help, ":</span> ", NULL);
+                    g_free(help);
+                    help = NULL;
                 }
 
-                if (sensors->show_units) {
-                    help = g_strconcat (label_text,
-                                            "<span foreground=\"",
-                                            feature->color, "\" size=\"",
-                                            sensors->str_fontsize, "\">",
-                                            feature->formatted_value,
-                                            NULL);
+                if (sensors->show_units)
+                {
+                    if (feature->color_orNull)
+                        help = g_strconcat (label_text, "<span foreground=\"", feature->color_orNull, "\" size=\"", sensors->str_fontsize, "\">", feature->formatted_value, NULL);
+                    else
+                        help = g_strconcat (label_text, "<span size=\"", sensors->str_fontsize, "\">", feature->formatted_value, NULL);
 
-                  g_free(label_text);
-                  label_text = g_strconcat (help,
-                                              "</span>", NULL);
+                    g_free(label_text);
+                    label_text = g_strconcat (help, "</span>", NULL);
 
-                  g_free (help);
-                  help = NULL;
+                    g_free (help);
+                    help = NULL;
                 }
                 else {
-                    help = g_strdup_printf("%s<span foreground=\"%s\" size=\"%s\">%.1f</span>", label_text,
-                            feature->color, sensors->str_fontsize,
-                            feature->raw_value);
+                    if (feature->color_orNull)
+                        help = g_strdup_printf ("%s<span foreground=\"%s\" size=\"%s\">%.1f</span>", label_text, feature->color_orNull, sensors->str_fontsize, feature->raw_value);
+                    else
+                        help = g_strdup_printf ("%s<span size=\"%s\">%.1f</span>", label_text, sensors->str_fontsize, feature->raw_value);
                     g_free(label_text);
                     label_text = help;
                 }
@@ -1553,8 +1558,8 @@ maximum_changed_ (GtkCellRendererText *cell_renderer_text, gchar *path_str,
 
 /* -------------------------------------------------------------------------- */
 void
-list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, gchar *path_str,
-                         gchar *new_color, t_sensors_dialog *dialog)
+list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, const gchar *path_str,
+                         const gchar *new_color, t_sensors_dialog *dialog)
 {
     gint combo_box_active;
     GtkTreeModel *model;
@@ -1567,7 +1572,7 @@ list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, gchar *path_st
     /* store new color in appropriate array */
     hexColor = g_str_has_prefix (new_color, "#");
 
-    if (hexColor && strlen(new_color) == 7) {
+    if (hexColor && strlen (new_color) == 7) {
         int i;
         for (i=1; i<7; i++) {
             /* only save hex numbers! */
@@ -1589,8 +1594,32 @@ list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, gchar *path_st
         chip = (t_chip*) g_ptr_array_index(dialog->sensors->chips, combo_box_active);
 
         feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, atoi(path_str));
-        g_free (feature->color);
-        feature->color = g_strdup(new_color);
+        g_free (feature->color_orNull);
+        feature->color_orNull = g_strdup (new_color);
+
+        /* clean up */
+        gtk_tree_path_free (path);
+
+        /* update panel */
+        sensors_show_panel (dialog->sensors);
+    }
+    else if (strlen (new_color) == 0) {
+        combo_box_active = gtk_combo_box_get_active (GTK_COMBO_BOX (dialog->myComboBox));
+
+        /* get model and path */
+        model = (GtkTreeModel*) dialog->myListStore[combo_box_active];
+        path = gtk_tree_path_new_from_string (path_str);
+
+        /* get model iterator */
+        gtk_tree_model_get_iter (model, &iter, path);
+
+        /* set new value */
+        gtk_tree_store_set (GTK_TREE_STORE (model), &iter, eTreeColumn_Color, new_color, -1);
+        chip = (t_chip*) g_ptr_array_index(dialog->sensors->chips, combo_box_active);
+
+        feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, atoi(path_str));
+        g_free (feature->color_orNull);
+        feature->color_orNull = NULL;
 
         /* clean up */
         gtk_tree_path_free (path);

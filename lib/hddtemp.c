@@ -328,7 +328,7 @@ populate_detected_drives (t_chip *chip)
 
        feature->address = idx_disk;
 
-       feature->color = g_strdup ("#B000B0");
+       feature->color_orNull = g_strdup ("#B000B0");
        feature->valid = TRUE;
        feature->raw_value = 0.0;
 

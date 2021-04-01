@@ -74,8 +74,8 @@ void list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path, t_sensors_dial
 /**
  * Implementation of interface callback list_cell_color_edited_
  */
-void list_cell_color_edited_ (GtkCellRendererText *cellrenderertext, gchar *path,
-                              gchar *new_color, t_sensors_dialog *dialog);
+void list_cell_color_edited_ (GtkCellRendererText *cellrenderertext, const gchar *path,
+                              const gchar *new_color, t_sensors_dialog *dialog);
 
 /**
  * Implementation of interface callback minimum_changed_

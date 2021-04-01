@@ -211,8 +211,8 @@ static void
 setup_chipfeature_common (t_chipfeature *feature, int address_chipfeature,
                           double val_sensor_feature)
 {
-    g_free (feature->color);
-    feature->color = g_strdup("#00B000");
+    g_free (feature->color_orNull);
+    feature->color_orNull = g_strdup ("#00B000");
     feature->valid = TRUE;
 
     feature->raw_value = val_sensor_feature;
@@ -240,7 +240,6 @@ setup_chipfeature_libsensors4 (t_chipfeature *chip_feature,
                                double val_sensor_feature,
                                const sensors_chip_name *name)
 {
-
     setup_chipfeature_common (chip_feature, address_chipfeature, val_sensor_feature);
 
     categorize_sensor_type_libsensors4 (chip_feature, feature, name, address_chipfeature);
