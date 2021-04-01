@@ -128,7 +128,7 @@ fill_gtkTreeStore (GtkTreeStore *treestore, t_chip *chip, t_tempscale tempscale,
                                 eTreeColumn_Name, feature->name,
                                 eTreeColumn_Value, feature->formatted_value,
                                 eTreeColumn_Show, feature->show,
-                                eTreeColumn_Color, feature->color,
+                                eTreeColumn_Color, feature->color_orNull ? feature->color_orNull : "",
                                 eTreeColumn_Min, minval,
                                 eTreeColumn_Max, maxval,
                                 -1);

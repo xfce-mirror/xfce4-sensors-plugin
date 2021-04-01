@@ -24,14 +24,12 @@
 #include "config.h"
 #endif
 
-/* Gtk/Glib includes */
 #include <glib.h>
-
-/* Global includes */
 #include <sensors/sensors.h>
 
-/* Package/local includes */
 #include "types.h"
+
+G_BEGIN_DECLS
 
 /**
  * Initialize libsensors by reading sensor config and other stuff
@@ -66,5 +64,7 @@ int sensors_get_feature_wrapper (const sensors_chip_name *chip_name,
  * @param chip: Pointer to t_chip
  */
 void free_lmsensors_chip (gpointer chip);
+
+G_END_DECLS
 
 #endif /* XFCE4_SENSORS_LMSENSORS_H */

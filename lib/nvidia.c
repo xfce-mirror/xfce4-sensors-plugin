@@ -27,15 +27,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Package includes */
-#include <middlelayer.h>
-#include <sensors-interface-common.h>
-#include <types.h>
-
 #include <X11/Xlib.h> /* Must be before NVCtrl includes */
 #include <NVCtrl/NVCtrl.h>
 #include <NVCtrl/NVCtrlLib.h>
 #include <nvidia.h>
+
+/* Package includes */
+#include <middlelayer.h>
+#include <sensors-interface-common.h>
+#include <types.h>
 
 /* Global variables */
 Display *nvidia_sensors_display;
@@ -74,7 +74,7 @@ initialize_nvidia (GPtrArray *chips)
             g_assert (feature != NULL);
             feature->address = i;
             feature->name = g_strdup (feature->devicename);
-            feature->color = g_strdup ("#000000");
+            feature->color_orNull = NULL;
             feature->valid = TRUE;
             feature->raw_value = 0.0;
             feature->class = TEMPERATURE;

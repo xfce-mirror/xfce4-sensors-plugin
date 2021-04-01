@@ -55,7 +55,7 @@ struct _GtkSensorsTacho {
     gchar *text;
 
     /** pointer to color as hexadecimal rgb value in a string */
-    gchar *color;
+    gchar *color_orNull;
 
     /** size of a side of the surrounding square area */
     guint size;
@@ -98,9 +98,14 @@ void gtk_sensorstacho_unset_text (GtkSensorsTacho *tacho);
 
 /** set the color of the text if any text is to be drawn at all
  * @param tacho: Pointer to SensorsTacho structure
- * @param color:
+ * @param color_orNull: Color in HTML notation, or NULL
  */
-void gtk_sensorstacho_set_color (GtkSensorsTacho *tacho, const gchar *color);
+void gtk_sensorstacho_set_color (GtkSensorsTacho *tacho, const gchar *color_orNull);
+
+/** Reset color to the default text color according to the current UI style.
+ * @param tacho: Pointer to SensorsTacho structure
+ */
+void gtk_sensorstacho_unset_color (GtkSensorsTacho *tacho);
 
 /**
  * Paint the SensorsTacho widget

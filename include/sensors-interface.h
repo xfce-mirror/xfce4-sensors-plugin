@@ -20,8 +20,11 @@
 #ifndef XFCE4_SENSORS_INTERFACE_H
 #define XFCE4_SENSORS_INTERFACE_H
 
+#include <glib.h>
 #include <gtk/gtk.h>
 #include "sensors-interface-common.h"
+
+G_BEGIN_DECLS
 
 /* Initializing and filling functions */
 
@@ -108,5 +111,7 @@ void add_sensors_frame (GtkWidget *notebook, t_sensors_dialog *dialog);
  * @param dialog: Pointer to sensors dialog data
  */
 void add_update_time_box (GtkWidget *vbox, t_sensors_dialog *dialog);
+
+G_END_DECLS
 
 #endif /* XFCE4_SENSORS_INTERFACE_H */

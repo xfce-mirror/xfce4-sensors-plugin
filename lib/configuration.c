@@ -154,30 +154,33 @@ sensors_write_config (XfcePanelPlugin *plugin, const t_sensors *sensors)
 
                     if (feature->show)
                     {
-                       g_snprintf (str_feature, 20, "%s_Feature%d", str_chip, idx_feature);
+                        g_snprintf (str_feature, 20, "%s_Feature%d", str_chip, idx_feature);
 
-                       xfce_rc_set_group (rc, str_feature);
+                        xfce_rc_set_group (rc, str_feature);
 
-                       /* only use this if no hddtemp sensor */
-                       /* or do only use this , if it is an lmsensors device. whatever. */
-                       if ( strcmp(chip->sensorId, _("Hard disks")) != 0 ) /* chip->name? */
-                            xfce_rc_write_int_entry (rc, "Address", idx_feature);
+                        /* only use this if no hddtemp sensor */
+                        /* or do only use this , if it is an lmsensors device. whatever. */
+                        if ( strcmp(chip->sensorId, _("Hard disks")) != 0 ) /* chip->name? */
+                             xfce_rc_write_int_entry (rc, "Address", idx_feature);
+                         else
+                             xfce_rc_write_entry (rc, "DeviceName", feature->devicename);
+
+                        xfce_rc_write_entry (rc, "Name", feature->name);
+
+                        if (feature->color_orNull)
+                            xfce_rc_write_entry (rc, "Color", feature->color_orNull);
                         else
-                            xfce_rc_write_entry (rc, "DeviceName", feature->devicename);
+                            xfce_rc_delete_entry (rc, "Color", FALSE);
 
-                       xfce_rc_write_entry (rc, "Name", feature->name);
+                        xfce_rc_write_bool_entry (rc, "Show", feature->show);
 
-                       xfce_rc_write_entry (rc, "Color", feature->color);
+                        tmp = g_strdup_printf("%.2f", feature->min_value);
+                        xfce_rc_write_entry (rc, "Min", tmp);
+                        g_free (tmp);
 
-                       xfce_rc_write_bool_entry (rc, "Show", feature->show);
-
-                       tmp = g_strdup_printf("%.2f", feature->min_value);
-                       xfce_rc_write_entry (rc, "Min", tmp);
-                       g_free (tmp);
-
-                       tmp = g_strdup_printf("%.2f", feature->max_value);
-                       xfce_rc_write_entry (rc, "Max", tmp);
-                       g_free (tmp);
+                        tmp = g_strdup_printf("%.2f", feature->max_value);
+                        xfce_rc_write_entry (rc, "Max", tmp);
+                        g_free (tmp);
                     }
                 }
             }
@@ -369,11 +372,11 @@ sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
                             feature->name = g_strdup (str_value);
                         }
 
+                        g_free (feature->color_orNull);
                         if ((str_value = xfce_rc_read_entry (rc, "Color", NULL)) && *str_value)
-                        {
-                            g_free (feature->color);
-                            feature->color = g_strdup (str_value);
-                        }
+                            feature->color_orNull = g_strdup (str_value);
+                        else
+                            feature->color_orNull = NULL;
 
                         feature->show = xfce_rc_read_bool_entry (rc, "Show", FALSE);
 
