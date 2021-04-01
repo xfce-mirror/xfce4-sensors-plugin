@@ -20,12 +20,12 @@
 #ifndef XFCE4_SENSORS_MIDDLELAYER_H
 #define XFCE4_SENSORS_MIDDLELAYER_H
 
-/* Package/Local includes in same folder */
-#include "sensors-interface-plugin.h" // includes ....common.h
+#include <glib.h>
+
+#include "sensors-interface-plugin.h"
 #include "types.h"
 
-/* Gtk/Glib includes */
-#include <glib.h>
+G_BEGIN_DECLS
 
 /**
  * Initialize all sensors detected by iterating and calling init-routines
@@ -92,5 +92,7 @@ void cleanup_interfaces (void);
  * @param sensors: pointer to sensors structure
  */
 void refresh_all_chips (GPtrArray *chips, t_sensors *sensors);
+
+G_END_DECLS
 
 #endif /* XFCE4_SENSORS_MIDDLELAYER_H */

@@ -78,7 +78,7 @@ sensor_entry_changed_ (GtkWidget *combobox, t_sensors_dialog *dialog)
  * @return index of chipfeature for ptr_str_cellpath
  */
 static gint
-set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *dialog, gchar *ptr_str_cellpath, gint col_treeview, GValue *value, t_chipfeature **out_feature)
+set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *dialog, const gchar *cellpath, gint col_treeview, GValue *value, t_chipfeature **out_feature)
 {
     gint active_combobox = -1;
     GtkTreeModel *treemodel;
@@ -90,7 +90,7 @@ set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *dialog, gc
     active_combobox = gtk_combo_box_get_active (GTK_COMBO_BOX (dialog->myComboBox));
 
     treemodel = (GtkTreeModel*) dialog->myListStore [active_combobox];
-    treepath = gtk_tree_path_new_from_string (ptr_str_cellpath);
+    treepath = gtk_tree_path_new_from_string (cellpath);
 
     /* get model iterator */
     gtk_tree_model_get_iter (treemodel, &iter_treemodel, treepath);
@@ -101,7 +101,7 @@ set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *dialog, gc
     gtk_tree_store_set_value (GTK_TREE_STORE (treemodel), &iter_treemodel, col_treeview, value);
     chip = g_ptr_array_index(dialog->sensors->chips, active_combobox);
 
-    feature = g_ptr_array_index (chip->chip_features, atoi (ptr_str_cellpath));
+    feature = g_ptr_array_index (chip->chip_features, atoi (cellpath));
 
     /* clean up */
     gtk_tree_path_free (treepath);
@@ -187,8 +187,8 @@ list_cell_toggle_ (GtkCellRendererToggle *cell_renderer_toggle, gchar *cellpath,
 
 /* -------------------------------------------------------------------------- */
 void
-list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, gchar *cellpath,
-                         gchar *new_color, t_sensors_dialog *dialog)
+list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, const gchar *cellpath,
+                         const gchar *new_color, t_sensors_dialog *dialog)
 {
     gint active_combobox;
     gboolean has_sharpprefix;
@@ -203,24 +203,38 @@ list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, gchar *cellpat
         int i;
         for (i=1; i<7; i++) {
             /* only save hex numbers! */
-            if ( ! g_ascii_isxdigit (new_color[i]) )
+            if (!g_ascii_isxdigit (new_color[i]))
                 return;
         }
 
-        g_value_init(&color_string, G_TYPE_STRING);
-        g_value_set_static_string(&color_string, new_color);
-        active_combobox = set_value_in_treemodel_and_return_index_and_feature(
+        g_value_init (&color_string, G_TYPE_STRING);
+        g_value_set_static_string (&color_string, new_color);
+        active_combobox = set_value_in_treemodel_and_return_index_and_feature (
             dialog, cellpath, eTreeColumn_Color, &color_string,
             &feature);
 
-        g_free (feature->color);
-        feature->color = g_strdup(new_color);
+        g_free (feature->color_orNull);
+        feature->color_orNull = g_strdup (new_color);
 
         /* update color value */
-        tacho = dialog->sensors->tachos [active_combobox][atoi(cellpath)];
+        tacho = dialog->sensors->tachos[active_combobox][atoi(cellpath)];
+        if (tacho)
+            gtk_sensorstacho_set_color (GTK_SENSORSTACHO(tacho), new_color);
+    }
+    else if (strlen (new_color) == 0) {
+        g_value_init (&color_string, G_TYPE_STRING);
+        g_value_set_static_string (&color_string, new_color);
+        active_combobox = set_value_in_treemodel_and_return_index_and_feature (
+            dialog, cellpath, eTreeColumn_Color, &color_string,
+            &feature);
 
-        if (tacho!=NULL)
-            gtk_sensorstacho_set_color(GTK_SENSORSTACHO(dialog->sensors->tachos[active_combobox][atoi(cellpath)]), new_color);
+        g_free (feature->color_orNull);
+        feature->color_orNull = NULL;
+
+        /* update color value */
+        tacho = dialog->sensors->tachos[active_combobox][atoi(cellpath)];
+        if (tacho)
+            gtk_sensorstacho_unset_color (GTK_SENSORSTACHO(tacho));
     }
 }
 

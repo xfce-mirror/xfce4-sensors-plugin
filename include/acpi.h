@@ -20,6 +20,13 @@
 #ifndef XFCE4_SENSORS_ACPI_H
 #define XFCE4_SENSORS_ACPI_H
 
+#include <dirent.h>
+#include <glib.h>
+
+#include "types.h"
+
+G_BEGIN_DECLS
+
 #define ACPI_PATH               "/proc/acpi"
 #define ACPI_DIR_THERMAL        "thermal_zone"
 #define ACPI_DIR_BATTERY        "battery"
@@ -41,12 +48,6 @@
 #define SYS_FILE_POWER "power_now"
 #define SYS_FILE_VOLTAGE "voltage_now"
 #define SYS_FILE_VOLTAGE_MIN "voltage_min_design"
-
-#include <dirent.h>
-#include <glib.h>
-
-/* Package/local includes */
-#include "types.h"
 
 /**
  * Publish ACPI chip by appending chip data to the argument 'chips'.
@@ -187,5 +188,7 @@ gint acpi_ignore_directory_entry (struct dirent *entry);
  * @param chip: Pointer to t_chip
  */
 void free_acpi_chip (gpointer chip);
+
+G_END_DECLS
 
 #endif /* XFCE4_SENSORS_ACPI_H */

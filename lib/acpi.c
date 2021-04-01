@@ -126,7 +126,7 @@ read_thermal_zone (t_chip *chip)
 
                     feature = g_new0 (t_chipfeature, 1);
 
-                    feature->color = g_strdup("#0000B0");
+                    feature->color_orNull = g_strdup("#0000B0");
                     feature->address = chip->chip_features->len;
                     feature->devicename = g_strdup (entry->d_name);
                     feature->name = g_strdup (feature->devicename);
@@ -326,7 +326,7 @@ read_battery_zone (t_chip *chip)
                     feature->raw_value = 0.0;
                     feature->class = ENERGY;
                     feature->formatted_value = NULL;
-                    feature->color = g_strdup("#0000B0");
+                    feature->color_orNull = g_strdup("#0000B0");
 
 #ifdef HAVE_SYSFS_ACPI
                     fclose (file);
@@ -491,7 +491,7 @@ read_fan_zone (t_chip *chip)
                 feature = g_new0 (t_chipfeature, 1);
                 g_return_val_if_fail(feature != NULL, -1);
 
-                feature->color = g_strdup("#0000B0");
+                feature->color_orNull = g_strdup("#0000B0");
                 feature->address = chip->chip_features->len;
                 feature->devicename = g_strdup (entry->d_name);
                 feature->name = g_strdup (feature->devicename);
@@ -615,7 +615,7 @@ read_power_zone (t_chip *chip)
                     feature = g_new0 (t_chipfeature, 1);
                     g_return_val_if_fail(feature != NULL, -1);
 
-                    feature->color = g_strdup("#00B0B0");
+                    feature->color_orNull = g_strdup("#00B0B0");
                     feature->address = chip->chip_features->len;
                     feature->devicename = g_strdup(entry->d_name);
                     // You might want to format this with a hyphen and without spacing, or with a dash; the result might be BAT1–Power or whatever fits your language most. Spaces allow line breaks over the tachometers.
@@ -683,7 +683,7 @@ read_voltage_zone (t_chip *chip)
                     feature = g_new0 (t_chipfeature, 1);
                     g_return_val_if_fail (feature != NULL, -1);
 
-                    feature->color = g_strdup("#00B0B0");
+                    feature->color_orNull = g_strdup("#00B0B0");
                     feature->address = chip->chip_features->len;
                     feature->devicename = g_strdup(entry->d_name);
                     // You might want to format this with a hyphen and without spacing, or with a dash; the result might be BAT1–Voltage or whatever fits your language most. Spaces allow line breaks over the tachometers.

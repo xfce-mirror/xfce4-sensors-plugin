@@ -166,9 +166,8 @@ refresh_tacho_view (t_sensors_dialog *dialog)
                     sensors->tachos[idx_chip][idx_feature] = ptr_sensorstachowidget = gtk_sensorstacho_new(orientation, DEFAULT_SIZE_TACHOS, tacho_style);
                     ptr_sensorstacho = GTK_SENSORSTACHO(ptr_sensorstachowidget);
 
-                    gtk_sensorstacho_set_text(ptr_sensorstacho, feature->name);
-
-                    gtk_sensorstacho_set_color(ptr_sensorstacho, feature->color);
+                    gtk_sensorstacho_set_color (ptr_sensorstacho, feature->color_orNull);
+                    gtk_sensorstacho_set_text (ptr_sensorstacho, feature->name);
                 }
 
                 fill_degree = (feature->raw_value - feature->min_value) / ( feature->max_value - feature->min_value);
@@ -207,15 +206,12 @@ refresh_tacho_view (t_sensors_dialog *dialog)
             {
                 DBG("Removing deselected widget from container.");
                 gtk_container_remove(GTK_CONTAINER(wdgt_table), ptr_sensorstachowidget);
-                if (ptr_sensorstacho->text) {
-                    g_free(ptr_sensorstacho->text);
-                    ptr_sensorstacho->text = NULL;
-                }
 
-                if (ptr_sensorstacho->color) {
-                    g_free(ptr_sensorstacho->color);
-                    ptr_sensorstacho->color = NULL;
-                }
+                g_free (ptr_sensorstacho->color_orNull);
+                g_free (ptr_sensorstacho->text);
+                ptr_sensorstacho->color_orNull = NULL;
+                ptr_sensorstacho->text = NULL;
+
                 sensors->tachos[idx_chip][idx_feature] = NULL;
             }
 

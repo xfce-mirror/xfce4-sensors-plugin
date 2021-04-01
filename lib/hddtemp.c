@@ -21,12 +21,6 @@
 #include <config.h>
 #endif
 
-/* Package includes */
-#include <hddtemp.h>
-#include <middlelayer.h>
-#include <sensors-interface-common.h>
-#include <types.h>
-
 #include <glib.h>
 #include <gtk/gtk.h>
 #include <netdb.h>
@@ -37,6 +31,12 @@
 #include <sys/types.h>
 #include <sys/utsname.h>
 #include <unistd.h>
+
+/* Package includes */
+#include <hddtemp.h>
+#include <middlelayer.h>
+#include <sensors-interface-common.h>
+#include <types.h>
 
 #if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
 #include <libnotify/notify.h>
@@ -328,7 +328,7 @@ populate_detected_drives (t_chip *chip)
 
        feature->address = idx_disk;
 
-       feature->color = g_strdup ("#B000B0");
+       feature->color_orNull = g_strdup ("#B000B0");
        feature->valid = TRUE;
        feature->raw_value = 0.0;
 

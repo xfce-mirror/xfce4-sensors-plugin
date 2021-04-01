@@ -26,6 +26,8 @@
 #include <sensors-interface-common.h>
 #include <tacho.h>
 
+G_BEGIN_DECLS
+
 /**
  * Shall refresh the entire view of the application
  * @param dialog: pointer to sensors dialog structure
@@ -34,5 +36,7 @@
 void refresh_view (t_sensors_dialog *dialog);
 
 gboolean refresh_view_cb (gpointer user_data);
+
+G_END_DECLS
 
 #endif /* ACTIONS_H */

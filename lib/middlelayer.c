@@ -275,7 +275,7 @@ free_chipfeature (gpointer chip_feature, gpointer unused)
     g_free (feature->name);
     g_free (feature->devicename);
     g_free (feature->formatted_value);
-    g_free (feature->color);
+    g_free (feature->color_orNull);
     g_free (feature);
 }
 
