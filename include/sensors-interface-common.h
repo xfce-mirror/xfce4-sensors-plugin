@@ -204,7 +204,7 @@ EXTERN void
  */
 EXTERN void
 (*list_cell_color_edited) (GtkCellRendererText *cell_renderer_text,
-                           gchar *path, gchar *newcolor,
+                           const gchar *path, const gchar *new_color,
                            t_sensors_dialog *dialog);
 
 /**

@@ -43,8 +43,8 @@ void list_cell_text_edited_ (GtkCellRendererText *cell_renderer_text, gchar *pat
 void list_cell_toggle_ (GtkCellRendererToggle *cell_renderer_toggle, gchar *path,
                         t_sensors_dialog *dialog);
 
-void list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, gchar *path,
-                              gchar *newcolor, t_sensors_dialog *dialog);
+void list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, const gchar *path,
+                              const gchar *newcolor, t_sensors_dialog *dialog);
 
 void minimum_changed_ (GtkCellRendererText *cell_renderer_text, gchar *path,
                        gchar *newmin, t_sensors_dialog *dialog);

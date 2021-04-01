@@ -38,7 +38,7 @@ typedef struct {
     /** the surrounding box */
     GtkWidget *databox;
 
-    /** We seem to need a seperate css provider per levelbar */
+    /** We seem to need a separate css provider per levelbar */
     GtkCssProvider *css_provider;
 } t_labelledlevelbar;
 

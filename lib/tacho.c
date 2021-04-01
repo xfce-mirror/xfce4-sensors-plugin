@@ -83,10 +83,8 @@ gtk_sensorstacho_set_text (GtkSensorsTacho *tacho, const gchar *text)
     g_return_if_fail (tacho != NULL);
 
     gtk_sensorstacho_unset_text (tacho);
-
-    if (text != NULL) {
+    if (text)
         tacho->text = g_strdup (text);
-    }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -114,15 +112,23 @@ gtk_sensorstacho_new(GtkOrientation orientation, guint size, SensorsTachoStyle s
 
 /* -------------------------------------------------------------------------- */
 void
-gtk_sensorstacho_set_color (GtkSensorsTacho *tacho, const gchar *color)
+gtk_sensorstacho_set_color (GtkSensorsTacho *tacho, const gchar *color_orNull)
 {
     g_return_if_fail (tacho != NULL);
 
-    if (color == NULL)
-        color = "#000000";
+    gtk_sensorstacho_unset_color (tacho);
+    if (color_orNull && *color_orNull != '\0')
+        tacho->color_orNull = g_strdup(color_orNull);
+}
 
-    g_free(tacho->color);
-    tacho->color = g_strdup(color);
+/* -------------------------------------------------------------------------- */
+void
+gtk_sensorstacho_unset_color (GtkSensorsTacho *tacho)
+{
+    g_return_if_fail (tacho != NULL);
+
+    g_free (tacho->color_orNull);
+    tacho->color_orNull = NULL;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -389,8 +395,11 @@ gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr)
         pango_layout_set_alignment (layout, PANGO_ALIGN_CENTER);
         pango_layout_set_width (layout, width);
 
-        text = g_strdup_printf ("<span color=\"%s\">%s</span>", tacho->color, tacho->text);
-        pango_layout_set_markup (layout, text, -1); // with null-termination, no need to give length explicitly
+        if (tacho->color_orNull && *tacho->color_orNull != '\0')
+            text = g_strdup_printf ("<span color=\"%s\">%s</span>", tacho->color_orNull, tacho->text);
+        else
+            text = g_strdup_printf ("<span>%s</span>", tacho->text);
+        pango_layout_set_markup (layout, text, -1);
         g_free(text);
 
         pango_font_description = pango_font_description_from_string(font);
@@ -414,17 +423,18 @@ gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr)
 void
 gtk_sensorstacho_destroy(GtkWidget *widget)
 {
-    GtkSensorsTacho *ptr_sensorstacho = GTK_SENSORSTACHO(widget);
+    GtkSensorsTacho *tacho = GTK_SENSORSTACHO(widget);
 
-    g_return_if_fail(ptr_sensorstacho!=NULL);
+    g_return_if_fail(tacho!=NULL);
 
-    if (ptr_sensorstacho->color != NULL)
+    if (tacho->color_orNull)
     {
-        g_free(ptr_sensorstacho->color);
-        ptr_sensorstacho->color = NULL;
+        g_free(tacho->color_orNull);
+        tacho->color_orNull = NULL;
     }
 
-    gtk_sensorstacho_unset_text(ptr_sensorstacho);
+    gtk_sensorstacho_unset_color(tacho);
+    gtk_sensorstacho_unset_text(tacho);
 }
 
 
