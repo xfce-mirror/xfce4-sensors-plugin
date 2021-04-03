@@ -38,7 +38,7 @@
 #include <sensors-interface-common.h>
 #include <types.h>
 
-#if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
+#ifdef HAVE_LIBNOTIFY
 #include <libnotify/notify.h>
 #endif
 
@@ -61,11 +61,6 @@
 #define HDDTEMP_CONNECTION_FAILED -1 /* Connection problems to hddtemp */
 
 
-/* forward declaration for GCC 4.3 -Wall */
-#if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
-void notification_suppress_messages (NotifyNotification *n, gchar *action, gpointer *data);
-#endif
-
 void quick_message_notify (gchar *message);
 void quick_message (gchar *message);
 void quick_message_dialog (gchar *message);
@@ -80,11 +75,11 @@ void populate_detected_drives (t_chip *chip);
 
 
 /* -------------------------------------------------------------------------- */
-#if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
-void
-notification_suppress_messages (NotifyNotification *ptr_notification, gchar *str_action, gpointer *ptr_data)
+#ifdef HAVE_LIBNOTIFY
+static void
+notification_suppress_messages (NotifyNotification *notification, const gchar *action, gpointer *data)
 {
-    if (strcmp(str_action, "confirmed")!=0)
+    if (strcmp (action, "confirmed") != 0)
         return;
 
     /* FIXME: Use channels or propagate private object or use static global variable */
@@ -105,17 +100,18 @@ quick_message_notify (gchar *message)
     if (!notify_is_initted())
         notify_init(PACKAGE); /* NOTIFY_APPNAME */
 
-#ifdef HAVE_LIBNOTIFY7
     notification = notify_notification_new (summary, message, icon);
-#elif HAVE_LIBNOTIFY4
-    notification = notify_notification_new (summary, message, icon, NULL);
-#endif
+
     /* FIXME: Use channels or propagate private object or use static global variable */
-    //notify_notification_add_action (ptr_notification,
-                            //"confirmed",
-                            //_("Don't show this message again"),
-                            //(NotifyActionCallback) notification_suppress_messages,
-                            //NULL);
+    if (0)
+    {
+        notify_notification_add_action (notification,
+                                        "confirmed",
+                                        _("Don't show this message again"),
+                                        (NotifyActionCallback) notification_suppress_messages,
+                                        NULL, NULL);
+    }
+
     notify_notification_show(notification, &error);
 }
 #else
@@ -175,7 +171,7 @@ quick_message_with_checkbox (gchar *message, gchar *checkbox_text)
 void
 quick_message (gchar *message)
 {
-#if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
+#ifdef HAVE_LIBNOTIFY
     quick_message_notify (message);
 #else
     quick_message_dialog (message);
@@ -539,7 +535,7 @@ get_hddtemp_value (char *disk, gboolean *suppress_message)
                             "Calling \"%s\" gave the following error:\n%s\nwith a return value of %d.\n"),
                             PATH_HDDTEMP, hddtemp_call, str_stderr, exit_status);
 
-#if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
+#ifdef HAVE_LIBNOTIFY
             quick_message_notify (message);
 #else
             check_button = g_strdup(_("Suppress this message in future"));
@@ -562,7 +558,7 @@ get_hddtemp_value (char *disk, gboolean *suppress_message)
         if (!f_nevershowagain) {
             message = g_strdup_printf (_("An error occurred when executing"
                                       " \"%s\":\n%s"), hddtemp_call, f_error->message);
-#if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
+#ifdef HAVE_LIBNOTIFY
             quick_message_notify (message);
 #else
             check_button = g_strdup(_("Suppress this message in future"));

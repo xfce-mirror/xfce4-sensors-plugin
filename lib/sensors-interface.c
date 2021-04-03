@@ -21,7 +21,7 @@
 #include <config.h>
 #endif
 
-#if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
+#ifdef HAVE_LIBNOTIFY
 #include <libnotify/notify.h>
 #endif
 
@@ -67,7 +67,7 @@ fill_gtkTreeStore (GtkTreeStore *treestore, t_chip *chip, t_tempscale tempscale,
     t_chipfeature *feature;
     gboolean *suppressnotifications;
     GtkTreeIter iter_list_store;
-#if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
+#ifdef HAVE_LIBNOTIFY
     NotifyNotification *notification;
     GError *error = NULL;
     gchar *iconpath;
@@ -80,7 +80,7 @@ fill_gtkTreeStore (GtkTreeStore *treestore, t_chip *chip, t_tempscale tempscale,
     body = _("Seems like there was a problem reading a sensor "
                     "feature value.\nProper proceeding cannot be "
                     "guaranteed.");
-#if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
+#ifdef HAVE_LIBNOTIFY
     iconpath = "xfce-sensors";
 #endif
 
@@ -96,15 +96,11 @@ fill_gtkTreeStore (GtkTreeStore *treestore, t_chip *chip, t_tempscale tempscale,
             result = sensor_get_value (chip, feature->address, &feature_value, suppressnotifications);
             if (result!=0 && !*suppressnotifications) {
 
-#if defined(HAVE_LIBNOTIFY4) || defined(HAVE_LIBNOTIFY7)
+#ifdef HAVE_LIBNOTIFY
                 if (!notify_is_initted())
                     notify_init(PACKAGE); /* NOTIFY_APPNAME */
 
-#ifdef HAVE_LIBNOTIFY7
                 notification = notify_notification_new (summary, body, iconpath);
-#elif HAVE_LIBNOTIFY4
-                notification = notify_notification_new (summary, body, iconpath, NULL);
-#endif
                 notify_notification_show(notification, &error);
 #else
                 DBG("%s\n%s", summary, body);
