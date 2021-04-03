@@ -6,6 +6,6 @@
 .deps
 .gitignore
 .libs
+/nbproject
 Makefile
 Makefile.in
-nbproject
