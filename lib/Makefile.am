@@ -58,7 +58,7 @@ libxfce4sensors_la_LIBADD =							\
 	@LIBXFCE4UI_LIBS@								\
 	@LIBXFCE4PANEL_LIBS@							\
 	@LIBSENSORS_LDFLAGS@							\
-	@LIBM@
+	-lm
 
 if HAVE_NVIDIA
 libxfce4sensors_la_LIBADD += @NVIDIA_LIBS@

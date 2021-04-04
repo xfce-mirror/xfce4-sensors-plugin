@@ -22,8 +22,7 @@ libxfce4_sensors_plugin_la_LIBADD =								 	\
 	@LIBXFCE4PANEL_LIBS@											\
 	@LIBXFCE4UI_LIBS@												\
 	@SOLLIBS@														\
-	@LIBSENSORS_LDFLAGS@											\
-	@LIBM@
+	@LIBSENSORS_LDFLAGS@
 
 libxfce4_sensors_plugin_la_LDFLAGS = 								\
 	-avoid-version 													\
