@@ -281,11 +281,11 @@ dnl **************************************
 LIBXFCE4SENSORS_VERINFO=libxfce4sensors_verinfo()
 AC_SUBST([LIBXFCE4SENSORS_VERINFO])
 
-dnl **************************************
-dnl *** Check for Gtk/Glib packages  ***
-dnl **************************************
+dnl ***********************************
+dnl *** Check for Glib/Gtk packages ***
+dnl ***********************************
+XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.50.0])
 XDT_CHECK_PACKAGE([GTK], [gtk+-3.0], [3.20.0])
-XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.6.0])
 
 
 dnl **************************************
