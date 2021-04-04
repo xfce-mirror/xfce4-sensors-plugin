@@ -1,4 +1,4 @@
-dnl configure.in.in
+dnl configure.ac.in
 dnl
 dnl xfce4-sensors-plugin - Sensors plugin for xfce4-panel
 dnl
@@ -8,23 +8,21 @@ dnl
 
 m4_define([libxfce4sensors_verinfo], [5:1:0])
 
-m4_define([xfce4_sensors_version_major], [1])
-m4_define([xfce4_sensors_version_minor], [3])
-m4_define([xfce4_sensors_version_micro], [95])
-m4_define([xfce4_sensors_version_nano], [])
-m4_define([xfce4_sensors_version_build], [@REVISION@])
-m4_define([xfce4_sensors_version_tag], [git]) dnl may be set to 'git'
-m4_define([xfce4_sensors_version], [xfce4_sensors_version_major().xfce4_sensors_version_minor().xfce4_sensors_version_micro()ifelse(xfce4_sensors_version_nano(), [], [], [.xfce4_sensors_version_nano()])ifelse(xfce4_sensors_version_tag(), [git], [xfce4_sensors_version_tag()-xfce4_sensors_version_build()], [xfce4_sensors_version_tag()])])
+dnl Version information
+m4_define([sensors_version_major], [1])
+m4_define([sensors_version_minor], [3])
+m4_define([sensors_version_micro], [95])
+m4_define([sensors_version_build], [@REVISION@])
+m4_define([sensors_version_tag], [git])
+m4_define([sensors_version], [sensors_version_major().sensors_version_minor().sensors_version_micro()ifelse(sensors_version_tag(), [git], [sensors_version_tag()-sensors_version_build()], [sensors_version_tag()])])
 
-
-AC_INIT([xfce4-sensors-plugin], [xfce4_sensors_version], [timystery@arcor.de])
+dnl Initialize autoconf
+AC_INIT([xfce4-sensors-plugin], [sensors_version], [https://gitlab.xfce.org/panel-plugins/xfce4-sensors-plugin/], [xfce4-sensors-plugin])
 AC_PREREQ([2.60])
-AC_CANONICAL_TARGET()
 
-PLUGIN_VERSION=xfce4_sensors_version()
-AM_INIT_AUTOMAKE
+dnl Initialize automake
+AM_INIT_AUTOMAKE([1.11 dist-bzip2 tar-ustar no-dist-gzip])
 AC_CONFIG_HEADERS([config.h])
-AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_SRCDIR([src/main.c])
 AM_MAINTAINER_MODE()
 AM_SILENT_RULES([yes])
@@ -33,7 +31,6 @@ dnl Check for basic programs
 AC_PROG_CC_C99
 AC_PROG_LD()
 AC_PROG_INSTALL
-
 IT_PROG_INTLTOOL([0.35.0])
 LT_PREREQ([2.2.6])
 LT_INIT([disable-static])
