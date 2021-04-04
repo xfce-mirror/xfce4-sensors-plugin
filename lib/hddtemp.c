@@ -188,7 +188,7 @@ read_disks_netcat (t_chip *chip)
     int result;
     t_chipfeature *feature;
 
-    bzero(&reply, REPLY_MAX_SIZE);
+    memset(&reply, 0, REPLY_MAX_SIZE);
     result = get_hddtemp_d_str(reply, REPLY_MAX_SIZE);
     DBG ("reply=%s with result=%d\n", reply, (int) result);
     if (result==-1)
@@ -479,7 +479,7 @@ get_hddtemp_value (char *disk, gboolean *suppress_message)
 
 #ifdef HAVE_NETCAT
 
-    bzero(&reply, REPLY_MAX_SIZE);
+    memset(&reply, 0, REPLY_MAX_SIZE);
     hddtemp_result = get_hddtemp_d_str(reply, REPLY_MAX_SIZE);
     if (hddtemp_result==HDDTEMP_CONNECTION_FAILED)
     {
