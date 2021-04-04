@@ -324,7 +324,7 @@ sensors_update_tacho_panel (const t_sensors *sensors)
 static void
 sensors_add_graphical_display (t_sensors *sensors)
 {
-    gint idx_sensorchips, idx_feature;
+    gint idx_sensorchip, idx_feature;
     gboolean has_bars = FALSE;
     gchar *panel_label_text;
     gint size_panel = sensors->panel_size;
@@ -340,8 +340,8 @@ sensors_add_graphical_display (t_sensors *sensors)
     panel_label_text = NULL;
 
     gtk_container_set_border_width (GTK_CONTAINER(sensors->widget_sensors), 0);
-    for (idx_sensorchips=0; idx_sensorchips < sensors->num_sensorchips; idx_sensorchips++) {
-        t_chip *chip =  g_ptr_array_index(sensors->chips, idx_sensorchips);
+    for (idx_sensorchip=0; idx_sensorchip < sensors->num_sensorchips; idx_sensorchip++) {
+        t_chip *chip =  g_ptr_array_index (sensors->chips, idx_sensorchip);
         g_assert (chip != NULL);
 
         for (idx_feature=0; idx_feature < chip->num_features; idx_feature++) {
@@ -351,7 +351,7 @@ sensors_add_graphical_display (t_sensors *sensors)
             if (feature->show) {
                 GdkDisplay *display;
                 GdkScreen *screen;
-                GtkWidget *widget_progbar, *widget_databox, *widget_label;
+                GtkWidget *widget_progbar, *widget_databox;
                 t_labelledlevelbar *labelled_level_bar;
 
                 has_bars = TRUE;
@@ -373,12 +373,9 @@ sensors_add_graphical_display (t_sensors *sensors)
 
                 sensors_set_levelbar_size (widget_progbar, size_panel,
                                            sensors->plugin_mode);
-                gtk_widget_show (widget_progbar);
-
-                gtk_widget_show (widget_databox);
 
                 /* save the panel elements */
-                labelled_level_bar = g_new (t_labelledlevelbar, 1);
+                labelled_level_bar = g_new0 (t_labelledlevelbar, 1);
                 labelled_level_bar->progressbar = widget_progbar;
 
                 labelled_level_bar->css_provider = gtk_css_provider_new ();
@@ -391,24 +388,19 @@ sensors_add_graphical_display (t_sensors *sensors)
 
                 /* create the label stuff only if needed - saves some memory! */
                 if (sensors->show_labels) {
-                    gchar *bar_label_text;
-                    guint len_barlabeltext;
+                    gchar *bar_label_text = g_strdup (feature->name);
+                    GtkWidget *widget_label;
 
-                    bar_label_text = g_strdup (feature->name);
                     widget_label = gtk_label_new (bar_label_text);
-                    len_barlabeltext = strlen(bar_label_text);
-                    g_free(bar_label_text);
+                    if (strlen (bar_label_text) >= 10) {
+                        gtk_label_set_ellipsize (GTK_LABEL(widget_label), PANGO_ELLIPSIZE_END);
+                        gtk_label_set_width_chars (GTK_LABEL(widget_label), 10);
+                    }
+                    else if (sensors->plugin_mode == XFCE_PANEL_PLUGIN_MODE_DESKBAR) {
+                        gtk_label_set_ellipsize (GTK_LABEL(widget_label), PANGO_ELLIPSIZE_END);
+                    }
+                    g_free (bar_label_text);
                     bar_label_text = NULL;
-                    if (len_barlabeltext < 9) {
-                        gtk_label_set_width_chars (GTK_LABEL(widget_label), len_barlabeltext);
-                    }
-                    else {
-                        gtk_label_set_width_chars (GTK_LABEL(widget_label), 9);
-                    }
-
-                    gtk_label_set_ellipsize (GTK_LABEL(widget_label), PANGO_ELLIPSIZE_END);
-
-                    gtk_widget_show (widget_label);
 
                     if (sensors->plugin_mode == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
                         gtk_label_set_angle (GTK_LABEL(widget_label), 270);
@@ -419,15 +411,13 @@ sensors_add_graphical_display (t_sensors *sensors)
 
                     gtk_box_pack_start (GTK_BOX(widget_databox), widget_label, FALSE, FALSE, INNER_BORDER);
                 }
-                else {
-                    labelled_level_bar->label = NULL;
-                }
 
                 gtk_box_pack_start (GTK_BOX(widget_databox), widget_progbar, FALSE, FALSE, 0);
 
                 labelled_level_bar->databox = widget_databox;
-                sensors->panels[idx_sensorchips][idx_feature] = labelled_level_bar;
+                sensors->panels[idx_sensorchip][idx_feature] = labelled_level_bar;
 
+                gtk_widget_show_all (widget_databox);
                 gtk_box_pack_start (GTK_BOX (sensors->widget_sensors), widget_databox, FALSE, FALSE, INNER_BORDER/2);
             }
         }
@@ -1905,8 +1895,7 @@ add_lines_box (GtkWidget *vbox, t_sensors_dialog * dialog)
     dialog->Lines_Spin_Box = myLinesSizeSpinBox;
 
     gtk_box_pack_start (GTK_BOX (myLinesBox), myLinesLabel, FALSE, FALSE, 0);
-    gtk_box_pack_start (GTK_BOX (myLinesBox), myLinesSizeSpinBox, FALSE, FALSE,
-        0);
+    gtk_box_pack_start (GTK_BOX (myLinesBox), myLinesSizeSpinBox, FALSE, FALSE, 0);
     gtk_box_pack_start (GTK_BOX (vbox), myLinesBox, FALSE, FALSE, 0);
 
     gtk_widget_show (myLinesLabel);
@@ -1965,8 +1954,7 @@ add_str_fontsize_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     gtk_combo_box_set_active (GTK_COMBO_BOX(myFontSizeComboBox), dialog->sensors->val_fontsize);
 
     gtk_box_pack_start (GTK_BOX (myFontBox), myFontLabel, FALSE, FALSE, 0);
-    gtk_box_pack_start (GTK_BOX (myFontBox), myFontSizeComboBox, FALSE, FALSE,
-        0);
+    gtk_box_pack_start (GTK_BOX (myFontBox), myFontSizeComboBox, FALSE, FALSE, 0);
     gtk_box_pack_start (GTK_BOX (vbox), myFontBox, FALSE, FALSE, 0);
 
     gtk_widget_show (myFontLabel);
@@ -1997,8 +1985,7 @@ add_font_settings_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     dialog->fontSettings_Box = myFontSettingsBox;
 
     gtk_box_pack_start (GTK_BOX (myFontSettingsBox), myFontLabel, FALSE, FALSE, 0);
-    gtk_box_pack_start (GTK_BOX (myFontSettingsBox), myFontSettingsButton, FALSE, FALSE,
-        0);
+    gtk_box_pack_start (GTK_BOX (myFontSettingsBox), myFontSettingsButton, FALSE, FALSE, 0);
     gtk_box_pack_start (GTK_BOX (vbox), myFontSettingsBox, FALSE, FALSE, 0);
 
     gtk_widget_show (myFontLabel);
