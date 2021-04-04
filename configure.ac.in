@@ -29,11 +29,6 @@ AC_CONFIG_SRCDIR([src/main.c])
 AM_MAINTAINER_MODE()
 AM_SILENT_RULES([yes])
 
-dnl Check for UNIX variants
-AC_AIX
-AC_ISC_POSIX
-AC_MINIX
-
 dnl Check for basic programs
 AC_PROG_CC_C99
 AC_PROG_LD()
