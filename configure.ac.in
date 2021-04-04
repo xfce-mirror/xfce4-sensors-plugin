@@ -254,17 +254,9 @@ dnl Get operating system information
 KERNEL=`uname -s`
 if test "$KERNEL" = "Linux"; then
     AC_DEFINE([HAVE_LINUX], [1], [Set this to 1 if using Linux or newer])
-dnl    KERNELVERSION=`uname -r`
-dnl    if test $KERNELVERSION -ge 2.6.24; then
-dnl        AC_DEFINE([HAVE_LINUX2624], [1], [Set this to 1 if using Linux or newer])
-dnl    fi
 fi
 dnl OS="$KERNEL"
 dnl AC_DEFINE([OS], ["$OS"], [Set this to the name of the operating system.])
-
-dnl Substitute in Makefile
-dnl AC_SUBST(OS)
-dnl where is that crap from?
 
 AC_CHECK_FUNCS([gethostname])
 AC_CHECK_FUNCS([socket])
@@ -294,7 +286,6 @@ dnl *** Check for Gtk/Glib packages  ***
 dnl **************************************
 XDT_CHECK_PACKAGE([GTK], [gtk+-3.0], [3.20.0])
 XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.6.0])
-dnl XDT_CHECK_PACKAGE([GTHREAD], [gthread-2.0], [2.12.0])
 
 
 dnl **************************************
