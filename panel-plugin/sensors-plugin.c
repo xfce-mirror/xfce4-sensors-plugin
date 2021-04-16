@@ -1002,7 +1002,7 @@ sensors_create_tooltip (const t_sensors *sensors)
 
 
 /* -------------------------------------------------------------------------- */
-static void
+static gboolean
 sensors_show_panel (t_sensors *sensors)
 {
     sensors_update_values (sensors);
@@ -1033,6 +1033,8 @@ sensors_show_panel (t_sensors *sensors)
 
     if (!sensors->suppresstooltip)
         sensors_create_tooltip (sensors);
+
+    return TRUE;
 }
 
 
@@ -2399,7 +2401,7 @@ sensors_plugin_construct (XfcePanelPlugin *plugin)
        Do also modify the tooltip text. */
     sensors_show_panel (sensors);
 
-    sensors->timeout_id = g_timeout_add (sensors->sensors_refresh_time * 1000, sensors_show_panel_cb, sensors);
+    sensors->timeout_id = g_timeout_add (sensors->sensors_refresh_time * 1000, (GSourceFunc) sensors_show_panel, sensors);
 
     g_signal_connect (plugin, "free-data", G_CALLBACK (sensors_free), sensors);
 
