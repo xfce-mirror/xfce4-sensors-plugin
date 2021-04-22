@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-02 00:32+0100\n"
-"PO-Revision-Date: 2019-07-17 08:42+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"POT-Creation-Date: 2021-04-05 00:47+0200\n"
+"PO-Revision-Date: 2021-04-04 22:47+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
 "Language-Team: Finnish (http://www.transifex.com/xfce/xfce-panel-plugins/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,18 +21,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.c:383 ../panel-plugin/sensors-plugin.c:511
-#: ../panel-plugin/sensors-plugin.c:1141
+#: ../panel-plugin/sensors-plugin.c:337 ../panel-plugin/sensors-plugin.c:455
+#: ../panel-plugin/sensors-plugin.c:1048
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Anturit</b></span>"
 
-#: ../panel-plugin/sensors-plugin.c:1008
-msgid "No sensors selected!"
-msgstr "Antureita ei valittu!"
-
 #. output to stdout on command line, not very useful for user, except for
 #. tracing problems
-#: ../panel-plugin/sensors-plugin.c:1046
+#: ../panel-plugin/sensors-plugin.c:925
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -40,139 +36,146 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "Anturiliitännäinen:\nIlmeisesti anturin arvon lukeminen ei onnistunut.\nSovellus ei välttämättä toimi oikein.\n"
 
-#: ../panel-plugin/sensors-plugin.c:2011
+#: ../panel-plugin/sensors-plugin.c:955
+msgid "No sensors selected!"
+msgstr "Antureita ei valittu!"
+
+#: ../panel-plugin/sensors-plugin.c:1787
 msgid "UI style:"
 msgstr "Käyttöliittymän tyyli:"
 
-#: ../panel-plugin/sensors-plugin.c:2012
+#: ../panel-plugin/sensors-plugin.c:1788
 msgid "_text"
 msgstr "_Teksti"
 
-#: ../panel-plugin/sensors-plugin.c:2014
+#: ../panel-plugin/sensors-plugin.c:1789
 msgid "_progress bars"
 msgstr "_Palkit"
 
-#: ../panel-plugin/sensors-plugin.c:2016
+#: ../panel-plugin/sensors-plugin.c:1790
 msgid "_tachos"
 msgstr "_Analogimittarit"
 
-#: ../panel-plugin/sensors-plugin.c:2062
+#: ../panel-plugin/sensors-plugin.c:1824
 msgid "Show _labels"
 msgstr "Näytä ni_mikkeet"
 
-#: ../panel-plugin/sensors-plugin.c:2092
+#: ../panel-plugin/sensors-plugin.c:1846
 msgid "Show colored _bars"
 msgstr "Näytä _väritetyt palkit"
 
-#: ../panel-plugin/sensors-plugin.c:2123
+#: ../panel-plugin/sensors-plugin.c:1870
 msgid "_Show title"
 msgstr "_Näytä otsikko"
 
-#: ../panel-plugin/sensors-plugin.c:2148
+#: ../panel-plugin/sensors-plugin.c:1889
 msgid "_Number of text lines:"
 msgstr "Teksti_rivien määrä:"
 
-#: ../panel-plugin/sensors-plugin.c:2186
+#. The Xfce 4 panel can have several rows or columns. With such a mode,
+#. the plugins are allowed to span over all available rows/columns.
+#. When translating, "cover" might be replaced by "use" or "span".
+#: ../panel-plugin/sensors-plugin.c:1923
 msgid "_Cover all panel rows/columns"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:2211
+#: ../panel-plugin/sensors-plugin.c:1943
 msgid "F_ont size:"
 msgstr "_Fontin koko:"
 
-#: ../panel-plugin/sensors-plugin.c:2217
+#: ../panel-plugin/sensors-plugin.c:1949
 msgid "x-small"
 msgstr "Hyvin pieni"
 
-#: ../panel-plugin/sensors-plugin.c:2218
+#: ../panel-plugin/sensors-plugin.c:1950
 msgid "small"
 msgstr "Pieni"
 
-#: ../panel-plugin/sensors-plugin.c:2219
+#: ../panel-plugin/sensors-plugin.c:1951
 msgid "medium"
 msgstr "Keskikokoinen"
 
-#: ../panel-plugin/sensors-plugin.c:2220
+#: ../panel-plugin/sensors-plugin.c:1952
 msgid "large"
 msgstr "Suuri"
 
-#: ../panel-plugin/sensors-plugin.c:2221
+#: ../panel-plugin/sensors-plugin.c:1953
 msgid "x-large"
 msgstr "Hyvin suuri"
 
-#: ../panel-plugin/sensors-plugin.c:2255
+#: ../panel-plugin/sensors-plugin.c:1979
 msgid "F_ont:"
 msgstr "_Fontti:"
 
-#: ../panel-plugin/sensors-plugin.c:2288
+#: ../panel-plugin/sensors-plugin.c:2006
 msgid "Show _Units"
 msgstr "Näytä _yksiköt"
 
-#: ../panel-plugin/sensors-plugin.c:2312
+#: ../panel-plugin/sensors-plugin.c:2024
 msgid "Small horizontal s_pacing"
 msgstr "Tiivistä _vaakasuunnassa"
 
 #. Alpha value of the tacho coloring
-#: ../panel-plugin/sensors-plugin.c:2340
+#: ../panel-plugin/sensors-plugin.c:2047
 msgid "Tacho color alpha value:"
 msgstr ""
 
 #. The value from HSV color model
-#: ../panel-plugin/sensors-plugin.c:2354
+#: ../panel-plugin/sensors-plugin.c:2060
 msgid "Tacho color value:"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:2388
+#: ../panel-plugin/sensors-plugin.c:2085
 msgid "Suppress messages"
 msgstr "Älä näytä viestejä"
 
-#: ../panel-plugin/sensors-plugin.c:2409
+#: ../panel-plugin/sensors-plugin.c:2100
 msgid "Suppress tooltip"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:2436
+#: ../panel-plugin/sensors-plugin.c:2120
 msgid "E_xecute on double click:"
 msgstr "S_uorita, kun kuvaketta\nkaksoisnapsautetaan:"
 
-#: ../panel-plugin/sensors-plugin.c:2476
+#: ../panel-plugin/sensors-plugin.c:2149
 msgid "_View"
 msgstr "_Näytä"
 
-#: ../panel-plugin/sensors-plugin.c:2489
+#: ../panel-plugin/sensors-plugin.c:2162
 msgid "UI style options"
 msgstr "Käyttöliittymän tyyliasetukset"
 
-#: ../panel-plugin/sensors-plugin.c:2523
+#: ../panel-plugin/sensors-plugin.c:2191
 msgid "_Miscellaneous"
 msgstr "Se_kalaiset"
 
-#: ../panel-plugin/sensors-plugin.c:2591 ../panel-plugin/sensors-plugin.h:31
-#: ../lib/hddtemp.c:167
+#: ../panel-plugin/sensors-plugin.c:2245 ../panel-plugin/sensors-plugin.h:31
+#: ../lib/hddtemp.c:151
 msgid "Sensors Plugin"
 msgstr "Anturiliitännäinen"
 
-#: ../panel-plugin/sensors-plugin.c:2599
+#: ../panel-plugin/sensors-plugin.c:2253
 msgid "Properties"
 msgstr "Ominaisuudet"
 
-#: ../panel-plugin/sensors-plugin.c:2625
+#: ../panel-plugin/sensors-plugin.c:2279
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "Voit muokata kohteen ominaisuuksia kuten sen nimeä, väriä sekä ala- ja ylärajaa kaksoisnapsauttamalla kenttää, muokkaamalla sen sisältöä ja painamalla enter tai valitsemalla toisen kentän."
 
-#: ../panel-plugin/sensors-plugin.c:2712
+#: ../panel-plugin/sensors-plugin.c:2357
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Näytä anturiarvoja LM-antureista, ACPI:sta, kiintolevyistä ja NVIDIA:lta"
 
-#: ../panel-plugin/sensors-plugin.c:2714
-msgid "Copyright (c) 2004-2018\n"
-msgstr "Tekijänoikeus (c) 2004-2018\n"
+#: ../panel-plugin/sensors-plugin.c:2359
+msgid "Copyright (c) 2004-2021\n"
+msgstr ""
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
-#: ../lib/configuration.c:180 ../lib/hddtemp.c:396
+#: ../lib/configuration.c:163 ../lib/hddtemp.c:358
 msgid "Hard disks"
 msgstr "Kiintolevyt"
 
@@ -191,45 +194,50 @@ msgstr "Kiintolevyt"
 #. You might want to format this with a hyphen and without spacing, or with a
 #. dash; the result might be BAT1–Voltage or whatever fits your language most.
 #. Spaces allow line breaks over the tachometers.
-#: ../lib/acpi.c:346 ../lib/acpi.c:669 ../lib/acpi.c:741
+#: ../lib/acpi.c:317 ../lib/acpi.c:622 ../lib/acpi.c:690
 #, c-format
 msgid "%s - %s"
 msgstr "%s-%s"
 
-#: ../lib/acpi.c:669
+#. Power with unit Watts, not Energy with Joules or kWh
+#: ../lib/acpi.c:624
 msgid "Power"
 msgstr "Virta"
 
-#: ../lib/acpi.c:741
+#: ../lib/acpi.c:690
 msgid "Voltage"
 msgstr "Jännite"
 
-#: ../lib/acpi.c:801 ../lib/acpi.c:813
+#: ../lib/acpi.c:744 ../lib/acpi.c:756
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.c:804
+#: ../lib/acpi.c:747
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ACPI versio %s vyöhykkeet"
 
-#: ../lib/acpi.c:958
+#: ../lib/acpi.c:888
 msgid "<Unknown>"
 msgstr "<Unknown>"
 
-#: ../lib/nvidia.c:65
-msgid "NVidia GPU core temperature"
-msgstr "NVidian GPU-ytimen lämpötila"
+#: ../lib/nvidia.c:64
+msgid "NVIDIA GPU core temperature"
+msgstr ""
 
-#: ../lib/nvidia.c:66
+#: ../lib/nvidia.c:65
 msgid "nvidia"
 msgstr "nvidia"
 
-#: ../lib/hddtemp.c:395
+#: ../lib/hddtemp.c:110
+msgid "Don't show this message again"
+msgstr ""
+
+#: ../lib/hddtemp.c:357
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "S.M.A.R.T. -kiintolevylämpötilat"
 
-#: ../lib/hddtemp.c:572
+#: ../lib/hddtemp.c:527
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
@@ -241,137 +249,136 @@ msgid ""
 "with a return value of %d.\n"
 msgstr "Komentoa \"hddtemp\" ei suoritettu oikein, vaikka se on suoritettavissa. Tämä johtuu todennäköisesti siitä, että levyjen lämpötilojen lukemiseen tarvitaan pääkäyttäjän oikeudet, mutta komentoa \"hddtemp\" ei suoriteta pääkäyttäjänä.\n\nHelppo mutta mahdollisesti ongelmallinen ratkaisu on suorittaa komento \"chmod u+s %s\" pääkäyttäjänä ja käynnistää tämä liitännäinen tai sen paneeli uudelleen.\n\nKomento \"%s\" antoi seuraavan virheen:\n%s\nja palautti arvon %d.\n"
 
-#: ../lib/hddtemp.c:586 ../lib/hddtemp.c:609
+#: ../lib/hddtemp.c:541 ../lib/hddtemp.c:564
 msgid "Suppress this message in future"
 msgstr "Älä näytä tätä viestiä jatkossa"
 
-#: ../lib/hddtemp.c:604
+#: ../lib/hddtemp.c:559
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr "Virhe suoritettaessa komentoa \"%s\":\n%s"
 
-#: ../lib/lmsensors.c:97
+#: ../lib/lmsensors.c:81
 msgid "LM Sensors"
 msgstr "LM-anturit"
 
-#: ../lib/lmsensors.c:417 ../lib/lmsensors.c:464
+#: ../lib/lmsensors.c:381 ../lib/lmsensors.c:425
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Virhe: Antureihin ei voi yhdistää!"
 
-#: ../lib/sensors-interface.c:90
+#: ../lib/sensors-interface.c:79
 msgid "Sensors Plugin Failure"
 msgstr "Anturiliitännäisen virhe"
 
-#: ../lib/sensors-interface.c:91
+#: ../lib/sensors-interface.c:80
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr "Ilmeisesti anturin arvon lukeminen ei onnistunut.\nSovellus ei välttämättä toimi oikein."
 
-#: ../lib/sensors-interface.c:170
+#: ../lib/sensors-interface.c:148
 msgid "Sensors t_ype:"
 msgstr "Antureiden _tyyppi:"
 
-#: ../lib/sensors-interface.c:190
+#: ../lib/sensors-interface.c:167
 msgid "Description:"
 msgstr "Kuvaus:"
 
-#: ../lib/sensors-interface.c:223
+#: ../lib/sensors-interface.c:196
 msgid "U_pdate interval (seconds):"
 msgstr "_Päivitysväli (sekunneissa):"
 
-#: ../lib/sensors-interface.c:263
+#: ../lib/sensors-interface.c:231
 msgid "Name"
 msgstr "Nimi"
 
-#: ../lib/sensors-interface.c:274
+#: ../lib/sensors-interface.c:242
 msgid "Value"
 msgstr "Arvo"
 
-#: ../lib/sensors-interface.c:280
+#: ../lib/sensors-interface.c:248
 msgid "Show"
 msgstr "Näytä"
 
-#: ../lib/sensors-interface.c:289
+#: ../lib/sensors-interface.c:257
 msgid "Color"
 msgstr "Väri"
 
-#: ../lib/sensors-interface.c:300
+#: ../lib/sensors-interface.c:268
 msgid "Min"
 msgstr "Alaraja"
 
-#: ../lib/sensors-interface.c:311
+#: ../lib/sensors-interface.c:279
 msgid "Max"
 msgstr "Yläraja"
 
-#: ../lib/sensors-interface.c:347
+#: ../lib/sensors-interface.c:311
 msgid "Temperature scale:"
 msgstr "Lämpötilan yksikkö:"
 
-#: ../lib/sensors-interface.c:349
+#: ../lib/sensors-interface.c:312
 msgid "_Celsius"
 msgstr "_Celsius"
 
-#: ../lib/sensors-interface.c:351
+#: ../lib/sensors-interface.c:314
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../lib/sensors-interface.c:387
+#: ../lib/sensors-interface.c:346
 msgid "_Sensors"
 msgstr "_Anturit"
 
-#: ../lib/sensors-interface-common.c:74 ../lib/sensors-interface-common.c:75
+#: ../lib/sensors-interface-common.c:70 ../lib/sensors-interface-common.c:71
 msgid "No sensors found!"
 msgstr "Antureita ei löytynyt!"
 
-#: ../lib/sensors-interface-common.c:150
+#: ../lib/sensors-interface-common.c:138
 #, c-format
 msgid "%.0f °F"
 msgstr "%.0f °F"
 
-#. Celsius
-#: ../lib/sensors-interface-common.c:153
+#: ../lib/sensors-interface-common.c:140
 #, c-format
 msgid "%.0f °C"
 msgstr "%.0f °C"
 
-#: ../lib/sensors-interface-common.c:158
+#: ../lib/sensors-interface-common.c:144
 #, c-format
 msgid "%+.3f V"
 msgstr "%+.3f V"
 
-#: ../lib/sensors-interface-common.c:162
+#: ../lib/sensors-interface-common.c:148
 #, c-format
 msgid "%+.3f A"
 msgstr "%+.3f A"
 
-#: ../lib/sensors-interface-common.c:166
+#: ../lib/sensors-interface-common.c:152
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.c:170
+#: ../lib/sensors-interface-common.c:156
 #, c-format
 msgid "%.3f W"
 msgstr "%.3f W"
 
-#: ../lib/sensors-interface-common.c:175
+#: ../lib/sensors-interface-common.c:160
 msgid "off"
 msgstr "pois päältä"
 
-#: ../lib/sensors-interface-common.c:177
+#: ../lib/sensors-interface-common.c:160
 msgid "on"
 msgstr "päällä"
 
-#: ../lib/sensors-interface-common.c:181
+#: ../lib/sensors-interface-common.c:164
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f rpm"
 
-#: ../src/main.c:62
+#: ../src/main.c:59
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -379,7 +386,7 @@ msgid ""
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr "Xfce4-anturit %s\nJulkaistu GPL-lisenssin versiolla 2.\nLisenssiehdot löytyvät sovelluksen lähdekoodipaketista, tiedostosta /usr/share/apps/LICENSES/GPL_V2 tai osoitteesta http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
-#: ../src/main.c:78
+#: ../src/main.c:75
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -394,26 +401,26 @@ msgid ""
 "This program is published under the GPL v2.\n"
 msgstr ""
 
-#: ../src/main.c:100
+#: ../src/main.c:97
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Xfce4-anturit %s\n"
 
-#: ../src/interface.c:85
+#: ../src/interface.c:76
 msgid "_Overview"
 msgstr "_Yleisnäkymä"
 
-#: ../src/interface.c:106
+#: ../src/interface.c:97
 msgid "_Tachometers"
 msgstr "_Analogimittarit"
 
-#: ../src/interface.c:122
+#: ../src/interface.c:113
 msgid "Sensors Viewer"
 msgstr "Anturien näyttäjä"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
-#: ../src/actions.c:92
+#: ../src/actions.c:78
 #, c-format
 msgid ""
 "Sensors Viewer:\n"
