@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-05 00:47+0200\n"
-"PO-Revision-Date: 2021-04-05 17:39+0000\n"
+"PO-Revision-Date: 2021-05-08 21:54+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -42,11 +42,11 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Complemento de sensores:\nParece que hubo un problema leyendo el valor de una característica de un sensor.\nNo se puede garantizar un funcionamiento adecuado.\n"
+msgstr "Complemento de sensores:\nParece que ha habido un problema al leer el valor de una característica de un sensor.\nNo se puede garantizar que funcione correctamente.\n"
 
 #: ../panel-plugin/sensors-plugin.c:955
 msgid "No sensors selected!"
-msgstr "No se seleccionó ningún sensor."
+msgstr "No se ha seleccionado ningún sensor"
 
 #: ../panel-plugin/sensors-plugin.c:1787
 msgid "UI style:"
@@ -62,19 +62,19 @@ msgstr "barras de _progreso"
 
 #: ../panel-plugin/sensors-plugin.c:1790
 msgid "_tachos"
-msgstr "con_tadores"
+msgstr "_tacómetros"
 
 #: ../panel-plugin/sensors-plugin.c:1824
 msgid "Show _labels"
-msgstr "Mostrar _etiquetas"
+msgstr "Mostrar las _etiquetas"
 
 #: ../panel-plugin/sensors-plugin.c:1846
 msgid "Show colored _bars"
-msgstr "Mostrar _barras con colores"
+msgstr "Mostrar las _barras de colores"
 
 #: ../panel-plugin/sensors-plugin.c:1870
 msgid "_Show title"
-msgstr "Mostrar _título"
+msgstr "Mostrar el _título"
 
 #: ../panel-plugin/sensors-plugin.c:1889
 msgid "_Number of text lines:"
@@ -85,43 +85,43 @@ msgstr "_Número de líneas de texto:"
 #. When translating, "cover" might be replaced by "use" or "span".
 #: ../panel-plugin/sensors-plugin.c:1923
 msgid "_Cover all panel rows/columns"
-msgstr "_Cubrir todas las filas/columnas"
+msgstr "U_sar todas las filas/columnas"
 
 #: ../panel-plugin/sensors-plugin.c:1943
 msgid "F_ont size:"
-msgstr "Tamaño de _letra:"
+msgstr "Tamaño de la _letra:"
 
 #: ../panel-plugin/sensors-plugin.c:1949
 msgid "x-small"
-msgstr "muy pequeña"
+msgstr "Muy pequeña"
 
 #: ../panel-plugin/sensors-plugin.c:1950
 msgid "small"
-msgstr "pequeña"
+msgstr "Pequeña"
 
 #: ../panel-plugin/sensors-plugin.c:1951
 msgid "medium"
-msgstr "medio"
+msgstr "Mediana"
 
 #: ../panel-plugin/sensors-plugin.c:1952
 msgid "large"
-msgstr "grande"
+msgstr "Grande"
 
 #: ../panel-plugin/sensors-plugin.c:1953
 msgid "x-large"
-msgstr "muy grande"
+msgstr "Muy grande"
 
 #: ../panel-plugin/sensors-plugin.c:1979
 msgid "F_ont:"
-msgstr "Ti_po de letra:"
+msgstr "_Tipografía:"
 
 #: ../panel-plugin/sensors-plugin.c:2006
 msgid "Show _Units"
-msgstr "Mostrar _unidades"
+msgstr "Mostrar las _unidades"
 
 #: ../panel-plugin/sensors-plugin.c:2024
 msgid "Small horizontal s_pacing"
-msgstr "Es_paciado horizontal pequeño"
+msgstr "_Espaciado horizontal pequeño"
 
 #. Alpha value of the tacho coloring
 #: ../panel-plugin/sensors-plugin.c:2047
@@ -131,15 +131,15 @@ msgstr "Valor alfa del color del tacómetro:"
 #. The value from HSV color model
 #: ../panel-plugin/sensors-plugin.c:2060
 msgid "Tacho color value:"
-msgstr "Valor del color del tacho:"
+msgstr "Valor del color del tacómetro:"
 
 #: ../panel-plugin/sensors-plugin.c:2085
 msgid "Suppress messages"
-msgstr "Suprimir mensajes"
+msgstr "Suprimir los mensajes"
 
 #: ../panel-plugin/sensors-plugin.c:2100
 msgid "Suppress tooltip"
-msgstr "No mostrar cuadros emergentes"
+msgstr "Suprimir la información emergente"
 
 #: ../panel-plugin/sensors-plugin.c:2120
 msgid "E_xecute on double click:"
@@ -151,11 +151,11 @@ msgstr "_Ver"
 
 #: ../panel-plugin/sensors-plugin.c:2162
 msgid "UI style options"
-msgstr "Opciones de estilo de interfaz de usuario"
+msgstr "Opciones de estilo de la interfaz de usuario"
 
 #: ../panel-plugin/sensors-plugin.c:2191
 msgid "_Miscellaneous"
-msgstr "_Varios"
+msgstr "_Miscelánea"
 
 #: ../panel-plugin/sensors-plugin.c:2245 ../panel-plugin/sensors-plugin.h:31
 #: ../lib/hddtemp.c:151
@@ -171,11 +171,11 @@ msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr "Puede cambiar las propiedades de un elemento como el nombre, los colores, los valores mín/máx haciendo doble clic en la entrada, editando el contenido y pulsando «Regreso» o seleccionando un campo distinto."
+msgstr "Puede cambiar las propiedades de una característica, como el nombre, los colores o el valor mínimo/máximo, al hacer doble clic en la entrada, editar el contenido y pulsar Retorno o seleccionar un campo diferente."
 
 #: ../panel-plugin/sensors-plugin.c:2357
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
-msgstr "Mostrar los valores de sensor de los sensores LM, ACPI, discos duros, NVIDIA"
+msgstr "Mostrar los valores de los sensores LM, ACPI, discos duros y NVIDIA"
 
 #: ../panel-plugin/sensors-plugin.c:2359
 msgid "Copyright (c) 2004-2021\n"
@@ -223,7 +223,7 @@ msgstr "ACPI"
 #: ../lib/acpi.c:747
 #, c-format
 msgid "ACPI v%s zones"
-msgstr "Zonas v%s ACPI"
+msgstr "Zonas v%s de ACPI"
 
 #: ../lib/acpi.c:888
 msgid "<Unknown>"
@@ -243,7 +243,7 @@ msgstr "No mostrar este mensaje de nuevo"
 
 #: ../lib/hddtemp.c:357
 msgid "S.M.A.R.T. harddisk temperatures"
-msgstr "Temperaturas de disco S.M.A.R.T."
+msgstr "Temperaturas del disco duro SMART"
 
 #: ../lib/hddtemp.c:527
 #, c-format
