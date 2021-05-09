@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-05 00:47+0200\n"
-"PO-Revision-Date: 2021-05-08 21:54+0000\n"
+"PO-Revision-Date: 2021-05-09 09:26+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -160,7 +160,7 @@ msgstr "_Miscelánea"
 #: ../panel-plugin/sensors-plugin.c:2245 ../panel-plugin/sensors-plugin.h:31
 #: ../lib/hddtemp.c:151
 msgid "Sensors Plugin"
-msgstr "Complemento de sensores"
+msgstr "Complemento para los sensores"
 
 #: ../panel-plugin/sensors-plugin.c:2253
 msgid "Properties"
@@ -255,7 +255,7 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "«hddtemp» no se ejecutó correctamente, aunque es ejecutable. Lo más probable es que se deba a que se requiera privilegios del superusuario para leer sus temperaturas y a que «hddtemp» no tiene el setuid como superusuario.\n\nUna solución fácil pero inapropiada es ejecutar «chmod u+s %s» como superusuario y reiniciar este complemento o su panel.\n\nLa llamada a «%s» dio el siguiente error:\n%s\ncon un valor de retorno de %d.\n"
+msgstr "hddtemp no se ha ejecutado correctamente, aunque es ejecutable. Probablemente se requieren permisos de superusuario para leer las temperaturas de los discos y hddtemp no tiene el setuid de superusuario.\n\nUna solución fácil pero inapropiada es ejecutar «chmod u+s %s» como superusuario y reiniciar este complemento o el panel.\n\nLa llamada a «%s» ha producido el error siguiente:\n%s\ncon un valor de retorno de %d.\n"
 
 #: ../lib/hddtemp.c:541 ../lib/hddtemp.c:564
 msgid "Suppress this message in future"
@@ -266,7 +266,7 @@ msgstr "Suprimir este mensaje en el futuro"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr "Ocurrió un error al ejecutar «%s»:\n%s"
+msgstr "Se ha producido un error al ejecutar «%s»:\n%s"
 
 #: ../lib/lmsensors.c:81
 msgid "LM Sensors"
@@ -275,21 +275,21 @@ msgstr "Sensores LM"
 #: ../lib/lmsensors.c:381 ../lib/lmsensors.c:425
 #, c-format
 msgid "Error: Could not connect to sensors!"
-msgstr "Error: ¡No se ha podido conectar a los sensores!"
+msgstr "Error: no se ha podido conectar con los sensores."
 
 #: ../lib/sensors-interface.c:79
 msgid "Sensors Plugin Failure"
-msgstr "Fallo del complemento de sensores"
+msgstr "Error en el complemento para los sensores"
 
 #: ../lib/sensors-interface.c:80
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr "Parece que hubo un problema leyendo el valor de una característica de un sensor.\nNo se puede garantizar el funcionamiento adecuado."
+msgstr "Parece que ha habido un problema al leer el valor de una característica de un sensor.\nNo se puede garantizar que funcione correctamente."
 
 #: ../lib/sensors-interface.c:148
 msgid "Sensors t_ype:"
-msgstr "T_ipo de sensores:"
+msgstr "_Tipo de sensores:"
 
 #: ../lib/sensors-interface.c:167
 msgid "Description:"
@@ -297,7 +297,7 @@ msgstr "Descripción:"
 
 #: ../lib/sensors-interface.c:196
 msgid "U_pdate interval (seconds):"
-msgstr "Intervalo de a_ctualización (segundos):"
+msgstr "_Intervalo de actualización (segundos):"
 
 #: ../lib/sensors-interface.c:231
 msgid "Name"
@@ -341,7 +341,7 @@ msgstr "_Sensores"
 
 #: ../lib/sensors-interface-common.c:70 ../lib/sensors-interface-common.c:71
 msgid "No sensors found!"
-msgstr "No se encontró ningún sensor."
+msgstr "No se ha encontrado ningún sensor."
 
 #: ../lib/sensors-interface-common.c:138
 #, c-format
@@ -375,11 +375,11 @@ msgstr "%.3f W"
 
 #: ../lib/sensors-interface-common.c:160
 msgid "off"
-msgstr "apagado"
+msgstr "desactivado"
 
 #: ../lib/sensors-interface-common.c:160
 msgid "on"
-msgstr "encendido"
+msgstr "activado"
 
 #: ../lib/sensors-interface-common.c:164
 #, c-format
@@ -392,7 +392,7 @@ msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-msgstr "Sensores de Xfce4 %s\nEste programa está publicado bajo la licencia pública general de GNU GPL v2.\nEl texto de esta licencia puede encontrarse dentro de las fuentes del programa o en /usr/share/apps/LICENSES/GPL_V2 o en http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Sensores de Xfce4 %s\nEste programa se ha publicado según la GPL v2.\nEl texto de la licencia se puede encontrar en el archivo de código fuente del programa o en /usr/share/apps/LICENSES/GPL_V2 o en http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: ../src/main.c:75
 #, c-format
@@ -407,7 +407,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Sensores de Xfce4 %s\nMuestra información sobre los sensores de hardware, estado de ACPI, temperaturas de los discos duros y temperaturas de las GPU Nvidia.\nSinopsis: \nxfce4-sensors [opcion]\ndonde [opcion] es una o más de las siguientes:\n  -h, --help    Muestra este diálogo de ayuda.\n  -l, --license Muestra la información de licencia.\n  -V, --version Muestra la información de versión.\n\nEste programa está publicado bajo la GPL v2.\n"
+msgstr "Sensores de Xfce4 %s\nMuestra información sobre los sensores del hardware, el estado de ACPI, la temperatura del disco duro y la temperatura de la GPU Nvidia.\nSinopsis: \n  xfce4-sensores [opción]\ndonde [opción] es una de las siguientes:\n  -h, --help    Muestra este diálogo de ayuda.\n  -l, --license Muestra información de la licencia.\n  -V, --version Muestra información de la versión.\n\nEste programa está publicado según la GPL v2.\n"
 
 #: ../src/main.c:97
 #, c-format
@@ -420,11 +420,11 @@ msgstr "_Resumen"
 
 #: ../src/interface.c:97
 msgid "_Tachometers"
-msgstr "_Contadores"
+msgstr "_Tacómetros"
 
 #: ../src/interface.c:113
 msgid "Sensors Viewer"
-msgstr "Visor de sensores"
+msgstr "Visor de los sensores"
 
 #. FIXME: either print nothing, or undertake appropriate action,
 #. * or pop up a message box.
@@ -434,21 +434,21 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Visor de sensores:\nParece que hubo un problema leyendo el valor de una característica de un sensor.\nNo se puede garantizar un funcionamiento adecuado.\n"
+msgstr "Visor de los sensores:\nParece que ha habido un problema al leer el valor de una característica de un sensor.\nNo se puede garantizar que funcione correctamente.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
-msgstr "Visor de sensor"
+msgstr "Visor de los sensores"
 
 #: ../src/xfce4-sensors.desktop.in.h:2
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
 msgid "Show sensor values."
-msgstr "Mostrar valores de sensores."
+msgstr "Mostrar los valores de los sensores."
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 msgid "Sensor Values Viewer"
-msgstr "Visor de valores de los sensores"
+msgstr "Visor de los valores de los sensores"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
 msgid "Sensor plugin"
-msgstr "Complemento de sensores"
+msgstr "Complemento para los sensores"
