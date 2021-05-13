@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-05 00:47+0200\n"
-"PO-Revision-Date: 2021-05-09 09:26+0000\n"
+"PO-Revision-Date: 2021-05-13 19:11+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -407,7 +407,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Sensores de Xfce4 %s\nMuestra información sobre los sensores del hardware, el estado de ACPI, la temperatura del disco duro y la temperatura de la GPU Nvidia.\nSinopsis: \n  xfce4-sensores [opción]\ndonde [opción] es una de las siguientes:\n  -h, --help    Muestra este diálogo de ayuda.\n  -l, --license Muestra información de la licencia.\n  -V, --version Muestra información de la versión.\n\nEste programa está publicado según la GPL v2.\n"
+msgstr "Sensores de Xfce4 %s\nMuestra información sobre los sensores del hardware, el estado de ACPI, la temperatura del disco duro y la temperatura de la GPU Nvidia.\nSinopsis: \n  xfce4-sensores [opción]\ndonde [opción] es una de las siguientes:\n  -h, --help    Mostrar este diálogo de ayuda.\n  -l, --license Mostrar información de la licencia.\n  -V, --version Mostrar información de la versión.\n\nEste programa está publicado según la GPL v2.\n"
 
 #: ../src/main.c:97
 #, c-format
