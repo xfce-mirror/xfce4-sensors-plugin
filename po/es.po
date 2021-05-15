@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-05 00:47+0200\n"
-"PO-Revision-Date: 2021-05-13 19:11+0000\n"
+"PO-Revision-Date: 2021-05-15 15:05+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -42,27 +42,27 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Complemento de sensores:\nParece que ha habido un problema al leer el valor de una característica de un sensor.\nNo se puede garantizar que funcione correctamente.\n"
+msgstr "Complemento para los sensores:\nHa habido un problema al leer el valor de una característica del sensor.\nNo se puede garantizar que funcione correctamente.\n"
 
 #: ../panel-plugin/sensors-plugin.c:955
 msgid "No sensors selected!"
-msgstr "No se ha seleccionado ningún sensor"
+msgstr "No se ha seleccionado ningún sensor."
 
 #: ../panel-plugin/sensors-plugin.c:1787
 msgid "UI style:"
-msgstr "Estilo de interfaz:"
+msgstr "Estilo de la interfaz:"
 
 #: ../panel-plugin/sensors-plugin.c:1788
 msgid "_text"
-msgstr "_texto"
+msgstr "te_xto"
 
 #: ../panel-plugin/sensors-plugin.c:1789
 msgid "_progress bars"
-msgstr "barras de _progreso"
+msgstr "_barras"
 
 #: ../panel-plugin/sensors-plugin.c:1790
 msgid "_tachos"
-msgstr "_tacómetros"
+msgstr "t_acómetros"
 
 #: ../panel-plugin/sensors-plugin.c:1824
 msgid "Show _labels"
@@ -70,7 +70,7 @@ msgstr "Mostrar las _etiquetas"
 
 #: ../panel-plugin/sensors-plugin.c:1846
 msgid "Show colored _bars"
-msgstr "Mostrar las _barras de colores"
+msgstr "Mostrar las barras de c_olores"
 
 #: ../panel-plugin/sensors-plugin.c:1870
 msgid "_Show title"
@@ -85,7 +85,7 @@ msgstr "_Número de líneas de texto:"
 #. When translating, "cover" might be replaced by "use" or "span".
 #: ../panel-plugin/sensors-plugin.c:1923
 msgid "_Cover all panel rows/columns"
-msgstr "U_sar todas las filas/columnas"
+msgstr "Usar todas las _filas/columnas"
 
 #: ../panel-plugin/sensors-plugin.c:1943
 msgid "F_ont size:"
@@ -93,15 +93,15 @@ msgstr "Tamaño de la _letra:"
 
 #: ../panel-plugin/sensors-plugin.c:1949
 msgid "x-small"
-msgstr "Muy pequeña"
+msgstr "Muy pequeño"
 
 #: ../panel-plugin/sensors-plugin.c:1950
 msgid "small"
-msgstr "Pequeña"
+msgstr "Pequeño"
 
 #: ../panel-plugin/sensors-plugin.c:1951
 msgid "medium"
-msgstr "Mediana"
+msgstr "Mediano"
 
 #: ../panel-plugin/sensors-plugin.c:1952
 msgid "large"
@@ -113,7 +113,7 @@ msgstr "Muy grande"
 
 #: ../panel-plugin/sensors-plugin.c:1979
 msgid "F_ont:"
-msgstr "_Tipografía:"
+msgstr "Tip_ografía:"
 
 #: ../panel-plugin/sensors-plugin.c:2006
 msgid "Show _Units"
@@ -121,7 +121,7 @@ msgstr "Mostrar las _unidades"
 
 #: ../panel-plugin/sensors-plugin.c:2024
 msgid "Small horizontal s_pacing"
-msgstr "_Espaciado horizontal pequeño"
+msgstr "Espaciado _horizontal pequeño"
 
 #. Alpha value of the tacho coloring
 #: ../panel-plugin/sensors-plugin.c:2047
@@ -143,7 +143,7 @@ msgstr "Suprimir la información emergente"
 
 #: ../panel-plugin/sensors-plugin.c:2120
 msgid "E_xecute on double click:"
-msgstr "E_jecutar al hacer doble clic:"
+msgstr "_Ejecutar al hacer doble clic:"
 
 #: ../panel-plugin/sensors-plugin.c:2149
 msgid "_View"
@@ -160,7 +160,7 @@ msgstr "_Miscelánea"
 #: ../panel-plugin/sensors-plugin.c:2245 ../panel-plugin/sensors-plugin.h:31
 #: ../lib/hddtemp.c:151
 msgid "Sensors Plugin"
-msgstr "Complemento para los sensores"
+msgstr "Sensores"
 
 #: ../panel-plugin/sensors-plugin.c:2253
 msgid "Properties"
@@ -171,11 +171,11 @@ msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr "Puede cambiar las propiedades de una característica, como el nombre, los colores o el valor mínimo/máximo, al hacer doble clic en la entrada, editar el contenido y pulsar Retorno o seleccionar un campo diferente."
+msgstr "Puede cambiar las propiedades de una característica, como el nombre, el color o el valor mínimo/máximo, al hacer doble clic en la entrada, editar el contenido y pulsar Intro o seleccionar un campo diferente."
 
 #: ../panel-plugin/sensors-plugin.c:2357
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
-msgstr "Mostrar los valores de los sensores LM, ACPI, discos duros y NVIDIA"
+msgstr "Mostrar los valores de los sensores de LM, ACPI, discos duros y NVIDIA"
 
 #: ../panel-plugin/sensors-plugin.c:2359
 msgid "Copyright (c) 2004-2021\n"
@@ -223,7 +223,7 @@ msgstr "ACPI"
 #: ../lib/acpi.c:747
 #, c-format
 msgid "ACPI v%s zones"
-msgstr "Zonas v%s de ACPI"
+msgstr "Zonas ACPI v %s"
 
 #: ../lib/acpi.c:888
 msgid "<Unknown>"
@@ -231,7 +231,7 @@ msgstr "<Desconocido>"
 
 #: ../lib/nvidia.c:64
 msgid "NVIDIA GPU core temperature"
-msgstr "Temperatura del núcleo de la GPU NVIDIA"
+msgstr "Temperatura del núcleo de la tarjeta gráfica NVIDIA"
 
 #: ../lib/nvidia.c:65
 msgid "nvidia"
@@ -255,7 +255,7 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "hddtemp no se ha ejecutado correctamente, aunque es ejecutable. Probablemente se requieren permisos de superusuario para leer las temperaturas de los discos y hddtemp no tiene el setuid de superusuario.\n\nUna solución fácil pero inapropiada es ejecutar «chmod u+s %s» como superusuario y reiniciar este complemento o el panel.\n\nLa llamada a «%s» ha producido el error siguiente:\n%s\ncon un valor de retorno de %d.\n"
+msgstr "hddtemp no se ha ejecutado correctamente, aunque es ejecutable. Probablemente se requieren permisos de superusuario para leer las temperaturas de los discos y hddtemp no tiene el setuid de superusuario.\n\nUna solución fácil pero inapropiada es ejecutar «chmod u+s %s» como superusuario y reiniciar este complemento o el panel.\n\nLa llamada a «%s» ha producido el error siguiente:\n%s\nEl valor de retorno es: %d.\n"
 
 #: ../lib/hddtemp.c:541 ../lib/hddtemp.c:564
 msgid "Suppress this message in future"
@@ -270,7 +270,7 @@ msgstr "Se ha producido un error al ejecutar «%s»:\n%s"
 
 #: ../lib/lmsensors.c:81
 msgid "LM Sensors"
-msgstr "Sensores LM"
+msgstr "Sensores de LM"
 
 #: ../lib/lmsensors.c:381 ../lib/lmsensors.c:425
 #, c-format
@@ -285,7 +285,7 @@ msgstr "Error en el complemento para los sensores"
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr "Parece que ha habido un problema al leer el valor de una característica de un sensor.\nNo se puede garantizar que funcione correctamente."
+msgstr "Ha habido un problema al leer el valor de una característica del sensor.\nNo se puede garantizar que funcione correctamente."
 
 #: ../lib/sensors-interface.c:148
 msgid "Sensors t_ype:"
@@ -329,7 +329,7 @@ msgstr "Escala de temperatura:"
 
 #: ../lib/sensors-interface.c:312
 msgid "_Celsius"
-msgstr "_Centígrados"
+msgstr "C_elsius"
 
 #: ../lib/sensors-interface.c:314
 msgid "_Fahrenheit"
@@ -407,7 +407,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Sensores de Xfce4 %s\nMuestra información sobre los sensores del hardware, el estado de ACPI, la temperatura del disco duro y la temperatura de la GPU Nvidia.\nSinopsis: \n  xfce4-sensores [opción]\ndonde [opción] es una de las siguientes:\n  -h, --help    Mostrar este diálogo de ayuda.\n  -l, --license Mostrar información de la licencia.\n  -V, --version Mostrar información de la versión.\n\nEste programa está publicado según la GPL v2.\n"
+msgstr "Sensores de Xfce4 %s\nMuestra información sobre los sensores del hardware, el estado de ACPI, la temperatura del disco duro y la temperatura de la GPU Nvidia.\nSinopsis: \n  xfce4-sensores [opción]\ndonde [opción] es una de las siguientes:\n  -h, --help    Mostrar este diálogo de ayuda.\n  -l, --license Mostrar información de la licencia.\n  -V, --version Mostrar información de la versión.\n\nEste programa se ha publicado según la GPL v2.\n"
 
 #: ../src/main.c:97
 #, c-format
@@ -434,7 +434,7 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Visor de los sensores:\nParece que ha habido un problema al leer el valor de una característica de un sensor.\nNo se puede garantizar que funcione correctamente.\n"
+msgstr "Visor de los sensores:\nHa habido un problema al leer el valor de una característica del sensor.\nNo se puede garantizar que funcione correctamente.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
@@ -443,7 +443,7 @@ msgstr "Visor de los sensores"
 #: ../src/xfce4-sensors.desktop.in.h:2
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
 msgid "Show sensor values."
-msgstr "Mostrar los valores de los sensores."
+msgstr "Muestra los valores de los sensores"
 
 #: ../src/xfce4-sensors.desktop.in.h:3
 msgid "Sensor Values Viewer"
@@ -451,4 +451,4 @@ msgstr "Visor de los valores de los sensores"
 
 #: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
 msgid "Sensor plugin"
-msgstr "Complemento para los sensores"
+msgstr "Sensores"
