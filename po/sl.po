@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-04-05 00:47+0200\n"
-"PO-Revision-Date: 2021-05-24 11:17+0000\n"
+"PO-Revision-Date: 2021-05-26 07:51+0000\n"
 "Last-Translator: Arnold Marko <arnold.marko@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -75,7 +75,7 @@ msgstr "_Število vrstic teksta:"
 #. When translating, "cover" might be replaced by "use" or "span".
 #: ../panel-plugin/sensors-plugin.c:1923
 msgid "_Cover all panel rows/columns"
-msgstr "_Pokrij vse vrstice/stolpce pulta"
+msgstr "_Pokrij vse vrstice/stolpce panoja"
 
 #: ../panel-plugin/sensors-plugin.c:1943
 msgid "F_ont size:"
@@ -245,7 +245,7 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "\"hddtemp\" ni bil pravilno izveden, čeprav je izvršljiv. Verjetno je težava v tem, da so potrebne korenske - root pravice za branje temepreature diska in \"hddtemp\" ni nastavljen na root.\n\nEnostavna a umazana rešitev je, da zaženete \"chmod u+s %s\" kot root uporabnik in ponovno zaženete ta vtičnik ali njegov pult.\n\nKlic \"%s\" je vrnil to napako:\n%sz vrnjeno vrednostjo %d.\n"
+msgstr "\"hddtemp\" ni bil pravilno izveden, čeprav je izvršljiv. Verjetno je težava v tem, da so za branje temperature diska potrebne korenske - root pravice in da \"hddtemp\" ni nastavljen na root.\n\nEnostavna a umazana rešitev je, da zaženete \"chmod u+s %s\" kot root uporabnik in ponovno zaženete ta vtičnik ali njegov pano.\n\nKlic \"%s\" je vrnil to napako:\n%sz  vrdnostjo %d.\n"
 
 #: ../lib/hddtemp.c:541 ../lib/hddtemp.c:564
 msgid "Suppress this message in future"
