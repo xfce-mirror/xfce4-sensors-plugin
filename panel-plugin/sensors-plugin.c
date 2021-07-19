@@ -700,7 +700,7 @@ determine_number_of_rows (const t_sensors *sensors)
 
         num_rows++;
     }
-    else num_rows = 1 << 30; /* that's enough, MAXINT would be nicer */
+    else num_rows = G_MAXINT;
 
     /* fail-safe */
     if (num_rows<=0)
@@ -1162,7 +1162,7 @@ sensors_free (XfcePanelPlugin *plugin, t_sensors *sensors)
 
 
 /* -------------------------------------------------------------------------- */
-static void
+static gboolean
 sensors_set_size (XfcePanelPlugin *plugin, int size, t_sensors *sensors)
 {
     sensors->panel_size = size;
@@ -1175,6 +1175,8 @@ sensors_set_size (XfcePanelPlugin *plugin, int size, t_sensors *sensors)
 
     /* update the panel widget */
     sensors_show_panel (sensors);
+
+    return TRUE;
 }
 
 
@@ -1348,7 +1350,7 @@ str_fontsize_change (GtkWidget *widget, t_sensors_dialog *dialog)
     dialog->sensors->val_fontsize = gtk_combo_box_get_active (GTK_COMBO_BOX (widget));
 
     rows = determine_number_of_rows (dialog->sensors);
-    gtk_spin_button_set_value (GTK_SPIN_BUTTON (dialog->Lines_Spin_Box), (gdouble) rows);
+    gtk_spin_button_set_value (GTK_SPIN_BUTTON (dialog->Lines_Spin_Button), (gdouble) rows);
 
     /* refresh the panel content */
     sensors_show_panel (dialog->sensors);
@@ -1884,28 +1886,28 @@ add_lines_box (GtkWidget *vbox, t_sensors_dialog * dialog)
 {
     GtkWidget *myLinesLabel;
     GtkWidget *myLinesBox;
-    GtkWidget *myLinesSizeSpinBox;
+    GtkWidget *myLinesSizeSpinButton;
 
     myLinesLabel = gtk_label_new_with_mnemonic (_("_Number of text lines:"));
     myLinesBox = gtk_hbox_new(FALSE, BORDER);
-    myLinesSizeSpinBox = gtk_spin_button_new_with_range  (1.0, 10.0, 1.0);
-    gtk_spin_button_set_value(GTK_SPIN_BUTTON(myLinesSizeSpinBox), (gdouble) dialog->sensors->lines_size);
+    myLinesSizeSpinButton = gtk_spin_button_new_with_range  (1.0, 10.0, 1.0);
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(myLinesSizeSpinButton), (gdouble) dialog->sensors->lines_size);
 
     dialog->Lines_Box = myLinesBox;
-    dialog->Lines_Spin_Box = myLinesSizeSpinBox;
+    dialog->Lines_Spin_Button = myLinesSizeSpinButton;
 
     gtk_box_pack_start (GTK_BOX (myLinesBox), myLinesLabel, FALSE, FALSE, 0);
-    gtk_box_pack_start (GTK_BOX (myLinesBox), myLinesSizeSpinBox, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (myLinesBox), myLinesSizeSpinButton, FALSE, FALSE, 0);
     gtk_box_pack_start (GTK_BOX (vbox), myLinesBox, FALSE, FALSE, 0);
 
     gtk_widget_show (myLinesLabel);
-    gtk_widget_show (myLinesSizeSpinBox);
+    gtk_widget_show (myLinesSizeSpinButton);
     gtk_widget_show (myLinesBox);
 
     if (dialog->sensors->display_values_type != DISPLAY_TEXT)
         gtk_widget_hide(dialog->Lines_Box);
 
-    g_signal_connect (G_OBJECT (myLinesSizeSpinBox), "value-changed", G_CALLBACK (lines_size_change), dialog);
+    g_signal_connect (G_OBJECT (myLinesSizeSpinButton), "value-changed", G_CALLBACK (lines_size_change), dialog);
 }
 
 
