@@ -60,9 +60,6 @@ gtk_sensorstacho_get_preferred_height(GtkWidget *widget,
                                       gint      *minimal_height,
                                       gint      *natural_height);
 
-static void
-gtk_sensorstacho_size_allocate(GtkWidget *widget, GtkAllocation *allocation);
-
 static GtkSizeRequestMode
 gtk_sensorstacho_get_request_mode(GtkWidget *widget);
 
@@ -144,7 +141,6 @@ gtk_sensorstacho_class_init (GtkSensorsTachoClass *tacho_class)
     widget_class->get_preferred_height = gtk_sensorstacho_get_preferred_height;
     widget_class->get_preferred_width_for_height = gtk_sensorstacho_get_preferred_width_for_height;
     widget_class->get_preferred_height_for_width = gtk_sensorstacho_get_preferred_height_for_width;
-    widget_class->size_allocate = gtk_sensorstacho_size_allocate;
     widget_class->draw = gtk_sensorstacho_paint;
     widget_class->destroy = gtk_sensorstacho_destroy;
 
@@ -238,27 +234,6 @@ gtk_sensorstacho_get_preferred_height_for_width(GtkWidget *widget,
     *natural_height = MAX(width, MINIMUM_HEIGHT);
     DBG ("Returning preferred natural height %d for width %d.\n", *natural_height, width);
 }
-
-/* -------------------------------------------------------------------------- */
-static void
-gtk_sensorstacho_size_allocate (GtkWidget *widget, GtkAllocation *allocation)
-{
-  gint min_widthheight;
-
-  g_return_if_fail(widget != NULL);
-  g_return_if_fail(GTK_IS_SENSORSTACHO(widget));
-  g_return_if_fail(allocation != NULL);
-
-  min_widthheight =
-  allocation->width = allocation->height = MIN(allocation->width, allocation->height);
-  gtk_widget_set_allocation(widget, allocation); // this seems to be the main thing of the current function
-
-  gtk_widget_set_size_request(widget, min_widthheight, min_widthheight);
-
-  if (gtk_widget_get_realized (widget))
-    gdk_window_move (gtk_widget_get_window(widget), allocation->x, allocation->y);
-}
-
 
 /* -------------------------------------------------------------------------- */
 gboolean
@@ -457,5 +432,9 @@ void
 gtk_sensorstacho_set_size(GtkSensorsTacho *tacho, guint size)
 {
     g_return_if_fail (tacho != NULL);
-    tacho->size = size;
+	if (tacho->size != size)
+	{
+		tacho->size = size;
+		gtk_widget_queue_resize (GTK_WIDGET(tacho));
+	}
 }
