@@ -1017,7 +1017,7 @@ sensors_show_panel (t_sensors *sensors)
         break;
       case DISPLAY_TEXT:
         sensors_show_text_display (sensors);
-	break;
+        break;
     }
 
     if (sensors->plugin_mode == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
@@ -1966,7 +1966,7 @@ add_str_fontsize_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     if (dialog->sensors->display_values_type != DISPLAY_TEXT)
         gtk_widget_hide(dialog->font_Box);
 
-    g_signal_connect   (G_OBJECT (myFontSizeComboBox), "changed", G_CALLBACK (str_fontsize_change), dialog);
+    g_signal_connect (G_OBJECT (myFontSizeComboBox), "changed", G_CALLBACK (str_fontsize_change), dialog);
 }
 
 

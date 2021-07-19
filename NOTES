@@ -14,6 +14,5 @@ For hddtemp to work for users in the plugin, it must be setuid root or a hddtemp
 
 Theming: You can put a customized style file globally under 
          /usr/local/share/xfce4/panel/plugins/xfce4-sensors-plugin.css 
-				 or locally under 
-				 $HOME/.config/xfce4/panel/xfce4-sensors-plugin.css. 
+         or locally under $HOME/.config/xfce4/panel/xfce4-sensors-plugin.css.
 

@@ -163,13 +163,13 @@ categorize_sensor_type_libsensors4 (t_chipfeature *chip_feature,
             break;
 
         case SENSORS_FEATURE_ENERGY:
-	    chip_feature->class = ENERGY;
+            chip_feature->class = ENERGY;
             chip_feature->min_value = 0.0;
             chip_feature->max_value = 120.0;
-	    break;
+            break;
 
         case SENSORS_FEATURE_CURR:
-	    chip_feature->class = CURRENT;
+            chip_feature->class = CURRENT;
             chip_feature->min_value = 0.0;
             chip_feature->max_value = 100.0;
 
@@ -183,7 +183,7 @@ categorize_sensor_type_libsensors4 (t_chipfeature *chip_feature,
                     !sensors_get_value (chip_name, address_chipfeature, &sensorFeature))
                 chip_feature->max_value = sensorFeature;
 
-	    break;
+            break;
 
         case SENSORS_FEATURE_VID:
             chip_feature->class = VOLTAGE;
