@@ -700,7 +700,7 @@ determine_number_of_rows (const t_sensors *sensors)
 
         num_rows++;
     }
-    else num_rows = 1 << 30; /* that's enough, MAXINT would be nicer */
+    else num_rows = G_MAXINT;
 
     /* fail-safe */
     if (num_rows<=0)
