@@ -104,7 +104,7 @@ typedef struct {
     GtkWidget *Lines_Box;
 
     /** pointer to GtkSpinButton for number of text lines */
-    GtkWidget *Lines_Spin_Box;
+    GtkWidget *Lines_Spin_Button;
 
     /** pointer to GtkCheckbox for opting to suppress notifications */
     GtkWidget *suppressmessage_checkbox;
