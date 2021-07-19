@@ -1162,7 +1162,7 @@ sensors_free (XfcePanelPlugin *plugin, t_sensors *sensors)
 
 
 /* -------------------------------------------------------------------------- */
-static void
+static gboolean
 sensors_set_size (XfcePanelPlugin *plugin, int size, t_sensors *sensors)
 {
     sensors->panel_size = size;
@@ -1175,6 +1175,8 @@ sensors_set_size (XfcePanelPlugin *plugin, int size, t_sensors *sensors)
 
     /* update the panel widget */
     sensors_show_panel (sensors);
+
+    return TRUE;
 }
 
 
