@@ -27,9 +27,8 @@ Installation: ./configure && make && [sudo] make install
 
 Theming: You can put a customized style file globally under 
          /usr/local/share/xfce4/panel/plugins/xfce4-sensors-plugin.css 
-				 or locally under 
-				 $HOME/.config/xfce4/panel/xfce4-sensors-plugin.css. 
-				 This might be especially useful for distributions.
+         or locally under $HOME/.config/xfce4/panel/xfce4-sensors-plugin.css.
+         This might be especially useful for distributions.
 
 
 Bugs: Refer to TODO file

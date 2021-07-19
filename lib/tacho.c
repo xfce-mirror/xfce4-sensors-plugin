@@ -432,9 +432,9 @@ void
 gtk_sensorstacho_set_size(GtkSensorsTacho *tacho, guint size)
 {
     g_return_if_fail (tacho != NULL);
-	if (tacho->size != size)
-	{
-		tacho->size = size;
-		gtk_widget_queue_resize (GTK_WIDGET(tacho));
-	}
+    if (tacho->size != size)
+    {
+        tacho->size = size;
+        gtk_widget_queue_resize (GTK_WIDGET(tacho));
+    }
 }
