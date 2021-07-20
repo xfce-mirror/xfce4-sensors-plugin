@@ -205,7 +205,7 @@ sensor_get_value (t_chip *chip, int idx_chipfeature, double *out_value, gboolean
     switch (chip->type) {
         case LMSENSOR: {
             #ifdef HAVE_LIBSENSORS
-                return sensors_get_feature_wrapper (chip->chip_name, idx_chipfeature, out_value);
+                return sensors_get_value (chip->chip_name, idx_chipfeature, out_value);
             #else
                 return -1;
             #endif
