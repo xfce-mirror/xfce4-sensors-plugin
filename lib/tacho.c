@@ -245,7 +245,7 @@ gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr)
     PangoFontDescription *pango_font_description = NULL;
     gint width, height;
     gint pos_xcenter, pos_ycenter;
-    double degrees_135 = (135) * G_PI / 180;
+    const double degrees_135 = 135 * G_PI / 180;
     GtkAllocation allocation;
     GtkStyleContext *style_context = NULL;
     GtkSensorsTacho *tacho = GTK_SENSORSTACHO (widget);
@@ -260,13 +260,13 @@ gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr)
 
     width = gtk_widget_get_allocated_width (widget);
     height = gtk_widget_get_allocated_height (widget);
+    width = height = MIN(width, height);
 
     cairo_reset_clip(cr);
 
-    width = height = MIN(width, height);
-
     pos_xcenter = width / 2;
     pos_ycenter = height / 2;
+    pos_ycenter += height * (1 - fabs (sin (degrees_135))) / 4;  /* center the arc vertically */
 
     /* initialize color values appropriately */
     color.red = (tacho->style != style_MediumYGB) ? val_colorvalue : 0;
@@ -300,11 +300,9 @@ gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr)
     /* draw circular gradient */
     for (i=(1-percent)*THREE_QUARTER_CIRCLE; i<THREE_QUARTER_CIRCLE; i++)
     {
-        double degrees_45minusI;
+        const double degrees_45minusI = (45-i) * G_PI / 180;
 
         gdk_cairo_set_source_rgba (cr, &color);
-
-        degrees_45minusI = (45-i) * G_PI / 180;
 
         cairo_arc (cr, pos_xcenter, pos_ycenter, width/2-2, degrees_135, degrees_45minusI);
         cairo_line_to (cr, pos_xcenter, pos_ycenter);
