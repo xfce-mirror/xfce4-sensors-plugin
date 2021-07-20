@@ -1902,9 +1902,7 @@ add_lines_box (GtkWidget *vbox, t_sensors_dialog * dialog)
     gtk_box_pack_start (GTK_BOX (myLinesBox), myLinesSizeSpinButton, FALSE, FALSE, 0);
     gtk_box_pack_start (GTK_BOX (vbox), myLinesBox, FALSE, FALSE, 0);
 
-    gtk_widget_show (myLinesLabel);
-    gtk_widget_show (myLinesSizeSpinButton);
-    gtk_widget_show (myLinesBox);
+    gtk_widget_show_all (myLinesBox);
 
     if (dialog->sensors->display_values_type != DISPLAY_TEXT)
         gtk_widget_hide(dialog->Lines_Box);
@@ -1961,9 +1959,7 @@ add_str_fontsize_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     gtk_box_pack_start (GTK_BOX (myFontBox), myFontSizeComboBox, FALSE, FALSE, 0);
     gtk_box_pack_start (GTK_BOX (vbox), myFontBox, FALSE, FALSE, 0);
 
-    gtk_widget_show (myFontLabel);
-    gtk_widget_show (myFontSizeComboBox);
-    gtk_widget_show (myFontBox);
+    gtk_widget_show_all (myFontBox);
 
     if (dialog->sensors->display_values_type != DISPLAY_TEXT)
         gtk_widget_hide(dialog->font_Box);
@@ -1992,9 +1988,7 @@ add_font_settings_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     gtk_box_pack_start (GTK_BOX (myFontSettingsBox), myFontSettingsButton, FALSE, FALSE, 0);
     gtk_box_pack_start (GTK_BOX (vbox), myFontSettingsBox, FALSE, FALSE, 0);
 
-    gtk_widget_show (myFontLabel);
-    gtk_widget_show (myFontSettingsButton);
-    gtk_widget_show (myFontSettingsBox);
+    gtk_widget_show_all (myFontSettingsBox);
 
     if (dialog->sensors->display_values_type != DISPLAY_TACHO)
         gtk_widget_hide(dialog->fontSettings_Box);
@@ -2133,9 +2127,7 @@ add_command_box (GtkWidget *vbox,  t_sensors_dialog *dialog)
     gtk_box_pack_start (GTK_BOX (myBox), dialog->myCommandName_Entry, FALSE, FALSE, 0);
     gtk_box_pack_start (GTK_BOX (vbox), myBox, FALSE, FALSE, 0);
 
-    gtk_widget_show (dialog->myExecCommand_CheckBox);
-    gtk_widget_show (dialog->myCommandName_Entry);
-    gtk_widget_show (myBox);
+    gtk_widget_show_all (myBox);
 
     g_signal_connect (G_OBJECT (dialog->myExecCommand_CheckBox), "toggled", G_CALLBACK (execCommand_toggled), dialog);
 }
