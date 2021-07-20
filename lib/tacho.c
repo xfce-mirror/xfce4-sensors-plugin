@@ -242,7 +242,6 @@ gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr)
     GdkRGBA color;
     int i = 0;
     double percent = 0;
-    PangoFontDescription *pango_font_description = NULL;
     gint width, height;
     gint pos_xcenter, pos_ycenter;
     const double degrees_135 = 135 * G_PI / 180;
@@ -363,6 +362,7 @@ gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr)
         PangoContext *style_context1 = gtk_widget_get_pango_context (widget);
         PangoLayout *layout = pango_layout_new (style_context1);
         gchar *text;
+        PangoFontDescription *pango_font_description;
         gdouble baseline;
 
         pango_layout_set_alignment (layout, PANGO_ALIGN_CENTER);
