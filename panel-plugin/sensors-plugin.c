@@ -1378,6 +1378,8 @@ cover_rows_toggled(GtkWidget *widget, t_sensors_dialog *dialog)
         xfce_panel_plugin_set_small (dialog->sensors->plugin, FALSE);
     else
         xfce_panel_plugin_set_small (dialog->sensors->plugin, TRUE);
+
+    sensors_show_panel (dialog->sensors);
 }
 
 
