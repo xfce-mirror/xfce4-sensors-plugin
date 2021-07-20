@@ -48,17 +48,6 @@ void refresh_lmsensors (gpointer chip_feature, gpointer unused);
 
 
 /**
- * Get the value of subsensor/feature that is number in array of sensors.
- * @param chip_name: Structure of sensor description.
- * @param idx_feature: number of feature to read the value from
- * @param out_value: pointer where the feature value is to be stored
- * @return 0 on success
- */
-int sensors_get_feature_wrapper (const sensors_chip_name *chip_name,
-                                 int idx_feature, double *out_value);
-
-
-/**
  * Free the additionally allocated structures in the sensors_chip_name
  * according to the version of libsensors.
  * @param chip: Pointer to t_chip

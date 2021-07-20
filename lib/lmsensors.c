@@ -32,72 +32,48 @@
 #include <middlelayer.h>
 #include <types.h>
 
-
-/* -------------------------------------------------------------------------- */
-int
-sensors_get_feature_wrapper (const sensors_chip_name *chip_name,
-                             int address_chipfeature, double *out_value)
-{
-    int result;
-    #if SENSORS_API_VERSION < 0x400 /* libsensors3 */
-        result = sensors_get_feature (*chip_name, address_chipfeature, out_value);
-    #else
-        result = sensors_get_value (chip_name, address_chipfeature, out_value);
-    #endif
-    return result;
-}
+#if SENSORS_API_VERSION < 0x400
+#error "Unsupported version of lm_sensors"
+#endif
 
 
 /* -------------------------------------------------------------------------- */
 static t_chip*
-setup_chip (GPtrArray *chips, const sensors_chip_name *chip_name, int num_sensorchips)
+setup_chip (GPtrArray *chips, const sensors_chip_name *chip_name)
 {
-    t_chip *chip;
-
-    chip = g_new0 (t_chip, 1);
+    t_chip *chip = g_new0 (t_chip, 1);
 
     g_ptr_array_add (chips, chip);
 
     chip->chip_name = (sensors_chip_name*) g_malloc (sizeof (sensors_chip_name));
-    memcpy ((void*) (chip->chip_name), (void*) chip_name, sizeof (sensors_chip_name));
+    memcpy ((void*) chip->chip_name, (void*) chip_name, sizeof (sensors_chip_name));
 
-    #if SENSORS_API_VERSION < 0x400 /* libsensor 3 code */
-        chip->sensorId = g_strdup_printf ("%s-%x-%x", chip_name->prefix, chip_name->bus,
-                                          chip_name->addr);
-    #else
-        switch (chip_name->bus.type) {
-            case SENSORS_BUS_TYPE_I2C:
-            case SENSORS_BUS_TYPE_SPI:
-                chip->sensorId = g_strdup_printf ("%s-%x-%x", chip_name->prefix,
-                                                  chip_name->bus.nr, chip_name->addr);
-                break;
-            default:
-                chip->sensorId = g_strdup_printf ("%s-%x", chip_name->prefix,
-                                                  chip_name->addr);
-        }
-    #endif
+    switch (chip_name->bus.type) {
+        case SENSORS_BUS_TYPE_I2C:
+        case SENSORS_BUS_TYPE_SPI:
+            chip->sensorId = g_strdup_printf ("%s-%x-%x", chip_name->prefix,
+                                              chip_name->bus.nr, chip_name->addr);
+            break;
+        default:
+            chip->sensorId = g_strdup_printf ("%s-%x", chip_name->prefix,
+                                              chip_name->addr);
+    }
 
     chip->num_features = 0;
     chip->name = g_strdup (_("LM Sensors"));
     chip->chip_features = g_ptr_array_new ();
-
-    #if SENSORS_API_VERSION < 0x400 /* libsensors3 */
-        chip->description = g_strdup (sensors_get_adapter_name (num_sensorchips-1));
-    #else
-        chip->description = g_strdup (sensors_get_adapter_name (&chip_name->bus));
-    #endif
+    chip->description = g_strdup (sensors_get_adapter_name (&chip_name->bus));
 
     return chip;
 }
 
 
 /* -------------------------------------------------------------------------- */
-#if SENSORS_API_VERSION >= 0x400 /* libsensors4 */
 static void
-categorize_sensor_type_libsensors4 (t_chipfeature *chip_feature,
-                                    const sensors_feature *sensorsfeature,
-                                    const sensors_chip_name *chip_name,
-                                    int address_chipfeature)
+categorize_sensor_type_libsensors (t_chipfeature *chip_feature,
+                                   const sensors_feature *sensorsfeature,
+                                   const sensors_chip_name *chip_name,
+                                   int address_chipfeature)
 {
     const sensors_subfeature *sub_feature = NULL;
     double sensorFeature;
@@ -203,7 +179,6 @@ categorize_sensor_type_libsensors4 (t_chipfeature *chip_feature,
             chip_feature->max_value = 7000.0;
     }
 }
-#endif
 
 
 /* -------------------------------------------------------------------------- */
@@ -221,70 +196,24 @@ setup_chipfeature_common (t_chipfeature *feature, int address_chipfeature,
 }
 
 
-#if SENSORS_API_VERSION < 0x400 /* libsensors3 */
-/* -------------------------------------------------------------------------- */
-void
-setup_chipfeature (t_chipfeature *feature, int address_chipfeature,
-                   double val_sensor_feature)
-{
-    setup_chipfeature_common (feature, address_chipfeature, val_sensor_feature);
-
-    categorize_sensor_type (feature);
-}
-#else
-/* -------------------------------------------------------------------------- */
 static void
-setup_chipfeature_libsensors4 (t_chipfeature *chip_feature,
-                               const sensors_feature *feature,
-                               int address_chipfeature,
-                               double val_sensor_feature,
-                               const sensors_chip_name *name)
+setup_chipfeature_libsensors (t_chipfeature *chip_feature,
+                              const sensors_feature *feature,
+                              int address_chipfeature,
+                              double val_sensor_feature,
+                              const sensors_chip_name *name)
 {
     setup_chipfeature_common (chip_feature, address_chipfeature, val_sensor_feature);
-
-    categorize_sensor_type_libsensors4 (chip_feature, feature, name, address_chipfeature);
+    categorize_sensor_type_libsensors (chip_feature, feature, name, address_chipfeature);
 }
-#endif
 
 
-#if SENSORS_API_VERSION < 0x400 /* libsensors3 */
 /* -------------------------------------------------------------------------- */
 static t_chipfeature *
-find_chipfeature (const sensors_chip_name *name, t_chip *chip,
-                  int address_chipfeature)
-{
-    int res;
-    double sensorFeature;
-    t_chipfeature *chipfeature;
-
-    chipfeature = g_new0 (t_chipfeature, 1);
-
-    if (sensors_get_ignored (*(name), address_chipfeature)==1) {
-        g_free (chipfeature->name); /*  ?  */
-        res = sensors_get_label (*(name), address_chipfeature, &chipfeature->name);
-
-        if (res==0) {
-            res = sensors_get_feature (*(name), address_chipfeature, &sensorFeature);
-
-            if (res==0) {
-                setup_chipfeature (chipfeature, address_chipfeature, sensorFeature);
-                chip->num_features++;
-                return chipfeature;
-            }
-        }
-    }
-
-    g_free (chipfeature);
-    return NULL;
-}
-#else
-/* -------------------------------------------------------------------------- */
-static t_chipfeature *
-find_chipfeature (const sensors_chip_name *name, t_chip *chip,
-                  const sensors_feature *feature)
+find_chipfeature (const sensors_chip_name *name, t_chip *chip, const sensors_feature *feature)
 {
     const sensors_subfeature *sub_feature = NULL;
-    int res, number = -1;
+    int number = -1;
     double sensorFeature;
 
     switch (feature->type) {
@@ -338,11 +267,10 @@ find_chipfeature (const sensors_chip_name *name, t_chip *chip,
 
         if (chip_feature->name)
         {
-            res = sensors_get_value (name, number, &sensorFeature);
+            int res = sensors_get_value (name, number, &sensorFeature);
             if (res==0)
             {
-                setup_chipfeature_libsensors4 (chip_feature, feature, number,
-                                               sensorFeature, name);
+                setup_chipfeature_libsensors (chip_feature, feature, number, sensorFeature, name);
                 chip->num_features++;
                 return chip_feature;
             }
@@ -354,70 +282,14 @@ find_chipfeature (const sensors_chip_name *name, t_chip *chip,
 
     return NULL;
 }
-#endif
 
 
 /* -------------------------------------------------------------------------- */
 int
 initialize_libsensors (GPtrArray *chips)
 {
-    int sensorsInit, nr1, num_sensorchips;
-    t_chip *chip;
-    t_chipfeature *chip_feature;
+    int sensorsInit, num_sensorchips;
     const sensors_chip_name *detected_chip;
-#if SENSORS_API_VERSION < 0x400 /* libsensors3 */
-    FILE *file;
-    const sensors_feature_data *sfd;
-    int nr2;
-
-    errno = 0;
-    file = fopen("/etc/sensors.conf", "r");
-
-    if (errno != ENOENT) /* the file actually exists */
-    {
-        sensorsInit = sensors_init (file);
-        if (sensorsInit != 0)
-        {
-            g_printf(_("Error: Could not connect to sensors!"));
-            /* FIXME: better popup window? write to special logfile? */
-            fclose (file);
-            return -2;
-        }
-
-        num_sensorchips = 0;
-        detected_chip = sensors_get_detected_chips ( &num_sensorchips);
-
-        /* iterate over chips on mainboard */
-        while (detected_chip!=NULL)
-        {
-            chip = setup_chip (chips, detected_chip, num_sensorchips);
-
-            nr1 = 0;
-            nr2 = 0;
-            /* iterate over chip features, i.e. id, cpu temp, mb temp... */
-            /* numchips = get_number_chip_features (detected_chip); */
-            sfd = sensors_get_all_features (*detected_chip, &nr1, &nr2);
-            while (sfd != NULL)
-            {
-                chip_feature = find_chipfeature (detected_chip, chip, sfd->number);
-                if (chip_feature!=NULL) {
-                    g_ptr_array_add (chip->chip_features, chip_feature);
-                }
-                sfd = sensors_get_all_features (*detected_chip, &nr1, &nr2);
-            }
-
-            detected_chip = sensors_get_detected_chips (&num_sensorchips);
-        } /* end while sensor chipNames */
-
-        fclose (file);
-        return 1;
-    }
-    else {
-        fclose (file);
-        return -1;
-    }
-#else
-    const sensors_feature *sfd;
 
     sensorsInit = sensors_init (NULL);
     if (sensorsInit != 0)
@@ -432,15 +304,15 @@ initialize_libsensors (GPtrArray *chips)
     /* iterate over chips on mainboard */
     while (detected_chip!=NULL)
     {
-        chip = setup_chip (chips, detected_chip, num_sensorchips);
+        t_chip *chip = setup_chip (chips, detected_chip);
+        int nr1 = 0;
+        const sensors_feature *sfd;
 
-        nr1 = 0;
         /* iterate over chip features, i.e. id, cpu temp, mb temp... */
-        /* numchips = get_number_chip_features (detected_chip); */
         sfd = sensors_get_features (detected_chip, &nr1);
         while (sfd != NULL)
         {
-            chip_feature = find_chipfeature (detected_chip, chip, sfd);
+            t_chipfeature *chip_feature = find_chipfeature (detected_chip, chip, sfd);
             if (chip_feature!=NULL) {
                 g_ptr_array_add (chip->chip_features, chip_feature);
             }
@@ -448,10 +320,9 @@ initialize_libsensors (GPtrArray *chips)
         }
 
         detected_chip = sensors_get_detected_chips (NULL, &num_sensorchips);
-    } /* end while sensor chipNames */
+    }
 
     return 1;
-#endif
 }
 
 
@@ -465,11 +336,4 @@ refresh_lmsensors (gpointer chip_feature, gpointer unused)
 
 /* -------------------------------------------------------------------------- */
 void
-free_lmsensors_chip (gpointer ptr_chip)
-{
-    #if SENSORS_API_VERSION < 0x400
-    t_chip *chip = (t_chip*) ptr_chip;
-    if (chip->chip_name->busname)
-        g_free (chip->chip_name->busname);
-    #endif
-}
+free_lmsensors_chip (gpointer ptr_chip) {}
