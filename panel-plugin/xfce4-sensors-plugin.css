@@ -5,19 +5,3 @@ levelbar block {
     margin: 0px;
     padding: 0px;
 }
-
-levelbar block.full {
-   background-color: #F00000;
-}
-
-levelbar block.high {
-   background-color: #F0F000;
-}
-
-levelbar block.warn-low {
-   background-color: #F0F000;
-}
-
-levelbar block.low {
-   background-color: #F00000;
-}

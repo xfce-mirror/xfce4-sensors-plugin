@@ -100,7 +100,7 @@ sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
     sensors->val_fontsize = 2;
     sensors->lines_size = 3;
 
-    sensors->show_colored_bars = TRUE;
+    sensors->automatic_bar_colors = FALSE;
     sensors->sensors_refresh_time = 60;
     sensors->scale = CELSIUS;
 

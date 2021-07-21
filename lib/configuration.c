@@ -91,7 +91,7 @@ sensors_write_config (XfcePanelPlugin *plugin, const t_sensors *sensors)
 
             xfce_rc_write_int_entry (rc, "Use_Bar_UI", sensors->display_values_type);
 
-            xfce_rc_write_bool_entry (rc, "Show_Colored_Bars", sensors->show_colored_bars);
+            xfce_rc_write_bool_entry (rc, "Show_Colored_Bars", !sensors->automatic_bar_colors);
 
             xfce_rc_write_int_entry (rc, "Scale", sensors->scale);
 
@@ -210,7 +210,7 @@ sensors_read_general_config (XfceRc *rc, t_sensors *sensors)
 
         sensors->display_values_type = xfce_rc_read_int_entry (rc, "Use_Bar_UI", 0);
 
-        sensors->show_colored_bars = xfce_rc_read_bool_entry (rc, "Show_Colored_Bars", FALSE);
+        sensors->automatic_bar_colors = !xfce_rc_read_bool_entry (rc, "Show_Colored_Bars", FALSE);
 
         sensors->scale = xfce_rc_read_int_entry (rc, "Scale", 0);
 

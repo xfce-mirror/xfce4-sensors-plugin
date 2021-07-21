@@ -37,7 +37,7 @@ typedef enum _SensorsTachoStyle {
     style_MinGYR = 0,
     /** voltage and power, from yellow over green to blue */
     style_MediumYGB = 1,
-    /** fill level, mostly used for energy from red ove ryellow to green */
+    /** fill level, mostly used for energy from red over yellow to green */
     style_MaxRYG = 2
 } SensorsTachoStyle;
 
