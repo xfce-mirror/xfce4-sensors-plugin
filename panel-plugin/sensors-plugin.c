@@ -181,7 +181,7 @@ sensors_get_percentage (const t_chipfeature *feature)
 
 /* -------------------------------------------------------------------------- */
 static void
-sensors_remove_graphical_panel (t_sensors *sensors)
+sensors_remove_bars_panel (t_sensors *sensors)
 {
     gint idx_sensorchip, idx_feature;
 
@@ -252,7 +252,7 @@ sensors_remove_tacho_panel (t_sensors *sensors)
 
 /* -------------------------------------------------------------------------- */
 static void
-sensors_update_graphical_panel (const t_sensors *sensors)
+sensors_update_bars_panel (const t_sensors *sensors)
 {
     gint idx_sensorchips, idx_feature;
 
@@ -322,7 +322,7 @@ sensors_update_tacho_panel (const t_sensors *sensors)
 
 /* -------------------------------------------------------------------------- */
 static void
-sensors_add_graphical_display (t_sensors *sensors)
+sensors_add_bars_display (t_sensors *sensors)
 {
     gint idx_sensorchip, idx_feature;
     gboolean has_bars = FALSE;
@@ -527,7 +527,7 @@ sensors_add_tacho_display (t_sensors *sensors)
 
 /* -------------------------------------------------------------------------- */
 static void
-sensors_show_graphical_display (t_sensors *sensors)
+sensors_show_bars_display (t_sensors *sensors)
 {
     const gchar *localcssfilewohome = "/.config/"
                                       DATASUBPATH
@@ -602,10 +602,10 @@ sensors_show_graphical_display (t_sensors *sensors)
         g_object_unref (sensors->css_provider);
         sensors->css_provider = NULL;
 
-        sensors_add_graphical_display (sensors);
+        sensors_add_bars_display (sensors);
     }
 
-    sensors_update_graphical_panel (sensors);
+    sensors_update_bars_panel (sensors);
 }
 
 
@@ -968,7 +968,7 @@ sensors_show_panel (t_sensors *sensors)
         sensors_show_tacho_display (sensors);
         break;
       case DISPLAY_BARS:
-        sensors_show_graphical_display (sensors);
+        sensors_show_bars_display (sensors);
         break;
       case DISPLAY_TEXT:
         sensors_show_text_display (sensors);
@@ -1034,7 +1034,7 @@ sensors_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode plugin_mode, t_se
 
     switch (sensors->display_values_type) {
         case DISPLAY_BARS:
-            sensors_remove_graphical_panel (sensors);
+            sensors_remove_bars_panel (sensors);
             break;
         case DISPLAY_TACHO:
             sensors_remove_tacho_panel (sensors);
@@ -1140,7 +1140,7 @@ static void
 show_title_toggled (GtkWidget *widget, t_sensors_dialog *dialog)
 {
     if (dialog->sensors->display_values_type == DISPLAY_BARS)
-        sensors_remove_graphical_panel (dialog->sensors);
+        sensors_remove_bars_panel (dialog->sensors);
     else if (dialog->sensors->display_values_type == DISPLAY_TACHO)
         sensors_remove_tacho_panel (dialog->sensors);
 
@@ -1155,7 +1155,7 @@ static void
 show_labels_toggled (GtkWidget *widget, t_sensors_dialog *dialog)
 {
     if (dialog->sensors->display_values_type == DISPLAY_BARS)
-        sensors_remove_graphical_panel (dialog->sensors);
+        sensors_remove_bars_panel (dialog->sensors);
     else if (dialog->sensors->display_values_type == DISPLAY_TACHO)
         sensors_remove_tacho_panel (dialog->sensors);
 
@@ -1170,7 +1170,7 @@ static void
 show_colored_bars_toggled (GtkWidget *widget, t_sensors_dialog *dialog)
 {
     if (dialog->sensors->display_values_type == DISPLAY_BARS)
-        sensors_remove_graphical_panel (dialog->sensors);
+        sensors_remove_bars_panel (dialog->sensors);
 
     dialog->sensors->show_colored_bars = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
 
@@ -1186,7 +1186,7 @@ display_style_changed_text (GtkWidget *widget, t_sensors_dialog *dialog)
         return;
 
     if (dialog->sensors->display_values_type == DISPLAY_BARS)
-        sensors_remove_graphical_panel (dialog->sensors);
+        sensors_remove_bars_panel (dialog->sensors);
     else if (dialog->sensors->display_values_type == DISPLAY_TACHO)
         sensors_remove_tacho_panel (dialog->sensors);
 
@@ -1251,7 +1251,7 @@ display_style_changed_tacho (GtkWidget *widget, t_sensors_dialog *dialog)
         return;
 
     if (dialog->sensors->display_values_type == DISPLAY_BARS)
-        sensors_remove_graphical_panel(dialog->sensors);
+        sensors_remove_bars_panel(dialog->sensors);
 
     gtk_widget_hide (dialog->coloredBars_Box);
     gtk_widget_show (dialog->fontSettings_Box);
@@ -1450,7 +1450,7 @@ minimum_changed_ (GtkCellRendererText *cell_renderer_text, gchar *path_str,
     gtk_tree_path_free (path);
 
     if (dialog->sensors->display_values_type == DISPLAY_BARS)
-        sensors_remove_graphical_panel (dialog->sensors);
+        sensors_remove_bars_panel (dialog->sensors);
     else if (dialog->sensors->display_values_type == DISPLAY_TACHO)
         sensors_remove_tacho_panel (dialog->sensors);
 
@@ -1496,7 +1496,7 @@ maximum_changed_ (GtkCellRendererText *cell_renderer_text, gchar *path_str,
     gtk_tree_path_free (path);
 
     if (dialog->sensors->display_values_type == DISPLAY_BARS)
-        sensors_remove_graphical_panel (dialog->sensors);
+        sensors_remove_bars_panel (dialog->sensors);
     else if (dialog->sensors->display_values_type == DISPLAY_TACHO)
         sensors_remove_tacho_panel (dialog->sensors);
 
@@ -1592,7 +1592,7 @@ list_cell_text_edited_ (GtkCellRendererText *cell_renderer_text, gchar *path_str
     t_chipfeature *feature;
 
     if (dialog->sensors->display_values_type == DISPLAY_BARS) {
-        sensors_remove_graphical_panel (dialog->sensors);
+        sensors_remove_bars_panel (dialog->sensors);
     }
     else  if (dialog->sensors->display_values_type == DISPLAY_TACHO) {
         sensors_remove_tacho_panel (dialog->sensors);
@@ -1634,7 +1634,7 @@ list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,  t_sensors_dial
     gboolean toggle_item;
 
     if (dialog->sensors->display_values_type == DISPLAY_BARS) {
-        sensors_remove_graphical_panel (dialog->sensors);
+        sensors_remove_bars_panel (dialog->sensors);
     }
     else if (dialog->sensors->display_values_type == DISPLAY_TACHO) {
         sensors_remove_tacho_panel (dialog->sensors);
