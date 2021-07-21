@@ -87,7 +87,7 @@ typedef struct {
 
     /**
      * box with font settings for text view; used to disable font size option
-     * when using graphical/tacho view
+     * when using bars/tacho view
      */
     GtkWidget *font_Box;
 
@@ -115,13 +115,13 @@ typedef struct {
     /** pointer to GtkCheckbox for text mode to have smaller spacings */
     GtkWidget *smallspacing_checkbox;
 
-    /** used to enable 'show labels' option when using graphical view */
+    /** used to enable 'show labels' option when using bars view */
     GtkWidget *labels_Box;
 
-    /** used to customize colorvalue value when using graphical view */
+    /** used to customize colorvalue value when using bars view */
     GtkWidget *colorvalue_slider_box;
 
-    /** used to customize alpha value when using graphical view */
+    /** used to customize alpha value when using bars view */
     GtkWidget *alpha_slider_box;
 
     /**
