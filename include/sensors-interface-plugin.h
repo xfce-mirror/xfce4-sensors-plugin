@@ -78,6 +78,9 @@ typedef struct {
     /** panel orientation */
     XfcePanelPluginMode plugin_mode;
 
+    /** automatic bar colors */
+    bool automatic_bar_colors:1;
+
     /** The panel plugins can cover all rows/columns of the panel, but default is to not do so */
     bool cover_panel_rows:1;
 
@@ -98,9 +101,6 @@ typedef struct {
 
     /** show small spacings only in textual view */
     bool show_smallspacings:1;
-
-    /** show colored bars (GUI mode only) */
-    bool show_colored_bars:1;
 
     /**
      * suppress tooltip from overlapping widget and thereby crashing the plugin
@@ -165,7 +165,6 @@ typedef struct {
 
     /** desired alpha value for the tachometers */
     gfloat val_tachos_alpha;
-
 }
 t_sensors;
 

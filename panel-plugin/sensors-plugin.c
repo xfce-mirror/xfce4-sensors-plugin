@@ -101,57 +101,59 @@ sensors_set_levelbar_size (GtkWidget *level_bar, int panel_height, XfcePanelPlug
 
 /* -------------------------------------------------------------------------- */
 static void
-sensors_set_bar_color (t_labelledlevelbar *labelled_level_bar, const gchar *color_orNull,
+sensors_set_bar_color (t_labelledlevelbar *bar, const gchar *color_orNull,
                        const t_sensors *sensors)
 {
-    GtkWidget *level_bar;
-    gchar gtk_css_data[256] = "levelbar block.";
-    gchar level_bar_id[32];
-    //gchar section_levelbarid[64];
+    gchar css[1024] = "";
+    GtkWidget *bar_widget;
 
-    g_return_if_fail(labelled_level_bar != NULL);
-    level_bar = labelled_level_bar->progressbar;
+    g_return_if_fail (bar != NULL);
+    bar_widget = bar->progressbar;
+    g_return_if_fail (G_IS_OBJECT(bar_widget));
 
-    g_return_if_fail (G_IS_OBJECT(level_bar));
+    gtk_level_bar_add_offset_value (GTK_LEVEL_BAR(bar_widget), BAR_OFFSET_MARKER_NORMAL, 0.8);
+    gtk_level_bar_add_offset_value (GTK_LEVEL_BAR(bar_widget), BAR_OFFSET_MARKER_WARN, 0.9);
+    gtk_level_bar_add_offset_value (GTK_LEVEL_BAR(bar_widget), BAR_OFFSET_MARKER_ERROR, 1.0);
 
-    g_snprintf(level_bar_id, 32, "warn-high%lX", (unsigned long int) level_bar);
+    if (sensors->automatic_bar_colors) {
+        g_strlcat (css, "levelbar block." BAR_OFFSET_MARKER_NORMAL " {\n", sizeof(css));
+        g_strlcat (css, "  background-color: " COLOR_NORMAL ";\n", sizeof(css));
+        g_strlcat (css, "}\n", sizeof(css));
 
-    g_strlcat(gtk_css_data, level_bar_id, sizeof(gtk_css_data));
-    //g_strlcpy(section_levelbarid, str_gtkcssdata, sizeof(section_levelbarid));
+        g_strlcat (css, "levelbar block." BAR_OFFSET_MARKER_WARN " {\n", sizeof(css));
+        g_strlcat (css, "  background-color: " COLOR_WARN ";\n", sizeof(css));
+        g_strlcat (css, "}\n", sizeof(css));
 
-    g_strlcat(gtk_css_data, " {\n", sizeof(gtk_css_data));
+        g_strlcat (css, "levelbar block." BAR_OFFSET_MARKER_ERROR " {\n", sizeof(css));
+        g_strlcat (css, "  background-color: " COLOR_ERROR ";\n", sizeof(css));
+        g_strlcat (css, "}\n", sizeof(css));
+    }
+    else if (color_orNull) {
+        g_strlcat (css, "levelbar block." BAR_OFFSET_MARKER_NORMAL " {\n", sizeof(css));
+        g_strlcat (css, "   background-color: ", sizeof(css));
+        g_strlcat (css, color_orNull, sizeof(css));
+        g_strlcat (css, ";\n", sizeof(css));
+        g_strlcat (css, "}\n", sizeof(css));
 
-    if (sensors->show_colored_bars && color_orNull) {
-        g_strlcat(gtk_css_data, "   background-color: ", sizeof(gtk_css_data));
-        g_strlcat(gtk_css_data, color_orNull, sizeof(gtk_css_data));
-        g_strlcat(gtk_css_data, ";\n", sizeof(gtk_css_data));
+        g_strlcat (css, "levelbar block." BAR_OFFSET_MARKER_WARN " {\n", sizeof(css));
+        g_strlcat (css, "   background-color: ", sizeof(css));
+        g_strlcat (css, color_orNull, sizeof(css));
+        g_strlcat (css, ";\n", sizeof(css));
+        g_strlcat (css, "}\n", sizeof(css));
+
+        g_strlcat (css, "levelbar block." BAR_OFFSET_MARKER_ERROR " {\n", sizeof(css));
+        g_strlcat (css, "   background-color: ", sizeof(css));
+        g_strlcat (css, color_orNull, sizeof(css));
+        g_strlcat (css, ";\n", sizeof(css));
+        g_strlcat (css, "}\n", sizeof(css));
     }
 
-    g_strlcat(gtk_css_data,   "   padding: 0px;\n"
-                                "   border: 1px none black;\n"
-                                "}", sizeof(gtk_css_data));
-
-    gtk_level_bar_add_offset_value (GTK_LEVEL_BAR(level_bar),
-                                  GTK_LEVEL_BAR_OFFSET_LOW,
-                                  0.1);
-
-    gtk_level_bar_add_offset_value (GTK_LEVEL_BAR(level_bar),
-                                  "warn-low",
-                                  0.2);
-
-    gtk_level_bar_add_offset_value (GTK_LEVEL_BAR(level_bar),
-                                  level_bar_id,
-                                  0.8);
-
-    gtk_level_bar_add_offset_value (GTK_LEVEL_BAR(level_bar),
-                                  GTK_LEVEL_BAR_OFFSET_HIGH,
-                                  0.9);
-
-    gtk_css_provider_load_from_data (GTK_CSS_PROVIDER(labelled_level_bar->css_provider),
-                                   gtk_css_data, -1, NULL);
-
-    //DBG("unreferencing section '%s'.", section_levelbarid);
-    //gtk_css_section_unref(section_levelbarid);
+    if (!bar->css_data || strcmp(bar->css_data, css) != 0)
+    {
+        g_free (bar->css_data);
+        bar->css_data = g_strdup (css);
+        gtk_css_provider_load_from_data (bar->css_provider, css, -1, NULL);
+    }
 }
 
 
@@ -196,24 +198,27 @@ sensors_remove_bars_panel (t_sensors *sensors)
             g_assert (feature != NULL);
 
             if (feature->show) {
-                t_labelledlevelbar *labelled_level_bar;
+                t_labelledlevelbar *bar;
 
-                labelled_level_bar = sensors->panels[idx_sensorchip][idx_feature];
+                bar = sensors->panels[idx_sensorchip][idx_feature];
 
-                g_object_unref (labelled_level_bar->css_provider);
-                labelled_level_bar->css_provider = NULL;
+                g_free (bar->css_data);
+                bar->css_data = NULL;
+
+                g_object_unref (bar->css_provider);
+                bar->css_provider = NULL;
 
                 if (sensors->show_labels) {
-                    gtk_widget_hide (labelled_level_bar->label);
-                    gtk_widget_destroy (labelled_level_bar->label);
+                    gtk_widget_hide (bar->label);
+                    gtk_widget_destroy (bar->label);
                 }
-                gtk_widget_hide (labelled_level_bar->progressbar);
-                gtk_widget_destroy (labelled_level_bar->progressbar);
-                gtk_widget_hide (labelled_level_bar->databox);
-                gtk_widget_destroy (labelled_level_bar->databox);
+                gtk_widget_hide (bar->progressbar);
+                gtk_widget_destroy (bar->progressbar);
+                gtk_widget_hide (bar->databox);
+                gtk_widget_destroy (bar->databox);
 
-                g_free (labelled_level_bar);
-                labelled_level_bar = NULL;
+                g_free (bar);
+                bar = NULL;
             }
         }
     }
@@ -349,10 +354,8 @@ sensors_add_bars_display (t_sensors *sensors)
             g_assert (feature != NULL);
 
             if (feature->show) {
-                GdkDisplay *display;
-                GdkScreen *screen;
                 GtkWidget *widget_progbar, *widget_databox;
-                t_labelledlevelbar *labelled_level_bar;
+                t_labelledlevelbar *bar;
 
                 has_bars = TRUE;
 
@@ -375,16 +378,15 @@ sensors_add_bars_display (t_sensors *sensors)
                                            sensors->plugin_mode);
 
                 /* save the panel elements */
-                labelled_level_bar = g_new0 (t_labelledlevelbar, 1);
-                labelled_level_bar->progressbar = widget_progbar;
+                bar = g_new0 (t_labelledlevelbar, 1);
+                bar->progressbar = widget_progbar;
 
-                labelled_level_bar->css_provider = gtk_css_provider_new ();
-                display = gdk_display_get_default ();
-                screen = gdk_display_get_default_screen (display);
+                bar->css_data = NULL;
+                bar->css_provider = gtk_css_provider_new ();
 
-                gtk_style_context_add_provider_for_screen (screen,
-                                 GTK_STYLE_PROVIDER (labelled_level_bar->css_provider),
-                                 GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+                gtk_style_context_add_provider (gtk_widget_get_style_context (widget_progbar),
+                                                GTK_STYLE_PROVIDER (bar->css_provider),
+                                                GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
                 /* create the label stuff only if needed - saves some memory! */
                 if (sensors->show_labels) {
@@ -407,15 +409,15 @@ sensors_add_bars_display (t_sensors *sensors)
                     else
                         gtk_label_set_angle (GTK_LABEL(widget_label), 0);
 
-                    labelled_level_bar->label = widget_label;
+                    bar->label = widget_label;
 
                     gtk_box_pack_start (GTK_BOX(widget_databox), widget_label, FALSE, FALSE, INNER_BORDER);
                 }
 
                 gtk_box_pack_start (GTK_BOX(widget_databox), widget_progbar, FALSE, FALSE, 0);
 
-                labelled_level_bar->databox = widget_databox;
-                sensors->panels[idx_sensorchip][idx_feature] = labelled_level_bar;
+                bar->databox = widget_databox;
+                sensors->panels[idx_sensorchip][idx_feature] = bar;
 
                 gtk_widget_show_all (widget_databox);
                 gtk_box_pack_start (GTK_BOX (sensors->widget_sensors), widget_databox, FALSE, FALSE, INNER_BORDER/2);
@@ -487,8 +489,8 @@ sensors_add_tacho_display (t_sensors *sensors)
                     case ENERGY:
                         style = style_MaxRYG;
                         break;
-                    default: // tacho_style = style_MinGYR; // already set per default
-                        break;
+                    default:
+                        style = style_MinGYR;
                 }
 
                 orientation = (sensors->plugin_mode != XFCE_PANEL_PLUGIN_MODE_VERTICAL) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
@@ -529,29 +531,15 @@ sensors_add_tacho_display (t_sensors *sensors)
 static void
 sensors_show_bars_display (t_sensors *sensors)
 {
-    const gchar *localcssfilewohome = "/.config/"
-                                      DATASUBPATH
-                                      "/"
-                                      XFCE4SENSORSPLUGINCSSFILE;
-    const gchar *globalcssfile = DATADIR
-                                 "/"
-                                 DATASUBPATH
-                                 "/plugins/"
-                                 XFCE4SENSORSPLUGINCSSFILE;
+    const gchar *localcssfilewohome = "/.config/" DATASUBPATH "/" XFCE4SENSORSPLUGINCSSFILE;
+    const gchar *globalcssfile = DATADIR "/" DATASUBPATH "/plugins/" XFCE4SENSORSPLUGINCSSFILE;
 
     if (!sensors->bars_created) {
-        GdkDisplay *display;
         GdkScreen *screen;
         GFile *cssdatafile = NULL;
         gchar local_css_file[128];
 
         sensors->css_provider = gtk_css_provider_new ();
-        display = gdk_display_get_default ();
-        screen = gdk_display_get_default_screen (display);
-
-        gtk_style_context_add_provider_for_screen (screen,
-                                     GTK_STYLE_PROVIDER (sensors->css_provider),
-                                     GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         g_snprintf(local_css_file, sizeof(local_css_file), "%s/%s", getenv("HOME"), localcssfilewohome);
 
@@ -564,41 +552,27 @@ sensors_show_bars_display (t_sensors *sensors)
             cssdatafile = g_file_new_for_path(globalcssfile);
         }
 
-        if (NULL != cssdatafile) {
+        if (cssdatafile) {
             gtk_css_provider_load_from_file(GTK_CSS_PROVIDER(sensors->css_provider), cssdatafile, NULL);
         }
         else {
-            gchar *cssstring =  "levelbar block {\n"
-                                "   min-height : 0px;\n"
-                                "   min-width : 0px;\n"
-                                "   border: 0px none;\n"
-                                "   margin: 0px;\n"
-                                "   padding: 0px;\n"
-                                "}\n"
-                                "levelbar block.full {\n"
-                                "   background-color: "
-                                COLOR_ERROR
-                                ";\n"
-                                "}\n"
-                                "levelbar block.high {\n"
-                                "   background-color: "
-                                COLOR_WARN
-                                ";\n"
-                                "}\n"
-                                "levelbar block.warn-low {\n"
-                                "   background-color: "
-                                COLOR_WARN
-                                ";\n"
-                                "}\n"
-                                "levelbar block.low {\n"
-                                "   background-color: "
-                                COLOR_ERROR
-                                ";\n"
-                                "}\n";
+            const gchar *cssstring =
+                "levelbar block {\n"
+                "  min-height : 0px;\n"
+                "  min-width : 0px;\n"
+                "  border: 0px none;\n"
+                "  margin: 0px;\n"
+                "  padding: 0px;\n"
+                "}\n";
 
-            gtk_css_provider_load_from_data (GTK_CSS_PROVIDER(sensors->css_provider), cssstring,
-                                   strlen(cssstring), NULL);
+            gtk_css_provider_load_from_data (GTK_CSS_PROVIDER(sensors->css_provider), cssstring, -1, NULL);
         }
+
+        screen = gdk_display_get_default_screen (gdk_display_get_default ());
+        gtk_style_context_add_provider_for_screen (screen,
+            GTK_STYLE_PROVIDER (sensors->css_provider),
+            GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+
         g_object_unref (sensors->css_provider);
         sensors->css_provider = NULL;
 
@@ -1167,12 +1141,12 @@ show_labels_toggled (GtkWidget *widget, t_sensors_dialog *dialog)
 
 /* -------------------------------------------------------------------------- */
 static void
-show_colored_bars_toggled (GtkWidget *widget, t_sensors_dialog *dialog)
+auto_bar_colors_toggled (GtkWidget *widget, t_sensors_dialog *dialog)
 {
     if (dialog->sensors->display_values_type == DISPLAY_BARS)
         sensors_remove_bars_panel (dialog->sensors);
 
-    dialog->sensors->show_colored_bars = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
+    dialog->sensors->automatic_bar_colors = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
 
     sensors_show_panel (dialog->sensors);
 }
@@ -1793,7 +1767,7 @@ add_labels_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 
 /* -------------------------------------------------------------------------- */
 static void
-add_colored_bars_box (GtkWidget *vbox, t_sensors_dialog *dialog)
+add_auto_bar_colors_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 {
     GtkWidget *hbox, *checkButton;
 
@@ -1802,8 +1776,13 @@ add_colored_bars_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     gtk_widget_show (hbox);
     dialog->coloredBars_Box = hbox;
 
-    checkButton = gtk_check_button_new_with_mnemonic (_("Show colored _bars"));
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(checkButton), dialog->sensors->show_colored_bars);
+    checkButton = gtk_check_button_new_with_mnemonic (_("_Automatic bar colors"));
+    gtk_widget_set_tooltip_text (checkButton,
+                                 _("If enabled, bar colors depend on their values (normal, high, very high).\n"
+                                   "If disabled, bars use the user-defined sensor colors.\n"
+                                   "If a particular user-defined sensor color is unspecified,\n"
+                                   "the bar color is derived from the current UI style."));
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(checkButton), dialog->sensors->automatic_bar_colors);
 
     gtk_widget_show (checkButton);
 
@@ -1813,7 +1792,7 @@ add_colored_bars_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     if (dialog->sensors->display_values_type != DISPLAY_BARS)
         gtk_widget_hide(dialog->coloredBars_Box);
 
-    g_signal_connect (G_OBJECT (checkButton), "toggled", G_CALLBACK (show_colored_bars_toggled), dialog);
+    g_signal_connect (G_OBJECT (checkButton), "toggled", G_CALLBACK (auto_bar_colors_toggled), dialog);
 }
 
 
@@ -2123,7 +2102,7 @@ add_view_frame (GtkWidget *notebook, t_sensors_dialog *dialog)
     add_str_fontsize_box (vbox, dialog);
     add_font_settings_box (vbox, dialog);
     add_lines_box (vbox, dialog);
-    add_colored_bars_box (vbox, dialog);
+    add_auto_bar_colors_box (vbox, dialog);
     add_units_box (vbox, dialog);
     add_smallspacings_box(vbox, dialog);
     add_tachos_appearance_boxes(vbox, dialog);
