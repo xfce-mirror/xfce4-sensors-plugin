@@ -2295,12 +2295,17 @@ create_sensors_control (XfcePanelPlugin *plugin)
 static void
 sensors_show_about(XfcePanelPlugin *plugin, t_sensors *sensors)
 {
-   GdkPixbuf *icon;
-   const gchar *auth[] = {"Fabian Nowak <timystery@xfce.org>",
-                          "Stefan Ott",
-                          NULL };
-   icon = xfce_panel_pixbuf_from_source("xfce-sensors", NULL, 48);
-   gtk_show_about_dialog(NULL,
+   /* List of authors (in alphabetical order) */
+   const gchar *auth[] = {
+      "Benedikt Meurer",
+      "Fabian Nowak <timystery@xfce.org>",
+      "Jan Ziak <0xe2.0x9a.0x9b@xfce.org>",
+      "Stefan Ott",
+      NULL };
+
+   GdkPixbuf *icon = xfce_panel_pixbuf_from_source ("xfce-sensors", NULL, 48);
+
+   gtk_show_about_dialog (NULL,
       "logo", icon,
       "license", xfce_get_license_text (XFCE_LICENSE_TEXT_GPL),
       "version", PACKAGE_VERSION,
@@ -2308,10 +2313,11 @@ sensors_show_about(XfcePanelPlugin *plugin, t_sensors *sensors)
       "comments", _("Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"),
       "website", "https://docs.xfce.org/panel-plugins/xfce4-sensors-plugin",
       "copyright", _("Copyright (c) 2004-2021\n"),
-      "authors", auth, NULL);
+      "authors", auth,
+      NULL);
 
    if(icon)
-      g_object_unref(G_OBJECT(icon));
+      g_object_unref (G_OBJECT(icon));
 }
 
 
