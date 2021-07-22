@@ -254,7 +254,7 @@ gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr)
     gtk_widget_get_allocation(widget, &allocation);
 
     percent = tacho->sel;
-    if (G_UNLIKELY (!isnormal (percent)))
+    if (!isnormal (percent))
         percent = 0;
     else if (G_UNLIKELY (percent < 0))
         percent = 0;
@@ -421,7 +421,7 @@ gtk_sensorstacho_set_value (GtkSensorsTacho *tacho, gdouble value)
 {
     g_return_if_fail (tacho != NULL);
 
-    if (G_UNLIKELY (isnormal (value)))
+    if (!isnormal (value))
         value = 0;
     else if (G_UNLIKELY (value < 0))
         value = 0;
