@@ -275,10 +275,13 @@ sensors_read_preliminary_config (XfcePanelPlugin *plugin, t_sensors *sensors)
         if (sensors->plugin_config_file)
         {
             XfceRc *rc = xfce_rc_simple_open (sensors->plugin_config_file, TRUE);
-
-            if (rc && xfce_rc_has_group (rc, "General")) {
-                xfce_rc_set_group (rc, "General");
-                sensors->suppressmessage = xfce_rc_read_bool_entry (rc, "Suppress_Hddtemp_Message", FALSE);
+            if (rc)
+            {
+                if (xfce_rc_has_group (rc, "General")) {
+                    xfce_rc_set_group (rc, "General");
+                    sensors->suppressmessage = xfce_rc_read_bool_entry (rc, "Suppress_Hddtemp_Message", FALSE);
+                }
+                xfce_rc_close (rc);
             }
         }
     }

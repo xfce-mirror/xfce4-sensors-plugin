@@ -52,15 +52,11 @@
 #include "sensors-plugin.h"
 
 /* Definitions due to porting from Gtk2 to Gtk3 */
-#define gtk_hbox_new(homogeneous, spacing) \
+#define gtk_hbox_new(spacing) \
         gtk_box_new(GTK_ORIENTATION_HORIZONTAL, spacing)
 
-#define gtk_vbox_new(homogeneous, spacing) \
+#define gtk_vbox_new(spacing) \
         gtk_box_new(GTK_ORIENTATION_VERTICAL, spacing)
-
-#define gtk_widget_reparent(wdgt, nwprnt) \
-        gtk_container_remove(GTK_CONTAINER(gtk_widget_get_parent(wdgt)), wdgt); \
-        gtk_container_add(GTK_CONTAINER(nwprnt), wdgt)
 
 #ifndef DATADIR
 # define DATADIR "/usr/local/share/"
@@ -246,6 +242,7 @@ sensors_remove_tacho_panel (t_sensors *sensors)
 
             if (feature->show) {
                 GtkWidget *tacho = sensors->tachos[idx_sensorchip][idx_feature];
+                sensors->tachos[idx_sensorchip][idx_feature] = NULL;
                 gtk_widget_hide (tacho);
                 gtk_widget_destroy (tacho);
             }
@@ -366,13 +363,13 @@ sensors_add_bars_display (t_sensors *sensors)
                     gtk_orientable_set_orientation (GTK_ORIENTABLE (widget_progbar),
                                                     GTK_ORIENTATION_VERTICAL);
                     gtk_level_bar_set_inverted(GTK_LEVEL_BAR(widget_progbar), TRUE);
-                    widget_databox = gtk_hbox_new (FALSE, 0);
+                    widget_databox = gtk_hbox_new (0);
                 }
                 else {
                     gtk_orientable_set_orientation (GTK_ORIENTABLE (widget_progbar),
                                                     GTK_ORIENTATION_HORIZONTAL);
                     gtk_level_bar_set_inverted(GTK_LEVEL_BAR(widget_progbar), FALSE);
-                    widget_databox = gtk_vbox_new (FALSE, 0);
+                    widget_databox = gtk_vbox_new (0);
                 }
 
                 sensors_set_levelbar_size (widget_progbar, size_panel,
@@ -972,7 +969,7 @@ static void
 create_panel_widget (t_sensors *sensors)
 {
     /* initialize a new vbox widget */
-    sensors->widget_sensors = (sensors->plugin_mode == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL) ? gtk_hbox_new (FALSE, 0) : gtk_vbox_new (FALSE, 0);
+    sensors->widget_sensors = gtk_box_new ((sensors->plugin_mode == XFCE_PANEL_PLUGIN_MODE_HORIZONTAL) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL, 0);
 
     /* initialize value label widget */
     sensors->panel_label_text = gtk_widget_new (GTK_TYPE_LABEL, "label", _("<span><b>Sensors</b></span>"), "use-markup", TRUE, "xalign", 0.0, "yalign", 0.5, "margin", INNER_BORDER, NULL);
@@ -1606,7 +1603,7 @@ list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,  t_sensors_dial
     GtkTreeModel *model;
     GtkTreePath *path;
     GtkTreeIter iter;
-    gboolean toggle_item;
+    gboolean show;
 
     if (dialog->sensors->display_values_type == DISPLAY_BARS) {
         sensors_remove_bars_panel (dialog->sensors);
@@ -1621,26 +1618,17 @@ list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,  t_sensors_dial
 
     /* get toggled iter */
     gtk_tree_model_get_iter (model, &iter, path);
-    gtk_tree_model_get (model, &iter, 2, &toggle_item, -1);
+    gtk_tree_model_get (model, &iter, 2, &show, -1);
 
     /* do something with the value */
-    toggle_item ^= 1;
-
-    if (!toggle_item)
-    {
-        GtkWidget *tacho = dialog->sensors->tachos[combo_box_active][atoi(path_str)];
-        gtk_container_remove (GTK_CONTAINER(dialog->sensors->widget_sensors), tacho);
-        gtk_widget_destroy(tacho);
-        dialog->sensors->tachos[combo_box_active][atoi(path_str)] = NULL;
-    }
+    show ^= 1;
 
     /* set new value */
-    gtk_tree_store_set (GTK_TREE_STORE (model), &iter, eTreeColumn_Show, toggle_item, -1);
+    gtk_tree_store_set (GTK_TREE_STORE (model), &iter, eTreeColumn_Show, show, -1);
     chip = (t_chip*) g_ptr_array_index(dialog->sensors->chips, combo_box_active);
 
     feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, atoi(path_str));
-
-    feature->show = toggle_item;
+    feature->show = show;
 
     /* clean up */
     gtk_tree_path_free (path);
@@ -1715,7 +1703,7 @@ add_ui_style_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 {
     GtkWidget *hbox, *label, *radioText, *radioBars, *radioTachos;
 
-    hbox = gtk_hbox_new (FALSE, BORDER);
+    hbox = gtk_hbox_new (BORDER);
     gtk_widget_show (hbox);
 
     label = gtk_label_new (_("UI style:"));
@@ -1751,7 +1739,7 @@ add_labels_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 {
     GtkWidget *hbox, *checkButton;
 
-    hbox = gtk_hbox_new (FALSE, BORDER);
+    hbox = gtk_hbox_new (BORDER);
     gtk_widget_show (hbox);
     dialog->labels_Box = hbox;
 
@@ -1772,7 +1760,7 @@ add_auto_bar_colors_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 {
     GtkWidget *hbox, *checkButton;
 
-    hbox = gtk_hbox_new (FALSE, BORDER);
+    hbox = gtk_hbox_new (BORDER);
 
     gtk_widget_show (hbox);
     dialog->coloredBars_Box = hbox;
@@ -1803,7 +1791,7 @@ add_title_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 {
     GtkWidget *hbox, *checkButton;
 
-    hbox = gtk_hbox_new (FALSE, BORDER);
+    hbox = gtk_hbox_new (BORDER);
     gtk_widget_show (hbox);
 
     checkButton = gtk_check_button_new_with_mnemonic (_("_Show title"));
@@ -1826,7 +1814,7 @@ add_lines_box (GtkWidget *vbox, t_sensors_dialog * dialog)
     GtkWidget *myLinesSizeSpinButton;
 
     myLinesLabel = gtk_label_new_with_mnemonic (_("_Number of text lines:"));
-    myLinesBox = gtk_hbox_new(FALSE, BORDER);
+    myLinesBox = gtk_hbox_new (BORDER);
     myLinesSizeSpinButton = gtk_spin_button_new_with_range  (1.0, 10.0, 1.0);
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(myLinesSizeSpinButton), (gdouble) dialog->sensors->lines_size);
 
@@ -1878,7 +1866,7 @@ add_str_fontsize_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     GtkWidget *myFontSizeComboBox;
 
     myFontLabel = gtk_label_new_with_mnemonic (_("F_ont size:"));
-    myFontBox = gtk_hbox_new(FALSE, BORDER);
+    myFontBox = gtk_hbox_new (BORDER);
     myFontSizeComboBox = gtk_combo_box_text_new();
 
     dialog->font_Box = myFontBox;
@@ -1912,7 +1900,7 @@ add_font_settings_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     GtkWidget *myFontSettingsButton;
 
     myFontLabel = gtk_label_new_with_mnemonic (_("F_ont:"));
-    myFontSettingsBox = gtk_hbox_new (FALSE, BORDER);
+    myFontSettingsBox = gtk_hbox_new (BORDER);
     myFontSettingsButton = gtk_font_button_new();
     gtk_font_chooser_set_font(GTK_FONT_CHOOSER(myFontSettingsButton), font);
     gtk_font_button_set_use_font(GTK_FONT_BUTTON(myFontSettingsButton), TRUE);
@@ -1975,7 +1963,7 @@ add_tachos_appearance_boxes(GtkWidget *vbox, t_sensors_dialog *dialog)
     GtkWidget *widget_hscale;
     GtkWidget *widget_label;
 
-    dialog->alpha_slider_box = gtk_hbox_new(FALSE, INNER_BORDER);
+    dialog->alpha_slider_box = gtk_hbox_new (INNER_BORDER);
     // Alpha value of the tacho coloring
     widget_label = gtk_label_new(_("Tacho color alpha value:"));
     gtk_widget_show (widget_label);
@@ -1988,7 +1976,7 @@ add_tachos_appearance_boxes(GtkWidget *vbox, t_sensors_dialog *dialog)
     gtk_widget_show (dialog->alpha_slider_box);
 
 
-    dialog->colorvalue_slider_box = gtk_hbox_new(FALSE, INNER_BORDER);
+    dialog->colorvalue_slider_box = gtk_hbox_new (INNER_BORDER);
     // The value from HSV color model
     widget_label = gtk_label_new(_("Tacho color value:"));
     gtk_widget_show (widget_label);
@@ -2048,7 +2036,7 @@ add_command_box (GtkWidget *vbox,  t_sensors_dialog *dialog)
 {
     GtkWidget *myBox;
 
-    myBox = gtk_hbox_new(FALSE, BORDER);
+    myBox = gtk_hbox_new (BORDER);
 
     dialog->myExecCommand_CheckBox = gtk_check_button_new_with_mnemonic (_("E_xecute on double click:"));
     gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (dialog->myExecCommand_CheckBox), dialog->sensors->exec_command);
@@ -2074,7 +2062,7 @@ add_view_frame (GtkWidget *notebook, t_sensors_dialog *dialog)
 {
     GtkWidget *vbox, *label, *frame;
 
-    vbox = gtk_vbox_new (FALSE, OUTER_BORDER);
+    vbox = gtk_vbox_new (OUTER_BORDER);
     gtk_widget_show (vbox);
 
     label = gtk_label_new_with_mnemonic(_("_View"));
@@ -2095,7 +2083,7 @@ add_view_frame (GtkWidget *notebook, t_sensors_dialog *dialog)
     gtk_box_pack_start (GTK_BOX (vbox), frame, FALSE, FALSE, 0);
     gtk_widget_show (frame);
 
-    vbox = gtk_vbox_new (FALSE, OUTER_BORDER);
+    vbox = gtk_vbox_new (OUTER_BORDER);
     gtk_container_set_border_width(GTK_CONTAINER(vbox), OUTER_BORDER);
     gtk_container_add(GTK_CONTAINER(frame), vbox);
     gtk_widget_show (vbox);
@@ -2116,7 +2104,7 @@ add_miscellaneous_frame (GtkWidget *notebook, t_sensors_dialog *dialog)
 {
     GtkWidget *vbox, *label;
 
-    vbox = gtk_vbox_new (FALSE, OUTER_BORDER);
+    vbox = gtk_vbox_new (OUTER_BORDER);
     gtk_widget_show (vbox);
 
     label = gtk_label_new_with_mnemonic (_("_Miscellaneous"));
