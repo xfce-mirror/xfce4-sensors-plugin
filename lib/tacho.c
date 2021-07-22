@@ -240,7 +240,7 @@ gboolean
 gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr)
 {
     GdkRGBA color;
-    int i = 0;
+    int i;
     double percent = 0;
     gint width, height;
     gint pos_xcenter, pos_ycenter;
@@ -254,8 +254,12 @@ gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr)
     gtk_widget_get_allocation(widget, &allocation);
 
     percent = tacho->sel;
-    if (percent > 1.0)
-        percent = 1.0;
+    if (G_UNLIKELY (!isnormal (percent)))
+        percent = 0;
+    else if (G_UNLIKELY (percent < 0))
+        percent = 0;
+    else if (G_UNLIKELY (percent > 1))
+        percent = 1;
 
     width = gtk_widget_get_allocated_width (widget);
     height = gtk_widget_get_allocated_height (widget);
@@ -415,12 +419,14 @@ gtk_sensorstacho_destroy(GtkWidget *widget)
 void
 gtk_sensorstacho_set_value (GtkSensorsTacho *tacho, gdouble value)
 {
-    if (value < 0)
-        value = 0.0;
-    else if (value > 1.0)
-        value = 1.0;
-
     g_return_if_fail (tacho != NULL);
+
+    if (G_UNLIKELY (isnormal (value)))
+        value = 0;
+    else if (G_UNLIKELY (value < 0))
+        value = 0;
+    else if (G_UNLIKELY (value > 1))
+        value = 1;
 
     tacho->sel = value;
 }

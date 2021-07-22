@@ -161,23 +161,24 @@ sensors_set_bar_color (t_labelledlevelbar *bar, const gchar *color_orNull,
 static double
 sensors_get_percentage (const t_chipfeature *feature)
 {
-    double feature_value, mival, maxval, percentage;
+    double val, minval, maxval;
 
     g_return_val_if_fail(feature != NULL, 0.0);
 
-    feature_value = feature->raw_value;
-    mival = feature->min_value;
+    val = feature->raw_value;
+    minval = feature->min_value;
     maxval = feature->max_value;
-    percentage = (feature_value - mival) / (maxval - mival);
-
-    if (percentage > 1.0) {
-        percentage = 1.0;
+    if (G_LIKELY (isnormal (val) && minval < maxval))
+    {
+        double percentage = (val - minval) / (maxval - minval);
+        if (percentage < 0)
+            percentage = 0;
+        else if (percentage > 1)
+            percentage = 1;
+        return percentage;
     }
-    else if (percentage <= 0.0) {
-        percentage = 0.0;
-    }
-
-    return percentage;
+    else
+        return 0;
 }
 
 
