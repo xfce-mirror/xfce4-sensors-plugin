@@ -246,6 +246,7 @@ sensors_remove_tacho_panel (t_sensors *sensors)
 
             if (feature->show) {
                 GtkWidget *tacho = sensors->tachos[idx_sensorchip][idx_feature];
+                sensors->tachos[idx_sensorchip][idx_feature] = NULL;
                 gtk_widget_hide (tacho);
                 gtk_widget_destroy (tacho);
             }
@@ -1606,7 +1607,7 @@ list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,  t_sensors_dial
     GtkTreeModel *model;
     GtkTreePath *path;
     GtkTreeIter iter;
-    gboolean toggle_item;
+    gboolean show;
 
     if (dialog->sensors->display_values_type == DISPLAY_BARS) {
         sensors_remove_bars_panel (dialog->sensors);
@@ -1621,26 +1622,17 @@ list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,  t_sensors_dial
 
     /* get toggled iter */
     gtk_tree_model_get_iter (model, &iter, path);
-    gtk_tree_model_get (model, &iter, 2, &toggle_item, -1);
+    gtk_tree_model_get (model, &iter, 2, &show, -1);
 
     /* do something with the value */
-    toggle_item ^= 1;
-
-    if (!toggle_item)
-    {
-        GtkWidget *tacho = dialog->sensors->tachos[combo_box_active][atoi(path_str)];
-        gtk_container_remove (GTK_CONTAINER(dialog->sensors->widget_sensors), tacho);
-        gtk_widget_destroy(tacho);
-        dialog->sensors->tachos[combo_box_active][atoi(path_str)] = NULL;
-    }
+    show ^= 1;
 
     /* set new value */
-    gtk_tree_store_set (GTK_TREE_STORE (model), &iter, eTreeColumn_Show, toggle_item, -1);
+    gtk_tree_store_set (GTK_TREE_STORE (model), &iter, eTreeColumn_Show, show, -1);
     chip = (t_chip*) g_ptr_array_index(dialog->sensors->chips, combo_box_active);
 
     feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, atoi(path_str));
-
-    feature->show = toggle_item;
+    feature->show = show;
 
     /* clean up */
     gtk_tree_path_free (path);
