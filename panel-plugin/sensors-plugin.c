@@ -168,7 +168,7 @@ sensors_get_percentage (const t_chipfeature *feature)
     val = feature->raw_value;
     minval = feature->min_value;
     maxval = feature->max_value;
-    if (G_LIKELY (isnormal (val) && minval < maxval))
+    if (G_LIKELY (!isnan (val) && minval < maxval))
     {
         double percentage = (val - minval) / (maxval - minval);
         if (percentage < 0)
