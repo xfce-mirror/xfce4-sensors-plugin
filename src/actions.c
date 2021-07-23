@@ -177,7 +177,7 @@ refresh_tacho_view (t_sensors_dialog *dialog)
                     fill_degree=1.0;
 
                 gtk_sensorstacho_set_value(ptr_sensorstacho, fill_degree);
-                snprintf(widget_tooltip_text, 128, "<b>%s</b>\n%s: %s", chip->sensorId, feature->name, feature->formatted_value);
+                snprintf(widget_tooltip_text, sizeof (widget_tooltip_text), "<b>%s</b>\n%s: %s", chip->sensorId, feature->name, feature->formatted_value);
                 gtk_widget_set_tooltip_markup (GTK_WIDGET(sensors->tachos [idx_chip][idx_feature]), widget_tooltip_text);
 
 
