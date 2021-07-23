@@ -223,31 +223,31 @@ find_chipfeature (const sensors_chip_name *name, t_chip *chip, const sensors_fea
             break;
         case SENSORS_FEATURE_FAN:
             sub_feature = sensors_get_subfeature (name, feature,
-                                                 SENSORS_SUBFEATURE_FAN_INPUT);
+                                                  SENSORS_SUBFEATURE_FAN_INPUT);
             break;
         case SENSORS_FEATURE_TEMP:
             sub_feature = sensors_get_subfeature (name, feature,
-                                                 SENSORS_SUBFEATURE_TEMP_INPUT);
+                                                  SENSORS_SUBFEATURE_TEMP_INPUT);
             break;
         case SENSORS_FEATURE_VID:
             sub_feature = sensors_get_subfeature (name, feature,
-                                                 SENSORS_SUBFEATURE_VID);
+                                                  SENSORS_SUBFEATURE_VID);
             break;
         case SENSORS_FEATURE_BEEP_ENABLE:
             sub_feature = sensors_get_subfeature (name, feature,
-                                                 SENSORS_SUBFEATURE_BEEP_ENABLE);
+                                                  SENSORS_SUBFEATURE_BEEP_ENABLE);
             break;
         case SENSORS_FEATURE_POWER:
             sub_feature = sensors_get_subfeature (name, feature,
-                                                 SENSORS_SUBFEATURE_POWER_INPUT);
+                                                  SENSORS_SUBFEATURE_POWER_INPUT);
             break;
         case SENSORS_FEATURE_ENERGY:
             sub_feature = sensors_get_subfeature (name, feature,
-                                                 SENSORS_SUBFEATURE_ENERGY_INPUT);
+                                                  SENSORS_SUBFEATURE_ENERGY_INPUT);
             break;
         case SENSORS_FEATURE_CURR:
             sub_feature = sensors_get_subfeature (name, feature,
-                                                 SENSORS_SUBFEATURE_CURR_INPUT);
+                                                  SENSORS_SUBFEATURE_CURR_INPUT);
             break;
         default:
             sub_feature = sensors_get_subfeature (name, feature,
@@ -267,8 +267,7 @@ find_chipfeature (const sensors_chip_name *name, t_chip *chip, const sensors_fea
 
         if (chip_feature->name)
         {
-            int res = sensors_get_value (name, number, &sensorFeature);
-            if (res==0)
+            if (sensors_get_value (name, number, &sensorFeature) == 0)
             {
                 setup_chipfeature_libsensors (chip_feature, feature, number, sensorFeature, name);
                 chip->num_features++;
@@ -299,24 +298,24 @@ initialize_libsensors (GPtrArray *chips)
         return -2;
     }
 
+    /* iterate over chips on mainboard */
     num_sensorchips = 0;
     detected_chip = sensors_get_detected_chips (NULL, &num_sensorchips);
-    /* iterate over chips on mainboard */
-    while (detected_chip!=NULL)
+    while (detected_chip)
     {
         t_chip *chip = setup_chip (chips, detected_chip);
         int nr1 = 0;
-        const sensors_feature *sfd;
+        const sensors_feature *sf;
 
         /* iterate over chip features, i.e. id, cpu temp, mb temp... */
-        sfd = sensors_get_features (detected_chip, &nr1);
-        while (sfd != NULL)
+        sf = sensors_get_features (detected_chip, &nr1);
+        while (sf != NULL)
         {
-            t_chipfeature *chip_feature = find_chipfeature (detected_chip, chip, sfd);
-            if (chip_feature!=NULL) {
+            t_chipfeature *chip_feature = find_chipfeature (detected_chip, chip, sf);
+            if (chip_feature) {
                 g_ptr_array_add (chip->chip_features, chip_feature);
             }
-            sfd = sensors_get_features (detected_chip, &nr1);
+            sf = sensors_get_features (detected_chip, &nr1);
         }
 
         detected_chip = sensors_get_detected_chips (NULL, &num_sensorchips);
