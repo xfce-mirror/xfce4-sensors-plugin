@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-05 00:47+0200\n"
-"PO-Revision-Date: 2021-04-04 22:47+0000\n"
+"POT-Creation-Date: 2021-07-22 00:48+0200\n"
+"PO-Revision-Date: 2021-07-21 22:48+0000\n"
 "Last-Translator: Xfce Bot <transifex@xfce.org>\n"
 "Language-Team: Korean (http://www.transifex.com/xfce/xfce-panel-plugins/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -21,14 +21,14 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.c:337 ../panel-plugin/sensors-plugin.c:455
-#: ../panel-plugin/sensors-plugin.c:1048
+#: ../panel-plugin/sensors-plugin.c:342 ../panel-plugin/sensors-plugin.c:457
+#: ../panel-plugin/sensors-plugin.c:977
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>센서</b></span>"
 
 #. output to stdout on command line, not very useful for user, except for
 #. tracing problems
-#: ../panel-plugin/sensors-plugin.c:925
+#: ../panel-plugin/sensors-plugin.c:854
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -36,140 +36,148 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "센서 플러그인:\n센서 기능 값을 읽는데 문제가 있는 것 같습니다.\n따라서 정상적인 동작을 보장할 수 없습니다.\n"
 
-#: ../panel-plugin/sensors-plugin.c:955
+#: ../panel-plugin/sensors-plugin.c:884
 msgid "No sensors selected!"
 msgstr "센서를 선택하지 않았습니다!"
 
-#: ../panel-plugin/sensors-plugin.c:1787
+#: ../panel-plugin/sensors-plugin.c:1720
 msgid "UI style:"
 msgstr "UI 형태:"
 
-#: ../panel-plugin/sensors-plugin.c:1788
+#: ../panel-plugin/sensors-plugin.c:1721
 msgid "_text"
 msgstr "본문(_T)"
 
-#: ../panel-plugin/sensors-plugin.c:1789
+#: ../panel-plugin/sensors-plugin.c:1722
 msgid "_progress bars"
 msgstr "진행 막대(_P)"
 
-#: ../panel-plugin/sensors-plugin.c:1790
+#: ../panel-plugin/sensors-plugin.c:1723
 msgid "_tachos"
 msgstr "타코(_T)"
 
-#: ../panel-plugin/sensors-plugin.c:1824
+#: ../panel-plugin/sensors-plugin.c:1757
 msgid "Show _labels"
 msgstr "레이블 표시(_L)"
 
-#: ../panel-plugin/sensors-plugin.c:1846
-msgid "Show colored _bars"
-msgstr "색깔있는 막대 표시(_B)"
+#: ../panel-plugin/sensors-plugin.c:1779
+msgid "_Automatic bar colors"
+msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1870
+#: ../panel-plugin/sensors-plugin.c:1781
+msgid ""
+"If enabled, bar colors depend on their values (normal, high, very high).\n"
+"If disabled, bars use the user-defined sensor colors.\n"
+"If a particular user-defined sensor color is unspecified,\n"
+"the bar color is derived from the current UI style."
+msgstr ""
+
+#: ../panel-plugin/sensors-plugin.c:1808
 msgid "_Show title"
 msgstr "제목 표시(_S)"
 
-#: ../panel-plugin/sensors-plugin.c:1889
+#: ../panel-plugin/sensors-plugin.c:1827
 msgid "_Number of text lines:"
 msgstr "본문 줄 수(_N):"
 
 #. The Xfce 4 panel can have several rows or columns. With such a mode,
 #. the plugins are allowed to span over all available rows/columns.
 #. When translating, "cover" might be replaced by "use" or "span".
-#: ../panel-plugin/sensors-plugin.c:1923
+#: ../panel-plugin/sensors-plugin.c:1859
 msgid "_Cover all panel rows/columns"
 msgstr "모든 패널 행 / 열 전환(_C)"
 
-#: ../panel-plugin/sensors-plugin.c:1943
+#: ../panel-plugin/sensors-plugin.c:1879
 msgid "F_ont size:"
 msgstr "글꼴 크기(_O):"
 
-#: ../panel-plugin/sensors-plugin.c:1949
+#: ../panel-plugin/sensors-plugin.c:1885
 msgid "x-small"
 msgstr "아주 작게"
 
-#: ../panel-plugin/sensors-plugin.c:1950
+#: ../panel-plugin/sensors-plugin.c:1886
 msgid "small"
 msgstr "작게"
 
-#: ../panel-plugin/sensors-plugin.c:1951
+#: ../panel-plugin/sensors-plugin.c:1887
 msgid "medium"
 msgstr "중간"
 
-#: ../panel-plugin/sensors-plugin.c:1952
+#: ../panel-plugin/sensors-plugin.c:1888
 msgid "large"
 msgstr "크게"
 
-#: ../panel-plugin/sensors-plugin.c:1953
+#: ../panel-plugin/sensors-plugin.c:1889
 msgid "x-large"
 msgstr "아주 크게"
 
-#: ../panel-plugin/sensors-plugin.c:1979
+#: ../panel-plugin/sensors-plugin.c:1913
 msgid "F_ont:"
 msgstr "글꼴(_O):"
 
-#: ../panel-plugin/sensors-plugin.c:2006
+#: ../panel-plugin/sensors-plugin.c:1938
 msgid "Show _Units"
 msgstr "단위 표시(_U)"
 
-#: ../panel-plugin/sensors-plugin.c:2024
+#: ../panel-plugin/sensors-plugin.c:1956
 msgid "Small horizontal s_pacing"
 msgstr "좁은 수평 공간(_P)"
 
 #. Alpha value of the tacho coloring
-#: ../panel-plugin/sensors-plugin.c:2047
+#: ../panel-plugin/sensors-plugin.c:1979
 msgid "Tacho color alpha value:"
 msgstr "타코 색상 알파값:"
 
 #. The value from HSV color model
-#: ../panel-plugin/sensors-plugin.c:2060
+#: ../panel-plugin/sensors-plugin.c:1992
 msgid "Tacho color value:"
 msgstr "타코 색상값:"
 
-#: ../panel-plugin/sensors-plugin.c:2085
+#: ../panel-plugin/sensors-plugin.c:2017
 msgid "Suppress messages"
 msgstr "메시지 숨김"
 
-#: ../panel-plugin/sensors-plugin.c:2100
+#: ../panel-plugin/sensors-plugin.c:2032
 msgid "Suppress tooltip"
 msgstr "풍선 도움말 숨김"
 
-#: ../panel-plugin/sensors-plugin.c:2120
+#: ../panel-plugin/sensors-plugin.c:2052
 msgid "E_xecute on double click:"
 msgstr "두번 누르면 실행(_X):"
 
-#: ../panel-plugin/sensors-plugin.c:2149
+#: ../panel-plugin/sensors-plugin.c:2079
 msgid "_View"
 msgstr "보기(_V)"
 
-#: ../panel-plugin/sensors-plugin.c:2162
+#: ../panel-plugin/sensors-plugin.c:2092
 msgid "UI style options"
 msgstr "UI 형태 옵션"
 
-#: ../panel-plugin/sensors-plugin.c:2191
+#: ../panel-plugin/sensors-plugin.c:2121
 msgid "_Miscellaneous"
 msgstr "기타(_M)"
 
-#: ../panel-plugin/sensors-plugin.c:2245 ../panel-plugin/sensors-plugin.h:31
+#: ../panel-plugin/sensors-plugin.c:2175 ../panel-plugin/sensors-plugin.h:31
 #: ../lib/hddtemp.c:151
 msgid "Sensors Plugin"
 msgstr "센서 플러그인"
 
-#: ../panel-plugin/sensors-plugin.c:2253
+#: ../panel-plugin/sensors-plugin.c:2183
 msgid "Properties"
 msgstr "속성"
 
-#: ../panel-plugin/sensors-plugin.c:2279
+#: ../panel-plugin/sensors-plugin.c:2209
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "이름, 색, 최대/최소 값과 같은 기능 속성을 항목을 두번 누르고 내용을 편집한 다음 \"리턴\"키를 누르거나 다른 필드를 선택하여 바꿀 수 있습니다."
 
-#: ../panel-plugin/sensors-plugin.c:2357
+#: ../panel-plugin/sensors-plugin.c:2292
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "LM 센서, ACPI, 하드디스크, NVIDIA의 센서 값을 표시합니다"
 
-#: ../panel-plugin/sensors-plugin.c:2359
+#: ../panel-plugin/sensors-plugin.c:2294
 msgid "Copyright (c) 2004-2021\n"
 msgstr ""
 
@@ -260,11 +268,11 @@ msgid ""
 "%s"
 msgstr "\"%s\"을(를) 실행하는데 오류가 발생했습니다:\n%s"
 
-#: ../lib/lmsensors.c:81
+#: ../lib/lmsensors.c:63
 msgid "LM Sensors"
 msgstr "LM 센서"
 
-#: ../lib/lmsensors.c:381 ../lib/lmsensors.c:425
+#: ../lib/lmsensors.c:297
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "오류: 센서에 연결할 수 없습니다!"
