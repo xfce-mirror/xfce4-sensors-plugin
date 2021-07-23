@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-05 00:47+0200\n"
-"PO-Revision-Date: 2021-04-07 10:08+0000\n"
+"POT-Creation-Date: 2021-07-22 00:48+0200\n"
+"PO-Revision-Date: 2021-07-22 09:43+0000\n"
 "Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/xfce/xfce-panel-plugins/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -20,14 +20,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.c:337 ../panel-plugin/sensors-plugin.c:455
-#: ../panel-plugin/sensors-plugin.c:1048
+#: ../panel-plugin/sensors-plugin.c:342 ../panel-plugin/sensors-plugin.c:457
+#: ../panel-plugin/sensors-plugin.c:977
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Сензори</b></span>"
 
 #. output to stdout on command line, not very useful for user, except for
 #. tracing problems
-#: ../panel-plugin/sensors-plugin.c:925
+#: ../panel-plugin/sensors-plugin.c:854
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -35,140 +35,148 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "Добавка Сензори:\nИзглежда е имало проблем с четенето на показанията на сензорите.\nПравилното поведение не е гарантирано.\n"
 
-#: ../panel-plugin/sensors-plugin.c:955
+#: ../panel-plugin/sensors-plugin.c:884
 msgid "No sensors selected!"
 msgstr "Не са избрани сензори!"
 
-#: ../panel-plugin/sensors-plugin.c:1787
+#: ../panel-plugin/sensors-plugin.c:1720
 msgid "UI style:"
 msgstr "UI стил:"
 
-#: ../panel-plugin/sensors-plugin.c:1788
+#: ../panel-plugin/sensors-plugin.c:1721
 msgid "_text"
 msgstr "текст"
 
-#: ../panel-plugin/sensors-plugin.c:1789
+#: ../panel-plugin/sensors-plugin.c:1722
 msgid "_progress bars"
 msgstr "ленти с прогреса"
 
-#: ../panel-plugin/sensors-plugin.c:1790
+#: ../panel-plugin/sensors-plugin.c:1723
 msgid "_tachos"
 msgstr "tachos"
 
-#: ../panel-plugin/sensors-plugin.c:1824
+#: ../panel-plugin/sensors-plugin.c:1757
 msgid "Show _labels"
 msgstr "Покажи етикети"
 
-#: ../panel-plugin/sensors-plugin.c:1846
-msgid "Show colored _bars"
-msgstr "Покажи оцветени ленти"
+#: ../panel-plugin/sensors-plugin.c:1779
+msgid "_Automatic bar colors"
+msgstr "_Автоматични цветове на лентата"
 
-#: ../panel-plugin/sensors-plugin.c:1870
+#: ../panel-plugin/sensors-plugin.c:1781
+msgid ""
+"If enabled, bar colors depend on their values (normal, high, very high).\n"
+"If disabled, bars use the user-defined sensor colors.\n"
+"If a particular user-defined sensor color is unspecified,\n"
+"the bar color is derived from the current UI style."
+msgstr "Ако е активирано, цветовете на лентата зависят от техните стойности (нормални, високи, много високи).\nАко е деактивирано, лентите използват дефинираните от потребителя цветове на сензора.\nАко определен определен от потребителя цвят на сензора не е посочен,\nцветът на лентата се извлича от текущия стил на потребителския интерфейс. "
+
+#: ../panel-plugin/sensors-plugin.c:1808
 msgid "_Show title"
 msgstr "Покажи заглавие"
 
-#: ../panel-plugin/sensors-plugin.c:1889
+#: ../panel-plugin/sensors-plugin.c:1827
 msgid "_Number of text lines:"
 msgstr "Брой на тестовите редове:"
 
 #. The Xfce 4 panel can have several rows or columns. With such a mode,
 #. the plugins are allowed to span over all available rows/columns.
 #. When translating, "cover" might be replaced by "use" or "span".
-#: ../panel-plugin/sensors-plugin.c:1923
+#: ../panel-plugin/sensors-plugin.c:1859
 msgid "_Cover all panel rows/columns"
 msgstr "_Покриване на всички редове/колони в панела"
 
-#: ../panel-plugin/sensors-plugin.c:1943
+#: ../panel-plugin/sensors-plugin.c:1879
 msgid "F_ont size:"
 msgstr "Размер на шрифт"
 
-#: ../panel-plugin/sensors-plugin.c:1949
+#: ../panel-plugin/sensors-plugin.c:1885
 msgid "x-small"
 msgstr "много малък"
 
-#: ../panel-plugin/sensors-plugin.c:1950
+#: ../panel-plugin/sensors-plugin.c:1886
 msgid "small"
 msgstr "малък"
 
-#: ../panel-plugin/sensors-plugin.c:1951
+#: ../panel-plugin/sensors-plugin.c:1887
 msgid "medium"
 msgstr "среден"
 
-#: ../panel-plugin/sensors-plugin.c:1952
+#: ../panel-plugin/sensors-plugin.c:1888
 msgid "large"
 msgstr "голям"
 
-#: ../panel-plugin/sensors-plugin.c:1953
+#: ../panel-plugin/sensors-plugin.c:1889
 msgid "x-large"
 msgstr "много голям"
 
-#: ../panel-plugin/sensors-plugin.c:1979
+#: ../panel-plugin/sensors-plugin.c:1913
 msgid "F_ont:"
 msgstr "Шрифт:"
 
-#: ../panel-plugin/sensors-plugin.c:2006
+#: ../panel-plugin/sensors-plugin.c:1938
 msgid "Show _Units"
 msgstr "Покажи единици"
 
-#: ../panel-plugin/sensors-plugin.c:2024
+#: ../panel-plugin/sensors-plugin.c:1956
 msgid "Small horizontal s_pacing"
 msgstr "Малко хоризонтално разстояние"
 
 #. Alpha value of the tacho coloring
-#: ../panel-plugin/sensors-plugin.c:2047
+#: ../panel-plugin/sensors-plugin.c:1979
 msgid "Tacho color alpha value:"
 msgstr "Тахо-цвят алфа стойност:"
 
 #. The value from HSV color model
-#: ../panel-plugin/sensors-plugin.c:2060
+#: ../panel-plugin/sensors-plugin.c:1992
 msgid "Tacho color value:"
 msgstr "Стойност на тахо-цвят:"
 
-#: ../panel-plugin/sensors-plugin.c:2085
+#: ../panel-plugin/sensors-plugin.c:2017
 msgid "Suppress messages"
 msgstr "Блокиране на съобщенията"
 
-#: ../panel-plugin/sensors-plugin.c:2100
+#: ../panel-plugin/sensors-plugin.c:2032
 msgid "Suppress tooltip"
 msgstr "Блокиране на подсказките"
 
-#: ../panel-plugin/sensors-plugin.c:2120
+#: ../panel-plugin/sensors-plugin.c:2052
 msgid "E_xecute on double click:"
 msgstr "Изпълнение при двойно кликване:"
 
-#: ../panel-plugin/sensors-plugin.c:2149
+#: ../panel-plugin/sensors-plugin.c:2079
 msgid "_View"
 msgstr "Преглед"
 
-#: ../panel-plugin/sensors-plugin.c:2162
+#: ../panel-plugin/sensors-plugin.c:2092
 msgid "UI style options"
 msgstr "Настройка на изгледа"
 
-#: ../panel-plugin/sensors-plugin.c:2191
+#: ../panel-plugin/sensors-plugin.c:2121
 msgid "_Miscellaneous"
 msgstr "Разни"
 
-#: ../panel-plugin/sensors-plugin.c:2245 ../panel-plugin/sensors-plugin.h:31
+#: ../panel-plugin/sensors-plugin.c:2175 ../panel-plugin/sensors-plugin.h:31
 #: ../lib/hddtemp.c:151
 msgid "Sensors Plugin"
 msgstr "Добавка Сензори"
 
-#: ../panel-plugin/sensors-plugin.c:2253
+#: ../panel-plugin/sensors-plugin.c:2183
 msgid "Properties"
 msgstr "Свойства"
 
-#: ../panel-plugin/sensors-plugin.c:2279
+#: ../panel-plugin/sensors-plugin.c:2209
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "Можете да промените свойствата на елемента, като име, цветове, мин./макс. стойност чрез двукратно щракване върху елемента, редактиране на съдържанието и натискане на „Return“ или избор на друга област."
 
-#: ../panel-plugin/sensors-plugin.c:2357
+#: ../panel-plugin/sensors-plugin.c:2292
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Покажи показанията на сензорите от LM sensors, ACPI, hard disks, NVIDIA"
 
-#: ../panel-plugin/sensors-plugin.c:2359
+#: ../panel-plugin/sensors-plugin.c:2294
 msgid "Copyright (c) 2004-2021\n"
 msgstr "Авторски права (c) 2004-2021\n"
 
@@ -259,11 +267,11 @@ msgid ""
 "%s"
 msgstr "Възникна грешка при изпълнение на „%s“:\n%s"
 
-#: ../lib/lmsensors.c:81
+#: ../lib/lmsensors.c:63
 msgid "LM Sensors"
 msgstr "LM Сензори"
 
-#: ../lib/lmsensors.c:381 ../lib/lmsensors.c:425
+#: ../lib/lmsensors.c:297
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Грешка: Неуспешно свързване със сензорите!"
