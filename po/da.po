@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-05 00:47+0200\n"
-"PO-Revision-Date: 2021-04-11 20:02+0000\n"
-"Last-Translator: scootergrisen\n"
+"POT-Creation-Date: 2021-07-22 00:48+0200\n"
+"PO-Revision-Date: 2021-07-21 22:48+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,14 +23,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.c:337 ../panel-plugin/sensors-plugin.c:455
-#: ../panel-plugin/sensors-plugin.c:1048
+#: ../panel-plugin/sensors-plugin.c:342 ../panel-plugin/sensors-plugin.c:457
+#: ../panel-plugin/sensors-plugin.c:977
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Sensorer</b></span>"
 
 #. output to stdout on command line, not very useful for user, except for
 #. tracing problems
-#: ../panel-plugin/sensors-plugin.c:925
+#: ../panel-plugin/sensors-plugin.c:854
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -38,140 +38,148 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "Sensorer-plugin:\nDet lader til, at der var problemer med at læse værdien af en sensorfunktion.\nDer er ingen garanti for at det virker korrekt hvis du fortsætter.\n"
 
-#: ../panel-plugin/sensors-plugin.c:955
+#: ../panel-plugin/sensors-plugin.c:884
 msgid "No sensors selected!"
 msgstr "Ingen sensorer valgt!"
 
-#: ../panel-plugin/sensors-plugin.c:1787
+#: ../panel-plugin/sensors-plugin.c:1720
 msgid "UI style:"
 msgstr "Brugerfladens stil:"
 
-#: ../panel-plugin/sensors-plugin.c:1788
+#: ../panel-plugin/sensors-plugin.c:1721
 msgid "_text"
 msgstr "_tekst"
 
-#: ../panel-plugin/sensors-plugin.c:1789
+#: ../panel-plugin/sensors-plugin.c:1722
 msgid "_progress bars"
 msgstr "_Forløbsbjælker"
 
-#: ../panel-plugin/sensors-plugin.c:1790
+#: ../panel-plugin/sensors-plugin.c:1723
 msgid "_tachos"
 msgstr "_tachometre"
 
-#: ../panel-plugin/sensors-plugin.c:1824
+#: ../panel-plugin/sensors-plugin.c:1757
 msgid "Show _labels"
 msgstr "Vi_s etiketter"
 
-#: ../panel-plugin/sensors-plugin.c:1846
-msgid "Show colored _bars"
-msgstr "Vis farvede _bjælker"
+#: ../panel-plugin/sensors-plugin.c:1779
+msgid "_Automatic bar colors"
+msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1870
+#: ../panel-plugin/sensors-plugin.c:1781
+msgid ""
+"If enabled, bar colors depend on their values (normal, high, very high).\n"
+"If disabled, bars use the user-defined sensor colors.\n"
+"If a particular user-defined sensor color is unspecified,\n"
+"the bar color is derived from the current UI style."
+msgstr ""
+
+#: ../panel-plugin/sensors-plugin.c:1808
 msgid "_Show title"
 msgstr "Vi_s titel"
 
-#: ../panel-plugin/sensors-plugin.c:1889
+#: ../panel-plugin/sensors-plugin.c:1827
 msgid "_Number of text lines:"
 msgstr "_Antal tekstlinjer:"
 
 #. The Xfce 4 panel can have several rows or columns. With such a mode,
 #. the plugins are allowed to span over all available rows/columns.
 #. When translating, "cover" might be replaced by "use" or "span".
-#: ../panel-plugin/sensors-plugin.c:1923
+#: ../panel-plugin/sensors-plugin.c:1859
 msgid "_Cover all panel rows/columns"
 msgstr "_Dæk alle panelrækker/-kolonner"
 
-#: ../panel-plugin/sensors-plugin.c:1943
+#: ../panel-plugin/sensors-plugin.c:1879
 msgid "F_ont size:"
 msgstr "_Størrelse på skrifttype:"
 
-#: ../panel-plugin/sensors-plugin.c:1949
+#: ../panel-plugin/sensors-plugin.c:1885
 msgid "x-small"
 msgstr "ekstra lille"
 
-#: ../panel-plugin/sensors-plugin.c:1950
+#: ../panel-plugin/sensors-plugin.c:1886
 msgid "small"
 msgstr "lille"
 
-#: ../panel-plugin/sensors-plugin.c:1951
+#: ../panel-plugin/sensors-plugin.c:1887
 msgid "medium"
 msgstr "mellem"
 
-#: ../panel-plugin/sensors-plugin.c:1952
+#: ../panel-plugin/sensors-plugin.c:1888
 msgid "large"
 msgstr "stor"
 
-#: ../panel-plugin/sensors-plugin.c:1953
+#: ../panel-plugin/sensors-plugin.c:1889
 msgid "x-large"
 msgstr "ekstra stor"
 
-#: ../panel-plugin/sensors-plugin.c:1979
+#: ../panel-plugin/sensors-plugin.c:1913
 msgid "F_ont:"
 msgstr "_Skrifttype:"
 
-#: ../panel-plugin/sensors-plugin.c:2006
+#: ../panel-plugin/sensors-plugin.c:1938
 msgid "Show _Units"
 msgstr "Vis _enheder"
 
-#: ../panel-plugin/sensors-plugin.c:2024
+#: ../panel-plugin/sensors-plugin.c:1956
 msgid "Small horizontal s_pacing"
 msgstr "Lille vandret _mellemrum"
 
 #. Alpha value of the tacho coloring
-#: ../panel-plugin/sensors-plugin.c:2047
+#: ../panel-plugin/sensors-plugin.c:1979
 msgid "Tacho color alpha value:"
 msgstr "Alfaværdi for tachometerets farve:"
 
 #. The value from HSV color model
-#: ../panel-plugin/sensors-plugin.c:2060
+#: ../panel-plugin/sensors-plugin.c:1992
 msgid "Tacho color value:"
 msgstr "Værdi for tachometerets farve:"
 
-#: ../panel-plugin/sensors-plugin.c:2085
+#: ../panel-plugin/sensors-plugin.c:2017
 msgid "Suppress messages"
 msgstr "Undertryk meddelelser"
 
-#: ../panel-plugin/sensors-plugin.c:2100
+#: ../panel-plugin/sensors-plugin.c:2032
 msgid "Suppress tooltip"
 msgstr "Undertryk værktøjstip"
 
-#: ../panel-plugin/sensors-plugin.c:2120
+#: ../panel-plugin/sensors-plugin.c:2052
 msgid "E_xecute on double click:"
 msgstr "Kø_r ved dobbeltklik:"
 
-#: ../panel-plugin/sensors-plugin.c:2149
+#: ../panel-plugin/sensors-plugin.c:2079
 msgid "_View"
 msgstr "_Visning"
 
-#: ../panel-plugin/sensors-plugin.c:2162
+#: ../panel-plugin/sensors-plugin.c:2092
 msgid "UI style options"
 msgstr "Valgmuligheder for brugerfladens stil"
 
-#: ../panel-plugin/sensors-plugin.c:2191
+#: ../panel-plugin/sensors-plugin.c:2121
 msgid "_Miscellaneous"
 msgstr "_Diverse"
 
-#: ../panel-plugin/sensors-plugin.c:2245 ../panel-plugin/sensors-plugin.h:31
+#: ../panel-plugin/sensors-plugin.c:2175 ../panel-plugin/sensors-plugin.h:31
 #: ../lib/hddtemp.c:151
 msgid "Sensors Plugin"
 msgstr "Sensorer-plugin"
 
-#: ../panel-plugin/sensors-plugin.c:2253
+#: ../panel-plugin/sensors-plugin.c:2183
 msgid "Properties"
 msgstr "Egenskaber"
 
-#: ../panel-plugin/sensors-plugin.c:2279
+#: ../panel-plugin/sensors-plugin.c:2209
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "Du kan ændre egenskaberne for en funktion såsom navn, farver, minimum-/maksimumværdier ved at dobbeltklikke på indtastningen, redigere indholdet og trykke på \"Retur\" eller vælge et andet felt."
 
-#: ../panel-plugin/sensors-plugin.c:2357
+#: ../panel-plugin/sensors-plugin.c:2292
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Vis sensorværdier fra LM-sensorer, ACPI, harddiske, NVIDIA"
 
-#: ../panel-plugin/sensors-plugin.c:2359
+#: ../panel-plugin/sensors-plugin.c:2294
 msgid "Copyright (c) 2004-2021\n"
 msgstr "Ophavsret (c) 2004-2021\n"
 
@@ -262,11 +270,11 @@ msgid ""
 "%s"
 msgstr "Der opstod en fejl ved kørsel af \"%s\":\n%s"
 
-#: ../lib/lmsensors.c:81
+#: ../lib/lmsensors.c:63
 msgid "LM Sensors"
 msgstr "LM-sensorer"
 
-#: ../lib/lmsensors.c:381 ../lib/lmsensors.c:425
+#: ../lib/lmsensors.c:297
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Fejl: Kunne ikke oprette forbindelse til sensorer!"
