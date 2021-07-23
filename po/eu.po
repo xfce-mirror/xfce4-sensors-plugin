@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-05 00:47+0200\n"
-"PO-Revision-Date: 2021-04-05 15:39+0000\n"
-"Last-Translator: beriain\n"
+"POT-Creation-Date: 2021-07-22 00:48+0200\n"
+"PO-Revision-Date: 2021-07-21 22:48+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
 "Language-Team: Basque (http://www.transifex.com/xfce/xfce-panel-plugins/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,14 +20,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.c:337 ../panel-plugin/sensors-plugin.c:455
-#: ../panel-plugin/sensors-plugin.c:1048
+#: ../panel-plugin/sensors-plugin.c:342 ../panel-plugin/sensors-plugin.c:457
+#: ../panel-plugin/sensors-plugin.c:977
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Sentsoreak</b></span>"
 
 #. output to stdout on command line, not very useful for user, except for
 #. tracing problems
-#: ../panel-plugin/sensors-plugin.c:925
+#: ../panel-plugin/sensors-plugin.c:854
 #, c-format
 msgid ""
 "Sensors Plugin:\n"
@@ -35,140 +35,148 @@ msgid ""
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "Sentsore plugina: \nDirudienez arazo bat dago sentsore ezaugarri balioa irakurtzerakoan. \nEzin da behar bezala ibiliko denik ziurtatu.\n"
 
-#: ../panel-plugin/sensors-plugin.c:955
+#: ../panel-plugin/sensors-plugin.c:884
 msgid "No sensors selected!"
 msgstr "Ez da sentsorerik hautatu!"
 
-#: ../panel-plugin/sensors-plugin.c:1787
+#: ../panel-plugin/sensors-plugin.c:1720
 msgid "UI style:"
 msgstr "UI estiloa:"
 
-#: ../panel-plugin/sensors-plugin.c:1788
+#: ../panel-plugin/sensors-plugin.c:1721
 msgid "_text"
 msgstr "_testua"
 
-#: ../panel-plugin/sensors-plugin.c:1789
+#: ../panel-plugin/sensors-plugin.c:1722
 msgid "_progress bars"
 msgstr "_aurrerapen  barra"
 
-#: ../panel-plugin/sensors-plugin.c:1790
+#: ../panel-plugin/sensors-plugin.c:1723
 msgid "_tachos"
 msgstr "kon_tagailuak"
 
-#: ../panel-plugin/sensors-plugin.c:1824
+#: ../panel-plugin/sensors-plugin.c:1757
 msgid "Show _labels"
 msgstr "Ikusi _etiketak"
 
-#: ../panel-plugin/sensors-plugin.c:1846
-msgid "Show colored _bars"
-msgstr "Ikusi koloretako _barrak "
+#: ../panel-plugin/sensors-plugin.c:1779
+msgid "_Automatic bar colors"
+msgstr ""
 
-#: ../panel-plugin/sensors-plugin.c:1870
+#: ../panel-plugin/sensors-plugin.c:1781
+msgid ""
+"If enabled, bar colors depend on their values (normal, high, very high).\n"
+"If disabled, bars use the user-defined sensor colors.\n"
+"If a particular user-defined sensor color is unspecified,\n"
+"the bar color is derived from the current UI style."
+msgstr ""
+
+#: ../panel-plugin/sensors-plugin.c:1808
 msgid "_Show title"
 msgstr "Ikusi _izenburua"
 
-#: ../panel-plugin/sensors-plugin.c:1889
+#: ../panel-plugin/sensors-plugin.c:1827
 msgid "_Number of text lines:"
 msgstr "_Testu lerro kopurua:"
 
 #. The Xfce 4 panel can have several rows or columns. With such a mode,
 #. the plugins are allowed to span over all available rows/columns.
 #. When translating, "cover" might be replaced by "use" or "span".
-#: ../panel-plugin/sensors-plugin.c:1923
+#: ../panel-plugin/sensors-plugin.c:1859
 msgid "_Cover all panel rows/columns"
 msgstr "Panelaren lerro/zutabe guztiak estali"
 
-#: ../panel-plugin/sensors-plugin.c:1943
+#: ../panel-plugin/sensors-plugin.c:1879
 msgid "F_ont size:"
 msgstr "Letra-tip_o tamaina:"
 
-#: ../panel-plugin/sensors-plugin.c:1949
+#: ../panel-plugin/sensors-plugin.c:1885
 msgid "x-small"
 msgstr "oso txikia"
 
-#: ../panel-plugin/sensors-plugin.c:1950
+#: ../panel-plugin/sensors-plugin.c:1886
 msgid "small"
 msgstr "txikia"
 
-#: ../panel-plugin/sensors-plugin.c:1951
+#: ../panel-plugin/sensors-plugin.c:1887
 msgid "medium"
 msgstr "ertaina"
 
-#: ../panel-plugin/sensors-plugin.c:1952
+#: ../panel-plugin/sensors-plugin.c:1888
 msgid "large"
 msgstr "handia"
 
-#: ../panel-plugin/sensors-plugin.c:1953
+#: ../panel-plugin/sensors-plugin.c:1889
 msgid "x-large"
 msgstr "oso handia"
 
-#: ../panel-plugin/sensors-plugin.c:1979
+#: ../panel-plugin/sensors-plugin.c:1913
 msgid "F_ont:"
 msgstr "Letra-tip_oa:"
 
-#: ../panel-plugin/sensors-plugin.c:2006
+#: ../panel-plugin/sensors-plugin.c:1938
 msgid "Show _Units"
 msgstr "Ikusi _unitateak"
 
-#: ../panel-plugin/sensors-plugin.c:2024
+#: ../panel-plugin/sensors-plugin.c:1956
 msgid "Small horizontal s_pacing"
 msgstr "Ikusi _zuriune horizontala"
 
 #. Alpha value of the tacho coloring
-#: ../panel-plugin/sensors-plugin.c:2047
+#: ../panel-plugin/sensors-plugin.c:1979
 msgid "Tacho color alpha value:"
 msgstr "Takometroaren kolorearen alfa balioa:"
 
 #. The value from HSV color model
-#: ../panel-plugin/sensors-plugin.c:2060
+#: ../panel-plugin/sensors-plugin.c:1992
 msgid "Tacho color value:"
 msgstr "Takometroaren kolorearen balioa:"
 
-#: ../panel-plugin/sensors-plugin.c:2085
+#: ../panel-plugin/sensors-plugin.c:2017
 msgid "Suppress messages"
 msgstr "Ezabatu mezuak"
 
-#: ../panel-plugin/sensors-plugin.c:2100
+#: ../panel-plugin/sensors-plugin.c:2032
 msgid "Suppress tooltip"
 msgstr "Argibide leihoa kendu"
 
-#: ../panel-plugin/sensors-plugin.c:2120
+#: ../panel-plugin/sensors-plugin.c:2052
 msgid "E_xecute on double click:"
 msgstr "Klik bikoitzarekin e_xekutatu:"
 
-#: ../panel-plugin/sensors-plugin.c:2149
+#: ../panel-plugin/sensors-plugin.c:2079
 msgid "_View"
 msgstr "_Ikusi"
 
-#: ../panel-plugin/sensors-plugin.c:2162
+#: ../panel-plugin/sensors-plugin.c:2092
 msgid "UI style options"
 msgstr "Erabiltzaile-interfazearen estilo aukerak"
 
-#: ../panel-plugin/sensors-plugin.c:2191
+#: ../panel-plugin/sensors-plugin.c:2121
 msgid "_Miscellaneous"
 msgstr "_Bestelakoak"
 
-#: ../panel-plugin/sensors-plugin.c:2245 ../panel-plugin/sensors-plugin.h:31
+#: ../panel-plugin/sensors-plugin.c:2175 ../panel-plugin/sensors-plugin.h:31
 #: ../lib/hddtemp.c:151
 msgid "Sensors Plugin"
 msgstr "Sentsore Plugina"
 
-#: ../panel-plugin/sensors-plugin.c:2253
+#: ../panel-plugin/sensors-plugin.c:2183
 msgid "Properties"
 msgstr "Propietateak"
 
-#: ../panel-plugin/sensors-plugin.c:2279
+#: ../panel-plugin/sensors-plugin.c:2209
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "Izena, koloreak, geh/gut balioa bezalako propietateak aldatu ditzakezu sarreran klik bikoitza eginez, eduki editatu, eta \"Return\" sakatu edo beste eremu bat hautatuaz."
 
-#: ../panel-plugin/sensors-plugin.c:2357
+#: ../panel-plugin/sensors-plugin.c:2292
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Sentsoreetako balioak ikusi LM sentsoreetatik, ACPI, disko gogor edota NVIDIAtik"
 
-#: ../panel-plugin/sensors-plugin.c:2359
+#: ../panel-plugin/sensors-plugin.c:2294
 msgid "Copyright (c) 2004-2021\n"
 msgstr "Copyright (c) 2004-2021\n"
 
@@ -259,11 +267,11 @@ msgid ""
 "%s"
 msgstr "Errore bat gertatu da \"%s\" exekutatzean:\n%s"
 
-#: ../lib/lmsensors.c:81
+#: ../lib/lmsensors.c:63
 msgid "LM Sensors"
 msgstr "LM sentsoreak"
 
-#: ../lib/lmsensors.c:381 ../lib/lmsensors.c:425
+#: ../lib/lmsensors.c:297
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Errorea: Ezin da sentsoreetara konektatu!"
