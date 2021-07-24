@@ -99,6 +99,7 @@ sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
     sensors->str_fontsize = g_strdup ("medium");
     sensors->val_fontsize = 2;
     sensors->lines_size = 3;
+    sensors->text.reset_size = true;
 
     sensors->automatic_bar_colors = FALSE;
     sensors->sensors_refresh_time = 60;

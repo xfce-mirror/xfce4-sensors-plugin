@@ -317,10 +317,8 @@ add_temperature_unit_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     gtk_widget_show (button_fahrenheit);
     gtk_widget_show (label);
 
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(button_celsius),
-                                  dialog->sensors->scale == CELSIUS);
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(button_fahrenheit),
-                                  dialog->sensors->scale == FAHRENHEIT);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(button_celsius), dialog->sensors->scale == CELSIUS);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(button_fahrenheit), dialog->sensors->scale == FAHRENHEIT);
 
     gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 0);
     gtk_box_pack_start (GTK_BOX (hbox), button_celsius, FALSE, FALSE, 0);
@@ -328,8 +326,7 @@ add_temperature_unit_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 
     gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, TRUE, 0);
 
-    g_signal_connect (G_OBJECT (button_celsius), "toggled",
-                      G_CALLBACK (temperature_unit_change), dialog );
+    g_signal_connect (G_OBJECT (button_celsius), "toggled", G_CALLBACK (temperature_unit_change), dialog );
 }
 
 

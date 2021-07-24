@@ -53,11 +53,14 @@ typedef struct {
     /** our XfceSensors widget */
     GtkWidget *widget_sensors;
 
-    /** panel value display */
-    GtkWidget *panel_label_data;
-
     /** optional label for plugin */
     GtkWidget *panel_label_text;
+
+    /** text UI style */
+	struct {
+		GtkWidget *draw_area;
+		bool reset_size:1;
+	} text;
 
     /** update the tooltip */
     gint timeout_id;
