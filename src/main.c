@@ -187,7 +187,7 @@ main (int argc, char **argv)
 
     /* show window and run forever */
     gtk_widget_show_all(window); /* to make sure everything is shown */
-    gtk_window_resize(GTK_WINDOW(window), 400, 500);
+    gtk_window_resize(GTK_WINDOW(window), 800, 500);
 
     gtk_main();
 
