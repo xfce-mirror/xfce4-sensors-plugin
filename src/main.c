@@ -187,16 +187,10 @@ main (int argc, char **argv)
 
     /* show window and run forever */
     gtk_widget_show_all(window); /* to make sure everything is shown */
-    gtk_window_resize(GTK_WINDOW(window), 400, 500);
+    gtk_window_resize(GTK_WINDOW(window), 800, 500);
 
     gtk_main();
 
-    /* do the cleaning? */
-    free_widgets(ptr_sensors_dialog); /* counterpart to init_widgets() inside create_main_window() */
-    gtk_widget_destroy(window);
-
-    g_free (ptr_sensors_dialog->sensors);
-    g_free (ptr_sensors_dialog);
-
+    /* Just exit, leave memory deallocation and window closing to the operating system. */
     return 0;
 }
