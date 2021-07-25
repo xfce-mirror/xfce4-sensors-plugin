@@ -43,13 +43,11 @@ AC_ARG_ENABLE([libsensors],
             [enable_libsensors=auto])
 
 if test x"$enable_libsensors" = x"auto"; then
-    AC_CHECK_LIB([sensors], [sensors_get_detected_chips],
-    [
-        enable_libsensors=yes
-    ],
-    [
-        enable_libsensors=no
-    ])
+    AC_CHECK_LIB([sensors], [sensors_get_detected_chips], [enable_libsensors=yes], [enable_libsensors=no])
+else
+    if test x"$enable_libsensors" = x"yes"; then
+        AC_CHECK_LIB([sensors], [sensors_get_detected_chips], [], [AC_MSG_ERROR(could not find libsensors)])
+    fi
 fi
 
 if test x"$enable_libsensors" = x"yes"; then
@@ -268,8 +266,8 @@ AC_CHECK_HEADERS([unistd.h])
 AC_CHECK_HEADERS([sys/sockio.h])
 AC_HEADER_SYS_WAIT
 
-AC_CHECK_LIB(kstat, kstat_open, SOLLIBS="-lkstat -lsocket", SOLLIBS="")
-AC_CHECK_LIB(nsl, kstat_open, SOLLIBS="$SOLLIBS -linet_ntop", SOLLIBS="$SOLLIBS")
+AC_CHECK_LIB([kstat], [kstat_open], SOLLIBS="-lkstat -lsocket", SOLLIBS="")
+AC_CHECK_LIB([nsl], [kstat_open], SOLLIBS="$SOLLIBS -linet_ntop", SOLLIBS="$SOLLIBS")
 AC_SUBST(SOLLIBS)
 
 dnl **************************************
