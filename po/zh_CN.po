@@ -5,6 +5,7 @@
 # Translators:
 # Chipong Luo <chipong.luo@yahoo.com>, 2011-2012
 # Hunt Xu <huntxu@live.cn>, 2009
+# Xiaobo Zhou <zhouxiaobo.500@gmail.com>, 2021
 # 玉堂白鹤 <yjwork@qq.com>, 2014
 # 玉堂白鹤 <yjwork@qq.com>, 2014,2017-2018,2021
 msgid ""
@@ -12,8 +13,8 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-22 00:48+0200\n"
-"PO-Revision-Date: 2021-07-21 22:48+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2021-07-25 04:41+0000\n"
+"Last-Translator: Xiaobo Zhou <zhouxiaobo.500@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/xfce/xfce-panel-plugins/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,7 +64,7 @@ msgstr "显示标签(_L)"
 
 #: ../panel-plugin/sensors-plugin.c:1779
 msgid "_Automatic bar colors"
-msgstr ""
+msgstr "自动更改条块颜色(_A)"
 
 #: ../panel-plugin/sensors-plugin.c:1781
 msgid ""
@@ -71,7 +72,7 @@ msgid ""
 "If disabled, bars use the user-defined sensor colors.\n"
 "If a particular user-defined sensor color is unspecified,\n"
 "the bar color is derived from the current UI style."
-msgstr ""
+msgstr "若开启该功能， 条块的颜色将会根据具体的数值(正常、高、非常高)区分显示。\n若关闭，条块的颜色将会依用户设置而定。\n若颜色未设置， 条块的颜色将会按照当前的UI界面风格设置。"
 
 #: ../panel-plugin/sensors-plugin.c:1808
 msgid "_Show title"
