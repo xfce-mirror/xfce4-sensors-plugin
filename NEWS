@@ -1,3 +1,60 @@
+1.4.0 (2021-07-25)
+=====
+- Code cleanups
+- Update configuration flags for GitLab distcheck
+- Add basic GitLab pipeline
+- Check for libsensors if it is explicitly enabled
+- Use a drawing area to display sensor data in text UI style
+- Fix a use-after-free error when closing the main window
+- Increase main window size from 400 to 800 pixels
+- Code cleanup: Sensor read config cleanup
+- Code cleanup: Remove an unused macro parameter
+- Fix a use-after-free error when disabling a tachometer
+- Fix preliminary config memory leak
+- Improved handling of denormal floating-point values
+- Update automatic coloring of progress bars
+- Update and sort the list of authors
+- Corrections to the number of rows when displaying sensor data as text
+- Remove support for lm-sensors 2.x (API < 0x400)
+- Center tachometers vertically
+- Layout sensors when cover-all-rows is toggled
+- Fix invalid "size-changed" callback function declaration
+- Avoid interference of tachometer allocations with GtkBox child allocations
+- configure: Remove nano version and update init arguments
+- configure: Bump required glib to 2.50
+- configure: Remove commented lines
+- configure: Bump required Xfce libs to 4.14
+- configure: Remove checks covered by C99
+- configure: Remove UNIX variants check
+- Ellipsize labels only when needed
+- Remove support for libnotify 0.4
+- Enable automatic switching of colors based on light or dark UI theme
+- Move text inside the tachometer
+- Surround declarations with G_BEGIN_DECLS and G_END_DECLS
+- Remove unused options.dialog files
+- Use capital letters when spelling NVIDIA
+- Code cleanup: Shorten all variable names to slightly speedup readability
+- Use a single bit to store boolean values
+- Prevent memset2() from compiling because of a double-increment bug
+- Fix fgets() compiler warning
+- Code cleanup: Remove all TRACE() lines
+- Fix invalid order of widgets after changing panel orientation
+- Fix accesses to destroyed widgets when changing the panel orientation
+- Increase icon size in about dialog from 32 to 48 pixels
+- Update copyright year in about dialog
+- Fix invalid state flag
+- Include X11 headers before NVCtrl headers
+- Translation Updates:
+  Albanian, Arabic, Armenian (Armenia), Asturian, Basque,
+  Belarusian, Bulgarian, Catalan, Chinese (China), Chinese (Taiwan),
+  Croatian, Czech, Danish, Dutch, Eastern Armenian, English
+  (Australia), English (United Kingdom), Finnish, French, Galician,
+  German, Greek, Hebrew, Hungarian, Icelandic, Indonesian, Interlingue,
+  Italian, Japanese, Korean, Latvian, Lithuanian, Malay, Norwegian
+  Bokmål, Occitan (post 1500), Polish, Portuguese, Portuguese
+  (Brazil), Russian, Serbian, Slovak, Slovenian, Spanish, Swedish,
+  Thai, Turkish, Ukrainian, Urdu, Urdu (Pakistan), Uyghur
+
 0.4.0: double click extension
 0.5.0: categorized values
 0.5.1: i18n working
