@@ -42,10 +42,11 @@ DISTCLEANFILES =                        \
 	intltool-update                     \
 	xfce4-sensors-plugin.spec
 
-DISTCHECK_CONFIGURE_FLAGS =             \
+DISTCHECK_CONFIGURE_FLAGS =                 \
+	--disable-hddtemp                   \
+	--disable-libsensors                \
+	--disable-xnvctrl                   \
 	--enable-notification               \
-	--enable-libsensors                 \
-	--enable-hddtemp                    \
 	--enable-procacpi                   \
 	--enable-sysfsacpi
 
