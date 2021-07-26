@@ -111,16 +111,22 @@ AC_ARG_ENABLE([netcat], [AC_HELP_STRING([--enable-netcat], [Use netcat to read y
 ])
 
 if test x"$enable_netcat" = x"auto"; then
-AC_CHECK_PROG([netcat], [netcat], [yes], [], [$PATH:/sbin:/usr/sbin:/usr/local/sbin])
-AC_CHECK_PROG([nc], [nc], [yes], [], [$PATH:/sbin:/usr/sbin:/usr/local/sbin])
-if test x"$netcat" = x"yes" -o x"$nc" = x"yes"; then
-        enable_netcat=yes
+    AC_CHECK_PROG([netcat], [netcat], [yes], [], [$PATH:/sbin:/usr/sbin:/usr/local/sbin])
+    AC_CHECK_PROG([nc], [nc], [yes], [], [$PATH:/sbin:/usr/sbin:/usr/local/sbin])
+    if test x"$netcat" = x"yes" -o x"$nc" = x"yes"; then
+        enable_netcat1=yes
     else
-        enable_netcat=no
+        enable_netcat1=no
+    fi
+else
+    if test x"$enable_netcat" = x"yes"; then
+        enable_netcat1=yes
+    else
+        enable_netcat1=no
     fi
 fi
 
-if test x"$enable_netcat" = x"yes"; then
+if test x"$enable_netcat1" = x"yes"; then
     AC_ARG_WITH([pathnetcat], [AC_HELP_STRING([--with-pathnetcat], [Specify path to netcat @<:@default=auto@:>@])],
     [
         NETCAT_PATH=$withval
@@ -151,8 +157,10 @@ if test x"$enable_netcat" = x"yes"; then
     fi
 
     if test x"$NETCAT_RUN" = x""; then
-        enable_netcat=no
-        dnl AC_DEFINE([HAVE_NETCAT], [0], [Define to 1 if hddtemp daemon is queried via netcat])
+        enable_netcat1=no
+        if test x"$enable_netcat" = x"yes"; then
+            AC_MSG_ERROR([hddtemp isn't queryable via netcat (use --disable-pathchecks to disable this check)])
+        fi
     else
         AC_DEFINE([HAVE_NETCAT], [1], [Define to 1 if hddtemp daemon is queried via netcat])
         AC_DEFINE_UNQUOTED([NETCAT_PATH], [$NETCAT_PATH], [Complete path to netcat])
@@ -165,7 +173,7 @@ if test x"$enable_netcat" = x"yes"; then
 
 fi
 
-AM_CONDITIONAL([HAVE__NETCAT], [test x$enable_netcat = x"yes"])
+AM_CONDITIONAL([HAVE__NETCAT], [test x$enable_netcat1 = x"yes"])
 
 
 dnl Check for interface for /proc/acpi to be used
@@ -342,7 +350,7 @@ echo "The following sensor interfaces will be built into the plugin:"
 if test x"$enable_hddtemp" = x"yes"; then
 echo "* hddtemp: $HDDTEMP (Make sure it is user-executable with UID bit set and user member of the respective group)"
 fi
-if test x"$enable_netcat" = x"yes"; then
+if test x"$enable_netcat1" = x"yes"; then
 echo "  netcat for hddtemp: $NETCAT_PATH on $NETCAT_HOST:$HDDTEMP_PORT"
 fi
 if test x"$LIBNOTIFY_FOUND" = x"yes"; then
