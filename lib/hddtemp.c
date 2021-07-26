@@ -43,7 +43,6 @@
 #endif
 
 #ifdef HAVE_NETCAT
-# include "helpers.c"
 # ifndef NETCAT_PATH
 #  define NETCAT_PATH "/bin/netcat"
 # endif
@@ -180,6 +179,49 @@ quick_message (gchar *message)
 
 
 #ifdef HAVE_NETCAT
+/* Global variable storing last position in splitted string used for str_split(s, d) */
+static char *str_split_position;
+
+/* -------------------------------------------------------------------------- */
+/**
+ * Returns tokens of the string one after the other, split by the string delim.
+ * Just like strtok, initialize with a valid pointer and continue with passing NULL
+ * as string argument.
+ * @param string String to split
+ * @param delim String of the complete delimiting string, order and content are important.
+ * @return pointer onto next token, or NULL on end, or NULL on bad delimiter.
+ */
+static char*
+str_split (char *string, const char *delim)
+{
+    char *p, *retval;
+
+    if (string != NULL)
+        str_split_position = string;
+
+    if (str_split_position == NULL)
+        return NULL;
+
+    if (delim == NULL)
+        return NULL;
+
+    p = strstr (str_split_position, delim);
+    if (p != NULL)
+    {
+        size_t strlen_delim = strlen (delim);
+        memset (p, '\0', strlen_delim );
+        retval = str_split_position;
+        str_split_position = p + strlen_delim;
+    }
+    else
+    {
+        retval = str_split_position;
+        str_split_position = NULL;
+    }
+
+    return retval;
+}
+
 /* -------------------------------------------------------------------------- */
 void
 read_disks_netcat (t_chip *chip)
