@@ -1,3 +1,7 @@
+1.4.1 (2021-07-26)
+=====
+- Update hddtemp netcat support
+
 1.4.0 (2021-07-25)
 =====
 - Code cleanups
