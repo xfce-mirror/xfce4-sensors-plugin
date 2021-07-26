@@ -8,4 +8,4 @@
 .libs
 /nbproject
 Makefile
-Makefile.in
+Makefile.in*
