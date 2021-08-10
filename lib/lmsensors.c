@@ -75,7 +75,6 @@ categorize_sensor_type_libsensors (t_chipfeature *chip_feature,
                                    const sensors_chip_name *chip_name,
                                    int address_chipfeature)
 {
-    const sensors_subfeature *sub_feature = NULL;
     double sensorFeature;
 
     switch (sensorsfeature->type) {
@@ -84,13 +83,13 @@ categorize_sensor_type_libsensors (t_chipfeature *chip_feature,
             chip_feature->min_value = 1.0;
             chip_feature->max_value = 12.2;
 
-            if ((sub_feature = sensors_get_subfeature (chip_name, sensorsfeature,
-                    SENSORS_SUBFEATURE_IN_MIN)) &&
+            if (sensors_get_subfeature (chip_name, sensorsfeature,
+                    SENSORS_SUBFEATURE_IN_MIN) &&
                     !sensors_get_value (chip_name, address_chipfeature, &sensorFeature))
                 chip_feature->min_value = sensorFeature;
 
-            if ((sub_feature = sensors_get_subfeature (chip_name, sensorsfeature,
-                    SENSORS_SUBFEATURE_IN_MAX)) &&
+            if (sensors_get_subfeature (chip_name, sensorsfeature,
+                    SENSORS_SUBFEATURE_IN_MAX) &&
                     !sensors_get_value (chip_name, address_chipfeature, &sensorFeature))
                 chip_feature->max_value = sensorFeature;
 
@@ -101,8 +100,8 @@ categorize_sensor_type_libsensors (t_chipfeature *chip_feature,
             chip_feature->min_value = 1000.0;
             chip_feature->max_value = 3500.0;
 
-            if ((sub_feature = sensors_get_subfeature (chip_name, sensorsfeature,
-                    SENSORS_SUBFEATURE_FAN_MIN)) &&
+            if (sensors_get_subfeature (chip_name, sensorsfeature,
+                    SENSORS_SUBFEATURE_FAN_MIN) &&
                     !sensors_get_value (chip_name, address_chipfeature, &sensorFeature))
                 chip_feature->min_value = sensorFeature;
 
@@ -113,15 +112,15 @@ categorize_sensor_type_libsensors (t_chipfeature *chip_feature,
             chip_feature->min_value = 0.0;
             chip_feature->max_value = 80.0;
 
-            if ((sub_feature = sensors_get_subfeature (chip_name, sensorsfeature,
-                    SENSORS_SUBFEATURE_TEMP_MIN)) &&
+            if (sensors_get_subfeature (chip_name, sensorsfeature,
+                    SENSORS_SUBFEATURE_TEMP_MIN) &&
                     !sensors_get_value (chip_name, address_chipfeature, &sensorFeature))
                 chip_feature->min_value = sensorFeature;
 
-            if (((sub_feature = sensors_get_subfeature (chip_name, sensorsfeature,
-                    SENSORS_SUBFEATURE_TEMP_MAX)) ||
-                    (sub_feature = sensors_get_subfeature (chip_name, sensorsfeature,
-                    SENSORS_SUBFEATURE_TEMP_CRIT))) &&
+            if ((sensors_get_subfeature (chip_name, sensorsfeature,
+                    SENSORS_SUBFEATURE_TEMP_MAX) ||
+                    sensors_get_subfeature (chip_name, sensorsfeature,
+                    SENSORS_SUBFEATURE_TEMP_CRIT)) &&
                     !sensors_get_value (chip_name, address_chipfeature, &sensorFeature))
                 chip_feature->max_value = sensorFeature;
             break;
@@ -131,8 +130,8 @@ categorize_sensor_type_libsensors (t_chipfeature *chip_feature,
             chip_feature->min_value = 0.0;
             chip_feature->max_value = 120.0;
 
-            if ((sub_feature = sensors_get_subfeature (chip_name, sensorsfeature,
-                    SENSORS_SUBFEATURE_POWER_MAX)) &&
+            if (sensors_get_subfeature (chip_name, sensorsfeature,
+                    SENSORS_SUBFEATURE_POWER_MAX) &&
                     !sensors_get_value (chip_name, address_chipfeature, &sensorFeature))
                 chip_feature->max_value = sensorFeature;
 
@@ -149,13 +148,13 @@ categorize_sensor_type_libsensors (t_chipfeature *chip_feature,
             chip_feature->min_value = 0.0;
             chip_feature->max_value = 100.0;
 
-            if ((sub_feature = sensors_get_subfeature (chip_name, sensorsfeature,
-                    SENSORS_SUBFEATURE_CURR_MIN)) &&
+            if (sensors_get_subfeature (chip_name, sensorsfeature,
+                    SENSORS_SUBFEATURE_CURR_MIN) &&
                     !sensors_get_value (chip_name, address_chipfeature, &sensorFeature))
                 chip_feature->min_value = sensorFeature;
 
-            if ((sub_feature = sensors_get_subfeature (chip_name, sensorsfeature,
-                    SENSORS_SUBFEATURE_CURR_MAX)) &&
+            if (sensors_get_subfeature (chip_name, sensorsfeature,
+                    SENSORS_SUBFEATURE_CURR_MAX) &&
                     !sensors_get_value (chip_name, address_chipfeature, &sensorFeature))
                 chip_feature->max_value = sensorFeature;
 
