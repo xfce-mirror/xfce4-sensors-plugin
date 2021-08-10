@@ -85,8 +85,10 @@ initialize_nvidia (GPtrArray *chips)
         g_ptr_array_add (chips, chip);
         retval = 2;
     }
-    else
+    else {
+        free_chip(chip, NULL);
         retval = 0;
+    }
 
     return retval;
 }

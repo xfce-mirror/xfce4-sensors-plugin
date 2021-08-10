@@ -187,7 +187,8 @@ gtk_sensorstacho_get_preferred_width(GtkWidget *widget,
     if (natural_width != NULL)
         *natural_width = GTK_SENSORSTACHO(widget)->size;
 
-    DBG("Returning widget preferred width: %d, %d.\n", *minimal_width, *natural_width);
+    if ((minimal_width != NULL) && (natural_width != NULL))
+        DBG("Returning widget preferred width: %d, %d.\n", *minimal_width, *natural_width);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -204,7 +205,8 @@ gtk_sensorstacho_get_preferred_height(GtkWidget *widget,
     if (natural_height)
         *natural_height = GTK_SENSORSTACHO(widget)->size;
 
-    DBG("Returning widget preferred height: %d, %d.\n", *minimal_height, *natural_height);
+    if ((minimal_height != NULL) && (natural_height != NULL))
+        DBG("Returning widget preferred height: %d, %d.\n", *minimal_height, *natural_height);
 }
 
 /* -------------------------------------------------------------------------- */
