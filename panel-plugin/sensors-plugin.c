@@ -73,10 +73,8 @@ remove_gsource (guint gsource_id)
     GSource *ptr_gsource;
     if (gsource_id != 0) {
         ptr_gsource = g_main_context_find_source_by_id (NULL, gsource_id);
-        if (ptr_gsource != NULL) {
+        if (ptr_gsource != NULL)
             g_source_destroy (ptr_gsource);
-            gsource_id = 0;
-        }
     }
 }
 
@@ -469,8 +467,6 @@ sensors_add_tacho_display (t_sensors *sensors)
             feature = g_ptr_array_index (chip->chip_features, idx_feature);
             g_assert (feature != NULL);
 
-            style = style_MinGYR; /* default as has been for 10 years */
-
             if (feature->show) {
                 GtkOrientation orientation;
                 GtkWidget *tacho;
@@ -488,7 +484,7 @@ sensors_add_tacho_display (t_sensors *sensors)
                         style = style_MaxRYG;
                         break;
                     default:
-                        style = style_MinGYR;
+                        style = style_MinGYR; /* default as has been for 10 years */
                 }
 
                 orientation = (sensors->plugin_mode != XFCE_PANEL_PLUGIN_MODE_VERTICAL) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
