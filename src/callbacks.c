@@ -80,7 +80,7 @@ sensor_entry_changed_ (GtkWidget *combobox, t_sensors_dialog *dialog)
 static gint
 set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *dialog, const gchar *cellpath, gint col_treeview, GValue *value, t_chipfeature **out_feature)
 {
-    gint active_combobox = -1;
+    gint active_combobox;
     GtkTreeModel *treemodel;
     GtkTreePath *treepath;
     GtkTreeIter iter_treemodel;
@@ -92,15 +92,11 @@ set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *dialog, co
     treemodel = (GtkTreeModel*) dialog->myListStore [active_combobox];
     treepath = gtk_tree_path_new_from_string (cellpath);
 
-    /* get model iterator */
-    gtk_tree_model_get_iter (treemodel, &iter_treemodel, treepath);
+    /* set value */
+    if (gtk_tree_model_get_iter (treemodel, &iter_treemodel, treepath))
+        gtk_tree_store_set_value (GTK_TREE_STORE (treemodel), &iter_treemodel, col_treeview, value);
 
-    /* set new value */
-    chip = g_ptr_array_index(dialog->sensors->chips, active_combobox);
-
-    gtk_tree_store_set_value (GTK_TREE_STORE (treemodel), &iter_treemodel, col_treeview, value);
-    chip = g_ptr_array_index(dialog->sensors->chips, active_combobox);
-
+    chip = g_ptr_array_index (dialog->sensors->chips, active_combobox);
     feature = g_ptr_array_index (chip->chip_features, atoi (cellpath));
 
     /* clean up */
