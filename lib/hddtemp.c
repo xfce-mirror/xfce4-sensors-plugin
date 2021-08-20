@@ -442,6 +442,7 @@ initialize_hddtemp (GPtrArray *chips, gboolean *suppress_message)
 }
 
 
+#ifdef HAVE_NETCAT
 /* -------------------------------------------------------------------------- */
 int
 get_hddtemp_d_str (char *buffer, size_t bufsize)
@@ -491,6 +492,7 @@ get_hddtemp_d_str (char *buffer, size_t bufsize)
 
     return num_read_bytes_total;
 }
+#endif
 
 
 /* -------------------------------------------------------------------------- */
@@ -502,49 +504,43 @@ get_hddtemp_value (char *disk, gboolean *suppress_message)
     gchar *check_button = NULL;
     gint exit_status = 0;
     double temperature;
-    gboolean f_result = FALSE, f_nevershowagain;
+    gboolean f_result = FALSE, f_nevershowagain = FALSE;
     GError *f_error = NULL;
 
 #ifdef HAVE_NETCAT
     gchar *tmp, *tmp2, *tmp3;
-    char reply[REPLY_MAX_SIZE];
-    int hddtemp_result;
+    char reply[REPLY_MAX_SIZE] = {0};
 #endif
 
-    if (disk==NULL)
+    if (disk == NULL)
       return NO_VALID_TEMPERATURE_VALUE;
 
-    if (suppress_message!=NULL)
+    if (suppress_message != NULL)
         f_nevershowagain = *suppress_message;
-    else
-        f_nevershowagain = FALSE;
 
 #ifdef HAVE_NETCAT
 
-    memset(&reply, 0, REPLY_MAX_SIZE);
-    hddtemp_result = get_hddtemp_d_str(reply, REPLY_MAX_SIZE);
-    if (hddtemp_result==HDDTEMP_CONNECTION_FAILED)
-    {
-      return NO_VALID_HDDTEMP_PROGRAM;
-    }
+    if (HDDTEMP_CONNECTION_FAILED == get_hddtemp_d_str (reply, REPLY_MAX_SIZE))
+        return NO_VALID_HDDTEMP_PROGRAM;
 
-    tmp3 = "-255";
-    tmp = str_split (reply, DOUBLE_DELIMITER);
-    do {
-        tmp2 = g_strdup (tmp);
-        tmp3 = strtok (tmp2, SINGLE_DELIMITER); // device name
-        if (strcmp(tmp3, disk)==0)
-        {
-            strtok(NULL, SINGLE_DELIMITER); // name
-            tmp3 = strdup(strtok(NULL, SINGLE_DELIMITER)); // value
-            exit_status = 0;
-            f_error = NULL;
-            g_free (tmp2);
-            break;
+    tmp3 = g_strdup_printf ("%d", NO_VALID_TEMPERATURE_VALUE);
+    if ( (tmp = str_split (reply, DOUBLE_DELIMITER)) ) {
+        do {
+            if ((tmp2 = strtok (tmp, SINGLE_DELIMITER)) // device name
+                && (strcmp (tmp2, disk) == 0)) {
+                if ( strtok (NULL, SINGLE_DELIMITER) // name
+                    && (tmp2 = strtok (NULL, SINGLE_DELIMITER)) ) { // value
+                    g_free (tmp3);
+                    tmp3 = strdup (tmp2);
+                }
+
+                exit_status = 0;
+                f_error = NULL;
+                break;
+            }
         }
-        g_free (tmp2);
+        while ( (tmp = str_split (NULL, DOUBLE_DELIMITER)) );
     }
-    while ( (tmp = str_split(NULL, DOUBLE_DELIMITER)) );
 
     str_stdout = tmp3;
 
@@ -621,9 +617,11 @@ get_hddtemp_value (char *disk, gboolean *suppress_message)
         /* hddtemp does not return floating values, but only integer ones.
           So have an easier life with atoi.
           FIXME: Use strtod() instead?*/
-        if ( 0 == strcmp(str_stdout, "drive is sleeping")
-          || 0 == strcmp(str_stdout, "SLP") )
+        if ( 0 == strcmp (str_stdout, "drive is sleeping")
+          || 0 == strcmp (str_stdout, "SLP") )
             temperature = HDDTEMP_DISK_SLEEPING;
+        else if (g_ascii_isalpha (str_stdout[0]) == TRUE) // UNK or NA etc.
+            temperature = NO_VALID_TEMPERATURE_VALUE;
         else
             temperature = (double) (atoi ( (const char*) str_stdout) );
     }
