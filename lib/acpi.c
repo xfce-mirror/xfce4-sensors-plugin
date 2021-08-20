@@ -30,6 +30,7 @@
 /* Package includes */
 #include <acpi.h>
 #include <types.h>
+#include <middlelayer.h>
 
 
 /* -------------------------------------------------------------------------- */
@@ -382,6 +383,7 @@ read_battery_zone (t_chip *chip)
                 }
                 else {
                     g_free (filename);
+                    free_chipfeature (feature, NULL);
                     continue; /* what would we want to do with only
                                  a maxval and no real value inside? */
                 }
