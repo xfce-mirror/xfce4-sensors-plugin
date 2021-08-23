@@ -44,8 +44,8 @@ DISTCLEANFILES =                        \
 
 DISTCHECK_CONFIGURE_FLAGS =                 \
 	--disable-hddtemp                   \
-	--disable-libsensors                \
 	--disable-xnvctrl                   \
+	--enable-libsensors                 \
 	--enable-notification               \
 	--enable-procacpi                   \
 	--enable-sysfsacpi
