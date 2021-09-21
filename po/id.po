@@ -9,13 +9,14 @@
 # se7entime <se7entime@disroot.org>, 2014
 # se7entime <se7entime@disroot.org>, 2014
 # se7entime <se7entime@disroot.org>, 2014
+# Triyan W. Nugroho <triyan.wn@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-22 00:48+0200\n"
-"PO-Revision-Date: 2021-08-23 21:44+0000\n"
-"Last-Translator: Faisal Rachmadin <frachmadin@gmail.com>\n"
+"PO-Revision-Date: 2021-09-21 02:43+0000\n"
+"Last-Translator: Triyan W. Nugroho <triyan.wn@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/xfce/xfce-panel-plugins/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -258,7 +259,7 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "\"hddtemp\" tak tereksekusi dengan benar, meskipun dapat dieksekusi. Ini mungkin karena cakram memerlukan hak akses root untuk membaca temperaturnya, dan \"hddtemp\" tidak diatur menggunakan uid root.\n\nCara yang mudah namun kotor adalah dengan menjalankan \"chmod u+s %s\" sebagai pengguna root kemudian start ulang plugin ini atau panelnya.\n\nMemanggil \"%s\" memberikan galat berikut:\n%s\ndengan nilai kembali %d.\n"
+msgstr "\"hddtemp\" tak tereksekusi dengan benar, meskipun dapat dieksekusi. Ini mungkin karena cakram memerlukan hak akses root untuk membaca temperaturnya, dan \"hddtemp\" tidak diatur menggunakan uid root.\n\nCara yang mudah namun kotor adalah dengan menjalankan \"chmod u+s %s\" sebagai pengguna root kemudian mulai ulang plugin ini atau panelnya.\n\nMemanggil \"%s\" memberikan galat berikut:\n%s\ndengan nilai kembali %d.\n"
 
 #: ../lib/hddtemp.c:541 ../lib/hddtemp.c:564
 msgid "Suppress this message in future"
