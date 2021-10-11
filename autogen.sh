@@ -1,7 +1,25 @@
 #!/bin/sh
 #
-# Copyright (c) 2002-2015 Xfce Development Team
+# Copyright (c) 2003-2021 The Xfce development team. All rights reserved.
 #
+# This library is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the Free
+# Software Foundation; either version 2 of the License, or (at your option)
+# any later version.
+#
+# This library is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+# more details.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with this library; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+#
+# Written for Xfce by Benedikt Meurer <benny@xfce.org>.
+#
+
+export XDT_AUTOGEN_REQUIRED_VERSION="4.14.0"
 
 (type xdt-autogen) >/dev/null 2>&1 || {
   cat >&2 <<EOF
@@ -15,54 +33,4 @@ EOF
 
 test -d m4 || mkdir m4
 
-# portability for awk
-awk_tests="gawk mawk nawk awk"
-if test -z "$AWK"; then
-  for a in $awk_tests; do
-    if type $a >/dev/null 2>&1; then
-      AWK=$a
-      break
-    fi
-  done
-else
-  if ! type $AWK >/dev/null 2>/dev/null; then
-    unset AWK
-  fi
-fi
-if test -z "$AWK"; then
-  echo "autogen.sh: The 'awk' program (one of $awk_tests) is" >&2
-  echo "            required, but cannot be found." >&2
-  exit 1
-fi
-
-# substitute revision
-if test -d .git/svn; then
-    revision=`git svn find-rev trunk 2>/dev/null ||
-              git svn find-rev origin/trunk 2>/dev/null ||
-              git svn find-rev HEAD 2>/dev/null ||
-              git svn find-rev master 2>/dev/null`
-elif test -d .git; then
-    revision=`git rev-parse --short HEAD`
-elif test -d .svn; then
-    revision=`LC_ALL=C svn info $0 | $AWK '/^Revision: / {printf "%05d\n", $2}'`
-fi
-if test "x$revision" = "x"; then
-    revision="UNKNOWN"
-fi
-
-# substitute the linguas
-linguas=`cd "po" 2>/dev/null && ls *.po 2>/dev/null | $AWK 'BEGIN { FS="."; ORS=" " } { print $1 }'`
-if test "x$linguas" = "x"; then
-    echo "autogen.sh: No po files were found, aborting." >&2
-    exit 1
-fi
-
-exec xdt-autogen $@
-
-# xdt-autogen clean does not remove all generated files
-(test x"clean" = x"$1") && {
-  rm -f configure.in
-  rm -f INSTALL
-} || true
-
-# vi:set ts=2 sw=2 et ai:
+xdt-autogen $@
