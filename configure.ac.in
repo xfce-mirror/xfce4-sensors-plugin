@@ -1,14 +1,14 @@
-dnl configure.ac.in
 dnl
-dnl xfce4-sensors-plugin - Sensors plugin for xfce4-panel
+dnl Copyright (c) 2003-2021 - The Xfce Development Team.
 dnl
-dnl 2003,2004, 2007 Benedikt Meurer <benny@xfce.org>
+dnl 2003,2004,2007 Benedikt Meurer <benny@xfce.org>
 dnl 2007-2011,2014-2020 Fabian Nowak <timystery@arcor.de>
 dnl
 
 m4_define([libxfce4sensors_verinfo], [5:1:0])
 
 dnl Version information
+AC_CONFIG_MACRO_DIRS([m4])
 m4_define([sensors_version_major], [1])
 m4_define([sensors_version_minor], [4])
 m4_define([sensors_version_micro], [1])
@@ -28,8 +28,8 @@ AM_MAINTAINER_MODE()
 AM_SILENT_RULES([yes])
 
 dnl Check for basic programs
-AC_PROG_CC_C99
-AC_PROG_LD()
+AC_PROG_CC()
+LT_PATH_LD([])
 AC_PROG_INSTALL
 IT_PROG_INTLTOOL([0.35.0])
 LT_PREREQ([2.2.6])
@@ -37,7 +37,7 @@ LT_INIT([disable-static])
 
 dnl Check for libsensors depending on whether it is disabled upon user request
 AC_ARG_ENABLE([libsensors],
-            AC_HELP_STRING([--enable-libsensors=auto|yes|no],
+            AS_HELP_STRING([--enable-libsensors=auto|yes|no],
                     [Use LM-sensors to read a vast amount of sensors on your mainboards @<:@default=auto@:>@]),
             [],
             [enable_libsensors=auto])
@@ -64,7 +64,7 @@ AM_CONDITIONAL([HAVE_LIBSENSORS], [test x$enable_libsensors = x"yes"])
 
 dnl Check for hddtemp depending on whether it is disabled upon user request
 AC_ARG_ENABLE([hddtemp],
-        [AC_HELP_STRING([--enable-hddtemp=auto|yes|no],
+        [AS_HELP_STRING([--enable-hddtemp=auto|yes|no],
                 [Use hddtemp to read your harddisk temperature @<:@default=auto@:>@])],
         [],
         [
@@ -82,7 +82,7 @@ fi
 
 if test x"$enable_hddtemp" = x"yes"; then
 
-    AC_ARG_WITH([pathhddtemp], [AC_HELP_STRING([--with-pathhddtemp], [Specify path to hddtemp @<:@default=auto@:>@])],
+    AC_ARG_WITH([pathhddtemp], [AS_HELP_STRING([--with-pathhddtemp], [Specify path to hddtemp @<:@default=auto@:>@])],
     [
         HDDTEMP=$withval
     ], [
@@ -104,7 +104,7 @@ AM_CONDITIONAL([HAVE_HDDTEMP], [test x$enable_hddtemp = x"yes"])
 
 
 dnl Check for netcat for hddtemp to be used
-AC_ARG_ENABLE([netcat], [AC_HELP_STRING([--enable-netcat], [Use netcat to read your hddtemp temperature @<:@default=auto@:>@])],
+AC_ARG_ENABLE([netcat], [AS_HELP_STRING([--enable-netcat], [Use netcat to read your hddtemp temperature @<:@default=auto@:>@])],
 [],
 [
     enable_netcat=auto
@@ -127,7 +127,7 @@ else
 fi
 
 if test x"$enable_netcat1" = x"yes"; then
-    AC_ARG_WITH([pathnetcat], [AC_HELP_STRING([--with-pathnetcat], [Specify path to netcat @<:@default=auto@:>@])],
+    AC_ARG_WITH([pathnetcat], [AS_HELP_STRING([--with-pathnetcat], [Specify path to netcat @<:@default=auto@:>@])],
     [
         NETCAT_PATH=$withval
     ], [
@@ -143,7 +143,7 @@ if test x"$enable_netcat1" = x"yes"; then
     NETCAT_HOST=localhost
     HDDTEMP_PORT=7634
 
-    AC_ARG_ENABLE([pathchecks], [AC_HELP_STRING([--enable-pathchecks], [Enable checks for paths, access and execution @<:@default=yes@:>@])],
+    AC_ARG_ENABLE([pathchecks], [AS_HELP_STRING([--enable-pathchecks], [Enable checks for paths, access and execution @<:@default=yes@:>@])],
     [
     ], [
         enable_pathchecks=yes
@@ -177,7 +177,7 @@ AM_CONDITIONAL([HAVE__NETCAT], [test x$enable_netcat1 = x"yes"])
 
 
 dnl Check for interface for /proc/acpi to be used
-AC_ARG_ENABLE([procacpi], [AC_HELP_STRING([--enable-procacpi], [Use /proc/acpi to read your CPU temperature @<:@default=auto@:>@])],
+AC_ARG_ENABLE([procacpi], [AS_HELP_STRING([--enable-procacpi], [Use /proc/acpi to read your CPU temperature @<:@default=auto@:>@])],
 [],
 [
     enable_procacpi=auto
@@ -194,7 +194,7 @@ if test x"$enable_procacpi" = x"auto"; then
 fi
 
 dnl Check for interface for /sys/class/power_supply to be used
-AC_ARG_ENABLE([sysfsacpi], [AC_HELP_STRING([--enable-sysfsacpi], [Use /sys/class/power_supply to read your battery value @<:@default=auto@:>@])],
+AC_ARG_ENABLE([sysfsacpi], [AS_HELP_STRING([--enable-sysfsacpi], [Use /sys/class/power_supply to read your battery value @<:@default=auto@:>@])],
 [],
 [
     enable_sysfsacpi=auto
@@ -222,7 +222,7 @@ fi
 
 dnl Check for nvidia blahblah to be used
 AC_ARG_ENABLE([xnvctrl],
-        AC_HELP_STRING([--enable-xnvctrl],
+        AS_HELP_STRING([--enable-xnvctrl],
            [Use nvctrl to obtain Nvidia GPU temperature value @<:@default=auto@:>@]),
     [],
 [
@@ -322,7 +322,7 @@ AC_SUBST([PLATFORM_LDFLAGS])
 AC_SUBST([PLATFORM_CFLAGS])
 
 
-AC_OUTPUT([
+AC_CONFIG_FILES([
 Makefile
 xfce4-sensors-plugin.spec
 src/xfce4-sensors.1
@@ -334,6 +334,7 @@ src/Makefile
 icons/Makefile
 po/Makefile.in
 ])
+AC_OUTPUT
 
 
 dnl ***************************
