@@ -448,8 +448,8 @@ int
 get_hddtemp_d_str (char *buffer, size_t bufsize)
 {
     int fd;
-    struct sockaddr_in sockaddr_hddtemplocalhost;
-    struct hostent *ptr_hostinfo;
+    struct sockaddr_in sockaddr;
+    struct hostent *hostinfo;
     ssize_t num_read_bytes_total = 0;
 
     /* Create the socket. */
@@ -459,15 +459,18 @@ get_hddtemp_d_str (char *buffer, size_t bufsize)
     }
 
     /* Connect to the server. */
-    sockaddr_hddtemplocalhost.sin_family = AF_INET;
-    sockaddr_hddtemplocalhost.sin_port = htons(HDDTEMP_PORT);
-    ptr_hostinfo = gethostbyname ("localhost");
-    if (ptr_hostinfo == NULL) {
+    sockaddr.sin_family = AF_INET;
+    sockaddr.sin_port = htons(HDDTEMP_PORT);
+    hostinfo = gethostbyname ("localhost");
+    if (hostinfo == NULL || !hostinfo->h_addr_list[0]) {
+      close (fd);
       return HDDTEMP_CONNECTION_FAILED;
     }
-    sockaddr_hddtemplocalhost.sin_addr = *(struct in_addr*) ptr_hostinfo->h_addr;
 
-    if (connect (fd, (struct sockaddr*) &sockaddr_hddtemplocalhost, sizeof (sockaddr_hddtemplocalhost)) < 0) {
+    memcpy (&sockaddr.sin_addr, hostinfo->h_addr_list[0], sizeof(sockaddr.sin_addr));
+
+    if (connect (fd, (struct sockaddr*) &sockaddr, sizeof (sockaddr)) < 0) {
+      close (fd);
       return HDDTEMP_CONNECTION_FAILED;
     }
 
