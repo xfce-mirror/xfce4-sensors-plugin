@@ -1,6 +1,8 @@
-/* File: callbacks.c
+/* callbacks.cc
+ * Part of xfce4-sensors-plugin
  *
- * Copyright 2008-2017 Fabian Nowak (timystery@arcor.de)
+ * Copyright (c) 2008-2017 Fabian Nowak <timystery@arcor.de>
+ * Copyright (c) 2021 Jan Ziak <0xe2.0x9a.0x9b@xfce.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,11 +36,12 @@
 
 
 /* -------------------------------------------------------------------------- */
-void on_font_set (GtkWidget *widget, gpointer data)
+void
+on_font_set (GtkWidget *widget, gpointer data)
 {
     g_free (font);
     font = g_strdup(gtk_font_chooser_get_font (GTK_FONT_CHOOSER (widget)));
-    refresh_view (data); /* data is pointer to sensors_dialog */
+    refresh_view ((t_sensors_dialog*) data);
 }
 
 
@@ -55,11 +58,10 @@ void
 sensor_entry_changed_ (GtkWidget *combobox, t_sensors_dialog *dialog)
 {
     gint active_combobox;
-    t_chip *chip;
 
     active_combobox = gtk_combo_box_get_active (GTK_COMBO_BOX(combobox));
 
-    chip = g_ptr_array_index (dialog->sensors->chips, active_combobox);
+    auto chip = (t_chip*) g_ptr_array_index (dialog->sensors->chips, active_combobox);
 
     gtk_label_set_label (GTK_LABEL (dialog->mySensorLabel), chip->description);
 
@@ -84,8 +86,6 @@ set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *dialog, co
     GtkTreeModel *treemodel;
     GtkTreePath *treepath;
     GtkTreeIter iter_treemodel;
-    t_chip *chip;
-    t_chipfeature *feature;
 
     active_combobox = gtk_combo_box_get_active (GTK_COMBO_BOX (dialog->myComboBox));
 
@@ -96,8 +96,8 @@ set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *dialog, co
     if (gtk_tree_model_get_iter (treemodel, &iter_treemodel, treepath))
         gtk_tree_store_set_value (GTK_TREE_STORE (treemodel), &iter_treemodel, col_treeview, value);
 
-    chip = g_ptr_array_index (dialog->sensors->chips, active_combobox);
-    feature = g_ptr_array_index (chip->chip_features, atoi (cellpath));
+    auto chip = (t_chip*) g_ptr_array_index (dialog->sensors->chips, active_combobox);
+    auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, atoi (cellpath));
 
     /* clean up */
     gtk_tree_path_free (treepath);
@@ -143,8 +143,6 @@ void
 list_cell_toggle_ (GtkCellRendererToggle *cell_renderer_toggle, gchar *cellpath,
                    t_sensors_dialog *dialog)
 {
-    t_chip *chip;
-    t_chipfeature *feature;
     gint active_combobox;
     GtkTreeModel *tree_model;
     GtkTreePath *tree_path;
@@ -167,9 +165,9 @@ list_cell_toggle_ (GtkCellRendererToggle *cell_renderer_toggle, gchar *cellpath,
 
     /* set new value */
     gtk_tree_store_set (GTK_TREE_STORE (tree_model), &tree_iter, eTreeColumn_Show, toggle_item, -1);
-    chip = g_ptr_array_index(dialog->sensors->chips, active_combobox);
 
-    feature = g_ptr_array_index(chip->chip_features, atoi(cellpath));
+    auto chip = (t_chip*) g_ptr_array_index(dialog->sensors->chips, active_combobox);
+    auto feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, atoi(cellpath));
 
     /* clean up */
     gtk_tree_path_free (tree_path);
@@ -311,8 +309,16 @@ adjustment_value_changed_ (GtkWidget *adjustment_widget, t_sensors_dialog *dialo
 void
 temperature_unit_change_ (GtkWidget *unused, t_sensors_dialog *dialog)
 {
-    /* toggle celsius-fahrenheit by use of mathematics ;) */
-    dialog->sensors->scale = 1 - dialog->sensors->scale;
+    /* toggle celsius-fahrenheit */
+    switch (dialog->sensors->scale)
+    {
+        case CELSIUS:
+            dialog->sensors->scale = FAHRENHEIT;
+            break;
+        case FAHRENHEIT:
+            dialog->sensors->scale = CELSIUS;
+            break;
+    }
 
     /* refresh the panel content */
     reload_listbox (dialog);
