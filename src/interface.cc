@@ -112,7 +112,7 @@ create_main_window (t_sensors_dialog *dialog)
     xfce_dialog = xfce_titled_dialog_new_with_buttons(
                 _("Sensors Viewer"), // title
                 NULL, // parent window
-                0, // flags
+                (GtkDialogFlags) 0,
                 "gtk-close", // button text
                 GTK_RESPONSE_OK, // response id for previous button
                 NULL
