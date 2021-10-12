@@ -226,11 +226,10 @@ str_split (char *string, const char *delim)
 void
 read_disks_netcat (t_chip *chip)
 {
-    char reply[REPLY_MAX_SIZE], *tmp, *tmp2, *tmp3;
+    char *tmp, *tmp2, *tmp3, reply[REPLY_MAX_SIZE] = {0};
     int result;
     t_chipfeature *feature;
 
-    memset(&reply, 0, REPLY_MAX_SIZE);
     result = get_hddtemp_d_str(reply, REPLY_MAX_SIZE);
     DBG ("reply=%s with result=%d\n", reply, (int) result);
     if (result==-1)
