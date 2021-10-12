@@ -7,11 +7,11 @@ bin_PROGRAMS = \
 	xfce4-sensors
 
 xfce4_sensors_SOURCES = \
-	actions.c \
+	actions.cc \
 	actions.h \
-	callbacks.c \
+	callbacks.cc \
 	callbacks.h \
-	interface.c \
+	interface.cc \
 	interface.h \
 	main.cc
 
