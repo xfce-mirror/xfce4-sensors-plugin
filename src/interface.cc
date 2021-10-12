@@ -1,6 +1,8 @@
-/* File: interface.c
+/* interface.cc
+ * Part of xfce4-sensors-plugin
  *
- * Copyright 2008-2017 Fabian Nowak (timystery@arcor.de)
+ * Copyright (c) 2008-2017 Fabian Nowak <timystery@arcor.de>
+ * Copyright (c) 2021 Jan Ziak <0xe2.0x9a.0x9b@xfce.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -112,7 +114,7 @@ create_main_window (t_sensors_dialog *dialog)
     xfce_dialog = xfce_titled_dialog_new_with_buttons(
                 _("Sensors Viewer"), // title
                 NULL, // parent window
-                0, // flags
+                (GtkDialogFlags) 0,
                 "gtk-close", // button text
                 GTK_RESPONSE_OK, // response id for previous button
                 NULL

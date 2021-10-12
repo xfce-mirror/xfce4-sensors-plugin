@@ -1,6 +1,8 @@
-/* File: actions.c
+/* actions.cc
+ * Part of xfce4-sensors-plugin
  *
- * Copyright 2008-2017 Fabian Nowak (timystery@arcor.de)
+ * Copyright (c) 2008-2017 Fabian Nowak <timystery@arcor.de>
+ * Copyright (c) 2021 Jan Ziak <0xe2.0x9a.0x9b@xfce.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -56,20 +58,16 @@ refresh_sensor_data (t_sensors_dialog *dialog)
     sensors = dialog->sensors;
 
     for (idx_chip=0; idx_chip < sensors->num_sensorchips; idx_chip++) {
-        t_chip *chip = g_ptr_array_index (sensors->chips, idx_chip);
+        auto chip = (t_chip*) g_ptr_array_index (sensors->chips, idx_chip);
         g_assert (chip!=NULL);
 
         for (idx_feature = 0; idx_feature<chip->num_features; idx_feature++) {
-            t_chipfeature *feature;
-            double feature_value;
-
-            feature = g_ptr_array_index (chip->chip_features, idx_feature);
+            auto feature =  (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_feature);
             g_assert (feature!=NULL);
 
             if (feature->valid)
             {
-                gchar *formatted_value;
-
+                double feature_value;
                 result = sensor_get_value (chip, feature->address, &feature_value, &sensors->suppressmessage);
 
                 if ( result!=0 ) {
@@ -80,6 +78,8 @@ refresh_sensor_data (t_sensors_dialog *dialog)
                     "value.\nProper proceeding cannot be guaranteed.\n") );
                     break;
                 }
+
+                gchar *formatted_value;
                 format_sensor_value (sensors->scale, feature, feature_value, &formatted_value);
 
                 if (feature->formatted_value != NULL)
@@ -123,19 +123,18 @@ refresh_tacho_view (t_sensors_dialog *dialog)
 
     for (idx_chip=0; idx_chip < sensors->num_sensorchips; idx_chip++)
     {
-        t_chip *chip = g_ptr_array_index (sensors->chips, idx_chip);
+        auto chip = (t_chip*) g_ptr_array_index (sensors->chips, idx_chip);
         g_assert (chip!=NULL);
 
         for (idx_feature = 0; idx_feature<chip->num_features; idx_feature++)
         {
-            t_chipfeature *feature;
             GtkWidget *ptr_sensorstachowidget = sensors->tachos[idx_chip][idx_feature];
             GtkSensorsTacho *ptr_sensorstacho = GTK_SENSORSTACHO(ptr_sensorstachowidget);
 
-            if (row_tacho_table>=num_max_rows)
+            if (row_tacho_table >= num_max_rows)
                 return;
 
-            feature = g_ptr_array_index (chip->chip_features, idx_feature);
+            auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_feature);
             g_assert (feature!=NULL);
 
             if (feature->valid && feature->show)
@@ -234,7 +233,7 @@ refresh_view (t_sensors_dialog *dialog)
 gboolean
 refresh_view_cb (gpointer user_data)
 {
-    t_sensors_dialog *dialog = user_data;
+    auto dialog = (t_sensors_dialog*) user_data;
     refresh_view (dialog);
     return TRUE;
 }
