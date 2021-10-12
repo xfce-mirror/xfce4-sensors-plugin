@@ -9,9 +9,9 @@ lib/middlelayer.c
 lib/sensors-interface.c
 lib/sensors-interface-common.c
 lib/tacho.c
+src/actions.cc
+src/callbacks.cc
+src/interface.cc
 src/main.cc
-src/interface.c
-src/callbacks.c
-src/actions.c
 src/xfce4-sensors.desktop.in
 panel-plugin/xfce4-sensors-plugin.desktop.in
