@@ -41,24 +41,10 @@
 #include "interface.h"
 
 
-#define gtk_hbox_new(homogeneous, spacing) \
-        gtk_box_new(GTK_ORIENTATION_HORIZONTAL, spacing)
-
-#define gtk_vbox_new(homogeneous, spacing) \
-        gtk_box_new(GTK_ORIENTATION_VERTICAL, spacing)
-
-
-/* forward declarations for -Wall */
-void print_license (void);
-void print_usage (void);
-void print_version (void);
-t_sensors_dialog * initialize_sensors_structures (void);
-
-/* -------------------------------------------------------------------------- */
 /**
  * Prints license information
  */
-void
+static void
 print_license (void)
 {
     printf (_("Xfce4 Sensors %s\n"
@@ -70,11 +56,10 @@ print_license (void)
 }
 
 
-/* -------------------------------------------------------------------------- */
 /**
  * Prints help/usage information
  */
-void
+static void
 print_usage (void)
 {
     printf (_("Xfce4 Sensors %s\n"
@@ -92,23 +77,21 @@ print_usage (void)
 }
 
 
-/* -------------------------------------------------------------------------- */
 /**
  * Prints version information as requested by "xfce4-sensors -V"
  */
-void
+static void
 print_version (void)
 {
     printf (_("Xfce4 Sensors %s\n"), PACKAGE_VERSION);
 }
 
 
-/* -------------------------------------------------------------------------- */
 /**
  * Initializes the required sensor structures.
  * @return pointer to newly allocated sensors dialog information
  */
-t_sensors_dialog *
+static t_sensors_dialog *
 initialize_sensors_structures (void)
 {
     t_sensors *ptr_sensors_structure;
@@ -132,7 +115,6 @@ initialize_sensors_structures (void)
 }
 
 
-/* -------------------------------------------------------------------------- */
 /**
  * Main routine.
  * @param argc: number of arguments
