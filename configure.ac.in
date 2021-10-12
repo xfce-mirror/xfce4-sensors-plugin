@@ -23,14 +23,15 @@ AC_PREREQ([2.60])
 dnl Initialize automake
 AM_INIT_AUTOMAKE([1.11 dist-bzip2 tar-ustar no-dist-gzip])
 AC_CONFIG_HEADERS([config.h])
-AC_CONFIG_SRCDIR([src/main.c])
 AM_MAINTAINER_MODE()
 AM_SILENT_RULES([yes])
 
 dnl Check for basic programs
 AC_PROG_CC()
+AC_PROG_CXX()
 LT_PATH_LD([])
 AC_PROG_INSTALL
+AX_CXX_COMPILE_STDCXX_11()
 IT_PROG_INTLTOOL([0.35.0])
 LT_PREREQ([2.2.6])
 LT_INIT([disable-static])
@@ -261,8 +262,7 @@ fi
 dnl OS="$KERNEL"
 dnl AC_DEFINE([OS], ["$OS"], [Set this to the name of the operating system.])
 
-AC_CHECK_FUNCS([gethostname])
-AC_CHECK_FUNCS([socket])
+AC_CHECK_FUNCS_ONCE([gethostname malloc_trim socket])
 AC_CHECK_HEADERS([arpa/inet.h])
 AC_CHECK_HEADERS([netinet/in.h])
 AC_CHECK_HEADERS([stdlib.h])
@@ -303,6 +303,7 @@ dnl **************************************
 dnl *** Check for Xfce packages ***
 dnl **************************************
 XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-2], [4.14.0])
+XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.14.0])
 
 dnl configure the panel plugin
 XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-2.0], [4.14.0])
@@ -324,15 +325,17 @@ AC_SUBST([PLATFORM_CFLAGS])
 
 AC_CONFIG_FILES([
 Makefile
-xfce4-sensors-plugin.spec
-src/xfce4-sensors.1
+icons/Makefile
 include/Makefile
 lib/Makefile
 lib/libxfce4sensors-1.0.pc
 panel-plugin/Makefile
-src/Makefile
-icons/Makefile
 po/Makefile.in
+src/Makefile
+src/xfce4-sensors.1
+xfce4++/Makefile
+xfce4++/util/Makefile
+xfce4-sensors-plugin.spec
 ])
 AC_OUTPUT
 

@@ -473,7 +473,7 @@ sensors_add_tacho_display (t_sensors *sensors)
 
                 has_tachos = TRUE;
 
-                switch (feature->class) {
+                switch (feature->cls) {
                     case VOLTAGE:
                     case POWER:
                     case CURRENT:

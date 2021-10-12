@@ -128,7 +128,7 @@ typedef struct {
     gboolean valid;
 
     /** class of chipfeature */
-    t_chipfeature_class class;
+    t_chipfeature_class cls;
 } t_chipfeature;
 
 

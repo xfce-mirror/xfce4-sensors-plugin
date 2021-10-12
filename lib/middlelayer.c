@@ -139,7 +139,7 @@ categorize_sensor_type (t_chipfeature *feature)
         || strstr(feature->name, "temp")!=NULL
         || strstr(feature->name, "thermal")!=NULL)
     {
-        feature->class = TEMPERATURE;
+        feature->cls = TEMPERATURE;
         feature->min_value = 0.0;
         feature->max_value = 80.0;
     }
@@ -148,41 +148,41 @@ categorize_sensor_type (t_chipfeature *feature)
         || strstr(feature->name, "5V")!=NULL
         || strstr(feature->name, "12V")!=NULL)
     {
-        feature->class = VOLTAGE;
+        feature->cls = VOLTAGE;
         feature->min_value = 1.0;
         feature->max_value = 12.2;
     }
     else if (strstr(feature->name, "Fan")!=NULL
         || strstr(feature->name, "fan")!=NULL)
     {
-        feature->class = SPEED;
+        feature->cls = SPEED;
         feature->min_value = 1000.0;
         feature->max_value = 3500.0;
     }
     else if (strstr(feature->name, "alarm")!=NULL
         || strstr(feature->name, "Alarm")!=NULL)
     {
-        feature->class = STATE;
+        feature->cls = STATE;
         feature->min_value = 0.0;
         feature->max_value = 1.0;
     }
     else if (strstr(feature->name, "power")!=NULL
         || strstr(feature->name, "Power")!=NULL)
     {
-        feature->class = POWER;
+        feature->cls = POWER;
         feature->min_value = 0.0;
         feature->max_value = 1.0;
     }
     else if (strstr(feature->name, "current")!=NULL
         || strstr (feature->name, "Current")!=NULL)
     {
-        feature->class = CURRENT;
+        feature->cls = CURRENT;
         feature->min_value = 0.0;
         feature->max_value = 1.0;
     }
     else
     {
-        feature->class = OTHER;
+        feature->cls = OTHER;
         feature->min_value = 0.0;
         feature->max_value = 7000.0;
     }

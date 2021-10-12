@@ -79,7 +79,7 @@ categorize_sensor_type_libsensors (t_chipfeature *chip_feature,
 
     switch (sensorsfeature->type) {
         case SENSORS_FEATURE_IN:
-            chip_feature->class = VOLTAGE;
+            chip_feature->cls = VOLTAGE;
             chip_feature->min_value = 1.0;
             chip_feature->max_value = 12.2;
 
@@ -96,7 +96,7 @@ categorize_sensor_type_libsensors (t_chipfeature *chip_feature,
             break;
 
         case SENSORS_FEATURE_FAN:
-            chip_feature->class = SPEED;
+            chip_feature->cls = SPEED;
             chip_feature->min_value = 1000.0;
             chip_feature->max_value = 3500.0;
 
@@ -108,7 +108,7 @@ categorize_sensor_type_libsensors (t_chipfeature *chip_feature,
             break;
 
         case SENSORS_FEATURE_TEMP:
-            chip_feature->class = TEMPERATURE;
+            chip_feature->cls = TEMPERATURE;
             chip_feature->min_value = 0.0;
             chip_feature->max_value = 80.0;
 
@@ -126,7 +126,7 @@ categorize_sensor_type_libsensors (t_chipfeature *chip_feature,
             break;
 
         case SENSORS_FEATURE_POWER:
-            chip_feature->class = POWER;
+            chip_feature->cls = POWER;
             chip_feature->min_value = 0.0;
             chip_feature->max_value = 120.0;
 
@@ -138,13 +138,13 @@ categorize_sensor_type_libsensors (t_chipfeature *chip_feature,
             break;
 
         case SENSORS_FEATURE_ENERGY:
-            chip_feature->class = ENERGY;
+            chip_feature->cls = ENERGY;
             chip_feature->min_value = 0.0;
             chip_feature->max_value = 120.0;
             break;
 
         case SENSORS_FEATURE_CURR:
-            chip_feature->class = CURRENT;
+            chip_feature->cls = CURRENT;
             chip_feature->min_value = 0.0;
             chip_feature->max_value = 100.0;
 
@@ -161,19 +161,19 @@ categorize_sensor_type_libsensors (t_chipfeature *chip_feature,
             break;
 
         case SENSORS_FEATURE_VID:
-            chip_feature->class = VOLTAGE;
+            chip_feature->cls = VOLTAGE;
             chip_feature->min_value = 1.0;
             chip_feature->max_value = 3.5;
             break;
 
         case SENSORS_FEATURE_BEEP_ENABLE:
-            chip_feature->class = STATE;
+            chip_feature->cls = STATE;
             chip_feature->min_value = 1.0;
             chip_feature->max_value = 3.5;
             break;
 
         default: /* UNKNOWN */
-            chip_feature->class = OTHER;
+            chip_feature->cls = OTHER;
             chip_feature->min_value = 0.0;
             chip_feature->max_value = 7000.0;
     }
