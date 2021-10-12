@@ -48,7 +48,7 @@ produce_min_max_values (t_chipfeature *feature, t_tempscale scale, float *minval
 {
   /* assume that min and max values are read from the hddtemp/lmsensors/acpi as
    * degree celsius per default -- very sorry for the non-metric peoples */
-   if (feature->class==TEMPERATURE && scale == FAHRENHEIT) {
+   if (feature->cls == TEMPERATURE && scale == FAHRENHEIT) {
       *minval = feature->min_value * 9/5 + 32;
       *maxval = feature->max_value * 9/5 + 32;
    } else {

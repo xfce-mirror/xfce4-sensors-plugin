@@ -1,10 +1,13 @@
 
-SUBDIRS =                               \
-	include                             \
-	lib                                 \
-	panel-plugin                        \
-	src                                 \
-	po                                  \
+# Note: The order of directories in this list isn't arbitrary
+SUBDIRS = \
+	xfce4++ \
+	xfce4++/util \
+	include \
+	lib \
+	panel-plugin \
+	src \
+	po \
 	icons
 
 distclean-local:

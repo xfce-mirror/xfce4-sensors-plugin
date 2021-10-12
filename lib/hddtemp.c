@@ -370,7 +370,7 @@ populate_detected_drives (t_chip *chip)
        feature->valid = TRUE;
        feature->raw_value = 0.0;
 
-       feature->class = TEMPERATURE;
+       feature->cls = TEMPERATURE;
        feature->min_value = 10.0;
        feature->max_value = 50.0;
 

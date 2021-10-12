@@ -149,7 +149,7 @@ refresh_tacho_view (t_sensors_dialog *dialog)
 
                     DBG("Newly adding selected widget from container.");
 
-                    switch (feature->class) {
+                    switch (feature->cls) {
                         case VOLTAGE:
                         case POWER:
                         case CURRENT:

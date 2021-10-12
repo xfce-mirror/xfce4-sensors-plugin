@@ -9,7 +9,7 @@ lib/middlelayer.c
 lib/sensors-interface.c
 lib/sensors-interface-common.c
 lib/tacho.c
-src/main.c
+src/main.cc
 src/interface.c
 src/callbacks.c
 src/actions.c

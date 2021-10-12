@@ -151,7 +151,7 @@ read_thermal_zone (t_chip *chip)
                     feature->valid = TRUE;
                     feature->min_value = 20.0;
                     feature->max_value = 60.0;
-                    feature->class = TEMPERATURE;
+                    feature->cls = TEMPERATURE;
 
                     g_ptr_array_add (chip->chip_features, feature);
 
@@ -325,7 +325,7 @@ read_battery_zone (t_chip *chip)
                     feature->valid = TRUE;
                     feature->min_value = 0.0;
                     feature->raw_value = 0.0;
-                    feature->class = ENERGY;
+                    feature->cls = ENERGY;
                     feature->formatted_value = NULL;
                     feature->color_orNull = g_strdup("#0000B0");
 
@@ -505,7 +505,7 @@ read_fan_zone (t_chip *chip)
                 feature->valid = TRUE;
                 feature->min_value = 0.0;
                 feature->max_value = 2.0;
-                feature->class = STATE;
+                feature->cls = STATE;
 
                 g_ptr_array_add (chip->chip_features, feature);
 
@@ -629,7 +629,7 @@ read_power_zone (t_chip *chip)
                     feature->valid = TRUE;
                     feature->min_value = 0.0;
                     feature->max_value = 60.0; // a T440s charges with roughly 25 Watts
-                    feature->class = POWER;
+                    feature->cls = POWER;
 
                     g_ptr_array_add (chip->chip_features, feature);
 
@@ -703,7 +703,7 @@ read_voltage_zone (t_chip *chip)
                         g_free(min_voltage);
                     }
                     feature->max_value = feature->raw_value; // a T440s charges with roughly 25 Watts
-                    feature->class = VOLTAGE;
+                    feature->cls = VOLTAGE;
 
                     g_ptr_array_add (chip->chip_features, feature);
 
@@ -791,7 +791,7 @@ refresh_acpi (gpointer ptr_feature, gpointer unused)
     feature = (t_chipfeature *) ptr_feature;
     g_return_if_fail(feature != NULL);
 
-    switch (feature->class) {
+    switch (feature->cls) {
         case TEMPERATURE:
 #ifdef HAVE_SYSFS_ACPI
             zone = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_THERMAL, feature->devicename, SYS_FILE_THERMAL);

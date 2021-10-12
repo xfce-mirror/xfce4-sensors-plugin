@@ -1,33 +1,37 @@
 AM_CPPFLAGS = \
-	-I$(top_srcdir)/include	\
+	-I${top_srcdir} \
+	-I$(top_srcdir)/include \
 	-I$(top_srcdir)/lib
 
 bin_PROGRAMS = \
 	xfce4-sensors
 
 xfce4_sensors_SOURCES = \
-	main.c \
-	interface.c \
-	interface.h \
+	actions.c \
+	actions.h \
 	callbacks.c \
 	callbacks.h \
-	actions.c \
-	actions.h
+	interface.c \
+	interface.h \
+	main.cc
 
 xfce4_sensors_CFLAGS = \
 	@PLATFORM_CFLAGS@ \
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\" \
-	@LIBSENSORS_CFLAGS@	\
+	@LIBSENSORS_CFLAGS@ \
 	@LIBXFCE4UI_CFLAGS@ \
 	@LIBXFCE4PANEL_CFLAGS@
+
+xfce4_sensors_CXXFLAGS = $(xfce4_sensors_CFLAGS)
 
 xfce4_sensors_LDFLAGS = \
 	@PLATFORM_LDFLAGS@
 
 xfce4_sensors_LDADD = \
 	$(top_builddir)/lib/libxfce4sensors.la \
+	$(top_builddir)/xfce4++/util/libxfce4util_pp.la \
 	@LIBSENSORS_LDFLAGS@ \
-	@LIBXFCE4UI_LIBS@	\
+	@LIBXFCE4UI_LIBS@ \
 	-lm
 
 xfce4_sensors_DEPENDENCIES = \
