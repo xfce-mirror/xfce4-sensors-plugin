@@ -1,6 +1,8 @@
-/* File: middlelayer.c
+/* middlelayer.cc
+ * Part of xfce4-sensors-plugin
  *
- * Copyright 2006-2017 Fabian Nowak <timytery@arcor.de>
+ * Copyright (c) 2006-2017 Fabian Nowak <timystery@arcor.de>
+ * Copyright (c) 2021 Jan Ziak <0xe2.0x9a.0x9b@xfce.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -193,7 +195,6 @@ categorize_sensor_type (t_chipfeature *feature)
 int
 sensor_get_value (t_chip *chip, int idx_chipfeature, double *out_value, gboolean *out_suppressmessage)
 {
-    t_chipfeature *feature;
     #ifdef HAVE_HDDTEMP
         gboolean *suppress = out_suppressmessage;
         g_assert (suppress != NULL);
@@ -214,7 +215,7 @@ sensor_get_value (t_chip *chip, int idx_chipfeature, double *out_value, gboolean
         case HDD: {
             #ifdef HAVE_HDDTEMP
                 g_assert (idx_chipfeature < chip->num_features);
-                feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, idx_chipfeature);
+                auto feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, idx_chipfeature);
                 g_assert (feature != NULL);
                 *out_value = get_hddtemp_value (feature->devicename, suppress);
                 if (*out_value==NO_VALID_HDDTEMP_PROGRAM) {
@@ -229,7 +230,7 @@ sensor_get_value (t_chip *chip, int idx_chipfeature, double *out_value, gboolean
         case ACPI: {
             #ifdef HAVE_ACPI
                 g_assert (idx_chipfeature < chip->num_features);
-                feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, idx_chipfeature);
+                auto feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, idx_chipfeature);
                 g_assert (feature != NULL);
                 /* TODO: seperate refresh from get operation! */
                 refresh_acpi ((gpointer) feature, NULL);
@@ -243,7 +244,7 @@ sensor_get_value (t_chip *chip, int idx_chipfeature, double *out_value, gboolean
         case GPU: {
             #ifdef HAVE_NVIDIA
                 g_assert (idx_chipfeature < chip->num_features);
-                feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, idx_chipfeature);
+                auto feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, idx_chipfeature);
                 g_assert (feature != NULL);
                 /* TODO: seperate refresh from get operation! */
                 refresh_nvidia ((gpointer) feature, NULL);
@@ -255,9 +256,7 @@ sensor_get_value (t_chip *chip, int idx_chipfeature, double *out_value, gboolean
             break;
         }
         default: {
-            feature = NULL;
             return -1;
-            break;
         }
     }
 

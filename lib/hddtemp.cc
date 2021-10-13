@@ -1,6 +1,8 @@
-/* File: hddtemp.c
+/* hddtemp.cc
+ * Part of xfce4-sensors-plugin
  *
- * Copyright 2004-2017 Fabian Nowak (timystery@arcor.de)
+ * Copyright (c) 2004-2017 Fabian Nowak <timystery@arcor.de>
+ * Copyright (c) 2021 Jan Ziak <0xe2.0x9a.0x9b@xfce.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -321,11 +323,10 @@ void
 remove_unmonitored_drives (t_chip *chip, gboolean *suppress_message)
 {
     int idx_feature, temperature;
-    t_chipfeature *feature;
 
     for (idx_feature=0; idx_feature < chip->num_features; idx_feature++)
     {
-        feature = g_ptr_array_index (chip->chip_features, idx_feature);
+        auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_feature);
         temperature = get_hddtemp_value (feature->devicename, suppress_message);
         if (temperature == NO_VALID_HDDTEMP_PROGRAM)
         {
@@ -339,7 +340,7 @@ remove_unmonitored_drives (t_chip *chip, gboolean *suppress_message)
         {
             for (idx_feature=0; idx_feature < chip->num_features; idx_feature++) {
                 DBG ("remove %d\n", idx_feature);
-                feature = g_ptr_array_index (chip->chip_features, idx_feature);
+                feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_feature);
                 free_chipfeature ( (gpointer) feature, NULL);
             }
             g_ptr_array_free (chip->chip_features, TRUE);
@@ -355,12 +356,9 @@ remove_unmonitored_drives (t_chip *chip, gboolean *suppress_message)
 void
 populate_detected_drives (t_chip *chip)
 {
-    int idx_disk;
-    t_chipfeature *feature;
-
-    for (idx_disk=0; idx_disk < chip->num_features; idx_disk++)
+    for (gint idx_disk=0; idx_disk < chip->num_features; idx_disk++)
     {
-       feature = g_ptr_array_index (chip->chip_features, idx_disk);
+       auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_disk);
        g_assert (feature!=NULL);
 
        feature->address = idx_disk;
