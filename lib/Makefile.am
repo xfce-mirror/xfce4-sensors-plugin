@@ -1,4 +1,5 @@
-AM_CPPFLAGS =										\
+AM_CPPFLAGS = \
+	-I${top_srcdir} \
 	-I$(top_srcdir)/include
 
 plugindir = $(libdir)/xfce4/modules
@@ -6,37 +7,37 @@ plugindir = $(libdir)/xfce4/modules
 plugin_LTLIBRARIES = libxfce4sensors.la
 
 if HAVE_LIBSENSORS
-SENSORS_SOURCES = lmsensors.c
+SENSORS_SOURCES = lmsensors.cc
 endif
 
 if HAVE_HDDTEMP
-HDDTEMP_SOURCES = hddtemp.c
+HDDTEMP_SOURCES = hddtemp.cc
 endif
 
 if HAVE_ACPI
-ACPI_SOURCES = acpi.c
+ACPI_SOURCES = acpi.cc
 endif
 
 if HAVE_NVIDIA
-NVIDIA_SOURCES = nvidia.c
+NVIDIA_SOURCES = nvidia.cc
 endif
 
-libxfce4sensors_la_SOURCES =						\
-	middlelayer.c									\
-	configuration.c									\
-	sensors-interface-common.c						\
-	sensors-interface.c								\
-	tacho.c											\
-	$(SENSORS_SOURCES)								\
-	$(HDDTEMP_SOURCES)								\
-	$(ACPI_SOURCES)									\
-	$(NVIDIA_SOURCES)
+libxfce4sensors_la_SOURCES = \
+	configuration.cc \
+	middlelayer.cc \
+	sensors-interface.cc \
+	sensors-interface-common.cc \
+	tacho.cc \
+	$(ACPI_SOURCES) \
+	$(HDDTEMP_SOURCES) \
+	$(NVIDIA_SOURCES) \
+	$(SENSORS_SOURCES)
 
-libxfce4sensors_la_CFLAGS =							\
-	@PLATFORM_CFLAGS@								\
-	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"			\
-	@LIBXFCE4UI_CFLAGS@								\
-	@LIBXFCE4PANEL_CFLAGS@							\
+libxfce4sensors_la_CFLAGS = \
+	@PLATFORM_CFLAGS@ \
+	-DPACKAGE_LOCALE_DIR=\"$(localedir)\" \
+	@LIBXFCE4UI_CFLAGS@ \
+	@LIBXFCE4PANEL_CFLAGS@ \
 	@LIBSENSORS_CFLAGS@
 
 if HAVE_NVIDIA
@@ -47,17 +48,19 @@ if HAVE_LIBNOTIFY
 libxfce4sensors_la_CFLAGS += @LIBNOTIFY_CFLAGS@
 endif
 
-libxfce4sensors_la_LDFLAGS =						\
-	-export-dynamic									\
-	-export-symbols-regex "^[^_].*"					\
+libxfce4sensors_la_CXXFLAGS = $(libxfce4sensors_la_CFLAGS)
+
+libxfce4sensors_la_LDFLAGS = \
+	-export-dynamic \
+	-export-symbols-regex "^[^_].*" \
 	-version-info $(LIBXFCE4SENSORS_VERINFO)
 
 # @PLATFORM_LDFLAGS@
 
-libxfce4sensors_la_LIBADD =							\
-	@LIBXFCE4UI_LIBS@								\
-	@LIBXFCE4PANEL_LIBS@							\
-	@LIBSENSORS_LDFLAGS@							\
+libxfce4sensors_la_LIBADD = \
+	@LIBXFCE4UI_LIBS@ \
+	@LIBXFCE4PANEL_LIBS@ \
+	@LIBSENSORS_LDFLAGS@ \
 	-lm
 
 if HAVE_NVIDIA

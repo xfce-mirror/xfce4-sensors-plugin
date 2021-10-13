@@ -1,6 +1,8 @@
-/* File: configuration.c
+/* configuration.cc
+ * Part of xfce4-sensors-plugin
  *
- * Copyright 2004-2017 Fabian Nowak (timystery@arcor.de)
+ * Copyright (c) 2004-2017 Fabian Nowak <timystery@arcor.de>
+ * Copyright (c) 2021 Jan Ziak <0xe2.0x9a.0x9b@xfce.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,16 +40,15 @@ gint
 get_Id_from_address (gint chip_number, gint addr_chipfeature, t_sensors *sensors)
 {
     gint idx_feature, result = -1;
-    t_chip *chip;
 
     g_return_val_if_fail (sensors!=NULL, result);
 
-    chip = (t_chip *) g_ptr_array_index (sensors->chips, chip_number);
+    auto chip = (t_chip*) g_ptr_array_index (sensors->chips, chip_number);
 
     if (chip)
     {
         for (idx_feature=0; idx_feature<chip->num_features; idx_feature++) {
-            t_chipfeature *feature = g_ptr_array_index(chip->chip_features, idx_feature);
+            auto feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, idx_feature);
             if (feature)
             {
                 DBG("address: %d", feature->address);
@@ -136,7 +137,7 @@ sensors_write_config (XfcePanelPlugin *plugin, const t_sensors *sensors)
 
             for (idx_chip=0; idx_chip<sensors->num_sensorchips; idx_chip++)
             {
-                t_chip *chip = g_ptr_array_index (sensors->chips, idx_chip);
+                auto chip = (t_chip*) g_ptr_array_index (sensors->chips, idx_chip);
                 g_assert (chip!=NULL);
 
                 g_snprintf (str_chip, sizeof (str_chip), "Chip%d", idx_chip);
@@ -149,7 +150,7 @@ sensors_write_config (XfcePanelPlugin *plugin, const t_sensors *sensors)
                 xfce_rc_write_int_entry (rc, "Number", idx_chip);
 
                 for (idx_feature=0; idx_feature<chip->num_features; idx_feature++) {
-                    t_chipfeature *feature = g_ptr_array_index(chip->chip_features, idx_feature);
+                    auto feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, idx_feature);
                     g_assert (feature!=NULL);
 
                     if (feature->show)
@@ -209,11 +210,30 @@ sensors_read_general_config (XfceRc *rc, t_sensors *sensors)
 
         sensors->show_labels = xfce_rc_read_bool_entry (rc, "Show_Labels", TRUE);
 
-        sensors->display_values_type = xfce_rc_read_int_entry (rc, "Use_Bar_UI", 0);
+        gint display_values_type = xfce_rc_read_int_entry (rc, "Use_Bar_UI", -1);
+        switch (display_values_type)
+        {
+            case DISPLAY_BARS:
+            case DISPLAY_TACHO:
+            case DISPLAY_TEXT:
+                sensors->display_values_type = (e_displaystyles) display_values_type;
+                break;
+            default:
+                sensors->display_values_type = DISPLAY_TEXT;
+        }
 
         sensors->automatic_bar_colors = !xfce_rc_read_bool_entry (rc, "Show_Colored_Bars", FALSE);
 
-        sensors->scale = xfce_rc_read_int_entry (rc, "Scale", 0);
+        gint scale = xfce_rc_read_int_entry (rc, "Scale", -1);
+        switch (scale)
+        {
+            case CELSIUS:
+            case FAHRENHEIT:
+                sensors->scale = (t_tempscale) scale;
+                break;
+            default:
+                sensors->scale = CELSIUS;
+        }
 
         if ((str_value = xfce_rc_read_entry (rc, "str_fontsize", NULL)) && *str_value) {
             g_free(sensors->str_fontsize);
@@ -342,10 +362,9 @@ sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
                         gint idx_feature;
                         for (idx_feature = 0; idx_feature < chip->num_features; idx_feature++)
                         {
-                            t_chipfeature *feature;
                             gchar str_feature[20];
 
-                            feature = g_ptr_array_index (chip->chip_features, idx_feature);
+                            auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_feature);
                             g_assert (feature!=NULL);
 
                             g_snprintf (str_feature, sizeof (str_feature), "%s_Feature%d", str_chip, idx_feature);

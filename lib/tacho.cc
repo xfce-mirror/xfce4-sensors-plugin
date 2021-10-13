@@ -1,6 +1,8 @@
-/* File: tacho.c
+/* tacho.cc
+ * Part of xfce4-sensors-plugin
  *
- * Copyright 2009-2017 Fabian Nowak (timystery@arcor.de)
+ * Copyright (c) 2009-2017 Fabian Nowak <timystery@arcor.de>
+ * Copyright (c) 2021 Jan Ziak <0xe2.0x9a.0x9b@xfce.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -98,7 +100,7 @@ gtk_sensorstacho_unset_text (GtkSensorsTacho *tacho)
 GtkWidget *
 gtk_sensorstacho_new(GtkOrientation orientation, guint size, SensorsTachoStyle style)
 {
-    GtkSensorsTacho *tacho = g_object_new (gtk_sensorstacho_get_type(), NULL);
+    auto tacho = (GtkSensorsTacho*) g_object_new (gtk_sensorstacho_get_type(), NULL);
 
     tacho->orientation = orientation;
     tacho->size = size;

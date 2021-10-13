@@ -1,6 +1,8 @@
-/* File: sensors-interface.c
+/* sensors-interface.cc
+ * Part of xfce4-sensors-plugin
  *
- * Copyright 2008-2017 Fabian Nowak (timystery@arcor.de)
+ * Copyright (c) 2008-2017 Fabian Nowak <timystery@arcor.de>
+ * Copyright (c) 2021 Jan Ziak <0xe2.0x9a.0x9b@xfce.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -64,13 +66,12 @@ fill_gtkTreeStore (GtkTreeStore *treestore, t_chip *chip, t_tempscale tempscale,
 {
     gint idx_chipfeature;
     double feature_value;
-    t_chipfeature *feature;
     gboolean *suppressnotifications;
     GtkTreeIter iter_list_store;
 #ifdef HAVE_LIBNOTIFY
     NotifyNotification *notification;
     GError *error = NULL;
-    gchar *iconpath;
+    const gchar *iconpath;
 #endif
     gchar *summary, *body;
     float minval, maxval;
@@ -88,7 +89,7 @@ fill_gtkTreeStore (GtkTreeStore *treestore, t_chip *chip, t_tempscale tempscale,
 
     for (idx_chipfeature=0; idx_chipfeature < chip->num_features; idx_chipfeature++)
     {
-        feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_chipfeature);
+        auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_chipfeature);
         g_assert (feature!=NULL);
 
         if (feature->valid) {
@@ -138,7 +139,6 @@ void
 add_type_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 {
     GtkWidget *hbox, *ptr_labelwidget;
-    t_chip *chip;
     gint active_entry;
 
     hbox = gtk_hbox_new (FALSE, BORDER);
@@ -157,7 +157,7 @@ add_type_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 
     active_entry = gtk_combo_box_get_active(GTK_COMBO_BOX(dialog->myComboBox));
 
-    chip = g_ptr_array_index (dialog->sensors->chips, active_entry);
+    auto chip = (t_chip*) g_ptr_array_index (dialog->sensors->chips, active_entry);
     DBG("index: %d, chip: %p\n", active_entry, chip);
 
     hbox = gtk_hbox_new (FALSE, BORDER);
@@ -401,8 +401,6 @@ void
 init_widgets (t_sensors_dialog *dialog)
 {
     gint idx_chip;
-    t_chip *chip;
-    t_chipfeature *feature;
     GtkTreeIter iter;
     t_sensors *sensors;
     GtkTreeStore *treemodel;
@@ -416,7 +414,7 @@ init_widgets (t_sensors_dialog *dialog)
                         G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_STRING,
                         G_TYPE_FLOAT, G_TYPE_FLOAT);
 
-        chip = (t_chip*) g_ptr_array_index (sensors->chips, idx_chip);
+        auto chip = (t_chip*) g_ptr_array_index (sensors->chips, idx_chip);
         gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->myComboBox),
                                         chip->sensorId );
         treemodel = GTK_TREE_STORE (dialog->myListStore[idx_chip]);
@@ -425,7 +423,7 @@ init_widgets (t_sensors_dialog *dialog)
     }
 
     if (sensors->num_sensorchips == 0) {
-        chip = (t_chip*) g_ptr_array_index (sensors->chips, 0);
+        auto chip = (t_chip*) g_ptr_array_index (sensors->chips, 0);
         g_assert (chip!=NULL);
         gtk_combo_box_text_append_text ( GTK_COMBO_BOX_TEXT(dialog->myComboBox),
                                 chip->sensorId );
@@ -434,7 +432,7 @@ init_widgets (t_sensors_dialog *dialog)
                                                      G_TYPE_STRING, G_TYPE_BOOLEAN,
                                                      G_TYPE_STRING, G_TYPE_DOUBLE,
                                                      G_TYPE_DOUBLE);
-        feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, 0);
+        auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, 0);
         g_assert (feature!=NULL);
 
         feature->formatted_value = g_strdup ("0.0");
@@ -459,7 +457,6 @@ void
 reload_listbox (t_sensors_dialog *dialog)
 {
     gint idx_chip;
-    t_chip *chip;
     GtkTreeStore *tree_store;
     t_sensors *sensors;
 
@@ -468,7 +465,7 @@ reload_listbox (t_sensors_dialog *dialog)
     sensors = dialog->sensors;
 
     for (idx_chip=0; idx_chip < sensors->num_sensorchips; idx_chip++) {
-        chip = (t_chip*) g_ptr_array_index (sensors->chips, idx_chip);
+        auto chip = (t_chip*) g_ptr_array_index (sensors->chips, idx_chip);
 
         tree_store = dialog->myListStore[idx_chip];
         g_assert (tree_store != NULL);

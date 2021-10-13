@@ -1,7 +1,9 @@
-/* File: nvidia.c
+/* nvidia.cc
+ * Part of xfce4-sensors-plugin
  *
  * Copyright (c) 2011 Amir Aupov <fads93@gmail.com>
  * Copyright (c) 2017 Fabian Nowak <timystery@arcor.de>
+ * Copyright (c) 2021 Jan Ziak <0xe2.0x9a.0x9b@xfce.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -49,7 +51,6 @@ initialize_nvidia (GPtrArray *chips)
 {
     int num_gpus, retval;
     t_chip *chip;
-    t_chipfeature *feature;
 
     g_assert (chips != NULL);
 
@@ -70,7 +71,7 @@ initialize_nvidia (GPtrArray *chips)
     if (chip->num_features > 0) {
         int i;
         for (i = 0; i < num_gpus; i++) {
-            feature = g_ptr_array_index (chip->chip_features, i);
+            auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, i);
             g_assert (feature != NULL);
             feature->address = i;
             feature->name = g_strdup (feature->devicename);
