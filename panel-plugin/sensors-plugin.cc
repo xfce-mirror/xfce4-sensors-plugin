@@ -1,6 +1,8 @@
-/* File: sensors-plugin.c
+/* sensors-plugin.cc
+ * Part of xfce4-sensors-plugin
  *
- * Copyright 2004-2017 Fabian Nowak (timystery@arcor.de)
+ * Copyright (c) 2004-2017 Fabian Nowak <timystery@arcor.de>
+ * Copyright (c) 2021 Jan Ziak <0xe2.0x9a.0x9b@xfce.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,6 +25,9 @@
  * It also works with solely ACPI or hddtemp, but then with more limited
  * functionality.
  */
+
+/* The fixes file has to be included before any other #include directives */
+#include "xfce4++/util/fixes.h"
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -49,6 +54,7 @@
 #include <tacho.h>
 
 /* Local includes */
+#include "plugin.h"
 #include "sensors-plugin.h"
 
 /* Definitions due to porting from Gtk2 to Gtk3 */
@@ -185,17 +191,15 @@ sensors_remove_bars_panel (t_sensors *sensors)
     g_return_if_fail(sensors != NULL);
 
     for (idx_sensorchip=0; idx_sensorchip < sensors->num_sensorchips; idx_sensorchip++) {
-        t_chip *chip = g_ptr_array_index(sensors->chips, idx_sensorchip);
+        auto chip = (t_chip*) g_ptr_array_index(sensors->chips, idx_sensorchip);
         g_assert (chip != NULL);
 
         for (idx_feature=0; idx_feature < chip->num_features; idx_feature++) {
-            t_chipfeature *feature = g_ptr_array_index(chip->chip_features, idx_feature);
+            auto feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, idx_feature);
             g_assert (feature != NULL);
 
             if (feature->show) {
-                t_labelledlevelbar *bar;
-
-                bar = sensors->panels[idx_sensorchip][idx_feature];
+                t_labelledlevelbar *bar = sensors->panels[idx_sensorchip][idx_feature];
 
                 g_free (bar->css_data);
                 bar->css_data = NULL;
@@ -231,11 +235,11 @@ sensors_remove_tacho_panel (t_sensors *sensors)
     g_return_if_fail (sensors != NULL);
 
     for (idx_sensorchip=0; idx_sensorchip < sensors->num_sensorchips; idx_sensorchip++) {
-        t_chip *chip = g_ptr_array_index(sensors->chips, idx_sensorchip);
+        auto chip = (t_chip*) g_ptr_array_index(sensors->chips, idx_sensorchip);
         g_assert (chip != NULL);
 
         for (idx_feature=0; idx_feature < chip->num_features; idx_feature++) {
-            t_chipfeature *feature = g_ptr_array_index (chip->chip_features, idx_feature);
+            auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_feature);
             g_assert (feature != NULL);
 
             if (feature->show) {
@@ -258,11 +262,11 @@ sensors_update_bars_panel (const t_sensors *sensors)
     gint idx_sensorchips, idx_feature;
 
     for (idx_sensorchips=0; idx_sensorchips < sensors->num_sensorchips; idx_sensorchips++) {
-        t_chip *chip = g_ptr_array_index(sensors->chips, idx_sensorchips);
+        auto chip = (t_chip*) g_ptr_array_index(sensors->chips, idx_sensorchips);
         g_assert (chip != NULL);
 
         for (idx_feature=0; idx_feature < chip->num_features; idx_feature++) {
-            t_chipfeature *feature = g_ptr_array_index(chip->chip_features, idx_feature);
+            auto feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, idx_feature);
             g_assert (feature != NULL);
 
             if (feature->show) {
@@ -297,11 +301,11 @@ sensors_update_tacho_panel (const t_sensors *sensors)
         panel_size /= xfce_panel_plugin_get_nrows (sensors->plugin);
 
     for (idx_sensorchips=0; idx_sensorchips < sensors->num_sensorchips; idx_sensorchips++) {
-        t_chip *chip = g_ptr_array_index(sensors->chips, idx_sensorchips);
+        auto chip = (t_chip*) g_ptr_array_index(sensors->chips, idx_sensorchips);
         g_assert (chip != NULL);
 
         for (idx_feature=0; idx_feature < chip->num_features; idx_feature++) {
-            t_chipfeature *feature = g_ptr_array_index(chip->chip_features, idx_feature);
+            auto feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, idx_feature);
             g_assert (feature != NULL);
 
             if (feature->show) {
@@ -342,11 +346,11 @@ sensors_add_bars_display (t_sensors *sensors)
 
     gtk_container_set_border_width (GTK_CONTAINER(sensors->widget_sensors), 0);
     for (idx_sensorchip=0; idx_sensorchip < sensors->num_sensorchips; idx_sensorchip++) {
-        t_chip *chip =  g_ptr_array_index (sensors->chips, idx_sensorchip);
+        auto chip = (t_chip*) g_ptr_array_index (sensors->chips, idx_sensorchip);
         g_assert (chip != NULL);
 
         for (idx_feature=0; idx_feature < chip->num_features; idx_feature++) {
-            t_chipfeature *feature = g_ptr_array_index (chip->chip_features, idx_feature);
+            auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_feature);
             g_assert (feature != NULL);
 
             if (feature->show) {
@@ -457,14 +461,13 @@ sensors_add_tacho_display (t_sensors *sensors)
 
     gtk_container_set_border_width (GTK_CONTAINER(sensors->widget_sensors), 0);
     for (idx_sensorchips=0; idx_sensorchips < sensors->num_sensorchips; idx_sensorchips++) {
-        t_chip *chip = g_ptr_array_index(sensors->chips, idx_sensorchips);
+        auto chip = (t_chip*) g_ptr_array_index(sensors->chips, idx_sensorchips);
         g_assert (chip != NULL);
 
         for (idx_feature=0; idx_feature < chip->num_features; idx_feature++) {
-            t_chipfeature *feature;
             SensorsTachoStyle style;
 
-            feature = g_ptr_array_index (chip->chip_features, idx_feature);
+            auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_feature);
             g_assert (feature != NULL);
 
             if (feature->show) {
@@ -664,11 +667,11 @@ count_number_checked_sensor_features (const t_sensors *sensors)
     num_items_to_display = 0;
 
     for (idx_sensorchips=0; idx_sensorchips < sensors->num_sensorchips; idx_sensorchips++) {
-        t_chip *chip = g_ptr_array_index (sensors->chips, idx_sensorchips);
+        auto chip = (t_chip*) g_ptr_array_index (sensors->chips, idx_sensorchips);
         g_assert (chip!=NULL);
 
         for (idx_feature=0; idx_feature < chip->num_features; idx_feature++) {
-            t_chipfeature *feature = g_ptr_array_index (chip->chip_features, idx_feature);
+            auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_feature);
             g_assert (feature!=NULL);
 
             if (feature->valid && feature->show)
@@ -683,7 +686,7 @@ count_number_checked_sensor_features (const t_sensors *sensors)
 static void
 draw_text_area (GtkWidget *widget, cairo_t *cr, gpointer data)
 {
-    t_sensors *const sensors = data;
+    const auto sensors = (t_sensors*) data;
     GtkAllocation alloc;
     GdkRGBA color;
     PangoLayout *layout;
@@ -721,16 +724,14 @@ draw_text_area (GtkWidget *widget, cairo_t *cr, gpointer data)
 
     for (idx_sensorchip = 0; idx_sensorchip < sensors->num_sensorchips; idx_sensorchip++)
     {
-        t_chip *chip = g_ptr_array_index (sensors->chips, idx_sensorchip);
+        auto chip = (t_chip*) g_ptr_array_index (sensors->chips, idx_sensorchip);
         gint idx_feature;
 
         g_assert (chip != NULL);
 
         for (idx_feature = 0; idx_feature < chip->num_features; idx_feature++)
         {
-            t_chipfeature *feature;
-
-            feature = g_ptr_array_index (chip->chip_features, idx_feature);
+            auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_feature);
             g_assert (feature != NULL);
 
             if (feature->show)
@@ -878,11 +879,11 @@ sensors_update_values (t_sensors *sensors)
     gint idx_sensorchip, idx_feature;
 
     for (idx_sensorchip=0; idx_sensorchip < sensors->num_sensorchips; idx_sensorchip++) {
-        t_chip *chip = g_ptr_array_index (sensors->chips, idx_sensorchip);
+        auto chip = (t_chip*) g_ptr_array_index (sensors->chips, idx_sensorchip);
         g_assert (chip!=NULL);
 
         for (idx_feature = 0; idx_feature<chip->num_features; idx_feature++) {
-            t_chipfeature *feature = g_ptr_array_index (chip->chip_features, idx_feature);
+            auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_feature);
             g_assert (feature!=NULL);
 
             if (feature->valid && feature->show)
@@ -930,15 +931,14 @@ sensors_create_tooltip (const t_sensors *sensors)
     tooltip = g_strdup (_("No sensors selected!"));
 
     for (idx_sensorchip=0; idx_sensorchip < sensors->num_sensorchips; idx_sensorchip++) {
-        t_chip *chip;
         gboolean chipname_already_prepended = FALSE;
 
-        chip = g_ptr_array_index (sensors->chips, idx_sensorchip);
+        auto chip = (t_chip*) g_ptr_array_index (sensors->chips, idx_sensorchip);
         g_assert (chip!=NULL);
 
         for (idx_feature = 0; idx_feature<chip->num_features; idx_feature++)
         {
-            t_chipfeature *feature = g_ptr_array_index (chip->chip_features, idx_feature);
+            auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_feature);
             g_assert (feature!=NULL);
 
             if (feature->valid && feature->show)
@@ -1091,7 +1091,7 @@ execute_command (GtkWidget *widget, GdkEventButton *event, gpointer data)
     g_return_val_if_fail (data != NULL, FALSE);
 
     if (event->type == GDK_2BUTTON_PRESS) {
-        t_sensors *sensors = data;
+        auto sensors = (t_sensors*) data;
 
         g_return_val_if_fail (sensors->exec_command, FALSE);
 
@@ -1298,11 +1298,10 @@ void
 sensor_entry_changed_ (GtkWidget *widget, t_sensors_dialog *dialog)
 {
     gint combo_box_active;
-    t_chip *chip;
 
     combo_box_active = gtk_combo_box_get_active (GTK_COMBO_BOX (widget));
 
-    chip = (t_chip*) g_ptr_array_index (dialog->sensors->chips, combo_box_active);
+    auto chip = (t_chip*) g_ptr_array_index (dialog->sensors->chips, combo_box_active);
     gtk_label_set_label (GTK_LABEL (dialog->mySensorLabel), chip->description);
 
     gtk_tree_view_set_model (GTK_TREE_VIEW (dialog->myTreeView), GTK_TREE_MODEL (dialog->myListStore[combo_box_active]));
@@ -1366,8 +1365,16 @@ cover_rows_toggled(GtkWidget *widget, t_sensors_dialog *dialog)
 void
 temperature_unit_change_ (GtkWidget *widget, t_sensors_dialog *dialog)
 {
-    t_sensors *const sensors = dialog->sensors;
-    sensors->scale = 1 - sensors->scale;  /* toggle celsius-fahrenheit by use of mathematics ;) */
+    t_sensors *sensors = dialog->sensors;
+    switch (sensors->scale)
+    {
+        case CELSIUS:
+            sensors->scale = FAHRENHEIT;
+            break;
+        case FAHRENHEIT:
+            sensors->scale = CELSIUS;
+            break;
+    }
     sensors_update_panel (sensors, true);
     reload_listbox (dialog);
 }
@@ -1375,7 +1382,7 @@ temperature_unit_change_ (GtkWidget *widget, t_sensors_dialog *dialog)
 static gboolean
 sensors_show_panel_cb (gpointer user_data)
 {
-    t_sensors *sensors = user_data;
+    auto sensors = (t_sensors*) user_data;
     sensors_update_panel (sensors, false);
     return TRUE;
 }
@@ -1447,8 +1454,6 @@ minimum_changed_ (GtkCellRendererText *cell_renderer_text, gchar *path_str,
     GtkTreeModel *model;
     GtkTreePath *path;
     GtkTreeIter iter;
-    t_chip *chip;
-    t_chipfeature *feature;
 
     value = atof (newmin);
 
@@ -1463,9 +1468,9 @@ minimum_changed_ (GtkCellRendererText *cell_renderer_text, gchar *path_str,
 
     /* set new value according to chosen scale */
     gtk_tree_store_set (GTK_TREE_STORE (model), &iter, eTreeColumn_Min, value, -1);
-    chip = (t_chip*) g_ptr_array_index(sensors->chips, combo_box_active);
+    auto chip = (t_chip*) g_ptr_array_index(sensors->chips, combo_box_active);
 
-    feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, atoi(path_str));
+    auto feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, atoi(path_str));
     if (sensors->scale == FAHRENHEIT)
       value = (value - 32) * 5 / 9;
     feature->min_value = value;
@@ -1493,8 +1498,6 @@ maximum_changed_ (GtkCellRendererText *cell_renderer_text, gchar *path_str,
     GtkTreeModel *model;
     GtkTreePath *path;
     GtkTreeIter iter;
-    t_chip *chip;
-    t_chipfeature *feature;
 
     value = atof (newmax);
 
@@ -1509,9 +1512,9 @@ maximum_changed_ (GtkCellRendererText *cell_renderer_text, gchar *path_str,
 
     /* set new value according to chosen scale */
     gtk_tree_store_set (GTK_TREE_STORE (model), &iter, eTreeColumn_Max, value, -1);
-    chip = (t_chip*) g_ptr_array_index(sensors->chips, combo_box_active);
+    auto chip = (t_chip*) g_ptr_array_index(sensors->chips, combo_box_active);
 
-    feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, atoi(path_str));
+    auto feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, atoi(path_str));
     if (sensors->scale == FAHRENHEIT)
       value = (value - 32) * 5 / 9;
     feature->max_value = value;
@@ -1539,8 +1542,6 @@ list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, const gchar *p
     GtkTreePath *path;
     GtkTreeIter iter;
     gboolean hexColor;
-    t_chip *chip;
-    t_chipfeature *feature;
 
     /* store new color in appropriate array */
     hexColor = g_str_has_prefix (new_color, "#");
@@ -1564,9 +1565,9 @@ list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, const gchar *p
 
         /* set new value */
         gtk_tree_store_set (GTK_TREE_STORE (model), &iter, eTreeColumn_Color, new_color, -1);
-        chip = (t_chip*) g_ptr_array_index(sensors->chips, combo_box_active);
+        auto chip = (t_chip*) g_ptr_array_index(sensors->chips, combo_box_active);
 
-        feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, atoi(path_str));
+        auto feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, atoi(path_str));
         g_free (feature->color_orNull);
         feature->color_orNull = g_strdup (new_color);
 
@@ -1587,9 +1588,9 @@ list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, const gchar *p
 
         /* set new value */
         gtk_tree_store_set (GTK_TREE_STORE (model), &iter, eTreeColumn_Color, new_color, -1);
-        chip = (t_chip*) g_ptr_array_index(sensors->chips, combo_box_active);
+        auto chip = (t_chip*) g_ptr_array_index(sensors->chips, combo_box_active);
 
-        feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, atoi(path_str));
+        auto feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, atoi(path_str));
         g_free (feature->color_orNull);
         feature->color_orNull = NULL;
 
@@ -1611,8 +1612,6 @@ list_cell_text_edited_ (GtkCellRendererText *cell_renderer_text, gchar *path_str
     GtkTreeModel *model;
     GtkTreePath *path;
     GtkTreeIter iter;
-    t_chip *chip;
-    t_chipfeature *feature;
 
     if (sensors->display_values_type == DISPLAY_BARS) {
         sensors_remove_bars_panel (sensors);
@@ -1630,9 +1629,9 @@ list_cell_text_edited_ (GtkCellRendererText *cell_renderer_text, gchar *path_str
 
     /* set new value */
     gtk_tree_store_set (GTK_TREE_STORE (model), &iter, eTreeColumn_Name, new_text, -1);
-    chip = (t_chip*) g_ptr_array_index(sensors->chips, combo_box_active);
+    auto chip = (t_chip*) g_ptr_array_index(sensors->chips, combo_box_active);
 
-    feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, atoi (path_str));
+    auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, atoi (path_str));
     g_free(feature->name);
     feature->name = g_strdup (new_text);
 
@@ -1648,8 +1647,6 @@ void
 list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,  t_sensors_dialog *dialog)
 {
     t_sensors *const sensors = dialog->sensors;
-    t_chip *chip;
-    t_chipfeature *feature;
     gint combo_box_active;
     GtkTreeModel *model;
     GtkTreePath *path;
@@ -1676,9 +1673,9 @@ list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,  t_sensors_dial
 
     /* set new value */
     gtk_tree_store_set (GTK_TREE_STORE (model), &iter, eTreeColumn_Show, show, -1);
-    chip = (t_chip*) g_ptr_array_index(sensors->chips, combo_box_active);
+    auto chip = (t_chip*) g_ptr_array_index(sensors->chips, combo_box_active);
 
-    feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, atoi(path_str));
+    auto feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, atoi(path_str));
     feature->show = show;
 
     /* clean up */
@@ -1693,7 +1690,7 @@ list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,  t_sensors_dial
 static void
 on_font_set (GtkWidget *widget, gpointer data)
 {
-    t_sensors *sensors = data;
+    auto sensors = (t_sensors*) data;
     gchar *new_font, *tmp;
 
     new_font = g_strdup(gtk_font_chooser_get_font(GTK_FONT_CHOOSER(widget)));
@@ -2202,7 +2199,7 @@ sensors_create_options (XfcePanelPlugin *plugin, t_sensors *sensors)
     dlg = xfce_titled_dialog_new_with_buttons(
                 _("Sensors Plugin"),
                 GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
-                0,
+                (GtkDialogFlags) 0,
                 "gtk-close",
                 GTK_RESPONSE_OK,
                 NULL
@@ -2329,7 +2326,7 @@ sensors_show_about(XfcePanelPlugin *plugin, t_sensors *sensors)
 
 
 /* -------------------------------------------------------------------------- */
-static void
+void
 sensors_plugin_construct (XfcePanelPlugin *plugin)
 {
     t_sensors *sensors;
@@ -2389,5 +2386,3 @@ sensors_plugin_construct (XfcePanelPlugin *plugin)
 
     gtk_widget_show (sensors->eventbox);
 }
-
-XFCE_PANEL_PLUGIN_REGISTER (sensors_plugin_construct);

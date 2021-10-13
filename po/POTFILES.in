@@ -1,4 +1,4 @@
-panel-plugin/sensors-plugin.c
+panel-plugin/sensors-plugin.cc
 panel-plugin/sensors-plugin.h
 lib/configuration.c
 lib/acpi.c
