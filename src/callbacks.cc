@@ -57,9 +57,7 @@ on_main_window_response (GtkWidget *widget, int response, t_sensors_dialog *dial
 void
 sensor_entry_changed_ (GtkWidget *combobox, t_sensors_dialog *dialog)
 {
-    gint active_combobox;
-
-    active_combobox = gtk_combo_box_get_active (GTK_COMBO_BOX(combobox));
+    gint active_combobox = gtk_combo_box_get_active (GTK_COMBO_BOX(combobox));
 
     auto chip = (t_chip*) g_ptr_array_index (dialog->sensors->chips, active_combobox);
 
@@ -82,15 +80,12 @@ sensor_entry_changed_ (GtkWidget *combobox, t_sensors_dialog *dialog)
 static gint
 set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *dialog, const gchar *cellpath, gint col_treeview, GValue *value, t_chipfeature **out_feature)
 {
-    gint active_combobox;
-    GtkTreeModel *treemodel;
-    GtkTreePath *treepath;
     GtkTreeIter iter_treemodel;
 
-    active_combobox = gtk_combo_box_get_active (GTK_COMBO_BOX (dialog->myComboBox));
+    gint active_combobox = gtk_combo_box_get_active (GTK_COMBO_BOX (dialog->myComboBox));
 
-    treemodel = (GtkTreeModel*) dialog->myListStore [active_combobox];
-    treepath = gtk_tree_path_new_from_string (cellpath);
+    auto treemodel = (GtkTreeModel*) dialog->myListStore [active_combobox];
+    GtkTreePath *treepath = gtk_tree_path_new_from_string (cellpath);
 
     /* set value */
     if (gtk_tree_model_get_iter (treemodel, &iter_treemodel, treepath))
@@ -113,14 +108,13 @@ void
 list_cell_text_edited_ (GtkCellRendererText *cell_renderer_text,
                         gchar *cellpath, gchar *new_text, t_sensors_dialog *dialog)
 {
-    gint active_combobox;
     t_chipfeature *feature = NULL;
     GValue text_string = G_VALUE_INIT;
-    GtkWidget *tacho;
 
     g_value_init(&text_string, G_TYPE_STRING);
     g_value_set_static_string(&text_string, new_text);
-    active_combobox = set_value_in_treemodel_and_return_index_and_feature(
+
+    gint active_combobox = set_value_in_treemodel_and_return_index_and_feature(
         dialog, cellpath, eTreeColumn_Name, &text_string,
         &feature);
 
@@ -129,7 +123,7 @@ list_cell_text_edited_ (GtkCellRendererText *cell_renderer_text,
     feature->name = g_strdup (new_text);
 
     /* update panel */
-    tacho = dialog->sensors->tachos[active_combobox][atoi(cellpath)];
+    GtkWidget *tacho = dialog->sensors->tachos[active_combobox][atoi(cellpath)];
 
     if (tacho != NULL)
         gtk_sensorstacho_set_text (GTK_SENSORSTACHO (tacho), new_text);
@@ -143,16 +137,13 @@ void
 list_cell_toggle_ (GtkCellRendererToggle *cell_renderer_toggle, gchar *cellpath,
                    t_sensors_dialog *dialog)
 {
-    gint active_combobox;
-    GtkTreeModel *tree_model;
-    GtkTreePath *tree_path;
     GtkTreeIter tree_iter;
     gboolean toggle_item;
 
-    active_combobox = gtk_combo_box_get_active(GTK_COMBO_BOX (dialog->myComboBox));
+    gint active_combobox = gtk_combo_box_get_active(GTK_COMBO_BOX (dialog->myComboBox));
 
-    tree_model = (GtkTreeModel*) dialog->myListStore[active_combobox];
-    tree_path = gtk_tree_path_new_from_string (cellpath);
+    auto tree_model = (GtkTreeModel*) dialog->myListStore[active_combobox];
+    GtkTreePath *tree_path = gtk_tree_path_new_from_string (cellpath);
 
     /* get toggled iter */
     gtk_tree_model_get_iter (tree_model, &tree_iter, tree_path);
@@ -185,13 +176,11 @@ list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, const gchar *c
                          const gchar *new_color, t_sensors_dialog *dialog)
 {
     gint active_combobox;
-    gboolean has_sharpprefix;
     t_chipfeature *feature;
     GValue color_string = G_VALUE_INIT;
-    GtkWidget *tacho;
 
     /* store new color in appropriate array */
-    has_sharpprefix = g_str_has_prefix (new_color, "#");
+    gboolean has_sharpprefix = g_str_has_prefix (new_color, "#");
 
     if (has_sharpprefix && strlen(new_color) == 7) {
         int i;
@@ -211,7 +200,7 @@ list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, const gchar *c
         feature->color_orNull = g_strdup (new_color);
 
         /* update color value */
-        tacho = dialog->sensors->tachos[active_combobox][atoi(cellpath)];
+        GtkWidget *tacho = dialog->sensors->tachos[active_combobox][atoi(cellpath)];
         if (tacho)
             gtk_sensorstacho_set_color (GTK_SENSORSTACHO(tacho), new_color);
     }
@@ -226,7 +215,7 @@ list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, const gchar *c
         feature->color_orNull = NULL;
 
         /* update color value */
-        tacho = dialog->sensors->tachos[active_combobox][atoi(cellpath)];
+        GtkWidget *tacho = dialog->sensors->tachos[active_combobox][atoi(cellpath)];
         if (tacho)
             gtk_sensorstacho_unset_color (GTK_SENSORSTACHO(tacho));
     }
@@ -240,10 +229,9 @@ minimum_changed_ (GtkCellRendererText *cell_renderer_text, gchar *cellpath,
 {
     gint active_combobox;
     t_chipfeature *feature;
-    gfloat value;
     GValue value_min = G_VALUE_INIT;
 
-    value = atof (new_value);
+    gfloat value = atof (new_value);
 
     g_value_init(&value_min, G_TYPE_FLOAT);
     g_value_set_float(&value_min, value);
@@ -268,10 +256,9 @@ maximum_changed_ (GtkCellRendererText *cell_renderer_text, gchar *cellpath,
 {
     gint active_combobox;
     t_chipfeature *feature;
-    gfloat value;
     GValue value_max = G_VALUE_INIT;
 
-    value = atof (new_value);
+    gfloat value = atof (new_value);
 
     g_value_init(&value_max, G_TYPE_FLOAT);
     g_value_set_float(&value_max, value);
@@ -293,8 +280,7 @@ maximum_changed_ (GtkCellRendererText *cell_renderer_text, gchar *cellpath,
 void
 adjustment_value_changed_ (GtkWidget *adjustment_widget, t_sensors_dialog *dialog)
 {
-    dialog->sensors->sensors_refresh_time =
-        (gint) gtk_adjustment_get_value (GTK_ADJUSTMENT (adjustment_widget));
+    dialog->sensors->sensors_refresh_time = (gint) gtk_adjustment_get_value (GTK_ADJUSTMENT (adjustment_widget));
 
     /* stop the timeout functions ... */
     g_source_remove (dialog->sensors->timeout_id);

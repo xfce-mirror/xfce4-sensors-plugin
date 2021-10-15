@@ -52,23 +52,20 @@
 static void
 refresh_sensor_data (t_sensors_dialog *dialog)
 {
-    t_sensors *sensors;
-    int idx_chip, idx_feature, result;
+    t_sensors *sensors = dialog->sensors;
 
-    sensors = dialog->sensors;
-
-    for (idx_chip=0; idx_chip < sensors->num_sensorchips; idx_chip++) {
+    for (gint idx_chip=0; idx_chip < sensors->num_sensorchips; idx_chip++) {
         auto chip = (t_chip*) g_ptr_array_index (sensors->chips, idx_chip);
         g_assert (chip!=NULL);
 
-        for (idx_feature = 0; idx_feature<chip->num_features; idx_feature++) {
+        for (gint idx_feature = 0; idx_feature<chip->num_features; idx_feature++) {
             auto feature =  (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_feature);
             g_assert (feature!=NULL);
 
             if (feature->valid)
             {
                 double feature_value;
-                result = sensor_get_value (chip, feature->address, &feature_value, &sensors->suppressmessage);
+                int result = sensor_get_value (chip, feature->address, &feature_value, &sensors->suppressmessage);
 
                 if ( result!=0 ) {
                     /* FIXME: either print nothing, or undertake appropriate action,
@@ -102,7 +99,7 @@ refresh_sensor_data (t_sensors_dialog *dialog)
 static void
 refresh_tacho_view (t_sensors_dialog *dialog)
 {
-    gint idx_chip, idx_feature, row_tacho_table = 0, col_tacho_table = 0;
+    gint row_tacho_table = 0, col_tacho_table = 0;
     t_sensors *sensors;
     GtkWidget *wdgt_table;
     GtkAllocation allocation;
@@ -121,12 +118,12 @@ refresh_tacho_view (t_sensors_dialog *dialog)
     num_max_rows = (allocation.height - BORDER) / (DEFAULT_SIZE_TACHOS + BORDER);
     DBG("using max cols/rows: %d/%d.", num_max_cols, num_max_rows);
 
-    for (idx_chip=0; idx_chip < sensors->num_sensorchips; idx_chip++)
+    for (gint idx_chip=0; idx_chip < sensors->num_sensorchips; idx_chip++)
     {
         auto chip = (t_chip*) g_ptr_array_index (sensors->chips, idx_chip);
         g_assert (chip!=NULL);
 
-        for (idx_feature = 0; idx_feature<chip->num_features; idx_feature++)
+        for (gint idx_feature = 0; idx_feature<chip->num_features; idx_feature++)
         {
             GtkWidget *ptr_sensorstachowidget = sensors->tachos[idx_chip][idx_feature];
             GtkSensorsTacho *ptr_sensorstacho = GTK_SENSORSTACHO(ptr_sensorstachowidget);
@@ -194,12 +191,11 @@ refresh_tacho_view (t_sensors_dialog *dialog)
                     gtk_widget_show (ptr_sensorstachowidget);
                 }
 
-                    col_tacho_table++;
+                col_tacho_table++;
                 if (col_tacho_table>=num_max_cols) {
                     row_tacho_table++;
                     col_tacho_table = 0;
                 }
-
             }
             else if (ptr_sensorstachowidget != NULL && gtk_widget_get_parent(ptr_sensorstachowidget) != NULL)
             {

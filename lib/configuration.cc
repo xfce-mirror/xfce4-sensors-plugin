@@ -39,7 +39,7 @@
 gint
 get_Id_from_address (gint chip_number, gint addr_chipfeature, t_sensors *sensors)
 {
-    gint idx_feature, result = -1;
+    gint result = -1;
 
     g_return_val_if_fail (sensors!=NULL, result);
 
@@ -47,7 +47,7 @@ get_Id_from_address (gint chip_number, gint addr_chipfeature, t_sensors *sensors
 
     if (chip)
     {
-        for (idx_feature=0; idx_feature<chip->num_features; idx_feature++) {
+        for (gint idx_feature=0; idx_feature<chip->num_features; idx_feature++) {
             auto feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, idx_feature);
             if (feature)
             {
@@ -68,21 +68,17 @@ get_Id_from_address (gint chip_number, gint addr_chipfeature, t_sensors *sensors
 void
 sensors_write_config (XfcePanelPlugin *plugin, const t_sensors *sensors)
 {
-    gchar *file;
-
     g_return_if_fail (sensors != NULL);
 
+    gchar *file;
     if ((file = sensors->plugin_config_file) != NULL)
     {
-        XfceRc *rc;
-
         unlink (file);
 
-        rc = xfce_rc_simple_open (file, FALSE);
+        XfceRc *rc = xfce_rc_simple_open (file, FALSE);
         if (rc)
         {
-            gchar *tmp, str_chip[8];
-            gint idx_chip, idx_feature;
+            gchar *tmp;
 
             xfce_rc_set_group (rc, "General");
 
@@ -135,11 +131,12 @@ sensors_write_config (XfcePanelPlugin *plugin, const t_sensors *sensors)
             xfce_rc_write_entry (rc, "Tachos_Alpha", tmp);
             g_free (tmp);
 
-            for (idx_chip=0; idx_chip<sensors->num_sensorchips; idx_chip++)
+            for (gint idx_chip=0; idx_chip<sensors->num_sensorchips; idx_chip++)
             {
                 auto chip = (t_chip*) g_ptr_array_index (sensors->chips, idx_chip);
                 g_assert (chip!=NULL);
 
+                gchar str_chip[8];
                 g_snprintf (str_chip, sizeof (str_chip), "Chip%d", idx_chip);
 
                 xfce_rc_set_group (rc, str_chip);
@@ -149,7 +146,7 @@ sensors_write_config (XfcePanelPlugin *plugin, const t_sensors *sensors)
                 /* number of sensors is still limited */
                 xfce_rc_write_int_entry (rc, "Number", idx_chip);
 
-                for (idx_feature=0; idx_feature<chip->num_features; idx_feature++) {
+                for (gint idx_feature=0; idx_feature<chip->num_features; idx_feature++) {
                     auto feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, idx_feature);
                     g_assert (feature!=NULL);
 
@@ -202,8 +199,6 @@ sensors_read_general_config (XfceRc *rc, t_sensors *sensors)
 
     if (xfce_rc_has_group (rc, "General") )
     {
-        const gchar *str_value;
-
         xfce_rc_set_group (rc, "General");
 
         sensors->show_title = xfce_rc_read_bool_entry (rc, "Show_Title", TRUE);
@@ -235,6 +230,7 @@ sensors_read_general_config (XfceRc *rc, t_sensors *sensors)
                 sensors->scale = CELSIUS;
         }
 
+        const gchar *str_value;
         if ((str_value = xfce_rc_read_entry (rc, "str_fontsize", NULL)) && *str_value) {
             g_free(sensors->str_fontsize);
             sensors->str_fontsize = g_strdup(str_value);
@@ -316,22 +312,19 @@ sensors_read_preliminary_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 void
 sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 {
-    XfceRc *rc;
-    gint idx_chip;
-
     g_return_if_fail(plugin!=NULL);
     g_return_if_fail(sensors!=NULL);
 
     if (!sensors->plugin_config_file)
         return;
 
-    rc = xfce_rc_simple_open (sensors->plugin_config_file, TRUE);
+    XfceRc *rc = xfce_rc_simple_open (sensors->plugin_config_file, TRUE);
     if (!rc)
         return;
 
     sensors_read_general_config (rc, sensors);
 
-    for (idx_chip = 0; idx_chip < sensors->num_sensorchips; idx_chip++)
+    for (gint idx_chip = 0; idx_chip < sensors->num_sensorchips; idx_chip++)
     {
         gchar str_chip[8];
         g_snprintf (str_chip, sizeof (str_chip), "Chip%d", idx_chip);
@@ -345,11 +338,10 @@ sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
                 const gint num_sensorchip = xfce_rc_read_int_entry (rc, "Number", 0);
                 if (num_sensorchip < sensors->num_sensorchips)
                 {
-                    gint idx_chiptmp;
                     t_chip *chip;
 
                     /* now featuring enhanced string comparison */
-                    idx_chiptmp = 0;
+                    gint idx_chiptmp = 0;
                     do {
                       chip = (t_chip *) g_ptr_array_index (sensors->chips, idx_chiptmp++);
                       if (!chip || idx_chiptmp == sensors->num_sensorchips)
@@ -359,8 +351,7 @@ sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 
                     if (chip && strcmp(chip->sensorId, sensor_name) == 0)
                     {
-                        gint idx_feature;
-                        for (idx_feature = 0; idx_feature < chip->num_features; idx_feature++)
+                        for (gint idx_feature = 0; idx_feature < chip->num_features; idx_feature++)
                         {
                             gchar str_feature[20];
 

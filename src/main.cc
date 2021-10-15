@@ -123,9 +123,6 @@ initialize_sensors_structures (void)
 int
 main (int argc, char **argv)
 {
-    GtkWidget *window;
-    t_sensors_dialog *ptr_sensors_dialog;
-
     xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
     if (argc > 1)
@@ -161,19 +158,19 @@ main (int argc, char **argv)
     temperature_unit_change = &temperature_unit_change_;
 
     /* initialize sensor stuff */
-    ptr_sensors_dialog = initialize_sensors_structures ();
+    t_sensors_dialog *dialog = initialize_sensors_structures ();
 
     /* build main application */
-    window = create_main_window (ptr_sensors_dialog);
+    GtkWidget *window = create_main_window (dialog);
 
     /* automatic refresh callback */
-    ptr_sensors_dialog->sensors->timeout_id  = g_timeout_add (
-        ptr_sensors_dialog->sensors->sensors_refresh_time * 1000,
-        refresh_view_cb, ptr_sensors_dialog
+    dialog->sensors->timeout_id  = g_timeout_add (
+        dialog->sensors->sensors_refresh_time * 1000,
+        refresh_view_cb, dialog
     );
 
     /* show window and run forever */
-    gtk_widget_show_all(window); /* to make sure everything is shown */
+    gtk_widget_show_all(window);
     gtk_window_resize(GTK_WINDOW(window), 800, 500);
 
     gtk_main();
