@@ -37,12 +37,7 @@
 t_sensors *
 sensors_new (XfcePanelPlugin *plugin, gchar * plugin_config_filename)
 {
-    t_sensors *sensors;
-    gint result;
-    t_chip *chip;
-    t_chipfeature *feature;
-
-    sensors = g_new0 (t_sensors, 1);
+    t_sensors *sensors = g_new0 (t_sensors, 1);
     sensors->plugin_config_file = plugin_config_filename; /* important as we check against NULL frequently */
 
     /* init xfce sensors stuff with default values */
@@ -52,7 +47,7 @@ sensors_new (XfcePanelPlugin *plugin, gchar * plugin_config_filename)
     sensors_read_preliminary_config(plugin, sensors);
 
     /* read all sensors from libraries */
-    result = initialize_all (&sensors->chips, &sensors->suppressmessage);
+    int result = initialize_all (&sensors->chips, &sensors->suppressmessage);
     if (result==0)
         return NULL;
 
@@ -63,11 +58,11 @@ sensors_new (XfcePanelPlugin *plugin, gchar * plugin_config_filename)
         if (!sensors->chips)
             sensors->chips = g_ptr_array_new ();
 
-        chip = g_new0 (t_chip, 1);
+        t_chip *chip = g_new0 (t_chip, 1);
         g_ptr_array_add (sensors->chips, chip);
         chip->chip_features = g_ptr_array_new();
-        feature = g_new0 (t_chipfeature, 1);
 
+        t_chipfeature *feature = g_new0 (t_chipfeature, 1);
         feature->address = 0;
         chip->sensorId = g_strdup(_("No sensors found!"));
         chip->description = g_strdup(_("No sensors found!"));

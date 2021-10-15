@@ -49,8 +49,7 @@ static int read_gpus (t_chip *chip);
 int
 initialize_nvidia (GPtrArray *chips)
 {
-    int num_gpus, retval;
-    t_chip *chip;
+    int retval;
 
     g_assert (chips != NULL);
 
@@ -59,7 +58,7 @@ initialize_nvidia (GPtrArray *chips)
      * Always write NVIDIA with all caps, not nvidia nor NVidia.
      */
 
-    chip = g_new0 (t_chip, 1);
+    t_chip *chip = g_new0 (t_chip, 1);
     chip->chip_features = g_ptr_array_new ();
     chip->num_features = 0;
     chip->description = g_strdup (_("NVIDIA GPU core temperature"));
@@ -67,7 +66,7 @@ initialize_nvidia (GPtrArray *chips)
     chip->sensorId = g_strdup ("nvidia");
     chip->type = GPU;
 
-    num_gpus = read_gpus (chip);
+    int num_gpus = read_gpus (chip);
     if (chip->num_features > 0) {
         int i;
         for (i = 0; i < num_gpus; i++) {
@@ -119,13 +118,10 @@ get_nvidia_value (int idx_gpu)
 void
 refresh_nvidia (gpointer chip_feature, gpointer unused)
 {
-    t_chipfeature *feature;
-    double value;
-
-    feature = (t_chipfeature *) chip_feature;
+    t_chipfeature *feature = (t_chipfeature *) chip_feature;
     g_assert (feature != NULL);
 
-    value = get_nvidia_value (feature->address);
+    gdouble value = get_nvidia_value (feature->address);
     if (value != ZERO_KELVIN)
         feature->raw_value = value;
 }
@@ -135,16 +131,14 @@ refresh_nvidia (gpointer chip_feature, gpointer unused)
 static int
 read_gpus (t_chip *chip)
 {
-    t_chipfeature *feature;
     int num_gpus = 0;
-    int event, error;
-    int idx_gpu;
 
     g_assert (chip != NULL);
 
     /* create the connection to the X server */
     nvidia_sensors_display = XOpenDisplay (NULL);
     if (nvidia_sensors_display) {
+        int event, error;
 
         /* check if the NVCtrl is available on this X server
          * if so - add sensors*/
@@ -155,9 +149,9 @@ read_gpus (t_chip *chip)
         }
     }
 
-    for (idx_gpu = 0; idx_gpu < num_gpus; idx_gpu++) {
-        gchar* gpuname = NULL; /* allocated by libxnvctrl */
-        feature = g_new0 (t_chipfeature, 1);
+    for (int idx_gpu = 0; idx_gpu < num_gpus; idx_gpu++) {
+        gchar *gpuname = NULL; /* allocated by libxnvctrl */
+        t_chipfeature *feature = g_new0 (t_chipfeature, 1);
 
         if (XNVCTRLQueryTargetStringAttribute (nvidia_sensors_display,
                                                NV_CTRL_TARGET_TYPE_GPU,

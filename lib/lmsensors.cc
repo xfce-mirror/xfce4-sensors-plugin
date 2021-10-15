@@ -215,7 +215,6 @@ find_chipfeature (const sensors_chip_name *name, t_chip *chip, const sensors_fea
 {
     const sensors_subfeature *sub_feature = NULL;
     int number = -1;
-    double sensorFeature;
 
     switch (feature->type) {
         case SENSORS_FEATURE_IN:
@@ -268,6 +267,7 @@ find_chipfeature (const sensors_chip_name *name, t_chip *chip, const sensors_fea
 
         if (chip_feature->name)
         {
+            double sensorFeature;
             if (sensors_get_value (name, number, &sensorFeature) == 0)
             {
                 setup_chipfeature_libsensors (chip_feature, feature, number, sensorFeature, name);
@@ -288,10 +288,7 @@ find_chipfeature (const sensors_chip_name *name, t_chip *chip, const sensors_fea
 int
 initialize_libsensors (GPtrArray *chips)
 {
-    int sensorsInit, num_sensorchips;
-    const sensors_chip_name *detected_chip;
-
-    sensorsInit = sensors_init (NULL);
+    int sensorsInit = sensors_init (NULL);
     if (sensorsInit != 0)
     {
         g_printf (_("Error: Could not connect to sensors!"));
@@ -300,8 +297,8 @@ initialize_libsensors (GPtrArray *chips)
     }
 
     /* iterate over chips on mainboard */
-    num_sensorchips = 0;
-    detected_chip = sensors_get_detected_chips (NULL, &num_sensorchips);
+    int num_sensorchips = 0;
+    const sensors_chip_name *detected_chip = sensors_get_detected_chips (NULL, &num_sensorchips);
     while (detected_chip)
     {
         t_chip *chip = setup_chip (chips, detected_chip);

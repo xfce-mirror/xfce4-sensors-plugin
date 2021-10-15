@@ -60,18 +60,15 @@ strip_key_colon_spaces (gchar *string)
 static void
 cut_newline (gchar *string)
 {
-    gint index=0;
-
     g_return_if_fail (string != NULL);
 
-    while (string[index] != '\0')
+    for (gint i = 0; string[i] != '\0'; i++)
     {
-        if (string[index] == '\n')
+        if (string[i] == '\n')
         {
-            string[index] = '\0';
+            string[i] = '\0';
             break;
         }
-        index++;
     }
 }
 #endif
@@ -103,7 +100,6 @@ read_thermal_zone (t_chip *chip)
         else
         {
             struct dirent *entry;
-            FILE *file;
             gchar *filename;
 
             while ((entry = readdir (dir)) != NULL)
@@ -118,16 +114,14 @@ read_thermal_zone (t_chip *chip)
                                             ACPI_DIR_THERMAL, entry->d_name,
                                             ACPI_FILE_THERMAL);
     #endif
-                file = fopen (filename, "r");
+                FILE *file = fopen (filename, "r");
                 if (file)
                 {
-                    t_chipfeature *feature;
-
                     DBG("parsing temperature file \"%s\"...\n", filename);
                     /* if (acpi_ignore_directory_entry (ptr_dirent))
                         continue; */
 
-                    feature = g_new0 (t_chipfeature, 1);
+                    t_chipfeature *feature = g_new0 (t_chipfeature, 1);
 
                     feature->color_orNull = g_strdup("#0000B0");
                     feature->address = chip->chip_features->len;
@@ -181,24 +175,19 @@ gdouble
 get_fan_zone_value (const gchar *zone)
 {
     gdouble res_value = 0;
-    FILE *file;
-    gchar *filename;
 
     g_return_val_if_fail (zone != NULL, res_value);
 
-    filename = g_strdup_printf ("%s/%s/%s/%s", ACPI_PATH, ACPI_DIR_FAN,
-                                zone, ACPI_FILE_FAN);
+    gchar *filename = g_strdup_printf ("%s/%s/%s/%s", ACPI_PATH, ACPI_DIR_FAN, zone, ACPI_FILE_FAN);
     DBG("filename=%s", filename);
-    file = fopen (filename, "r");
+    FILE *file = fopen (filename, "r");
     if (file) {
         gchar buffer[1024];
         while (fgets (buffer, 1024, file) != NULL)
         {
             if (strncmp (buffer, "status:", 7) == 0)
             {
-                gchar *stripped_buffer;
-
-                stripped_buffer = strip_key_colon_spaces(buffer);
+                gchar *stripped_buffer = strip_key_colon_spaces(buffer);
                 g_assert(stripped_buffer!=NULL);
                 DBG ("tmp=%s", stripped_buffer);
                 if (strncmp (stripped_buffer, "on", 2)==0)
@@ -223,7 +212,6 @@ gdouble
 get_battery_zone_value (const gchar *zone)
 {
     gdouble res_value = 0.0;
-    FILE *file;
     gchar buffer[1024], *filename;
 
 #ifndef HAVE_SYSFS_ACPI
@@ -239,7 +227,7 @@ get_battery_zone_value (const gchar *zone)
                                 zone, ACPI_FILE_BATTERY_STATE);
 #endif
     DBG("str_filename=%s\n", filename);
-    file = fopen (filename, "r");
+    FILE *file = fopen (filename, "r");
     if (file) {
 #ifdef HAVE_SYSFS_ACPI
         if (fgets (buffer, 1024, file)!=NULL)
@@ -273,8 +261,6 @@ gint
 read_battery_zone (t_chip *chip)
 {
     gint res_value = -1;
-    DIR *dir;
-    struct dirent *entry;
 
     g_return_val_if_fail(chip!=NULL, res_value);
 
@@ -283,14 +269,13 @@ read_battery_zone (t_chip *chip)
 #else
     if ((chdir (ACPI_PATH) == 0) && (chdir (ACPI_DIR_BATTERY) == 0)) {
 #endif
-        dir = opendir (".");
+        DIR *dir = opendir (".");
+        struct dirent *entry;
 
         while (dir && (entry = readdir (dir)))
         {
             if (strncmp (entry->d_name, "BAT", 3) == 0)
             { /* have a battery subdirectory */
-                t_chipfeature *feature;
-                FILE *file;
                 gchar *filename;
                 gchar buffer[1024];
 
@@ -302,8 +287,8 @@ read_battery_zone (t_chip *chip)
                                             ACPI_FILE_BATTERY_STATE);
 #endif
                 DBG ("str_filename=%s\n", filename);
-                file = fopen (filename, "r");
-                feature = g_new0 (t_chipfeature, 1);
+                FILE *file = fopen (filename, "r");
+                t_chipfeature *feature = g_new0 (t_chipfeature, 1);
                 if (file) {
                     feature->address = chip->chip_features->len;
                     feature->devicename = g_strdup (entry->d_name);
@@ -414,7 +399,6 @@ read_battery_zone (t_chip *chip)
 void
 get_battery_max_value (const gchar *filename, t_chipfeature *feature)
 {
-    FILE *file;
     gchar *path_to_file;
 
     g_return_if_fail (filename != NULL);
@@ -428,7 +412,7 @@ get_battery_max_value (const gchar *filename, t_chipfeature *feature)
                                     ACPI_FILE_BATTERY_INFO);
 #endif
     DBG ("str_pathtofile=%s\n", path_to_file);
-    file = fopen (path_to_file, "r");
+    FILE *file = fopen (path_to_file, "r");
     if (file)
     {
         gchar buffer[1024];
@@ -469,22 +453,18 @@ read_fan_zone (t_chip *chip)
 
     if ((chdir (ACPI_PATH) == 0) && (chdir (ACPI_DIR_FAN) == 0))
     {
-        DIR *dir;
         struct dirent *entry;
 
-        dir = opendir (".");
+        DIR *dir = opendir (".");
         while (dir && (entry = readdir (dir)))
         {
-            FILE *file;
-            gchar *filename;
-
             if (strncmp(entry->d_name, ".", 1)==0)
                 continue;
 
-            filename = g_strdup_printf ("%s/%s/%s/%s", ACPI_PATH,
-                                        ACPI_DIR_FAN, entry->d_name,
-                                        ACPI_FILE_FAN);
-            file = fopen (filename, "r");
+            gchar *filename = g_strdup_printf ("%s/%s/%s/%s", ACPI_PATH,
+                                               ACPI_DIR_FAN, entry->d_name,
+                                               ACPI_FILE_FAN);
+            FILE *file = fopen (filename, "r");
             if (file)
             {
                 t_chipfeature *feature;
@@ -536,15 +516,13 @@ gdouble
 get_power_zone_value (const gchar *zone)
 {
     gdouble res_value = 0;
-    FILE *file;
-    gchar *filename;
 
     g_return_val_if_fail (zone != NULL, res_value);
 
-    filename = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, zone, SYS_FILE_POWER);
+    gchar *filename = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, zone, SYS_FILE_POWER);
 
     DBG("str_filename=%s\n", filename);
-    file = fopen (filename, "r");
+    FILE *file = fopen (filename, "r");
     if (file) {
         gchar buffer[1024];
         if (fgets (buffer, 1024, file)!=NULL)
@@ -566,15 +544,13 @@ gdouble
 get_voltage_zone_value (const gchar *zone)
 {
     gdouble res_value = 0.0;
-    FILE *file;
-    gchar *filename;
 
     g_return_val_if_fail (zone != NULL, res_value);
 
-    filename = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, zone,  SYS_FILE_VOLTAGE);
+    gchar *filename = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, zone,  SYS_FILE_VOLTAGE);
 
     DBG("str_filename=%s\n", filename);
-    file = fopen (filename, "r");
+    FILE *file = fopen (filename, "r");
     if (file) {
         gchar buffer[1024];
         if (fgets (buffer, 1024, file)!=NULL)
@@ -596,23 +572,19 @@ gint
 read_power_zone (t_chip *chip)
 {
     gint res_value = -1;
-    DIR *dir;
-    FILE *file;
-    gchar *filename;
-    struct dirent *entry;
 
     g_return_val_if_fail (chip != NULL, res_value);
 
     if ((chdir (SYS_PATH) == 0) && (chdir (SYS_DIR_POWER) == 0)) {
-        dir = opendir (".");
-
+        DIR *dir = opendir (".");
+        struct dirent *entry;
         while (dir && (entry = readdir (dir)))
         {
             if (strncmp(entry->d_name, "BAT", 3)==0)
             { /* have a battery subdirectory */
 
-                filename = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, entry->d_name, SYS_FILE_POWER);
-                file = fopen (filename, "r");
+                gchar *filename = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, entry->d_name, SYS_FILE_POWER);
+                FILE *file = fopen (filename, "r");
                 if (file) {
                     t_chipfeature *feature;
 
@@ -663,23 +635,19 @@ gint
 read_voltage_zone (t_chip *chip)
 {
     gint res_value = -1;
-    DIR *dir;
-    struct dirent *entry;
 
     g_return_val_if_fail (chip != NULL, res_value);
 
     if ((chdir (SYS_PATH) == 0) && (chdir (SYS_DIR_POWER) == 0)) {
-        dir = opendir (".");
-
+        DIR *dir = opendir (".");
+        struct dirent *entry;
         while (dir && (entry = readdir (dir)))
         {
             if (strncmp(entry->d_name, "BAT", 3)==0)
             { /* have a battery subdirectory */
-                FILE *file;
-                gchar *filename;
 
-                filename = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, entry->d_name, SYS_FILE_VOLTAGE);
-                file = fopen (filename, "r");
+                gchar *filename = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, entry->d_name, SYS_FILE_VOLTAGE);
+                FILE *file = fopen (filename, "r");
                 if (file) {
                     t_chipfeature *feature;
                     gchar *min_voltage, *zone;
@@ -736,25 +704,21 @@ read_voltage_zone (t_chip *chip)
 gint
 initialize_ACPI (GPtrArray *chips)
 {
-    t_chip *chip = NULL;
-    sensors_chip_name *chip_name = NULL;
-    gchar *acpi_info;
-
     g_return_val_if_fail (chips != NULL, -1);
 
-    chip = g_new0 (t_chip, 1);
+    t_chip *chip = g_new0 (t_chip, 1);
     g_return_val_if_fail (chip != NULL, -1);
 
     chip->name = g_strdup(_("ACPI")); /* to be displayed */
 
-    acpi_info = get_acpi_info();
+    gchar *acpi_info = get_acpi_info();
     chip->description = g_strdup_printf (_("ACPI v%s zones"), acpi_info);
     g_free(acpi_info);
     chip->sensorId = g_strdup ("ACPI"); /* used internally */
 
     chip->type = ACPI;
 
-    chip_name = g_new0 (sensors_chip_name, 1);
+    sensors_chip_name *chip_name = g_new0 (sensors_chip_name, 1);
     g_return_val_if_fail (chip_name != NULL, -1);
 
     chip_name->prefix = g_strdup(_("ACPI"));
@@ -784,13 +748,12 @@ initialize_ACPI (GPtrArray *chips)
 void
 refresh_acpi (gpointer ptr_feature, gpointer unused)
 {
-    t_chipfeature *feature;
     gchar *filename, *zone, *state;
 #ifdef HAVE_SYSFS_ACPI
     FILE *file = NULL;
 #endif
 
-    feature = (t_chipfeature *) ptr_feature;
+    auto feature = (t_chipfeature *) ptr_feature;
     g_return_if_fail(feature != NULL);
 
     switch (feature->cls) {
@@ -869,10 +832,8 @@ acpi_ignore_directory_entry (struct dirent *entry)
 gchar *
 get_acpi_info (void)
 {
-    gchar *filename, *version;
-
-    filename = g_strdup_printf ("%s/%s", ACPI_PATH, ACPI_INFO);
-    version = get_acpi_value (filename);
+    gchar *filename = g_strdup_printf ("%s/%s", ACPI_PATH, ACPI_INFO);
+    gchar *version = get_acpi_value (filename);
     g_free (filename);
 
     if (!version)
@@ -903,14 +864,13 @@ get_acpi_info (void)
 gdouble
 get_acpi_zone_value (const gchar *zone, const gchar *filename)
 {
-    gchar *zone_filename, *value;
     gdouble res_value = 0.0;
 
     g_return_val_if_fail (zone != NULL, res_value);
     g_return_val_if_fail (filename != NULL, res_value);
 
-    zone_filename = g_strdup_printf ("%s/%s/%s", ACPI_PATH, zone, filename);
-    value = get_acpi_value (zone_filename);
+    gchar *zone_filename = g_strdup_printf ("%s/%s/%s", ACPI_PATH, zone, filename);
+    gchar *value = get_acpi_value (zone_filename);
     g_free(zone_filename);
 
     /* Return it as a double */
@@ -928,12 +888,11 @@ get_acpi_zone_value (const gchar *zone, const gchar *filename)
 gchar *
 get_acpi_value (const gchar *filename)
 {
-    FILE *file;
     gchar *result = NULL;
 
     g_return_val_if_fail (filename != NULL, result);
 
-    file = fopen (filename, "r");
+    FILE *file = fopen (filename, "r");
     if (file)
     {
         gchar buffer[1024];
@@ -957,9 +916,7 @@ get_acpi_value (const gchar *filename)
 void
 free_acpi_chip (gpointer ptr_chip)
 {
-    t_chip *chip;
-
-    chip = (t_chip*) ptr_chip;
+    auto chip = (t_chip*) ptr_chip;
 
     g_return_if_fail (chip != NULL);
     g_return_if_fail (chip->chip_name != NULL);

@@ -91,17 +91,13 @@ notification_suppress_messages (NotifyNotification *notification, const gchar *a
 void
 quick_message_notify (gchar *message)
 {
-    NotifyNotification *notification;
-    const gchar *summary, *icon;
-    GError *error = NULL;
-
-    summary = "Hddtemp Information";
-    icon = "xfce-sensors";
+    const gchar *summary = "Hddtemp Information";
+    const gchar *icon = "xfce-sensors";
 
     if (!notify_is_initted())
         notify_init(PACKAGE); /* NOTIFY_APPNAME */
 
-    notification = notify_notification_new (summary, message, icon);
+    NotifyNotification *notification = notify_notification_new (summary, message, icon);
 
     /* FIXME: Use channels or propagate private object or use static global variable */
     if (0)
@@ -113,7 +109,8 @@ quick_message_notify (gchar *message)
                                         NULL, NULL);
     }
 
-    notify_notification_show(notification, &error);
+    GError *error = NULL;
+    notify_notification_show (notification, &error);
 }
 #else
 /* -------------------------------------------------------------------------- */
@@ -141,7 +138,6 @@ gboolean
 quick_message_with_checkbox (gchar *message, gchar *checkbox_text)
 {
     GtkWidget *dialog, *checkbox, *content_area;
-    gboolean is_active;
 
     dialog = gtk_message_dialog_new (NULL,
                                      0, /* GTK_DIALOG_DESTROY_WITH_PARENT */
@@ -159,7 +155,7 @@ quick_message_with_checkbox (gchar *message, gchar *checkbox_text)
 
     gtk_dialog_run (GTK_DIALOG (dialog));
 
-    is_active = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (checkbox));
+    gboolean is_active = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (checkbox));
 
     gtk_widget_destroy (dialog);
 
@@ -196,7 +192,7 @@ static char *str_split_position;
 static char*
 str_split (char *string, const char *delim)
 {
-    char *p, *retval;
+    char *retval;
 
     if (string != NULL)
         str_split_position = string;
@@ -207,7 +203,7 @@ str_split (char *string, const char *delim)
     if (delim == NULL)
         return NULL;
 
-    p = strstr (str_split_position, delim);
+    char *p = strstr (str_split_position, delim);
     if (p != NULL)
     {
         size_t strlen_delim = strlen (delim);
@@ -228,21 +224,20 @@ str_split (char *string, const char *delim)
 void
 read_disks_netcat (t_chip *chip)
 {
-    char *tmp, *tmp2, *tmp3, reply[REPLY_MAX_SIZE] = {0};
+    char reply[REPLY_MAX_SIZE] = {0};
     int result;
-    t_chipfeature *feature;
 
     result = get_hddtemp_d_str(reply, REPLY_MAX_SIZE);
     DBG ("reply=%s with result=%d\n", reply, (int) result);
     if (result == -1)
       return;
 
-    tmp = str_split (reply, DOUBLE_DELIMITER);
+    char *tmp = str_split (reply, DOUBLE_DELIMITER);
     do {
-        feature = g_new0(t_chipfeature, 1);
+        t_chipfeature *feature = g_new0(t_chipfeature, 1);
 
-        tmp2 = g_strdup (tmp);
-        tmp3 = strtok (tmp2, SINGLE_DELIMITER);
+        char *tmp2 = g_strdup (tmp);
+        char *tmp3 = strtok (tmp2, SINGLE_DELIMITER);
         feature->devicename = g_strdup(tmp3);
         tmp3 = strtok (NULL, SINGLE_DELIMITER);
         feature->name = g_strdup(tmp3);
@@ -259,14 +254,11 @@ read_disks_netcat (t_chip *chip)
 void
 read_disks_fallback (t_chip *chip)
 {
-    GError *error;
-    GDir *dir;
-    const gchar* device_name;
-
     /* read from /proc/ide */
-    error = NULL;
-    dir = g_dir_open ("/proc/ide/", 0, &error);
+    GError *error = NULL;
+    GDir *dir = g_dir_open ("/proc/ide/", 0, &error);
 
+    const gchar *device_name;
     while ((device_name = g_dir_read_name (dir)) != NULL) {
         if (strncmp (device_name, "hd", 2)==0 || strncmp (device_name, "sd", 2)==0) {
             /* TODO: look whether /dev/str_devicename exists? */
@@ -289,11 +281,10 @@ read_disks_fallback (t_chip *chip)
 void
 read_disks_linux26 (t_chip *chip)
 {
-    GDir *dir;
     const gchar *device_name;
 
     /* read from /sys/block */
-    dir = g_dir_open ("/sys/block/", 0, NULL);
+    GDir *dir = g_dir_open ("/sys/block/", 0, NULL);
     while ((device_name = g_dir_read_name (dir)) != NULL) {
         /* if ( strncmp (str_devicename, "ram", 3)!=0 &&
              strncmp (str_devicename, "loop", 4)!=0 &&
@@ -322,12 +313,12 @@ read_disks_linux26 (t_chip *chip)
 void
 remove_unmonitored_drives (t_chip *chip, gboolean *suppress_message)
 {
-    int idx_feature, temperature;
+    int idx_feature;
 
     for (idx_feature=0; idx_feature < chip->num_features; idx_feature++)
     {
         auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_feature);
-        temperature = get_hddtemp_value (feature->devicename, suppress_message);
+        int temperature = get_hddtemp_value (feature->devicename, suppress_message);
         if (temperature == NO_VALID_HDDTEMP_PROGRAM)
         {
             DBG ("removing single disk");
@@ -385,11 +376,10 @@ initialize_hddtemp (GPtrArray *chips, gboolean *suppress_message)
     struct utsname *unixname = NULL;
 #endif
     int result;
-    t_chip *chip;
 
     g_assert (chips!=NULL);
 
-    chip = g_new0 (t_chip, 1);
+    t_chip *chip = g_new0 (t_chip, 1);
 
     chip->chip_features = g_ptr_array_new ();
     chip->num_features = 0;
@@ -423,7 +413,7 @@ initialize_hddtemp (GPtrArray *chips, gboolean *suppress_message)
 #endif
 
     remove_unmonitored_drives (chip, suppress_message);
-    DBG  ("numfeatures=%d\n", chip->num_features);
+    DBG ("numfeatures=%d\n", chip->num_features);
     if ( chip->num_features>0 ) {  /* if (1) */
 
         populate_detected_drives (chip);
@@ -444,13 +434,12 @@ initialize_hddtemp (GPtrArray *chips, gboolean *suppress_message)
 int
 get_hddtemp_d_str (char *buffer, size_t bufsize)
 {
-    int fd;
     struct sockaddr_in sockaddr;
     struct hostent *hostinfo;
     ssize_t num_read_bytes_total = 0;
 
     /* Create the socket. */
-    fd = socket (PF_INET, SOCK_STREAM, 0);
+    int fd = socket (PF_INET, SOCK_STREAM, 0);
     if (fd < 0) {
       return HDDTEMP_CONNECTION_FAILED;
     }
@@ -647,19 +636,17 @@ get_hddtemp_value (char *disk, gboolean *suppress_message)
 void
 refresh_hddtemp (gpointer ptr_chip_feature, gpointer sensors)
 {
-    t_chipfeature *feature;
-    double temperature;
     gboolean *suppress_message = NULL;
 
-    g_assert (ptr_chip_feature!=NULL);
+    g_assert (ptr_chip_feature != NULL);
 
     if (sensors != NULL)
     {
-        t_sensors *plugin_data = (t_sensors*) sensors;
+        auto plugin_data = (t_sensors*) sensors;
         suppress_message = &plugin_data->suppressmessage;
     }
 
-    feature = (t_chipfeature *) ptr_chip_feature;
-    temperature = get_hddtemp_value (feature->devicename, suppress_message);
+    auto feature = (t_chipfeature *) ptr_chip_feature;
+    double temperature = get_hddtemp_value (feature->devicename, suppress_message);
     feature->raw_value = temperature;
 }

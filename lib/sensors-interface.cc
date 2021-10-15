@@ -64,30 +64,20 @@ produce_min_max_values (t_chipfeature *feature, t_tempscale scale, float *minval
 void
 fill_gtkTreeStore (GtkTreeStore *treestore, t_chip *chip, t_tempscale tempscale, t_sensors_dialog *dialog)
 {
-    gint idx_chipfeature;
     double feature_value;
-    gboolean *suppressnotifications;
     GtkTreeIter iter_list_store;
-#ifdef HAVE_LIBNOTIFY
-    NotifyNotification *notification;
-    GError *error = NULL;
-    const gchar *iconpath;
-#endif
-    gchar *summary, *body;
-    float minval, maxval;
 
-
-    summary = _("Sensors Plugin Failure");
-    body = _("Seems like there was a problem reading a sensor "
+    gchar *summary = _("Sensors Plugin Failure");
+    gchar *body = _("Seems like there was a problem reading a sensor "
                     "feature value.\nProper proceeding cannot be "
                     "guaranteed.");
 #ifdef HAVE_LIBNOTIFY
-    iconpath = "xfce-sensors";
+    const gchar *iconpath = "xfce-sensors";
 #endif
 
-    suppressnotifications = &dialog->sensors->suppressmessage;
+    gboolean *suppressnotifications = &dialog->sensors->suppressmessage;
 
-    for (idx_chipfeature=0; idx_chipfeature < chip->num_features; idx_chipfeature++)
+    for (gint idx_chipfeature=0; idx_chipfeature < chip->num_features; idx_chipfeature++)
     {
         auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_chipfeature);
         g_assert (feature!=NULL);
@@ -101,7 +91,8 @@ fill_gtkTreeStore (GtkTreeStore *treestore, t_chip *chip, t_tempscale tempscale,
                 if (!notify_is_initted())
                     notify_init(PACKAGE); /* NOTIFY_APPNAME */
 
-                notification = notify_notification_new (summary, body, iconpath);
+                NotifyNotification *notification = notify_notification_new (summary, body, iconpath);
+                GError *error = NULL;
                 notify_notification_show(notification, &error);
 #else
                 DBG("%s\n%s", summary, body);
@@ -117,6 +108,7 @@ fill_gtkTreeStore (GtkTreeStore *treestore, t_chip *chip, t_tempscale tempscale,
             format_sensor_value (tempscale, feature, feature_value,
                                  &feature->formatted_value);
 
+            float minval, maxval;
             produce_min_max_values (feature, tempscale, &minval, &maxval);
 
             feature->raw_value = feature_value;
@@ -138,14 +130,11 @@ fill_gtkTreeStore (GtkTreeStore *treestore, t_chip *chip, t_tempscale tempscale,
 void
 add_type_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 {
-    GtkWidget *hbox, *ptr_labelwidget;
-    gint active_entry;
-
-    hbox = gtk_hbox_new (FALSE, BORDER);
+    GtkWidget *hbox = gtk_hbox_new (FALSE, BORDER);
     gtk_widget_show (hbox);
     gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
 
-    ptr_labelwidget = gtk_label_new_with_mnemonic (_("Sensors t_ype:"));
+    GtkWidget *ptr_labelwidget = gtk_label_new_with_mnemonic (_("Sensors t_ype:"));
     gtk_widget_show (ptr_labelwidget);
     gtk_widget_set_valign(ptr_labelwidget, GTK_ALIGN_CENTER);
     gtk_box_pack_start (GTK_BOX (hbox), ptr_labelwidget, FALSE, FALSE, 0);
@@ -155,7 +144,7 @@ add_type_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 
     gtk_label_set_mnemonic_widget(GTK_LABEL(ptr_labelwidget), dialog->myComboBox);
 
-    active_entry = gtk_combo_box_get_active(GTK_COMBO_BOX(dialog->myComboBox));
+    gint active_entry = gtk_combo_box_get_active(GTK_COMBO_BOX(dialog->myComboBox));
 
     auto chip = (t_chip*) g_ptr_array_index (dialog->sensors->chips, active_entry);
     DBG("index: %d, chip: %p\n", active_entry, chip);
@@ -183,20 +172,17 @@ add_type_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 void
 add_update_time_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 {
-    GtkWidget *label, *hbox;
-    GtkAdjustment *spinner_adjustment;
-
-    spinner_adjustment = (GtkAdjustment*) gtk_adjustment_new (
+    GtkAdjustment *spinner_adjustment = gtk_adjustment_new (
         /* TODO: restore original */
         dialog->sensors->sensors_refresh_time, 1.0, 990.0, 1.0, 60.0, 0.0);
 
     /* creates the spinner, with no decimal places */
     dialog->spin_button_update_time = gtk_spin_button_new (spinner_adjustment, 10.0, 0);
 
-    label = gtk_label_new_with_mnemonic ( _("U_pdate interval (seconds):"));
+    GtkWidget *label = gtk_label_new_with_mnemonic ( _("U_pdate interval (seconds):"));
     gtk_label_set_mnemonic_widget (GTK_LABEL(label), dialog->spin_button_update_time);
 
-    hbox = gtk_hbox_new(FALSE, BORDER);
+    GtkWidget *hbox = gtk_hbox_new(FALSE, BORDER);
 
     gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 0);
     gtk_box_pack_start (GTK_BOX (hbox), dialog->spin_button_update_time, FALSE, FALSE, 0);
@@ -217,10 +203,8 @@ add_sensor_settings_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 {
     GtkTreeViewColumn *tree_view_column;
     GtkCellRenderer *text_cell_renderer, *toggle_cell_renderer;
-    GtkWidget *scrolled_window;
-    gint active_entry;
 
-    active_entry = gtk_combo_box_get_active (GTK_COMBO_BOX(dialog->myComboBox));
+    gint active_entry = gtk_combo_box_get_active (GTK_COMBO_BOX(dialog->myComboBox));
 
     dialog->myTreeView = gtk_tree_view_new_with_model
         (GTK_TREE_MODEL (dialog->myListStore[active_entry]));
@@ -283,7 +267,7 @@ add_sensor_settings_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     gtk_tree_view_append_column (GTK_TREE_VIEW (dialog->myTreeView),
                                  GTK_TREE_VIEW_COLUMN (tree_view_column));
 
-    scrolled_window = gtk_scrolled_window_new (NULL, NULL);
+    GtkWidget *scrolled_window = gtk_scrolled_window_new (NULL, NULL);
     gtk_scrolled_window_set_policy (
         GTK_SCROLLED_WINDOW (scrolled_window), GTK_POLICY_AUTOMATIC,
         GTK_POLICY_AUTOMATIC);
@@ -303,14 +287,12 @@ add_sensor_settings_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 void
 add_temperature_unit_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 {
-    GtkWidget *hbox, *label, *button_celsius, *button_fahrenheit;
-
-    hbox = gtk_hbox_new (FALSE, BORDER);
+    GtkWidget *hbox = gtk_hbox_new (FALSE, BORDER);
     gtk_widget_show (hbox);
 
-    label = gtk_label_new ( _("Temperature scale:"));
-    button_celsius = gtk_radio_button_new_with_mnemonic (NULL, _("_Celsius"));
-    button_fahrenheit = gtk_radio_button_new_with_mnemonic(
+    GtkWidget *label = gtk_label_new ( _("Temperature scale:"));
+    GtkWidget *button_celsius = gtk_radio_button_new_with_mnemonic (NULL, _("_Celsius"));
+    GtkWidget *button_fahrenheit = gtk_radio_button_new_with_mnemonic(
       gtk_radio_button_get_group (GTK_RADIO_BUTTON (button_celsius)), _("_Fahrenheit"));
 
     gtk_widget_show (button_celsius);
@@ -334,13 +316,11 @@ add_temperature_unit_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 void
 add_sensors_frame (GtkWidget *notebook, t_sensors_dialog * dialog)
 {
-    GtkWidget *vbox, *label;
-
-    vbox = gtk_vbox_new (FALSE, OUTER_BORDER);
+    GtkWidget *vbox = gtk_vbox_new (FALSE, OUTER_BORDER);
     gtk_container_set_border_width (GTK_CONTAINER(vbox), OUTER_BORDER);
     gtk_widget_show (vbox);
 
-    label = gtk_label_new_with_mnemonic (_("_Sensors"));
+    GtkWidget *label = gtk_label_new_with_mnemonic (_("_Sensors"));
     gtk_widget_show (label);
 
     gtk_container_set_border_width (GTK_CONTAINER (vbox), 2*BORDER);
@@ -359,16 +339,14 @@ add_sensors_frame (GtkWidget *notebook, t_sensors_dialog * dialog)
 void
 free_widgets (t_sensors_dialog *dialog)
 {
-    gint idx_chip;
-
     g_return_if_fail (dialog != NULL);
 
-    for (idx_chip=0; idx_chip < dialog->sensors->num_sensorchips; idx_chip++)
+    for (gint idx_chip=0; idx_chip < dialog->sensors->num_sensorchips; idx_chip++)
     {
         GtkTreeIter iter_list_store;
         if (gtk_tree_model_get_iter_first (GTK_TREE_MODEL (dialog->myListStore[idx_chip]), &iter_list_store))
         {
-            while (gtk_tree_store_remove ( GTK_TREE_STORE (dialog->myListStore[idx_chip]), &iter_list_store))
+            while (gtk_tree_store_remove (GTK_TREE_STORE (dialog->myListStore[idx_chip]), &iter_list_store))
                             ;;
         }
         gtk_tree_store_clear (dialog->myListStore[idx_chip]);
@@ -400,16 +378,14 @@ free_widgets (t_sensors_dialog *dialog)
 void
 init_widgets (t_sensors_dialog *dialog)
 {
-    gint idx_chip;
     GtkTreeIter iter;
-    t_sensors *sensors;
     GtkTreeStore *treemodel;
 
     g_return_if_fail (dialog != NULL);
 
-    sensors = dialog->sensors;
+    t_sensors *sensors = dialog->sensors;
 
-    for (idx_chip=0; idx_chip < sensors->num_sensorchips; idx_chip++) {
+    for (gint idx_chip=0; idx_chip < sensors->num_sensorchips; idx_chip++) {
         dialog->myListStore[idx_chip] = gtk_tree_store_new (6, G_TYPE_STRING,
                         G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_STRING,
                         G_TYPE_FLOAT, G_TYPE_FLOAT);
@@ -456,18 +432,14 @@ init_widgets (t_sensors_dialog *dialog)
 void
 reload_listbox (t_sensors_dialog *dialog)
 {
-    gint idx_chip;
-    GtkTreeStore *tree_store;
-    t_sensors *sensors;
-
     g_return_if_fail (dialog != NULL);
 
-    sensors = dialog->sensors;
+    t_sensors *sensors = dialog->sensors;
 
-    for (idx_chip=0; idx_chip < sensors->num_sensorchips; idx_chip++) {
+    for (gint idx_chip=0; idx_chip < sensors->num_sensorchips; idx_chip++) {
         auto chip = (t_chip*) g_ptr_array_index (sensors->chips, idx_chip);
 
-        tree_store = dialog->myListStore[idx_chip];
+        GtkTreeStore *tree_store = dialog->myListStore[idx_chip];
         g_assert (tree_store != NULL);
         gtk_tree_store_clear (tree_store);
 
