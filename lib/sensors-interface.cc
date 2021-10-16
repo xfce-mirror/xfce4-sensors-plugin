@@ -64,54 +64,47 @@ produce_min_max_values (t_chipfeature *feature, t_tempscale scale, float *minval
 void
 fill_gtkTreeStore (GtkTreeStore *treestore, t_chip *chip, t_tempscale tempscale, t_sensors_dialog *dialog)
 {
-    double feature_value;
-    GtkTreeIter iter_list_store;
-
-    gchar *summary = _("Sensors Plugin Failure");
-    gchar *body = _("Seems like there was a problem reading a sensor "
-                    "feature value.\nProper proceeding cannot be "
-                    "guaranteed.");
-#ifdef HAVE_LIBNOTIFY
-    const gchar *iconpath = "xfce-sensors";
-#endif
-
-    gboolean *suppressnotifications = &dialog->sensors->suppressmessage;
-
     for (gint idx_chipfeature=0; idx_chipfeature < chip->num_features; idx_chipfeature++)
     {
         auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_chipfeature);
         g_assert (feature!=NULL);
 
         if (feature->valid) {
-            int result;
-            result = sensor_get_value (chip, feature->address, &feature_value, suppressnotifications);
-            if (result!=0 && !*suppressnotifications) {
+            double feature_value;
+            gboolean *suppressnotifications = &dialog->sensors->suppressmessage;
+            int result = sensor_get_value (chip, feature->address, &feature_value, suppressnotifications);
+            if (result != 0 && !*suppressnotifications) {
+                const gchar *summary = _("Sensors Plugin Failure");
+                const gchar *body = _("Seems like there was a problem reading a sensor "
+                                      "feature value.\nProper proceeding cannot be "
+                                      "guaranteed.");
 
 #ifdef HAVE_LIBNOTIFY
                 if (!notify_is_initted())
                     notify_init(PACKAGE); /* NOTIFY_APPNAME */
 
+                const gchar *iconpath = "xfce-sensors";
                 NotifyNotification *notification = notify_notification_new (summary, body, iconpath);
                 GError *error = NULL;
                 notify_notification_show(notification, &error);
 #else
-                DBG("%s\n%s", summary, body);
+                g_warning ("%s\n%s", summary, body);
 #endif
 
                 /* FIXME: Better popup a window or DBG message or quit plugin. */
                 break;
             }
-            if (feature->formatted_value != NULL)
-                g_free (feature->formatted_value);
 
+            g_free (feature->formatted_value);
             feature->formatted_value = g_new (gchar, 0);
-            format_sensor_value (tempscale, feature, feature_value,
-                                 &feature->formatted_value);
+            format_sensor_value (tempscale, feature, feature_value, &feature->formatted_value);
 
             float minval, maxval;
             produce_min_max_values (feature, tempscale, &minval, &maxval);
 
             feature->raw_value = feature_value;
+
+            GtkTreeIter iter_list_store;
             gtk_tree_store_append (treestore, &iter_list_store, NULL);
             gtk_tree_store_set (treestore, &iter_list_store,
                                 eTreeColumn_Name, feature->name,
