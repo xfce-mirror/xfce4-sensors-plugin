@@ -140,7 +140,7 @@ quick_message_with_checkbox (gchar *message, gchar *checkbox_text)
     GtkWidget *dialog, *checkbox, *content_area;
 
     dialog = gtk_message_dialog_new (NULL,
-                                     0, /* GTK_DIALOG_DESTROY_WITH_PARENT */
+                                     (GtkDialogFlags) 0,
                                      GTK_MESSAGE_INFO,
                                      GTK_BUTTONS_CLOSE,
                                      message, NULL);

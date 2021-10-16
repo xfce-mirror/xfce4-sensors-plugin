@@ -56,7 +56,6 @@ strip_key_colon_spaces (gchar *string)
 
 
 /* -------------------------------------------------------------------------- */
-#ifdef HAVE_SYSFS_ACPI
 static void
 cut_newline (gchar *string)
 {
@@ -71,7 +70,6 @@ cut_newline (gchar *string)
         }
     }
 }
-#endif
 
 
 /* -------------------------------------------------------------------------- */
