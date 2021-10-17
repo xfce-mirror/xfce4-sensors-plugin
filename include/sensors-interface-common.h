@@ -63,7 +63,7 @@ G_BEGIN_DECLS
  * Contains pointers to all used major widgets and to the sensors plugin data
  * itself.
  */
-typedef struct {
+struct t_sensors_dialog {
     /** the sensors structure */
     t_sensors *sensors;
 
@@ -142,8 +142,7 @@ typedef struct {
 
     /** double-click improvement: entry for command */
     GtkWidget *myCommandName_Entry;
-}
-t_sensors_dialog;
+};
 
 
 

@@ -42,7 +42,7 @@ G_BEGIN_DECLS
 /**
  * Sensors module
  */
-typedef struct {
+struct t_sensors {
 
     /** pointer for Xfce Panel */
     XfcePanelPlugin *plugin;
@@ -168,8 +168,7 @@ typedef struct {
 
     /** desired alpha value for the tachometers */
     gfloat val_tachos_alpha;
-}
-t_sensors;
+};
 
 
 /* Regularly included functions in library */

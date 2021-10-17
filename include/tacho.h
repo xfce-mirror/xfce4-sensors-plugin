@@ -32,14 +32,14 @@ typedef struct _GtkSensorsTacho GtkSensorsTacho;
 /**
  * Enumeration of possible style for sensors tacho.
  */
-typedef enum _SensorsTachoStyle {
+enum SensorsTachoStyle {
     /** temperatures, ranging from green over yellow to red */
     style_MinGYR = 0,
     /** voltage and power, from yellow over green to blue */
     style_MediumYGB = 1,
     /** fill level, mostly used for energy from red over yellow to green */
     style_MaxRYG = 2
-} SensorsTachoStyle;
+};
 
 /**
  * pseudo widget for drawing a tacho
