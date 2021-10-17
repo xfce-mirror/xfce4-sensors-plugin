@@ -34,7 +34,7 @@
  * sensors chip name structure from libsensors it is reused for the other
  * chiptypes as well
  */
-typedef struct sensors_chip_name {
+struct sensors_chip_name {
     /** first part of textual sensor's chip name */
     char *prefix;
 
@@ -50,7 +50,7 @@ typedef struct sensors_chip_name {
 
     /** path? unused in sensors plugin! */
     char *path;    /* if dummy */
- } sensors_chip_name;
+};
 #endif
 
 G_BEGIN_DECLS
@@ -60,28 +60,28 @@ G_BEGIN_DECLS
 /**
  * temperature scale to show values in
  */
-typedef enum {
+enum t_tempscale {
     CELSIUS,
     FAHRENHEIT
-} t_tempscale;
+};
 
 
 /**
  * type of chip, i.e, what is its purpose, feature, hardware?
  */
-typedef enum {
+enum t_chiptype {
     LMSENSOR,
     HDD,
     ACPI,
     GPU
-} t_chiptype;
+};
 
 
 /**
  * Indicates whether chipfeature is a temperature, a voltage or a speed
  * value
  */
-typedef enum {
+enum t_chipfeature_class {
     TEMPERATURE,
     VOLTAGE,
     SPEED,
@@ -90,13 +90,13 @@ typedef enum {
     POWER,
     CURRENT,
     OTHER
-} t_chipfeature_class;
+};
 
 
 /**
  * Information about a special feature on a chip
  */
-typedef struct {
+struct t_chipfeature {
     /** name of chipfeature */
     gchar *name;
 
@@ -129,13 +129,13 @@ typedef struct {
 
     /** class of chipfeature */
     t_chipfeature_class cls;
-} t_chipfeature;
+};
 
 
 /**
  * Information about a whole chip, like asb-1-45
  */
-typedef struct {
+struct t_chip {
     /** ID of the sensors chip */
     gchar *sensorId;
 
@@ -156,7 +156,7 @@ typedef struct {
 
     /** chiptype, required for middlelayer to distinguish */
     t_chiptype type;
-} t_chip;
+};
 
 G_END_DECLS
 

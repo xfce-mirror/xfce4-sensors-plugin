@@ -28,7 +28,7 @@ G_BEGIN_DECLS
 /**
  * compound widget displaying a levelbar and optional label
  */
-typedef struct {
+struct t_labelledlevelbar {
     /** the level bar */
     GtkWidget *progressbar;
 
@@ -41,17 +41,17 @@ typedef struct {
     /** a separate css provider per level-bar */
     char *css_data;
     GtkCssProvider *css_provider;
-} t_labelledlevelbar;
+};
 
 
 /**
  * enumeration of the available visualization styles for the Xfce 4 Panel Sensors Plugin
  */
-typedef enum {
+enum e_displaystyles {
   DISPLAY_TEXT = 1,
   DISPLAY_BARS,
   DISPLAY_TACHO
-} e_displaystyles;
+};
 
 G_END_DECLS
 
