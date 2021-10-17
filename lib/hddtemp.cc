@@ -355,14 +355,14 @@ populate_detected_drives (t_chip *chip)
        feature->address = idx_disk;
 
        feature->color_orNull = g_strdup ("#B000B0");
-       feature->valid = TRUE;
+       feature->valid = true;
        feature->raw_value = 0.0;
 
        feature->cls = TEMPERATURE;
        feature->min_value = 10.0;
        feature->max_value = 50.0;
 
-       feature->show = FALSE;
+       feature->show = false;
     }
 }
 

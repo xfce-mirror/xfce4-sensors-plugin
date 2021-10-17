@@ -142,7 +142,7 @@ read_thermal_zone (t_chip *chip)
                     g_free (zone);
     #endif
 
-                    feature->valid = TRUE;
+                    feature->valid = true;
                     feature->min_value = 20.0;
                     feature->max_value = 60.0;
                     feature->cls = TEMPERATURE;
@@ -307,7 +307,7 @@ read_battery_zone (t_chip *chip)
                     feature->name = g_strdup (feature->devicename);
 #endif
 
-                    feature->valid = TRUE;
+                    feature->valid = true;
                     feature->min_value = 0.0;
                     feature->raw_value = 0.0;
                     feature->cls = ENERGY;
@@ -482,7 +482,7 @@ read_fan_zone (t_chip *chip)
                                                     other functions */
                 feature->raw_value = get_fan_zone_value (entry->d_name);
 
-                feature->valid = TRUE;
+                feature->valid = true;
                 feature->min_value = 0.0;
                 feature->max_value = 2.0;
                 feature->cls = STATE;
@@ -598,7 +598,7 @@ read_power_zone (t_chip *chip)
                                                      entry->d_name, _("Power"));
                     feature->formatted_value = NULL;
                     feature->raw_value = get_power_zone_value(entry->d_name);
-                    feature->valid = TRUE;
+                    feature->valid = true;
                     feature->min_value = 0.0;
                     feature->max_value = 60.0; // a T440s charges with roughly 25 Watts
                     feature->cls = POWER;
@@ -660,7 +660,7 @@ read_voltage_zone (t_chip *chip)
                     feature->name = g_strdup_printf (_("%s - %s"), entry->d_name, _("Voltage"));
                     feature->formatted_value = NULL;
                     feature->raw_value = get_voltage_zone_value(entry->d_name);
-                    feature->valid = TRUE;
+                    feature->valid = true;
                     zone = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, entry->d_name, SYS_FILE_VOLTAGE_MIN);
                     min_voltage = get_acpi_value(zone);
                     g_free(zone);

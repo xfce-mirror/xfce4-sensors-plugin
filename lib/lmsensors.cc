@@ -189,11 +189,11 @@ setup_chipfeature_common (t_chipfeature *feature, int address_chipfeature,
 {
     g_free (feature->color_orNull);
     feature->color_orNull = g_strdup ("#00B000");
-    feature->valid = TRUE;
+    feature->valid = true;
 
     feature->raw_value = val_sensor_feature;
     feature->address = address_chipfeature;
-    feature->show = FALSE;
+    feature->show = false;
 }
 
 

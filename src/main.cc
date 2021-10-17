@@ -101,7 +101,7 @@ initialize_sensors_structures (void)
     ptr_sensors_structure = sensors_new (NULL, NULL);
     ptr_sensors_dialog_structure = g_new0 (t_sensors_dialog, 1);
     ptr_sensors_dialog_structure->sensors = ptr_sensors_structure;
-    ptr_sensors_dialog_structure->plugin_dialog = FALSE;
+    ptr_sensors_dialog_structure->plugin_dialog = false;
 
     for (idx_chip=0; idx_chip<MAX_NUM_CHIPS; idx_chip++)
     {
