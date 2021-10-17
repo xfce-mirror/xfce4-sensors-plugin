@@ -29,8 +29,6 @@
 
 #include "types.h"
 
-G_BEGIN_DECLS
-
 /**
  * Initialize libsensors by reading sensor config and other stuff
  * @param chips: Pointer to array of chips
@@ -53,7 +51,5 @@ void refresh_lmsensors (gpointer chip_feature, gpointer unused);
  * @param chip: Pointer to t_chip
  */
 void free_lmsensors_chip (gpointer chip);
-
-G_END_DECLS
 
 #endif /* XFCE4_SENSORS_LMSENSORS_H */
