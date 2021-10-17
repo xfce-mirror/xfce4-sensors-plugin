@@ -24,8 +24,6 @@
 
 #include "sensors-interface-common.h"
 
-G_BEGIN_DECLS
-
 /**
  * Gets the internally used chipfeature index for the given parameters.
  * @param chip_number: number of the chip to search for
@@ -67,7 +65,5 @@ void sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors);
  * @param sensors: pointer to sensors structure
  */
 void sensors_read_preliminary_config (XfcePanelPlugin *plugin, t_sensors *sensors);
-
-G_END_DECLS
 
 #endif  /* define XFCE4_SENSORS_CONFIGURATION_H */

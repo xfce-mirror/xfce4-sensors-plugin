@@ -31,8 +31,6 @@
 #include "sensors-interface-plugin.h"
 #include "types.h"
 
-G_BEGIN_DECLS
-
 /* Definitions */
 // Newer Gnome 2 spacing?
 //#define BORDER 18
@@ -253,7 +251,5 @@ EXTERN void
  */
 void format_sensor_value (t_tempscale temperature_scale, t_chipfeature *feature,
                           double feature_value, gchar **formatted_value);
-
-G_END_DECLS
 
 #endif /* XFCE4_SENSORS_INTERFACE_COMMON_H */

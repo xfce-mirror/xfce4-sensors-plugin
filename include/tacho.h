@@ -23,8 +23,6 @@
 #include <cairo.h>
 #include <gtk/gtk.h>
 
-G_BEGIN_DECLS
-
 G_DECLARE_FINAL_TYPE (GtkSensorsTacho, gtk_sensorstacho, GTK, SENSORSTACHO, GtkDrawingArea)
 
 typedef struct _GtkSensorsTacho GtkSensorsTacho;
@@ -145,7 +143,5 @@ extern gfloat val_colorvalue;
  * TODO: Introduce getter/setter functions
  */
 extern gfloat val_alpha;
-
-G_END_DECLS
 
 #endif /* __TACHO_H */

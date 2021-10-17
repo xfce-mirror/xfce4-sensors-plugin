@@ -25,8 +25,6 @@
 
 #include "types.h"
 
-G_BEGIN_DECLS
-
 #define ACPI_PATH               "/proc/acpi"
 #define ACPI_DIR_THERMAL        "thermal_zone"
 #define ACPI_DIR_BATTERY        "battery"
@@ -188,7 +186,5 @@ gint acpi_ignore_directory_entry (struct dirent *entry);
  * @param chip: Pointer to t_chip
  */
 void free_acpi_chip (gpointer chip);
-
-G_END_DECLS
 
 #endif /* XFCE4_SENSORS_ACPI_H */

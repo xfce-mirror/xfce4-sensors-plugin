@@ -26,8 +26,6 @@
 
 #include <glib.h>
 
-G_BEGIN_DECLS
-
 /**
  * Initialize nvidia sensor
  * @param chips: Pointer to pointer array to chips
@@ -48,7 +46,5 @@ void refresh_nvidia (gpointer chip_feature, gpointer unused);
  * @return temperature value
  */
 double get_nvidia_value (int idx_gpu);
-
-G_END_DECLS
 
 #endif /* XFCE4_SENSORS_NVIDIA_H */

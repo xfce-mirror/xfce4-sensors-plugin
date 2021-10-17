@@ -25,8 +25,6 @@
 #include "sensors-interface-plugin.h"
 #include "types.h"
 
-G_BEGIN_DECLS
-
 /**
  * Initialize all sensors detected by iterating and calling init-routines
  * @param out_chips: Double-pointer to pointer array of chips
@@ -92,7 +90,5 @@ void cleanup_interfaces (void);
  * @param sensors: pointer to sensors structure
  */
 void refresh_all_chips (GPtrArray *chips, t_sensors *sensors);
-
-G_END_DECLS
 
 #endif /* XFCE4_SENSORS_MIDDLELAYER_H */
