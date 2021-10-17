@@ -322,7 +322,7 @@ sensors_update_tacho_panel (const t_sensors *sensors)
 static void
 sensors_add_bars_display (t_sensors *sensors)
 {
-    gboolean has_bars = FALSE;
+    bool has_bars = false;
     gchar *panel_label_text;
     gint size_panel = sensors->panel_size;
 
@@ -349,7 +349,7 @@ sensors_add_bars_display (t_sensors *sensors)
                 GtkWidget *widget_progbar, *widget_databox;
                 t_labelledlevelbar *bar;
 
-                has_bars = TRUE;
+                has_bars = true;
 
                 widget_progbar = gtk_level_bar_new();
 
@@ -434,7 +434,7 @@ sensors_add_bars_display (t_sensors *sensors)
 static void
 sensors_add_tacho_display (t_sensors *sensors)
 {
-    gboolean has_tachos = FALSE;
+    bool has_tachos = false;
     gchar *panel_label_text;
     gint panel_size;
 
@@ -465,7 +465,7 @@ sensors_add_tacho_display (t_sensors *sensors)
                 GtkOrientation orientation;
                 GtkWidget *tacho;
 
-                has_tachos = TRUE;
+                has_tachos = true;
 
                 switch (feature->cls) {
                     case VOLTAGE:
@@ -906,12 +906,12 @@ sensors_update_values (t_sensors *sensors)
 static void
 sensors_create_tooltip (const t_sensors *sensors)
 {
-    gboolean first_textline = TRUE;
+    bool first_textline = true;
 
     gchar *tooltip = g_strdup (_("No sensors selected!"));
 
     for (gint idx_sensorchip=0; idx_sensorchip < sensors->num_sensorchips; idx_sensorchip++) {
-        gboolean chipname_already_prepended = FALSE;
+        bool chipname_already_prepended = false;
 
         auto chip = (t_chip*) g_ptr_array_index (sensors->chips, idx_sensorchip);
         g_assert (chip!=NULL);
@@ -930,7 +930,7 @@ sensors_create_tooltip (const t_sensors *sensors)
                     if (first_textline) {
                         g_free (tooltip);
                         tooltip = g_strconcat ("<b>", chip->sensorId, "</b>", NULL);
-                        first_textline = FALSE;
+                        first_textline = false;
                     }
                     else {
                         tmp = g_strconcat (tooltip, " \n<b>", chip->sensorId, "</b>", NULL);
@@ -938,7 +938,7 @@ sensors_create_tooltip (const t_sensors *sensors)
                         tooltip = tmp;
                     }
 
-                    chipname_already_prepended = TRUE;
+                    chipname_already_prepended = true;
                 }
 
                 tmp = g_strconcat (tooltip, "\n  ",
@@ -2144,7 +2144,7 @@ sensors_create_options (XfcePanelPlugin *plugin, t_sensors *sensors)
 
     sd->sensors = sensors;
     sd->dialog = dlg;
-    sd->plugin_dialog = TRUE;
+    sd->plugin_dialog = true;
 
     sd->myComboBox = gtk_combo_box_text_new();
 

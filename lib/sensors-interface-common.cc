@@ -68,12 +68,12 @@ sensors_new (XfcePanelPlugin *plugin, gchar * plugin_config_filename)
         chip->description = g_strdup(_("No sensors found!"));
         chip->num_features = 1;
         feature->name = g_strdup("No sensor");
-        feature->valid = TRUE;
+        feature->valid = true;
         feature->formatted_value = g_strdup("0.0");
         feature->raw_value = 0.0;
         feature->min_value = 0;
         feature->max_value = 7000;
-        feature->show = FALSE;
+        feature->show = false;
 
         g_ptr_array_add (chip->chip_features, feature);
     }

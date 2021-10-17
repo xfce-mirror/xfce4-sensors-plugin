@@ -68,7 +68,7 @@ struct t_sensors_dialog {
     t_sensors *sensors;
 
     /** is it the dialog of the panel plugin? */
-    gboolean plugin_dialog;
+    bool plugin_dialog;
 
     /** controls dialog */
     GtkWidget *dialog;

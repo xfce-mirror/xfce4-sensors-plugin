@@ -118,14 +118,14 @@ struct t_chipfeature {
     /** color for visualization */
     gchar *color_orNull;
 
-    /** whether to show the value (and name) */
-    gboolean show;
-
     /** specifies the mapping to the internal number in chip_name */
     gint address;
 
+    /** whether to show the value (and name) */
+    bool show;
+
     /** is the chipfeature valid at all? */
-    gboolean valid;
+    bool valid;
 
     /** class of chipfeature */
     t_chipfeature_class cls;

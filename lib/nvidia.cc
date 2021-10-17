@@ -75,12 +75,12 @@ initialize_nvidia (GPtrArray *chips)
             feature->address = i;
             feature->name = g_strdup (feature->devicename);
             feature->color_orNull = NULL;
-            feature->valid = TRUE;
+            feature->valid = true;
             feature->raw_value = 0.0;
             feature->cls = TEMPERATURE;
             feature->min_value = 10.0;
             feature->max_value = 70.0;
-            feature->show = FALSE;
+            feature->show = false;
         }
         g_ptr_array_add (chips, chip);
         retval = 2;
