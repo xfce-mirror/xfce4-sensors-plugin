@@ -20,14 +20,17 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+/* The fixes file has to be included before any other #include directives */
+#include "xfce4++/util/fixes.h"
+
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
 
 #include <glib.h>
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "xfce4++/util.h"
 
 #include <X11/Xlib.h> /* Must be before NVCtrl includes */
 #include <NVCtrl/NVCtrl.h>
@@ -58,12 +61,12 @@ initialize_nvidia (GPtrArray *chips)
      * Always write NVIDIA with all caps, not nvidia nor NVidia.
      */
 
-    t_chip *chip = g_new0 (t_chip, 1);
+    auto chip = new t_chip();
     chip->chip_features = g_ptr_array_new ();
     chip->num_features = 0;
-    chip->description = g_strdup (_("NVIDIA GPU core temperature"));
-    chip->name = g_strdup (_("nvidia"));
-    chip->sensorId = g_strdup ("nvidia");
+    chip->description = _("NVIDIA GPU core temperature");
+    chip->name = _("nvidia");
+    chip->sensorId = "nvidia";
     chip->type = GPU;
 
     int num_gpus = read_gpus (chip);
@@ -73,8 +76,8 @@ initialize_nvidia (GPtrArray *chips)
             auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, i);
             g_assert (feature != NULL);
             feature->address = i;
-            feature->name = g_strdup (feature->devicename);
-            feature->color_orNull = NULL;
+            feature->name = feature->devicename;
+            feature->color_orEmpty = "";
             feature->valid = true;
             feature->raw_value = 0.0;
             feature->cls = TEMPERATURE;
@@ -151,7 +154,7 @@ read_gpus (t_chip *chip)
 
     for (int idx_gpu = 0; idx_gpu < num_gpus; idx_gpu++) {
         gchar *gpuname = NULL; /* allocated by libxnvctrl */
-        t_chipfeature *feature = g_new0 (t_chipfeature, 1);
+        auto feature = new t_chipfeature();
 
         if (XNVCTRLQueryTargetStringAttribute (nvidia_sensors_display,
                                                NV_CTRL_TARGET_TYPE_GPU,
@@ -164,9 +167,9 @@ read_gpus (t_chip *chip)
         }
         else
         {
-            feature->devicename = g_strdup_printf ("GPU %d", idx_gpu);
+            feature->devicename = xfce4::sprintf ("GPU %d", idx_gpu);
         }
-        feature->name = g_strdup (feature->devicename);
+        feature->name = feature->devicename;
 
         g_ptr_array_add (chip->chip_features, feature);
         chip->num_features++;

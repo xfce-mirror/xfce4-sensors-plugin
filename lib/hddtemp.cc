@@ -19,6 +19,9 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+/* The fixes file has to be included before any other #include directives */
+#include "xfce4++/util/fixes.h"
+
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -33,6 +36,7 @@
 #include <sys/types.h>
 #include <sys/utsname.h>
 #include <unistd.h>
+#include "xfce4++/util.h"
 
 /* Package includes */
 #include <hddtemp.h>
@@ -234,18 +238,13 @@ read_disks_netcat (t_chip *chip)
 
     char *tmp = str_split (reply, DOUBLE_DELIMITER);
     do {
-        t_chipfeature *feature = g_new0(t_chipfeature, 1);
+        auto feature = new t_chipfeature();
 
-        char *tmp2 = g_strdup (tmp);
-        char *tmp3 = strtok (tmp2, SINGLE_DELIMITER);
-        feature->devicename = g_strdup(tmp3);
-        tmp3 = strtok (NULL, SINGLE_DELIMITER);
-        feature->name = g_strdup(tmp3);
+        feature->devicename = strtok (tmp, SINGLE_DELIMITER);
+        feature->name = strtok (NULL, SINGLE_DELIMITER);
 
         g_ptr_array_add(chip->chip_features, feature);
         chip->num_features++;
-
-        g_free (tmp2);
     }
     while ( (tmp = str_split(NULL, DOUBLE_DELIMITER)) );
 }
@@ -261,11 +260,10 @@ read_disks_fallback (t_chip *chip)
     const gchar *device_name;
     while ((device_name = g_dir_read_name (dir)) != NULL) {
         if (strncmp (device_name, "hd", 2)==0 || strncmp (device_name, "sd", 2)==0) {
-            /* TODO: look whether /dev/str_devicename exists? */
-            t_chipfeature *feature;
-            feature = g_new0 (t_chipfeature, 1);
-            feature->devicename = g_strconcat ("/dev/", device_name, NULL);
-            feature->name = g_strdup(feature->devicename);
+            /* TODO: look whether /dev/device_name exists? */
+            auto feature = new t_chipfeature();
+            feature->devicename = xfce4::sprintf ("/dev/%s", device_name);
+            feature->name = feature->devicename;
             g_ptr_array_add (chip->chip_features, feature);
             chip->num_features++;
         }
@@ -286,19 +284,18 @@ read_disks_linux26 (t_chip *chip)
     /* read from /sys/block */
     GDir *dir = g_dir_open ("/sys/block/", 0, NULL);
     while ((device_name = g_dir_read_name (dir)) != NULL) {
-        /* if ( strncmp (str_devicename, "ram", 3)!=0 &&
-             strncmp (str_devicename, "loop", 4)!=0 &&
-             strncmp (str_devicename, "md", 2)!=0 &&
-             strncmp (str_devicename, "fd", 2)!=0 &&
-             strncmp (str_devicename, "mmc", 3)!=0 &&
-             strncmp (str_devicename, "dm-", 3)!=0 ) { */
+        /* if ( strncmp (device_name, "ram", 3)!=0 &&
+             strncmp (device_name, "loop", 4)!=0 &&
+             strncmp (device_name, "md", 2)!=0 &&
+             strncmp (device_name, "fd", 2)!=0 &&
+             strncmp (device_name, "mmc", 3)!=0 &&
+             strncmp (device_name, "dm-", 3)!=0 ) { */
         if (strncmp (device_name, "hd", 2) == 0 || strncmp (device_name, "sd", 2) == 0)
         {
-            /* TODO: look whether /dev/str_devicename exists? */
-            t_chipfeature *feature;
-            feature = g_new0 (t_chipfeature, 1);
-            feature->devicename = g_strconcat ("/dev/", device_name, NULL); /* /proc/ide/hda/model ?? */
-            feature->name = g_strdup(feature->devicename);
+            /* TODO: look whether /dev/device_name exists? */
+            auto feature = new t_chipfeature();
+            feature->devicename = xfce4::sprintf ("/dev/%s", device_name); /* /proc/ide/hda/model ?? */
+            feature->name = feature->devicename;
             g_ptr_array_add (chip->chip_features, feature);
             chip->num_features++;
         }
@@ -318,7 +315,7 @@ remove_unmonitored_drives (t_chip *chip, gboolean *suppress_message)
     for (idx_feature=0; idx_feature < chip->num_features; idx_feature++)
     {
         auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_feature);
-        int temperature = get_hddtemp_value (feature->devicename, suppress_message);
+        int temperature = get_hddtemp_value (feature->devicename.c_str(), suppress_message);
         if (temperature == NO_VALID_HDDTEMP_PROGRAM)
         {
             DBG ("removing single disk");
@@ -354,7 +351,7 @@ populate_detected_drives (t_chip *chip)
 
        feature->address = idx_disk;
 
-       feature->color_orNull = g_strdup ("#B000B0");
+       feature->color_orEmpty = "#B000B0";
        feature->valid = true;
        feature->raw_value = 0.0;
 
@@ -379,13 +376,13 @@ initialize_hddtemp (GPtrArray *chips, gboolean *suppress_message)
 
     g_assert (chips!=NULL);
 
-    t_chip *chip = g_new0 (t_chip, 1);
+    auto chip = new t_chip();
 
     chip->chip_features = g_ptr_array_new ();
     chip->num_features = 0;
-    chip->description = g_strdup (_("S.M.A.R.T. harddisk temperatures"));
-    chip->name = g_strdup (_("Hard disks"));
-    chip->sensorId = g_strdup ("Hard disks");
+    chip->description = _("S.M.A.R.T. harddisk temperatures");
+    chip->name = _("Hard disks");
+    chip->sensorId = "Hard disks";
     chip->type = HDD;
 #ifdef HAVE_NETCAT
     read_disks_netcat (chip);
@@ -486,7 +483,7 @@ get_hddtemp_d_str (char *buffer, size_t bufsize)
 
 /* -------------------------------------------------------------------------- */
 double
-get_hddtemp_value (char *disk, gboolean *suppress_message)
+get_hddtemp_value (const char *disk, gboolean *suppress_message)
 {
     gchar *str_stdout = NULL, *str_stderr = NULL;
     gchar *hddtemp_call = NULL, *message = NULL;
@@ -647,6 +644,6 @@ refresh_hddtemp (gpointer ptr_chip_feature, gpointer sensors)
     }
 
     auto feature = (t_chipfeature *) ptr_chip_feature;
-    double temperature = get_hddtemp_value (feature->devicename, suppress_message);
+    double temperature = get_hddtemp_value (feature->devicename.c_str(), suppress_message);
     feature->raw_value = temperature;
 }

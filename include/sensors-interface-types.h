@@ -22,6 +22,7 @@
 
 #include <glib.h>
 #include <gtk/gtk.h>
+#include <string>
 
 /**
  * compound widget displaying a levelbar and optional label
@@ -37,7 +38,7 @@ struct t_labelledlevelbar {
     GtkWidget *databox;
 
     /** a separate css provider per level-bar */
-    char *css_data;
+    std::string css_data;
     GtkCssProvider *css_provider;
 };
 

@@ -26,6 +26,7 @@
 
 #include <glib.h>
 #include <libxfce4util/libxfce4util.h>
+#include <string>
 
 #ifdef HAVE_LIBSENSORS
 #include <sensors/sensors.h>
@@ -96,16 +97,16 @@ enum t_chipfeature_class {
  */
 struct t_chipfeature {
     /** name of chipfeature */
-    gchar *name;
+    std::string name;
 
     /** underlying device */
-    gchar *devicename;
+    std::string devicename;
 
     /** unformatted sensor feature values */
     double raw_value;
 
     /** formatted (%f5.2) sensor feature values */
-    gchar *formatted_value;
+    std::string formatted_value;
 
     /** minimum value, used for visualization */
     float min_value;
@@ -114,7 +115,7 @@ struct t_chipfeature {
     float max_value;
 
     /** color for visualization */
-    gchar *color_orNull;
+    std::string color_orEmpty;
 
     /** specifies the mapping to the internal number in chip_name */
     gint address;
@@ -135,13 +136,13 @@ struct t_chipfeature {
  */
 struct t_chip {
     /** ID of the sensors chip */
-    gchar *sensorId;
+    std::string sensorId;
 
     /** name of the sensors chip */
-    gchar *name;
+    std::string name;
 
     /** description of the sensors chip */
-    gchar *description;
+    std::string description;
 
     /** number of known features for this chip */
     gint num_features;

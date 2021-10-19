@@ -27,7 +27,7 @@
 #include <glib.h>
 #include <gtk/gtk.h>
 #include <libxfce4panel/libxfce4panel.h>
-#include <stdbool.h>
+#include <string>
 
 /* Package includes */
 #include "sensors-interface-types.h"
@@ -64,7 +64,7 @@ struct t_sensors {
     gint timeout_id;
 
     /** font size for display in panel */
-    gchar *str_fontsize;
+    std::string str_fontsize;
     gint val_fontsize;
 
     /** temperature scale for display in panel */
@@ -146,14 +146,14 @@ struct t_sensors {
     /** sensor types to display values in appropriate format */
     GPtrArray *chips;
 
-    /** command to excute */
-    gchar *command_name;
+    /** command to execute */
+    std::string command_name;
 
     /** callback_id for doubleclicks */
     gint doubleclick_id;
 
-    /** file name of config file for plugin */
-    gchar *plugin_config_file;
+    /** filepath of config file for plugin, or an empty string */
+    std::string plugin_config_file;
 
     /** preferred dialog width */
     gint preferred_width;
@@ -177,7 +177,7 @@ struct t_sensors {
  * @param plugin_config_filename
  * @return pointer to newly allocated sensors object
  */
-t_sensors* sensors_new (XfcePanelPlugin *plugin, gchar *plugin_config_filename);
+t_sensors* sensors_new (XfcePanelPlugin *plugin, const char *plugin_config_filename_orNull);
 
 /**
  * Initialize sensors structure with default values

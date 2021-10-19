@@ -58,6 +58,7 @@ libxfce4sensors_la_LDFLAGS = \
 # @PLATFORM_LDFLAGS@
 
 libxfce4sensors_la_LIBADD = \
+	$(top_builddir)/xfce4++/util/libxfce4util_pp.la \
 	@LIBXFCE4UI_LIBS@ \
 	@LIBXFCE4PANEL_LIBS@ \
 	@LIBSENSORS_LDFLAGS@ \

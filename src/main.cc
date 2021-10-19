@@ -94,24 +94,21 @@ print_version (void)
 static t_sensors_dialog *
 initialize_sensors_structures (void)
 {
-    t_sensors *ptr_sensors_structure;
-    t_sensors_dialog *ptr_sensors_dialog_structure;
-    int idx_chip, idx_feature;
+    t_sensors *sensors = sensors_new (NULL, NULL);
 
-    ptr_sensors_structure = sensors_new (NULL, NULL);
-    ptr_sensors_dialog_structure = g_new0 (t_sensors_dialog, 1);
-    ptr_sensors_dialog_structure->sensors = ptr_sensors_structure;
-    ptr_sensors_dialog_structure->plugin_dialog = false;
+    t_sensors_dialog *dialog = g_new0 (t_sensors_dialog, 1);
+    dialog->sensors = sensors;
+    dialog->plugin_dialog = false;
 
-    for (idx_chip=0; idx_chip<MAX_NUM_CHIPS; idx_chip++)
+    for (int idx_chip=0; idx_chip<MAX_NUM_CHIPS; idx_chip++)
     {
-        for (idx_feature=0; idx_feature<MAX_NUM_FEATURES; idx_feature++)
+        for (int idx_feature=0; idx_feature<MAX_NUM_FEATURES; idx_feature++)
         {
-            ptr_sensors_structure->tachos[idx_chip][idx_feature] = NULL;
+            sensors->tachos[idx_chip][idx_feature] = NULL;
         }
     }
 
-    return ptr_sensors_dialog_structure;
+    return dialog;
 }
 
 

@@ -19,6 +19,9 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+/* The fixes file has to be included before any other #include directives */
+#include "xfce4++/util/fixes.h"
+
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -28,6 +31,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include "xfce4++/util.h"
 
 /* Package includes */
 #include <acpi.h>
@@ -119,15 +123,13 @@ read_thermal_zone (t_chip *chip)
                     /* if (acpi_ignore_directory_entry (ptr_dirent))
                         continue; */
 
-                    t_chipfeature *feature = g_new0 (t_chipfeature, 1);
+                    auto feature = new t_chipfeature();
 
-                    feature->color_orNull = g_strdup("#0000B0");
+                    feature->color_orEmpty = "#0000B0";
                     feature->address = chip->chip_features->len;
-                    feature->devicename = g_strdup (entry->d_name);
-                    feature->name = g_strdup (feature->devicename);
-                    feature->formatted_value = NULL; /*  Gonna refresh it in
-                                                            sensors_get_wrapper or some
-                                                            other functions */
+                    feature->devicename = entry->d_name;
+                    feature->name = feature->devicename;
+                    feature->formatted_value = ""; /*  Gonna refresh it in sensors_get_wrapper or some other functions */
 
     #ifdef HAVE_SYSFS_ACPI
                     if (fgets (buffer, 1024, file)!=NULL)
@@ -286,10 +288,10 @@ read_battery_zone (t_chip *chip)
 #endif
                 DBG ("str_filename=%s\n", filename);
                 FILE *file = fopen (filename, "r");
-                t_chipfeature *feature = g_new0 (t_chipfeature, 1);
+                auto feature = new t_chipfeature();
                 if (file) {
                     feature->address = chip->chip_features->len;
-                    feature->devicename = g_strdup (entry->d_name);
+                    feature->devicename = entry->d_name;
 
 #ifdef HAVE_SYSFS_ACPI
                     if (fgets (buffer, 1024, file)!=NULL)
@@ -300,19 +302,19 @@ read_battery_zone (t_chip *chip)
                         // power/voltage. So we prepend BAT0/1 to the battery name as well, with the result
                         // being something like "BAT1 - 45N1127". Users can then rename the batteries to
                         // their own will while keeping consistency to their power/voltage features.
-                        feature->name = g_strdup_printf (_("%s - %s"),entry->d_name, buffer);
+                        feature->name = xfce4::sprintf (_("%s - %s"),entry->d_name, buffer);
                         DBG ("Name=%s\n", buffer);
                     }
 #else
-                    feature->name = g_strdup (feature->devicename);
+                    feature->name = feature->devicename;
 #endif
 
                     feature->valid = true;
                     feature->min_value = 0.0;
                     feature->raw_value = 0.0;
                     feature->cls = ENERGY;
-                    feature->formatted_value = NULL;
-                    feature->color_orNull = g_strdup("#0000B0");
+                    feature->formatted_value = "";
+                    feature->color_orEmpty = "#0000B0";
 
 #ifdef HAVE_SYSFS_ACPI
                     fclose (file);
@@ -465,21 +467,17 @@ read_fan_zone (t_chip *chip)
             FILE *file = fopen (filename, "r");
             if (file)
             {
-                t_chipfeature *feature;
-
                 /* if (acpi_ignore_directory_entry (de))
                     continue; */
 
-                feature = g_new0 (t_chipfeature, 1);
+                auto feature = new t_chipfeature();
                 g_return_val_if_fail(feature != NULL, -1);
 
-                feature->color_orNull = g_strdup("#0000B0");
+                feature->color_orEmpty = "#0000B0";
                 feature->address = chip->chip_features->len;
-                feature->devicename = g_strdup (entry->d_name);
-                feature->name = g_strdup (feature->devicename);
-                feature->formatted_value = NULL; /* Gonna refresh it in
-                                                    sensors_get_wrapper or some
-                                                    other functions */
+                feature->devicename = entry->d_name;
+                feature->name = feature->devicename;
+                feature->formatted_value = ""; /* Gonna refresh it in sensors_get_wrapper or some other functions */
                 feature->raw_value = get_fan_zone_value (entry->d_name);
 
                 feature->valid = true;
@@ -584,20 +582,16 @@ read_power_zone (t_chip *chip)
                 gchar *filename = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, entry->d_name, SYS_FILE_POWER);
                 FILE *file = fopen (filename, "r");
                 if (file) {
-                    t_chipfeature *feature;
-
-                    feature = g_new0 (t_chipfeature, 1);
-                    g_return_val_if_fail(feature != NULL, -1);
-
-                    feature->color_orNull = g_strdup("#00B0B0");
+                    auto feature = new t_chipfeature();
+                    feature->color_orEmpty = "#00B0B0";
                     feature->address = chip->chip_features->len;
-                    feature->devicename = g_strdup(entry->d_name);
+                    feature->devicename = entry->d_name;
                     // You might want to format this with a hyphen and without spacing, or with a dash; the result might be BAT1–Power or whatever fits your language most. Spaces allow line breaks over the tachometers.
-                    feature->name = g_strdup_printf (_("%s - %s"),
-                                                     // Power with unit Watts, not Energy with Joules or kWh
-                                                     entry->d_name, _("Power"));
-                    feature->formatted_value = NULL;
-                    feature->raw_value = get_power_zone_value(entry->d_name);
+                    feature->name = xfce4::sprintf (_("%s - %s"),
+                                                    // Power with unit Watts, not Energy with Joules or kWh
+                                                    entry->d_name, _("Power"));
+                    feature->formatted_value = "";
+                    feature->raw_value = get_power_zone_value (entry->d_name);
                     feature->valid = true;
                     feature->min_value = 0.0;
                     feature->max_value = 60.0; // a T440s charges with roughly 25 Watts
@@ -647,18 +641,15 @@ read_voltage_zone (t_chip *chip)
                 gchar *filename = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, entry->d_name, SYS_FILE_VOLTAGE);
                 FILE *file = fopen (filename, "r");
                 if (file) {
-                    t_chipfeature *feature;
                     gchar *min_voltage, *zone;
 
-                    feature = g_new0 (t_chipfeature, 1);
-                    g_return_val_if_fail (feature != NULL, -1);
-
-                    feature->color_orNull = g_strdup("#00B0B0");
+                    auto feature = new t_chipfeature();
+                    feature->color_orEmpty = "#00B0B0";
                     feature->address = chip->chip_features->len;
-                    feature->devicename = g_strdup(entry->d_name);
+                    feature->devicename = entry->d_name;
                     // You might want to format this with a hyphen and without spacing, or with a dash; the result might be BAT1–Voltage or whatever fits your language most. Spaces allow line breaks over the tachometers.
-                    feature->name = g_strdup_printf (_("%s - %s"), entry->d_name, _("Voltage"));
-                    feature->formatted_value = NULL;
+                    feature->name = xfce4::sprintf (_("%s - %s"), entry->d_name, _("Voltage"));
+                    feature->formatted_value = "";
                     feature->raw_value = get_voltage_zone_value(entry->d_name);
                     feature->valid = true;
                     zone = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_POWER, entry->d_name, SYS_FILE_VOLTAGE_MIN);
@@ -704,15 +695,14 @@ initialize_ACPI (GPtrArray *chips)
 {
     g_return_val_if_fail (chips != NULL, -1);
 
-    t_chip *chip = g_new0 (t_chip, 1);
-    g_return_val_if_fail (chip != NULL, -1);
+    auto chip = new t_chip();
 
-    chip->name = g_strdup(_("ACPI")); /* to be displayed */
+    chip->name = _("ACPI"); /* to be displayed */
 
     gchar *acpi_info = get_acpi_info();
-    chip->description = g_strdup_printf (_("ACPI v%s zones"), acpi_info);
+    chip->description = xfce4::sprintf (_("ACPI v%s zones"), acpi_info);
     g_free(acpi_info);
-    chip->sensorId = g_strdup ("ACPI"); /* used internally */
+    chip->sensorId = "ACPI"; /* used internally */
 
     chip->type = ACPI;
 
@@ -757,7 +747,7 @@ refresh_acpi (gpointer ptr_feature, gpointer unused)
     switch (feature->cls) {
         case TEMPERATURE:
 #ifdef HAVE_SYSFS_ACPI
-            zone = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_THERMAL, feature->devicename, SYS_FILE_THERMAL);
+            zone = g_strdup_printf ("%s/%s/%s/%s", SYS_PATH, SYS_DIR_THERMAL, feature->devicename.c_str(), SYS_FILE_THERMAL);
             file = fopen(zone, "r");
             if (file)
             {
@@ -771,26 +761,26 @@ refresh_acpi (gpointer ptr_feature, gpointer unused)
               file = NULL; /* avoid reuse after closing file */
             }
 #else
-            zone = g_strdup_printf ("%s/%s", ACPI_DIR_THERMAL, feature->devicename);
+            zone = g_strdup_printf ("%s/%s", ACPI_DIR_THERMAL, feature->devicename.c_str());
             feature->raw_value = get_acpi_zone_value (zone, ACPI_FILE_THERMAL);
 #endif
             g_free (zone);
             break;
 
         case ENERGY:
-            feature->raw_value = get_battery_zone_value (feature->devicename);
+            feature->raw_value = get_battery_zone_value (feature->devicename.c_str());
             break;
 
         case POWER:
-            feature->raw_value = get_power_zone_value (feature->devicename);
+            feature->raw_value = get_power_zone_value (feature->devicename.c_str());
             break;
 
         case VOLTAGE:
-            feature->raw_value = get_voltage_zone_value (feature->devicename);
+            feature->raw_value = get_voltage_zone_value (feature->devicename.c_str());
             break;
 
         case STATE:
-            filename = g_strdup_printf ("%s/%s/%s/state", ACPI_PATH, ACPI_DIR_FAN, feature->devicename);
+            filename = g_strdup_printf ("%s/%s/%s/state", ACPI_PATH, ACPI_DIR_FAN, feature->devicename.c_str());
 
             state = get_acpi_value(filename); /* returned value is strdup'ped */
             if (!state)

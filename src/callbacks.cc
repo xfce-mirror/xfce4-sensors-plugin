@@ -39,8 +39,16 @@
 void
 on_font_set (GtkWidget *widget, gpointer data)
 {
-    g_free (font);
-    font = g_strdup(gtk_font_chooser_get_font (GTK_FONT_CHOOSER (widget)));
+    gchar *new_font = gtk_font_chooser_get_font (GTK_FONT_CHOOSER (widget));
+    if (new_font)
+    {
+        font = new_font;
+        g_free (new_font);
+    }
+    else
+    {
+        font = default_font;
+    }
     refresh_view ((t_sensors_dialog*) data);
 }
 
@@ -61,7 +69,7 @@ sensor_entry_changed_ (GtkWidget *combobox, t_sensors_dialog *dialog)
 
     auto chip = (t_chip*) g_ptr_array_index (dialog->sensors->chips, active_combobox);
 
-    gtk_label_set_label (GTK_LABEL (dialog->mySensorLabel), chip->description);
+    gtk_label_set_label (GTK_LABEL (dialog->mySensorLabel), chip->description.c_str());
 
     gtk_tree_view_set_model (GTK_TREE_VIEW (dialog->myTreeView),
                              GTK_TREE_MODEL (dialog->myListStore[active_combobox]));
@@ -118,9 +126,7 @@ list_cell_text_edited_ (GtkCellRendererText *cell_renderer_text,
         dialog, cellpath, eTreeColumn_Name, &text_string,
         &feature);
 
-    if (feature->name != NULL)
-        g_free(feature->name);
-    feature->name = g_strdup (new_text);
+    feature->name = new_text;
 
     /* update panel */
     GtkWidget *tacho = dialog->sensors->tachos[active_combobox][atoi(cellpath)];
@@ -196,8 +202,7 @@ list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, const gchar *c
             dialog, cellpath, eTreeColumn_Color, &color_string,
             &feature);
 
-        g_free (feature->color_orNull);
-        feature->color_orNull = g_strdup (new_color);
+        feature->color_orEmpty = new_color;
 
         /* update color value */
         GtkWidget *tacho = dialog->sensors->tachos[active_combobox][atoi(cellpath)];
@@ -211,8 +216,7 @@ list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, const gchar *c
             dialog, cellpath, eTreeColumn_Color, &color_string,
             &feature);
 
-        g_free (feature->color_orNull);
-        feature->color_orNull = NULL;
+        feature->color_orEmpty = "";
 
         /* update color value */
         GtkWidget *tacho = dialog->sensors->tachos[active_combobox][atoi(cellpath)];

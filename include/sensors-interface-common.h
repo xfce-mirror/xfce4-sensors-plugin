@@ -26,6 +26,7 @@
 
 #include <glib.h>
 #include <gtk/gtk.h>
+#include <string>
 
 /* Package includes */
 #include "sensors-interface-plugin.h"
@@ -249,7 +250,7 @@ EXTERN void
  * @param feature_value[in]: input value to be formatted
  * @param formatted_value [out]:
  */
-void format_sensor_value (t_tempscale temperature_scale, t_chipfeature *feature,
-                          double feature_value, gchar **formatted_value);
+std::string format_sensor_value (t_tempscale temperature_scale, const t_chipfeature *feature,
+                                 double feature_value);
 
 #endif /* XFCE4_SENSORS_INTERFACE_COMMON_H */

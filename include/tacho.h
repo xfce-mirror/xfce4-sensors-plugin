@@ -22,6 +22,7 @@
 
 #include <cairo.h>
 #include <gtk/gtk.h>
+#include <string>
 
 G_DECLARE_FINAL_TYPE (GtkSensorsTacho, gtk_sensorstacho, GTK, SENSORSTACHO, GtkDrawingArea)
 
@@ -124,8 +125,8 @@ void gtk_sensorstacho_set_size(GtkSensorsTacho *tacho, guint size);
  * tacho elements.
  * TODO: Introduce getter/setter functions
  */
-extern gchar *font;
-
+extern std::string font;
+extern const char *const default_font;
 
 #define MAX_HUE 0.8
 #define ALPHA_CHANNEL_VALUE 0.8
