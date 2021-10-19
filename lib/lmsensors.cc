@@ -19,6 +19,9 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+/* The fixes file has to be included before any other #include directives */
+#include "xfce4++/util/fixes.h"
+
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -28,6 +31,7 @@
 #include <glib/gprintf.h>
 #include <stdio.h>
 #include <string.h>
+#include "xfce4++/util.h"
 
 /* Package includes */
 #include <lmsensors.h>
@@ -43,7 +47,7 @@
 static t_chip*
 setup_chip (GPtrArray *chips, const sensors_chip_name *chip_name)
 {
-    t_chip *chip = g_new0 (t_chip, 1);
+    auto chip = new t_chip();
 
     g_ptr_array_add (chips, chip);
 
@@ -53,18 +57,16 @@ setup_chip (GPtrArray *chips, const sensors_chip_name *chip_name)
     switch (chip_name->bus.type) {
         case SENSORS_BUS_TYPE_I2C:
         case SENSORS_BUS_TYPE_SPI:
-            chip->sensorId = g_strdup_printf ("%s-%x-%x", chip_name->prefix,
-                                              chip_name->bus.nr, chip_name->addr);
+            chip->sensorId = xfce4::sprintf ("%s-%x-%x", chip_name->prefix, chip_name->bus.nr, chip_name->addr);
             break;
         default:
-            chip->sensorId = g_strdup_printf ("%s-%x", chip_name->prefix,
-                                              chip_name->addr);
+            chip->sensorId = xfce4::sprintf ("%s-%x", chip_name->prefix, chip_name->addr);
     }
 
     chip->num_features = 0;
-    chip->name = g_strdup (_("LM Sensors"));
+    chip->name = _("LM Sensors");
     chip->chip_features = g_ptr_array_new ();
-    chip->description = g_strdup (sensors_get_adapter_name (&chip_name->bus));
+    chip->description = sensors_get_adapter_name (&chip_name->bus);
 
     return chip;
 }
@@ -187,8 +189,7 @@ static void
 setup_chipfeature_common (t_chipfeature *feature, int address_chipfeature,
                           double val_sensor_feature)
 {
-    g_free (feature->color_orNull);
-    feature->color_orNull = g_strdup ("#00B000");
+    feature->color_orEmpty = "#00B000";
     feature->valid = true;
 
     feature->raw_value = val_sensor_feature;
@@ -258,14 +259,14 @@ find_chipfeature (const sensors_chip_name *name, t_chip *chip, const sensors_fea
 
     if (number!=-1)
     {
-        t_chipfeature *chip_feature = g_new0 (t_chipfeature, 1);
+        auto chip_feature = new t_chipfeature();
 
         chip_feature->name = sensors_get_label (name, feature);
 
-        if (!chip_feature->name && feature->name)
-            chip_feature->name = g_strdup(feature->name);
+        if (chip_feature->name.empty() && feature->name)
+            chip_feature->name = feature->name;
 
-        if (chip_feature->name)
+        if (!chip_feature->name.empty())
         {
             double sensorFeature;
             if (sensors_get_value (name, number, &sensorFeature) == 0)
@@ -276,8 +277,7 @@ find_chipfeature (const sensors_chip_name *name, t_chip *chip, const sensors_fea
             }
         }
 
-        g_free(chip_feature->name);
-        g_free(chip_feature);
+        delete chip_feature;
     }
 
     return NULL;

@@ -148,10 +148,9 @@ sensors_set_bar_color (t_labelledlevelbar *bar, const gchar *color_orNull,
         g_strlcat (css, "}\n", sizeof(css));
     }
 
-    if (!bar->css_data || strcmp(bar->css_data, css) != 0)
+    if (bar->css_data != css)
     {
-        g_free (bar->css_data);
-        bar->css_data = g_strdup (css);
+        bar->css_data = css;
         gtk_css_provider_load_from_data (bar->css_provider, css, -1, NULL);
     }
 }
@@ -197,9 +196,6 @@ sensors_remove_bars_panel (t_sensors *sensors)
             if (feature->show) {
                 t_labelledlevelbar *bar = sensors->panels[idx_sensorchip][idx_feature];
 
-                g_free (bar->css_data);
-                bar->css_data = NULL;
-
                 g_object_unref (bar->css_provider);
                 bar->css_provider = NULL;
 
@@ -212,8 +208,8 @@ sensors_remove_bars_panel (t_sensors *sensors)
                 gtk_widget_hide (bar->databox);
                 gtk_widget_destroy (bar->databox);
 
-                g_free (bar);
-                bar = NULL;
+                delete bar;
+                sensors->panels[idx_sensorchip][idx_feature] = NULL;
             }
         }
     }
@@ -275,7 +271,7 @@ sensors_update_bars_panel (const t_sensors *sensors)
 
                 sensors_set_levelbar_size (level_bar, (int) sensors->panel_size, sensors->plugin_mode);
                 percentage = sensors_get_percentage (feature);
-                sensors_set_bar_color (labelled_level_bar, feature->color_orNull, sensors);
+                sensors_set_bar_color (labelled_level_bar, feature->color_orEmpty.c_str(), sensors);
 
                 gtk_level_bar_set_value(GTK_LEVEL_BAR(level_bar), percentage);
             }
@@ -308,7 +304,7 @@ sensors_update_tacho_panel (const t_sensors *sensors)
 
                 percentage = sensors_get_percentage (feature);
                 gtk_sensorstacho_set_size(GTK_SENSORSTACHO(tacho), panel_size);
-                gtk_sensorstacho_set_color(GTK_SENSORSTACHO(tacho), feature->color_orNull);
+                gtk_sensorstacho_set_color(GTK_SENSORSTACHO(tacho), feature->color_orEmpty.c_str());
                 gtk_sensorstacho_set_value(GTK_SENSORSTACHO(tacho), percentage);
             }
         }
@@ -323,7 +319,6 @@ static void
 sensors_add_bars_display (t_sensors *sensors)
 {
     bool has_bars = false;
-    gchar *panel_label_text;
     gint size_panel = sensors->panel_size;
 
     g_return_if_fail (sensors != NULL);
@@ -331,10 +326,7 @@ sensors_add_bars_display (t_sensors *sensors)
     if (!sensors->cover_panel_rows && xfce_panel_plugin_get_mode(sensors->plugin) != XFCE_PANEL_PLUGIN_MODE_DESKBAR)
         size_panel /= xfce_panel_plugin_get_nrows (sensors->plugin);
 
-    panel_label_text = g_strdup (_("<span><b>Sensors</b></span>"));
-    gtk_label_set_markup (GTK_LABEL(sensors->panel_label_text), panel_label_text);
-    g_free (panel_label_text);
-    panel_label_text = NULL;
+    gtk_label_set_markup (GTK_LABEL(sensors->panel_label_text), _("<span><b>Sensors</b></span>"));
 
     gtk_container_set_border_width (GTK_CONTAINER(sensors->widget_sensors), 0);
     for (gint idx_sensorchip=0; idx_sensorchip < sensors->num_sensorchips; idx_sensorchip++) {
@@ -347,7 +339,6 @@ sensors_add_bars_display (t_sensors *sensors)
 
             if (feature->show) {
                 GtkWidget *widget_progbar, *widget_databox;
-                t_labelledlevelbar *bar;
 
                 has_bars = true;
 
@@ -370,10 +361,10 @@ sensors_add_bars_display (t_sensors *sensors)
                                            sensors->plugin_mode);
 
                 /* save the panel elements */
-                bar = g_new0 (t_labelledlevelbar, 1);
+                auto bar = new t_labelledlevelbar();
                 bar->progressbar = widget_progbar;
 
-                bar->css_data = NULL;
+                bar->css_data = "";
                 bar->css_provider = gtk_css_provider_new ();
 
                 gtk_style_context_add_provider (gtk_widget_get_style_context (widget_progbar),
@@ -382,19 +373,17 @@ sensors_add_bars_display (t_sensors *sensors)
 
                 /* create the label stuff only if needed - saves some memory! */
                 if (sensors->show_labels) {
-                    gchar *bar_label_text = g_strdup (feature->name);
+                    std::string bar_label_text = feature->name;
                     GtkWidget *widget_label;
 
-                    widget_label = gtk_label_new (bar_label_text);
-                    if (strlen (bar_label_text) >= 10) {
+                    widget_label = gtk_label_new (bar_label_text.c_str());
+                    if (bar_label_text.size() >= 10) {
                         gtk_label_set_ellipsize (GTK_LABEL(widget_label), PANGO_ELLIPSIZE_END);
                         gtk_label_set_width_chars (GTK_LABEL(widget_label), 10);
                     }
                     else if (sensors->plugin_mode == XFCE_PANEL_PLUGIN_MODE_DESKBAR) {
                         gtk_label_set_ellipsize (GTK_LABEL(widget_label), PANGO_ELLIPSIZE_END);
                     }
-                    g_free (bar_label_text);
-                    bar_label_text = NULL;
 
                     if (sensors->plugin_mode == XFCE_PANEL_PLUGIN_MODE_VERTICAL)
                         gtk_label_set_angle (GTK_LABEL(widget_label), 270);
@@ -486,8 +475,8 @@ sensors_add_tacho_display (t_sensors *sensors)
 
                 /* create the label stuff only if needed - saves some memory! */
                 if (sensors->show_labels) {
-                    gtk_sensorstacho_set_color (GTK_SENSORSTACHO(tacho), feature->color_orNull);
-                    gtk_sensorstacho_set_text (GTK_SENSORSTACHO(tacho), feature->name);
+                    gtk_sensorstacho_set_color (GTK_SENSORSTACHO(tacho), feature->color_orEmpty.c_str());
+                    gtk_sensorstacho_set_text (GTK_SENSORSTACHO(tacho), feature->name.c_str());
                 }
                 else {
                     gtk_sensorstacho_unset_color (GTK_SENSORSTACHO(tacho));
@@ -599,15 +588,13 @@ determine_number_of_rows (const t_sensors *sensors)
     {
         PangoContext *pango_context = gtk_widget_get_pango_context (sensors->text.draw_area);
         PangoLayout *pango_layout = pango_layout_new (pango_context);
-        gchar *text;
         PangoRectangle extents;
         gfloat font_size;
         gint panel_size;
 
         /* "jŽ" is used to get an estimate of the maximum height of a line given the font size. */
-        text = g_strdup_printf ("<span size=\"%s\">jŽ</span>", sensors->str_fontsize);
-        pango_layout_set_markup (pango_layout, text, -1);
-        g_free(text);
+        std::string text = "<span size=\"" + sensors->str_fontsize + "\">jŽ</span>";
+        pango_layout_set_markup (pango_layout, text.c_str(), -1);
 
         pango_layout_get_extents (pango_layout, &extents, NULL);
         font_size = (gfloat) extents.height / PANGO_SCALE;
@@ -709,7 +696,7 @@ draw_text_area (GtkWidget *widget, cairo_t *cr, gpointer data)
                                  &color);
     gdk_cairo_set_source_rgba (cr, &color);
 
-    g_string_append_printf (markup, "<span size=\"%s\">", sensors->str_fontsize);
+    g_string_append_printf (markup, "<span size=\"%s\">", sensors->str_fontsize.c_str());
 
     for (gint idx_sensorchip = 0; idx_sensorchip < sensors->num_sensorchips; idx_sensorchip++)
     {
@@ -728,23 +715,23 @@ draw_text_area (GtkWidget *widget, cairo_t *cr, gpointer data)
 
                 if(sensors->show_labels)
                 {
-                    if (feature->color_orNull)
-                        g_string_append_printf (markup, "<span foreground=\"%s\">%s:</span> ", feature->color_orNull, feature->name);
+                    if (!feature->color_orEmpty.empty())
+                        g_string_append_printf (markup, "<span foreground=\"%s\">%s:</span> ", feature->color_orEmpty.c_str(), feature->name.c_str());
                     else
-                        g_string_append_printf (markup, "<span>%s:</span> ", feature->name);
+                        g_string_append_printf (markup, "<span>%s:</span> ", feature->name.c_str());
                 }
 
                 if (sensors->show_units)
                 {
-                    if (feature->color_orNull)
-                        g_string_append_printf (markup, "<span foreground=\"%s\">%s</span>", feature->color_orNull, feature->formatted_value);
+                    if (!feature->color_orEmpty.empty())
+                        g_string_append_printf (markup, "<span foreground=\"%s\">%s</span>", feature->color_orEmpty.c_str(), feature->formatted_value.c_str());
                     else
-                        g_string_append_printf (markup, "<span>%s</span>", feature->formatted_value);
+                        g_string_append_printf (markup, "<span>%s</span>", feature->formatted_value.c_str());
                 }
                 else
                 {
-                    if (feature->color_orNull)
-                        g_string_append_printf (markup, "<span foreground=\"%s\">%.1f</span>", feature->color_orNull, feature->raw_value);
+                    if (!feature->color_orEmpty.empty())
+                        g_string_append_printf (markup, "<span foreground=\"%s\">%.1f</span>", feature->color_orEmpty.c_str(), feature->raw_value);
                     else
                         g_string_append_printf (markup, "<span>%.1f</span>", feature->raw_value);
                 }
@@ -885,17 +872,9 @@ sensors_update_values (t_sensors *sensors)
                     "value.\nProper proceeding cannot be guaranteed.\n") );
                     break;
                 }
-                gchar *tmp = g_new (gchar, 0);
-                format_sensor_value (sensors->scale, feature,
-                                     feature_value, &tmp);
 
-                if (feature->formatted_value != NULL)
-                    g_free (feature->formatted_value);
-
-                feature->formatted_value = g_strdup (tmp);
+                feature->formatted_value = format_sensor_value (sensors->scale, feature, feature_value);
                 feature->raw_value = feature_value;
-
-                g_free (tmp);
             }
         }
     }
@@ -908,7 +887,7 @@ sensors_create_tooltip (const t_sensors *sensors)
 {
     bool first_textline = true;
 
-    gchar *tooltip = g_strdup (_("No sensors selected!"));
+    std::string tooltip = _("No sensors selected!");
 
     for (gint idx_sensorchip=0; idx_sensorchip < sensors->num_sensorchips; idx_sensorchip++) {
         bool chipname_already_prepended = false;
@@ -923,36 +902,25 @@ sensors_create_tooltip (const t_sensors *sensors)
 
             if (feature->valid && feature->show)
             {
-                gchar *tmp;
-
                 if (!chipname_already_prepended)
                 {
                     if (first_textline) {
-                        g_free (tooltip);
-                        tooltip = g_strconcat ("<b>", chip->sensorId, "</b>", NULL);
+                        tooltip = "<b>" + chip->sensorId + "</b>";
                         first_textline = false;
                     }
                     else {
-                        tmp = g_strconcat (tooltip, " \n<b>", chip->sensorId, "</b>", NULL);
-                        g_free (tooltip);
-                        tooltip = tmp;
+                        tooltip = tooltip + " \n<b>" + chip->sensorId + "</b>";
                     }
 
                     chipname_already_prepended = true;
                 }
 
-                tmp = g_strconcat (tooltip, "\n  ",
-                                   feature->name, ": ", feature->formatted_value,
-                                   NULL);
-                g_free (tooltip);
-                tooltip = tmp;
+                tooltip = tooltip + "\n  " + feature->name + ": " + feature->formatted_value;
             }
         }
     }
 
-    gtk_widget_set_tooltip_markup (GTK_WIDGET(sensors->eventbox), tooltip);
-
-    g_free (tooltip);
+    gtk_widget_set_tooltip_markup (GTK_WIDGET(sensors->eventbox), tooltip.c_str());
 }
 
 
@@ -1076,7 +1044,7 @@ execute_command (GtkWidget *widget, GdkEventButton *event, gpointer data)
         g_return_val_if_fail (sensors->exec_command, FALSE);
 
         // screen NULL, command, terminal=no, startup=yes, error=NULL
-        xfce_spawn_command_line_on_screen (NULL, sensors->command_name, FALSE, TRUE, NULL);
+        xfce_spawn_command_line_on_screen (NULL, sensors->command_name.c_str(), FALSE, TRUE, NULL);
 
         return TRUE;
     }
@@ -1105,21 +1073,7 @@ sensors_free (XfcePanelPlugin *plugin, t_sensors *sensors)
     g_ptr_array_foreach (sensors->chips, free_chip, NULL);
     g_ptr_array_free (sensors->chips, TRUE);
 
-    g_free (sensors->plugin_config_file);
-    sensors->plugin_config_file = NULL;
-    g_free (sensors->command_name);
-    sensors->command_name = NULL;
-
-    if (font)
-    {
-        g_free (font);
-        font = NULL;
-    }
-
-    g_free (sensors->str_fontsize);
-    sensors->str_fontsize = NULL;
-    g_free (sensors);
-    sensors = NULL;
+    delete sensors;
 }
 
 
@@ -1280,7 +1234,7 @@ sensor_entry_changed_ (GtkWidget *widget, t_sensors_dialog *dialog)
     gint combo_box_active = gtk_combo_box_get_active (GTK_COMBO_BOX (widget));
 
     auto chip = (t_chip*) g_ptr_array_index (dialog->sensors->chips, combo_box_active);
-    gtk_label_set_label (GTK_LABEL (dialog->mySensorLabel), chip->description);
+    gtk_label_set_label (GTK_LABEL (dialog->mySensorLabel), chip->description.c_str());
 
     gtk_tree_view_set_model (GTK_TREE_VIEW (dialog->myTreeView), GTK_TREE_MODEL (dialog->myListStore[combo_box_active]));
 }
@@ -1292,14 +1246,13 @@ str_fontsize_change (GtkWidget *widget, t_sensors_dialog *dialog)
 {
     t_sensors *sensors = dialog->sensors;
 
-    g_free(sensors->str_fontsize);
     switch (gtk_combo_box_get_active (GTK_COMBO_BOX (widget)))
     {
-        case 0: sensors->str_fontsize = g_strdup("x-small"); break;
-        case 1: sensors->str_fontsize = g_strdup("small"); break;
-        case 3: sensors->str_fontsize = g_strdup("large"); break;
-        case 4: sensors->str_fontsize = g_strdup("x-large"); break;
-        default: sensors->str_fontsize = g_strdup("medium");
+        case 0: sensors->str_fontsize = "x-small"; break;
+        case 1: sensors->str_fontsize = "small"; break;
+        case 3: sensors->str_fontsize = "large"; break;
+        case 4: sensors->str_fontsize = "x-large"; break;
+        default: sensors->str_fontsize = "medium";
     }
 
     sensors->val_fontsize = gtk_combo_box_get_active (GTK_COMBO_BOX (widget));
@@ -1533,8 +1486,7 @@ list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, const gchar *p
         auto chip = (t_chip*) g_ptr_array_index(sensors->chips, combo_box_active);
 
         auto feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, atoi(path_str));
-        g_free (feature->color_orNull);
-        feature->color_orNull = g_strdup (new_color);
+        feature->color_orEmpty = new_color;
 
         /* clean up */
         gtk_tree_path_free (path);
@@ -1556,8 +1508,7 @@ list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, const gchar *p
         auto chip = (t_chip*) g_ptr_array_index(sensors->chips, combo_box_active);
 
         auto feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, atoi(path_str));
-        g_free (feature->color_orNull);
-        feature->color_orNull = NULL;
+        feature->color_orEmpty = "";
 
         /* clean up */
         gtk_tree_path_free (path);
@@ -1594,8 +1545,7 @@ list_cell_text_edited_ (GtkCellRendererText *cell_renderer_text, gchar *path_str
     auto chip = (t_chip*) g_ptr_array_index(sensors->chips, combo_box_active);
 
     auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, atoi (path_str));
-    g_free(feature->name);
-    feature->name = g_strdup (new_text);
+    feature->name = new_text;
 
     /* clean up */
     gtk_tree_path_free (path);
@@ -1651,12 +1601,15 @@ on_font_set (GtkWidget *widget, gpointer data)
 {
     auto sensors = (t_sensors*) data;
 
-    gchar *new_font = g_strdup(gtk_font_chooser_get_font(GTK_FONT_CHOOSER(widget)));
+    gchar *new_font = gtk_font_chooser_get_font(GTK_FONT_CHOOSER(widget));
     if (new_font)
     {
-        gchar *tmp = font;
         font = new_font;
-        g_free (tmp);
+        g_free (new_font);
+    }
+    else
+    {
+        font = default_font;
     }
 
     sensors_update_panel (sensors, true);
@@ -1874,7 +1827,7 @@ add_font_settings_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     GtkWidget *myFontLabel = gtk_label_new_with_mnemonic (_("F_ont:"));
     GtkWidget *myFontSettingsBox = gtk_hbox_new (BORDER);
     GtkWidget *myFontSettingsButton = gtk_font_button_new();
-    gtk_font_chooser_set_font(GTK_FONT_CHOOSER(myFontSettingsButton), font);
+    gtk_font_chooser_set_font(GTK_FONT_CHOOSER(myFontSettingsButton), font.c_str());
     gtk_font_button_set_use_font(GTK_FONT_BUTTON(myFontSettingsButton), TRUE);
 
     dialog->fontSettings_Box = myFontSettingsBox;
@@ -2014,7 +1967,7 @@ add_command_box (GtkWidget *vbox,  t_sensors_dialog *dialog)
     dialog->myCommandName_Entry = gtk_entry_new ();
     gtk_widget_set_size_request (dialog->myCommandName_Entry, 160, 25);
 
-    gtk_entry_set_text( GTK_ENTRY(dialog->myCommandName_Entry), dialog->sensors->command_name );
+    gtk_entry_set_text( GTK_ENTRY(dialog->myCommandName_Entry), dialog->sensors->command_name.c_str());
 
     gtk_box_pack_start (GTK_BOX (myBox), dialog->myExecCommand_CheckBox, FALSE, FALSE, 0);
     gtk_box_pack_start (GTK_BOX (myBox), dialog->myCommandName_Entry, FALSE, FALSE, 0);
@@ -2095,15 +2048,17 @@ on_optionsDialog_response (GtkWidget *dlg, int response, t_sensors_dialog *sd)
         /* FIXME: save most of the content in this function,
            remove those toggle functions where possible. NYI */
         /* sensors_apply_options (sd); */
-        g_free(sd->sensors->command_name);
-        sd->sensors->command_name =
-            g_strdup ( gtk_entry_get_text(GTK_ENTRY(sd->myCommandName_Entry)) );
+        sd->sensors->command_name = gtk_entry_get_text(GTK_ENTRY(sd->myCommandName_Entry));
 
-            if (! sd->sensors->plugin_config_file)
-                sd->sensors->plugin_config_file = xfce_panel_plugin_save_location (sd->sensors->plugin, TRUE);
+        if (sd->sensors->plugin_config_file.empty())
+        {
+            gchar *save_location = xfce_panel_plugin_save_location (sd->sensors->plugin, TRUE);
+            sd->sensors->plugin_config_file = save_location;
+            g_free (save_location);
+        }
 
-            if (sd->sensors->plugin_config_file)
-                sensors_write_config (sd->sensors->plugin, sd->sensors);
+        if (!sd->sensors->plugin_config_file.empty())
+            sensors_write_config (sd->sensors->plugin, sd->sensors);
     }
     gtk_window_get_size (GTK_WINDOW(dlg), &sd->sensors->preferred_width, &sd->sensors->preferred_height);
     gtk_widget_destroy (sd->dialog);
@@ -2160,7 +2115,7 @@ sensors_create_options (XfcePanelPlugin *plugin, t_sensors *sensors)
     add_sensors_frame (notebook, sd);
 
     gchar *myToolTipText = g_strdup(_("You can change a feature's properties such as name, colours, min/max value by double-clicking the entry, editing the content, and pressing \"Return\" or selecting a different field."));
-    gtk_widget_set_tooltip_text (GTK_WIDGET(sd->myTreeView), myToolTipText);
+    gtk_widget_set_tooltip_text (sd->myTreeView, myToolTipText);
     g_free (myToolTipText);
 
     add_view_frame (notebook, sd);
@@ -2202,9 +2157,9 @@ add_event_box (t_sensors *sensors)
 static t_sensors *
 create_sensors_control (XfcePanelPlugin *plugin)
 {
-    gchar *str_name_rc_file = xfce_panel_plugin_lookup_rc_file(plugin);
+    gchar *rc_file = xfce_panel_plugin_lookup_rc_file (plugin);
 
-    t_sensors *sensors = sensors_new (plugin, str_name_rc_file);
+    t_sensors *sensors = sensors_new (plugin, rc_file);
     sensors->plugin_mode = xfce_panel_plugin_get_mode (plugin);
     sensors->panel_size = xfce_panel_plugin_get_size (plugin);
 
@@ -2216,6 +2171,7 @@ create_sensors_control (XfcePanelPlugin *plugin)
     /* finally add panel "sensors" to eventbox */
     gtk_container_add (GTK_CONTAINER (sensors->eventbox), sensors->widget_sensors);
 
+    g_free (rc_file);
     return sensors;
 }
 
@@ -2267,7 +2223,13 @@ sensors_plugin_construct (XfcePanelPlugin *plugin)
 
     t_sensors *sensors = create_sensors_control (plugin);
 
-    sensors->plugin_config_file = xfce_panel_plugin_lookup_rc_file(plugin);
+    gchar *rc_file = xfce_panel_plugin_lookup_rc_file (plugin);
+    if (rc_file)
+    {
+        sensors->plugin_config_file = rc_file;
+        g_free (rc_file);
+        rc_file = NULL;
+    }
     sensors_read_config (plugin, sensors);
 
     /* use values from config file */
@@ -2286,10 +2248,13 @@ sensors_plugin_construct (XfcePanelPlugin *plugin)
 
     g_signal_connect (plugin, "free-data", G_CALLBACK (sensors_free), sensors);
 
-    sensors->plugin_config_file = xfce_panel_plugin_save_location (plugin, TRUE);
-    /* saving seens to cause problems when closing the panel on fast multi-core CPUs; writing when closing the config dialog should suffice */
-    /*g_signal_connect (plugin, "save", G_CALLBACK (sensors_write_config),
-                      ptr_sensorsstruct);*/
+    gchar *save_location = xfce_panel_plugin_save_location (plugin, TRUE);
+    sensors->plugin_config_file = save_location;
+    g_free (save_location);
+    save_location = NULL;
+
+    /* saving seems to cause problems when closing the panel on fast multi-core CPUs; writing when closing the config dialog should suffice */
+    /*g_signal_connect (plugin, "save", G_CALLBACK (sensors_write_config), sensors);*/
 
     xfce_panel_plugin_menu_show_configure (plugin);
 

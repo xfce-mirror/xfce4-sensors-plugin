@@ -27,4 +27,7 @@ libxfce4util_pp_la_LIBADD = \
 	@LIBXFCE4UTIL_LIBS@
 
 libxfce4util_pp_la_SOURCES = \
-	fixes.h
+	fixes.h \
+	optional.h \
+	string-utils.h \
+	string-utils.cc

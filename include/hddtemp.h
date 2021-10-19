@@ -53,6 +53,6 @@ void refresh_hddtemp (gpointer chip_feature, gpointer sensors);
  * @param suppress_message: returns whether messages shall be suppressed
  * @return Temperature of disk
  */
-double get_hddtemp_value (char *disk, gboolean *suppress_message);
+double get_hddtemp_value (const char *disk, gboolean *suppress_message);
 
 #endif /* XFCE4_SENSORS_HDDTEMP_H */

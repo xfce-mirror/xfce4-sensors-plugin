@@ -76,13 +76,7 @@ refresh_sensor_data (t_sensors_dialog *dialog)
                     break;
                 }
 
-                gchar *formatted_value;
-                format_sensor_value (sensors->scale, feature, feature_value, &formatted_value);
-
-                if (feature->formatted_value != NULL)
-                    g_free (feature->formatted_value);
-
-                feature->formatted_value = formatted_value;
+                feature->formatted_value = format_sensor_value (sensors->scale, feature, feature_value);
                 feature->raw_value = feature_value;
 
             }
@@ -162,8 +156,8 @@ refresh_tacho_view (t_sensors_dialog *dialog)
                     sensors->tachos[idx_chip][idx_feature] = ptr_sensorstachowidget = gtk_sensorstacho_new(orientation, DEFAULT_SIZE_TACHOS, tacho_style);
                     ptr_sensorstacho = GTK_SENSORSTACHO(ptr_sensorstachowidget);
 
-                    gtk_sensorstacho_set_color (ptr_sensorstacho, feature->color_orNull);
-                    gtk_sensorstacho_set_text (ptr_sensorstacho, feature->name);
+                    gtk_sensorstacho_set_color (ptr_sensorstacho, feature->color_orEmpty.c_str());
+                    gtk_sensorstacho_set_text (ptr_sensorstacho, feature->name.c_str());
                 }
 
                 fill_degree = (feature->raw_value - feature->min_value) / ( feature->max_value - feature->min_value);
@@ -173,7 +167,8 @@ refresh_tacho_view (t_sensors_dialog *dialog)
                     fill_degree=1.0;
 
                 gtk_sensorstacho_set_value(ptr_sensorstacho, fill_degree);
-                snprintf(widget_tooltip_text, sizeof (widget_tooltip_text), "<b>%s</b>\n%s: %s", chip->sensorId, feature->name, feature->formatted_value);
+                snprintf(widget_tooltip_text, sizeof (widget_tooltip_text), "<b>%s</b>\n%s: %s",
+                         chip->sensorId.c_str(), feature->name.c_str(), feature->formatted_value.c_str());
                 gtk_widget_set_tooltip_markup (GTK_WIDGET(sensors->tachos [idx_chip][idx_feature]), widget_tooltip_text);
 
 

@@ -28,4 +28,5 @@ missing
 po/*.gmo
 po/POTFILES
 po/stamp-it
+src/xfce4-sensors
 stamp-h1

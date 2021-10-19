@@ -137,46 +137,39 @@ categorize_sensor_type (t_chipfeature *feature)
 {
     g_assert (feature != NULL);
 
-    if (strstr(feature->name, "Temp")!=NULL
-        || strstr(feature->name, "temp")!=NULL
-        || strstr(feature->name, "thermal")!=NULL)
+    const char *name = feature->name.c_str();
+
+    if (strstr(name, "Temp") || strstr(name, "temp") || strstr(name, "thermal"))
     {
         feature->cls = TEMPERATURE;
         feature->min_value = 0.0;
         feature->max_value = 80.0;
     }
-    else if (strstr(feature->name, "VCore")!=NULL
-        || strstr(feature->name, "3V")!=NULL
-        || strstr(feature->name, "5V")!=NULL
-        || strstr(feature->name, "12V")!=NULL)
+    else if (strstr(name, "VCore") || strstr(name, "3V") || strstr(name, "5V") || strstr(name, "12V"))
     {
         feature->cls = VOLTAGE;
         feature->min_value = 1.0;
         feature->max_value = 12.2;
     }
-    else if (strstr(feature->name, "Fan")!=NULL
-        || strstr(feature->name, "fan")!=NULL)
+    else if (strstr(name, "Fan") || strstr(name, "fan"))
     {
         feature->cls = SPEED;
         feature->min_value = 1000.0;
         feature->max_value = 3500.0;
     }
-    else if (strstr(feature->name, "alarm")!=NULL
-        || strstr(feature->name, "Alarm")!=NULL)
+    else if (strstr(name, "alarm") || strstr(name, "Alarm"))
     {
         feature->cls = STATE;
         feature->min_value = 0.0;
         feature->max_value = 1.0;
     }
-    else if (strstr(feature->name, "power")!=NULL
-        || strstr(feature->name, "Power")!=NULL)
+    else if (strstr(name, "power") || strstr(name, "Power"))
     {
         feature->cls = POWER;
         feature->min_value = 0.0;
         feature->max_value = 1.0;
     }
-    else if (strstr(feature->name, "current")!=NULL
-        || strstr (feature->name, "Current")!=NULL)
+    else if (strstr(name, "current") || strstr (name, "Current"))
     {
         feature->cls = CURRENT;
         feature->min_value = 0.0;
@@ -217,7 +210,7 @@ sensor_get_value (t_chip *chip, int idx_chipfeature, double *out_value, gboolean
                 g_assert (idx_chipfeature < chip->num_features);
                 auto feature = (t_chipfeature *) g_ptr_array_index (chip->chip_features, idx_chipfeature);
                 g_assert (feature != NULL);
-                *out_value = get_hddtemp_value (feature->devicename, suppress);
+                *out_value = get_hddtemp_value (feature->devicename.c_str(), suppress);
                 if (*out_value==NO_VALID_HDDTEMP_PROGRAM) {
                     return NO_VALID_HDDTEMP_PROGRAM;
                 }
@@ -270,12 +263,7 @@ free_chipfeature (gpointer chip_feature, gpointer unused)
 {
     t_chipfeature *feature = (t_chipfeature *) chip_feature;
     g_assert (feature!=NULL);
-
-    g_free (feature->name);
-    g_free (feature->devicename);
-    g_free (feature->formatted_value);
-    g_free (feature->color_orNull);
-    g_free (feature);
+    delete feature;
 }
 
 
@@ -285,10 +273,6 @@ free_chip (gpointer ptr_chip, gpointer unused)
 {
     t_chip *chip = (t_chip *) ptr_chip;
     g_assert (chip != NULL);
-
-    g_free (chip->description);
-    g_free (chip->name);
-    g_free (chip->sensorId);
 
 #ifdef HAVE_LIBSENSORS
     if (chip->type==LMSENSOR) {
@@ -309,7 +293,7 @@ free_chip (gpointer ptr_chip, gpointer unused)
     g_ptr_array_foreach (chip->chip_features, free_chipfeature, NULL);
     g_ptr_array_free (chip->chip_features, TRUE);
     g_free (chip->chip_name);
-    g_free(chip);
+    delete chip;
 }
 
 

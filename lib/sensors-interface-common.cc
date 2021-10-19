@@ -19,12 +19,16 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+/* The fixes file has to be included before any other #include directives */
+#include "xfce4++/util/fixes.h"
+
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
 
 #include <gtk/gtk.h>
 #include <libxfce4panel/xfce-panel-plugin.h>
+#include "xfce4++/util.h"
 
 /* Local/package includes */
 #define XFCE4_SENSORS_INTERFACE_COMMON_DEFINING
@@ -35,10 +39,12 @@
 
 /* -------------------------------------------------------------------------- */
 t_sensors *
-sensors_new (XfcePanelPlugin *plugin, gchar * plugin_config_filename)
+sensors_new (XfcePanelPlugin *plugin, const char *rc_file_orNull)
 {
-    t_sensors *sensors = g_new0 (t_sensors, 1);
-    sensors->plugin_config_file = plugin_config_filename; /* important as we check against NULL frequently */
+    auto sensors = new t_sensors();
+
+    if (rc_file_orNull)
+        sensors->plugin_config_file = rc_file_orNull;
 
     /* init xfce sensors stuff with default values */
     sensors_init_default_values (sensors, plugin);
@@ -58,18 +64,18 @@ sensors_new (XfcePanelPlugin *plugin, gchar * plugin_config_filename)
         if (!sensors->chips)
             sensors->chips = g_ptr_array_new ();
 
-        t_chip *chip = g_new0 (t_chip, 1);
+        auto chip = new t_chip();
         g_ptr_array_add (sensors->chips, chip);
         chip->chip_features = g_ptr_array_new();
 
-        t_chipfeature *feature = g_new0 (t_chipfeature, 1);
+        auto feature = new t_chipfeature();
         feature->address = 0;
-        chip->sensorId = g_strdup(_("No sensors found!"));
-        chip->description = g_strdup(_("No sensors found!"));
+        chip->sensorId = _("No sensors found!");
+        chip->description = _("No sensors found!");
         chip->num_features = 1;
-        feature->name = g_strdup("No sensor");
+        feature->name = "No sensor";
         feature->valid = true;
-        feature->formatted_value = g_strdup("0.0");
+        feature->formatted_value = "0.0";
         feature->raw_value = 0.0;
         feature->min_value = 0;
         feature->max_value = 7000;
@@ -93,7 +99,7 @@ sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
     sensors->display_values_type = DISPLAY_TEXT;
     sensors->bars_created = FALSE;
     sensors->tachos_created = FALSE;
-    sensors->str_fontsize = g_strdup ("medium");
+    sensors->str_fontsize = "medium";
     sensors->val_fontsize = 2;
     sensors->lines_size = 3;
     sensors->text.reset_size = true;
@@ -106,7 +112,7 @@ sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
 
     /* double-click improvement */
     sensors->exec_command = TRUE;
-    sensors->command_name = g_strdup ("xfce4-sensors");
+    sensors->command_name = "xfce4-sensors";
     sensors->doubleclick_id = 0;
 
     sensors->show_units = TRUE;
@@ -117,53 +123,41 @@ sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
 
     sensors->val_tachos_color = MAX_HUE;
     sensors->val_tachos_alpha = ALPHA_CHANNEL_VALUE;
-
-    font = g_strdup ("Sans 11");
 }
 
 
 /* -------------------------------------------------------------------------- */
-void
-format_sensor_value (t_tempscale temperature_scale, t_chipfeature *feature,
-                     double feature_value, gchar **formatted_value)
+std::string
+format_sensor_value (t_tempscale temperature_scale, const t_chipfeature *feature, double feature_value)
 {
-    g_return_if_fail (feature != NULL);
-    g_return_if_fail (formatted_value != NULL);
+    g_return_val_if_fail (feature != NULL, "");
 
     switch (feature->cls) {
         case TEMPERATURE:
             if (temperature_scale == FAHRENHEIT)
-                *formatted_value = g_strdup_printf (_("%.0f °F"), feature_value * 9 / 5 + 32);
+                return xfce4::sprintf (_("%.0f °F"), feature_value * 9 / 5 + 32);
             else
-                *formatted_value = g_strdup_printf (_("%.0f °C"), feature_value);
-            break;
+                return xfce4::sprintf (_("%.0f °C"), feature_value);
 
         case VOLTAGE:
-            *formatted_value = g_strdup_printf (_("%+.3f V"), feature_value);
-            break;
+            return xfce4::sprintf (_("%+.3f V"), feature_value);
 
         case CURRENT:
-            *formatted_value = g_strdup_printf (_("%+.3f A"), feature_value);
-            break;
+            return xfce4::sprintf (_("%+.3f A"), feature_value);
 
         case ENERGY:
-            *formatted_value = g_strdup_printf (_("%.0f mWh"), feature_value);
-            break;
+            return xfce4::sprintf (_("%.0f mWh"), feature_value);
 
         case POWER:
-           *formatted_value = g_strdup_printf (_("%.3f W"), feature_value);
-            break;
+           return xfce4::sprintf (_("%.3f W"), feature_value);
 
         case STATE:
-            *formatted_value = g_strdup (feature_value == 0.0 ? _("off") : _("on"));
-            break;
+            return (feature_value == 0.0 ? _("off") : _("on"));
 
         case SPEED:
-            *formatted_value = g_strdup_printf (_("%.0f rpm"), feature_value);
-            break;
+            return xfce4::sprintf (_("%.0f rpm"), feature_value);
 
         default:
-            *formatted_value = g_strdup_printf ("%+.2f", feature_value);
-            break;
+            return xfce4::sprintf ("%+.2f", feature_value);
     }
 }

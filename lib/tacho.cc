@@ -67,7 +67,9 @@ gtk_sensorstacho_get_request_mode(GtkWidget *widget);
 
 void gtk_sensorstacho_destroy(GtkWidget *widget);
 
-gchar *font = NULL; // declared as extern in tacho.h
+// declared as extern in tacho.h
+const char *const default_font = "Sans 11";
+std::string font = default_font;
 
 gfloat val_colorvalue = MAX_HUE; // declared as extern in tacho.h
 gfloat val_alpha = ALPHA_CHANNEL_VALUE; // declared as extern in tacho.h
@@ -145,9 +147,6 @@ gtk_sensorstacho_class_init (GtkSensorsTachoClass *tacho_class)
     widget_class->get_preferred_height_for_width = gtk_sensorstacho_get_preferred_height_for_width;
     widget_class->draw = gtk_sensorstacho_paint;
     widget_class->destroy = gtk_sensorstacho_destroy;
-
-    if (font == NULL)
-        font = g_strdup("Sans 11");
 }
 
 /* -------------------------------------------------------------------------- */
@@ -369,13 +368,13 @@ gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr)
     if (tacho->text != NULL) {
         PangoContext *style_context1 = gtk_widget_get_pango_context (widget);
         PangoLayout *layout = pango_layout_new (style_context1);
-        gchar *text;
         PangoFontDescription *pango_font_description;
         gdouble baseline;
 
         pango_layout_set_alignment (layout, PANGO_ALIGN_CENTER);
         pango_layout_set_width (layout, width);
 
+        gchar *text;
         if (tacho->color_orNull && *tacho->color_orNull != '\0')
             text = g_strdup_printf ("<span color=\"%s\">%s</span>", tacho->color_orNull, tacho->text);
         else
@@ -383,7 +382,7 @@ gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr)
         pango_layout_set_markup (layout, text, -1);
         g_free(text);
 
-        pango_font_description = pango_font_description_from_string(font);
+        pango_font_description = pango_font_description_from_string(font.c_str());
         pango_layout_set_font_description (layout, pango_font_description);
         pango_font_description_free (pango_font_description);
 

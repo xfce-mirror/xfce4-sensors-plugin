@@ -95,9 +95,7 @@ fill_gtkTreeStore (GtkTreeStore *treestore, t_chip *chip, t_tempscale tempscale,
                 break;
             }
 
-            g_free (feature->formatted_value);
-            feature->formatted_value = g_new (gchar, 0);
-            format_sensor_value (tempscale, feature, feature_value, &feature->formatted_value);
+            feature->formatted_value = format_sensor_value (tempscale, feature, feature_value);
 
             float minval, maxval;
             produce_min_max_values (feature, tempscale, &minval, &maxval);
@@ -107,10 +105,10 @@ fill_gtkTreeStore (GtkTreeStore *treestore, t_chip *chip, t_tempscale tempscale,
             GtkTreeIter iter_list_store;
             gtk_tree_store_append (treestore, &iter_list_store, NULL);
             gtk_tree_store_set (treestore, &iter_list_store,
-                                eTreeColumn_Name, feature->name,
-                                eTreeColumn_Value, feature->formatted_value,
+                                eTreeColumn_Name, feature->name.c_str(),
+                                eTreeColumn_Value, feature->formatted_value.c_str(),
                                 eTreeColumn_Show, feature->show,
-                                eTreeColumn_Color, feature->color_orNull ? feature->color_orNull : "",
+                                eTreeColumn_Color, !feature->color_orEmpty.empty() ? feature->color_orEmpty.c_str() : "",
                                 eTreeColumn_Min, minval,
                                 eTreeColumn_Max, maxval,
                                 -1);
@@ -151,7 +149,7 @@ add_type_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     gtk_widget_set_valign(ptr_labelwidget, GTK_ALIGN_CENTER);
     gtk_box_pack_start (GTK_BOX (hbox), ptr_labelwidget, FALSE, FALSE, 0);
 
-    dialog->mySensorLabel = gtk_label_new (chip->description);
+    dialog->mySensorLabel = gtk_label_new (chip->description.c_str());
 
     gtk_widget_show (dialog->mySensorLabel);
     gtk_box_pack_start (GTK_BOX (hbox), dialog->mySensorLabel, FALSE, FALSE, 0);
@@ -357,13 +355,9 @@ free_widgets (t_sensors_dialog *dialog)
 
     g_ptr_array_free (dialog->sensors->chips, TRUE);
 
-    g_free (dialog->sensors->plugin_config_file);
-    dialog->sensors->plugin_config_file = NULL;
-    g_free (dialog->sensors->command_name);
-    dialog->sensors->command_name = NULL;
-
-    g_free (dialog->sensors->str_fontsize);
-    dialog->sensors->str_fontsize = NULL;
+    dialog->sensors->command_name = "";
+    dialog->sensors->plugin_config_file = "";
+    dialog->sensors->str_fontsize = "";
 }
 
 
@@ -384,8 +378,7 @@ init_widgets (t_sensors_dialog *dialog)
                         G_TYPE_FLOAT, G_TYPE_FLOAT);
 
         auto chip = (t_chip*) g_ptr_array_index (sensors->chips, idx_chip);
-        gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->myComboBox),
-                                        chip->sensorId );
+        gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->myComboBox), chip->sensorId.c_str());
         treemodel = GTK_TREE_STORE (dialog->myListStore[idx_chip]);
 
         fill_gtkTreeStore (treemodel, chip, sensors->scale,  dialog);
@@ -394,8 +387,7 @@ init_widgets (t_sensors_dialog *dialog)
     if (sensors->num_sensorchips == 0) {
         auto chip = (t_chip*) g_ptr_array_index (sensors->chips, 0);
         g_assert (chip!=NULL);
-        gtk_combo_box_text_append_text ( GTK_COMBO_BOX_TEXT(dialog->myComboBox),
-                                chip->sensorId );
+        gtk_combo_box_text_append_text ( GTK_COMBO_BOX_TEXT(dialog->myComboBox), chip->sensorId.c_str());
 
         dialog->myListStore[0] = gtk_tree_store_new (6, G_TYPE_STRING,
                                                      G_TYPE_STRING, G_TYPE_BOOLEAN,
@@ -404,13 +396,13 @@ init_widgets (t_sensors_dialog *dialog)
         auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, 0);
         g_assert (feature!=NULL);
 
-        feature->formatted_value = g_strdup ("0.0");
+        feature->formatted_value = "0.0";
         feature->raw_value = 0.0;
 
         gtk_tree_store_append (GTK_TREE_STORE (dialog->myListStore[0]), &iter, NULL);
         gtk_tree_store_set (GTK_TREE_STORE (dialog->myListStore[0]),
                             &iter,
-                            eTreeColumn_Name, feature->name,
+                            eTreeColumn_Name, feature->name.c_str(),
                             eTreeColumn_Value, "0.0",        /* chipfeature->formatted_value */
                             eTreeColumn_Show, FALSE,         /* chipfeature->show */
                             eTreeColumn_Color, "#000000",    /* chipfeature->color */
