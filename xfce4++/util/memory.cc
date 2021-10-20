@@ -18,15 +18,22 @@
  *  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef _XFCE4PP_UTIL_H_
-#define _XFCE4PP_UTIL_H_
+#include "memory.h"
 
-#ifndef _XFCE4PP_UTIL_FIXES_H_
-#error "Please include xfce4++/util/fixes.h before any other include directives"
+#include "config.h"
+
+#ifdef HAVE_MALLOC_TRIM
+#include <malloc.h>
 #endif
 
-#include <libxfce4util/libxfce4util.h>
-#include "xfce4++/util/rc.h"
-#include "xfce4++/util/string-utils.h"
+namespace xfce4 {
 
-#endif /* _XFCE4PP_UTIL_H_ */
+bool trim_memory(size_t pad) {
+	#ifdef HAVE_MALLOC_TRIM
+	return malloc_trim(pad) != 0;
+	#else
+	return false;
+	#endif
+}
+
+} /* namespace xfce4 */
