@@ -28,6 +28,10 @@ libxfce4util_pp_la_LIBADD = \
 
 libxfce4util_pp_la_SOURCES = \
 	fixes.h \
+	memory.h \
+	memory.cc \
 	optional.h \
+	rc.h \
+	rc.cc \
 	string-utils.h \
 	string-utils.cc

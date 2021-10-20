@@ -21,8 +21,12 @@
 #define XFCE4_SENSORS_CONFIGURATION_H
 
 #include <glib.h>
+#include "xfce4++/util.h"
 
 #include "sensors-interface-common.h"
+
+using xfce4::Ptr;
+using xfce4::Ptr0;
 
 /**
  * Gets the internally used chipfeature index for the given parameters.
@@ -47,7 +51,7 @@ void sensors_write_config (XfcePanelPlugin *plugin, const t_sensors *sensors);
  * @param rc: pointer to xfce settings resource
  * @param sensors: pointer to sensors structure
  */
-void sensors_read_general_config (XfceRc *rc, t_sensors *sensors);
+void sensors_read_general_config (const Ptr0<xfce4::Rc> &rc, t_sensors *sensors);
 
 
 /**
