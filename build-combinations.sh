@@ -45,6 +45,7 @@
 
 
 set -e
+shopt -s nullglob
 
 LOG_BASE="$(basename $0 .sh)".log
 
@@ -156,7 +157,10 @@ elif [ $# == 1 -a "$1" == run ]; then
 		exit 1
 	fi
 elif [ $# == 1 -a "$1" == clean ]; then
-	rm -rf ${LOG_BASE}* tmpdir.*
+	for TDIR in tmpdir.*; do
+		rm -rf "$TDIR"
+	done
+	rm -rf ${LOG_BASE}*
 elif [ $# -gt 1 -a "$1" == __build__ ]; then
 	shift
 	export CC="$1"; shift
@@ -168,9 +172,9 @@ elif [ $# -gt 1 -a "$1" == __build__ ]; then
 	echo "[$(date --rfc-3339=seconds)]  Building $COMBINATION ..." >&3
 	echo "$COMBINATION"
 	echo
-	TMPDIR="$(mktemp --directory tmpdir.XXXXXXXXXX)"
-	rsync --archive --exclude "tmpdir.*" --exclude "*.log*" --quiet . "$TMPDIR"
-	cd "$TMPDIR"
+	TDIR="$(mktemp --directory tmpdir.XXXXXXXXXX)"
+	rsync --archive --exclude "tmpdir.*" --exclude "*.log*" --quiet . "$TDIR"
+	cd "$TDIR"
 	export MAKEFLAGS=-j1
 	if [ -f Makefile ]; then
 		make -j1 distclean
@@ -178,7 +182,7 @@ elif [ $# -gt 1 -a "$1" == __build__ ]; then
 	./configure "$@"
 	make -j1
 	cd ..
-	rm -rf "$TMPDIR"
+	rm -rf "$TDIR"
 	echo "[$(date --rfc-3339=seconds)]  Done $COMBINATION" >&3
 else
 	echo "error: invalid arguments"
