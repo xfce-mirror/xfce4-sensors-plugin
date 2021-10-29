@@ -19,6 +19,9 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+/* The fixes file has to be included before any other #include directives */
+#include "xfce4++/util/fixes.h"
+
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -79,16 +82,15 @@ add_notebook (GtkWidget *box, t_sensors_dialog *dialog)
     gtk_container_set_border_width (GTK_CONTAINER (child_vbox), BORDER);
     gtk_widget_show (child_vbox);
 
-    GtkWidget *scrolled_window  = gtk_scrolled_window_new( NULL,  NULL);
+    GtkWidget *scrolled_window  = gtk_scrolled_window_new(NULL,  NULL);
     gtk_box_pack_start(GTK_BOX(child_vbox), scrolled_window, TRUE, TRUE, 0);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
     gtk_widget_show_all (scrolled_window);
 
     add_tachos_box (scrolled_window, dialog);
 
-    GtkWidget *font_button = gtk_font_button_new();
+    GtkWidget *font_button = gtk_font_button_new_with_font(default_font);
     g_signal_connect (G_OBJECT(font_button), "font-set", G_CALLBACK(on_font_set), dialog);
-    gtk_font_chooser_set_font (GTK_FONT_CHOOSER(font_button), "Sans 11");
     gtk_widget_show (font_button);
     gtk_box_pack_end (GTK_BOX(child_vbox), font_button, FALSE, FALSE, 0);
 

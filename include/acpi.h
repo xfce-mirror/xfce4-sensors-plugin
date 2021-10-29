@@ -22,6 +22,9 @@
 
 #include <dirent.h>
 #include <glib.h>
+#include <string>
+#include <vector>
+#include "xfce4++/util.h"
 
 #include "types.h"
 
@@ -49,18 +52,15 @@
 
 /**
  * Publish ACPI chip by appending chip data to the argument 'chips'.
- * @param chips: Pointer to an array of chips
  * @return Number of initialized chips
  */
-gint initialize_ACPI (GPtrArray *chips);
+gint initialize_ACPI (std::vector<Ptr<t_chip>> &chips);
 
 
 /**
- * Refreshs an ACPI chip's feature in sense of raw and formatted value
- * @param chip_feature: Pointer to feature
- * @param unused: reserved for future use
+ * Refreshes an ACPI chip's feature in sense of raw and formatted value
  */
-void refresh_acpi (gpointer chip_feature, gpointer unused);
+void refresh_acpi (const Ptr<t_chipfeature> &chip_feature);
 
 
 /**
@@ -69,7 +69,7 @@ void refresh_acpi (gpointer chip_feature, gpointer unused);
  * @param filename: file to read information from, e.g. info.
  * @return value from first line of file after keyword and colon.
  */
-gdouble get_acpi_zone_value (const gchar *zone, const char *filename);
+gdouble get_acpi_zone_value (const std::string &zone, const std::string &filename);
 
 
 /**
@@ -78,7 +78,7 @@ gdouble get_acpi_zone_value (const gchar *zone, const char *filename);
  * @param zone_name: file to read information from, e.g. state.
  * @return valued from any line starting with "status:", converted to 1 or 0
  */
-double get_fan_zone_value (const gchar *zone_name);
+double get_fan_zone_value (const std::string &zone_name);
 
 
 /**
@@ -86,7 +86,7 @@ double get_fan_zone_value (const gchar *zone_name);
  * @param filename: name in the /pro/acpi/battery directory.
  * @param feature: pointer to chipfeature to get a max value.
  */
-void get_battery_max_value (const gchar *filename, t_chipfeature *feature);
+void get_battery_max_value (const std::string &filename, const Ptr<t_chipfeature> &feature);
 
 
 /**
@@ -95,7 +95,7 @@ void get_battery_max_value (const gchar *filename, t_chipfeature *feature);
  * @param zone_name: file to read information from, e.g. state.
  * @return valued from any line starting with "status:", converted to 1 or 0
  */
-double get_power_zone_value (const gchar *zone_name);
+double get_power_zone_value (const std::string &zone_name);
 
 
 /**
@@ -104,7 +104,7 @@ double get_power_zone_value (const gchar *zone_name);
  * @param zone_name: file to read information from, e.g. state.
  * @return valued from any line starting with "status:", converted to 1 or 0
  */
-double get_voltage_zone_value (const gchar *zone_name);
+double get_voltage_zone_value (const std::string &zone_name);
 
 
 /**
@@ -112,7 +112,7 @@ double get_voltage_zone_value (const gchar *zone_name);
  * @param chip: Pointer to already allocated chip, where values can be added.
  * @return 0 on success
  */
-gint read_thermal_zone (t_chip *chip);
+gint read_thermal_zone (const Ptr<t_chip> &chip);
 
 
 /**
@@ -120,7 +120,7 @@ gint read_thermal_zone (t_chip *chip);
  * @param chip: Pointer to already allocated chip, where values can be added.
  * @return 0 on success
  */
-gint read_battery_zone (t_chip *chip);
+gint read_battery_zone (const Ptr<t_chip> &chip);
 
 
 /**
@@ -128,7 +128,7 @@ gint read_battery_zone (t_chip *chip);
  * @param chip: Pointer to already allocated chip, where values can be added.
  * @return 0 on success
  */
-gint read_fan_zone (t_chip *chip);
+gint read_fan_zone (const Ptr<t_chip> &chip);
 
 
 /**
@@ -136,7 +136,7 @@ gint read_fan_zone (t_chip *chip);
  * @param chip: Pointer to already allocated chip, where values can be added.
  * @return 0 on success
  */
-gint read_power_zone (t_chip *chip);
+gint read_power_zone (const Ptr<t_chip> &chip);
 
 
 /**
@@ -144,14 +144,14 @@ gint read_power_zone (t_chip *chip);
  * @param chip: Pointer to already allocated chip, where values can be added.
  * @return 0 on success
  */
-gint read_voltage_zone (t_chip *chip);
+gint read_voltage_zone (const Ptr<t_chip> &chip);
 
 
 /**
  * Returns the ACPI version number from /proc/acpi/info file.
- * @return versionnumber as string!
+ * @return versionnumber as string
  */
-char* get_acpi_info (void);
+std::string get_acpi_info ();
 
 
 /**
@@ -160,7 +160,7 @@ char* get_acpi_info (void);
  * @param filename: Complete path to file to be inspected.
  * @return String of value found, "<Unknown>" otherwise.
  */
-char* get_acpi_value (const gchar *filename);
+std::string get_acpi_value (const std::string &filename);
 
 
 /**
@@ -168,7 +168,7 @@ char* get_acpi_value (const gchar *filename);
  * @param zone: Complete zone path including both e.g. "battery" and "BAT0"
  * @return double value of current battery power
  */
-gdouble get_battery_zone_value (const gchar *zone);
+gdouble get_battery_zone_value (const std::string &zone);
 
 
 /**
@@ -183,8 +183,7 @@ gint acpi_ignore_directory_entry (struct dirent *entry);
 /**
  * Free the additionally allocated structures in the sensors_chip_name
  * according to the version of libsensors.
- * @param chip: Pointer to t_chip
  */
-void free_acpi_chip (gpointer chip);
+void free_acpi_chip (t_chip *chip);
 
 #endif /* XFCE4_SENSORS_ACPI_H */

@@ -53,35 +53,29 @@ sensors_new (XfcePanelPlugin *plugin, const char *rc_file_orNull)
     sensors_read_preliminary_config(plugin, sensors);
 
     /* read all sensors from libraries */
-    int result = initialize_all (&sensors->chips, &sensors->suppressmessage);
+    int result = initialize_all (sensors->chips, &sensors->suppressmessage);
     if (result==0)
         return NULL;
 
-    sensors->num_sensorchips = sensors->chips->len;
-
     /* error-handling for no sensors */
-    if (!sensors->chips || sensors->num_sensorchips <= 0) {
-        if (!sensors->chips)
-            sensors->chips = g_ptr_array_new ();
+    if (sensors->chips.empty()) {
+        auto chip = xfce4::make<t_chip>();
+        {
+            chip->sensorId = _("No sensors found!");
+            chip->description = _("No sensors found!");
 
-        auto chip = new t_chip();
-        g_ptr_array_add (sensors->chips, chip);
-        chip->chip_features = g_ptr_array_new();
-
-        auto feature = new t_chipfeature();
-        feature->address = 0;
-        chip->sensorId = _("No sensors found!");
-        chip->description = _("No sensors found!");
-        chip->num_features = 1;
-        feature->name = "No sensor";
-        feature->valid = true;
-        feature->formatted_value = "0.0";
-        feature->raw_value = 0.0;
-        feature->min_value = 0;
-        feature->max_value = 7000;
-        feature->show = false;
-
-        g_ptr_array_add (chip->chip_features, feature);
+            auto feature = xfce4::make<t_chipfeature>();
+            feature->address = 0;
+            feature->name = "No sensor";
+            feature->valid = true;
+            feature->formatted_value = "0.0";
+            feature->raw_value = 0.0;
+            feature->min_value = 0;
+            feature->max_value = 7000;
+            feature->show = false;
+            chip->chip_features.push_back(feature);
+        }
+        sensors->chips.push_back(chip);
     }
 
     return sensors;
@@ -128,10 +122,8 @@ sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
 
 /* -------------------------------------------------------------------------- */
 std::string
-format_sensor_value (t_tempscale temperature_scale, const t_chipfeature *feature, double feature_value)
+format_sensor_value (t_tempscale temperature_scale, const Ptr<t_chipfeature> &feature, double feature_value)
 {
-    g_return_val_if_fail (feature != NULL, "");
-
     switch (feature->cls) {
         case TEMPERATURE:
             if (temperature_scale == FAHRENHEIT)

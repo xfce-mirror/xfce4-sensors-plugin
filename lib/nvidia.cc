@@ -46,35 +46,29 @@
 Display *nvidia_sensors_display;
 
 /* Local functions */
-static int read_gpus (t_chip *chip);
+static int read_gpus (const Ptr<t_chip> &chip);
 
 /* -------------------------------------------------------------------------- */
 int
-initialize_nvidia (GPtrArray *chips)
+initialize_nvidia (std::vector<Ptr<t_chip>> &chips)
 {
     int retval;
-
-    g_assert (chips != NULL);
 
     /*
      * According to "Brand Guidelines for the NVIDIA Partner Network" PDF, May 2020:
      * Always write NVIDIA with all caps, not nvidia nor NVidia.
      */
 
-    auto chip = new t_chip();
-    chip->chip_features = g_ptr_array_new ();
-    chip->num_features = 0;
+    auto chip = xfce4::make<t_chip>();
     chip->description = _("NVIDIA GPU core temperature");
     chip->name = _("nvidia");
     chip->sensorId = "nvidia";
     chip->type = GPU;
 
-    int num_gpus = read_gpus (chip);
-    if (chip->num_features > 0) {
-        int i;
-        for (i = 0; i < num_gpus; i++) {
-            auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, i);
-            g_assert (feature != NULL);
+    read_gpus (chip);
+    if (!chip->chip_features.empty()) {
+        for (size_t i = 0; i < chip->chip_features.size(); i++) {
+            auto feature = chip->chip_features[i];
             feature->address = i;
             feature->name = feature->devicename;
             feature->color_orEmpty = "";
@@ -85,11 +79,10 @@ initialize_nvidia (GPtrArray *chips)
             feature->max_value = 70.0;
             feature->show = false;
         }
-        g_ptr_array_add (chips, chip);
+        chips.push_back(chip);
         retval = 2;
     }
     else {
-        free_chip(chip, NULL);
         retval = 0;
     }
 
@@ -119,11 +112,8 @@ get_nvidia_value (int idx_gpu)
 
 /* -------------------------------------------------------------------------- */
 void
-refresh_nvidia (gpointer chip_feature, gpointer unused)
+refresh_nvidia (const Ptr<t_chipfeature> &feature)
 {
-    t_chipfeature *feature = (t_chipfeature *) chip_feature;
-    g_assert (feature != NULL);
-
     gdouble value = get_nvidia_value (feature->address);
     if (value != ZERO_KELVIN)
         feature->raw_value = value;
@@ -132,11 +122,9 @@ refresh_nvidia (gpointer chip_feature, gpointer unused)
 
 /* -------------------------------------------------------------------------- */
 static int
-read_gpus (t_chip *chip)
+read_gpus (const Ptr<t_chip> &chip)
 {
     int num_gpus = 0;
-
-    g_assert (chip != NULL);
 
     /* create the connection to the X server */
     nvidia_sensors_display = XOpenDisplay (NULL);
@@ -154,7 +142,8 @@ read_gpus (t_chip *chip)
 
     for (int idx_gpu = 0; idx_gpu < num_gpus; idx_gpu++) {
         gchar *gpuname = NULL; /* allocated by libxnvctrl */
-        auto feature = new t_chipfeature();
+
+        auto feature = xfce4::make<t_chipfeature>();
 
         if (XNVCTRLQueryTargetStringAttribute (nvidia_sensors_display,
                                                NV_CTRL_TARGET_TYPE_GPU,
@@ -171,8 +160,7 @@ read_gpus (t_chip *chip)
         }
         feature->name = feature->devicename;
 
-        g_ptr_array_add (chip->chip_features, feature);
-        chip->num_features++;
+        chip->chip_features.push_back(feature);
     }
 
     return num_gpus;

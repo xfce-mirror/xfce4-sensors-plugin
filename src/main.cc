@@ -45,7 +45,7 @@
  * Prints license information
  */
 static void
-print_license (void)
+print_license ()
 {
     printf (_("Xfce4 Sensors %s\n"
                       "This program is published under the GPL v2.\n"
@@ -60,7 +60,7 @@ print_license (void)
  * Prints help/usage information
  */
 static void
-print_usage (void)
+print_usage ()
 {
     printf (_("Xfce4 Sensors %s\n"
                       "Displays information about your hardware sensors, ACPI "
@@ -81,7 +81,7 @@ print_usage (void)
  * Prints version information as requested by "xfce4-sensors -V"
  */
 static void
-print_version (void)
+print_version ()
 {
     printf (_("Xfce4 Sensors %s\n"), PACKAGE_VERSION);
 }
@@ -92,21 +92,13 @@ print_version (void)
  * @return pointer to newly allocated sensors dialog information
  */
 static t_sensors_dialog *
-initialize_sensors_structures (void)
+initialize_sensors_structures ()
 {
     t_sensors *sensors = sensors_new (NULL, NULL);
 
     t_sensors_dialog *dialog = g_new0 (t_sensors_dialog, 1);
     dialog->sensors = sensors;
     dialog->plugin_dialog = false;
-
-    for (int idx_chip=0; idx_chip<MAX_NUM_CHIPS; idx_chip++)
-    {
-        for (int idx_feature=0; idx_feature<MAX_NUM_FEATURES; idx_feature++)
-        {
-            sensors->tachos[idx_chip][idx_feature] = NULL;
-        }
-    }
 
     return dialog;
 }

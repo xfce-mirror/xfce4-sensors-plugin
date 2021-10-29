@@ -44,15 +44,15 @@
 
 
 /* -------------------------------------------------------------------------- */
-static t_chip*
-setup_chip (GPtrArray *chips, const sensors_chip_name *chip_name)
+static Ptr<t_chip>
+setup_chip (std::vector<Ptr<t_chip>> &chips, const sensors_chip_name *chip_name)
 {
-    auto chip = new t_chip();
+    auto chip = xfce4::make<t_chip>();
 
-    g_ptr_array_add (chips, chip);
+    chips.push_back(chip);
 
     chip->chip_name = (sensors_chip_name*) g_malloc (sizeof (sensors_chip_name));
-    memcpy ((void*) chip->chip_name, (void*) chip_name, sizeof (sensors_chip_name));
+    *chip->chip_name = *chip_name;
 
     switch (chip_name->bus.type) {
         case SENSORS_BUS_TYPE_I2C:
@@ -63,9 +63,7 @@ setup_chip (GPtrArray *chips, const sensors_chip_name *chip_name)
             chip->sensorId = xfce4::sprintf ("%s-%x", chip_name->prefix, chip_name->addr);
     }
 
-    chip->num_features = 0;
     chip->name = _("LM Sensors");
-    chip->chip_features = g_ptr_array_new ();
     chip->description = sensors_get_adapter_name (&chip_name->bus);
 
     return chip;
@@ -74,7 +72,7 @@ setup_chip (GPtrArray *chips, const sensors_chip_name *chip_name)
 
 /* -------------------------------------------------------------------------- */
 static void
-categorize_sensor_type_libsensors (t_chipfeature *chip_feature,
+categorize_sensor_type_libsensors (const Ptr<t_chipfeature> &chip_feature,
                                    const sensors_feature *sensorsfeature,
                                    const sensors_chip_name *chip_name,
                                    int address_chipfeature)
@@ -186,7 +184,7 @@ categorize_sensor_type_libsensors (t_chipfeature *chip_feature,
 
 /* -------------------------------------------------------------------------- */
 static void
-setup_chipfeature_common (t_chipfeature *feature, int address_chipfeature,
+setup_chipfeature_common (const Ptr<t_chipfeature> &feature, int address_chipfeature,
                           double val_sensor_feature)
 {
     feature->color_orEmpty = "#00B000";
@@ -199,7 +197,7 @@ setup_chipfeature_common (t_chipfeature *feature, int address_chipfeature,
 
 
 static void
-setup_chipfeature_libsensors (t_chipfeature *chip_feature,
+setup_chipfeature_libsensors (const Ptr<t_chipfeature> &chip_feature,
                               const sensors_feature *feature,
                               int address_chipfeature,
                               double val_sensor_feature,
@@ -211,8 +209,8 @@ setup_chipfeature_libsensors (t_chipfeature *chip_feature,
 
 
 /* -------------------------------------------------------------------------- */
-static t_chipfeature *
-find_chipfeature (const sensors_chip_name *name, t_chip *chip, const sensors_feature *feature)
+static Ptr0<t_chipfeature>
+find_chipfeature (const sensors_chip_name *name, const Ptr<t_chip> &chip, const sensors_feature *feature)
 {
     const sensors_subfeature *sub_feature = NULL;
     int number = -1;
@@ -257,11 +255,17 @@ find_chipfeature (const sensors_chip_name *name, t_chip *chip, const sensors_fea
     if (sub_feature)
         number = sub_feature->number;
 
-    if (number!=-1)
+    if (number != -1)
     {
-        auto chip_feature = new t_chipfeature();
+        auto chip_feature = xfce4::make<t_chipfeature>();
 
-        chip_feature->name = sensors_get_label (name, feature);
+        char *label = sensors_get_label (name, feature);
+        if (label)
+        {
+            chip_feature->name = label;
+            free (label);
+            label = NULL;
+        }
 
         if (chip_feature->name.empty() && feature->name)
             chip_feature->name = feature->name;
@@ -272,27 +276,24 @@ find_chipfeature (const sensors_chip_name *name, t_chip *chip, const sensors_fea
             if (sensors_get_value (name, number, &sensorFeature) == 0)
             {
                 setup_chipfeature_libsensors (chip_feature, feature, number, sensorFeature, name);
-                chip->num_features++;
                 return chip_feature;
             }
         }
-
-        delete chip_feature;
     }
 
-    return NULL;
+    return nullptr;
 }
 
 
 /* -------------------------------------------------------------------------- */
 int
-initialize_libsensors (GPtrArray *chips)
+initialize_libsensors (std::vector<Ptr<t_chip>> &chips)
 {
-    int sensorsInit = sensors_init (NULL);
-    if (sensorsInit != 0)
+    if (sensors_init (NULL) != 0)
     {
         g_printf (_("Error: Could not connect to sensors!"));
         /* FIXME: better popup window? write to special logfile? */
+        sensors_cleanup ();
         return -2;
     }
 
@@ -301,7 +302,7 @@ initialize_libsensors (GPtrArray *chips)
     const sensors_chip_name *detected_chip = sensors_get_detected_chips (NULL, &num_sensorchips);
     while (detected_chip)
     {
-        t_chip *chip = setup_chip (chips, detected_chip);
+        auto chip = setup_chip (chips, detected_chip);
         int nr1 = 0;
         const sensors_feature *sf;
 
@@ -309,10 +310,9 @@ initialize_libsensors (GPtrArray *chips)
         sf = sensors_get_features (detected_chip, &nr1);
         while (sf != NULL)
         {
-            t_chipfeature *chip_feature = find_chipfeature (detected_chip, chip, sf);
-            if (chip_feature) {
-                g_ptr_array_add (chip->chip_features, chip_feature);
-            }
+            Ptr0<t_chipfeature> chip_feature = find_chipfeature (detected_chip, chip, sf);
+            if (chip_feature)
+                chip->chip_features.push_back(chip_feature.toPtr());
             sf = sensors_get_features (detected_chip, &nr1);
         }
 
@@ -325,12 +325,9 @@ initialize_libsensors (GPtrArray *chips)
 
 /* -------------------------------------------------------------------------- */
 void
-refresh_lmsensors (gpointer chip_feature, gpointer unused)
-{
-    g_assert (chip_feature != NULL);
-}
+refresh_lmsensors (const Ptr<t_chipfeature> &feature) {}
 
 
 /* -------------------------------------------------------------------------- */
 void
-free_lmsensors_chip (gpointer ptr_chip) {}
+free_lmsensors_chip (t_chip *chip) {}

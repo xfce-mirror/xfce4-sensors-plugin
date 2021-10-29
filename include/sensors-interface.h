@@ -52,7 +52,7 @@ enum Enum_TreeColumn
  * @param tempscale: temperature scale
  * @param dialog: Pointer to sensors dialog data
  */
-void fill_gtkTreeStore (GtkTreeStore *treestore, t_chip *chip, t_tempscale tempscale, t_sensors_dialog *dialog);
+void fill_gtkTreeStore (GtkTreeStore *treestore, const Ptr<t_chip> &chip, t_tempscale tempscale, t_sensors_dialog *dialog);
 
 /**
  * Frees the allocated and added dialog widgets
