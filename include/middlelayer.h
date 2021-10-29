@@ -27,26 +27,24 @@
 
 /**
  * Initialize all sensors detected by iterating and calling init-routines
- * @param out_chips: Double-pointer to pointer array of chips
  * @param out_suppressmessage [out]: whether to suppress messages when reading the chip
  * @return Number of initialized features
  */
-int initialize_all (GPtrArray **out_chips, gboolean *out_suppressmessage);
+int initialize_all (std::vector<Ptr<t_chip>> &out_chips, bool *out_suppressmessage);
 
 
 /**
  * Refresh all features of a chip
- * @param chip: Pointer to chip
  * @param data: pointer to t_sensors or NULL;
  */
-void refresh_chip (gpointer chip, gpointer data);
+void refresh_chip (const Ptr<t_chip> &chip, t_sensors *data);
 
 
 /**
  * Classifies sensor type
  * @param feature: Pointer to feature
  */
-void categorize_sensor_type (t_chipfeature *feature);
+void categorize_sensor_type (const Ptr<t_chipfeature> &feature);
 
 
 /**
@@ -58,37 +56,20 @@ void categorize_sensor_type (t_chipfeature *feature);
  *                         messages, or NULL.
  * @return 0 on success, >0 else.
  */
-int sensor_get_value (t_chip *chip, int idx_chipfeature, double *out_value,
-                      gboolean *out_suppressmessage);
-
-
-/**
- * Free data in chipfeatures
- * @param chip_feature: pointer to chipfeature to free
- * @param unused: currently unused
- */
-void free_chipfeature (gpointer chip_feature, gpointer unused);
-
-
-/**
- * Free remaining structures in chips and associated chipfeatures
- * @param chip: pointer to chip to free
- * @param unused: currently unused
- */
-void free_chip (gpointer chip, gpointer unused);
+int sensor_get_value (const Ptr<t_chip> &chip, size_t idx_chipfeature, double *out_value,
+                      bool *out_suppressmessage);
 
 
 /**
  * Clean up structures and call library routines for ending "session".
  */
-void cleanup_interfaces (void);
+void cleanup_interfaces ();
 
 
 /**
  * Refreshes all chips at once.
- * @param chips: Pointer to pointer array to chips
  * @param sensors: pointer to sensors structure
  */
-void refresh_all_chips (GPtrArray *chips, t_sensors *sensors);
+void refresh_all_chips (const std::vector<Ptr<t_chip>> &chips, t_sensors *sensors);
 
 #endif /* XFCE4_SENSORS_MIDDLELAYER_H */

@@ -66,17 +66,15 @@
 #define HDDTEMP_CONNECTION_FAILED -1 /* Connection problems to hddtemp */
 
 
-void quick_message_notify (gchar *message);
-void quick_message (gchar *message);
-void quick_message_dialog (gchar *message);
-gboolean quick_message_with_checkbox (gchar *message, gchar *checkbox_text);
+void quick_message_notify (const gchar *message);
+void quick_message (const gchar *message);
+void quick_message_dialog (const gchar *message);
+bool quick_message_with_checkbox (const gchar *message, const gchar *checkbox_text);
 
-void read_disks_netcat (t_chip *chip);
-void read_disks_linux26 (t_chip *chip);
+void read_disks_netcat (const Ptr<t_chip> &chip);
+void read_disks_linux26 (const Ptr<t_chip> &chip);
 int get_hddtemp_d_str (char *buffer, size_t bufsize);
-void read_disks_fallback (t_chip *chip);
-void remove_unmonitored_drives (t_chip *chip, gboolean *suppress_message);
-void populate_detected_drives (t_chip *chip);
+void read_disks_fallback (const Ptr<t_chip> &chip);
 
 
 /* -------------------------------------------------------------------------- */
@@ -93,7 +91,7 @@ notification_suppress_messages (NotifyNotification *notification, const gchar *a
 
 /* -------------------------------------------------------------------------- */
 void
-quick_message_notify (gchar *message)
+quick_message_notify (const gchar *message)
 {
     const gchar *summary = "Hddtemp Information";
     const gchar *icon = "xfce-sensors";
@@ -119,7 +117,7 @@ quick_message_notify (gchar *message)
 #else
 /* -------------------------------------------------------------------------- */
 void
-quick_message_dialog (gchar *message)
+quick_message_dialog (const gchar *message)
 {
     GtkWidget *dialog;
 
@@ -138,8 +136,8 @@ quick_message_dialog (gchar *message)
 
 
 /* -------------------------------------------------------------------------- */
-gboolean
-quick_message_with_checkbox (gchar *message, gchar *checkbox_text)
+bool
+quick_message_with_checkbox (const gchar *message, const gchar *checkbox_text)
 {
     GtkWidget *dialog, *checkbox, *content_area;
 
@@ -170,7 +168,7 @@ quick_message_with_checkbox (gchar *message, gchar *checkbox_text)
 
 /* -------------------------------------------------------------------------- */
 void
-quick_message (gchar *message)
+quick_message (const gchar *message)
 {
 #ifdef HAVE_LIBNOTIFY
     quick_message_notify (message);
@@ -226,7 +224,7 @@ str_split (char *string, const char *delim)
 
 /* -------------------------------------------------------------------------- */
 void
-read_disks_netcat (t_chip *chip)
+read_disks_netcat (const Ptr<t_chip> &chip)
 {
     char reply[REPLY_MAX_SIZE] = {0};
     int result;
@@ -238,20 +236,19 @@ read_disks_netcat (t_chip *chip)
 
     char *tmp = str_split (reply, DOUBLE_DELIMITER);
     do {
-        auto feature = new t_chipfeature();
+        auto feature = xfce4::make<t_chipfeature>();
 
         feature->devicename = strtok (tmp, SINGLE_DELIMITER);
         feature->name = strtok (NULL, SINGLE_DELIMITER);
 
-        g_ptr_array_add(chip->chip_features, feature);
-        chip->num_features++;
+        chip->chip_features.push_back(feature);
     }
     while ( (tmp = str_split(NULL, DOUBLE_DELIMITER)) );
 }
 #else
 /* -------------------------------------------------------------------------- */
 void
-read_disks_fallback (t_chip *chip)
+read_disks_fallback (const Ptr<t_chip> &chip)
 {
     /* read from /proc/ide */
     GError *error = NULL;
@@ -261,11 +258,10 @@ read_disks_fallback (t_chip *chip)
     while ((device_name = g_dir_read_name (dir)) != NULL) {
         if (strncmp (device_name, "hd", 2)==0 || strncmp (device_name, "sd", 2)==0) {
             /* TODO: look whether /dev/device_name exists? */
-            auto feature = new t_chipfeature();
+            auto feature = xfce4::make<t_chipfeature>();
             feature->devicename = xfce4::sprintf ("/dev/%s", device_name);
             feature->name = feature->devicename;
-            g_ptr_array_add (chip->chip_features, feature);
-            chip->num_features++;
+            chip->chip_features.push_back(feature);
         }
     }
 
@@ -277,7 +273,7 @@ read_disks_fallback (t_chip *chip)
 
 /* -------------------------------------------------------------------------- */
 void
-read_disks_linux26 (t_chip *chip)
+read_disks_linux26 (const Ptr<t_chip> &chip)
 {
     const gchar *device_name;
 
@@ -293,11 +289,10 @@ read_disks_linux26 (t_chip *chip)
         if (strncmp (device_name, "hd", 2) == 0 || strncmp (device_name, "sd", 2) == 0)
         {
             /* TODO: look whether /dev/device_name exists? */
-            auto feature = new t_chipfeature();
+            auto feature = xfce4::make<t_chipfeature>();
             feature->devicename = xfce4::sprintf ("/dev/%s", device_name); /* /proc/ide/hda/model ?? */
             feature->name = feature->devicename;
-            g_ptr_array_add (chip->chip_features, feature);
-            chip->num_features++;
+            chip->chip_features.push_back(feature);
         }
     }
 
@@ -307,32 +302,22 @@ read_disks_linux26 (t_chip *chip)
 
 
 /* -------------------------------------------------------------------------- */
-void
-remove_unmonitored_drives (t_chip *chip, gboolean *suppress_message)
+static void
+remove_unmonitored_drives (const Ptr<t_chip> &chip, bool *suppress_message)
 {
-    int idx_feature;
-
-    for (idx_feature=0; idx_feature < chip->num_features; idx_feature++)
+    for (size_t idx_feature = 0; idx_feature < chip->chip_features.size(); idx_feature++)
     {
-        auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_feature);
-        int temperature = get_hddtemp_value (feature->devicename.c_str(), suppress_message);
+        auto feature = chip->chip_features[idx_feature];
+        int temperature = get_hddtemp_value (feature->devicename, suppress_message);
         if (temperature == NO_VALID_HDDTEMP_PROGRAM)
         {
             DBG ("removing single disk");
-            free_chipfeature ((gpointer) feature, NULL);
-            g_ptr_array_remove_index (chip->chip_features, idx_feature);
+            chip->chip_features.erase(chip->chip_features.begin() + idx_feature);
             idx_feature--;
-            chip->num_features--;
         }
         else if (temperature == NO_VALID_TEMPERATURE_VALUE)
         {
-            for (idx_feature=0; idx_feature < chip->num_features; idx_feature++) {
-                DBG ("remove %d\n", idx_feature);
-                feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_feature);
-                free_chipfeature ( (gpointer) feature, NULL);
-            }
-            g_ptr_array_free (chip->chip_features, TRUE);
-            chip->num_features=0;
+            chip->chip_features.clear();
             DBG ("Returning because of bad hddtemp.\n");
             return;
         }
@@ -341,13 +326,12 @@ remove_unmonitored_drives (t_chip *chip, gboolean *suppress_message)
 
 
 /* -------------------------------------------------------------------------- */
-void
-populate_detected_drives (t_chip *chip)
+static void
+populate_detected_drives (const Ptr<t_chip> &chip)
 {
-    for (gint idx_disk=0; idx_disk < chip->num_features; idx_disk++)
+    for (size_t idx_disk = 0; idx_disk < chip->chip_features.size(); idx_disk++)
     {
-       auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_disk);
-       g_assert (feature!=NULL);
+       auto feature = chip->chip_features[idx_disk];
 
        feature->address = idx_disk;
 
@@ -366,7 +350,7 @@ populate_detected_drives (t_chip *chip)
 
 /* -------------------------------------------------------------------------- */
 int
-initialize_hddtemp (GPtrArray *chips, gboolean *suppress_message)
+initialize_hddtemp (std::vector<Ptr<t_chip>> &chips, bool *suppress_message)
 {
 #ifndef HAVE_NETCAT
     int generation_linuxkernel, majorversion_linuxkernel;
@@ -374,12 +358,8 @@ initialize_hddtemp (GPtrArray *chips, gboolean *suppress_message)
 #endif
     int result;
 
-    g_assert (chips!=NULL);
+    auto chip = xfce4::make<t_chip>();
 
-    auto chip = new t_chip();
-
-    chip->chip_features = g_ptr_array_new ();
-    chip->num_features = 0;
     chip->description = _("S.M.A.R.T. harddisk temperatures");
     chip->name = _("Hard disks");
     chip->sensorId = "Hard disks";
@@ -410,15 +390,14 @@ initialize_hddtemp (GPtrArray *chips, gboolean *suppress_message)
 #endif
 
     remove_unmonitored_drives (chip, suppress_message);
-    DBG ("numfeatures=%d\n", chip->num_features);
-    if ( chip->num_features>0 ) {  /* if (1) */
-
+    DBG ("numfeatures=%zu\n", chip->chip_features.size());
+    if (!chip->chip_features.empty())
+    {
         populate_detected_drives (chip);
-        g_ptr_array_add (chips, chip);
+        chips.push_back(chip);
         result = 2;
     }
     else {
-        free_chip(chip, NULL);
         result = 0;
     }
 
@@ -483,37 +462,35 @@ get_hddtemp_d_str (char *buffer, size_t bufsize)
 
 /* -------------------------------------------------------------------------- */
 double
-get_hddtemp_value (const char *disk, gboolean *suppress_message)
+get_hddtemp_value (const std::string &disk, bool *suppress_message)
 {
     gchar *str_stdout = NULL, *str_stderr = NULL;
     gchar *hddtemp_call = NULL, *message = NULL;
     gchar *check_button = NULL;
     gint exit_status = 0;
     double temperature;
-    gboolean f_result = FALSE, f_nevershowagain = FALSE;
+    bool f_result = false, f_nevershowagain = false;
     GError *f_error = NULL;
 
-#ifdef HAVE_NETCAT
-    gchar *tmp, *tmp2, *tmp3;
-    char reply[REPLY_MAX_SIZE] = {0};
-#endif
-
-    if (disk == NULL)
+    if (disk.empty())
       return NO_VALID_TEMPERATURE_VALUE;
 
     if (suppress_message != NULL)
         f_nevershowagain = *suppress_message;
 
 #ifdef HAVE_NETCAT
+    char reply[REPLY_MAX_SIZE] = {0};
 
     if (HDDTEMP_CONNECTION_FAILED == get_hddtemp_d_str (reply, REPLY_MAX_SIZE))
         return NO_VALID_HDDTEMP_PROGRAM;
 
-    tmp3 = g_strdup_printf ("%d", NO_VALID_TEMPERATURE_VALUE);
+    gchar *tmp;
+    gchar *tmp3 = g_strdup_printf ("%d", NO_VALID_TEMPERATURE_VALUE);
     if ( (tmp = str_split (reply, DOUBLE_DELIMITER)) ) {
         do {
+            gchar *tmp2;
             if ((tmp2 = strtok (tmp, SINGLE_DELIMITER)) // device name
-                && (strcmp (tmp2, disk) == 0)) {
+                && tmp2 == disk) {
                 if ( strtok (NULL, SINGLE_DELIMITER) // name
                     && (tmp2 = strtok (NULL, SINGLE_DELIMITER)) ) { // value
                     g_free (tmp3);
@@ -531,16 +508,15 @@ get_hddtemp_value (const char *disk, gboolean *suppress_message)
     str_stdout = tmp3;
 
 #else
-    hddtemp_call = g_strdup_printf ( "%s -n -q %s", PATH_HDDTEMP, disk);
-    f_result = g_spawn_command_line_sync ( (const gchar*) hddtemp_call,
-            &str_stdout, &str_stderr, &exit_status, &f_error);
+    hddtemp_call = g_strdup_printf ("%s -n -q %s", PATH_HDDTEMP, disk.c_str());
+    f_result = g_spawn_command_line_sync (hddtemp_call, &str_stdout, &str_stderr, &exit_status, &f_error);
 #endif
 
-    DBG ("Exit code %d on %s with stdout of %s.\n", exit_status, disk, str_stdout);
+    DBG ("Exit code %d on %s with stdout of %s.\n", exit_status, disk.c_str(), str_stdout);
 
     /* filter those with no sensors out */
-    if (exit_status==0 && strncmp(disk, "/dev/fd", 6)==0) { /* is returned for floppy disks */
-        DBG("exit_status==0 && strncmp(disk, \"/dev/fd\", 6)==0");
+    if (exit_status == 0 && xfce4::starts_with (disk, "/dev/fd")) { /* is returned for floppy disks */
+        DBG("exit_status == 0 && starts_with(disk, \"/dev/fd\")");
         temperature = NO_VALID_TEMPERATURE_VALUE;
     }
     else if ((exit_status==256 || (str_stderr && strlen(str_stderr)>0))
@@ -631,11 +607,9 @@ get_hddtemp_value (const char *disk, gboolean *suppress_message)
 
 /* -------------------------------------------------------------------------- */
 void
-refresh_hddtemp (gpointer ptr_chip_feature, gpointer sensors)
+refresh_hddtemp (const Ptr<t_chipfeature> &feature, gpointer sensors)
 {
-    gboolean *suppress_message = NULL;
-
-    g_assert (ptr_chip_feature != NULL);
+    bool *suppress_message = NULL;
 
     if (sensors != NULL)
     {
@@ -643,7 +617,6 @@ refresh_hddtemp (gpointer ptr_chip_feature, gpointer sensors)
         suppress_message = &plugin_data->suppressmessage;
     }
 
-    auto feature = (t_chipfeature *) ptr_chip_feature;
     double temperature = get_hddtemp_value (feature->devicename.c_str(), suppress_message);
     feature->raw_value = temperature;
 }

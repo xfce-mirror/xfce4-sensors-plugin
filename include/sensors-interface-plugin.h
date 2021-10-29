@@ -27,7 +27,9 @@
 #include <glib.h>
 #include <gtk/gtk.h>
 #include <libxfce4panel/libxfce4panel.h>
+#include <map>
 #include <string>
+#include <vector>
 
 /* Package includes */
 #include "sensors-interface-types.h"
@@ -55,10 +57,10 @@ struct t_sensors {
     GtkWidget *panel_label_text;
 
     /** text UI style */
-	struct {
-		GtkWidget *draw_area;
-		bool reset_size:1;
-	} text;
+    struct {
+        GtkWidget *draw_area;
+        bool reset_size:1;
+    } text;
 
     /** update the tooltip */
     gint timeout_id;
@@ -116,7 +118,7 @@ struct t_sensors {
     bool exec_command:1;
 
     /** suppress Hddtemp failure messages and any other messages */
-    gboolean suppressmessage;
+    bool suppressmessage;
 
     /** use the progress-bar UI */
     e_displaystyles display_values_type;
@@ -125,26 +127,19 @@ struct t_sensors {
     gint sensors_refresh_time;
 
     /* sensor relevant stuff */
-    /**
-     * no problem if less than 11 sensors, else will have to enlarge the
-     * following arrays. NYI!!
-     */
-    gint num_sensorchips;
 
     /** contains the progress bar panels */
     /* FIXME:    Might be replaced by GPtrArray as well */
     t_labelledlevelbar *panels[MAX_NUM_CHIPS][MAX_NUM_FEATURES];
-    /*    GArray *panels_array; */
 
     /** CSS provider for main dialog */
     GtkCssProvider *css_provider;
 
     /** contains the tacho panels */
-    /* FIXME:    Might be replaced by GPtrArray as well */
-    GtkWidget *tachos[MAX_NUM_CHIPS][MAX_NUM_FEATURES];
+    std::map<Ptr<t_chipfeature>, GtkWidget*> tachos;
 
     /** sensor types to display values in appropriate format */
-    GPtrArray *chips;
+    std::vector<Ptr<t_chip>> chips;
 
     /** command to execute */
     std::string command_name;

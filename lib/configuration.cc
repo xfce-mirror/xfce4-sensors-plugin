@@ -45,22 +45,15 @@ get_Id_from_address (gint chip_number, gint addr_chipfeature, t_sensors *sensors
 {
     gint result = -1;
 
-    g_return_val_if_fail (sensors!=NULL, result);
+    g_return_val_if_fail (sensors != NULL, result);
 
-    auto chip = (t_chip*) g_ptr_array_index (sensors->chips, chip_number);
-
-    if (chip)
-    {
-        for (gint idx_feature=0; idx_feature<chip->num_features; idx_feature++) {
-            auto feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, idx_feature);
-            if (feature)
-            {
-                DBG("address: %d", feature->address);
-                if (addr_chipfeature == feature->address) {
-                    result = idx_feature;
-                    break;
-                }
-            }
+    auto chip = sensors->chips[chip_number];
+    for (size_t idx_feature = 0; idx_feature < chip->chip_features.size(); idx_feature++) {
+        Ptr<t_chipfeature> feature = chip->chip_features[idx_feature];
+        DBG("address: %d", feature->address);
+        if (addr_chipfeature == feature->address) {
+            result = idx_feature;
+            break;
         }
     }
 
@@ -99,7 +92,7 @@ sensors_write_config (XfcePanelPlugin *plugin, const t_sensors *sensors)
             rc->write_int_entry ("val_fontsize", sensors->val_fontsize);
             rc->write_int_entry ("Lines_Size", sensors->lines_size);
             rc->write_int_entry ("Update_Interval", sensors->sensors_refresh_time);
-            rc->write_int_entry ("Number_Chips", sensors->num_sensorchips);
+            rc->write_int_entry ("Number_Chips", sensors->chips.size());
             rc->write_int_entry ("Preferred_Width", sensors->preferred_width);
             rc->write_int_entry ("Preferred_Height", sensors->preferred_height);
 
@@ -110,24 +103,22 @@ sensors_write_config (XfcePanelPlugin *plugin, const t_sensors *sensors)
             if (!font.empty())
                 rc->write_entry ("Font", font); // the font for the tachometers exported from tacho.h
 
-            for (gint idx_chip=0; idx_chip<sensors->num_sensorchips; idx_chip++)
+            for (size_t idx_chip = 0; idx_chip < sensors->chips.size(); idx_chip++)
             {
-                auto chip = (t_chip*) g_ptr_array_index (sensors->chips, idx_chip);
-                g_assert (chip!=NULL);
+                auto chip = sensors->chips[idx_chip];
 
-                const auto str_chip = xfce4::sprintf ("Chip%d", idx_chip);
+                const auto str_chip = xfce4::sprintf ("Chip%zu", idx_chip);
                 rc->set_group (str_chip);
 
                 rc->write_entry ("Name", chip->sensorId);
                 rc->write_int_entry ("Number", idx_chip);
 
-                for (gint idx_feature=0; idx_feature<chip->num_features; idx_feature++) {
-                    auto feature = (t_chipfeature*) g_ptr_array_index(chip->chip_features, idx_feature);
-                    g_assert (feature!=NULL);
+                for (size_t idx_feature = 0; idx_feature < chip->chip_features.size(); idx_feature++) {
+                    Ptr<t_chipfeature> feature = chip->chip_features[idx_feature];
 
                     if (feature->show)
                     {
-                        rc->set_group (xfce4::sprintf ("%s_Feature%d", str_chip.c_str(), idx_feature));
+                        rc->set_group (xfce4::sprintf ("%s_Feature%zu", str_chip.c_str(), idx_feature));
 
                         /* only use this if no hddtemp sensor */
                         /* or do only use this , if it is an lmsensors device. whatever. */
@@ -276,9 +267,9 @@ sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 
     sensors_read_general_config (rc, sensors);
 
-    for (gint idx_chip = 0; idx_chip < sensors->num_sensorchips; idx_chip++)
+    for (size_t idx_chip = 0; idx_chip < sensors->chips.size(); idx_chip++)
     {
-        auto str_chip = xfce4::sprintf ("Chip%d", idx_chip);
+        auto str_chip = xfce4::sprintf ("Chip%zu", idx_chip);
         if (rc->has_group (str_chip))
         {
             Ptr0<std::string> str_value;
@@ -287,27 +278,26 @@ sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
             {
                 const std::string sensor_name = *str_value;
                 const gint num_sensorchip = rc->read_int_entry ("Number", 0);
-                if (num_sensorchip < sensors->num_sensorchips)
+                if (num_sensorchip >= 0 && guint(num_sensorchip) < sensors->chips.size())
                 {
-                    t_chip *chip;
+                    Ptr0<t_chip> chip;
 
                     /* now featuring enhanced string comparison */
-                    gint idx_chiptmp = 0;
+                    size_t idx_chiptmp = 0;
                     do {
-                      chip = (t_chip *) g_ptr_array_index (sensors->chips, idx_chiptmp++);
-                      if (!chip || idx_chiptmp == sensors->num_sensorchips)
+                      chip = sensors->chips[idx_chiptmp++];
+                      if (idx_chiptmp == sensors->chips.size())
                           break;
                     }
                     while (chip && chip->sensorId != sensor_name);
 
                     if (chip && chip->sensorId == sensor_name)
                     {
-                        for (gint idx_feature = 0; idx_feature < chip->num_features; idx_feature++)
+                        for (size_t idx_feature = 0; idx_feature < chip->chip_features.size(); idx_feature++)
                         {
-                            auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_feature);
-                            g_assert (feature!=NULL);
+                            Ptr<t_chipfeature> feature = chip->chip_features[idx_feature];
 
-                            auto str_feature = xfce4::sprintf ("%s_Feature%d", str_chip.c_str(), idx_feature);
+                            auto str_feature = xfce4::sprintf ("%s_Feature%zu", str_chip.c_str(), idx_feature);
                             if (rc->has_group (str_feature))
                             {
                                 rc->set_group (str_feature);

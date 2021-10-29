@@ -19,11 +19,15 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+/* The fixes file has to be included before any other #include directives */
+#include "xfce4++/util/fixes.h"
+
 #include <cairo.h>
 #include <gdk/gdk.h>
 #include <glib/gprintf.h>
 #include <math.h>
 #include <stdlib.h>
+#include "xfce4++/util.h"
 
 /* Package includes */
 #include <tacho.h>
@@ -353,7 +357,9 @@ gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr)
 
     style_context = gtk_widget_get_style_context(widget);
     if (style_context != NULL)
+    {
         gtk_style_context_get_color(style_context, GTK_STATE_FLAG_NORMAL, &color);
+    }
     else
     {
         color.red = 0.0f;
@@ -374,13 +380,12 @@ gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr)
         pango_layout_set_alignment (layout, PANGO_ALIGN_CENTER);
         pango_layout_set_width (layout, width);
 
-        gchar *text;
+        std::string text;
         if (tacho->color_orNull && *tacho->color_orNull != '\0')
-            text = g_strdup_printf ("<span color=\"%s\">%s</span>", tacho->color_orNull, tacho->text);
+            text = xfce4::sprintf ("<span color=\"%s\">%s</span>", tacho->color_orNull, tacho->text);
         else
-            text = g_strdup_printf ("<span>%s</span>", tacho->text);
-        pango_layout_set_markup (layout, text, -1);
-        g_free(text);
+            text = xfce4::sprintf ("<span>%s</span>", tacho->text);
+        pango_layout_set_markup (layout, text.c_str(), -1);
 
         pango_font_description = pango_font_description_from_string(font.c_str());
         pango_layout_set_font_description (layout, pango_font_description);

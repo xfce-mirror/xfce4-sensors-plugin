@@ -34,22 +34,20 @@
  * @param chips: Pointer to array of chips
  * @return Number of found chip_features
  */
-int initialize_libsensors (GPtrArray *chips);
+int initialize_libsensors (std::vector<Ptr<t_chip>> &chips);
 
 
 /**
  * Refreshs an lmsensors chip's feature in sense of raw and formatted value
  * @param chip_feature: Pointer to feature
- * @param unused: pointer to sensors structure
  */
-void refresh_lmsensors (gpointer chip_feature, gpointer unused);
+void refresh_lmsensors (const Ptr<t_chipfeature> &feature);
 
 
 /**
  * Free the additionally allocated structures in the sensors_chip_name
  * according to the version of libsensors.
- * @param chip: Pointer to t_chip
  */
-void free_lmsensors_chip (gpointer chip);
+void free_lmsensors_chip (t_chip *chip);
 
 #endif /* XFCE4_SENSORS_LMSENSORS_H */

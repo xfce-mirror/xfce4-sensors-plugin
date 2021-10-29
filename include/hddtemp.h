@@ -21,6 +21,9 @@
 #define XFCE4_SENSORS_HDDTEMP_H
 
 #include <glib.h>
+#include <string>
+#include <vector>
+#include "xfce4++/util.h"
 
 #include "types.h"
 
@@ -31,20 +34,18 @@
 
 /**
  * Initialize hddtemp by finding disks to monitor
- * @param chips: Pointer to array of chips
  * @param suppress_message: returns whether messages shall be suppressed
  * @return Number of initialized chips
  */
-int initialize_hddtemp (GPtrArray *chips, gboolean *suppress_message);
+int initialize_hddtemp (std::vector<Ptr<t_chip>> &chips, bool *suppress_message);
 
 
 /**
  * Refreshs a hddtemp chip's feature in sense of raw and formatted value
  *
- * @param chip_feature: Pointer to feature
  * @param sensors: Pointer to t_sensors or NULL
  */
-void refresh_hddtemp (gpointer chip_feature, gpointer sensors);
+void refresh_hddtemp (const Ptr<t_chipfeature> &feature, gpointer sensors);
 
 
 /**
@@ -53,6 +54,6 @@ void refresh_hddtemp (gpointer chip_feature, gpointer sensors);
  * @param suppress_message: returns whether messages shall be suppressed
  * @return Temperature of disk
  */
-double get_hddtemp_value (const char *disk, gboolean *suppress_message);
+double get_hddtemp_value (const std::string &disk, bool *suppress_message);
 
 #endif /* XFCE4_SENSORS_HDDTEMP_H */

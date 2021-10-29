@@ -19,6 +19,9 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+/* The fixes file has to be included before any other #include directives */
+#include "xfce4++/util/fixes.h"
+
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -46,7 +49,7 @@
 
 /* -------------------------------------------------------------------------- */
 static void
-produce_min_max_values (t_chipfeature *feature, t_tempscale scale, float *minval, float *maxval)
+produce_min_max_values (const Ptr<t_chipfeature> &feature, t_tempscale scale, float *minval, float *maxval)
 {
   /* assume that min and max values are read from the hddtemp/lmsensors/acpi as
    * degree celsius per default -- very sorry for the non-metric peoples */
@@ -62,16 +65,13 @@ produce_min_max_values (t_chipfeature *feature, t_tempscale scale, float *minval
 
 /* -------------------------------------------------------------------------- */
 void
-fill_gtkTreeStore (GtkTreeStore *treestore, t_chip *chip, t_tempscale tempscale, t_sensors_dialog *dialog)
+fill_gtkTreeStore (GtkTreeStore *treestore, const Ptr<t_chip> &chip, t_tempscale tempscale, t_sensors_dialog *dialog)
 {
-    for (gint idx_chipfeature=0; idx_chipfeature < chip->num_features; idx_chipfeature++)
+    for (auto feature : chip->chip_features)
     {
-        auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, idx_chipfeature);
-        g_assert (feature!=NULL);
-
         if (feature->valid) {
             double feature_value;
-            gboolean *suppressnotifications = &dialog->sensors->suppressmessage;
+            bool *suppressnotifications = &dialog->sensors->suppressmessage;
             int result = sensor_get_value (chip, feature->address, &feature_value, suppressnotifications);
             if (result != 0 && !*suppressnotifications) {
                 const gchar *summary = _("Sensors Plugin Failure");
@@ -137,8 +137,7 @@ add_type_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 
     gint active_entry = gtk_combo_box_get_active(GTK_COMBO_BOX(dialog->myComboBox));
 
-    auto chip = (t_chip*) g_ptr_array_index (dialog->sensors->chips, active_entry);
-    DBG("index: %d, chip: %p\n", active_entry, chip);
+    auto chip = dialog->sensors->chips[active_entry];
 
     hbox = gtk_hbox_new (FALSE, BORDER);
     gtk_widget_show (hbox);
@@ -332,13 +331,12 @@ free_widgets (t_sensors_dialog *dialog)
 {
     g_return_if_fail (dialog != NULL);
 
-    for (gint idx_chip=0; idx_chip < dialog->sensors->num_sensorchips; idx_chip++)
+    for (size_t idx_chip = 0; idx_chip < dialog->sensors->chips.size(); idx_chip++)
     {
         GtkTreeIter iter_list_store;
         if (gtk_tree_model_get_iter_first (GTK_TREE_MODEL (dialog->myListStore[idx_chip]), &iter_list_store))
         {
-            while (gtk_tree_store_remove (GTK_TREE_STORE (dialog->myListStore[idx_chip]), &iter_list_store))
-                            ;;
+            while (gtk_tree_store_remove (GTK_TREE_STORE (dialog->myListStore[idx_chip]), &iter_list_store)) {}
         }
         gtk_tree_store_clear (dialog->myListStore[idx_chip]);
         g_object_unref (dialog->myListStore[idx_chip]);
@@ -347,13 +345,10 @@ free_widgets (t_sensors_dialog *dialog)
     g_return_if_fail (dialog != NULL);
     g_return_if_fail (dialog->sensors != NULL);
 
-    /* free structures and arrays */
-    g_ptr_array_foreach (dialog->sensors->chips, free_chip, NULL);
-
     /* stop association to libsensors and others*/
     cleanup_interfaces ();
 
-    g_ptr_array_free (dialog->sensors->chips, TRUE);
+    dialog->sensors->chips.clear();
 
     dialog->sensors->command_name = "";
     dialog->sensors->plugin_config_file = "";
@@ -372,30 +367,29 @@ init_widgets (t_sensors_dialog *dialog)
 
     t_sensors *sensors = dialog->sensors;
 
-    for (gint idx_chip=0; idx_chip < sensors->num_sensorchips; idx_chip++) {
+    for (size_t idx_chip = 0; idx_chip < sensors->chips.size(); idx_chip++) {
         dialog->myListStore[idx_chip] = gtk_tree_store_new (6, G_TYPE_STRING,
                         G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_STRING,
                         G_TYPE_FLOAT, G_TYPE_FLOAT);
 
-        auto chip = (t_chip*) g_ptr_array_index (sensors->chips, idx_chip);
+        auto chip = sensors->chips[idx_chip];
         gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->myComboBox), chip->sensorId.c_str());
         treemodel = GTK_TREE_STORE (dialog->myListStore[idx_chip]);
 
         fill_gtkTreeStore (treemodel, chip, sensors->scale,  dialog);
     }
 
-    if (sensors->num_sensorchips == 0) {
-        auto chip = (t_chip*) g_ptr_array_index (sensors->chips, 0);
-        g_assert (chip!=NULL);
+    if (sensors->chips.empty()) {
+        auto chip = xfce4::make<t_chip>();
+
         gtk_combo_box_text_append_text ( GTK_COMBO_BOX_TEXT(dialog->myComboBox), chip->sensorId.c_str());
 
         dialog->myListStore[0] = gtk_tree_store_new (6, G_TYPE_STRING,
                                                      G_TYPE_STRING, G_TYPE_BOOLEAN,
                                                      G_TYPE_STRING, G_TYPE_DOUBLE,
                                                      G_TYPE_DOUBLE);
-        auto feature = (t_chipfeature*) g_ptr_array_index (chip->chip_features, 0);
-        g_assert (feature!=NULL);
 
+        auto feature = xfce4::make<t_chipfeature>();
         feature->formatted_value = "0.0";
         feature->raw_value = 0.0;
 
@@ -421,8 +415,8 @@ reload_listbox (t_sensors_dialog *dialog)
 
     t_sensors *sensors = dialog->sensors;
 
-    for (gint idx_chip=0; idx_chip < sensors->num_sensorchips; idx_chip++) {
-        auto chip = (t_chip*) g_ptr_array_index (sensors->chips, idx_chip);
+    for (size_t idx_chip = 0; idx_chip < sensors->chips.size(); idx_chip++) {
+        auto chip = sensors->chips[idx_chip];
 
         GtkTreeStore *tree_store = dialog->myListStore[idx_chip];
         g_assert (tree_store != NULL);

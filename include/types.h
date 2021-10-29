@@ -27,6 +27,11 @@
 #include <glib.h>
 #include <libxfce4util/libxfce4util.h>
 #include <string>
+#include <vector>
+#include "xfce4++/util.h"
+
+using xfce4::Ptr;
+using xfce4::Ptr0;
 
 #ifdef HAVE_LIBSENSORS
 #include <sensors/sensors.h>
@@ -144,17 +149,16 @@ struct t_chip {
     /** description of the sensors chip */
     std::string description;
 
-    /** number of known features for this chip */
-    gint num_features;
-
     /** pointer to libsensors chip_name structure */
     sensors_chip_name *chip_name;
 
     /** array of pointers to child chip_features */
-    GPtrArray *chip_features;
+    std::vector<Ptr<t_chipfeature>> chip_features;
 
     /** chiptype, required for middlelayer to distinguish */
     t_chiptype type;
+
+    ~t_chip();
 };
 
 #endif /* XFCE4_SENSORS_TYPES_H */

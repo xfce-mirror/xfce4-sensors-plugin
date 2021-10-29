@@ -25,20 +25,21 @@
 #endif
 
 #include <glib.h>
+#include "xfce4++/util.h"
+
+#include "types.h"
 
 /**
  * Initialize nvidia sensor
- * @param chips: Pointer to pointer array to chips
  * @return number of detected chip features
  */
-int initialize_nvidia (GPtrArray *chips);
+int initialize_nvidia (std::vector<Ptr<t_chip>> &chips);
 
 /**
  * Refresh an nvidia chip's feature
- * @param chip_feature: Pointer to chip feature to refresh
- * @param unused: currently unused
+ * @param feature: Chip feature to refresh
  */
-void refresh_nvidia (gpointer chip_feature, gpointer unused);
+void refresh_nvidia (const Ptr<t_chipfeature> &feature);
 
 /**
  * Read the temperature value from GPU

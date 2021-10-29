@@ -25,9 +25,6 @@
 
 #include "sensors-interface-common.h"
 
-using xfce4::Ptr;
-using xfce4::Ptr0;
-
 /**
  * Gets the internally used chipfeature index for the given parameters.
  * @param chip_number: number of the chip to search for
