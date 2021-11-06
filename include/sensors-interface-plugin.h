@@ -63,7 +63,7 @@ struct t_sensors {
     } text;
 
     /** update the tooltip */
-    gint timeout_id;
+    guint timeout_id;
 
     /** font size for display in panel */
     std::string str_fontsize;
@@ -123,7 +123,7 @@ struct t_sensors {
     /** use the progress-bar UI */
     e_displaystyles display_values_type;
 
-    /** sensor update time */
+    /** sensor update time, in seconds */
     gint sensors_refresh_time;
 
     /* sensor relevant stuff */

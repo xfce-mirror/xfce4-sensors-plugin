@@ -153,8 +153,9 @@ add_type_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     gtk_widget_show (dialog->mySensorLabel);
     gtk_box_pack_start (GTK_BOX (hbox), dialog->mySensorLabel, FALSE, FALSE, 0);
 
-    g_signal_connect (G_OBJECT (dialog->myComboBox), "changed",
-                      G_CALLBACK (sensor_entry_changed), dialog );
+    xfce4::connect_changed (GTK_COMBO_BOX (dialog->myComboBox), [dialog](GtkComboBox *widget) {
+        sensor_entry_changed (GTK_WIDGET (widget), dialog);
+    });
 }
 
 
@@ -182,8 +183,9 @@ add_update_time_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     gtk_widget_show (dialog->spin_button_update_time);
     gtk_widget_show (hbox);
 
-    g_signal_connect (G_OBJECT (spinner_adjustment), "value_changed",
-                      G_CALLBACK (adjustment_value_changed), dialog );
+    xfce4::connect_value_changed (spinner_adjustment, [dialog](GtkAdjustment *adj) {
+        adjustment_value_changed (adj, dialog);
+    });
 }
 
 
@@ -205,8 +207,11 @@ add_sensor_settings_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     tree_view_column = gtk_tree_view_column_new_with_attributes (_("Name"),
                         text_cell_renderer, "text", eTreeColumn_Name, NULL);
 
-    g_signal_connect (G_OBJECT (text_cell_renderer), "edited",
-                      G_CALLBACK (list_cell_text_edited), dialog);
+    xfce4::connect_edited (GTK_CELL_RENDERER_TEXT (text_cell_renderer),
+        [dialog](GtkCellRendererText *r, gchar *path, gchar *new_text) {
+            list_cell_text_edited (r, path, new_text, dialog);
+        }
+    );
 
     gtk_tree_view_column_set_expand (tree_view_column, TRUE);
     gtk_tree_view_append_column (GTK_TREE_VIEW (dialog->myTreeView),
@@ -221,8 +226,11 @@ add_sensor_settings_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     toggle_cell_renderer = gtk_cell_renderer_toggle_new();
     tree_view_column = gtk_tree_view_column_new_with_attributes (_("Show"),
                         toggle_cell_renderer, "active", eTreeColumn_Show, NULL);
-    g_signal_connect (G_OBJECT (toggle_cell_renderer), "toggled",
-                      G_CALLBACK (list_cell_toggle), dialog );
+    xfce4::connect_toggled (GTK_CELL_RENDERER_TOGGLE (toggle_cell_renderer),
+        [dialog](GtkCellRendererToggle *r, gchar *path) {
+            list_cell_toggle (r, path, dialog);
+        }
+    );
     gtk_tree_view_append_column (GTK_TREE_VIEW (dialog->myTreeView),
                                  GTK_TREE_VIEW_COLUMN (tree_view_column));
 
@@ -230,8 +238,11 @@ add_sensor_settings_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     g_object_set ((gpointer*) text_cell_renderer, "editable", TRUE, NULL);
     tree_view_column = gtk_tree_view_column_new_with_attributes (_("Color"),
                         text_cell_renderer, "text", eTreeColumn_Color, NULL);
-    g_signal_connect (G_OBJECT (text_cell_renderer), "edited",
-                      G_CALLBACK (list_cell_color_edited), dialog);
+    xfce4::connect_edited (GTK_CELL_RENDERER_TEXT (text_cell_renderer),
+        [dialog](GtkCellRendererText *r, gchar *path, gchar *new_text) {
+            list_cell_color_edited (r, path, new_text, dialog);
+        }
+    );
     gtk_tree_view_append_column (GTK_TREE_VIEW (dialog->myTreeView),
                                  GTK_TREE_VIEW_COLUMN (tree_view_column));
 
@@ -240,8 +251,11 @@ add_sensor_settings_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     g_object_set ((gpointer*) text_cell_renderer, "editable", TRUE, NULL);
     tree_view_column = gtk_tree_view_column_new_with_attributes
                 (_("Min"), text_cell_renderer, "text", eTreeColumn_Min, NULL);
-    g_signal_connect (G_OBJECT (text_cell_renderer), "edited",
-                      G_CALLBACK (minimum_changed), dialog);
+    xfce4::connect_edited (GTK_CELL_RENDERER_TEXT (text_cell_renderer),
+        [dialog](GtkCellRendererText *r, gchar *path, gchar *new_text) {
+            minimum_changed (r, path, new_text, dialog);
+        }
+    );
 
     gtk_tree_view_append_column (GTK_TREE_VIEW (dialog->myTreeView),
                                  GTK_TREE_VIEW_COLUMN (tree_view_column));
@@ -251,8 +265,11 @@ add_sensor_settings_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     g_object_set ((gpointer*) text_cell_renderer, "editable", TRUE, NULL);
     tree_view_column = gtk_tree_view_column_new_with_attributes
                 (_("Max"), text_cell_renderer, "text", eTreeColumn_Max, NULL);
-    g_signal_connect (G_OBJECT (text_cell_renderer), "edited",
-                      G_CALLBACK (maximum_changed), dialog);
+    xfce4::connect_edited (GTK_CELL_RENDERER_TEXT (text_cell_renderer),
+        [dialog](GtkCellRendererText *r, gchar *path, gchar *new_text) {
+            maximum_changed (r, path, new_text, dialog);
+        }
+    );
 
     gtk_tree_view_append_column (GTK_TREE_VIEW (dialog->myTreeView),
                                  GTK_TREE_VIEW_COLUMN (tree_view_column));
@@ -298,7 +315,9 @@ add_temperature_unit_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 
     gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, TRUE, 0);
 
-    g_signal_connect (G_OBJECT (button_celsius), "toggled", G_CALLBACK (temperature_unit_change), dialog );
+    xfce4::connect_toggled (GTK_TOGGLE_BUTTON (button_celsius), [dialog](GtkToggleButton *button) {
+        temperature_unit_change (button, dialog);
+    });
 }
 
 

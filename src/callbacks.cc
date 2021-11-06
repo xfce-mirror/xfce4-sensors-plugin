@@ -40,7 +40,7 @@
 
 /* -------------------------------------------------------------------------- */
 void
-on_font_set (GtkWidget *widget, gpointer data)
+on_font_set (GtkFontButton *widget, t_sensors_dialog *dialog)
 {
     gchar *new_font = gtk_font_chooser_get_font (GTK_FONT_CHOOSER (widget));
     if (new_font)
@@ -52,15 +52,7 @@ on_font_set (GtkWidget *widget, gpointer data)
     {
         font = default_font;
     }
-    refresh_view ((t_sensors_dialog*) data);
-}
-
-
-/* -------------------------------------------------------------------------- */
-void
-on_main_window_response (GtkWidget *widget, int response, t_sensors_dialog *dialog)
-{
-    gtk_main_quit();
+    refresh_view (dialog);
 }
 
 
@@ -273,22 +265,24 @@ maximum_changed_ (GtkCellRendererText *cell_renderer_text, gchar *cellpath,
 
 /* -------------------------------------------------------------------------- */
 void
-adjustment_value_changed_ (GtkWidget *adjustment_widget, t_sensors_dialog *dialog)
+adjustment_value_changed_ (GtkAdjustment *adjustment, t_sensors_dialog *dialog)
 {
-    dialog->sensors->sensors_refresh_time = (gint) gtk_adjustment_get_value (GTK_ADJUSTMENT (adjustment_widget));
+    auto refresh_time = (gint) gtk_adjustment_get_value (adjustment);
 
-    /* stop the timeout functions ... */
+    dialog->sensors->sensors_refresh_time = refresh_time;
+
+    /* restart timeout functions */
     g_source_remove (dialog->sensors->timeout_id);
-    /* ... and start them again */
-    dialog->sensors->timeout_id  = g_timeout_add (
-        dialog->sensors->sensors_refresh_time * 1000,
-        refresh_view_cb, dialog);
+    dialog->sensors->timeout_id = xfce4::timeout_add (refresh_time * 1000, [dialog]() {
+        refresh_view (dialog);
+        return xfce4::TIMEOUT_AGAIN;
+    });
 }
 
 
 /* -------------------------------------------------------------------------- */
 void
-temperature_unit_change_ (GtkWidget *unused, t_sensors_dialog *dialog)
+temperature_unit_change_ (GtkToggleButton*, t_sensors_dialog *dialog)
 {
     /* toggle celsius-fahrenheit */
     switch (dialog->sensors->scale)

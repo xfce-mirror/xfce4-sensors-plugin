@@ -64,7 +64,7 @@ print_usage ()
 {
     printf (_("Xfce4 Sensors %s\n"
                       "Displays information about your hardware sensors, ACPI "
-                                            "status, harddisk temperatures and Nvidia GPU's temperature.\n"
+                      "status, harddisk temperatures and Nvidia GPU's temperature.\n"
                       "Synopsis: \n"
                       "  xfce4-sensors [option]\n"
                       "where [option] is one of the following:\n"
@@ -153,9 +153,12 @@ main (int argc, char **argv)
     GtkWidget *window = create_main_window (dialog);
 
     /* automatic refresh callback */
-    dialog->sensors->timeout_id  = g_timeout_add (
+    dialog->sensors->timeout_id  = xfce4::timeout_add (
         dialog->sensors->sensors_refresh_time * 1000,
-        refresh_view_cb, dialog
+        [dialog]() {
+            refresh_view (dialog);
+            return xfce4::TIMEOUT_AGAIN;
+        }
     );
 
     /* show window and run forever */

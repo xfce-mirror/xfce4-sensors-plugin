@@ -331,5 +331,5 @@ sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
     rc->close ();
 
     if (!sensors->exec_command)
-        g_signal_handler_block ( G_OBJECT(sensors->eventbox), sensors->doubleclick_id);
+        g_signal_handler_block (G_OBJECT(sensors->eventbox), sensors->doubleclick_id);
 }
