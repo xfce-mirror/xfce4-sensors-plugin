@@ -57,14 +57,19 @@ refresh_sensor_data (t_sensors_dialog *dialog)
 {
     t_sensors *sensors = dialog->sensors;
 
-    for (auto chip : sensors->chips) {
-        for (auto feature : chip->chip_features) {
+    for (auto chip : sensors->chips)
+    {
+        for (auto feature : chip->chip_features)
+        {
             if (feature->valid)
             {
-                double feature_value;
-                int result = sensor_get_value (chip, feature->address, &feature_value, &sensors->suppressmessage);
-
-                if (result != 0) {
+                Optional<double> feature_value = sensor_get_value (chip, feature->address, &sensors->suppressmessage);
+                if (feature_value.has_value())
+                {
+                    feature->formatted_value = format_sensor_value (sensors->scale, feature, feature_value.value());
+                    feature->raw_value = feature_value.value();
+                }
+                else {
                     /* FIXME: either print nothing, or undertake appropriate action,
                      * or pop up a message box. */
                     g_printf ( _("Sensors Viewer:\n"
@@ -72,10 +77,6 @@ refresh_sensor_data (t_sensors_dialog *dialog)
                     "value.\nProper proceeding cannot be guaranteed.\n") );
                     break;
                 }
-
-                feature->formatted_value = format_sensor_value (sensors->scale, feature, feature_value);
-                feature->raw_value = feature_value;
-
             }
         }
     }

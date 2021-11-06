@@ -30,6 +30,7 @@
 #include <vector>
 #include "xfce4++/util.h"
 
+using xfce4::Optional;
 using xfce4::Ptr;
 using xfce4::Ptr0;
 

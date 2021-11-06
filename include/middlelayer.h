@@ -51,13 +51,11 @@ void categorize_sensor_type (const Ptr<t_chipfeature> &feature);
  * Gets value of specified number in chip_name
  * @param chip: specifies bus and stuff of the sensors chip feature
  * @param idx_chipfeature: number of chipfeature to look for
- * @param out_value: address where double value can be stored
  * @param out_suppressmessage: valid pointer to boolean indicating suppression of
  *                         messages, or NULL.
- * @return 0 on success, >0 else.
+ * @return double value on success, or an empty Optional on error.
  */
-int sensor_get_value (const Ptr<t_chip> &chip, size_t idx_chipfeature, double *out_value,
-                      bool *out_suppressmessage);
+Optional<double> sensor_get_value (const Ptr<t_chip> &chip, size_t idx_chipfeature, bool *out_suppressmessage);
 
 
 /**

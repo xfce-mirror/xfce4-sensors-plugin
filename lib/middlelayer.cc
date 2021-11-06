@@ -182,22 +182,20 @@ categorize_sensor_type (const Ptr<t_chipfeature> &feature)
 
 
 /* -------------------------------------------------------------------------- */
-int
-sensor_get_value (const Ptr<t_chip> &chip, size_t idx_chipfeature, double *out_value, bool *out_suppressmessage)
+Optional<double>
+sensor_get_value (const Ptr<t_chip> &chip, size_t idx_chipfeature, bool *out_suppressmessage)
 {
     #ifdef HAVE_HDDTEMP
         bool *suppress = out_suppressmessage;
         g_assert (suppress != NULL);
     #endif
 
-    g_assert (out_value != NULL);
-
     switch (chip->type) {
         case LMSENSOR: {
             #ifdef HAVE_LIBSENSORS
-                return sensors_get_value (chip->chip_name, idx_chipfeature, out_value);
-            #else
-                return -1;
+                double value;
+                if (sensors_get_value (chip->chip_name, idx_chipfeature, &value) == 0)
+                    return value;
             #endif
             break;
         }
@@ -205,13 +203,9 @@ sensor_get_value (const Ptr<t_chip> &chip, size_t idx_chipfeature, double *out_v
             #ifdef HAVE_HDDTEMP
                 g_assert (idx_chipfeature < chip->chip_features.size());
                 auto feature = chip->chip_features[idx_chipfeature];
-                *out_value = get_hddtemp_value (feature->devicename, suppress);
-                if (*out_value==NO_VALID_HDDTEMP_PROGRAM) {
-                    return NO_VALID_HDDTEMP_PROGRAM;
-                }
-                return 0;
-            #else
-                return -1;
+                auto value = get_hddtemp_value (feature->devicename, suppress);
+                if (value != NO_VALID_HDDTEMP_PROGRAM)
+                    return value;
             #endif
             break;
         }
@@ -221,12 +215,10 @@ sensor_get_value (const Ptr<t_chip> &chip, size_t idx_chipfeature, double *out_v
                 auto feature = chip->chip_features[idx_chipfeature];
                 /* TODO: seperate refresh from get operation! */
                 refresh_acpi (feature);
-                *out_value = feature->raw_value;
-                return 0;
+                return feature->raw_value;
             #else
-                return -1;
+                break;
             #endif
-            break;
         }
         case GPU: {
             #ifdef HAVE_NVIDIA
@@ -234,19 +226,14 @@ sensor_get_value (const Ptr<t_chip> &chip, size_t idx_chipfeature, double *out_v
                 auto feature = chip->chip_features[idx_chipfeature];
                 /* TODO: seperate refresh from get operation! */
                 refresh_nvidia (feature);
-                *out_value = feature->raw_value;
-                return 0;
+                return feature->raw_value;
             #else
-                return -1;
+                break;
             #endif
-            break;
-        }
-        default: {
-            return -1;
         }
     }
 
-    return -1;
+    return Optional<double>();
 }
 
 
