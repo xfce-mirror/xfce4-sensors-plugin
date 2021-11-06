@@ -30,29 +30,18 @@
 /* there should also be some "private" callbacks such as closing/qutting
  * the application.
  */
-/**
- * Callback when main window is closed; shall quit the Gtk main routine and
- * perhaps also free some further allocated structures.
- * @param dlg: pointer to dialog widget to be destroyed
- * @param response: event number of close event
- * @param dialog: pointer to helpful sensors dialog structure
- */
-void on_main_window_response (GtkWidget *dlg, int response, t_sensors_dialog *dialog);
 
 /**
- * Callback when new font is set in application and must be updated for the
- * tacho widgets.
- * @param widget: pointer to font button widget
- * @param data: pointer to sensors dialog structure
+ * Callback when new font is set in application and must be updated for the tacho widgets.
  */
-void on_font_set (GtkWidget *widget, gpointer data);
+void on_font_set (GtkFontButton *widget, t_sensors_dialog *dialog);
 
 /* Functions for implementing the sensors interface common callback functions */
 
 /**
  * Implementation of interface callback adjustment_value_changed
  */
-void adjustment_value_changed_  (GtkWidget *widget, t_sensors_dialog *dialog); // for update timer box
+void adjustment_value_changed_  (GtkAdjustment *adjustment, t_sensors_dialog *dialog); // for update timer box
 
 /**
  * Implementation of interface callback sensor_entry_changed_
@@ -91,6 +80,6 @@ void maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path,
 /**
  * Implementation of interface callback temperature_unit_change
  */
-void temperature_unit_change_ (GtkWidget *widget, t_sensors_dialog *dialog);
+void temperature_unit_change_ (GtkToggleButton *widget, t_sensors_dialog *dialog);
 
 #endif /* __CALLBACKS_H */

@@ -29,7 +29,7 @@
 #       or with less than 10 GB of free space in the filesystem.
 #
 # On a 16 thread CPU (8 physical cores, 16 logical CPUs) with 32 GB RAM
-# and an SSD storage device, this script completes in about 7 minutes.
+# and an SSD storage device, this script completes in about 9 minutes.
 #
 # Upon completion of this script:
 #  - The directory where this script is located contains log files of all builds.

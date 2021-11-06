@@ -34,6 +34,4 @@
  */
 void refresh_view (t_sensors_dialog *dialog);
 
-gboolean refresh_view_cb (gpointer user_data);
-
 #endif /* ACTIONS_H */

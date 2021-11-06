@@ -31,7 +31,7 @@
 
 /* Functions for implementing the sensors interface common callback functions */
 
-void adjustment_value_changed_ (GtkWidget *widget, t_sensors_dialog *dialog);
+void adjustment_value_changed_ (GtkAdjustment *adjustment, t_sensors_dialog *dialog);
 
 void sensor_entry_changed_ (GtkWidget *widget, t_sensors_dialog *dialog);
 
@@ -50,6 +50,6 @@ void minimum_changed_ (GtkCellRendererText *cell_renderer_text, gchar *path,
 void maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path,
                        gchar *newmax, t_sensors_dialog *dialog);
 
-void temperature_unit_change_ (GtkWidget *widget, t_sensors_dialog *dialog);
+void temperature_unit_change_ (GtkToggleButton *widget, t_sensors_dialog *dialog);
 
 #endif /* XFCE4_SENSORS_SENSORS_H */

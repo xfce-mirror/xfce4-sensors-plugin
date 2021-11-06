@@ -213,11 +213,3 @@ refresh_view (t_sensors_dialog *dialog)
     reload_listbox (dialog);
     refresh_tacho_view (dialog); /* refresh all the tacho elements in the notebook/table view */
 }
-
-gboolean
-refresh_view_cb (gpointer user_data)
-{
-    auto dialog = (t_sensors_dialog*) user_data;
-    refresh_view (dialog);
-    return TRUE;
-}

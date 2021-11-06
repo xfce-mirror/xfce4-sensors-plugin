@@ -160,11 +160,10 @@ struct t_sensors_dialog {
 
 /**
  * Notification that the adjustment value of the update timer box has changed
- * @param widget: Pointer to original widget, i.e, the update timer box
  * @param dialog: argument pointer to sensors dialog data
  */
 EXTERN void
-(*adjustment_value_changed) (GtkWidget *widget, t_sensors_dialog *dialog);
+(*adjustment_value_changed) (GtkAdjustment *adjustment, t_sensors_dialog *dialog);
 
 /**
  * Notification that another sensor has been selected.
@@ -235,11 +234,11 @@ EXTERN void
 /**
  * Notification that the termperature unit has changed, i.e, between Fahrenheit
  * and Celsius
- * @param widget: Pointer to original widget, i.e, the update timer box
+ * @param widget: Pointer to the toggled button
  * @param dialog: argument pointer to sensors dialog data
  */
 EXTERN void
-(*temperature_unit_change) (GtkWidget *widget, t_sensors_dialog *dialog);
+(*temperature_unit_change) (GtkToggleButton *widget, t_sensors_dialog *dialog);
 
 
 /* Internal functions */

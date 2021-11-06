@@ -90,7 +90,9 @@ add_notebook (GtkWidget *box, t_sensors_dialog *dialog)
     add_tachos_box (scrolled_window, dialog);
 
     GtkWidget *font_button = gtk_font_button_new_with_font(default_font);
-    g_signal_connect (G_OBJECT(font_button), "font-set", G_CALLBACK(on_font_set), dialog);
+    xfce4::connect_font_set (GTK_FONT_BUTTON (font_button), [dialog](GtkFontButton *button) {
+        on_font_set (button, dialog);
+    });
     gtk_widget_show (font_button);
     gtk_box_pack_end (GTK_BOX(child_vbox), font_button, FALSE, FALSE, 0);
 
@@ -137,7 +139,10 @@ create_main_window (t_sensors_dialog *dialog)
 
     gtk_window_set_default_size (GTK_WINDOW(xfce_dialog), dialog->sensors->preferred_width, dialog->sensors->preferred_height);
 
-    g_signal_connect (G_OBJECT(xfce_dialog), "response", G_CALLBACK(on_main_window_response), dialog); // also captures the dialog-destroy event and the closekeybinding-pressed event
+    // also captures the dialog-destroy event and the closekeybinding-pressed event
+    xfce4::connect_response (GTK_DIALOG (xfce_dialog), [](GtkDialog*, gint response) {
+        gtk_main_quit ();
+    });
 
     gtk_widget_show (xfce_dialog);
 

@@ -605,9 +605,8 @@ count_number_checked_sensor_features (const t_sensors *sensors)
 
 
 static void
-draw_text_area (GtkWidget *widget, cairo_t *cr, gpointer data)
+draw_text_area (GtkWidget *widget, cairo_t *cr, t_sensors *sensors)
 {
-    const auto sensors = (t_sensors*) data;
     GtkAllocation alloc;
     GdkRGBA color;
     PangoLayout *layout;
@@ -903,7 +902,10 @@ create_panel_widget (t_sensors *sensors)
     gtk_widget_set_halign (sensors->text.draw_area, GTK_ALIGN_CENTER);
     gtk_widget_set_valign (sensors->text.draw_area, GTK_ALIGN_CENTER);
     gtk_widget_set_size_request (sensors->text.draw_area, 1, 1);
-    g_signal_connect (sensors->text.draw_area, "draw", G_CALLBACK (draw_text_area), sensors);
+    xfce4::connect_draw (sensors->text.draw_area, [sensors](GtkWidget *w, cairo_t *cr) {
+        draw_text_area (w, cr, sensors);
+        return xfce4::PROPAGATE;
+    });
     gtk_widget_show (sensors->text.draw_area);
 
     /* add newly created label to box */
@@ -957,30 +959,23 @@ sensors_set_mode (XfcePanelPlugin *plugin, XfcePanelPluginMode plugin_mode, t_se
 
 /* -------------------------------------------------------------------------- */
 /* double-click improvement */
-static gboolean
-execute_command (GtkWidget *widget, GdkEventButton *event, gpointer data)
+static xfce4::Propagation
+execute_command (GdkEventButton *event, t_sensors *sensors)
 {
-    g_return_val_if_fail (data != NULL, FALSE);
-
-    if (event->type == GDK_2BUTTON_PRESS) {
-        auto sensors = (t_sensors*) data;
-
-        g_return_val_if_fail (sensors->exec_command, FALSE);
-
+    if (event->type == GDK_2BUTTON_PRESS && sensors && sensors->exec_command) {
         // screen NULL, command, terminal=no, startup=yes, error=NULL
         xfce_spawn_command_line_on_screen (NULL, sensors->command_name.c_str(), FALSE, TRUE, NULL);
-
-        return TRUE;
+        return xfce4::STOP;
     }
     else {
-        return FALSE; // with FALSE, the event will not have been accepted by the handler and will be propagated further
+        return xfce4::PROPAGATE;
     }
 }
 
 
 /* -------------------------------------------------------------------------- */
 static void
-sensors_free (XfcePanelPlugin *plugin, t_sensors *sensors)
+sensors_free (t_sensors *sensors)
 {
     g_return_if_fail (sensors != NULL);
 
@@ -998,8 +993,8 @@ sensors_free (XfcePanelPlugin *plugin, t_sensors *sensors)
 
 
 /* -------------------------------------------------------------------------- */
-static gboolean
-sensors_set_size (XfcePanelPlugin *plugin, int size, t_sensors *sensors)
+static xfce4::PluginSize
+sensors_set_size (XfcePanelPlugin *plugin, guint size, t_sensors *sensors)
 {
     sensors->panel_size = size;
 
@@ -1010,20 +1005,21 @@ sensors_set_size (XfcePanelPlugin *plugin, int size, t_sensors *sensors)
         xfce_panel_plugin_set_small(plugin, TRUE);
 
     sensors_update_panel (sensors, true);
-    return TRUE;
+
+    return xfce4::RECTANGLE;
 }
 
 
 /* -------------------------------------------------------------------------- */
 static void
-show_title_toggled (GtkWidget *widget, t_sensors_dialog *dialog)
+show_title_toggled (GtkToggleButton *button, t_sensors_dialog *dialog)
 {
     if (dialog->sensors->display_values_type == DISPLAY_BARS)
         sensors_remove_bars_panel (dialog->sensors);
     else if (dialog->sensors->display_values_type == DISPLAY_TACHO)
         sensors_remove_tacho_panel (dialog->sensors);
 
-    dialog->sensors->show_title = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
+    dialog->sensors->show_title = gtk_toggle_button_get_active (button);
 
     sensors_update_panel (dialog->sensors, true);
 }
@@ -1031,14 +1027,14 @@ show_title_toggled (GtkWidget *widget, t_sensors_dialog *dialog)
 
 /* -------------------------------------------------------------------------- */
 static void
-show_labels_toggled (GtkWidget *widget, t_sensors_dialog *dialog)
+show_labels_toggled (GtkToggleButton *button, t_sensors_dialog *dialog)
 {
     if (dialog->sensors->display_values_type == DISPLAY_BARS)
         sensors_remove_bars_panel (dialog->sensors);
     else if (dialog->sensors->display_values_type == DISPLAY_TACHO)
         sensors_remove_tacho_panel (dialog->sensors);
 
-    dialog->sensors->show_labels = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
+    dialog->sensors->show_labels = gtk_toggle_button_get_active (button);
 
     sensors_update_panel (dialog->sensors, true);
 }
@@ -1046,12 +1042,12 @@ show_labels_toggled (GtkWidget *widget, t_sensors_dialog *dialog)
 
 /* -------------------------------------------------------------------------- */
 static void
-auto_bar_colors_toggled (GtkWidget *widget, t_sensors_dialog *dialog)
+auto_bar_colors_toggled (GtkToggleButton *button, t_sensors_dialog *dialog)
 {
     if (dialog->sensors->display_values_type == DISPLAY_BARS)
         sensors_remove_bars_panel (dialog->sensors);
 
-    dialog->sensors->automatic_bar_colors = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
+    dialog->sensors->automatic_bar_colors = gtk_toggle_button_get_active (button);
 
     sensors_update_panel (dialog->sensors, true);
 }
@@ -1059,9 +1055,9 @@ auto_bar_colors_toggled (GtkWidget *widget, t_sensors_dialog *dialog)
 
 /* -------------------------------------------------------------------------- */
 static void
-display_style_changed_text (GtkWidget *widget, t_sensors_dialog *dialog)
+display_style_changed_text (GtkToggleButton *button, t_sensors_dialog *dialog)
 {
-    if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
+    if (!gtk_toggle_button_get_active (button))
         return;
 
     if (dialog->sensors->display_values_type == DISPLAY_BARS)
@@ -1086,15 +1082,13 @@ display_style_changed_text (GtkWidget *widget, t_sensors_dialog *dialog)
 
 /* -------------------------------------------------------------------------- */
 static void
-display_style_changed_bars (GtkWidget *widget, t_sensors_dialog *dialog)
+display_style_changed_bars (GtkToggleButton *button, t_sensors_dialog *dialog)
 {
-    t_sensors *const sensors = dialog->sensors;
-
-    if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
+    if (!gtk_toggle_button_get_active (button))
         return;
 
-    if (sensors->display_values_type == DISPLAY_TACHO)
-        sensors_remove_tacho_panel (sensors);
+    if (dialog->sensors->display_values_type == DISPLAY_TACHO)
+        sensors_remove_tacho_panel (dialog->sensors);
 
     gtk_widget_show (dialog->coloredBars_Box);
     gtk_widget_hide (dialog->fontSettings_Box);
@@ -1105,28 +1099,28 @@ display_style_changed_bars (GtkWidget *widget, t_sensors_dialog *dialog)
     gtk_widget_hide (dialog->colorvalue_slider_box);
     gtk_widget_hide (dialog->alpha_slider_box);
 
-    sensors->display_values_type = DISPLAY_BARS;
+    dialog->sensors->display_values_type = DISPLAY_BARS;
 
-    sensors_update_panel (sensors, true);
+    sensors_update_panel (dialog->sensors, true);
 }
 
 
 /* -------------------------------------------------------------------------- */
 static void
-suppresstooltip_changed (GtkWidget *widget, t_sensors_dialog* dialog)
+suppresstooltip_changed (t_sensors *sensors)
 {
-    dialog->sensors->suppresstooltip = !dialog->sensors->suppresstooltip;
-    gtk_widget_set_has_tooltip(dialog->sensors->eventbox, !dialog->sensors->suppresstooltip);
-    if (!dialog->sensors->suppresstooltip)
-        sensors_create_tooltip (dialog->sensors);
+    sensors->suppresstooltip = !sensors->suppresstooltip;
+    gtk_widget_set_has_tooltip(sensors->eventbox, !sensors->suppresstooltip);
+    if (!sensors->suppresstooltip)
+        sensors_create_tooltip (sensors);
 }
 
 
 /* -------------------------------------------------------------------------- */
 static void
-display_style_changed_tacho (GtkWidget *widget, t_sensors_dialog *dialog)
+display_style_changed_tacho (GtkToggleButton *button, t_sensors_dialog *dialog)
 {
-    if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
+    if (!gtk_toggle_button_get_active (button))
         return;
 
     if (dialog->sensors->display_values_type == DISPLAY_BARS)
@@ -1162,11 +1156,11 @@ sensor_entry_changed_ (GtkWidget *widget, t_sensors_dialog *dialog)
 
 /* -------------------------------------------------------------------------- */
 static void
-str_fontsize_change (GtkWidget *widget, t_sensors_dialog *dialog)
+str_fontsize_change (GtkComboBox *widget, t_sensors_dialog *dialog)
 {
     t_sensors *sensors = dialog->sensors;
 
-    switch (gtk_combo_box_get_active (GTK_COMBO_BOX (widget)))
+    switch (gtk_combo_box_get_active (widget))
     {
         case 0: sensors->str_fontsize = "x-small"; break;
         case 1: sensors->str_fontsize = "small"; break;
@@ -1186,21 +1180,20 @@ str_fontsize_change (GtkWidget *widget, t_sensors_dialog *dialog)
 
 /* -------------------------------------------------------------------------- */
 static void
-lines_size_change (GtkWidget *widget, t_sensors_dialog *dialog)
+lines_size_change (GtkSpinButton *button, t_sensors *sensors)
 {
-    t_sensors *sensors = dialog->sensors;
-    sensors->lines_size = (int) gtk_spin_button_get_value(GTK_SPIN_BUTTON(widget));
+    sensors->lines_size = (int) gtk_spin_button_get_value(button);
     sensors_update_panel (sensors, true);
 }
 
 
 /* -------------------------------------------------------------------------- */
 static void
-cover_rows_toggled(GtkWidget *widget, t_sensors_dialog *dialog)
+cover_rows_toggled(GtkToggleButton *button, t_sensors_dialog *dialog)
 {
     t_sensors *const sensors = dialog->sensors;
 
-    sensors->cover_panel_rows = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
+    sensors->cover_panel_rows = gtk_toggle_button_get_active (button);
 
     if (sensors->cover_panel_rows || xfce_panel_plugin_get_mode (sensors->plugin) == XFCE_PANEL_PLUGIN_MODE_DESKBAR)
         xfce_panel_plugin_set_small (sensors->plugin, FALSE);
@@ -1213,7 +1206,7 @@ cover_rows_toggled(GtkWidget *widget, t_sensors_dialog *dialog)
 
 /* -------------------------------------------------------------------------- */
 void
-temperature_unit_change_ (GtkWidget *widget, t_sensors_dialog *dialog)
+temperature_unit_change_ (GtkToggleButton*, t_sensors_dialog *dialog)
 {
     t_sensors *sensors = dialog->sensors;
     switch (sensors->scale)
@@ -1229,29 +1222,26 @@ temperature_unit_change_ (GtkWidget *widget, t_sensors_dialog *dialog)
     reload_listbox (dialog);
 }
 
-static gboolean
-sensors_show_panel_cb (gpointer user_data)
-{
-    auto sensors = (t_sensors*) user_data;
-    sensors_update_panel (sensors, false);
-    return TRUE;
-}
-
 /* -------------------------------------------------------------------------- */
 void
-adjustment_value_changed_ (GtkWidget *widget, t_sensors_dialog* dialog)
+adjustment_value_changed_ (GtkAdjustment *adjustment, t_sensors_dialog *dialog)
 {
     t_sensors *sensors = dialog->sensors;
-    sensors->sensors_refresh_time = (gint) gtk_adjustment_get_value (GTK_ADJUSTMENT (widget));
+
+    auto refresh_time = (gint) gtk_adjustment_get_value (adjustment);
+    sensors->sensors_refresh_time = refresh_time;
+
     remove_gsource (sensors->timeout_id);
-    sensors->timeout_id  = g_timeout_add (sensors->sensors_refresh_time * 1000, sensors_show_panel_cb, sensors);
+    sensors->timeout_id  = xfce4::timeout_add (refresh_time * 1000, [sensors]() {
+        sensors_update_panel (sensors, false);
+        return xfce4::TIMEOUT_AGAIN;
+    });
 }
 
 
 static void
-draw_units_changed (GtkWidget *widget, t_sensors_dialog* dialog)
+draw_units_changed (t_sensors *sensors)
 {
-    t_sensors *sensors = dialog->sensors;
     sensors->show_units = !sensors->show_units;
     sensors_update_panel (sensors, true);
 }
@@ -1259,9 +1249,8 @@ draw_units_changed (GtkWidget *widget, t_sensors_dialog* dialog)
 
 /* -------------------------------------------------------------------------- */
 static void
-draw_smallspacings_changed (GtkWidget *widget, t_sensors_dialog *dialog)
+draw_smallspacings_changed (t_sensors *sensors)
 {
-    t_sensors *sensors = dialog->sensors;
     sensors->show_smallspacings = !sensors->show_smallspacings;
     sensors_update_panel (sensors, true);
 }
@@ -1269,9 +1258,8 @@ draw_smallspacings_changed (GtkWidget *widget, t_sensors_dialog *dialog)
 
 /* -------------------------------------------------------------------------- */
 static void
-suppressmessage_changed (GtkWidget *widget, t_sensors_dialog *dialog)
+suppressmessage_changed (t_sensors *sensors)
 {
-    t_sensors *sensors = dialog->sensors;
     sensors->suppressmessage = !sensors->suppressmessage;
     sensors_update_panel (sensors, true);
 }
@@ -1280,11 +1268,9 @@ suppressmessage_changed (GtkWidget *widget, t_sensors_dialog *dialog)
 /* -------------------------------------------------------------------------- */
 /* double-click improvement */
 static void
-execCommand_toggled (GtkWidget *widget, t_sensors_dialog *dialog)
+execCommand_toggled (GtkToggleButton *button, t_sensors *sensors)
 {
-    t_sensors *const sensors = dialog->sensors;
-
-    sensors->exec_command = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
+    sensors->exec_command = gtk_toggle_button_get_active (button);
 
     if (sensors->exec_command )
         g_signal_handler_unblock (sensors->eventbox, sensors->doubleclick_id);
@@ -1517,10 +1503,8 @@ list_cell_toggle_ (GtkCellRendererToggle *cell, gchar *path_str,  t_sensors_dial
 
 /* -------------------------------------------------------------------------- */
 static void
-on_font_set (GtkWidget *widget, gpointer data)
+on_font_set (GtkFontButton *widget, t_sensors *sensors)
 {
-    auto sensors = (t_sensors*) data;
-
     gchar *new_font = gtk_font_chooser_get_font(GTK_FONT_CHOOSER(widget));
     if (new_font)
     {
@@ -1537,30 +1521,24 @@ on_font_set (GtkWidget *widget, gpointer data)
 
 
 /* -------------------------------------------------------------------------- */
-static void
-tachos_colorvalue_changed_ (GtkWidget *widget, GtkScrollType type, gdouble value, t_sensors_dialog *dialog)
+static xfce4::Propagation
+tachos_colorvalue_changed_ (gdouble value, t_sensors *sensors)
 {
-    t_sensors *sensors = dialog->sensors;
     g_assert (sensors!=NULL);
-
-    sensors->val_tachos_color = val_colorvalue = value; //gtk_scale_button_get_value(GTK_SCALE_BUTTON(widget));
-    DBG("new color value is %f.", val_colorvalue);
-
+    sensors->val_tachos_color = val_colorvalue = value; // TODO: gtk_scale_button_get_value(GTK_SCALE_BUTTON(widget));
     sensors_update_panel (sensors, true);
+    return xfce4::PROPAGATE;
 }
 
 
 /* -------------------------------------------------------------------------- */
-static void
-tachos_alpha_changed_ (GtkWidget *widget, GtkScrollType type, gdouble value, t_sensors_dialog *dialog)
+static xfce4::Propagation
+tachos_alpha_changed_ (gdouble value, t_sensors *sensors)
 {
-    t_sensors *sensors = dialog->sensors;
-    g_assert (sensors!=NULL);
-
-    sensors->val_tachos_alpha = val_alpha = value; //gtk_scale_button_get_value(GTK_SCALE_BUTTON(widget));
-    DBG("new alpha value is %f.", val_alpha);
-
+    g_assert (sensors != NULL);
+    sensors->val_tachos_alpha = val_alpha = value; // TODO: gtk_scale_button_get_value(GTK_SCALE_BUTTON(widget));
     sensors_update_panel (sensors, true);
+    return xfce4::PROPAGATE;
 }
 
 
@@ -1592,9 +1570,15 @@ add_ui_style_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 
     gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, TRUE, 0);
 
-    g_signal_connect (G_OBJECT (radioText), "toggled", G_CALLBACK (display_style_changed_text), dialog);
-    g_signal_connect (G_OBJECT (radioBars), "toggled", G_CALLBACK (display_style_changed_bars), dialog);
-    g_signal_connect (G_OBJECT (radioTachos), "toggled", G_CALLBACK (display_style_changed_tacho), dialog);
+    xfce4::connect_toggled (GTK_TOGGLE_BUTTON (radioText), [dialog](GtkToggleButton *button) {
+        display_style_changed_text (button, dialog);
+    });
+    xfce4::connect_toggled (GTK_TOGGLE_BUTTON (radioBars), [dialog](GtkToggleButton *button) {
+        display_style_changed_bars (button, dialog);
+    });
+    xfce4::connect_toggled (GTK_TOGGLE_BUTTON (radioTachos), [dialog](GtkToggleButton *button) {
+        display_style_changed_tacho (button, dialog);
+    });
 }
 
 
@@ -1613,7 +1597,9 @@ add_labels_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     gtk_box_pack_start (GTK_BOX (hbox), checkButton, FALSE, FALSE, 0);
     gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, TRUE, 0);
 
-    g_signal_connect (G_OBJECT (checkButton), "toggled",  G_CALLBACK (show_labels_toggled), dialog);
+    xfce4::connect_toggled (GTK_TOGGLE_BUTTON (checkButton), [dialog](GtkToggleButton *button) {
+        show_labels_toggled (button, dialog);
+    });
 }
 
 
@@ -1642,7 +1628,9 @@ add_auto_bar_colors_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     if (dialog->sensors->display_values_type != DISPLAY_BARS)
         gtk_widget_hide(dialog->coloredBars_Box);
 
-    g_signal_connect (G_OBJECT (checkButton), "toggled", G_CALLBACK (auto_bar_colors_toggled), dialog);
+    xfce4::connect_toggled (GTK_TOGGLE_BUTTON (checkButton), [dialog](GtkToggleButton *button) {
+        auto_bar_colors_toggled (button, dialog);
+    });
 }
 
 
@@ -1660,7 +1648,9 @@ add_title_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     gtk_box_pack_start (GTK_BOX (hbox), checkButton, FALSE, FALSE, 0);
     gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, TRUE, 0);
 
-    g_signal_connect (G_OBJECT (checkButton), "toggled", G_CALLBACK (show_title_toggled), dialog);
+    xfce4::connect_toggled (GTK_TOGGLE_BUTTON (checkButton), [dialog](GtkToggleButton *button) {
+        show_title_toggled (button, dialog);
+    });
 }
 
 
@@ -1685,7 +1675,9 @@ add_lines_box (GtkWidget *vbox, t_sensors_dialog * dialog)
     if (dialog->sensors->display_values_type != DISPLAY_TEXT)
         gtk_widget_hide(dialog->Lines_Box);
 
-    g_signal_connect (G_OBJECT (myLinesSizeSpinButton), "value-changed", G_CALLBACK (lines_size_change), dialog);
+    xfce4::connect_value_changed (GTK_SPIN_BUTTON (myLinesSizeSpinButton), [dialog](GtkSpinButton *button) {
+        lines_size_change (button, dialog->sensors);
+    });
 }
 
 
@@ -1705,7 +1697,9 @@ add_cover_rows_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 
         gtk_widget_show (myCheckBox);
 
-        g_signal_connect (G_OBJECT (myCheckBox), "toggled", G_CALLBACK (cover_rows_toggled), dialog);
+        xfce4::connect_toggled (GTK_TOGGLE_BUTTON (myCheckBox), [dialog](GtkToggleButton *button) {
+            cover_rows_toggled (button, dialog);
+        });
     }
 }
 
@@ -1736,7 +1730,9 @@ add_str_fontsize_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     if (dialog->sensors->display_values_type != DISPLAY_TEXT)
         gtk_widget_hide(dialog->font_Box);
 
-    g_signal_connect (G_OBJECT (myFontSizeComboBox), "changed", G_CALLBACK (str_fontsize_change), dialog);
+    xfce4::connect_changed (GTK_COMBO_BOX (myFontSizeComboBox), [dialog](GtkComboBox *widget) {
+        str_fontsize_change (widget, dialog);
+    });
 }
 
 
@@ -1760,7 +1756,9 @@ add_font_settings_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     if (dialog->sensors->display_values_type != DISPLAY_TACHO)
         gtk_widget_hide(dialog->fontSettings_Box);
 
-    g_signal_connect (G_OBJECT(myFontSettingsButton), "font-set", G_CALLBACK(on_font_set), dialog->sensors);
+    xfce4::connect_font_set (GTK_FONT_BUTTON (myFontSettingsButton), [dialog](GtkFontButton *button) {
+        on_font_set (button, dialog->sensors);
+    });
 }
 
 
@@ -1778,7 +1776,9 @@ add_units_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     if (dialog->sensors->display_values_type!=DISPLAY_TEXT)
         gtk_widget_hide(dialog->unit_checkbox);
 
-    g_signal_connect (G_OBJECT (dialog->unit_checkbox), "toggled",  G_CALLBACK (draw_units_changed), dialog);
+    xfce4::connect_toggled (GTK_TOGGLE_BUTTON (dialog->unit_checkbox), [dialog](GtkToggleButton*) {
+        draw_units_changed (dialog->sensors);
+    });
 }
 
 
@@ -1796,7 +1796,9 @@ add_smallspacings_box (GtkWidget *vbox, t_sensors_dialog *dialog)
     if (dialog->sensors->display_values_type!=DISPLAY_TEXT)
         gtk_widget_hide(dialog->smallspacing_checkbox);
 
-    g_signal_connect (G_OBJECT (dialog->smallspacing_checkbox), "toggled", G_CALLBACK (draw_smallspacings_changed), dialog);
+    xfce4::connect_toggled (GTK_TOGGLE_BUTTON (dialog->smallspacing_checkbox), [dialog](GtkToggleButton*) {
+        draw_smallspacings_changed (dialog->sensors);
+    });
 }
 
 
@@ -1807,35 +1809,42 @@ add_tachos_appearance_boxes(GtkWidget *vbox, t_sensors_dialog *dialog)
     GtkWidget *widget_hscale;
     GtkWidget *widget_label;
 
-    dialog->alpha_slider_box = gtk_hbox_new (INNER_BORDER);
+    GtkSizeGroup *sg = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
+
     // Alpha value of the tacho coloring
+    dialog->alpha_slider_box = gtk_hbox_new (INNER_BORDER);
     widget_label = gtk_label_new(_("Tacho color alpha value:"));
-    gtk_widget_show (widget_label);
+    gtk_size_group_add_widget (sg, widget_label);
+    gtk_label_set_xalign (GTK_LABEL (widget_label), 0.0);
     gtk_box_pack_start (GTK_BOX (dialog->alpha_slider_box), widget_label, FALSE, TRUE, 0);
     widget_hscale = gtk_scale_new_with_range(GTK_ORIENTATION_HORIZONTAL, 0.0, 1.0, 0.01);
     gtk_range_set_value(GTK_RANGE(widget_hscale), dialog->sensors->val_tachos_alpha);
-    gtk_widget_show (widget_hscale);
-    g_signal_connect (G_OBJECT (widget_hscale), "change-value", G_CALLBACK (tachos_alpha_changed_), dialog);
+    gtk_scale_set_value_pos(GTK_SCALE(widget_hscale), GTK_POS_RIGHT);
+    xfce4::connect_change_value (GTK_RANGE (widget_hscale), [dialog](GtkRange*, GtkScrollType*, double value) {
+        return tachos_alpha_changed_ (value, dialog->sensors);
+    });
     gtk_box_pack_start (GTK_BOX (dialog->alpha_slider_box), widget_hscale, TRUE, TRUE, 0);
-    gtk_widget_show (dialog->alpha_slider_box);
+    gtk_widget_show_all (dialog->alpha_slider_box);
 
-
-    dialog->colorvalue_slider_box = gtk_hbox_new (INNER_BORDER);
     // The value from HSV color model
+    dialog->colorvalue_slider_box = gtk_hbox_new (INNER_BORDER);
     widget_label = gtk_label_new(_("Tacho color value:"));
-    gtk_widget_show (widget_label);
+    gtk_size_group_add_widget (sg, widget_label);
+    gtk_label_set_xalign (GTK_LABEL (widget_label), 0.0);
     gtk_box_pack_start (GTK_BOX (dialog->colorvalue_slider_box), widget_label, FALSE, TRUE, 0);
     widget_hscale = gtk_scale_new_with_range(GTK_ORIENTATION_HORIZONTAL, 0.0, 1.0, 0.01);
     gtk_range_set_value(GTK_RANGE(widget_hscale), dialog->sensors->val_tachos_color);
-    gtk_widget_show (widget_hscale);
-    g_signal_connect (G_OBJECT (widget_hscale), "change-value", G_CALLBACK (tachos_colorvalue_changed_), dialog);
+    gtk_scale_set_value_pos(GTK_SCALE(widget_hscale), GTK_POS_RIGHT);
+    xfce4::connect_change_value (GTK_RANGE (widget_hscale), [dialog](GtkRange*, GtkScrollType*, double value) {
+        return tachos_colorvalue_changed_ (value, dialog->sensors);
+    });
     gtk_box_pack_start (GTK_BOX (dialog->colorvalue_slider_box), widget_hscale, TRUE, TRUE, 0);
-    gtk_widget_show (dialog->colorvalue_slider_box);
+    gtk_widget_show_all (dialog->colorvalue_slider_box);
 
     gtk_box_pack_start (GTK_BOX (vbox), dialog->alpha_slider_box, FALSE, TRUE, 0);
     gtk_box_pack_start (GTK_BOX (vbox), dialog->colorvalue_slider_box, FALSE, TRUE, 0);
 
-    if (dialog->sensors->display_values_type!=DISPLAY_TACHO)
+    if (dialog->sensors->display_values_type != DISPLAY_TACHO)
     {
         gtk_widget_hide(dialog->alpha_slider_box);
         gtk_widget_hide(dialog->colorvalue_slider_box);
@@ -1854,7 +1863,9 @@ add_suppressmessage_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 
     gtk_box_pack_start (GTK_BOX (vbox), dialog->suppressmessage_checkbox, FALSE, TRUE, 0);
 
-    g_signal_connect (G_OBJECT (dialog->suppressmessage_checkbox), "toggled", G_CALLBACK (suppressmessage_changed), dialog);
+    xfce4::connect_toggled (GTK_TOGGLE_BUTTON (dialog->suppressmessage_checkbox), [dialog](GtkToggleButton*) {
+        suppressmessage_changed (dialog->sensors);
+    });
 }
 
 
@@ -1869,7 +1880,9 @@ add_suppresstooltips_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 
     gtk_box_pack_start (GTK_BOX (vbox), dialog->suppresstooltip_checkbox, FALSE, TRUE, 0);
 
-    g_signal_connect (G_OBJECT (dialog->suppresstooltip_checkbox), "toggled", G_CALLBACK (suppresstooltip_changed), dialog);
+    xfce4::connect_toggled (GTK_TOGGLE_BUTTON (dialog->suppresstooltip_checkbox), [dialog](GtkToggleButton*) {
+        suppresstooltip_changed (dialog->sensors);
+    });
 }
 
 
@@ -1894,7 +1907,9 @@ add_command_box (GtkWidget *vbox,  t_sensors_dialog *dialog)
 
     gtk_widget_show_all (myBox);
 
-    g_signal_connect (G_OBJECT (dialog->myExecCommand_CheckBox), "toggled", G_CALLBACK (execCommand_toggled), dialog);
+    xfce4::connect_toggled (GTK_TOGGLE_BUTTON (dialog->myExecCommand_CheckBox), [dialog](GtkToggleButton *button) {
+        execCommand_toggled (button, dialog->sensors);
+    });
 }
 
 
@@ -1961,9 +1976,9 @@ add_miscellaneous_frame (GtkWidget *notebook, t_sensors_dialog *dialog)
 
 /* -------------------------------------------------------------------------- */
 static void
-on_optionsDialog_response (GtkWidget *dlg, int response, t_sensors_dialog *sd)
+on_optionsDialog_response (GtkDialog *dlg, gint response, t_sensors_dialog *sd)
 {
-    if (response==GTK_RESPONSE_OK || response==GTK_RESPONSE_DELETE_EVENT) {
+    if (response == GTK_RESPONSE_OK || response == GTK_RESPONSE_DELETE_EVENT) {
         /* FIXME: save most of the content in this function,
            remove those toggle functions where possible. NYI */
         /* sensors_apply_options (sd); */
@@ -2042,7 +2057,9 @@ sensors_create_options (XfcePanelPlugin *plugin, t_sensors *sensors)
 
     gtk_window_set_default_size (GTK_WINDOW(dlg), sensors->preferred_width, sensors->preferred_height);
 
-    g_signal_connect (dlg, "response", G_CALLBACK(on_optionsDialog_response), sd);
+    xfce4::connect_response (GTK_DIALOG (dlg), [sd](GtkDialog *d, gint response) {
+        on_optionsDialog_response (d, response, sd);
+    });
 
     gtk_widget_show (dlg);
 }
@@ -2061,10 +2078,9 @@ add_event_box (t_sensors *sensors)
     gtk_widget_set_name (sensors->eventbox, "xfce_sensors");
 
     /* double-click improvement */
-    sensors->doubleclick_id = g_signal_connect (G_OBJECT(sensors->eventbox),
-                                                "button-press-event",
-                                                G_CALLBACK (execute_command),
-                                                (gpointer) sensors);
+    xfce4::connect_button_press (sensors->eventbox, [sensors](GtkWidget*, GdkEventButton *event) {
+        return execute_command (event, sensors);
+    });
 }
 
 
@@ -2096,7 +2112,7 @@ create_sensors_control (XfcePanelPlugin *plugin)
 
 
 static void
-sensors_show_about(XfcePanelPlugin *plugin, t_sensors *sensors)
+sensors_show_about (XfcePanelPlugin *plugin)
 {
    /* List of authors (in alphabetical order) */
    const gchar *auth[] = {
@@ -2163,9 +2179,14 @@ sensors_plugin_construct (XfcePanelPlugin *plugin)
        Do also modify the tooltip text. */
     sensors_update_panel (sensors, true);
 
-    sensors->timeout_id = g_timeout_add (sensors->sensors_refresh_time * 1000, sensors_show_panel_cb, sensors);
+    sensors->timeout_id = xfce4::timeout_add (sensors->sensors_refresh_time * 1000, [sensors]() {
+        sensors_update_panel (sensors, false);
+        return xfce4::TIMEOUT_AGAIN;
+    });
 
-    g_signal_connect (plugin, "free-data", G_CALLBACK (sensors_free), sensors);
+    xfce4::connect_free_data (plugin, [sensors](XfcePanelPlugin*) {
+        sensors_free (sensors);
+    });
 
     gchar *save_location = xfce_panel_plugin_save_location (plugin, TRUE);
     sensors->plugin_config_file = save_location;
@@ -2173,18 +2194,26 @@ sensors_plugin_construct (XfcePanelPlugin *plugin)
     save_location = NULL;
 
     /* saving seems to cause problems when closing the panel on fast multi-core CPUs; writing when closing the config dialog should suffice */
-    /*g_signal_connect (plugin, "save", G_CALLBACK (sensors_write_config), sensors);*/
+    if (false)
+    {
+        xfce4::connect_save (plugin, [sensors](XfcePanelPlugin *p) {
+            sensors_write_config (p, sensors);
+        });
+    }
 
     xfce_panel_plugin_menu_show_configure (plugin);
 
-    g_signal_connect (plugin, "configure-plugin", G_CALLBACK (sensors_create_options), sensors);
-
     xfce_panel_plugin_menu_show_about(plugin);
-    g_signal_connect (plugin, "about", G_CALLBACK (sensors_show_about), sensors);
-
-    g_signal_connect (plugin, "size-changed", G_CALLBACK (sensors_set_size), sensors);
-
-    g_signal_connect (plugin, "mode-changed", G_CALLBACK (sensors_set_mode), sensors);
+    xfce4::connect_about (plugin, sensors_show_about);
+    xfce4::connect_configure_plugin (plugin, [sensors](XfcePanelPlugin *p) {
+        sensors_create_options (p, sensors);
+    });
+    xfce4::connect_mode_changed (plugin, [sensors](XfcePanelPlugin *p, XfcePanelPluginMode mode) {
+        sensors_set_mode (p, mode, sensors);
+    });
+    xfce4::connect_size_changed (plugin, [sensors](XfcePanelPlugin *p, guint size) {
+        return sensors_set_size (p, size, sensors);
+    });
 
     gtk_container_add (GTK_CONTAINER(plugin), sensors->eventbox);
 

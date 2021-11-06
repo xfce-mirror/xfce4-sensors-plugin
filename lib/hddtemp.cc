@@ -127,8 +127,9 @@ quick_message_dialog (const gchar *message)
                                      GTK_BUTTONS_CLOSE,
                                      message, NULL);
 
-    g_signal_connect_swapped (dialog, "response",
-                              G_CALLBACK (gtk_widget_destroy), dialog);
+    xfce4::connect_response (GTK_DIALOG (dialog), [](GtkDialog *d, gint response) {
+        gtk_widget_destroy (GTK_WIDGET (d));
+    });
 
     // gtk_dialog_run(GTK_DIALOG(dialog));
     gtk_widget_show_all(dialog);
