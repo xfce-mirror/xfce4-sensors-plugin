@@ -69,49 +69,55 @@ fill_gtkTreeStore (GtkTreeStore *treestore, const Ptr<t_chip> &chip, t_tempscale
 {
     for (auto feature : chip->chip_features)
     {
-        if (feature->valid) {
-            double feature_value;
+        if (feature->valid)
+        {
             bool *suppressnotifications = &dialog->sensors->suppressmessage;
-            int result = sensor_get_value (chip, feature->address, &feature_value, suppressnotifications);
-            if (result != 0 && !*suppressnotifications) {
-                const gchar *summary = _("Sensors Plugin Failure");
-                const gchar *body = _("Seems like there was a problem reading a sensor "
-                                      "feature value.\nProper proceeding cannot be "
-                                      "guaranteed.");
+            Optional<double> feature_value = sensor_get_value (chip, feature->address, suppressnotifications);
+            if (feature_value.has_value())
+            {
+                feature->formatted_value = format_sensor_value (tempscale, feature, feature_value.value());
 
-#ifdef HAVE_LIBNOTIFY
-                if (!notify_is_initted())
-                    notify_init(PACKAGE); /* NOTIFY_APPNAME */
+                float minval, maxval;
+                produce_min_max_values (feature, tempscale, &minval, &maxval);
 
-                const gchar *iconpath = "xfce-sensors";
-                NotifyNotification *notification = notify_notification_new (summary, body, iconpath);
-                GError *error = NULL;
-                notify_notification_show(notification, &error);
-#else
-                g_warning ("%s\n%s", summary, body);
-#endif
+                feature->raw_value = feature_value.value();
 
-                /* FIXME: Better popup a window or DBG message or quit plugin. */
+                GtkTreeIter iter_list_store;
+                gtk_tree_store_append (treestore, &iter_list_store, NULL);
+                gtk_tree_store_set (treestore, &iter_list_store,
+                                    eTreeColumn_Name, feature->name.c_str(),
+                                    eTreeColumn_Value, feature->formatted_value.c_str(),
+                                    eTreeColumn_Show, feature->show,
+                                    eTreeColumn_Color, !feature->color_orEmpty.empty() ? feature->color_orEmpty.c_str() : "",
+                                    eTreeColumn_Min, minval,
+                                    eTreeColumn_Max, maxval,
+                                    -1);
+            }
+            else
+            {
+                if (!*suppressnotifications)
+                {
+                    const gchar *summary = _("Sensors Plugin Failure");
+                    const gchar *body = _("Seems like there was a problem reading a sensor "
+                                          "feature value.\nProper proceeding cannot be "
+                                          "guaranteed.");
+
+    #ifdef HAVE_LIBNOTIFY
+                    if (!notify_is_initted())
+                        notify_init(PACKAGE); /* NOTIFY_APPNAME */
+
+                    const gchar *iconpath = "xfce-sensors";
+                    NotifyNotification *notification = notify_notification_new (summary, body, iconpath);
+                    GError *error = NULL;
+                    notify_notification_show(notification, &error);
+    #else
+                    g_warning ("%s\n%s", summary, body);
+    #endif
+
+                    /* FIXME: Better popup a window or DBG message or quit plugin. */
+                }
                 break;
             }
-
-            feature->formatted_value = format_sensor_value (tempscale, feature, feature_value);
-
-            float minval, maxval;
-            produce_min_max_values (feature, tempscale, &minval, &maxval);
-
-            feature->raw_value = feature_value;
-
-            GtkTreeIter iter_list_store;
-            gtk_tree_store_append (treestore, &iter_list_store, NULL);
-            gtk_tree_store_set (treestore, &iter_list_store,
-                                eTreeColumn_Name, feature->name.c_str(),
-                                eTreeColumn_Value, feature->formatted_value.c_str(),
-                                eTreeColumn_Show, feature->show,
-                                eTreeColumn_Color, !feature->color_orEmpty.empty() ? feature->color_orEmpty.c_str() : "",
-                                eTreeColumn_Min, minval,
-                                eTreeColumn_Max, maxval,
-                                -1);
         }
     }
 }

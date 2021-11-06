@@ -784,27 +784,26 @@ sensors_show_text_display (const t_sensors *sensors)
 static void
 sensors_update_values (t_sensors *sensors)
 {
-    for (auto chip : sensors->chips) {
-        for (auto feature : chip->chip_features) {
+    for (auto chip : sensors->chips)
+    {
+        for (auto feature : chip->chip_features)
+        {
             if (feature->valid && feature->show)
             {
-                double feature_value;
-                gint result;
-
-                result = sensor_get_value (chip, feature->address,
-                                           &feature_value,
-                                           &sensors->suppressmessage);
-
-                if (result != 0) {
+                Optional<double> feature_value = sensor_get_value (chip, feature->address, &sensors->suppressmessage);
+                if (feature_value.has_value())
+                {
+                    feature->formatted_value = format_sensor_value (sensors->scale, feature, feature_value.value());
+                    feature->raw_value = feature_value.value();
+                }
+                else
+                {
                     /* output to stdout on command line, not very useful for user, except for tracing problems */
                     g_printf ( _("Sensors Plugin:\n"
                     "Seems like there was a problem reading a sensor feature "
                     "value.\nProper proceeding cannot be guaranteed.\n") );
                     break;
                 }
-
-                feature->formatted_value = format_sensor_value (sensors->scale, feature, feature_value);
-                feature->raw_value = feature_value;
             }
         }
     }
