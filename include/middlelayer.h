@@ -35,9 +35,8 @@ int initialize_all (std::vector<Ptr<t_chip>> &out_chips, bool *out_suppressmessa
 
 /**
  * Refresh all features of a chip
- * @param data: pointer to t_sensors or NULL;
  */
-void refresh_chip (const Ptr<t_chip> &chip, t_sensors *data);
+void refresh_chip (const Ptr<t_chip> &chip, const Ptr<t_sensors> &data);
 
 
 /**
@@ -66,8 +65,7 @@ void cleanup_interfaces ();
 
 /**
  * Refreshes all chips at once.
- * @param sensors: pointer to sensors structure
  */
-void refresh_all_chips (const std::vector<Ptr<t_chip>> &chips, t_sensors *sensors);
+void refresh_all_chips (const std::vector<Ptr<t_chip>> &chips, const Ptr<t_sensors> &sensors);
 
 #endif /* XFCE4_SENSORS_MIDDLELAYER_H */

@@ -25,6 +25,7 @@
 #include <vector>
 #include "xfce4++/util.h"
 
+#include "sensors-interface-plugin.h"
 #include "types.h"
 
 #define HDDTEMP_DISK_SLEEPING       ZERO_KELVIN /* must be larger than the remaining ones */
@@ -42,10 +43,8 @@ int initialize_hddtemp (std::vector<Ptr<t_chip>> &chips, bool *suppress_message)
 
 /**
  * Refreshs a hddtemp chip's feature in sense of raw and formatted value
- *
- * @param sensors: Pointer to t_sensors or NULL
  */
-void refresh_hddtemp (const Ptr<t_chipfeature> &feature, gpointer sensors);
+void refresh_hddtemp (const Ptr<t_chipfeature> &feature, const Ptr<t_sensors> &sensors);
 
 
 /**

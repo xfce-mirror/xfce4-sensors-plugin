@@ -35,10 +35,6 @@
 #include "sensors-interface-types.h"
 #include "types.h"
 
-#define MAX_NUM_CHIPS 10
-#define MAX_NUM_FEATURES 256
-
-
 /**
  * Sensors module
  */
@@ -129,8 +125,7 @@ struct t_sensors {
     /* sensor relevant stuff */
 
     /** contains the progress bar panels */
-    /* FIXME:    Might be replaced by GPtrArray as well */
-    t_labelledlevelbar *panels[MAX_NUM_CHIPS][MAX_NUM_FEATURES];
+    std::map<Ptr<t_chipfeature>, Ptr<t_labelledlevelbar>> panels;
 
     /** CSS provider for main dialog */
     GtkCssProvider *css_provider;
@@ -161,6 +156,8 @@ struct t_sensors {
 
     /** desired alpha value for the tachometers */
     gfloat val_tachos_alpha;
+
+    ~t_sensors();
 };
 
 
@@ -172,13 +169,12 @@ struct t_sensors {
  * @param plugin_config_filename
  * @return pointer to newly allocated sensors object
  */
-t_sensors* sensors_new (XfcePanelPlugin *plugin, const char *plugin_config_filename_orNull);
+Ptr0<t_sensors> sensors_new (XfcePanelPlugin *plugin, const char *plugin_config_filename_orNull);
 
 /**
  * Initialize sensors structure with default values
- * @param sensors: pointer to sensors plugin data
  * @param plugin: Pointer to panel plugin data
  */
-void sensors_init_default_values (t_sensors *sensors, XfcePanelPlugin *plugin);
+void sensors_init_default_values (const Ptr<t_sensors> &sensors, XfcePanelPlugin *plugin);
 
 #endif /* XFCE4_SENSORS_INTERFACE_PLUGIN_H */

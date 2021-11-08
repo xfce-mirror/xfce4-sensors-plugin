@@ -40,7 +40,7 @@
 
 /* -------------------------------------------------------------------------- */
 void
-on_font_set (GtkFontButton *widget, t_sensors_dialog *dialog)
+on_font_set (GtkFontButton *widget, const Ptr<t_sensors_dialog> &dialog)
 {
     gchar *new_font = gtk_font_chooser_get_font (GTK_FONT_CHOOSER (widget));
     if (new_font)
@@ -58,7 +58,7 @@ on_font_set (GtkFontButton *widget, t_sensors_dialog *dialog)
 
 /* -------------------------------------------------------------------------- */
 void
-sensor_entry_changed_ (GtkWidget *combobox, t_sensors_dialog *dialog)
+sensor_entry_changed_ (GtkWidget *combobox, const Ptr<t_sensors_dialog> &dialog)
 {
     gint active_combobox = gtk_combo_box_get_active (GTK_COMBO_BOX(combobox));
 
@@ -81,7 +81,8 @@ sensor_entry_changed_ (GtkWidget *combobox, t_sensors_dialog *dialog)
  * @return index of chipfeature for ptr_str_cellpath
  */
 static gint
-set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *dialog, const gchar *cellpath, gint col_treeview, GValue *value, Ptr0<t_chipfeature> *out_feature)
+set_value_in_treemodel_and_return_index_and_feature(const Ptr<t_sensors_dialog> &dialog, const gchar *cellpath, gint col_treeview, GValue *value,
+                                                    Ptr0<t_chipfeature> *out_feature)
 {
     GtkTreeIter iter_treemodel;
 
@@ -109,7 +110,7 @@ set_value_in_treemodel_and_return_index_and_feature(t_sensors_dialog *dialog, co
 /* -------------------------------------------------------------------------- */
 void
 list_cell_text_edited_ (GtkCellRendererText *cell_renderer_text,
-                        gchar *cellpath, gchar *new_text, t_sensors_dialog *dialog)
+                        gchar *cellpath, gchar *new_text, const Ptr<t_sensors_dialog> &dialog)
 {
     Ptr0<t_chipfeature> feature;
     GValue text_string = G_VALUE_INIT;
@@ -117,7 +118,7 @@ list_cell_text_edited_ (GtkCellRendererText *cell_renderer_text,
     g_value_init(&text_string, G_TYPE_STRING);
     g_value_set_static_string(&text_string, new_text);
 
-    set_value_in_treemodel_and_return_index_and_feature(dialog, cellpath, eTreeColumn_Name, &text_string, &feature);
+    set_value_in_treemodel_and_return_index_and_feature (dialog, cellpath, eTreeColumn_Name, &text_string, &feature);
 
     feature->name = new_text;
 
@@ -134,7 +135,7 @@ list_cell_text_edited_ (GtkCellRendererText *cell_renderer_text,
 /* -------------------------------------------------------------------------- */
 void
 list_cell_toggle_ (GtkCellRendererToggle *cell_renderer_toggle, gchar *cellpath,
-                   t_sensors_dialog *dialog)
+                   const Ptr<t_sensors_dialog> &dialog)
 {
     GtkTreeIter tree_iter;
     gboolean toggle_item;
@@ -172,7 +173,7 @@ list_cell_toggle_ (GtkCellRendererToggle *cell_renderer_toggle, gchar *cellpath,
 /* -------------------------------------------------------------------------- */
 void
 list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, const gchar *cellpath,
-                         const gchar *new_color, t_sensors_dialog *dialog)
+                         const gchar *new_color, const Ptr<t_sensors_dialog> &dialog)
 {
     Ptr0<t_chipfeature> feature;
     GValue color_string = G_VALUE_INIT;
@@ -216,7 +217,7 @@ list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, const gchar *c
 /* -------------------------------------------------------------------------- */
 void
 minimum_changed_ (GtkCellRendererText *cell_renderer_text, gchar *cellpath,
-                  gchar *new_value, t_sensors_dialog *dialog)
+                  gchar *new_value, const Ptr<t_sensors_dialog> &dialog)
 {
     Ptr0<t_chipfeature> feature;
     GValue value_min = G_VALUE_INIT;
@@ -241,7 +242,7 @@ minimum_changed_ (GtkCellRendererText *cell_renderer_text, gchar *cellpath,
 /* -------------------------------------------------------------------------- */
 void
 maximum_changed_ (GtkCellRendererText *cell_renderer_text, gchar *cellpath,
-                  gchar *new_value, t_sensors_dialog *dialog)
+                  gchar *new_value, const Ptr<t_sensors_dialog> &dialog)
 {
     Ptr0<t_chipfeature> feature;
     GValue value_max = G_VALUE_INIT;
@@ -265,7 +266,7 @@ maximum_changed_ (GtkCellRendererText *cell_renderer_text, gchar *cellpath,
 
 /* -------------------------------------------------------------------------- */
 void
-adjustment_value_changed_ (GtkAdjustment *adjustment, t_sensors_dialog *dialog)
+adjustment_value_changed_ (GtkAdjustment *adjustment, const Ptr<t_sensors_dialog> &dialog)
 {
     auto refresh_time = (gint) gtk_adjustment_get_value (adjustment);
 
@@ -282,7 +283,7 @@ adjustment_value_changed_ (GtkAdjustment *adjustment, t_sensors_dialog *dialog)
 
 /* -------------------------------------------------------------------------- */
 void
-temperature_unit_change_ (GtkToggleButton*, t_sensors_dialog *dialog)
+temperature_unit_change_ (GtkToggleButton*, const Ptr<t_sensors_dialog> &dialog)
 {
     /* toggle celsius-fahrenheit */
     switch (dialog->sensors->scale)

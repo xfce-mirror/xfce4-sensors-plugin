@@ -41,11 +41,9 @@
 
 /* -------------------------------------------------------------------------- */
 gint
-get_Id_from_address (gint chip_number, gint addr_chipfeature, t_sensors *sensors)
+get_Id_from_address (gint chip_number, gint addr_chipfeature, const Ptr<t_sensors> &sensors)
 {
     gint result = -1;
-
-    g_return_val_if_fail (sensors != NULL, result);
 
     auto chip = sensors->chips[chip_number];
     for (size_t idx_feature = 0; idx_feature < chip->chip_features.size(); idx_feature++) {
@@ -63,10 +61,8 @@ get_Id_from_address (gint chip_number, gint addr_chipfeature, t_sensors *sensors
 
 /* -------------------------------------------------------------------------- */
 void
-sensors_write_config (XfcePanelPlugin *plugin, const t_sensors *sensors)
+sensors_write_config (XfcePanelPlugin *plugin, const Ptr<const t_sensors> &sensors)
 {
-    g_return_if_fail (sensors != NULL);
-
     const std::string &file = sensors->plugin_config_file;
     if (!file.empty())
     {
@@ -150,10 +146,9 @@ sensors_write_config (XfcePanelPlugin *plugin, const t_sensors *sensors)
 
 /* -------------------------------------------------------------------------- */
 void
-sensors_read_general_config (const Ptr0<xfce4::Rc> &rc, t_sensors *sensors)
+sensors_read_general_config (const Ptr0<xfce4::Rc> &rc, const Ptr<t_sensors> &sensors)
 {
     g_return_if_fail(rc != nullptr);
-    g_return_if_fail(sensors != NULL);
 
     if (rc->has_group ("General"))
     {
@@ -227,11 +222,10 @@ sensors_read_general_config (const Ptr0<xfce4::Rc> &rc, t_sensors *sensors)
 
 /* -------------------------------------------------------------------------- */
 void
-sensors_read_preliminary_config (XfcePanelPlugin *plugin, t_sensors *sensors)
+sensors_read_preliminary_config (XfcePanelPlugin *plugin, const Ptr<t_sensors> &sensors)
 {
     if (plugin)
     {
-        g_return_if_fail (sensors != NULL);
         if (!sensors->plugin_config_file.empty())
         {
             auto rc = xfce4::Rc::simple_open (sensors->plugin_config_file, TRUE);
@@ -253,10 +247,9 @@ sensors_read_preliminary_config (XfcePanelPlugin *plugin, t_sensors *sensors)
 //       This will require differently storing the stuff as well.
 //       Targeted for 1.4.x release
 void
-sensors_read_config (XfcePanelPlugin *plugin, t_sensors *sensors)
+sensors_read_config (XfcePanelPlugin *plugin, const Ptr<t_sensors> &sensors)
 {
     g_return_if_fail(plugin!=NULL);
-    g_return_if_fail(sensors!=NULL);
 
     if (sensors->plugin_config_file.empty())
         return;

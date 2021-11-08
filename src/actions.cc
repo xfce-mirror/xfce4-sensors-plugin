@@ -53,10 +53,9 @@
  * @param dialog: Pointer to sensors dialog structure
  */
 static void
-refresh_sensor_data (t_sensors_dialog *dialog)
+refresh_sensor_data (const Ptr<t_sensors_dialog> &dialog)
 {
-    t_sensors *sensors = dialog->sensors;
-
+    auto sensors = dialog->sensors;
     for (auto chip : sensors->chips)
     {
         for (auto feature : chip->chip_features)
@@ -70,11 +69,10 @@ refresh_sensor_data (t_sensors_dialog *dialog)
                     feature->raw_value = feature_value.value();
                 }
                 else {
-                    /* FIXME: either print nothing, or undertake appropriate action,
-                     * or pop up a message box. */
+                    /* FIXME: either print nothing, or undertake appropriate action, or pop up a message box. */
                     g_printf ( _("Sensors Viewer:\n"
-                    "Seems like there was a problem reading a sensor feature "
-                    "value.\nProper proceeding cannot be guaranteed.\n") );
+                                 "Seems like there was a problem reading a sensor feature "
+                                 "value.\nProper proceeding cannot be guaranteed.\n") );
                     break;
                 }
             }
@@ -89,11 +87,9 @@ refresh_sensor_data (t_sensors_dialog *dialog)
  * @param ptr_sensors_dialog_structure: pointer to sensors dialog structure
  */
 static void
-refresh_tacho_view (t_sensors_dialog *dialog)
+refresh_tacho_view (const Ptr<t_sensors_dialog> &dialog)
 {
-    g_return_if_fail (dialog != NULL);
-
-    t_sensors *sensors = dialog->sensors;
+    auto sensors = dialog->sensors;
 
     GtkWidget *wdgt_table = sensors->widget_sensors;
     g_assert (wdgt_table != NULL);
@@ -208,7 +204,7 @@ refresh_tacho_view (t_sensors_dialog *dialog)
 
 /* -------------------------------------------------------------------------- */
 void
-refresh_view (t_sensors_dialog *dialog)
+refresh_view (const Ptr<t_sensors_dialog> &dialog)
 {
     refresh_sensor_data (dialog);
     reload_listbox (dialog);

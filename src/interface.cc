@@ -47,7 +47,7 @@
 
 /* -------------------------------------------------------------------------- */
 static void
-add_tachos_box (GtkWidget *child_widget, t_sensors_dialog *dialog)
+add_tachos_box (GtkWidget *child_widget, const Ptr<t_sensors_dialog> &dialog)
 {
     GtkWidget *grid = gtk_grid_new();
     gtk_grid_set_row_spacing (GTK_GRID(grid), BORDER);
@@ -60,7 +60,7 @@ add_tachos_box (GtkWidget *child_widget, t_sensors_dialog *dialog)
 
 /* -------------------------------------------------------------------------- */
 static void
-add_notebook (GtkWidget *box, t_sensors_dialog *dialog)
+add_notebook (GtkWidget *box, const Ptr<t_sensors_dialog> &dialog)
 {
     GtkWidget *notebook = gtk_notebook_new();
     gtk_widget_show (notebook);
@@ -69,9 +69,9 @@ add_notebook (GtkWidget *box, t_sensors_dialog *dialog)
     gtk_container_set_border_width (GTK_CONTAINER (child_vbox), BORDER);
     gtk_widget_show (child_vbox);
 
-    add_type_box(child_vbox, dialog);
-    add_sensor_settings_box(child_vbox, dialog);
-    add_temperature_unit_box(child_vbox, dialog);
+    add_type_box (child_vbox, dialog);
+    add_sensor_settings_box (child_vbox, dialog);
+    add_temperature_unit_box (child_vbox, dialog);
     add_update_time_box (child_vbox, dialog);
 
     GtkWidget *tab_label = gtk_label_new_with_mnemonic(_("_Overview"));
@@ -106,7 +106,7 @@ add_notebook (GtkWidget *box, t_sensors_dialog *dialog)
 
 /* -------------------------------------------------------------------------- */
 GtkWidget *
-create_main_window (t_sensors_dialog *dialog)
+create_main_window (const Ptr<t_sensors_dialog> &dialog)
 {
     /* start and populate */
     GtkWidget *xfce_dialog = xfce_titled_dialog_new_with_buttons(

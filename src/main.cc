@@ -91,16 +91,20 @@ print_version ()
  * Initializes the required sensor structures.
  * @return pointer to newly allocated sensors dialog information
  */
-static t_sensors_dialog *
+static Ptr0<t_sensors_dialog>
 initialize_sensors_structures ()
 {
-    t_sensors *sensors = sensors_new (NULL, NULL);
-
-    t_sensors_dialog *dialog = g_new0 (t_sensors_dialog, 1);
-    dialog->sensors = sensors;
-    dialog->plugin_dialog = false;
-
-    return dialog;
+    auto sensors = sensors_new (NULL, NULL);
+    if (sensors)
+    {
+        auto dialog = xfce4::make<t_sensors_dialog>(sensors.toPtr());
+        dialog->plugin_dialog = false;
+        return dialog;
+    }
+    else
+    {
+        return nullptr;
+    }
 }
 
 
@@ -147,26 +151,35 @@ main (int argc, char **argv)
     temperature_unit_change = &temperature_unit_change_;
 
     /* initialize sensor stuff */
-    t_sensors_dialog *dialog = initialize_sensors_structures ();
+    Ptr0<t_sensors_dialog> dialog0 = initialize_sensors_structures ();
 
-    /* build main application */
-    GtkWidget *window = create_main_window (dialog);
+    if (dialog0)
+    {
+        auto dialog = dialog0.toPtr();
 
-    /* automatic refresh callback */
-    dialog->sensors->timeout_id  = xfce4::timeout_add (
-        dialog->sensors->sensors_refresh_time * 1000,
-        [dialog]() {
-            refresh_view (dialog);
-            return xfce4::TIMEOUT_AGAIN;
-        }
-    );
+        /* build main application */
+        GtkWidget *window = create_main_window (dialog);
 
-    /* show window and run forever */
-    gtk_widget_show_all(window);
-    gtk_window_resize(GTK_WINDOW(window), 800, 500);
+        /* automatic refresh callback */
+        dialog->sensors->timeout_id  = xfce4::timeout_add (
+            dialog->sensors->sensors_refresh_time * 1000,
+            [dialog]() {
+                refresh_view (dialog);
+                return xfce4::TIMEOUT_AGAIN;
+            }
+        );
 
-    gtk_main();
+        /* show window and run forever */
+        gtk_widget_show_all(window);
+        gtk_window_resize(GTK_WINDOW(window), 800, 500);
 
-    /* Just exit, leave memory deallocation and window closing to the operating system. */
-    return 0;
+        gtk_main();
+
+        /* Just exit, leave memory deallocation and window closing to the operating system. */
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
 }

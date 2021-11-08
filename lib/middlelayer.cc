@@ -81,7 +81,7 @@ initialize_all (std::vector<Ptr<t_chip>> &chips, bool *out_suppressmessage)
 
 /* -------------------------------------------------------------------------- */
 void
-refresh_chip (const Ptr<t_chip> &chip, t_sensors *data)
+refresh_chip (const Ptr<t_chip> &chip, const Ptr<t_sensors> &sensors)
 {
     switch (chip->type)
     {
@@ -101,9 +101,8 @@ refresh_chip (const Ptr<t_chip> &chip, t_sensors *data)
 
     #ifdef HAVE_HDDTEMP
         case HDD:
-            g_assert (data != NULL);
             for (const auto &feature : chip->chip_features)
-                refresh_hddtemp (feature, data); /* note that data is of *t_sensors! */
+                refresh_hddtemp (feature, sensors);
             break;
     #endif
 
@@ -121,10 +120,8 @@ refresh_chip (const Ptr<t_chip> &chip, t_sensors *data)
 
 /* -------------------------------------------------------------------------- */
 void
-refresh_all_chips (const std::vector<Ptr<t_chip>> &chips, t_sensors *sensors)
+refresh_all_chips (const std::vector<Ptr<t_chip>> &chips, const Ptr<t_sensors> &sensors)
 {
-    g_assert (sensors != NULL);
-
     for (auto chip : chips)
         refresh_chip (chip, sensors);
 }

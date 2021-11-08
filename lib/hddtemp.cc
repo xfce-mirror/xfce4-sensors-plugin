@@ -608,16 +608,9 @@ get_hddtemp_value (const std::string &disk, bool *suppress_message)
 
 /* -------------------------------------------------------------------------- */
 void
-refresh_hddtemp (const Ptr<t_chipfeature> &feature, gpointer sensors)
+refresh_hddtemp (const Ptr<t_chipfeature> &feature, const Ptr<t_sensors> &sensors)
 {
-    bool *suppress_message = NULL;
-
-    if (sensors != NULL)
-    {
-        auto plugin_data = (t_sensors*) sensors;
-        suppress_message = &plugin_data->suppressmessage;
-    }
-
+    bool *suppress_message = &sensors->suppressmessage;
     double temperature = get_hddtemp_value (feature->devicename.c_str(), suppress_message);
     feature->raw_value = temperature;
 }

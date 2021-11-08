@@ -31,25 +31,25 @@
 
 /* Functions for implementing the sensors interface common callback functions */
 
-void adjustment_value_changed_ (GtkAdjustment *adjustment, t_sensors_dialog *dialog);
+void adjustment_value_changed_ (GtkAdjustment *adjustment, const Ptr<t_sensors_dialog> &dialog);
 
-void sensor_entry_changed_ (GtkWidget *widget, t_sensors_dialog *dialog);
+void sensor_entry_changed_ (GtkWidget *widget, const Ptr<t_sensors_dialog> &dialog);
 
 void list_cell_text_edited_ (GtkCellRendererText *cell_renderer_text, gchar *path,
-                             gchar *new_text, t_sensors_dialog *dialog);
+                             gchar *new_text, const Ptr<t_sensors_dialog> &dialog);
 
 void list_cell_toggle_ (GtkCellRendererToggle *cell_renderer_toggle, gchar *path,
-                        t_sensors_dialog *dialog);
+                        const Ptr<t_sensors_dialog> &dialog);
 
 void list_cell_color_edited_ (GtkCellRendererText *cell_renderer_text, const gchar *path,
-                              const gchar *newcolor, t_sensors_dialog *dialog);
+                              const gchar *newcolor, const Ptr<t_sensors_dialog> &dialog);
 
 void minimum_changed_ (GtkCellRendererText *cell_renderer_text, gchar *path,
-                       gchar *newmin, t_sensors_dialog *dialog);
+                       gchar *newmin, const Ptr<t_sensors_dialog> &dialog);
 
 void maximum_changed_ (GtkCellRendererText *cellrenderertext, gchar *path,
-                       gchar *newmax, t_sensors_dialog *dialog);
+                       gchar *newmax, const Ptr<t_sensors_dialog> &dialog);
 
-void temperature_unit_change_ (GtkToggleButton *widget, t_sensors_dialog *dialog);
+void temperature_unit_change_ (GtkToggleButton *widget, const Ptr<t_sensors_dialog> &dialog);
 
 #endif /* XFCE4_SENSORS_SENSORS_H */

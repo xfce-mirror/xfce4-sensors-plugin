@@ -29,9 +29,7 @@
 
 /**
  * Shall refresh the entire view of the application
- * @param dialog: pointer to sensors dialog structure
- * @return TRUE: argument is valid
  */
-void refresh_view (t_sensors_dialog *dialog);
+void refresh_view (const Ptr<t_sensors_dialog> &dialog);
 
 #endif /* ACTIONS_H */

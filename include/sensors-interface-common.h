@@ -59,13 +59,12 @@
 
 
 /**
- * sensor panel dialog widget.
- * Contains pointers to all used major widgets and to the sensors plugin data
- * itself.
+ * Sensor panel dialog widget.
+ * Contains pointers to all used major widgets and to the sensors plugin data itself.
  */
 struct t_sensors_dialog {
     /** the sensors structure */
-    t_sensors *sensors;
+    const Ptr<t_sensors> sensors;
 
     /** is it the dialog of the panel plugin? */
     bool plugin_dialog;
@@ -84,10 +83,9 @@ struct t_sensors_dialog {
     GtkWidget *myTreeView;
 
     /**
-     * array of pointers to tree stores, limited to 10 as well
-     * TODO: replace by GPtrArray as well
+     * array of pointers to tree stores
      */
-    GtkTreeStore *myListStore[MAX_NUM_CHIPS];
+    std::vector<GtkTreeStore*> myListStore;
 
     /**
      * box with font settings for text view; used to disable font size option
@@ -142,6 +140,9 @@ struct t_sensors_dialog {
 
     /** double-click improvement: entry for command */
     GtkWidget *myCommandName_Entry;
+
+    t_sensors_dialog(const Ptr<t_sensors> &sensors);
+    ~t_sensors_dialog();
 };
 
 
@@ -160,41 +161,37 @@ struct t_sensors_dialog {
 
 /**
  * Notification that the adjustment value of the update timer box has changed
- * @param dialog: argument pointer to sensors dialog data
  */
 EXTERN void
-(*adjustment_value_changed) (GtkAdjustment *adjustment, t_sensors_dialog *dialog);
+(*adjustment_value_changed) (GtkAdjustment *adjustment, const Ptr<t_sensors_dialog> &dialog);
 
 /**
  * Notification that another sensor has been selected.
  * Therefore, the list box has to be updated.
  * @param widget: Pointer to original widget, i.e, the sensor entry combobox
- * @param dialog: argument pointer to sensors dialog data
  */
 EXTERN void
-(*sensor_entry_changed) (GtkWidget *widget, t_sensors_dialog *dialog);
+(*sensor_entry_changed) (GtkWidget *widget, const Ptr<t_sensors_dialog> &dialog);
 
 /**
  * Notification that the label of a sensor entry has been changed
  * @param cell_renderer_text: Pointer to the CellRenderer for texts
  * @param path: pointer to the string with the path of the changed item
  * @param newtext: Pointer to the string containing the new label
- * @param dialog: argument pointer to sensors dialog data
  */
 EXTERN void
 (*list_cell_text_edited) (GtkCellRendererText *cell_renderer_text,
                           gchar *path, gchar *newtext,
-                          t_sensors_dialog *dialog);
+                          const Ptr<t_sensors_dialog> &dialog);
 
 /**
  * Notification that a sensors feature has been (de)selected for display
  * @param cell_renderer_toggle: Pointer to cellrenderer for toggle items
  * @param path: pointer to the string with the path of the changed item
- * @param dialog: argument pointer to sensors dialog data
  */
 EXTERN void
 (*list_cell_toggle) (GtkCellRendererToggle *cell_renderer_toggle, gchar *path,
-                     t_sensors_dialog *dialog);
+                     const Ptr<t_sensors_dialog> &dialog);
 
 /**
  * Notification that the color for a sensors feature has been edited
@@ -202,43 +199,39 @@ EXTERN void
  * @param path: pointer to the string with the path of the changed item
  * @param newcolor: Pointer to the string containing the new color in
  *                  hexadecimal rgb format #0011ff
- * @param dialog: argument pointer to sensors dialog data
  */
 EXTERN void
 (*list_cell_color_edited) (GtkCellRendererText *cell_renderer_text,
                            const gchar *path, const gchar *new_color,
-                           t_sensors_dialog *dialog);
+                           const Ptr<t_sensors_dialog> &dialog);
 
 /**
  * Notification that the minimum value for a sensor feature has been changed
  * @param cell_renderer_text: Pointer to the CellRenderer for texts
  * @param path: pointer to the string with the path of the changed item
  * @param newmin: Pointer to the string containing the new minimum temperature
- * @param dialog: argument pointer to sensors dialog data
  */
 EXTERN void
 (*minimum_changed) (GtkCellRendererText *cell_renderer_text, gchar *path,
-                    gchar *newmin, t_sensors_dialog *dialog);
+                    gchar *newmin, const Ptr<t_sensors_dialog> &dialog);
 
 /**
  * Notification that the maximum value for a sensor feature has been changed
  * @param cell_renderer_text: Pointer to the CellRenderer for texts
  * @param path: pointer to the string with the path of the changed item
  * @param newmax: Pointer to the string containing the new maximum temperature
- * @param dialog: argument pointer to sensors dialog data
  */
 EXTERN void
 (*maximum_changed) (GtkCellRendererText *cell_renderer_text, gchar *path,
-                    gchar *newmax, t_sensors_dialog *dialog);
+                    gchar *newmax, const Ptr<t_sensors_dialog> &dialog);
 
 /**
  * Notification that the termperature unit has changed, i.e, between Fahrenheit
  * and Celsius
  * @param widget: Pointer to the toggled button
- * @param dialog: argument pointer to sensors dialog data
  */
 EXTERN void
-(*temperature_unit_change) (GtkToggleButton *widget, t_sensors_dialog *dialog);
+(*temperature_unit_change) (GtkToggleButton *widget, const Ptr<t_sensors_dialog> &dialog);
 
 
 /* Internal functions */

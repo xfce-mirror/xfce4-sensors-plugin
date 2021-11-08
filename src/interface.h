@@ -32,6 +32,6 @@
  * @param dialog: pointer to already filled sensors dialog structure
  * @return newly allocated GtkWidget of main window
  */
-GtkWidget* create_main_window (t_sensors_dialog *dialog);
+GtkWidget* create_main_window (const Ptr<t_sensors_dialog> &dialog);
 
 #endif /* __INTERFACE_H */
