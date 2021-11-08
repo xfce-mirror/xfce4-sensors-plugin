@@ -342,12 +342,7 @@ sensors_add_bars_display (const Ptr<t_sensors> &sensors)
         }
     }
 
-    if (has_bars && !sensors->show_title) {
-        gtk_widget_hide (sensors->panel_label_text);
-    }
-    else {
-        gtk_widget_show (sensors->panel_label_text);
-    }
+    gtk_widget_set_visible (sensors->panel_label_text, sensors->show_title || !has_bars);
 
     gtk_widget_hide (sensors->text.draw_area);
 
@@ -410,10 +405,7 @@ sensors_add_tacho_display (const Ptr<t_sensors> &sensors)
         }
     }
 
-    if (has_tachos && !sensors->show_title)
-        gtk_widget_hide (sensors->panel_label_text);
-    else
-        gtk_widget_show (sensors->panel_label_text);
+    gtk_widget_set_visible (sensors->panel_label_text, sensors->show_title || !has_tachos);
 
     gtk_widget_hide (sensors->text.draw_area);
 
