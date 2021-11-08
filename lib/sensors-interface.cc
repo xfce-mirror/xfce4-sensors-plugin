@@ -65,7 +65,7 @@ produce_min_max_values (const Ptr<t_chipfeature> &feature, t_tempscale scale, fl
 
 /* -------------------------------------------------------------------------- */
 void
-fill_gtkTreeStore (GtkTreeStore *treestore, const Ptr<t_chip> &chip, t_tempscale tempscale, t_sensors_dialog *dialog)
+fill_gtkTreeStore (GtkTreeStore *treestore, const Ptr<t_chip> &chip, t_tempscale tempscale, const Ptr<t_sensors_dialog> &dialog)
 {
     for (auto feature : chip->chip_features)
     {
@@ -125,7 +125,7 @@ fill_gtkTreeStore (GtkTreeStore *treestore, const Ptr<t_chip> &chip, t_tempscale
 
 /* -------------------------------------------------------------------------- */
 void
-add_type_box (GtkWidget *vbox, t_sensors_dialog *dialog)
+add_type_box (GtkWidget *vbox, const Ptr<t_sensors_dialog> &dialog)
 {
     GtkWidget *hbox = gtk_hbox_new (FALSE, BORDER);
     gtk_widget_show (hbox);
@@ -167,7 +167,7 @@ add_type_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 
 /* -------------------------------------------------------------------------- */
 void
-add_update_time_box (GtkWidget *vbox, t_sensors_dialog *dialog)
+add_update_time_box (GtkWidget *vbox, const Ptr<t_sensors_dialog> &dialog)
 {
     GtkAdjustment *spinner_adjustment = gtk_adjustment_new (
         /* TODO: restore original */
@@ -197,7 +197,7 @@ add_update_time_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 
 /* -------------------------------------------------------------------------- */
 void
-add_sensor_settings_box (GtkWidget *vbox, t_sensors_dialog *dialog)
+add_sensor_settings_box (GtkWidget *vbox, const Ptr<t_sensors_dialog> &dialog)
 {
     GtkTreeViewColumn *tree_view_column;
     GtkCellRenderer *text_cell_renderer, *toggle_cell_renderer;
@@ -298,7 +298,7 @@ add_sensor_settings_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 
 /* -------------------------------------------------------------------------- */
 void
-add_temperature_unit_box (GtkWidget *vbox, t_sensors_dialog *dialog)
+add_temperature_unit_box (GtkWidget *vbox, const Ptr<t_sensors_dialog> &dialog)
 {
     GtkWidget *hbox = gtk_hbox_new (FALSE, BORDER);
     gtk_widget_show (hbox);
@@ -329,7 +329,7 @@ add_temperature_unit_box (GtkWidget *vbox, t_sensors_dialog *dialog)
 
 /* -------------------------------------------------------------------------- */
 void
-add_sensors_frame (GtkWidget *notebook, t_sensors_dialog * dialog)
+add_sensors_frame (GtkWidget *notebook, const Ptr<t_sensors_dialog> &dialog)
 {
     GtkWidget *vbox = gtk_vbox_new (FALSE, OUTER_BORDER);
     gtk_container_set_border_width (GTK_CONTAINER(vbox), OUTER_BORDER);
@@ -352,10 +352,8 @@ add_sensors_frame (GtkWidget *notebook, t_sensors_dialog * dialog)
 
 /* -------------------------------------------------------------------------- */
 void
-free_widgets (t_sensors_dialog *dialog)
+free_widgets (const Ptr<t_sensors_dialog> &dialog)
 {
-    g_return_if_fail (dialog != NULL);
-
     for (size_t idx_chip = 0; idx_chip < dialog->sensors->chips.size(); idx_chip++)
     {
         GtkTreeIter iter_list_store;
@@ -366,9 +364,6 @@ free_widgets (t_sensors_dialog *dialog)
         gtk_tree_store_clear (dialog->myListStore[idx_chip]);
         g_object_unref (dialog->myListStore[idx_chip]);
     }
-
-    g_return_if_fail (dialog != NULL);
-    g_return_if_fail (dialog->sensors != NULL);
 
     /* stop association to libsensors and others*/
     cleanup_interfaces ();
@@ -383,50 +378,50 @@ free_widgets (t_sensors_dialog *dialog)
 
 /* -------------------------------------------------------------------------- */
 void
-init_widgets (t_sensors_dialog *dialog)
+init_widgets (const Ptr<t_sensors_dialog> &dialog)
 {
-    GtkTreeIter iter;
-    GtkTreeStore *treemodel;
-
-    g_return_if_fail (dialog != NULL);
-
-    t_sensors *sensors = dialog->sensors;
+    auto sensors = dialog->sensors;
 
     for (size_t idx_chip = 0; idx_chip < sensors->chips.size(); idx_chip++) {
-        dialog->myListStore[idx_chip] = gtk_tree_store_new (6, G_TYPE_STRING,
-                        G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_STRING,
-                        G_TYPE_FLOAT, G_TYPE_FLOAT);
+        auto tree_store = gtk_tree_store_new (6, G_TYPE_STRING,
+                                              G_TYPE_STRING, G_TYPE_BOOLEAN,
+                                              G_TYPE_STRING, G_TYPE_FLOAT,
+                                              G_TYPE_FLOAT);
+
+        dialog->myListStore.push_back(tree_store);
 
         auto chip = sensors->chips[idx_chip];
         gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->myComboBox), chip->sensorId.c_str());
-        treemodel = GTK_TREE_STORE (dialog->myListStore[idx_chip]);
 
-        fill_gtkTreeStore (treemodel, chip, sensors->scale,  dialog);
+        fill_gtkTreeStore (tree_store, chip, sensors->scale,  dialog);
     }
 
     if (sensors->chips.empty()) {
         auto chip = xfce4::make<t_chip>();
 
-        gtk_combo_box_text_append_text ( GTK_COMBO_BOX_TEXT(dialog->myComboBox), chip->sensorId.c_str());
+        gtk_combo_box_text_append_text (GTK_COMBO_BOX_TEXT (dialog->myComboBox), chip->sensorId.c_str());
 
-        dialog->myListStore[0] = gtk_tree_store_new (6, G_TYPE_STRING,
-                                                     G_TYPE_STRING, G_TYPE_BOOLEAN,
-                                                     G_TYPE_STRING, G_TYPE_DOUBLE,
-                                                     G_TYPE_DOUBLE);
+        auto list_store = gtk_tree_store_new (6, G_TYPE_STRING,
+                                              G_TYPE_STRING, G_TYPE_BOOLEAN,
+                                              G_TYPE_STRING, G_TYPE_FLOAT,
+                                              G_TYPE_FLOAT);
+
+        dialog->myListStore.push_back(list_store);
 
         auto feature = xfce4::make<t_chipfeature>();
         feature->formatted_value = "0.0";
         feature->raw_value = 0.0;
 
-        gtk_tree_store_append (GTK_TREE_STORE (dialog->myListStore[0]), &iter, NULL);
-        gtk_tree_store_set (GTK_TREE_STORE (dialog->myListStore[0]),
+        GtkTreeIter iter;
+        gtk_tree_store_append (list_store, &iter, NULL);
+        gtk_tree_store_set (list_store,
                             &iter,
                             eTreeColumn_Name, feature->name.c_str(),
                             eTreeColumn_Value, "0.0",        /* chipfeature->formatted_value */
                             eTreeColumn_Show, FALSE,         /* chipfeature->show */
                             eTreeColumn_Color, "#000000",    /* chipfeature->color */
-                            eTreeColumn_Min, 0.0,            /* chipfeature->min_value */
-                            eTreeColumn_Max, 0.0,            /* chipfeature->max_value */
+                            eTreeColumn_Min, 0.0f,           /* chipfeature->min_value */
+                            eTreeColumn_Max, 0.0f,           /* chipfeature->max_value */
                             -1);
     }
 }
@@ -434,11 +429,9 @@ init_widgets (t_sensors_dialog *dialog)
 
 /* -------------------------------------------------------------------------- */
 void
-reload_listbox (t_sensors_dialog *dialog)
+reload_listbox (const Ptr<t_sensors_dialog> &dialog)
 {
-    g_return_if_fail (dialog != NULL);
-
-    t_sensors *sensors = dialog->sensors;
+    auto sensors = dialog->sensors;
 
     for (size_t idx_chip = 0; idx_chip < sensors->chips.size(); idx_chip++) {
         auto chip = sensors->chips[idx_chip];
@@ -449,4 +442,25 @@ reload_listbox (t_sensors_dialog *dialog)
 
         fill_gtkTreeStore (tree_store, chip, sensors->scale, dialog);
     }
+}
+
+
+/* -------------------------------------------------------------------------- */
+t_labelledlevelbar::~t_labelledlevelbar()
+{
+    if (databox)
+        gtk_widget_destroy (databox);
+    if (label)
+        gtk_widget_destroy (label);
+    if (progressbar)
+        gtk_widget_destroy (progressbar);
+
+    if (css_provider)
+        g_object_unref (css_provider);
+    if (databox)
+        g_object_unref (databox);
+    if (label)
+        g_object_unref (label);
+    if (progressbar)
+        g_object_unref (progressbar);
 }

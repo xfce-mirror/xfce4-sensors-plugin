@@ -40,6 +40,8 @@ struct t_labelledlevelbar {
     /** a separate css provider per level-bar */
     std::string css_data;
     GtkCssProvider *css_provider;
+
+    ~t_labelledlevelbar();
 };
 
 

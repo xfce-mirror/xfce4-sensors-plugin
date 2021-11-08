@@ -38,10 +38,10 @@
 #include <tacho.h>
 
 /* -------------------------------------------------------------------------- */
-t_sensors *
+Ptr0<t_sensors>
 sensors_new (XfcePanelPlugin *plugin, const char *rc_file_orNull)
 {
-    auto sensors = new t_sensors();
+    auto sensors = xfce4::make<t_sensors>();
 
     if (rc_file_orNull)
         sensors->plugin_config_file = rc_file_orNull;
@@ -50,12 +50,12 @@ sensors_new (XfcePanelPlugin *plugin, const char *rc_file_orNull)
     sensors_init_default_values (sensors, plugin);
 
     /* get suppressmessages */
-    sensors_read_preliminary_config(plugin, sensors);
+    sensors_read_preliminary_config (plugin, sensors);
 
     /* read all sensors from libraries */
     int result = initialize_all (sensors->chips, &sensors->suppressmessage);
-    if (result==0)
-        return NULL;
+    if (result == 0)
+        return nullptr;
 
     /* error-handling for no sensors */
     if (sensors->chips.empty()) {
@@ -84,10 +84,8 @@ sensors_new (XfcePanelPlugin *plugin, const char *rc_file_orNull)
 
 /* -------------------------------------------------------------------------- */
 void
-sensors_init_default_values  (t_sensors *sensors, XfcePanelPlugin *plugin)
+sensors_init_default_values  (const Ptr<t_sensors> &sensors, XfcePanelPlugin *plugin)
 {
-    g_return_if_fail (sensors != NULL);
-
     sensors->show_title = TRUE;
     sensors->show_labels = TRUE;
     sensors->display_values_type = DISPLAY_TEXT;
@@ -152,4 +150,22 @@ format_sensor_value (t_tempscale temperature_scale, const Ptr<t_chipfeature> &fe
         default:
             return xfce4::sprintf ("%+.2f", feature_value);
     }
+}
+
+
+/* -------------------------------------------------------------------------- */
+t_sensors::~t_sensors()
+{
+    fprintf (stderr, "%s\n", __PRETTY_FUNCTION__);
+}
+
+
+/* -------------------------------------------------------------------------- */
+t_sensors_dialog::t_sensors_dialog(const Ptr<t_sensors> &_sensors) : sensors(_sensors) {}
+
+
+/* -------------------------------------------------------------------------- */
+t_sensors_dialog::~t_sensors_dialog()
+{
+    fprintf (stderr, "%s\n", __PRETTY_FUNCTION__);
 }
