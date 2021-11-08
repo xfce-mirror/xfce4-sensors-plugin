@@ -154,7 +154,7 @@ sensors_read_general_config (const Ptr0<xfce4::Rc> &rc, const Ptr<t_sensors> &se
     {
         rc->set_group ("General");
 
-        sensors->show_title = rc->read_bool_entry ("Show_Title", true);
+        sensors->show_title = rc->read_bool_entry ("Show_Title", false);
         sensors->show_labels = rc->read_bool_entry ("Show_Labels", true);
         sensors->automatic_bar_colors = !rc->read_bool_entry ("Show_Colored_Bars", false);
 

@@ -86,7 +86,7 @@ sensors_new (XfcePanelPlugin *plugin, const char *rc_file_orNull)
 void
 sensors_init_default_values  (const Ptr<t_sensors> &sensors, XfcePanelPlugin *plugin)
 {
-    sensors->show_title = TRUE;
+    sensors->show_title = FALSE;
     sensors->show_labels = TRUE;
     sensors->display_values_type = DISPLAY_TEXT;
     sensors->bars_created = FALSE;
@@ -156,7 +156,7 @@ format_sensor_value (t_tempscale temperature_scale, const Ptr<t_chipfeature> &fe
 /* -------------------------------------------------------------------------- */
 t_sensors::~t_sensors()
 {
-    fprintf (stderr, "%s\n", __PRETTY_FUNCTION__);
+    g_info ("%s", __PRETTY_FUNCTION__);
 }
 
 
@@ -167,5 +167,5 @@ t_sensors_dialog::t_sensors_dialog(const Ptr<t_sensors> &_sensors) : sensors(_se
 /* -------------------------------------------------------------------------- */
 t_sensors_dialog::~t_sensors_dialog()
 {
-    fprintf (stderr, "%s\n", __PRETTY_FUNCTION__);
+    g_info ("%s", __PRETTY_FUNCTION__);
 }
