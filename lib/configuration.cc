@@ -73,31 +73,33 @@ sensors_write_config (XfcePanelPlugin *plugin, const Ptr<const t_sensors> &senso
         {
             rc->set_group ("General");
 
-            rc->write_bool_entry ("Show_Title", sensors->show_title);
-            rc->write_bool_entry ("Show_Labels", sensors->show_labels);
-            rc->write_bool_entry ("Show_Colored_Bars", !sensors->automatic_bar_colors);
-            rc->write_bool_entry ("Exec_Command", sensors->exec_command);
-            rc->write_bool_entry ("Show_Units", sensors->show_units);
-            rc->write_bool_entry ("Small_Spacings", sensors->show_smallspacings);
-            rc->write_bool_entry ("Cover_All_Panel_Rows", sensors->cover_panel_rows);
-            rc->write_bool_entry ("Suppress_Hddtemp_Message", sensors->suppressmessage);
-            rc->write_bool_entry ("Suppress_Tooltip", sensors->suppresstooltip);
+            const t_sensors defaults(plugin);
 
-            rc->write_int_entry ("Use_Bar_UI", sensors->display_values_type);
-            rc->write_int_entry ("Scale", sensors->scale);
-            rc->write_int_entry ("val_fontsize", sensors->val_fontsize);
-            rc->write_int_entry ("Lines_Size", sensors->lines_size);
-            rc->write_int_entry ("Update_Interval", sensors->sensors_refresh_time);
+            rc->write_default_bool_entry ("Show_Title", sensors->show_title, defaults.show_title);
+            rc->write_default_bool_entry ("Show_Labels", sensors->show_labels, defaults.show_labels);
+            rc->write_default_bool_entry ("Show_Colored_Bars", !sensors->automatic_bar_colors, !defaults.automatic_bar_colors);
+            rc->write_default_bool_entry ("Exec_Command", sensors->exec_command, defaults.exec_command);
+            rc->write_default_bool_entry ("Show_Units", sensors->show_units, defaults.show_units);
+            rc->write_default_bool_entry ("Small_Spacings", sensors->show_smallspacings, defaults.show_smallspacings);
+            rc->write_default_bool_entry ("Cover_All_Panel_Rows", sensors->cover_panel_rows, defaults.cover_panel_rows);
+            rc->write_default_bool_entry ("Suppress_Hddtemp_Message", sensors->suppressmessage, defaults.suppressmessage);
+            rc->write_default_bool_entry ("Suppress_Tooltip", sensors->suppresstooltip, defaults.suppresstooltip);
+
+            rc->write_default_int_entry ("Use_Bar_UI", sensors->display_values_type, defaults.display_values_type);
+            rc->write_default_int_entry ("Scale", sensors->scale, defaults.scale);
+            rc->write_default_int_entry ("val_fontsize", sensors->val_fontsize, defaults.val_fontsize);
+            rc->write_default_int_entry ("Lines_Size", sensors->lines_size, defaults.lines_size);
+            rc->write_default_int_entry ("Update_Interval", sensors->sensors_refresh_time, defaults.sensors_refresh_time);
+            rc->write_default_int_entry ("Preferred_Width", sensors->preferred_width, defaults.preferred_width);
+            rc->write_default_int_entry ("Preferred_Height", sensors->preferred_height, defaults.preferred_height);
             rc->write_int_entry ("Number_Chips", sensors->chips.size());
-            rc->write_int_entry ("Preferred_Width", sensors->preferred_width);
-            rc->write_int_entry ("Preferred_Height", sensors->preferred_height);
 
-            rc->write_entry ("str_fontsize", sensors->str_fontsize);
-            rc->write_entry ("Command_Name", sensors->command_name);
-            rc->write_entry ("Tachos_ColorValue", xfce4::sprintf ("%.2f", sensors->val_tachos_color));
-            rc->write_entry ("Tachos_Alpha", xfce4::sprintf ("%.2f", sensors->val_tachos_alpha));
+            rc->write_default_entry ("str_fontsize", sensors->str_fontsize, defaults.str_fontsize);
+            rc->write_default_entry ("Command_Name", sensors->command_name, defaults.command_name);
+            rc->write_default_float_entry ("Tachos_ColorValue", sensors->tachos_color, defaults.tachos_color, 0.001);
+            rc->write_default_float_entry ("Tachos_Alpha", sensors->tachos_alpha, defaults.tachos_alpha, 0.001);
             if (!font.empty())
-                rc->write_entry ("Font", font); // the font for the tachometers exported from tacho.h
+                rc->write_default_entry ("Font", font, default_font); // the font for the tachometers exported from tacho.h
 
             for (size_t idx_chip = 0; idx_chip < sensors->chips.size(); idx_chip++)
             {
@@ -152,13 +154,15 @@ sensors_read_general_config (const Ptr0<xfce4::Rc> &rc, const Ptr<t_sensors> &se
 
     if (rc->has_group ("General"))
     {
+        const t_sensors defaults(sensors->plugin);
+
         rc->set_group ("General");
 
-        sensors->show_title = rc->read_bool_entry ("Show_Title", false);
-        sensors->show_labels = rc->read_bool_entry ("Show_Labels", true);
-        sensors->automatic_bar_colors = !rc->read_bool_entry ("Show_Colored_Bars", false);
+        sensors->show_title = rc->read_bool_entry ("Show_Title", defaults.show_title);
+        sensors->show_labels = rc->read_bool_entry ("Show_Labels", defaults.show_labels);
+        sensors->automatic_bar_colors = !rc->read_bool_entry ("Show_Colored_Bars", !defaults.automatic_bar_colors);
 
-        gint display_values_type = rc->read_int_entry ("Use_Bar_UI", -1);
+        gint display_values_type = rc->read_int_entry ("Use_Bar_UI", defaults.display_values_type);
         switch (display_values_type)
         {
             case DISPLAY_BARS:
@@ -167,10 +171,10 @@ sensors_read_general_config (const Ptr0<xfce4::Rc> &rc, const Ptr<t_sensors> &se
                 sensors->display_values_type = (e_displaystyles) display_values_type;
                 break;
             default:
-                sensors->display_values_type = DISPLAY_TEXT;
+                sensors->display_values_type = defaults.display_values_type;
         }
 
-        gint scale = rc->read_int_entry ("Scale", -1);
+        gint scale = rc->read_int_entry ("Scale", defaults.scale);
         switch (scale)
         {
             case CELSIUS:
@@ -178,43 +182,40 @@ sensors_read_general_config (const Ptr0<xfce4::Rc> &rc, const Ptr<t_sensors> &se
                 sensors->scale = (t_tempscale) scale;
                 break;
             default:
-                sensors->scale = CELSIUS;
+                sensors->scale = defaults.scale;
         }
 
         Ptr0<std::string> str_value;
         if ((str_value = rc->read_entry ("str_fontsize", NULL)) && !str_value->empty())
             sensors->str_fontsize = *str_value;
 
-        if ((str_value = rc->read_entry ("Font", NULL)) && !str_value->empty())
+        if ((str_value = rc->read_entry ("Font", default_font)) && !str_value->empty())
             font = *str_value; // in tacho.h for the tachometers
         else
             font = default_font;
 
-        sensors->cover_panel_rows   = rc->read_bool_entry ("Cover_All_Panel_Rows", FALSE);
-        sensors->exec_command       = rc->read_bool_entry ("Exec_Command", TRUE);
-        sensors->show_units         = rc->read_bool_entry ("Show_Units", TRUE);
-        sensors->show_smallspacings = rc->read_bool_entry ("Small_Spacings", FALSE);
-        sensors->suppresstooltip    = rc->read_bool_entry ("Suppress_Tooltip", FALSE);
+        sensors->cover_panel_rows   = rc->read_bool_entry ("Cover_All_Panel_Rows", defaults.cover_panel_rows);
+        sensors->exec_command       = rc->read_bool_entry ("Exec_Command", defaults.exec_command);
+        sensors->show_units         = rc->read_bool_entry ("Show_Units", defaults.show_units);
+        sensors->show_smallspacings = rc->read_bool_entry ("Small_Spacings", defaults.show_smallspacings);
+        sensors->suppresstooltip    = rc->read_bool_entry ("Suppress_Tooltip", defaults.suppressmessage);
 
-        sensors->val_fontsize         = rc->read_int_entry ("val_fontsize", 2);
-        sensors->lines_size           = rc->read_int_entry ("Lines_Size", 3);
-        sensors->sensors_refresh_time = rc->read_int_entry ("Update_Interval", 60);
-        sensors->preferred_width      = rc->read_int_entry ("Preferred_Width", 400);
-        sensors->preferred_height     = rc->read_int_entry ("Preferred_Height", 400);
+        sensors->val_fontsize         = rc->read_int_entry ("val_fontsize", defaults.val_fontsize);
+        sensors->lines_size           = rc->read_int_entry ("Lines_Size", defaults.lines_size);
+        sensors->sensors_refresh_time = rc->read_int_entry ("Update_Interval", defaults.sensors_refresh_time);
+        sensors->preferred_width      = rc->read_int_entry ("Preferred_Width", defaults.preferred_width);
+        sensors->preferred_height     = rc->read_int_entry ("Preferred_Height", defaults.preferred_height);
 
         if ((str_value = rc->read_entry ("Command_Name", NULL)) && !str_value->empty())
             sensors->command_name = *str_value;
 
         if (!sensors->suppressmessage)
-            sensors->suppressmessage = rc->read_bool_entry ("Suppress_Hddtemp_Message", FALSE);
+            sensors->suppressmessage = rc->read_bool_entry ("Suppress_Hddtemp_Message", defaults.suppressmessage);
 
-        if ((str_value = rc->read_entry ("Tachos_ColorValue", NULL)) && !str_value->empty())
-            sensors->val_tachos_color = atof (str_value->c_str());
+        sensors->tachos_color = rc->read_float_entry ("Tachos_ColorValue", defaults.tachos_color);
+        sensors->tachos_alpha = rc->read_float_entry ("Tachos_Alpha", defaults.tachos_alpha);
 
-        if ((str_value = rc->read_entry ("Tachos_Alpha", NULL)) && !str_value->empty())
-            sensors->val_tachos_alpha = atof (str_value->c_str());
-
-        //num_chips = xfce_rc_read_int_entry (ptr_xfceresources, "Number_Chips", 0);
+        //num_chips = rc->read_int_entry ("Number_Chips", 0);
         /* or could use 1 or the always existent dummy entry */
     }
 }

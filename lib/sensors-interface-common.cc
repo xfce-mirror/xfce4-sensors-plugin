@@ -41,13 +41,10 @@
 Ptr0<t_sensors>
 sensors_new (XfcePanelPlugin *plugin, const char *rc_file_orNull)
 {
-    auto sensors = xfce4::make<t_sensors>();
+    auto sensors = xfce4::make<t_sensors>(plugin);
 
     if (rc_file_orNull)
         sensors->plugin_config_file = rc_file_orNull;
-
-    /* init xfce sensors stuff with default values */
-    sensors_init_default_values (sensors, plugin);
 
     /* get suppressmessages */
     sensors_read_preliminary_config (plugin, sensors);
@@ -83,42 +80,6 @@ sensors_new (XfcePanelPlugin *plugin, const char *rc_file_orNull)
 
 
 /* -------------------------------------------------------------------------- */
-void
-sensors_init_default_values  (const Ptr<t_sensors> &sensors, XfcePanelPlugin *plugin)
-{
-    sensors->show_title = FALSE;
-    sensors->show_labels = TRUE;
-    sensors->display_values_type = DISPLAY_TEXT;
-    sensors->bars_created = FALSE;
-    sensors->tachos_created = FALSE;
-    sensors->str_fontsize = "medium";
-    sensors->val_fontsize = 2;
-    sensors->lines_size = 3;
-    sensors->text.reset_size = true;
-
-    sensors->automatic_bar_colors = FALSE;
-    sensors->sensors_refresh_time = 60;
-    sensors->scale = CELSIUS;
-
-    sensors->plugin = plugin; // we prefer storing NULL in here in case it is NULL.
-
-    /* double-click improvement */
-    sensors->exec_command = TRUE;
-    sensors->command_name = "xfce4-sensors";
-    sensors->doubleclick_id = 0;
-
-    sensors->show_units = TRUE;
-
-    sensors->suppressmessage = FALSE;
-
-    sensors->show_smallspacings = FALSE;
-
-    sensors->val_tachos_color = MAX_HUE;
-    sensors->val_tachos_alpha = ALPHA_CHANNEL_VALUE;
-}
-
-
-/* -------------------------------------------------------------------------- */
 std::string
 format_sensor_value (t_tempscale temperature_scale, const Ptr<t_chipfeature> &feature, double feature_value)
 {
@@ -150,6 +111,13 @@ format_sensor_value (t_tempscale temperature_scale, const Ptr<t_chipfeature> &fe
         default:
             return xfce4::sprintf ("%+.2f", feature_value);
     }
+}
+
+
+/* -------------------------------------------------------------------------- */
+t_sensors::t_sensors(XfcePanelPlugin *_plugin) : plugin(_plugin) {
+    tachos_color = MAX_HUE;
+    tachos_alpha = ALPHA_CHANNEL_VALUE;
 }
 
 

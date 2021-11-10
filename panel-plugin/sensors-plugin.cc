@@ -472,8 +472,8 @@ static void
 sensors_show_tacho_display (const Ptr<t_sensors> &sensors)
 {
     if (!sensors->tachos_created) {
-        val_colorvalue = sensors->val_tachos_color;
-        val_alpha = sensors->val_tachos_alpha;
+        val_colorvalue = sensors->tachos_color;
+        val_alpha = sensors->tachos_alpha;
 
         sensors_add_tacho_display (sensors);
     }
@@ -1470,7 +1470,7 @@ on_font_set (GtkFontButton *widget, const Ptr<t_sensors> &sensors)
 static xfce4::Propagation
 tachos_colorvalue_changed_ (gdouble value, const Ptr<t_sensors> &sensors)
 {
-    sensors->val_tachos_color = val_colorvalue = value; // TODO: gtk_scale_button_get_value(GTK_SCALE_BUTTON(widget));
+    sensors->tachos_color = val_colorvalue = value; // TODO: gtk_scale_button_get_value(GTK_SCALE_BUTTON(widget));
     sensors_update_panel (sensors, true);
     return xfce4::PROPAGATE;
 }
@@ -1480,7 +1480,7 @@ tachos_colorvalue_changed_ (gdouble value, const Ptr<t_sensors> &sensors)
 static xfce4::Propagation
 tachos_alpha_changed_ (gdouble value, const Ptr<t_sensors> &sensors)
 {
-    sensors->val_tachos_alpha = val_alpha = value; // TODO: gtk_scale_button_get_value(GTK_SCALE_BUTTON(widget));
+    sensors->tachos_alpha = val_alpha = value; // TODO: gtk_scale_button_get_value(GTK_SCALE_BUTTON(widget));
     sensors_update_panel (sensors, true);
     return xfce4::PROPAGATE;
 }
@@ -1762,7 +1762,7 @@ add_tachos_appearance_boxes(GtkWidget *vbox, const Ptr<t_sensors_dialog> &dialog
     gtk_label_set_xalign (GTK_LABEL (widget_label), 0.0);
     gtk_box_pack_start (GTK_BOX (dialog->alpha_slider_box), widget_label, FALSE, TRUE, 0);
     widget_hscale = gtk_scale_new_with_range(GTK_ORIENTATION_HORIZONTAL, 0.0, 1.0, 0.01);
-    gtk_range_set_value(GTK_RANGE(widget_hscale), dialog->sensors->val_tachos_alpha);
+    gtk_range_set_value(GTK_RANGE(widget_hscale), dialog->sensors->tachos_alpha);
     gtk_scale_set_value_pos(GTK_SCALE(widget_hscale), GTK_POS_RIGHT);
     xfce4::connect_change_value (GTK_RANGE (widget_hscale), [dialog](GtkRange*, GtkScrollType*, double value) {
         return tachos_alpha_changed_ (value, dialog->sensors);
@@ -1777,7 +1777,7 @@ add_tachos_appearance_boxes(GtkWidget *vbox, const Ptr<t_sensors_dialog> &dialog
     gtk_label_set_xalign (GTK_LABEL (widget_label), 0.0);
     gtk_box_pack_start (GTK_BOX (dialog->colorvalue_slider_box), widget_label, FALSE, TRUE, 0);
     widget_hscale = gtk_scale_new_with_range(GTK_ORIENTATION_HORIZONTAL, 0.0, 1.0, 0.01);
-    gtk_range_set_value(GTK_RANGE(widget_hscale), dialog->sensors->val_tachos_color);
+    gtk_range_set_value(GTK_RANGE(widget_hscale), dialog->sensors->tachos_color);
     gtk_scale_set_value_pos(GTK_SCALE(widget_hscale), GTK_POS_RIGHT);
     xfce4::connect_change_value (GTK_RANGE (widget_hscale), [dialog](GtkRange*, GtkScrollType*, double value) {
         return tachos_colorvalue_changed_ (value, dialog->sensors);
@@ -1922,7 +1922,10 @@ add_miscellaneous_frame (GtkWidget *notebook, const Ptr<t_sensors_dialog> &dialo
 static void
 on_optionsDialog_response (GtkDialog *dlg, gint response, const Ptr<t_sensors_dialog> &sd)
 {
-    if (response == GTK_RESPONSE_OK || response == GTK_RESPONSE_DELETE_EVENT) {
+    if (response == GTK_RESPONSE_OK || response == GTK_RESPONSE_DELETE_EVENT)
+    {
+        gtk_window_get_size (GTK_WINDOW(dlg), &sd->sensors->preferred_width, &sd->sensors->preferred_height);
+
         /* FIXME: save most of the content in this function,
            remove those toggle functions where possible. NYI */
         /* sensors_apply_options (sd); */
@@ -1938,7 +1941,7 @@ on_optionsDialog_response (GtkDialog *dlg, gint response, const Ptr<t_sensors_di
         if (!sd->sensors->plugin_config_file.empty())
             sensors_write_config (sd->sensors->plugin, sd->sensors);
     }
-    gtk_window_get_size (GTK_WINDOW(dlg), &sd->sensors->preferred_width, &sd->sensors->preferred_height);
+
     gtk_widget_destroy (sd->dialog);
     sd->dialog = NULL;
 

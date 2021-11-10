@@ -39,9 +39,8 @@
  * Sensors module
  */
 struct t_sensors {
-
     /** pointer for Xfce Panel */
-    XfcePanelPlugin *plugin;
+    XfcePanelPlugin *const plugin;
 
     /** eventbox to catch events */
     GtkWidget *eventbox;
@@ -55,72 +54,72 @@ struct t_sensors {
     /** text UI style */
     struct {
         GtkWidget *draw_area;
-        bool reset_size:1;
+        bool reset_size = true;
     } text;
 
     /** update the tooltip */
     guint timeout_id;
 
     /** font size for display in panel */
-    std::string str_fontsize;
-    gint val_fontsize;
+    std::string str_fontsize = "medium";
+    gint val_fontsize = 2;
 
     /** temperature scale for display in panel */
-    t_tempscale scale;
+    t_tempscale scale = CELSIUS;
 
     /** panel size to compute number of cols/columns */
     gint panel_size;
 
     /** Requested/allowed number of lines in text mode */
-    gint lines_size;
+    gint lines_size = 3;
 
     /** panel orientation */
     XfcePanelPluginMode plugin_mode;
 
     /** automatic bar colors */
-    bool automatic_bar_colors:1;
+    bool automatic_bar_colors = false;
 
-    /** The panel plugins can cover all rows/columns of the panel, but default is to not do so */
-    bool cover_panel_rows:1;
+    /** The panel plugins can cover all rows/columns of the panel, but default is not to do so */
+    bool cover_panel_rows = false;
 
     /** if the bars have been initialized */
-    bool bars_created:1;
+    bool bars_created = false;
 
     /** if the tachos have been initialized */
-    bool tachos_created:1;
+    bool tachos_created = false;
 
     /** show title in panel */
-    bool show_title:1;
+    bool show_title = false;
 
     /** show labels in panel (GUI mode only) */
-    bool show_labels:1;
+    bool show_labels = true;
 
     /** show units in textual view */
-    bool show_units:1;
+    bool show_units = true;
 
     /** show small spacings only in textual view */
-    bool show_smallspacings:1;
+    bool show_smallspacings = false;
 
     /**
      * suppress tooltip from overlapping widget and thereby crashing the plugin
      * or modifying the background
      */
-    bool suppresstooltip:1;
+    bool suppresstooltip = false;
 
     /**
      * double-click improvement as suggested on xfce4-goodies@berlios.de.
      * whether to execute command on double click
      */
-    bool exec_command:1;
+    bool exec_command = true;
 
     /** suppress Hddtemp failure messages and any other messages */
-    bool suppressmessage;
+    bool suppressmessage = false;
 
     /** use the progress-bar UI */
-    e_displaystyles display_values_type;
+    e_displaystyles display_values_type = DISPLAY_TEXT;
 
     /** sensor update time, in seconds */
-    gint sensors_refresh_time;
+    gint sensors_refresh_time = 60;
 
     /* sensor relevant stuff */
 
@@ -137,26 +136,27 @@ struct t_sensors {
     std::vector<Ptr<t_chip>> chips;
 
     /** command to execute */
-    std::string command_name;
+    std::string command_name = "xfce4-sensors";
 
     /** callback_id for doubleclicks */
-    gint doubleclick_id;
+    gint doubleclick_id = 0;
 
     /** filepath of config file for plugin, or an empty string */
     std::string plugin_config_file;
 
     /** preferred dialog width */
-    gint preferred_width;
+    gint preferred_width = 675;
 
     /** preferred dialog height */
-    gint preferred_height;
+    gint preferred_height = 400;
 
     /** color value for the tachometers, useful for dark themes where lower brightness is required */
-    gfloat val_tachos_color;
+    gfloat tachos_color;
 
     /** desired alpha value for the tachometers */
-    gfloat val_tachos_alpha;
+    gfloat tachos_alpha;
 
+    t_sensors(XfcePanelPlugin *plugin);
     ~t_sensors();
 };
 
@@ -170,11 +170,5 @@ struct t_sensors {
  * @return pointer to newly allocated sensors object
  */
 Ptr0<t_sensors> sensors_new (XfcePanelPlugin *plugin, const char *plugin_config_filename_orNull);
-
-/**
- * Initialize sensors structure with default values
- * @param plugin: Pointer to panel plugin data
- */
-void sensors_init_default_values (const Ptr<t_sensors> &sensors, XfcePanelPlugin *plugin);
 
 #endif /* XFCE4_SENSORS_INTERFACE_PLUGIN_H */
