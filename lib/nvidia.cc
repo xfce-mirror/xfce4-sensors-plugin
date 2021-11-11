@@ -75,8 +75,8 @@ initialize_nvidia (std::vector<Ptr<t_chip>> &chips)
             feature->valid = true;
             feature->raw_value = 0.0;
             feature->cls = TEMPERATURE;
-            feature->min_value = 10.0;
-            feature->max_value = 70.0;
+            feature->min_value = 20.0;
+            feature->max_value = 80.0;
             feature->show = false;
         }
         chips.push_back(chip);

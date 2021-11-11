@@ -341,8 +341,8 @@ populate_detected_drives (const Ptr<t_chip> &chip)
        feature->raw_value = 0.0;
 
        feature->cls = TEMPERATURE;
-       feature->min_value = 10.0;
-       feature->max_value = 50.0;
+       feature->min_value = 20.0;
+       feature->max_value = 60.0;
 
        feature->show = false;
     }
