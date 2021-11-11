@@ -42,8 +42,29 @@
 #include <sensors-interface-common.h>
 #include <types.h>
 
+struct NvidiaDisplayData {
+    Display *display = nullptr;
+
+    ~NvidiaDisplayData() {
+        close();
+    }
+
+    void close() {
+        if (display) {
+            XCloseDisplay (display);
+            display = nullptr;
+        }
+    }
+
+    bool open() {
+        close();
+        display = XOpenDisplay (NULL);
+        return display != nullptr;
+    }
+};
+
 /* Global variables */
-Display *nvidia_sensors_display;
+static NvidiaDisplayData nvidia_sensors_display;
 
 /* Local functions */
 static int read_gpus (const Ptr<t_chip> &chip);
@@ -97,7 +118,7 @@ get_nvidia_value (int idx_gpu)
     int temperature = 0;
     double result = ZERO_KELVIN;
 
-    if (XNVCTRLQueryTargetAttribute (nvidia_sensors_display,
+    if (XNVCTRLQueryTargetAttribute (nvidia_sensors_display.display,
                                      NV_CTRL_TARGET_TYPE_GPU,
                                      idx_gpu,
                                      0,
@@ -127,14 +148,13 @@ read_gpus (const Ptr<t_chip> &chip)
     int num_gpus = 0;
 
     /* create the connection to the X server */
-    nvidia_sensors_display = XOpenDisplay (NULL);
-    if (nvidia_sensors_display) {
+    if (nvidia_sensors_display.open()) {
         int event, error;
 
         /* check if the NVCtrl is available on this X server
          * if so - add sensors*/
-        if (XNVCTRLQueryExtension (nvidia_sensors_display, &event, &error)) {
-            XNVCTRLQueryTargetCount (nvidia_sensors_display,
+        if (XNVCTRLQueryExtension (nvidia_sensors_display.display, &event, &error)) {
+            XNVCTRLQueryTargetCount (nvidia_sensors_display.display,
                 NV_CTRL_TARGET_TYPE_GPU,
                 &num_gpus);
         }
@@ -145,7 +165,7 @@ read_gpus (const Ptr<t_chip> &chip)
 
         auto feature = xfce4::make<t_chipfeature>();
 
-        if (XNVCTRLQueryTargetStringAttribute (nvidia_sensors_display,
+        if (XNVCTRLQueryTargetStringAttribute (nvidia_sensors_display.display,
                                                NV_CTRL_TARGET_TYPE_GPU,
                                                idx_gpu,
                                                0,
