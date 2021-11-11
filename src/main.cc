@@ -161,7 +161,7 @@ main (int argc, char **argv)
         GtkWidget *window = create_main_window (dialog);
 
         /* automatic refresh callback */
-        dialog->sensors->timeout_id  = xfce4::timeout_add (
+        dialog->sensors->timeout_id = xfce4::timeout_add (
             dialog->sensors->sensors_refresh_time * 1000,
             [dialog]() {
                 refresh_view (dialog);
@@ -170,12 +170,14 @@ main (int argc, char **argv)
         );
 
         /* show window and run forever */
-        gtk_widget_show_all(window);
         gtk_window_resize(GTK_WINDOW(window), 800, 500);
-
+        gtk_widget_show_all(window);
         gtk_main();
 
-        /* Just exit, leave memory deallocation and window closing to the operating system. */
+        g_source_remove (dialog->sensors->timeout_id);
+        free_widgets (dialog);
+        gtk_widget_destroy (window);
+
         return 0;
     }
     else

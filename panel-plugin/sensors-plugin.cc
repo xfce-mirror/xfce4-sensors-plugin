@@ -1943,6 +1943,7 @@ on_optionsDialog_response (GtkDialog *dlg, gint response, const Ptr<t_sensors_di
     }
 
     gtk_widget_destroy (sd->dialog);
+    g_object_unref (sd->dialog);
     sd->dialog = NULL;
 
     xfce_panel_plugin_unblock_menu (sd->sensors->plugin);
@@ -1977,6 +1978,7 @@ sensors_create_options (XfcePanelPlugin *plugin, const Ptr<t_sensors> &sensors)
     auto sd = xfce4::make<t_sensors_dialog>(sensors);
 
     sd->dialog = dlg;
+    g_object_ref (sd->dialog);
     sd->plugin_dialog = true;
 
     sd->myComboBox = gtk_combo_box_text_new();

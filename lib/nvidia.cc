@@ -73,8 +73,6 @@ static int read_gpus (const Ptr<t_chip> &chip);
 int
 initialize_nvidia (std::vector<Ptr<t_chip>> &chips)
 {
-    int retval;
-
     /*
      * According to "Brand Guidelines for the NVIDIA Partner Network" PDF, May 2020:
      * Always write NVIDIA with all caps, not nvidia nor NVidia.
@@ -101,13 +99,11 @@ initialize_nvidia (std::vector<Ptr<t_chip>> &chips)
             feature->show = false;
         }
         chips.push_back(chip);
-        retval = 2;
+        return 2;
     }
     else {
-        retval = 0;
+        return 0;
     }
-
-    return retval;
 }
 
 
