@@ -136,4 +136,7 @@ t_sensors_dialog::t_sensors_dialog(const Ptr<t_sensors> &_sensors) : sensors(_se
 t_sensors_dialog::~t_sensors_dialog()
 {
     g_info ("%s", __PRETTY_FUNCTION__);
+
+    if (dialog)
+        g_object_unref (dialog);
 }

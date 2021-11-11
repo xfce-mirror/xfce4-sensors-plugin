@@ -127,6 +127,7 @@ create_main_window (const Ptr<t_sensors_dialog> &dialog)
     gtk_widget_show (content_area_vbox);
 
     dialog->dialog = xfce_dialog;
+    g_object_ref (dialog->dialog);
 
     dialog->myComboBox = gtk_combo_box_text_new();
     gtk_widget_show (dialog->myComboBox);

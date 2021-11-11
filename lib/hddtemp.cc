@@ -306,23 +306,14 @@ read_disks_linux26 (const Ptr<t_chip> &chip)
 static void
 remove_unmonitored_drives (const Ptr<t_chip> &chip, bool *suppress_message)
 {
-    for (size_t idx_feature = 0; idx_feature < chip->chip_features.size(); idx_feature++)
+    std::vector<Ptr<t_chipfeature>> keep;
+    for (auto feature : chip->chip_features)
     {
-        auto feature = chip->chip_features[idx_feature];
         int temperature = get_hddtemp_value (feature->devicename, suppress_message);
-        if (temperature == NO_VALID_HDDTEMP_PROGRAM)
-        {
-            DBG ("removing single disk");
-            chip->chip_features.erase(chip->chip_features.begin() + idx_feature);
-            idx_feature--;
-        }
-        else if (temperature == NO_VALID_TEMPERATURE_VALUE)
-        {
-            chip->chip_features.clear();
-            DBG ("Returning because of bad hddtemp.\n");
-            return;
-        }
+        if (temperature >= 0)
+            keep.push_back(feature);
     }
+    chip->chip_features = keep;
 }
 
 
@@ -341,8 +332,8 @@ populate_detected_drives (const Ptr<t_chip> &chip)
        feature->raw_value = 0.0;
 
        feature->cls = TEMPERATURE;
-       feature->min_value = 10.0;
-       feature->max_value = 50.0;
+       feature->min_value = 20.0;
+       feature->max_value = 60.0;
 
        feature->show = false;
     }
@@ -353,12 +344,6 @@ populate_detected_drives (const Ptr<t_chip> &chip)
 int
 initialize_hddtemp (std::vector<Ptr<t_chip>> &chips, bool *suppress_message)
 {
-#ifndef HAVE_NETCAT
-    int generation_linuxkernel, majorversion_linuxkernel;
-    struct utsname *unixname = NULL;
-#endif
-    int result;
-
     auto chip = xfce4::make<t_chip>();
 
     chip->description = _("S.M.A.R.T. harddisk temperatures");
@@ -368,41 +353,34 @@ initialize_hddtemp (std::vector<Ptr<t_chip>> &chips, bool *suppress_message)
 #ifdef HAVE_NETCAT
     read_disks_netcat (chip);
 #else
-    unixname = (struct utsname *) malloc (sizeof(struct utsname));
-    result = uname (unixname);
-    if (result!=0) {
-        g_free(unixname);
+    struct utsname unixname;
+    if (uname (&unixname) != 0)
         return -1;
-    }
 
-    generation_linuxkernel = atoi ( unixname->release ); /* this might cause trouble on */
-    majorversion_linuxkernel = atoi ( unixname->release+2 );      /* other systems than Linux! */
-                /* actually, wanted to use build time configuration therefore */
+    /* This might cause trouble on other systems than Linux!
+     * Actually, wanted to use build time configuration therefore */
+    int generation_linuxkernel = atoi (unixname.release);
+    int majorversion_linuxkernel = atoi (unixname.release+2);
 
-    /* Note: This is actually supposed to be carried out by ifdef HAVE_LINUX
-     and major/minor number stuff from compile time*/
+    /* Note: This is actually supposed to be carried out by ifdef HAVE_LINUX and major/minor number stuff from compile time */
 
-    if (strcmp (unixname->sysname, "Linux")==0 && (generation_linuxkernel>=3 || (generation_linuxkernel==2 && majorversion_linuxkernel>=5)))
+    if (strcmp (unixname.sysname, "Linux")==0 && (generation_linuxkernel>=3 || (generation_linuxkernel==2 && majorversion_linuxkernel>=5)))
         read_disks_linux26 (chip);
     else
         read_disks_fallback (chip); /* hopefully, that's a safe variant */
-
-    g_free (unixname);
 #endif
 
     remove_unmonitored_drives (chip, suppress_message);
-    DBG ("numfeatures=%zu\n", chip->chip_features.size());
+
     if (!chip->chip_features.empty())
     {
         populate_detected_drives (chip);
         chips.push_back(chip);
-        result = 2;
+        return 2;
     }
     else {
-        result = 0;
+        return 0;
     }
-
-    return result;
 }
 
 
