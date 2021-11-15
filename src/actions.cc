@@ -86,7 +86,7 @@ refresh_sensor_data (const Ptr<t_sensors_dialog> &dialog)
  * refreshes the tacho view of the application
  * @param ptr_sensors_dialog_structure: pointer to sensors dialog structure
  */
-static void
+void
 refresh_tacho_view (const Ptr<t_sensors_dialog> &dialog)
 {
     auto sensors = dialog->sensors;
@@ -98,7 +98,6 @@ refresh_tacho_view (const Ptr<t_sensors_dialog> &dialog)
     gtk_widget_get_allocation(gtk_widget_get_parent(wdgt_table), &allocation);
     gint num_max_cols = (allocation.width - BORDER) / (DEFAULT_SIZE_TACHOS + BORDER);
     gint num_max_rows = (allocation.height - BORDER) / (DEFAULT_SIZE_TACHOS + BORDER);
-    DBG("using max cols/rows: %d/%d.", num_max_cols, num_max_rows);
 
     gint row_tacho_table = 0, col_tacho_table = 0;
     for (auto chip : sensors->chips)
@@ -164,25 +163,24 @@ refresh_tacho_view (const Ptr<t_sensors_dialog> &dialog)
 
                 if (gtk_widget_get_parent(sensorstachowidget) == NULL)
                 {
-                  while (gtk_grid_get_child_at(GTK_GRID(wdgt_table), col_tacho_table, row_tacho_table) != NULL)
-                  {
-                    col_tacho_table++;
-                    if (col_tacho_table>=num_max_cols) {
-                        row_tacho_table++;
-                        col_tacho_table = 0;
-                    }
-                  }
-                    gtk_grid_attach(GTK_GRID(wdgt_table), sensorstachowidget, col_tacho_table, row_tacho_table, 1, 1);
-                    gtk_widget_show (sensorstachowidget);
+                  gtk_grid_attach(GTK_GRID(wdgt_table), sensorstachowidget, col_tacho_table, row_tacho_table, 1, 1);
+                  gtk_widget_show (sensorstachowidget);
+                }
+                else if (gtk_grid_get_child_at(GTK_GRID(wdgt_table), col_tacho_table, row_tacho_table) != sensorstachowidget)
+                {
+                  g_object_ref (sensorstachowidget);
+                  gtk_container_remove(GTK_CONTAINER(wdgt_table), sensorstachowidget);
+                  gtk_grid_attach(GTK_GRID(wdgt_table), sensorstachowidget, col_tacho_table, row_tacho_table, 1, 1);
+                  g_object_unref (sensorstachowidget);
                 }
 
                 col_tacho_table++;
-                if (col_tacho_table>=num_max_cols) {
+                if (col_tacho_table >= num_max_cols) {
                     row_tacho_table++;
                     col_tacho_table = 0;
                 }
             }
-            else if (sensorstachowidget != NULL && gtk_widget_get_parent(sensorstachowidget) != NULL)
+            else if (sensorstachowidget != NULL)
             {
                 g_free (sensorstacho->color_orNull);
                 g_free (sensorstacho->text);
@@ -191,8 +189,8 @@ refresh_tacho_view (const Ptr<t_sensors_dialog> &dialog)
 
                 sensors->tachos.erase(tacho);
 
-                DBG("Removing deselected widget from container.");
-                gtk_container_remove(GTK_CONTAINER(wdgt_table), sensorstachowidget);
+                if (gtk_widget_get_parent(sensorstachowidget) != NULL)
+                    gtk_container_remove(GTK_CONTAINER(wdgt_table), sensorstachowidget);
             }
 
         }

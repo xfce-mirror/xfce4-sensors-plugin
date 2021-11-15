@@ -32,4 +32,9 @@
  */
 void refresh_view (const Ptr<t_sensors_dialog> &dialog);
 
+/**
+ * Add missing tachos, remove excessive tachos, and re-arrange tachos
+ */
+void refresh_tacho_view (const Ptr<t_sensors_dialog> &dialog);
+
 #endif /* ACTIONS_H */

@@ -48,10 +48,12 @@ struct _GtkSensorsTacho {
     GtkDrawingArea parent;
 
     /** value to display */
-    gdouble sel;
+    gdouble value;
 
     /** pointer to string of sensor name to display */
     gchar *text;
+
+    gint text_width, text_height;
 
     /** pointer to color as hexadecimal rgb value in a string */
     gchar *color_orNull;

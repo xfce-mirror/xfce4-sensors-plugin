@@ -34,6 +34,7 @@
 #include <sensors-interface-common.h>
 
 /* Local includes */
+#include "actions.h"
 #include "callbacks.h"
 #include "interface.h"
 
@@ -139,6 +140,9 @@ create_main_window (const Ptr<t_sensors_dialog> &dialog)
     add_notebook (content_area_vbox, dialog);
 
     gtk_window_set_default_size (GTK_WINDOW(xfce_dialog), dialog->sensors->preferred_width, dialog->sensors->preferred_height);
+    xfce4::connect_check_resize (GTK_CONTAINER(xfce_dialog), [dialog](GtkContainer*) {
+        refresh_tacho_view (dialog);
+    });
 
     // also captures the dialog-destroy event and the closekeybinding-pressed event
     xfce4::connect_response (GTK_DIALOG (xfce_dialog), [](GtkDialog*, gint response) {

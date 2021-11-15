@@ -560,38 +560,30 @@ count_number_checked_sensor_features (const Ptr<const t_sensors> &sensors)
 static void
 draw_text_area (GtkWidget *widget, cairo_t *cr, const Ptr<t_sensors> &sensors)
 {
-    GtkAllocation alloc;
-    GdkRGBA color;
-    PangoLayout *layout;
-    PangoContext *pango_context;
-    PangoRectangle extents;
-    GtkStyleContext *style_context;
-    gint idx_currentcolumn = 0, idx_currentrow = 0;
-    gint num_items_to_display, num_rows, num_cols;
-
     if (G_UNLIKELY (!sensors->text.draw_area))
         return;
 
     /* count number of checked sensors to display.
        TODO: this could also be done by every toggle/untoggle action
              by putting this variable into t_sensors */
-    num_items_to_display = count_number_checked_sensor_features (sensors);
-    num_rows = MIN (sensors->lines_size, determine_number_of_rows (sensors));
-    num_cols = determine_number_of_cols (num_rows, num_items_to_display);
+    gint num_items_to_display = count_number_checked_sensor_features (sensors);
+    gint num_rows = MIN (sensors->lines_size, determine_number_of_rows (sensors));
+    gint num_cols = determine_number_of_cols (num_rows, num_items_to_display);
 
     cairo_save (cr);
 
+    GtkAllocation alloc;
     gtk_widget_get_allocation (widget, &alloc);
-    pango_context = gtk_widget_get_pango_context (widget);
-    style_context = gtk_widget_get_style_context (widget);
+    PangoContext *pango_context = gtk_widget_get_pango_context (widget);
+    GtkStyleContext *style_context = gtk_widget_get_style_context (widget);
 
-    gtk_style_context_get_color (style_context,
-                                 gtk_style_context_get_state (style_context),
-                                 &color);
+    GdkRGBA color;
+    gtk_style_context_get_color (style_context, gtk_style_context_get_state (style_context), &color);
     gdk_cairo_set_source_rgba (cr, &color);
 
     std::string markup = xfce4::sprintf ("<span size=\"%s\">", sensors->str_fontsize.c_str());
 
+    gint idx_currentcolumn = 0, idx_currentrow = 0;
     for (auto chip : sensors->chips)
     {
         for (auto feature : chip->chip_features)
@@ -647,18 +639,17 @@ draw_text_area (GtkWidget *widget, cairo_t *cr, const Ptr<t_sensors> &sensors)
 
     gtk_widget_show (sensors->text.draw_area);
 
-    layout = pango_layout_new (pango_context);
+    PangoLayout *layout = pango_layout_new (pango_context);
     pango_layout_set_markup (layout, markup.c_str(), markup.size());
 
+    PangoRectangle extents;
     if (sensors->plugin_mode != XFCE_PANEL_PLUGIN_MODE_VERTICAL)
     {
-        double x0, x1, y0, y1;
-
         pango_layout_get_extents (layout, NULL, &extents);
-        x0 = (double) extents.x / PANGO_SCALE;
-        x1 = alloc.width / 2.0 - extents.width / 2.0 / PANGO_SCALE;
-        y0 = (double) extents.y / PANGO_SCALE;
-        y1 = alloc.height / 2.0 - extents.height / 2.0 / PANGO_SCALE;
+        double x0 = (double) extents.x / PANGO_SCALE;
+        double x1 = alloc.width / 2.0 - extents.width / 2.0 / PANGO_SCALE;
+        double y0 = (double) extents.y / PANGO_SCALE;
+        double y1 = alloc.height / 2.0 - extents.height / 2.0 / PANGO_SCALE;
         cairo_translate (cr, x1 - x0, 0);
         cairo_translate (cr, 0, y1 - y0);
 
@@ -667,23 +658,21 @@ draw_text_area (GtkWidget *widget, cairo_t *cr, const Ptr<t_sensors> &sensors)
     }
     else
     {
-        PangoRectangle non_transformed_extents;
-        double x0, x1, y0, y1;
-
         /* rotate by 90° */
         cairo_rotate (cr, M_PI_2);
         cairo_translate (cr, 0, -alloc.width);
         pango_cairo_update_layout (cr, layout);
 
+        PangoRectangle non_transformed_extents;
         pango_layout_get_extents (layout, NULL, &non_transformed_extents);
         extents.x = non_transformed_extents.y;
         extents.y = non_transformed_extents.x;
         extents.width = non_transformed_extents.height;
         extents.height = non_transformed_extents.width;
-        x0 = (double) extents.x / PANGO_SCALE;
-        x1 = alloc.width / 2.0 - extents.width / 2.0 / PANGO_SCALE;
-        y0 = (double) extents.y / PANGO_SCALE;
-        y1 = alloc.height / 2.0 - extents.height / 2.0 / PANGO_SCALE;
+        double x0 = (double) extents.x / PANGO_SCALE;
+        double x1 = alloc.width / 2.0 - extents.width / 2.0 / PANGO_SCALE;
+        double y0 = (double) extents.y / PANGO_SCALE;
+        double y1 = alloc.height / 2.0 - extents.height / 2.0 / PANGO_SCALE;
         /* cairo_translate: X and Y are swapped because of the rotation by 90° */
         cairo_translate (cr, 0, x1 - x0);
         cairo_translate (cr, y1 - y0, 0);
