@@ -1,3 +1,31 @@
+1.4.2 (2021-11-15)
+=====
+- Prevent overlap of tachometer titles and improve standalone app layout
+- Fix crash in hddtemp codepath with a SATA SSD drive
+- Remove timer in order to deallocate memory at program termination
+- NVIDIA: Close X11 display via the destructor of a static variable
+- Increase default temperature ranges of HDDs and NVIDIA GPUs by 10℃
+- Remove default values from RC configuration files
+- Suppress title after the user adds the 1st sensor
+- Remove hard-coded limits restricting the maximum number of sensors
+- Test all possible build configurations using brute-force search
+- Use xfce4::connect instead of the less safe g_signal_connect
+- Replace C pointers and collections with C++ equivalents
+- Use C++ syntax when reading/writing RC files
+- Code cleanup: Return xfce4::Optional from sensor_get_value()
+- Code cleanup: Replace gchar* with std::string
+- Code cleanup: Remove G_BEGIN_DECLS and G_END_DECLS directives
+- Code cleanup: Replace gboolean with bool where possible
+- Code cleanup: Remove typedef keywords
+- Code cleanup: Convert C-style variable declarations to C++ style
+- Code cleanup: Rename library implementation files from C to C++
+- Code cleanup: Rename main plugin implementation files from C to C++
+- Enable lm_sensors in GitLab distcheck
+- Fix memory leaks
+- Translation Updates:
+  Basque, Danish, Hebrew, Indonesian, Italian, Korean, Malay,
+  Portuguese (Brazil), Serbian, Slovenian, Turkish
+
 1.4.1 (2021-07-26)
 =====
 - Update hddtemp netcat support
