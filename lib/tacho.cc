@@ -159,7 +159,7 @@ gtk_sensorstacho_init (GtkSensorsTacho *tacho)
 {
     g_return_if_fail (tacho != NULL);
 
-    tacho->sel = 0.0;
+    tacho->value = 0.0;
     gtk_sensorstacho_unset_text (tacho);
     gtk_sensorstacho_set_color( tacho, NULL);
 }
@@ -174,7 +174,6 @@ gtk_sensorstacho_get_request_mode(GtkWidget *widget)
     if (GTK_SENSORSTACHO(widget)->orientation == GTK_ORIENTATION_VERTICAL)
         res_requestmode = GTK_SIZE_REQUEST_HEIGHT_FOR_WIDTH;
 
-    DBG ("Getting preferred mode: %d.\n", res_requestmode);
     return res_requestmode;
 }
 
@@ -186,14 +185,12 @@ gtk_sensorstacho_get_preferred_width(GtkWidget *widget,
 {
     g_return_if_fail (widget != NULL);
 
+    GtkSensorsTacho *tacho = GTK_SENSORSTACHO (widget);
+    gint min_width = MAX(tacho->size, MINIMUM_WIDTH);
     if (minimal_width != NULL)
-        *minimal_width = MAX(GTK_SENSORSTACHO(widget)->size, MINIMUM_WIDTH);
-
+        *minimal_width = min_width;
     if (natural_width != NULL)
-        *natural_width = GTK_SENSORSTACHO(widget)->size;
-
-    if ((minimal_width != NULL) && (natural_width != NULL))
-        DBG("Returning widget preferred width: %d, %d.\n", *minimal_width, *natural_width);
+        *natural_width = MAX(min_width, tacho->text_width);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -204,14 +201,12 @@ gtk_sensorstacho_get_preferred_height(GtkWidget *widget,
 {
     g_return_if_fail (widget != NULL);
 
+    GtkSensorsTacho *tacho = GTK_SENSORSTACHO (widget);
+    gint min_height = MAX(tacho->size, MINIMUM_HEIGHT);
     if (minimal_height)
-        *minimal_height = MAX(GTK_SENSORSTACHO(widget)->size, MINIMUM_HEIGHT);
-
+        *minimal_height = min_height;
     if (natural_height)
-        *natural_height = GTK_SENSORSTACHO(widget)->size;
-
-    if ((minimal_height != NULL) && (natural_height != NULL))
-        DBG("Returning widget preferred height: %d, %d.\n", *minimal_height, *natural_height);
+        *natural_height = MAX(min_height, tacho->text_height);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -223,9 +218,10 @@ gtk_sensorstacho_get_preferred_width_for_height(GtkWidget *widget,
 {
     g_return_if_fail(widget != NULL);
 
-    *minimal_width =
-    *natural_width = MAX(height, MINIMUM_WIDTH);
-    DBG ("Returning preferred natural width %d for height %d.\n", *natural_width, height);
+    GtkSensorsTacho *tacho = GTK_SENSORSTACHO (widget);
+    auto min_width = MAX(height, MINIMUM_WIDTH);
+    *minimal_width = min_width;
+    *natural_width = MAX(min_width, tacho->text_width);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -237,30 +233,25 @@ gtk_sensorstacho_get_preferred_height_for_width(GtkWidget *widget,
 {
     g_return_if_fail(widget != NULL);
 
-    *minimal_height =
-    *natural_height = MAX(width, MINIMUM_HEIGHT);
-    DBG ("Returning preferred natural height %d for width %d.\n", *natural_height, width);
+    GtkSensorsTacho *tacho = GTK_SENSORSTACHO (widget);
+    auto min_height = MAX(width, MINIMUM_HEIGHT);
+    *minimal_height = min_height;
+    *natural_height = MAX(min_height, tacho->text_height);
 }
 
 /* -------------------------------------------------------------------------- */
 gboolean
 gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr)
 {
-    GdkRGBA color;
-    int i;
-    double percent = 0;
-    gint width, height;
-    gint pos_xcenter, pos_ycenter;
-    const double degrees_135 = 135 * G_PI / 180;
-    GtkAllocation allocation;
-    GtkStyleContext *style_context = NULL;
-    GtkSensorsTacho *tacho = GTK_SENSORSTACHO (widget);
-
     g_return_val_if_fail (cr != NULL, FALSE);
 
+    const double degrees_135 = 135 * G_PI / 180;
+    GtkSensorsTacho *const tacho = GTK_SENSORSTACHO (widget);
+
+    GtkAllocation allocation;
     gtk_widget_get_allocation(widget, &allocation);
 
-    percent = tacho->sel;
+    double percent = tacho->value;
     if (G_UNLIKELY (isnan (percent)))
         percent = 0;
     else if (G_UNLIKELY (percent < 0))
@@ -268,17 +259,18 @@ gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr)
     else if (G_UNLIKELY (percent > 1))
         percent = 1;
 
-    width = gtk_widget_get_allocated_width (widget);
-    height = gtk_widget_get_allocated_height (widget);
-    width = height = MIN(width, height);
+    const gint width = gtk_widget_get_allocated_width (widget);
+    const gint height = gtk_widget_get_allocated_height (widget);
+    const gint min_size = MIN(width, height);
 
     cairo_reset_clip(cr);
 
-    pos_xcenter = width / 2;
-    pos_ycenter = height / 2;
+    gint pos_xcenter = width / 2;
+    gint pos_ycenter = height / 2;
     pos_ycenter += height * (1 - fabs (sin (degrees_135))) / 4;  /* center the arc vertically */
 
     /* initialize color values appropriately */
+    GdkRGBA color;
     color.red = (tacho->style != style_MediumYGB) ? val_colorvalue : 0;
     color.green = val_colorvalue;
     color.blue = 0;
@@ -308,15 +300,15 @@ gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr)
     }
 
     /* draw circular gradient */
-    for (i=(1-percent)*THREE_QUARTER_CIRCLE; i<THREE_QUARTER_CIRCLE; i++)
+    for (int i = (1-percent)*THREE_QUARTER_CIRCLE; i < THREE_QUARTER_CIRCLE; i++)
     {
         const double degrees_45minusI = (45-i) * G_PI / 180;
 
         gdk_cairo_set_source_rgba (cr, &color);
 
-        cairo_arc (cr, pos_xcenter, pos_ycenter, width/2-2, degrees_135, degrees_45minusI);
+        cairo_arc (cr, pos_xcenter, pos_ycenter, min_size/2-2, degrees_135, degrees_45minusI);
         cairo_line_to (cr, pos_xcenter, pos_ycenter);
-        cairo_arc (cr, pos_xcenter, pos_ycenter, width/2-4, degrees_45minusI, degrees_45minusI);
+        cairo_arc (cr, pos_xcenter, pos_ycenter, min_size/2-4, degrees_45minusI, degrees_45minusI);
         cairo_line_to (cr, pos_xcenter, pos_ycenter);
         cairo_fill (cr);
 
@@ -345,17 +337,17 @@ gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr)
     }
 
     /* white right part */
-    cairo_arc (cr, pos_xcenter, pos_ycenter, width/2-2, degrees_135, 45 * G_PI / 180);
+    cairo_arc (cr, pos_xcenter, pos_ycenter, min_size/2-2, degrees_135, 45 * G_PI / 180);
 
     cairo_line_to (cr, pos_xcenter, pos_ycenter);
 
-    cairo_arc (cr, pos_xcenter, pos_ycenter, width/2-2, degrees_135, degrees_135);
+    cairo_arc (cr, pos_xcenter, pos_ycenter, min_size/2-2, degrees_135, degrees_135);
     cairo_line_to (cr, pos_xcenter, pos_ycenter);
 
     /* black border */
     cairo_set_line_width (cr, 0.5);
 
-    style_context = gtk_widget_get_style_context(widget);
+    GtkStyleContext *style_context = gtk_widget_get_style_context(widget);
     if (style_context != NULL)
     {
         gtk_style_context_get_color(style_context, GTK_STATE_FLAG_NORMAL, &color);
@@ -371,14 +363,10 @@ gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr)
 
     cairo_stroke (cr);
 
-    if (tacho->text != NULL) {
+    if (tacho->text != NULL)
+    {
         PangoContext *style_context1 = gtk_widget_get_pango_context (widget);
         PangoLayout *layout = pango_layout_new (style_context1);
-        PangoFontDescription *pango_font_description;
-        gdouble baseline;
-
-        pango_layout_set_alignment (layout, PANGO_ALIGN_CENTER);
-        pango_layout_set_width (layout, width);
 
         std::string text;
         if (tacho->color_orNull && *tacho->color_orNull != '\0')
@@ -387,16 +375,31 @@ gtk_sensorstacho_paint (GtkWidget *widget, cairo_t *cr)
             text = xfce4::sprintf ("<span>%s</span>", tacho->text);
         pango_layout_set_markup (layout, text.c_str(), -1);
 
-        pango_font_description = pango_font_description_from_string(font.c_str());
+        PangoFontDescription *pango_font_description = pango_font_description_from_string(font.c_str());
         pango_layout_set_font_description (layout, pango_font_description);
         pango_font_description_free (pango_font_description);
 
         pango_cairo_update_layout (cr, layout);
 
-        baseline = pango_layout_get_baseline (layout);
+        PangoRectangle extents;
+        pango_layout_get_extents (layout, NULL, &extents);
 
-        cairo_move_to (cr, pos_xcenter, pos_ycenter - baseline / PANGO_SCALE - 1);
+        gdouble baseline = pango_layout_get_baseline (layout);
+        cairo_move_to (cr, pos_xcenter - extents.width / 2.0 / PANGO_SCALE, pos_ycenter - baseline / PANGO_SCALE - 1);
         pango_cairo_show_layout (cr, layout);
+
+        auto text_width = PANGO_PIXELS_CEIL (extents.width);
+        auto text_height = PANGO_PIXELS_CEIL (extents.height);
+        if (tacho->text_width != text_width || tacho->text_height != text_height)
+        {
+            tacho->text_width = text_width;
+            tacho->text_height = text_height;
+            gint natural_width, natural_height;
+            gtk_sensorstacho_get_preferred_width (widget, NULL, &natural_width);
+            gtk_sensorstacho_get_preferred_height (widget, NULL, &natural_height);
+            gtk_widget_set_size_request (widget, natural_width, natural_height);
+        }
+
         g_object_unref(layout);
     }
 
@@ -436,7 +439,7 @@ gtk_sensorstacho_set_value (GtkSensorsTacho *tacho, gdouble value)
     else if (G_UNLIKELY (value > 1))
         value = 1;
 
-    tacho->sel = value;
+    tacho->value = value;
 }
 
 /* -------------------------------------------------------------------------- */

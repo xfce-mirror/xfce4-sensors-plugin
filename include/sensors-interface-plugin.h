@@ -74,7 +74,7 @@ struct t_sensors {
     gint lines_size = 3;
 
     /** panel orientation */
-    XfcePanelPluginMode plugin_mode;
+    XfcePanelPluginMode plugin_mode = XFCE_PANEL_PLUGIN_MODE_HORIZONTAL;
 
     /** automatic bar colors */
     bool automatic_bar_colors = false;
