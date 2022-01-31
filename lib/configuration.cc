@@ -134,8 +134,8 @@ sensors_write_config (XfcePanelPlugin *plugin, const Ptr<const t_sensors> &senso
 
                         rc->write_bool_entry ("Show", feature->show);
 
-                        rc->write_entry ("Min", xfce4::sprintf ("%.2f", feature->min_value));
-                        rc->write_entry ("Max", xfce4::sprintf ("%.2f", feature->max_value));
+                        rc->write_float_entry ("Min", feature->min_value);
+                        rc->write_float_entry ("Max", feature->max_value);
                     }
                 }
             }
@@ -309,11 +309,8 @@ sensors_read_config (XfcePanelPlugin *plugin, const Ptr<t_sensors> &sensors)
 
                                 feature->show = rc->read_bool_entry ("Show", FALSE);
 
-                                if ((str_value = rc->read_entry ("Min", NULL)) && !str_value->empty())
-                                    feature->min_value = atof (str_value->c_str());
-
-                                if ((str_value = rc->read_entry ("Max", NULL)) && !str_value->empty())
-                                    feature->max_value = atof (str_value->c_str());
+                                feature->min_value = rc->read_float_entry ("Min", feature->min_value);
+                                feature->max_value = rc->read_float_entry ("Max", feature->max_value);
                             }
                         }
                     }
