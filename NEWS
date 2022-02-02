@@ -1,3 +1,10 @@
+1.4.3 (2022-02-02)
+=====
+- Fix translations not showing in the GUI
+- Use locale-independent floats in configuration files
+- Translation Updates:
+  Swedish
+
 1.4.2 (2021-11-15)
 =====
 - Prevent overlap of tachometer titles and improve standalone app layout
