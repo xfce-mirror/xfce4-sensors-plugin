@@ -43,9 +43,10 @@ DISTCLEANFILES =                        \
 	intltool-extract                    \
 	intltool-merge                      \
 	intltool-update                     \
-	xfce4-sensors-plugin.spec
+	xfce4-sensors-plugin.spec           \
+	po/.intltool-merge-cache.lock
 
-DISTCHECK_CONFIGURE_FLAGS =                 \
+DISTCHECK_CONFIGURE_FLAGS =             \
 	--disable-hddtemp                   \
 	--disable-xnvctrl                   \
 	--enable-libsensors                 \
