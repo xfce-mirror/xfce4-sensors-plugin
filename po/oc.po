@@ -205,7 +205,7 @@ msgstr "Disques durs"
 #: ../lib/acpi.c:317 ../lib/acpi.c:622 ../lib/acpi.c:690
 #, c-format
 msgid "%s - %s"
-msgstr ""
+msgstr "%s – %s"
 
 #. Power with unit Watts, not Energy with Joules or kWh
 #: ../lib/acpi.c:624
@@ -361,7 +361,7 @@ msgstr "%+.3f V"
 #: ../lib/sensors-interface-common.c:148
 #, c-format
 msgid "%+.3f A"
-msgstr ""
+msgstr "%+.3f A"
 
 #: ../lib/sensors-interface-common.c:152
 #, c-format
@@ -371,7 +371,7 @@ msgstr "%.0f mWh"
 #: ../lib/sensors-interface-common.c:156
 #, c-format
 msgid "%.3f W"
-msgstr ""
+msgstr "%.3f W"
 
 #: ../lib/sensors-interface-common.c:160
 msgid "off"
