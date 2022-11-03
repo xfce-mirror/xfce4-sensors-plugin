@@ -11,9 +11,9 @@ dnl Version information
 AC_CONFIG_MACRO_DIRS([m4])
 m4_define([sensors_version_major], [1])
 m4_define([sensors_version_minor], [4])
-m4_define([sensors_version_micro], [3])
+m4_define([sensors_version_micro], [4])
 m4_define([sensors_version_build], [@REVISION@])
-m4_define([sensors_version_tag], [git])
+m4_define([sensors_version_tag], [])
 m4_define([sensors_version], [sensors_version_major().sensors_version_minor().sensors_version_micro()ifelse(sensors_version_tag(), [git], [sensors_version_tag()-sensors_version_build()], [sensors_version_tag()])])
 
 dnl Initialize autoconf
