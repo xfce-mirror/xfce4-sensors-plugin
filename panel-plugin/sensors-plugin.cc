@@ -2,7 +2,7 @@
  * Part of xfce4-sensors-plugin
  *
  * Copyright (c) 2004-2017 Fabian Nowak <timystery@arcor.de>
- * Copyright (c) 2021 Jan Ziak <0xe2.0x9a.0x9b@xfce.org>
+ * Copyright (c) 2021-2022 Jan Ziak <0xe2.0x9a.0x9b@xfce.org>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,9 +25,6 @@
  * It also works with solely ACPI or hddtemp, but then with more limited
  * functionality.
  */
-
-/* The fixes file has to be included before any other #include directives */
-#include "xfce4++/util/fixes.h"
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>

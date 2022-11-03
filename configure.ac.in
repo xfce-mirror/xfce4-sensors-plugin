@@ -1,5 +1,5 @@
 dnl
-dnl Copyright (c) 2003-2021 - The Xfce Development Team.
+dnl Copyright (c) 2003-2022 - The Xfce Development Team
 dnl
 dnl 2003,2004,2007 Benedikt Meurer <benny@xfce.org>
 dnl 2007-2011,2014-2020 Fabian Nowak <timystery@arcor.de>
@@ -299,14 +299,10 @@ XDT_CHECK_OPTIONAL_PACKAGE([LIBNOTIFY],
                            [0.7], [notification],
                            [notification message library])
 
-dnl **************************************
-dnl *** Check for Xfce packages ***
-dnl **************************************
-XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-2], [4.14.0])
-XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.14.0])
-
 dnl configure the panel plugin
-XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-2.0], [4.14.0])
+XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-2.0], [4.16.0])
+XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-2], [4.16.0])
+XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.17.2])
 
 dnl I18n support
 XDT_I18N([@LINGUAS@])
