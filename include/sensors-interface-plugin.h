@@ -20,10 +20,6 @@
 #ifndef XFCE4_SENSORS_INTERFACE_PLUGIN_H
 #define XFCE4_SENSORS_INTERFACE_PLUGIN_H
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-
 #include <glib.h>
 #include <gtk/gtk.h>
 #include <libxfce4panel/libxfce4panel.h>

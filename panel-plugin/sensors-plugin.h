@@ -21,10 +21,6 @@
 #ifndef XFCE4_SENSORS_SENSORS_H
 #define XFCE4_SENSORS_SENSORS_H
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-
 #include <libxfce4util/libxfce4util.h>
 
 #define APP_NAME N_("Sensors Plugin")
