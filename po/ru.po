@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Aleksandr P, 2014
-# Andrei Stepanov, 2022
+# Andrei Stepanov, 2022-2023
 # Andrey Fedoseev <andrey.fedoseev@gmail.com>, 2006
 # Degit22, 2014
 # Dima Smirnov <arch@cnc-parts.info>, 2010
@@ -15,182 +15,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-22 00:48+0200\n"
+"POT-Creation-Date: 2022-11-28 15:07+0100\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
-"Last-Translator: Виктор, 2022\n"
+"Last-Translator: Andrei Stepanov, 2022-2023\n"
 "Language-Team: Russian (http://www.transifex.com/xfce/xfce-panel-plugins/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
-
-#. initialize value label widget
-#: ../panel-plugin/sensors-plugin.c:342 ../panel-plugin/sensors-plugin.c:457
-#: ../panel-plugin/sensors-plugin.c:977
-msgid "<span><b>Sensors</b></span>"
-msgstr "<span><b>Датчики</b></span>"
-
-#. output to stdout on command line, not very useful for user, except for
-#. tracing problems
-#: ../panel-plugin/sensors-plugin.c:854
-#, c-format
-msgid ""
-"Sensors Plugin:\n"
-"Seems like there was a problem reading a sensor feature value.\n"
-"Proper proceeding cannot be guaranteed.\n"
-msgstr "Сообщение:\nНевозможно считать показания системы.\nОтображаемые данные могут быть не верны.\n"
-
-#: ../panel-plugin/sensors-plugin.c:884
-msgid "No sensors selected!"
-msgstr "Датчики не выбраны!"
-
-#: ../panel-plugin/sensors-plugin.c:1720
-msgid "UI style:"
-msgstr "Стиль отображения:"
-
-#: ../panel-plugin/sensors-plugin.c:1721
-msgid "_text"
-msgstr "_текст"
-
-#: ../panel-plugin/sensors-plugin.c:1722
-msgid "_progress bars"
-msgstr "_индикаторы выполнения"
-
-#: ../panel-plugin/sensors-plugin.c:1723
-msgid "_tachos"
-msgstr "_тахометры"
-
-#: ../panel-plugin/sensors-plugin.c:1757
-msgid "Show _labels"
-msgstr "Отображать _заголовки"
-
-#: ../panel-plugin/sensors-plugin.c:1779
-msgid "_Automatic bar colors"
-msgstr "_Автоматические цвета индикатора"
-
-#: ../panel-plugin/sensors-plugin.c:1781
-msgid ""
-"If enabled, bar colors depend on their values (normal, high, very high).\n"
-"If disabled, bars use the user-defined sensor colors.\n"
-"If a particular user-defined sensor color is unspecified,\n"
-"the bar color is derived from the current UI style."
-msgstr "Если параметр включен, цвета индикатора зависят от значений (нормальный, высокий, очень высокий).\nЕсли параметр отключен, индикаторы используют пользовательские цвета датчика.\nЕсли конкретный пользовательский цвет датчика не указан,\nцвет индикатора определяется текущим стилем пользовательского интерфейса."
-
-#: ../panel-plugin/sensors-plugin.c:1808
-msgid "_Show title"
-msgstr "_Отображать заголовок"
-
-#: ../panel-plugin/sensors-plugin.c:1827
-msgid "_Number of text lines:"
-msgstr "_Количество строк текста:"
-
-#. The Xfce 4 panel can have several rows or columns. With such a mode,
-#. the plugins are allowed to span over all available rows/columns.
-#. When translating, "cover" might be replaced by "use" or "span".
-#: ../panel-plugin/sensors-plugin.c:1859
-msgid "_Cover all panel rows/columns"
-msgstr "_Покрывать все строки/столбцы панели"
-
-#: ../panel-plugin/sensors-plugin.c:1879
-msgid "F_ont size:"
-msgstr "Р_азмер шрифта:"
-
-#: ../panel-plugin/sensors-plugin.c:1885
-msgid "x-small"
-msgstr "крошечный"
-
-#: ../panel-plugin/sensors-plugin.c:1886
-msgid "small"
-msgstr "маленький"
-
-#: ../panel-plugin/sensors-plugin.c:1887
-msgid "medium"
-msgstr "средний"
-
-#: ../panel-plugin/sensors-plugin.c:1888
-msgid "large"
-msgstr "большой"
-
-#: ../panel-plugin/sensors-plugin.c:1889
-msgid "x-large"
-msgstr "огромный"
-
-#: ../panel-plugin/sensors-plugin.c:1913
-msgid "F_ont:"
-msgstr "_Шрифт:"
-
-#: ../panel-plugin/sensors-plugin.c:1938
-msgid "Show _Units"
-msgstr "Отображать _единицы"
-
-#: ../panel-plugin/sensors-plugin.c:1956
-msgid "Small horizontal s_pacing"
-msgstr "Маленький горизонтальный п_робел"
-
-#. Alpha value of the tacho coloring
-#: ../panel-plugin/sensors-plugin.c:1979
-msgid "Tacho color alpha value:"
-msgstr "Значение альфа цвета тахометра:"
-
-#. The value from HSV color model
-#: ../panel-plugin/sensors-plugin.c:1992
-msgid "Tacho color value:"
-msgstr "Значение цвета тахометра:"
-
-#: ../panel-plugin/sensors-plugin.c:2017
-msgid "Suppress messages"
-msgstr "Не показывать сообщения"
-
-#: ../panel-plugin/sensors-plugin.c:2032
-msgid "Suppress tooltip"
-msgstr "Не показывать подсказки"
-
-#: ../panel-plugin/sensors-plugin.c:2052
-msgid "E_xecute on double click:"
-msgstr "_Выполнить по двойному щелчку:"
-
-#: ../panel-plugin/sensors-plugin.c:2079
-msgid "_View"
-msgstr "_Вид"
-
-#: ../panel-plugin/sensors-plugin.c:2092
-msgid "UI style options"
-msgstr "Параметры стиля отображения:"
-
-#: ../panel-plugin/sensors-plugin.c:2121
-msgid "_Miscellaneous"
-msgstr "_Разное"
-
-#: ../panel-plugin/sensors-plugin.c:2175 ../panel-plugin/sensors-plugin.h:31
-#: ../lib/hddtemp.c:151
-msgid "Sensors Plugin"
-msgstr "Датчики"
-
-#: ../panel-plugin/sensors-plugin.c:2183
-msgid "Properties"
-msgstr "Параметры"
-
-#: ../panel-plugin/sensors-plugin.c:2209
-msgid ""
-"You can change a feature's properties such as name, colours, min/max value "
-"by double-clicking the entry, editing the content, and pressing \"Return\" "
-"or selecting a different field."
-msgstr "Вы можете изменять свойства, такие как имя, цвет, минимальное или максимальное значение, двойным щелчком мыши по параметру, редактировать содержимое и нажать «Enter» или выбрать другое поле. "
-
-#: ../panel-plugin/sensors-plugin.c:2292
-msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
-msgstr "Показывать значения датчиков LM, ACPI, жёстких дисков, NVIDIA"
-
-#: ../panel-plugin/sensors-plugin.c:2294
-msgid "Copyright (c) 2004-2021\n"
-msgstr "Copyright © 2004-2021\n"
-
-#. only use this if no hddtemp sensor
-#. or do only use this , if it is an lmsensors device. whatever.
-#: ../lib/configuration.c:163 ../lib/hddtemp.c:358
-msgid "Hard disks"
-msgstr "Жёсткие диски"
 
 #. Note for translators: As some laptops have several batteries such as the
 #. T440s,
@@ -207,50 +40,53 @@ msgstr "Жёсткие диски"
 #. You might want to format this with a hyphen and without spacing, or with a
 #. dash; the result might be BAT1–Voltage or whatever fits your language most.
 #. Spaces allow line breaks over the tachometers.
-#: ../lib/acpi.c:317 ../lib/acpi.c:622 ../lib/acpi.c:690
+#: ../lib/acpi.cc:270 ../lib/acpi.cc:517 ../lib/acpi.cc:570
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
 #. Power with unit Watts, not Energy with Joules or kWh
-#: ../lib/acpi.c:624
+#: ../lib/acpi.cc:519
 msgid "Power"
 msgstr "Мощность"
 
-#: ../lib/acpi.c:690
+#: ../lib/acpi.cc:570
 msgid "Voltage"
 msgstr "Напряжение"
 
-#: ../lib/acpi.c:744 ../lib/acpi.c:756
+#: ../lib/acpi.cc:611 ../lib/acpi.cc:622
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.c:747
+#: ../lib/acpi.cc:614
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ACPI v%s зоны"
 
-#: ../lib/acpi.c:888
+#: ../lib/acpi.cc:735
 msgid "<Unknown>"
 msgstr "<Неизвестно>"
 
-#: ../lib/nvidia.c:64
-msgid "NVIDIA GPU core temperature"
-msgstr "Температура ядра NVIDIA ГП"
+#. only use this if no hddtemp sensor
+#. or do only use this , if it is an lmsensors device. whatever.
+#: ../lib/configuration.cc:120 ../lib/hddtemp.cc:347
+msgid "Hard disks"
+msgstr "Жёсткие диски"
 
-#: ../lib/nvidia.c:65
-msgid "nvidia"
-msgstr "nvidia"
-
-#: ../lib/hddtemp.c:110
+#: ../lib/hddtemp.cc:106
 msgid "Don't show this message again"
 msgstr "Не показывать это сообщение снова"
 
-#: ../lib/hddtemp.c:357
+#: ../lib/hddtemp.cc:148 ../panel-plugin/sensors-plugin.cc:1949
+#: ../panel-plugin/sensors-plugin.h:30
+msgid "Sensors Plugin"
+msgstr "Датчики"
+
+#: ../lib/hddtemp.cc:346
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "Температура диска по S.M.A.R.T."
 
-#: ../lib/hddtemp.c:527
+#: ../lib/hddtemp.cc:503
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
@@ -262,136 +98,329 @@ msgid ""
 "with a return value of %d.\n"
 msgstr "Команда «hddtemp» выполнена некорректно. Это может случиться, если для получения доступа к измерению температуры дисков нужны права суперпользователя.\nСамое простое, но нежелательное решение выполнить команду «chmod u+s %s» от имени суперпользователя и перезапустить модуль или панель.\n\nВывод «%s» сообщает о следующей ошибке:\n%s\nс кодом завершения %d.\n"
 
-#: ../lib/hddtemp.c:541 ../lib/hddtemp.c:564
+#: ../lib/hddtemp.cc:517 ../lib/hddtemp.cc:540
 msgid "Suppress this message in future"
 msgstr "Не показывать это сообщение в дальнейшем"
 
-#: ../lib/hddtemp.c:559
+#: ../lib/hddtemp.cc:535
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr "Ошибка при выполнении «%s»:\n%s"
 
-#: ../lib/lmsensors.c:63
+#: ../lib/lmsensors.cc:63
 msgid "LM Sensors"
 msgstr "Датчики LM"
 
-#: ../lib/lmsensors.c:297
+#: ../lib/lmsensors.cc:291
 #, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "Ошибка: не удаётся соединиться с датчиками!"
 
-#: ../lib/sensors-interface.c:79
+#: ../lib/nvidia.cc:79
+msgid "NVIDIA GPU core temperature"
+msgstr "Температура ядра NVIDIA ГП"
+
+#: ../lib/nvidia.cc:80
+msgid "nvidia"
+msgstr "nvidia"
+
+#: ../lib/sensors-interface-common.cc:58 ../lib/sensors-interface-common.cc:59
+msgid "No sensors found!"
+msgstr "Датчики на найдены!"
+
+#: ../lib/sensors-interface-common.cc:86
+#, c-format
+msgid "%.0f °F"
+msgstr "%.0f °F"
+
+#: ../lib/sensors-interface-common.cc:88
+#, c-format
+msgid "%.0f °C"
+msgstr "%.0f °C"
+
+#: ../lib/sensors-interface-common.cc:91
+#, c-format
+msgid "%+.3f V"
+msgstr "%+.3f В"
+
+#: ../lib/sensors-interface-common.cc:94
+#, c-format
+msgid "%+.3f A"
+msgstr "%+.3f А"
+
+#: ../lib/sensors-interface-common.cc:97
+#, c-format
+msgid "%.0f mWh"
+msgstr "%.0f мВт⋅ч"
+
+#: ../lib/sensors-interface-common.cc:100
+#, c-format
+msgid "%.3f W"
+msgstr "%.3f Вт"
+
+#: ../lib/sensors-interface-common.cc:103
+msgid "off"
+msgstr "отключить"
+
+#: ../lib/sensors-interface-common.cc:103
+msgid "on"
+msgstr "включить"
+
+#: ../lib/sensors-interface-common.cc:106
+#, c-format
+msgid "%.0f rpm"
+msgstr "%5.0f об/мин."
+
+#: ../lib/sensors-interface.cc:97
 msgid "Sensors Plugin Failure"
 msgstr "Сбой модуля"
 
-#: ../lib/sensors-interface.c:80
+#: ../lib/sensors-interface.cc:98
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr "Похоже что возникла проблема при чтении показаний датчиков.\nОтображаемые данные могут быть не верны."
 
-#: ../lib/sensors-interface.c:148
+#: ../lib/sensors-interface.cc:131
 msgid "Sensors t_ype:"
 msgstr "_Тип датчиков:"
 
-#: ../lib/sensors-interface.c:167
+#: ../lib/sensors-interface.cc:149
 msgid "Description:"
 msgstr "Описание:"
 
-#: ../lib/sensors-interface.c:196
+#: ../lib/sensors-interface.cc:176
 msgid "U_pdate interval (seconds):"
 msgstr "_Интервал обновления (секунд):"
 
-#: ../lib/sensors-interface.c:231
+#: ../lib/sensors-interface.cc:210
 msgid "Name"
 msgstr "Имя"
 
-#: ../lib/sensors-interface.c:242
+#: ../lib/sensors-interface.cc:224
 msgid "Value"
 msgstr "Значение"
 
-#: ../lib/sensors-interface.c:248
+#: ../lib/sensors-interface.cc:230
 msgid "Show"
 msgstr "Отображать"
 
-#: ../lib/sensors-interface.c:257
+#: ../lib/sensors-interface.cc:242
 msgid "Color"
 msgstr "Цвет"
 
-#: ../lib/sensors-interface.c:268
+#: ../lib/sensors-interface.cc:256
 msgid "Min"
 msgstr "Мин."
 
-#: ../lib/sensors-interface.c:279
+#: ../lib/sensors-interface.cc:270
 msgid "Max"
 msgstr "Макс."
 
-#: ../lib/sensors-interface.c:311
+#: ../lib/sensors-interface.cc:303
 msgid "Temperature scale:"
 msgstr "Температурная шкала:"
 
-#: ../lib/sensors-interface.c:312
+#: ../lib/sensors-interface.cc:304
 msgid "_Celsius"
 msgstr "По _Цельсию"
 
-#: ../lib/sensors-interface.c:314
+#: ../lib/sensors-interface.cc:306
 msgid "_Fahrenheit"
 msgstr "По _Фаренгейту"
 
-#: ../lib/sensors-interface.c:346
+#: ../lib/sensors-interface.cc:335
 msgid "_Sensors"
 msgstr "_Датчики"
 
-#: ../lib/sensors-interface-common.c:70 ../lib/sensors-interface-common.c:71
-msgid "No sensors found!"
-msgstr "Датчики на найдены!"
+#. initialize value label widget
+#: ../panel-plugin/sensors-plugin.cc:262 ../panel-plugin/sensors-plugin.cc:361
+#: ../panel-plugin/sensors-plugin.cc:832
+msgid "<span><b>Sensors</b></span>"
+msgstr "<span><b>Датчики</b></span>"
 
-#: ../lib/sensors-interface-common.c:138
+#. output to stdout on command line, not very useful for user, except for
+#. tracing problems
+#: ../panel-plugin/sensors-plugin.cc:739
 #, c-format
-msgid "%.0f °F"
-msgstr "%.0f °F"
+msgid ""
+"Sensors Plugin:\n"
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr "Сообщение:\nНевозможно считать показания системы.\nОтображаемые данные могут быть не верны.\n"
 
-#: ../lib/sensors-interface-common.c:140
+#: ../panel-plugin/sensors-plugin.cc:756
+msgid "No sensors selected!"
+msgstr "Датчики не выбраны!"
+
+#: ../panel-plugin/sensors-plugin.cc:1482
+msgid "UI style:"
+msgstr "Стиль отображения:"
+
+#: ../panel-plugin/sensors-plugin.cc:1483
+msgid "_text"
+msgstr "_текст"
+
+#: ../panel-plugin/sensors-plugin.cc:1484
+msgid "_progress bars"
+msgstr "_индикаторы выполнения"
+
+#: ../panel-plugin/sensors-plugin.cc:1485
+msgid "_tachos"
+msgstr "_тахометры"
+
+#: ../panel-plugin/sensors-plugin.cc:1523
+msgid "Show _labels"
+msgstr "Отображать _заголовки"
+
+#: ../panel-plugin/sensors-plugin.cc:1545
+msgid "_Automatic bar colors"
+msgstr "_Автоматические цвета индикатора"
+
+#: ../panel-plugin/sensors-plugin.cc:1547
+msgid ""
+"If enabled, bar colors depend on their values (normal, high, very high).\n"
+"If disabled, bars use the user-defined sensor colors.\n"
+"If a particular user-defined sensor color is unspecified,\n"
+"the bar color is derived from the current UI style."
+msgstr "Если параметр включен, цвета индикатора зависят от значений (нормальный, высокий, очень высокий).\nЕсли параметр отключен, индикаторы используют пользовательские цвета датчика.\nЕсли конкретный пользовательский цвет датчика не указан,\nцвет индикатора определяется текущим стилем пользовательского интерфейса."
+
+#: ../panel-plugin/sensors-plugin.cc:1574
+msgid "_Show title"
+msgstr "_Отображать заголовок"
+
+#: ../panel-plugin/sensors-plugin.cc:1591
+msgid "_Number of text lines:"
+msgstr "_Количество строк текста:"
+
+#. The Xfce 4 panel can have several rows or columns. With such a mode,
+#. the plugins are allowed to span over all available rows/columns.
+#. When translating, "cover" might be replaced by "use" or "span".
+#: ../panel-plugin/sensors-plugin.cc:1623
+msgid "_Cover all panel rows/columns"
+msgstr "_Покрывать все строки/столбцы панели"
+
+#: ../panel-plugin/sensors-plugin.cc:1641
+msgid "F_ont size:"
+msgstr "Р_азмер шрифта:"
+
+#: ../panel-plugin/sensors-plugin.cc:1647
+msgid "x-small"
+msgstr "крошечный"
+
+#: ../panel-plugin/sensors-plugin.cc:1648
+msgid "small"
+msgstr "маленький"
+
+#: ../panel-plugin/sensors-plugin.cc:1649
+msgid "medium"
+msgstr "средний"
+
+#: ../panel-plugin/sensors-plugin.cc:1650
+msgid "large"
+msgstr "большой"
+
+#: ../panel-plugin/sensors-plugin.cc:1651
+msgid "x-large"
+msgstr "огромный"
+
+#: ../panel-plugin/sensors-plugin.cc:1673
+msgid "F_ont:"
+msgstr "_Шрифт:"
+
+#: ../panel-plugin/sensors-plugin.cc:1699
+msgid "Show _Units"
+msgstr "Отображать _единицы"
+
+#: ../panel-plugin/sensors-plugin.cc:1719
+msgid "Small horizontal s_pacing"
+msgstr "Маленький горизонтальный п_робел"
+
+#: ../panel-plugin/sensors-plugin.cc:1746
+msgid "Tacho color alpha value:"
+msgstr "Значение альфа цвета тахометра:"
+
+#: ../panel-plugin/sensors-plugin.cc:1761
+msgid "Tacho color value:"
+msgstr "Значение цвета тахометра:"
+
+#: ../panel-plugin/sensors-plugin.cc:1789
+msgid "Suppress messages"
+msgstr "Не показывать сообщения"
+
+#: ../panel-plugin/sensors-plugin.cc:1806
+msgid "Suppress tooltip"
+msgstr "Не показывать подсказки"
+
+#: ../panel-plugin/sensors-plugin.cc:1826
+msgid "E_xecute on double click:"
+msgstr "_Выполнить по двойному щелчку:"
+
+#: ../panel-plugin/sensors-plugin.cc:1853
+msgid "_View"
+msgstr "_Вид"
+
+#: ../panel-plugin/sensors-plugin.cc:1866
+msgid "UI style options"
+msgstr "Параметры стиля отображения:"
+
+#: ../panel-plugin/sensors-plugin.cc:1893
+msgid "_Miscellaneous"
+msgstr "_Разное"
+
+#: ../panel-plugin/sensors-plugin.cc:1957
+msgid "Properties"
+msgstr "Параметры"
+
+#: ../panel-plugin/sensors-plugin.cc:1983
+msgid ""
+"You can change a feature's properties such as name, colours, min/max value "
+"by double-clicking the entry, editing the content, and pressing \"Return\" "
+"or selecting a different field."
+msgstr "Вы можете изменять свойства, такие как имя, цвет, минимальное или максимальное значение, двойным щелчком мыши по параметру, редактировать содержимое и нажать «Enter» или выбрать другое поле. "
+
+#: ../panel-plugin/sensors-plugin.cc:2070
+msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
+msgstr "Показывать значения датчиков LM, ACPI, жёстких дисков, NVIDIA"
+
+#: ../panel-plugin/sensors-plugin.cc:2072
+msgid "Copyright (c) 2004-2021\n"
+msgstr "Copyright © 2004-2021\n"
+
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
+msgid "Sensor plugin"
+msgstr "Модуль датчиков"
+
+#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
+#: ../src/xfce4-sensors.desktop.in.h:2
+msgid "Show sensor values."
+msgstr "Отображение показаний датчиков"
+
+#. FIXME: either print nothing, or undertake appropriate action, or pop up a
+#. message box.
+#: ../src/actions.cc:70
 #, c-format
-msgid "%.0f °C"
-msgstr "%.0f °C"
+msgid ""
+"Sensors Viewer:\n"
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr "Сообщение:\nНевозможно считать показания системы.\nОтображаемые данные могут быть не верны.\n"
 
-#: ../lib/sensors-interface-common.c:144
-#, c-format
-msgid "%+.3f V"
-msgstr "%+.3f В"
+#: ../src/interface.cc:75
+msgid "_Overview"
+msgstr "_Обзор"
 
-#: ../lib/sensors-interface-common.c:148
-#, c-format
-msgid "%+.3f A"
-msgstr "%+.3f А"
+#: ../src/interface.cc:97
+msgid "_Tachometers"
+msgstr "_Тахометры"
 
-#: ../lib/sensors-interface-common.c:152
-#, c-format
-msgid "%.0f mWh"
-msgstr "%.0f мВт⋅ч"
+#: ../src/interface.cc:111
+msgid "Sensors Viewer"
+msgstr "Просмотр датчиков"
 
-#: ../lib/sensors-interface-common.c:156
-#, c-format
-msgid "%.3f W"
-msgstr "%.3f Вт"
-
-#: ../lib/sensors-interface-common.c:160
-msgid "off"
-msgstr "выключить"
-
-#: ../lib/sensors-interface-common.c:160
-msgid "on"
-msgstr "включить"
-
-#: ../lib/sensors-interface-common.c:164
-#, c-format
-msgid "%.0f rpm"
-msgstr "%5.0f об/мин."
-
-#: ../src/main.c:59
+#: ../src/main.cc:47
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -399,7 +428,7 @@ msgid ""
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr "Xfce4 Sensors %s\nЭта программа выпущена под лицензией GPL v2.\nТекст лицензии может быть найден внутри архива с исходным кодом или в /usr/share/apps/LICENSES/GPL_V2, а также на http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
-#: ../src/main.c:75
+#: ../src/main.cc:62
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -414,46 +443,15 @@ msgid ""
 "This program is published under the GPL v2.\n"
 msgstr "Сенсоры Xfce4 %s\nОтображение информации о датчиках, статусе ACPI, температуре жёстких дисков и Nvidia GPU.\nСинтаксис:\nxfce4-sensors [параметр]\nгде параметр:\n-h, --help Выводит это сообщение.\n-l, --license Выводит информацию о лицензии.\n-V, --version Выводит информацию о версии.\n\nЭта программа публикуется под лицензией GPL v2.\n"
 
-#: ../src/main.c:97
+#: ../src/main.cc:83
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Сенсоры Xfce4 %s\n"
-
-#: ../src/interface.c:76
-msgid "_Overview"
-msgstr "_Обзор"
-
-#: ../src/interface.c:97
-msgid "_Tachometers"
-msgstr "_Тахометры"
-
-#: ../src/interface.c:113
-msgid "Sensors Viewer"
-msgstr "Просмотр датчиков"
-
-#. FIXME: either print nothing, or undertake appropriate action,
-#. * or pop up a message box.
-#: ../src/actions.c:78
-#, c-format
-msgid ""
-"Sensors Viewer:\n"
-"Seems like there was a problem reading a sensor feature value.\n"
-"Proper proceeding cannot be guaranteed.\n"
-msgstr "Сообщение:\nНевозможно считать показания системы.\nОтображаемые данные могут быть не верны.\n"
 
 #: ../src/xfce4-sensors.desktop.in.h:1
 msgid "Sensor Viewer"
 msgstr "Просмотр датчиков"
 
-#: ../src/xfce4-sensors.desktop.in.h:2
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
-msgid "Show sensor values."
-msgstr "Отображение показаний датчиков"
-
 #: ../src/xfce4-sensors.desktop.in.h:3
 msgid "Sensor Values Viewer"
 msgstr "Просмотр показаний датчиков"
-
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
-msgid "Sensor plugin"
-msgstr "Модуль датчиков"
