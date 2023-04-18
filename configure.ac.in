@@ -17,6 +17,7 @@ m4_define([sensors_version_tag], [git])
 m4_define([sensors_version], [sensors_version_major().sensors_version_minor().sensors_version_micro()ifelse(sensors_version_tag(), [git], [sensors_version_tag()-sensors_version_build()], [sensors_version_tag()])])
 
 dnl Initialize autoconf
+AC_COPYRIGHT([Copyright (c) 2004-2023 The Xfce development team. All rights reserved.])
 AC_INIT([xfce4-sensors-plugin], [sensors_version], [https://gitlab.xfce.org/panel-plugins/xfce4-sensors-plugin/], [xfce4-sensors-plugin])
 AC_PREREQ([2.60])
 
