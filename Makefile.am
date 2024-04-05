@@ -36,16 +36,11 @@ EXTRA_DIST =                            \
 	TODO                                \
 	NOTES                               \
 	xfce4-sensors-plugin.spec.in        \
-	intltool-extract.in                 \
-	intltool-merge.in                   \
-	intltool-update.in
+	$(NULL)
 
 DISTCLEANFILES =                        \
-	intltool-extract                    \
-	intltool-merge                      \
-	intltool-update                     \
 	xfce4-sensors-plugin.spec           \
-	po/.intltool-merge-cache.lock
+	$(NULL)
 
 DISTCHECK_CONFIGURE_FLAGS =             \
 	--disable-hddtemp                   \
