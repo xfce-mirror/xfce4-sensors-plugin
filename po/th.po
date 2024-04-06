@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 01:17+0200\n"
+"POT-Creation-Date: 2024-04-06 12:55+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: Theppitak Karoonboonyanan <theppitak@gmail.com>, 2013,2017,2019,2021\n"
 "Language-Team: Thai (http://app.transifex.com/xfce/xfce-panel-plugins/language/th/)\n"
@@ -380,15 +380,6 @@ msgstr "คุณสามารถเปลี่ยนค่าต่างๆ
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "แสดงค่าเซนเซอร์จากเซนเซอร์ LM, ACPI, ฮาร์ดดิสก์, NVIDIA"
 
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
-msgid "Sensor plugin"
-msgstr "ปลั๊กอินเซนเซอร์"
-
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
-#: ../src/xfce4-sensors.desktop.in.h:2
-msgid "Show sensor values."
-msgstr "แสดงค่าต่างๆ ของเซนเซอร์"
-
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
 #: ../src/actions.cc:70
@@ -438,11 +429,3 @@ msgstr "เซนเซอร์ของ Xfce4 %s\nแสดงข้อมู�
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "เซนเซอร์ของ Xfce4 %s\n"
-
-#: ../src/xfce4-sensors.desktop.in.h:1
-msgid "Sensor Viewer"
-msgstr "เครื่องมือแสดงเซนเซอร์"
-
-#: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Sensor Values Viewer"
-msgstr "เครื่องมือแสดงค่าเซนเซอร์"
