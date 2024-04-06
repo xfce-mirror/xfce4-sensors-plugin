@@ -5,16 +5,16 @@
 # Translators:
 # Allan Nordhøy <epost@anotheragency.no>, 2014
 # Allan Nordhøy <epost@anotheragency.no>, 2017
-# heskjestad <cato@heskjestad.xyz>, 2021
+# Kaci Heskjestad, 2021
 # Harald H. <haarektrans@gmail.com>, 2014
-# heskjestad <cato@heskjestad.xyz>, 2019,2021
+# Kaci Heskjestad, 2019,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 01:17+0200\n"
+"POT-Creation-Date: 2024-04-06 12:55+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
-"Last-Translator: heskjestad <cato@heskjestad.xyz>, 2021\n"
+"Last-Translator: Kaci Heskjestad, 2021\n"
 "Language-Team: Norwegian Bokmål (http://app.transifex.com/xfce/xfce-panel-plugins/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -382,15 +382,6 @@ msgstr "Du kan endre en funksjons egenskaper, som navn, farger, min/maks verdi v
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Vis sensorverdier fra LM-sensorer, ACPI, harddisker, NVIDIA"
 
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
-msgid "Sensor plugin"
-msgstr "Sensor-tillegg"
-
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
-#: ../src/xfce4-sensors.desktop.in.h:2
-msgid "Show sensor values."
-msgstr "Vis sensorverdier."
-
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
 #: ../src/actions.cc:70
@@ -440,11 +431,3 @@ msgstr "Xfce4-sensorer %s\nViser informasjon om dine maskinvare-sensorer, ACPI-s
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Xfce4-sensorer %s\n"
-
-#: ../src/xfce4-sensors.desktop.in.h:1
-msgid "Sensor Viewer"
-msgstr "Sensorvisning"
-
-#: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Sensor Values Viewer"
-msgstr "Sensorverdivisning"
