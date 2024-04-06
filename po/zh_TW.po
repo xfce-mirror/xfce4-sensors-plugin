@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 01:17+0200\n"
+"POT-Creation-Date: 2024-04-06 12:55+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2021\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/xfce/xfce-panel-plugins/language/zh_TW/)\n"
@@ -382,15 +382,6 @@ msgstr "您可以變更某些特色屬性，像是名稱、色彩、最小/最�
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "顯示從 LM 感測器、ACPI、硬琊、NVIDIA 得來的數值"
 
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
-msgid "Sensor plugin"
-msgstr "感測器外掛程式"
-
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
-#: ../src/xfce4-sensors.desktop.in.h:2
-msgid "Show sensor values."
-msgstr "顯示感測器數值。"
-
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
 #: ../src/actions.cc:70
@@ -440,11 +431,3 @@ msgstr "Xfce4 感測器 %s\n顯示有關您的硬體感測器、ACPI 狀態、�
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Xfce4 感測器 %s\n"
-
-#: ../src/xfce4-sensors.desktop.in.h:1
-msgid "Sensor Viewer"
-msgstr "感測器檢視器"
-
-#: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Sensor Values Viewer"
-msgstr "感測器數值檢視器"
