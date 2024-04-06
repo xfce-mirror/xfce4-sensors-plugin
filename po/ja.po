@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 01:17+0200\n"
+"POT-Creation-Date: 2024-04-06 12:55+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: UTUMI Hirosi <utuhiro78@yahoo.co.jp>, 2021\n"
 "Language-Team: Japanese (http://app.transifex.com/xfce/xfce-panel-plugins/language/ja/)\n"
@@ -379,15 +379,6 @@ msgstr "エントリをダブルクリックして内容を編集し、\"Enter �
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "LM センサー、ACPI、ハードディスク、NVIDIA のセンサー値を表示する"
 
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
-msgid "Sensor plugin"
-msgstr "センサープラグイン"
-
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
-#: ../src/xfce4-sensors.desktop.in.h:2
-msgid "Show sensor values."
-msgstr "センサーの値を表示します。"
-
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
 #: ../src/actions.cc:70
@@ -437,11 +428,3 @@ msgstr "Xfce4 センサー %s\nハードウェアセンサー、ACPI ステー�
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Xfce 4 センサー %s\n"
-
-#: ../src/xfce4-sensors.desktop.in.h:1
-msgid "Sensor Viewer"
-msgstr "センサービューアー"
-
-#: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Sensor Values Viewer"
-msgstr "センサー値ビューアー"
