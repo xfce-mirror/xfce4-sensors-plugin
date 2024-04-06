@@ -10,12 +10,12 @@
 # Dima Smirnov <arch@cnc-parts.info>, 2010
 # Igor <f2404@yandex.ru>, 2017-2018
 # Sergey Alyoshin <alyoshin.s@gmail.com>, 2014
-# Виктор, 2022
+# Victor, 2022
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 01:17+0200\n"
+"POT-Creation-Date: 2024-04-06 12:55+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: Andrei Stepanov, 2022-2023\n"
 "Language-Team: Russian (http://app.transifex.com/xfce/xfce-panel-plugins/language/ru/)\n"
@@ -385,15 +385,6 @@ msgstr "Вы можете изменять свойства, такие как �
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Показывать значения датчиков LM, ACPI, жёстких дисков, NVIDIA"
 
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
-msgid "Sensor plugin"
-msgstr "Модуль датчиков"
-
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
-#: ../src/xfce4-sensors.desktop.in.h:2
-msgid "Show sensor values."
-msgstr "Отображение показаний датчиков"
-
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
 #: ../src/actions.cc:70
@@ -443,11 +434,3 @@ msgstr "Сенсоры Xfce4 %s\nОтображение информации о 
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Сенсоры Xfce4 %s\n"
-
-#: ../src/xfce4-sensors.desktop.in.h:1
-msgid "Sensor Viewer"
-msgstr "Просмотр датчиков"
-
-#: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Sensor Values Viewer"
-msgstr "Просмотр показаний датчиков"
