@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-30 00:54+0200\n"
+"POT-Creation-Date: 2024-04-06 12:55+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: Ammuu5, 2019,2023\n"
 "Language-Team: Finnish (http://app.transifex.com/xfce/xfce-panel-plugins/language/fi/)\n"
@@ -380,15 +380,6 @@ msgstr "Voit muokata kohteen ominaisuuksia kuten sen nimeä, väriä sekä ala- 
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Näytä anturiarvoja LM-antureista, ACPI:sta, kiintolevyistä ja NVIDIA:lta"
 
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
-msgid "Sensor plugin"
-msgstr "Anturiliitännäinen"
-
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
-#: ../src/xfce4-sensors.desktop.in.h:2
-msgid "Show sensor values."
-msgstr "Näyttää laiteanturien arvot"
-
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
 #: ../src/actions.cc:70
@@ -438,11 +429,3 @@ msgstr ""
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Xfce4-anturit %s\n"
-
-#: ../src/xfce4-sensors.desktop.in.h:1
-msgid "Sensor Viewer"
-msgstr "Anturien näyttäjä"
-
-#: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Sensor Values Viewer"
-msgstr "Anturin arvojen näyttäjä"
