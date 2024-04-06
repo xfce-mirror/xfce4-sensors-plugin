@@ -5,13 +5,13 @@
 # Translators:
 # Arve Eriksson <031299870@telia.com>, 2021
 # Daniel Nylander <po@danielnylander.se>, 2008
-# Luna Jernberg <bittin@cafe8bitar.se>, 2020-2021
+# Luna Jernberg <droidbittin@gmail.com>, 2020-2021
 # Påvel Nicklasson<pavel@frimix.se>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 01:17+0200\n"
+"POT-Creation-Date: 2024-04-06 12:55+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: Arve Eriksson <031299870@telia.com>, 2021\n"
 "Language-Team: Swedish (http://app.transifex.com/xfce/xfce-panel-plugins/language/sv/)\n"
@@ -381,15 +381,6 @@ msgstr "Du kan ändra en funktions egenskaper som namn, färg, min/max värde ge
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Visa sensor värden från LM sensors, ACPI, hårddiskar, NVIDIA"
 
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
-msgid "Sensor plugin"
-msgstr "Sensorsinsticksprogram"
-
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
-#: ../src/xfce4-sensors.desktop.in.h:2
-msgid "Show sensor values."
-msgstr "Visa sensorsvärden."
-
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
 #: ../src/actions.cc:70
@@ -439,11 +430,3 @@ msgstr "Xfce4-sensorer %s\nVisar information om dina hårdvarusensorer, ACPI-sta
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Xfce4-sensorer %s\n"
-
-#: ../src/xfce4-sensors.desktop.in.h:1
-msgid "Sensor Viewer"
-msgstr "Sensorvisare"
-
-#: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Sensor Values Viewer"
-msgstr "Sensorvärdesvisare"
