@@ -3,9 +3,9 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Andre Miranda <andre42m@gmail.com>, 2018-2019
-# Andre Miranda <andre42m@gmail.com>, 2017
-# Andre Miranda <andre42m@gmail.com>, 2014
+# Andre Miranda <andre@andreldm.com>, 2018-2019
+# Andre Miranda <andre@andreldm.com>, 2017
+# Andre Miranda <andre@andreldm.com>, 2014
 # Bruno Jesus <myxfce@gmail.com>, 2007
 # Fábio Nogueira <deb-user-ba@ubuntu.com>, 2008
 # Lucas Wilm <lucaswilm@gmail.com>, 2021
@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 01:17+0200\n"
+"POT-Creation-Date: 2024-04-06 12:55+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: The Cat, 2021\n"
 "Language-Team: Portuguese (Brazil) (http://app.transifex.com/xfce/xfce-panel-plugins/language/pt_BR/)\n"
@@ -386,15 +386,6 @@ msgstr "Você pode modificar as propriedades de um recurso como nome, cores, val
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Mostrar valores de sensor a partir do LM sensors, ACPI, discos rígidos, NVIDIA"
 
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
-msgid "Sensor plugin"
-msgstr "Plug-in de sensor"
-
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
-#: ../src/xfce4-sensors.desktop.in.h:2
-msgid "Show sensor values."
-msgstr "Mostrar valores do sensor."
-
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
 #: ../src/actions.cc:70
@@ -444,11 +435,3 @@ msgstr "Sensores do Xfce4 %s\nExibe informação sobre sensores de hardware, sta
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Sensores do Xfce %s\n"
-
-#: ../src/xfce4-sensors.desktop.in.h:1
-msgid "Sensor Viewer"
-msgstr "Visualizador de Sensor"
-
-#: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Sensor Values Viewer"
-msgstr "Visualizador de Valores dos Sensores"
