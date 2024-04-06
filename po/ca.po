@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-30 00:54+0200\n"
+"POT-Creation-Date: 2024-04-06 12:55+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: Oscar Perez <oscarpc@gmail.com>, 2023\n"
 "Language-Team: Catalan (http://app.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
@@ -382,15 +382,6 @@ msgstr "Podeu canviar la propietat d'alguna característica com ara el nom, els 
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Mostra els valors dels sensors de «lm_sensors», ACPI, discs durs i NVIDIA"
 
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
-msgid "Sensor plugin"
-msgstr "Connector dels sensors"
-
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
-#: ../src/xfce4-sensors.desktop.in.h:2
-msgid "Show sensor values."
-msgstr "Vegeu els valors dels sensors."
-
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
 #: ../src/actions.cc:70
@@ -440,11 +431,3 @@ msgstr "Sensors %s de Xfce4\nMostra la informació sobre els vostres sensors de 
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Sensors %s de Xfce4\n"
-
-#: ../src/xfce4-sensors.desktop.in.h:1
-msgid "Sensor Viewer"
-msgstr "Visualitzador dels sensors"
-
-#: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Sensor Values Viewer"
-msgstr "Visualitzador dels valors dels sensors"
