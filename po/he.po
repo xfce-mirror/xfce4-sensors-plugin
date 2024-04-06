@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 01:17+0200\n"
+"POT-Creation-Date: 2024-04-06 12:55+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: Elishai Eliyahu <elishai@mailfence.com>, 2021\n"
 "Language-Team: Hebrew (http://app.transifex.com/xfce/xfce-panel-plugins/language/he/)\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
-"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
+"Plural-Forms: nplurals=3; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: 2;\n"
 
 #. Note for translators: As some laptops have several batteries such as the
 #. T440s,
@@ -381,15 +381,6 @@ msgstr "אתה יכול לשנות תכונות מאפיין כמו שם, צבע
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "הצג ערכי חיישן מחיישני LM, ACPI, כוננים קשיחים, NVIDIA"
 
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
-msgid "Sensor plugin"
-msgstr "תוסף חיישן"
-
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
-#: ../src/xfce4-sensors.desktop.in.h:2
-msgid "Show sensor values."
-msgstr "הצג ערכי חיישן."
-
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
 #: ../src/actions.cc:70
@@ -439,11 +430,3 @@ msgstr "Xfce4 חיישנים %s\nמציג מידע על חיישני החומר�
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "חיישני Xfce4 %s \n"
-
-#: ../src/xfce4-sensors.desktop.in.h:1
-msgid "Sensor Viewer"
-msgstr "מציג חיישן"
-
-#: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Sensor Values Viewer"
-msgstr "מציג ערכי חיישן"
