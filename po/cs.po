@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 01:17+0200\n"
+"POT-Creation-Date: 2024-04-06 12:55+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>, 2017,2020-2021\n"
 "Language-Team: Czech (http://app.transifex.com/xfce/xfce-panel-plugins/language/cs/)\n"
@@ -380,15 +380,6 @@ msgstr "Vlastnosti, jako například název, barvy, nejnižší a nejvyšší ho
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Zobrazit hodnoty ze senzorů získaných z LM sensors, ACPI, pevných disků, NVIDIA"
 
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
-msgid "Sensor plugin"
-msgstr "Zásuvný modul pro senzory"
-
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
-#: ../src/xfce4-sensors.desktop.in.h:2
-msgid "Show sensor values."
-msgstr "Zobrazuje hodnoty senzorů"
-
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
 #: ../src/actions.cc:70
@@ -438,11 +429,3 @@ msgstr "Senzory pro Xfce4, verze %s\nZobrazuje informace o senzorech hardwaru, s
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Senzory pro Xfce 4, verze %s\n"
-
-#: ../src/xfce4-sensors.desktop.in.h:1
-msgid "Sensor Viewer"
-msgstr "Prohlížeč senzorů"
-
-#: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Sensor Values Viewer"
-msgstr "Prohlížeč hodnot senzorů"
