@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 01:17+0200\n"
+"POT-Creation-Date: 2024-04-06 12:55+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: beriain, 2021\n"
 "Language-Team: Basque (http://app.transifex.com/xfce/xfce-panel-plugins/language/eu/)\n"
@@ -379,15 +379,6 @@ msgstr "Izena, koloreak, geh/gut balioa bezalako propietateak aldatu ditzakezu s
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Sentsoreetako balioak ikusi LM sentsoreetatik, ACPI, disko gogor edota NVIDIAtik"
 
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
-msgid "Sensor plugin"
-msgstr "Sentsore plugina"
-
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
-#: ../src/xfce4-sensors.desktop.in.h:2
-msgid "Show sensor values."
-msgstr "Sentsore balioak bistarazi."
-
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
 #: ../src/actions.cc:70
@@ -437,11 +428,3 @@ msgstr "Xfce4 sentsoreak %s\nHardware sentsoreen inguruko informazioa, ACPI egoe
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Xfce 4 sentsore %s\n"
-
-#: ../src/xfce4-sensors.desktop.in.h:1
-msgid "Sensor Viewer"
-msgstr "Sentsore ikustailea"
-
-#: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Sensor Values Viewer"
-msgstr "Sentsore balio ikustailea"
