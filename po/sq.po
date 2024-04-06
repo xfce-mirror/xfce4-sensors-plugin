@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 01:17+0200\n"
+"POT-Creation-Date: 2024-04-06 12:55+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>, 2007,2021\n"
 "Language-Team: Albanian (http://app.transifex.com/xfce/xfce-panel-plugins/language/sq/)\n"
@@ -380,15 +380,6 @@ msgstr "Vetitë e një veçorie, të tilla si emri, ngjyrat, vlera min./maks., m
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Shfaq vlera ndijuesish për ndijues LM, ACPI, disqe, NVIDIA"
 
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
-msgid "Sensor plugin"
-msgstr "Shtojcë ndijuesish"
-
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
-#: ../src/xfce4-sensors.desktop.in.h:2
-msgid "Show sensor values."
-msgstr "Shfaq vlera ndijuesish."
-
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
 #: ../src/actions.cc:70
@@ -438,11 +429,3 @@ msgstr "Ndijues Xfce4 %s\nShfaq të dhëna mbi ndijuesit e hardware-it tuaj, gje
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Ndijues Xfce4 %s\n"
-
-#: ../src/xfce4-sensors.desktop.in.h:1
-msgid "Sensor Viewer"
-msgstr "Parës Ndijuesi"
-
-#: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Sensor Values Viewer"
-msgstr "Parës Vlerash Ndijuesi"
