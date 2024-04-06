@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 01:17+0200\n"
+"POT-Creation-Date: 2024-04-06 12:55+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: Саша Петровић <salepetronije@gmail.com>, 2013-2014,2017-2019\n"
 "Language-Team: Serbian (http://app.transifex.com/xfce/xfce-panel-plugins/language/sr/)\n"
@@ -380,15 +380,6 @@ msgstr "Можете променити поставке одлика као ш�
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Приказуј вредности пријемника ЛМ-а , АЦПИ-а, чврстих дискова, Нвидије"
 
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:1
-msgid "Sensor plugin"
-msgstr "Прикључак пријемник"
-
-#: ../panel-plugin/xfce4-sensors-plugin.desktop.in.h:2
-#: ../src/xfce4-sensors.desktop.in.h:2
-msgid "Show sensor values."
-msgstr "Прикажи вредности пријемника."
-
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
 #: ../src/actions.cc:70
@@ -438,11 +429,3 @@ msgstr "Пријемници Иксфце4-ја %s\nПриказ податак�
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Пријемници Иксфце4-ја %s\n"
-
-#: ../src/xfce4-sensors.desktop.in.h:1
-msgid "Sensor Viewer"
-msgstr "Прегледник пријемника"
-
-#: ../src/xfce4-sensors.desktop.in.h:3
-msgid "Sensor Values Viewer"
-msgstr "Прегледник вредности пријемника"
