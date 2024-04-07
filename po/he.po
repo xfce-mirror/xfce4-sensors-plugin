@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-sensors-plugin package.
 # 
 # Translators:
 # Elishai Eliyahu <elishai@mailfence.com>, 2016-2018
@@ -10,8 +10,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-06 12:55+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2024-04-07 00:55+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: Elishai Eliyahu <elishai@mailfence.com>, 2021\n"
 "Language-Team: Hebrew (http://app.transifex.com/xfce/xfce-panel-plugins/language/he/)\n"
@@ -36,53 +36,53 @@ msgstr ""
 #. You might want to format this with a hyphen and without spacing, or with a
 #. dash; the result might be BAT1–Voltage or whatever fits your language most.
 #. Spaces allow line breaks over the tachometers.
-#: ../lib/acpi.cc:270 ../lib/acpi.cc:517 ../lib/acpi.cc:570
+#: lib/acpi.cc:270 lib/acpi.cc:517 lib/acpi.cc:570
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
 #. Power with unit Watts, not Energy with Joules or kWh
-#: ../lib/acpi.cc:519
+#: lib/acpi.cc:519
 msgid "Power"
 msgstr "חשמל"
 
-#: ../lib/acpi.cc:570
+#: lib/acpi.cc:570
 msgid "Voltage"
 msgstr "מתח"
 
-#: ../lib/acpi.cc:611 ../lib/acpi.cc:622
+#: lib/acpi.cc:611 lib/acpi.cc:622
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.cc:614
+#: lib/acpi.cc:614
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ACPI v%s אזורי"
 
-#: ../lib/acpi.cc:735
+#: lib/acpi.cc:735
 msgid "<Unknown>"
 msgstr "<Unknown>"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
-#: ../lib/configuration.cc:120 ../lib/hddtemp.cc:347
+#: lib/configuration.cc:120 lib/hddtemp.cc:347
 msgid "Hard disks"
 msgstr "כוננים קשיחים"
 
-#: ../lib/hddtemp.cc:106
+#: lib/hddtemp.cc:106
 msgid "Don't show this message again"
 msgstr "אל תציג הודעה זו שוב"
 
-#: ../lib/hddtemp.cc:148 ../panel-plugin/sensors-plugin.cc:1949
-#: ../panel-plugin/sensors-plugin.h:26
+#: lib/hddtemp.cc:148 panel-plugin/sensors-plugin.cc:1949
+#: panel-plugin/sensors-plugin.h:26
 msgid "Sensors Plugin"
 msgstr "תוסף חיישנים"
 
-#: ../lib/hddtemp.cc:346
+#: lib/hddtemp.cc:346
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "טמפרטורות כונן קשיח S.M.A.R.T. "
 
-#: ../lib/hddtemp.cc:503
+#: lib/hddtemp.cc:503
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
@@ -94,188 +94,186 @@ msgid ""
 "with a return value of %d.\n"
 msgstr "\"hddtemp\" לא הופעל נכון, למרות שהוא בר הפעלה. זה ככל הנראה בגלל שהכוננים דורשים זכויות משתמש-על לקריאת הטמפרטורה שלהם, ו-\"hddtemp\" לא setuid משתמש-על.\n\nפתרון קל אבל מלוכלך הוא להריץ \"chmod u+s %s\" כמשתמש-על ולאתחל את התוסף הזה או את הפאנל שלו.\n\nקריאה ל-\"%s\" נתנה את השגיאה הבאה:\n%s\nעם ערך חזרה של %d. \n"
 
-#: ../lib/hddtemp.cc:517 ../lib/hddtemp.cc:540
+#: lib/hddtemp.cc:517 lib/hddtemp.cc:540
 msgid "Suppress this message in future"
 msgstr "הסתר מסר זה בעתיד"
 
-#: ../lib/hddtemp.cc:535
+#: lib/hddtemp.cc:535
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr "אירעה שגיאה בעת ביצוע \"%s\": \n%s "
 
-#: ../lib/lmsensors.cc:63
+#: lib/lmsensors.cc:63
 msgid "LM Sensors"
 msgstr "חיישני LM "
 
-#: ../lib/lmsensors.cc:291
-#, c-format
+#: lib/lmsensors.cc:291
 msgid "Error: Could not connect to sensors!"
 msgstr "שגיאה: לא יכול להתחבר לחיישנים!"
 
-#: ../lib/nvidia.cc:79
+#: lib/nvidia.cc:79
 msgid "NVIDIA GPU core temperature"
 msgstr "NVIDIA GPU טמפרטורת ליבה"
 
-#: ../lib/nvidia.cc:80
+#: lib/nvidia.cc:80
 msgid "nvidia"
 msgstr "nvidia"
 
-#: ../lib/sensors-interface-common.cc:58 ../lib/sensors-interface-common.cc:59
+#: lib/sensors-interface-common.cc:58 lib/sensors-interface-common.cc:59
 msgid "No sensors found!"
 msgstr "לא נמצאו חיישנים!"
 
-#: ../lib/sensors-interface-common.cc:86
+#: lib/sensors-interface-common.cc:86
 #, c-format
 msgid "%.0f °F"
 msgstr "%.0f °F"
 
-#: ../lib/sensors-interface-common.cc:88
+#: lib/sensors-interface-common.cc:88
 #, c-format
 msgid "%.0f °C"
 msgstr "%.0f °C"
 
-#: ../lib/sensors-interface-common.cc:91
+#: lib/sensors-interface-common.cc:91
 #, c-format
 msgid "%+.3f V"
 msgstr "%+.3f V"
 
-#: ../lib/sensors-interface-common.cc:94
+#: lib/sensors-interface-common.cc:94
 #, c-format
 msgid "%+.3f A"
 msgstr "%+.3f A"
 
-#: ../lib/sensors-interface-common.cc:97
+#: lib/sensors-interface-common.cc:97
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.cc:100
+#: lib/sensors-interface-common.cc:100
 #, c-format
 msgid "%.3f W"
 msgstr "%.3f W"
 
-#: ../lib/sensors-interface-common.cc:103
+#: lib/sensors-interface-common.cc:103
 msgid "off"
 msgstr "מכובה"
 
-#: ../lib/sensors-interface-common.cc:103
+#: lib/sensors-interface-common.cc:103
 msgid "on"
 msgstr "דלוק"
 
-#: ../lib/sensors-interface-common.cc:106
+#: lib/sensors-interface-common.cc:106
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f rpm"
 
-#: ../lib/sensors-interface.cc:97
+#: lib/sensors-interface.cc:97
 msgid "Sensors Plugin Failure"
 msgstr "כשל תוסף חיישנים"
 
-#: ../lib/sensors-interface.cc:98
+#: lib/sensors-interface.cc:98
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr "נראה שהיתה בעיה בקריאת ערך אופייני של חיישן.\nלא ניתן להבטיח התקדמות נאותה."
 
-#: ../lib/sensors-interface.cc:131
+#: lib/sensors-interface.cc:131
 msgid "Sensors t_ype:"
 msgstr "ס_וג חיישנים:"
 
-#: ../lib/sensors-interface.cc:149
+#: lib/sensors-interface.cc:149
 msgid "Description:"
 msgstr "תיאור:"
 
-#: ../lib/sensors-interface.cc:176
+#: lib/sensors-interface.cc:176
 msgid "U_pdate interval (seconds):"
 msgstr "מרווח ע_דכון (שניות):"
 
-#: ../lib/sensors-interface.cc:210
+#: lib/sensors-interface.cc:210
 msgid "Name"
 msgstr "שם"
 
-#: ../lib/sensors-interface.cc:224
+#: lib/sensors-interface.cc:224
 msgid "Value"
 msgstr "ערך"
 
-#: ../lib/sensors-interface.cc:230
+#: lib/sensors-interface.cc:230
 msgid "Show"
 msgstr "הצג"
 
-#: ../lib/sensors-interface.cc:242
+#: lib/sensors-interface.cc:242
 msgid "Color"
 msgstr "צבע"
 
-#: ../lib/sensors-interface.cc:256
+#: lib/sensors-interface.cc:256
 msgid "Min"
 msgstr "מינימום"
 
-#: ../lib/sensors-interface.cc:270
+#: lib/sensors-interface.cc:270
 msgid "Max"
 msgstr "מקסימום"
 
-#: ../lib/sensors-interface.cc:303
+#: lib/sensors-interface.cc:303
 msgid "Temperature scale:"
 msgstr "סקאלת טמפרטורה:"
 
-#: ../lib/sensors-interface.cc:304
+#: lib/sensors-interface.cc:304
 msgid "_Celsius"
 msgstr "_צלסיוס"
 
-#: ../lib/sensors-interface.cc:306
+#: lib/sensors-interface.cc:306
 msgid "_Fahrenheit"
 msgstr "_פרנהייט"
 
-#: ../lib/sensors-interface.cc:335
+#: lib/sensors-interface.cc:335
 msgid "_Sensors"
 msgstr "_חיישנים"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.cc:262 ../panel-plugin/sensors-plugin.cc:361
-#: ../panel-plugin/sensors-plugin.cc:832
+#: panel-plugin/sensors-plugin.cc:262 panel-plugin/sensors-plugin.cc:361
+#: panel-plugin/sensors-plugin.cc:832
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>חיישנים</b></span>"
 
 #. output to stdout on command line, not very useful for user, except for
 #. tracing problems
-#: ../panel-plugin/sensors-plugin.cc:739
-#, c-format
+#: panel-plugin/sensors-plugin.cc:739
 msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "תוסף חיישנים:\nנראה שהיתה בעיה בקריאת ערך אופייני של חיישן.\nלא ניתן להבטיח התקדמות נאותה.\n"
 
-#: ../panel-plugin/sensors-plugin.cc:756
+#: panel-plugin/sensors-plugin.cc:756
 msgid "No sensors selected!"
 msgstr "לא נבחרו חיישנים!"
 
-#: ../panel-plugin/sensors-plugin.cc:1482
+#: panel-plugin/sensors-plugin.cc:1482
 msgid "UI style:"
 msgstr "סגנון ממשק משתמש:"
 
-#: ../panel-plugin/sensors-plugin.cc:1483
+#: panel-plugin/sensors-plugin.cc:1483
 msgid "_text"
 msgstr "_טקסט"
 
-#: ../panel-plugin/sensors-plugin.cc:1484
+#: panel-plugin/sensors-plugin.cc:1484
 msgid "_progress bars"
 msgstr "_סרגלי התקדמות"
 
-#: ../panel-plugin/sensors-plugin.cc:1485
+#: panel-plugin/sensors-plugin.cc:1485
 msgid "_tachos"
 msgstr "_מדי מהירות"
 
-#: ../panel-plugin/sensors-plugin.cc:1523
+#: panel-plugin/sensors-plugin.cc:1523
 msgid "Show _labels"
 msgstr "הצג _תוויות"
 
-#: ../panel-plugin/sensors-plugin.cc:1545
+#: panel-plugin/sensors-plugin.cc:1545
 msgid "_Automatic bar colors"
 msgstr "צבעי סרגל _אוטומטיים"
 
-#: ../panel-plugin/sensors-plugin.cc:1547
+#: panel-plugin/sensors-plugin.cc:1547
 msgid ""
 "If enabled, bar colors depend on their values (normal, high, very high).\n"
 "If disabled, bars use the user-defined sensor colors.\n"
@@ -283,127 +281,135 @@ msgid ""
 "the bar color is derived from the current UI style."
 msgstr "אם מופעלת, צבעי סרגל תלויים בערכים שלהם (רגיל, גבוה, גבוה מאוד).\nאם כבויה, סרגלים משתמשים בצבעי חיישנים מוגדרים על ידי המשתמש.\nאם צבע חיישן מוגדר משתמש מסוים אינו מוגדר,\nצבע הסרגל מוגדר מסגנון ממשק המשתמש הנוכחי."
 
-#: ../panel-plugin/sensors-plugin.cc:1574
+#: panel-plugin/sensors-plugin.cc:1574
 msgid "_Show title"
 msgstr "_הצג שם"
 
-#: ../panel-plugin/sensors-plugin.cc:1591
+#: panel-plugin/sensors-plugin.cc:1591
 msgid "_Number of text lines:"
 msgstr "_מספר שורות טקסט:"
 
 #. The Xfce 4 panel can have several rows or columns. With such a mode,
 #. the plugins are allowed to span over all available rows/columns.
 #. When translating, "cover" might be replaced by "use" or "span".
-#: ../panel-plugin/sensors-plugin.cc:1623
+#: panel-plugin/sensors-plugin.cc:1623
 msgid "_Cover all panel rows/columns"
 msgstr "_כסה את כל שורות/עמודות הלוח"
 
-#: ../panel-plugin/sensors-plugin.cc:1641
+#: panel-plugin/sensors-plugin.cc:1641
 msgid "F_ont size:"
 msgstr "גודל ג_ופן:"
 
-#: ../panel-plugin/sensors-plugin.cc:1647
+#: panel-plugin/sensors-plugin.cc:1647
 msgid "x-small"
 msgstr "קטן מאוד"
 
-#: ../panel-plugin/sensors-plugin.cc:1648
+#: panel-plugin/sensors-plugin.cc:1648
 msgid "small"
 msgstr "קטן"
 
-#: ../panel-plugin/sensors-plugin.cc:1649
+#: panel-plugin/sensors-plugin.cc:1649
 msgid "medium"
 msgstr "בינוני"
 
-#: ../panel-plugin/sensors-plugin.cc:1650
+#: panel-plugin/sensors-plugin.cc:1650
 msgid "large"
 msgstr "גדול"
 
-#: ../panel-plugin/sensors-plugin.cc:1651
+#: panel-plugin/sensors-plugin.cc:1651
 msgid "x-large"
 msgstr "גדול מאוד"
 
-#: ../panel-plugin/sensors-plugin.cc:1673
+#: panel-plugin/sensors-plugin.cc:1673
 msgid "F_ont:"
 msgstr "ג_ופן:"
 
-#: ../panel-plugin/sensors-plugin.cc:1699
+#: panel-plugin/sensors-plugin.cc:1699
 msgid "Show _Units"
 msgstr "הצג _יחידות"
 
-#: ../panel-plugin/sensors-plugin.cc:1719
+#: panel-plugin/sensors-plugin.cc:1719
 msgid "Small horizontal s_pacing"
 msgstr "ר_יווח אופקי קטן"
 
-#: ../panel-plugin/sensors-plugin.cc:1746
+#: panel-plugin/sensors-plugin.cc:1746
 msgid "Tacho color alpha value:"
 msgstr "ערך אלפא של צבע טכו:"
 
-#: ../panel-plugin/sensors-plugin.cc:1761
+#: panel-plugin/sensors-plugin.cc:1761
 msgid "Tacho color value:"
 msgstr "ערך צבע טכו:"
 
-#: ../panel-plugin/sensors-plugin.cc:1789
+#: panel-plugin/sensors-plugin.cc:1789
 msgid "Suppress messages"
 msgstr "הסתר מסרים"
 
-#: ../panel-plugin/sensors-plugin.cc:1806
+#: panel-plugin/sensors-plugin.cc:1806
 msgid "Suppress tooltip"
 msgstr "הסתר טיפ עזר"
 
-#: ../panel-plugin/sensors-plugin.cc:1826
+#: panel-plugin/sensors-plugin.cc:1826
 msgid "E_xecute on double click:"
 msgstr "ב_צע בקליק כפול:"
 
-#: ../panel-plugin/sensors-plugin.cc:1853
+#: panel-plugin/sensors-plugin.cc:1853
 msgid "_View"
 msgstr "ת_צוגה"
 
-#: ../panel-plugin/sensors-plugin.cc:1866
+#: panel-plugin/sensors-plugin.cc:1866
 msgid "UI style options"
 msgstr "אפשרויות סגנון ממשק משתמש"
 
-#: ../panel-plugin/sensors-plugin.cc:1893
+#: panel-plugin/sensors-plugin.cc:1893
 msgid "_Miscellaneous"
 msgstr "_שונות"
 
-#: ../panel-plugin/sensors-plugin.cc:1957
+#: panel-plugin/sensors-plugin.cc:1957
 msgid "Properties"
 msgstr "מאפיינים"
 
-#: ../panel-plugin/sensors-plugin.cc:1983
+#: panel-plugin/sensors-plugin.cc:1983
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "אתה יכול לשנות תכונות מאפיין כמו שם, צבעים, ערכי מינימום/מקסימום ע\"י ביצוע קליק כפול בערך, עריכת התוכן, ולחיצה על \"חזור\" או בחירת שדה אחר."
 
-#: ../panel-plugin/sensors-plugin.cc:2070
+#: panel-plugin/sensors-plugin.cc:2070
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "הצג ערכי חיישן מחיישני LM, ACPI, כוננים קשיחים, NVIDIA"
 
+#: panel-plugin/xfce4-sensors-plugin.desktop.in:5
+msgid "Sensor plugin"
+msgstr "תוסף חיישן"
+
+#: panel-plugin/xfce4-sensors-plugin.desktop.in:6
+#: src/xfce4-sensors.desktop.in:5
+msgid "Show sensor values."
+msgstr "הצג ערכי חיישן."
+
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
-#: ../src/actions.cc:70
-#, c-format
+#: src/actions.cc:70
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "מציג חיישנים:\nנראה שהיתה בעיה בקריאת ערך אופייני של חיישן.\nלא ניתן להבטיח התקדמות נאותה.\n"
 
-#: ../src/interface.cc:75
+#: src/interface.cc:75
 msgid "_Overview"
 msgstr "_סקירה"
 
-#: ../src/interface.cc:97
+#: src/interface.cc:97
 msgid "_Tachometers"
 msgstr "_מדי מהירות"
 
-#: ../src/interface.cc:111
+#: src/interface.cc:111
 msgid "Sensors Viewer"
 msgstr "מציג חיישנים"
 
-#: ../src/main.cc:47
+#: src/main.cc:47
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -411,7 +417,7 @@ msgid ""
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr "חיישני Xfce4 %s \nתוכנה זו פורסמה תחת GPL v2.\nניתן למצוא את טקסט הרישיון בתוך ארכיון המקור של התוכנה או ב- /usr/share/apps/LICENSES/GPL_V2 או ב-http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt  \n"
 
-#: ../src/main.cc:62
+#: src/main.cc:62
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -426,7 +432,15 @@ msgid ""
 "This program is published under the GPL v2.\n"
 msgstr "Xfce4 חיישנים %s\nמציג מידע על חיישני החומרה שלך, סטטוס ACPI, טמפרטורות כונן קשיח וטמפרטורת יחידת עיבוד גרפי Nvidia.\nתקציר:\nxfce4-sensors [option]\nכאשר [option] היא אחת מהבאים:\n-h, --help הדפס דו־שיח עזרה זה.\n-l, --license הדפס מידע רשיון.\n-V, --version הדפס מידע גרסה.\n\nתוכנית זו מפורסמת תחת GPL v2. \n"
 
-#: ../src/main.cc:83
+#: src/main.cc:83
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "חיישני Xfce4 %s \n"
+
+#: src/xfce4-sensors.desktop.in:4
+msgid "Sensor Viewer"
+msgstr "מציג חיישן"
+
+#: src/xfce4-sensors.desktop.in:6
+msgid "Sensor Values Viewer"
+msgstr "מציג ערכי חיישן"
