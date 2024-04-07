@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-sensors-plugin package.
 # 
 # Translators:
 # Gheyret T.Kenji <gheyret@gmail.com>, 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-06 12:55+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2024-04-07 00:55+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: Gheyret T.Kenji <gheyret@gmail.com>, 2010\n"
 "Language-Team: Uyghur (http://app.transifex.com/xfce/xfce-panel-plugins/language/ug/)\n"
@@ -33,53 +33,53 @@ msgstr ""
 #. You might want to format this with a hyphen and without spacing, or with a
 #. dash; the result might be BAT1–Voltage or whatever fits your language most.
 #. Spaces allow line breaks over the tachometers.
-#: ../lib/acpi.cc:270 ../lib/acpi.cc:517 ../lib/acpi.cc:570
+#: lib/acpi.cc:270 lib/acpi.cc:517 lib/acpi.cc:570
 #, c-format
 msgid "%s - %s"
 msgstr ""
 
 #. Power with unit Watts, not Energy with Joules or kWh
-#: ../lib/acpi.cc:519
+#: lib/acpi.cc:519
 msgid "Power"
 msgstr ""
 
-#: ../lib/acpi.cc:570
+#: lib/acpi.cc:570
 msgid "Voltage"
 msgstr ""
 
-#: ../lib/acpi.cc:611 ../lib/acpi.cc:622
+#: lib/acpi.cc:611 lib/acpi.cc:622
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.cc:614
+#: lib/acpi.cc:614
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ACPI v%s رايونى"
 
-#: ../lib/acpi.cc:735
+#: lib/acpi.cc:735
 msgid "<Unknown>"
 msgstr "<نامەلۇم>"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
-#: ../lib/configuration.cc:120 ../lib/hddtemp.cc:347
+#: lib/configuration.cc:120 lib/hddtemp.cc:347
 msgid "Hard disks"
 msgstr "قاتتىق دىسكا"
 
-#: ../lib/hddtemp.cc:106
+#: lib/hddtemp.cc:106
 msgid "Don't show this message again"
 msgstr ""
 
-#: ../lib/hddtemp.cc:148 ../panel-plugin/sensors-plugin.cc:1949
-#: ../panel-plugin/sensors-plugin.h:26
+#: lib/hddtemp.cc:148 panel-plugin/sensors-plugin.cc:1949
+#: panel-plugin/sensors-plugin.h:26
 msgid "Sensors Plugin"
 msgstr "سەزگۈچ قىستۇرمىسى"
 
-#: ../lib/hddtemp.cc:346
+#: lib/hddtemp.cc:346
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "S.M.A.R.T. قاتتىق دىسكا تېمپېراتۇرىسى"
 
-#: ../lib/hddtemp.cc:503
+#: lib/hddtemp.cc:503
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
@@ -91,188 +91,186 @@ msgid ""
 "with a return value of %d.\n"
 msgstr "ھۆججەت «hddtemp» نى ئىجرا قىلدۇرغىلى بولىدۇ، بىراق نورمال ئىجرا بولماپتۇ. سەۋەبى، بەلكىم ئالىي ئىشلەتكۈچى مەرتىۋىسىنى تەلەپ قىلىدىغان دىسكىنى ئوقۇغاندا، «hddtemp» بۇيرۇقى ئالىي ئىشلەتكۈچى مەرتىۋىسىگە ئېرىشەلمىگەن بولۇشى مۇمكىن.\n\nئاددىي بىراق، ئىپتىدائىي ئۇسۇل ئالىي ئىشلەتكۈچى ھالىتىدە «chmod u+s %s» نى ئىجرا قىلىپ، قىستۇرمىنى قايتا باشلاشتۇر.\n\nپروگراممىدا «%s» نى چاقىرغاندا تۆۋەندىكى خاتالىق كۆرۈلدى:\n%s\nقايتۇرغان قىممىتى: %d\n"
 
-#: ../lib/hddtemp.cc:517 ../lib/hddtemp.cc:540
+#: lib/hddtemp.cc:517 lib/hddtemp.cc:540
 msgid "Suppress this message in future"
 msgstr "بۇ ئۇچۇرنى بۇنىڭدىن كېيىن كۆرسەتمە"
 
-#: ../lib/hddtemp.cc:535
+#: lib/hddtemp.cc:535
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr "«%s» نى ئىجرا قىلىۋاتقاندا خاتالىق كۆرۈلدى:\n%s"
 
-#: ../lib/lmsensors.cc:63
+#: lib/lmsensors.cc:63
 msgid "LM Sensors"
 msgstr "LM سەزگۈچلەر"
 
-#: ../lib/lmsensors.cc:291
-#, c-format
+#: lib/lmsensors.cc:291
 msgid "Error: Could not connect to sensors!"
 msgstr "خاتالىق: سەزگۈچكە باغلىنالمىدى!"
 
-#: ../lib/nvidia.cc:79
+#: lib/nvidia.cc:79
 msgid "NVIDIA GPU core temperature"
 msgstr ""
 
-#: ../lib/nvidia.cc:80
+#: lib/nvidia.cc:80
 msgid "nvidia"
 msgstr "nvidia"
 
-#: ../lib/sensors-interface-common.cc:58 ../lib/sensors-interface-common.cc:59
+#: lib/sensors-interface-common.cc:58 lib/sensors-interface-common.cc:59
 msgid "No sensors found!"
 msgstr "سەزگۈچ تېپىلمىدى!"
 
-#: ../lib/sensors-interface-common.cc:86
+#: lib/sensors-interface-common.cc:86
 #, c-format
 msgid "%.0f °F"
 msgstr "%.0f °F"
 
-#: ../lib/sensors-interface-common.cc:88
+#: lib/sensors-interface-common.cc:88
 #, c-format
 msgid "%.0f °C"
 msgstr "%.0f °C"
 
-#: ../lib/sensors-interface-common.cc:91
+#: lib/sensors-interface-common.cc:91
 #, c-format
 msgid "%+.3f V"
 msgstr "%+.3f V"
 
-#: ../lib/sensors-interface-common.cc:94
+#: lib/sensors-interface-common.cc:94
 #, c-format
 msgid "%+.3f A"
 msgstr ""
 
-#: ../lib/sensors-interface-common.cc:97
+#: lib/sensors-interface-common.cc:97
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.cc:100
+#: lib/sensors-interface-common.cc:100
 #, c-format
 msgid "%.3f W"
 msgstr ""
 
-#: ../lib/sensors-interface-common.cc:103
+#: lib/sensors-interface-common.cc:103
 msgid "off"
 msgstr "ئېتىك"
 
-#: ../lib/sensors-interface-common.cc:103
+#: lib/sensors-interface-common.cc:103
 msgid "on"
 msgstr "ئوچۇق"
 
-#: ../lib/sensors-interface-common.cc:106
+#: lib/sensors-interface-common.cc:106
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f rpm"
 
-#: ../lib/sensors-interface.cc:97
+#: lib/sensors-interface.cc:97
 msgid "Sensors Plugin Failure"
 msgstr "سەزگۈچ قىستۇرمىسى - مەغلۇپ بولدى"
 
-#: ../lib/sensors-interface.cc:98
+#: lib/sensors-interface.cc:98
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr "سەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\nنورمال بىر تەرەپ قىلىشقا كاپالەتلىك قىلغىلى بولمايدۇ."
 
-#: ../lib/sensors-interface.cc:131
+#: lib/sensors-interface.cc:131
 msgid "Sensors t_ype:"
 msgstr "سەزگۈچ تىپى(_Y):"
 
-#: ../lib/sensors-interface.cc:149
+#: lib/sensors-interface.cc:149
 msgid "Description:"
 msgstr "چۈشەندۈرۈش:"
 
-#: ../lib/sensors-interface.cc:176
+#: lib/sensors-interface.cc:176
 msgid "U_pdate interval (seconds):"
 msgstr "يېڭىلاش ئىنتېرۋالى(سېكۇنت)(_P):"
 
-#: ../lib/sensors-interface.cc:210
+#: lib/sensors-interface.cc:210
 msgid "Name"
 msgstr "ئاتى"
 
-#: ../lib/sensors-interface.cc:224
+#: lib/sensors-interface.cc:224
 msgid "Value"
 msgstr "قىممەت"
 
-#: ../lib/sensors-interface.cc:230
+#: lib/sensors-interface.cc:230
 msgid "Show"
 msgstr "كۆرسەت"
 
-#: ../lib/sensors-interface.cc:242
+#: lib/sensors-interface.cc:242
 msgid "Color"
 msgstr "رەڭ"
 
-#: ../lib/sensors-interface.cc:256
+#: lib/sensors-interface.cc:256
 msgid "Min"
 msgstr "ئەڭ كىچىك قىممەت"
 
-#: ../lib/sensors-interface.cc:270
+#: lib/sensors-interface.cc:270
 msgid "Max"
 msgstr "ئەڭ چوڭ قىممەت"
 
-#: ../lib/sensors-interface.cc:303
+#: lib/sensors-interface.cc:303
 msgid "Temperature scale:"
 msgstr "تېمپېراتۇرا ئۆلچىكى:"
 
-#: ../lib/sensors-interface.cc:304
+#: lib/sensors-interface.cc:304
 msgid "_Celsius"
 msgstr "سېلسىيە(_C)"
 
-#: ../lib/sensors-interface.cc:306
+#: lib/sensors-interface.cc:306
 msgid "_Fahrenheit"
 msgstr "فارېنگېيت (_F)"
 
-#: ../lib/sensors-interface.cc:335
+#: lib/sensors-interface.cc:335
 msgid "_Sensors"
 msgstr "سەزگۈچلەر(_S)"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.cc:262 ../panel-plugin/sensors-plugin.cc:361
-#: ../panel-plugin/sensors-plugin.cc:832
+#: panel-plugin/sensors-plugin.cc:262 panel-plugin/sensors-plugin.cc:361
+#: panel-plugin/sensors-plugin.cc:832
 msgid "<span><b>Sensors</b></span>"
 msgstr ""
 
 #. output to stdout on command line, not very useful for user, except for
 #. tracing problems
-#: ../panel-plugin/sensors-plugin.cc:739
-#, c-format
+#: panel-plugin/sensors-plugin.cc:739
 msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "سەزگۈچ قىستۇرمىسى:\nسەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\nنورمال بىر تەرەپ قىلىشقا كاپالەتلىك قىلغىلى بولمايدۇ.\n"
 
-#: ../panel-plugin/sensors-plugin.cc:756
+#: panel-plugin/sensors-plugin.cc:756
 msgid "No sensors selected!"
 msgstr "سەزگۈچ تاللانمىغان!"
 
-#: ../panel-plugin/sensors-plugin.cc:1482
+#: panel-plugin/sensors-plugin.cc:1482
 msgid "UI style:"
 msgstr "UI ئۇسلۇبى:"
 
-#: ../panel-plugin/sensors-plugin.cc:1483
+#: panel-plugin/sensors-plugin.cc:1483
 msgid "_text"
 msgstr "تېكىست(_T)"
 
-#: ../panel-plugin/sensors-plugin.cc:1484
+#: panel-plugin/sensors-plugin.cc:1484
 msgid "_progress bars"
 msgstr "ئىجرا بالدىقى(_P)"
 
-#: ../panel-plugin/sensors-plugin.cc:1485
+#: panel-plugin/sensors-plugin.cc:1485
 msgid "_tachos"
 msgstr "كۆرسەتكۈچ چىراغلار(_T)"
 
-#: ../panel-plugin/sensors-plugin.cc:1523
+#: panel-plugin/sensors-plugin.cc:1523
 msgid "Show _labels"
 msgstr "ئەنلەر كۆرسەت(_L)"
 
-#: ../panel-plugin/sensors-plugin.cc:1545
+#: panel-plugin/sensors-plugin.cc:1545
 msgid "_Automatic bar colors"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.cc:1547
+#: panel-plugin/sensors-plugin.cc:1547
 msgid ""
 "If enabled, bar colors depend on their values (normal, high, very high).\n"
 "If disabled, bars use the user-defined sensor colors.\n"
@@ -280,127 +278,135 @@ msgid ""
 "the bar color is derived from the current UI style."
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.cc:1574
+#: panel-plugin/sensors-plugin.cc:1574
 msgid "_Show title"
 msgstr "ماۋزۇ كۆرسەت(_S)"
 
-#: ../panel-plugin/sensors-plugin.cc:1591
+#: panel-plugin/sensors-plugin.cc:1591
 msgid "_Number of text lines:"
 msgstr "قۇر سانى(_N)"
 
 #. The Xfce 4 panel can have several rows or columns. With such a mode,
 #. the plugins are allowed to span over all available rows/columns.
 #. When translating, "cover" might be replaced by "use" or "span".
-#: ../panel-plugin/sensors-plugin.cc:1623
+#: panel-plugin/sensors-plugin.cc:1623
 msgid "_Cover all panel rows/columns"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.cc:1641
+#: panel-plugin/sensors-plugin.cc:1641
 msgid "F_ont size:"
 msgstr "فونت چوڭلۇقى(_O):"
 
-#: ../panel-plugin/sensors-plugin.cc:1647
+#: panel-plugin/sensors-plugin.cc:1647
 msgid "x-small"
 msgstr "بەك كىچىك"
 
-#: ../panel-plugin/sensors-plugin.cc:1648
+#: panel-plugin/sensors-plugin.cc:1648
 msgid "small"
 msgstr "كىچىك"
 
-#: ../panel-plugin/sensors-plugin.cc:1649
+#: panel-plugin/sensors-plugin.cc:1649
 msgid "medium"
 msgstr "ئوتتۇرا"
 
-#: ../panel-plugin/sensors-plugin.cc:1650
+#: panel-plugin/sensors-plugin.cc:1650
 msgid "large"
 msgstr "چوڭ"
 
-#: ../panel-plugin/sensors-plugin.cc:1651
+#: panel-plugin/sensors-plugin.cc:1651
 msgid "x-large"
 msgstr "بەك چوڭ"
 
-#: ../panel-plugin/sensors-plugin.cc:1673
+#: panel-plugin/sensors-plugin.cc:1673
 msgid "F_ont:"
 msgstr "خەت نۇسخىسى(_O):"
 
-#: ../panel-plugin/sensors-plugin.cc:1699
+#: panel-plugin/sensors-plugin.cc:1699
 msgid "Show _Units"
 msgstr "بىرلىكىنى كۆرسەت(_U)"
 
-#: ../panel-plugin/sensors-plugin.cc:1719
+#: panel-plugin/sensors-plugin.cc:1719
 msgid "Small horizontal s_pacing"
 msgstr "كىچىكرەك يان بوشلۇق(_P)"
 
-#: ../panel-plugin/sensors-plugin.cc:1746
+#: panel-plugin/sensors-plugin.cc:1746
 msgid "Tacho color alpha value:"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.cc:1761
+#: panel-plugin/sensors-plugin.cc:1761
 msgid "Tacho color value:"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.cc:1789
+#: panel-plugin/sensors-plugin.cc:1789
 msgid "Suppress messages"
 msgstr "ئۇچۇرلارنى باستۇرۇپ قوي"
 
-#: ../panel-plugin/sensors-plugin.cc:1806
+#: panel-plugin/sensors-plugin.cc:1806
 msgid "Suppress tooltip"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.cc:1826
+#: panel-plugin/sensors-plugin.cc:1826
 msgid "E_xecute on double click:"
 msgstr "قوش چەككەندە ئىجرا قىلسۇن(_X):"
 
-#: ../panel-plugin/sensors-plugin.cc:1853
+#: panel-plugin/sensors-plugin.cc:1853
 msgid "_View"
 msgstr "كۆرۈنۈش(_V)"
 
-#: ../panel-plugin/sensors-plugin.cc:1866
+#: panel-plugin/sensors-plugin.cc:1866
 msgid "UI style options"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.cc:1893
+#: panel-plugin/sensors-plugin.cc:1893
 msgid "_Miscellaneous"
 msgstr "باشقىلار(_M)"
 
-#: ../panel-plugin/sensors-plugin.cc:1957
+#: panel-plugin/sensors-plugin.cc:1957
 msgid "Properties"
 msgstr "خاسلىق"
 
-#: ../panel-plugin/sensors-plugin.cc:1983
+#: panel-plugin/sensors-plugin.cc:1983
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "كىرگۈنى قوش چېكىپ، مەزمۇنلارنى تەھرىرلەپ، «Return» كۇنۇپكىسىنى بېسىش ئارقىلىق، ئاتى، رېڭى، ئەڭ چوڭ/ئەڭ كىچىك قىممىتى قاتارلىق مۇھىم خاسلىقلارنى ئۆزگەرتكىلى بولىدۇ."
 
-#: ../panel-plugin/sensors-plugin.cc:2070
+#: panel-plugin/sensors-plugin.cc:2070
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr ""
 
+#: panel-plugin/xfce4-sensors-plugin.desktop.in:5
+msgid "Sensor plugin"
+msgstr ""
+
+#: panel-plugin/xfce4-sensors-plugin.desktop.in:6
+#: src/xfce4-sensors.desktop.in:5
+msgid "Show sensor values."
+msgstr "سەزگۈچنىڭ قىممىتىنى كۆرسىتىدۇ."
+
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
-#: ../src/actions.cc:70
-#, c-format
+#: src/actions.cc:70
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "سەزگۈچ كۆرگۈ:\nسەزگۈچنىڭ قىممىتىنى ئوقۇشتا مەسىلە كۆرۈلدى\nنورمال بىر تەرەپ قىلىشقا كاپالەتلىك قىلغىلى بولمايدۇ.\n"
 
-#: ../src/interface.cc:75
+#: src/interface.cc:75
 msgid "_Overview"
 msgstr "ئورتاق(_O)"
 
-#: ../src/interface.cc:97
+#: src/interface.cc:97
 msgid "_Tachometers"
 msgstr "ئۆلچىگۈچلەر(_T)"
 
-#: ../src/interface.cc:111
+#: src/interface.cc:111
 msgid "Sensors Viewer"
 msgstr "سەزگۈچ كۆرگۈ"
 
-#: ../src/main.cc:47
+#: src/main.cc:47
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -408,7 +414,7 @@ msgid ""
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr "Xfce4 سەزگۈچ %s\nمەزكۇر پروگرامما GPL v2 ئىجازەتنامىسى بويىچە تارقىتىلدى.\nئىجازەتنامە  /usr/share/apps/LICENSES/GPL_V2 نىڭ ئاستىدا بار. ياكى http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt  دىمۇ بار.\n"
 
-#: ../src/main.cc:62
+#: src/main.cc:62
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -423,7 +429,15 @@ msgid ""
 "This program is published under the GPL v2.\n"
 msgstr ""
 
-#: ../src/main.cc:83
+#: src/main.cc:83
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Xfce 4 سەزگۈچ %s\n"
+
+#: src/xfce4-sensors.desktop.in:4
+msgid "Sensor Viewer"
+msgstr "سەزگۈچ كۆرگۈ"
+
+#: src/xfce4-sensors.desktop.in:6
+msgid "Sensor Values Viewer"
+msgstr "سەزگۈچنىڭ قىممىتىنى كۆرگۈ"
