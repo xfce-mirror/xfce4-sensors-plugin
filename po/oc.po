@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-sensors-plugin package.
 # 
 # Translators:
 # Cédric Valmary <cvalmary@yahoo.fr>, 2016
@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-06 12:55+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2024-04-07 00:55+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: Quentin PAGÈS, 2022\n"
 "Language-Team: Occitan (post 1500) (http://app.transifex.com/xfce/xfce-panel-plugins/language/oc/)\n"
@@ -35,53 +35,53 @@ msgstr ""
 #. You might want to format this with a hyphen and without spacing, or with a
 #. dash; the result might be BAT1–Voltage or whatever fits your language most.
 #. Spaces allow line breaks over the tachometers.
-#: ../lib/acpi.cc:270 ../lib/acpi.cc:517 ../lib/acpi.cc:570
+#: lib/acpi.cc:270 lib/acpi.cc:517 lib/acpi.cc:570
 #, c-format
 msgid "%s - %s"
 msgstr "%s – %s"
 
 #. Power with unit Watts, not Energy with Joules or kWh
-#: ../lib/acpi.cc:519
+#: lib/acpi.cc:519
 msgid "Power"
 msgstr "Energia"
 
-#: ../lib/acpi.cc:570
+#: lib/acpi.cc:570
 msgid "Voltage"
 msgstr ""
 
-#: ../lib/acpi.cc:611 ../lib/acpi.cc:622
+#: lib/acpi.cc:611 lib/acpi.cc:622
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.cc:614
+#: lib/acpi.cc:614
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "Zònas ACPI v%s"
 
-#: ../lib/acpi.cc:735
+#: lib/acpi.cc:735
 msgid "<Unknown>"
 msgstr "<Desconegut>"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
-#: ../lib/configuration.cc:120 ../lib/hddtemp.cc:347
+#: lib/configuration.cc:120 lib/hddtemp.cc:347
 msgid "Hard disks"
 msgstr "Disques durs"
 
-#: ../lib/hddtemp.cc:106
+#: lib/hddtemp.cc:106
 msgid "Don't show this message again"
 msgstr ""
 
-#: ../lib/hddtemp.cc:148 ../panel-plugin/sensors-plugin.cc:1949
-#: ../panel-plugin/sensors-plugin.h:26
+#: lib/hddtemp.cc:148 panel-plugin/sensors-plugin.cc:1949
+#: panel-plugin/sensors-plugin.h:26
 msgid "Sensors Plugin"
 msgstr "Empeuton Captadors"
 
-#: ../lib/hddtemp.cc:346
+#: lib/hddtemp.cc:346
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "Sondas de temperatura del disc dur S.M.A.R.T."
 
-#: ../lib/hddtemp.cc:503
+#: lib/hddtemp.cc:503
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
@@ -93,188 +93,186 @@ msgid ""
 "with a return value of %d.\n"
 msgstr "« hddtemp » es pas estat executat corrèctament mentre qu'es executable. Se poiriá mentre que siá degut a de privilègis restrenches per la lectura de las temperaturas e que « hddtemp » siá pas fixé amb un setuid root.\n\nUna solucion simpla mas radicala consistís a aviar la comanda « chmod u+s %s » en tant que root e de daissar l'empeuton o son tablèu de bòrd.\n\nL'apèl a « %s » a donat l'error seguenta :\n%s\namb lo còde retorn %d.\n"
 
-#: ../lib/hddtemp.cc:517 ../lib/hddtemp.cc:540
+#: lib/hddtemp.cc:517 lib/hddtemp.cc:540
 msgid "Suppress this message in future"
 msgstr "Afichar pas mai aqueste messatge"
 
-#: ../lib/hddtemp.cc:535
+#: lib/hddtemp.cc:535
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr "Una error s'es produsida al moment de l'execucion de « %s » :\n%s"
 
-#: ../lib/lmsensors.cc:63
+#: lib/lmsensors.cc:63
 msgid "LM Sensors"
 msgstr "LM Captadors"
 
-#: ../lib/lmsensors.cc:291
-#, c-format
+#: lib/lmsensors.cc:291
 msgid "Error: Could not connect to sensors!"
 msgstr "Error : se pòt pas connectar als captadors !"
 
-#: ../lib/nvidia.cc:79
+#: lib/nvidia.cc:79
 msgid "NVIDIA GPU core temperature"
 msgstr ""
 
-#: ../lib/nvidia.cc:80
+#: lib/nvidia.cc:80
 msgid "nvidia"
 msgstr "nvidia"
 
-#: ../lib/sensors-interface-common.cc:58 ../lib/sensors-interface-common.cc:59
+#: lib/sensors-interface-common.cc:58 lib/sensors-interface-common.cc:59
 msgid "No sensors found!"
 msgstr "Cap de captador pas trobat !"
 
-#: ../lib/sensors-interface-common.cc:86
+#: lib/sensors-interface-common.cc:86
 #, c-format
 msgid "%.0f °F"
 msgstr "%.0f °F"
 
-#: ../lib/sensors-interface-common.cc:88
+#: lib/sensors-interface-common.cc:88
 #, c-format
 msgid "%.0f °C"
 msgstr "%.0f °C"
 
-#: ../lib/sensors-interface-common.cc:91
+#: lib/sensors-interface-common.cc:91
 #, c-format
 msgid "%+.3f V"
 msgstr "%+.3f V"
 
-#: ../lib/sensors-interface-common.cc:94
+#: lib/sensors-interface-common.cc:94
 #, c-format
 msgid "%+.3f A"
 msgstr "%+.3f A"
 
-#: ../lib/sensors-interface-common.cc:97
+#: lib/sensors-interface-common.cc:97
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.cc:100
+#: lib/sensors-interface-common.cc:100
 #, c-format
 msgid "%.3f W"
 msgstr "%.3f W"
 
-#: ../lib/sensors-interface-common.cc:103
+#: lib/sensors-interface-common.cc:103
 msgid "off"
 msgstr "inactiu"
 
-#: ../lib/sensors-interface-common.cc:103
+#: lib/sensors-interface-common.cc:103
 msgid "on"
 msgstr "actiu"
 
-#: ../lib/sensors-interface-common.cc:106
+#: lib/sensors-interface-common.cc:106
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f tr/mn"
 
-#: ../lib/sensors-interface.cc:97
+#: lib/sensors-interface.cc:97
 msgid "Sensors Plugin Failure"
 msgstr "Error dins l'empeuton de captadors"
 
-#: ../lib/sensors-interface.cc:98
+#: lib/sensors-interface.cc:98
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr "Semblariá qu'i aguèsse un problèma de lectura d'una valor caracteristica del captador.\nL'execucion normala pòt pas èsser garantida."
 
-#: ../lib/sensors-interface.cc:131
+#: lib/sensors-interface.cc:131
 msgid "Sensors t_ype:"
 msgstr "T_ipe de captadors :"
 
-#: ../lib/sensors-interface.cc:149
+#: lib/sensors-interface.cc:149
 msgid "Description:"
 msgstr "Descripcion :"
 
-#: ../lib/sensors-interface.cc:176
+#: lib/sensors-interface.cc:176
 msgid "U_pdate interval (seconds):"
 msgstr "_Interval de mesa a jorn (segondas) :"
 
-#: ../lib/sensors-interface.cc:210
+#: lib/sensors-interface.cc:210
 msgid "Name"
 msgstr "Nom"
 
-#: ../lib/sensors-interface.cc:224
+#: lib/sensors-interface.cc:224
 msgid "Value"
 msgstr "Valor"
 
-#: ../lib/sensors-interface.cc:230
+#: lib/sensors-interface.cc:230
 msgid "Show"
 msgstr "Afichar"
 
-#: ../lib/sensors-interface.cc:242
+#: lib/sensors-interface.cc:242
 msgid "Color"
 msgstr "Color"
 
-#: ../lib/sensors-interface.cc:256
+#: lib/sensors-interface.cc:256
 msgid "Min"
 msgstr "Min"
 
-#: ../lib/sensors-interface.cc:270
+#: lib/sensors-interface.cc:270
 msgid "Max"
 msgstr "Max"
 
-#: ../lib/sensors-interface.cc:303
+#: lib/sensors-interface.cc:303
 msgid "Temperature scale:"
 msgstr "Escala de temperatura :"
 
-#: ../lib/sensors-interface.cc:304
+#: lib/sensors-interface.cc:304
 msgid "_Celsius"
 msgstr "_Celsius"
 
-#: ../lib/sensors-interface.cc:306
+#: lib/sensors-interface.cc:306
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../lib/sensors-interface.cc:335
+#: lib/sensors-interface.cc:335
 msgid "_Sensors"
 msgstr "_Captador"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.cc:262 ../panel-plugin/sensors-plugin.cc:361
-#: ../panel-plugin/sensors-plugin.cc:832
+#: panel-plugin/sensors-plugin.cc:262 panel-plugin/sensors-plugin.cc:361
+#: panel-plugin/sensors-plugin.cc:832
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Captadors</b></span>"
 
 #. output to stdout on command line, not very useful for user, except for
 #. tracing problems
-#: ../panel-plugin/sensors-plugin.cc:739
-#, c-format
+#: panel-plugin/sensors-plugin.cc:739
 msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "Empeuton Captadors :\nSemblariá qu'i aja un problèma de lectura d'una valor caracteristica del captador.\nL'execucion normala pòt pas èsser garantida.\n\n\n\n"
 
-#: ../panel-plugin/sensors-plugin.cc:756
+#: panel-plugin/sensors-plugin.cc:756
 msgid "No sensors selected!"
 msgstr "Cap de captador pas seleccionat !"
 
-#: ../panel-plugin/sensors-plugin.cc:1482
+#: panel-plugin/sensors-plugin.cc:1482
 msgid "UI style:"
 msgstr "Estil de l'interfàcia :"
 
-#: ../panel-plugin/sensors-plugin.cc:1483
+#: panel-plugin/sensors-plugin.cc:1483
 msgid "_text"
 msgstr "_tèxte"
 
-#: ../panel-plugin/sensors-plugin.cc:1484
+#: panel-plugin/sensors-plugin.cc:1484
 msgid "_progress bars"
 msgstr "_barras de progression"
 
-#: ../panel-plugin/sensors-plugin.cc:1485
+#: panel-plugin/sensors-plugin.cc:1485
 msgid "_tachos"
 msgstr "_taquis"
 
-#: ../panel-plugin/sensors-plugin.cc:1523
+#: panel-plugin/sensors-plugin.cc:1523
 msgid "Show _labels"
 msgstr "Afi_char las etiquetas"
 
-#: ../panel-plugin/sensors-plugin.cc:1545
+#: panel-plugin/sensors-plugin.cc:1545
 msgid "_Automatic bar colors"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.cc:1547
+#: panel-plugin/sensors-plugin.cc:1547
 msgid ""
 "If enabled, bar colors depend on their values (normal, high, very high).\n"
 "If disabled, bars use the user-defined sensor colors.\n"
@@ -282,127 +280,135 @@ msgid ""
 "the bar color is derived from the current UI style."
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.cc:1574
+#: panel-plugin/sensors-plugin.cc:1574
 msgid "_Show title"
 msgstr "Afi_char lo títol"
 
-#: ../panel-plugin/sensors-plugin.cc:1591
+#: panel-plugin/sensors-plugin.cc:1591
 msgid "_Number of text lines:"
 msgstr "_Nombre de linhas de tèxte :"
 
 #. The Xfce 4 panel can have several rows or columns. With such a mode,
 #. the plugins are allowed to span over all available rows/columns.
 #. When translating, "cover" might be replaced by "use" or "span".
-#: ../panel-plugin/sensors-plugin.cc:1623
+#: panel-plugin/sensors-plugin.cc:1623
 msgid "_Cover all panel rows/columns"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.cc:1641
+#: panel-plugin/sensors-plugin.cc:1641
 msgid "F_ont size:"
 msgstr "Talha de la _poliça :"
 
-#: ../panel-plugin/sensors-plugin.cc:1647
+#: panel-plugin/sensors-plugin.cc:1647
 msgid "x-small"
 msgstr "fòrça pichona"
 
-#: ../panel-plugin/sensors-plugin.cc:1648
+#: panel-plugin/sensors-plugin.cc:1648
 msgid "small"
 msgstr "pichona"
 
-#: ../panel-plugin/sensors-plugin.cc:1649
+#: panel-plugin/sensors-plugin.cc:1649
 msgid "medium"
 msgstr "normala"
 
-#: ../panel-plugin/sensors-plugin.cc:1650
+#: panel-plugin/sensors-plugin.cc:1650
 msgid "large"
 msgstr "granda"
 
-#: ../panel-plugin/sensors-plugin.cc:1651
+#: panel-plugin/sensors-plugin.cc:1651
 msgid "x-large"
 msgstr "fòrça granda"
 
-#: ../panel-plugin/sensors-plugin.cc:1673
+#: panel-plugin/sensors-plugin.cc:1673
 msgid "F_ont:"
 msgstr "Talha de la _poliça :"
 
-#: ../panel-plugin/sensors-plugin.cc:1699
+#: panel-plugin/sensors-plugin.cc:1699
 msgid "Show _Units"
 msgstr "Afichar las _unitats"
 
-#: ../panel-plugin/sensors-plugin.cc:1719
+#: panel-plugin/sensors-plugin.cc:1719
 msgid "Small horizontal s_pacing"
 msgstr "Pichon e_spaci orizontal"
 
-#: ../panel-plugin/sensors-plugin.cc:1746
+#: panel-plugin/sensors-plugin.cc:1746
 msgid "Tacho color alpha value:"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.cc:1761
+#: panel-plugin/sensors-plugin.cc:1761
 msgid "Tacho color value:"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.cc:1789
+#: panel-plugin/sensors-plugin.cc:1789
 msgid "Suppress messages"
 msgstr "Suprimir los messatges"
 
-#: ../panel-plugin/sensors-plugin.cc:1806
+#: panel-plugin/sensors-plugin.cc:1806
 msgid "Suppress tooltip"
 msgstr "Suprimir l’infobulla"
 
-#: ../panel-plugin/sensors-plugin.cc:1826
+#: panel-plugin/sensors-plugin.cc:1826
 msgid "E_xecute on double click:"
 msgstr "E_xecuta aprèp un clic doble :"
 
-#: ../panel-plugin/sensors-plugin.cc:1853
+#: panel-plugin/sensors-plugin.cc:1853
 msgid "_View"
 msgstr "_Afichar"
 
-#: ../panel-plugin/sensors-plugin.cc:1866
+#: panel-plugin/sensors-plugin.cc:1866
 msgid "UI style options"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.cc:1893
+#: panel-plugin/sensors-plugin.cc:1893
 msgid "_Miscellaneous"
 msgstr "_Divèrs"
 
-#: ../panel-plugin/sensors-plugin.cc:1957
+#: panel-plugin/sensors-plugin.cc:1957
 msgid "Properties"
 msgstr "Proprietats"
 
-#: ../panel-plugin/sensors-plugin.cc:1983
+#: panel-plugin/sensors-plugin.cc:1983
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "Podètz modificar las proprietats d'una entitat coma lo nom, las colors, la valor min / max  en doble-clicant sus l'entrada, editar lo contengut, e en quichant sus « Entrada » o en seleccionant un autre camp."
 
-#: ../panel-plugin/sensors-plugin.cc:2070
+#: panel-plugin/sensors-plugin.cc:2070
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr ""
 
+#: panel-plugin/xfce4-sensors-plugin.desktop.in:5
+msgid "Sensor plugin"
+msgstr ""
+
+#: panel-plugin/xfce4-sensors-plugin.desktop.in:6
+#: src/xfce4-sensors.desktop.in:5
+msgid "Show sensor values."
+msgstr "Afichar las valors del captador."
+
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
-#: ../src/actions.cc:70
-#, c-format
+#: src/actions.cc:70
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "Empeuton de Captadors :\nSemblariá qu'i aguèsse un problèma de lectura de valor sus un captador.\nL'execucion normala pòt pas èsser garantida.\n"
 
-#: ../src/interface.cc:75
+#: src/interface.cc:75
 msgid "_Overview"
 msgstr "_Apercebut"
 
-#: ../src/interface.cc:97
+#: src/interface.cc:97
 msgid "_Tachometers"
 msgstr "_Taquimètres"
 
-#: ../src/interface.cc:111
+#: src/interface.cc:111
 msgid "Sensors Viewer"
 msgstr "Afichador de captadors"
 
-#: ../src/main.cc:47
+#: src/main.cc:47
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -410,7 +416,7 @@ msgid ""
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr "Captadors Xfce4 %s\nAqueste programa es publicat jos la licéncia GPL v2.\nLo tèxte de la licéncia pòt èsser trobat a l'interior de l'archiu font del programa o dins /usr/share/apps/LICENSES/GPL_V2 o a http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
-#: ../src/main.cc:62
+#: src/main.cc:62
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -425,7 +431,15 @@ msgid ""
 "This program is published under the GPL v2.\n"
 msgstr ""
 
-#: ../src/main.cc:83
+#: src/main.cc:83
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Captadors Xfce4 %s\n"
+
+#: src/xfce4-sensors.desktop.in:4
+msgid "Sensor Viewer"
+msgstr "Afichador de captador"
+
+#: src/xfce4-sensors.desktop.in:6
+msgid "Sensor Values Viewer"
+msgstr "Afichador de las valors dels captadors"
