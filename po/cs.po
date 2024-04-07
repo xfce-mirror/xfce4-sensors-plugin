@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-sensors-plugin package.
 # 
 # Translators:
 # Alois Nešpor <info@aloisnespor.info>, 2014
@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-06 12:55+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2024-04-07 00:55+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>, 2017,2020-2021\n"
 "Language-Team: Czech (http://app.transifex.com/xfce/xfce-panel-plugins/language/cs/)\n"
@@ -35,53 +35,53 @@ msgstr ""
 #. You might want to format this with a hyphen and without spacing, or with a
 #. dash; the result might be BAT1–Voltage or whatever fits your language most.
 #. Spaces allow line breaks over the tachometers.
-#: ../lib/acpi.cc:270 ../lib/acpi.cc:517 ../lib/acpi.cc:570
+#: lib/acpi.cc:270 lib/acpi.cc:517 lib/acpi.cc:570
 #, c-format
 msgid "%s - %s"
 msgstr "%s – %s"
 
 #. Power with unit Watts, not Energy with Joules or kWh
-#: ../lib/acpi.cc:519
+#: lib/acpi.cc:519
 msgid "Power"
 msgstr "Energie"
 
-#: ../lib/acpi.cc:570
+#: lib/acpi.cc:570
 msgid "Voltage"
 msgstr "Napětí"
 
-#: ../lib/acpi.cc:611 ../lib/acpi.cc:622
+#: lib/acpi.cc:611 lib/acpi.cc:622
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.cc:614
+#: lib/acpi.cc:614
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "Zóny ACPI v%s"
 
-#: ../lib/acpi.cc:735
+#: lib/acpi.cc:735
 msgid "<Unknown>"
 msgstr "<Neznámý>"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
-#: ../lib/configuration.cc:120 ../lib/hddtemp.cc:347
+#: lib/configuration.cc:120 lib/hddtemp.cc:347
 msgid "Hard disks"
 msgstr "Pevné disky"
 
-#: ../lib/hddtemp.cc:106
+#: lib/hddtemp.cc:106
 msgid "Don't show this message again"
 msgstr "Tuto zprávu již znovu nezobrazovat"
 
-#: ../lib/hddtemp.cc:148 ../panel-plugin/sensors-plugin.cc:1949
-#: ../panel-plugin/sensors-plugin.h:26
+#: lib/hddtemp.cc:148 panel-plugin/sensors-plugin.cc:1949
+#: panel-plugin/sensors-plugin.h:26
 msgid "Sensors Plugin"
 msgstr "Zásuvný modul senzory"
 
-#: ../lib/hddtemp.cc:346
+#: lib/hddtemp.cc:346
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "Teploty pevných disků ze systému S.M.A.R.T."
 
-#: ../lib/hddtemp.cc:503
+#: lib/hddtemp.cc:503
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
@@ -93,188 +93,186 @@ msgid ""
 "with a return value of %d.\n"
 msgstr "Aplikace \"hddtemp\" se nespustila korektně, přestože je spustitelná. Disky obvykle ke čtení teploty vyžadují oprávnění uživatele root, avšak aplikace \"hddtemp\" nemá nastaven bit SUID.\n\nJednoduchým ale nečistým řešením je spuštění příkazu \"chmod u+s %s\" pod uživatelem root a následné opětovné spuštění tohoto zásuvného modulu nebo jeho panelu.\n\nVolání \"%s\" vrátilo tuto chybu:\n%s\ns návratovou hodnotou %d.\n"
 
-#: ../lib/hddtemp.cc:517 ../lib/hddtemp.cc:540
+#: lib/hddtemp.cc:517 lib/hddtemp.cc:540
 msgid "Suppress this message in future"
 msgstr "Potlačit budoucí zprávy"
 
-#: ../lib/hddtemp.cc:535
+#: lib/hddtemp.cc:535
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr "Při spouštění  \"%s\" nastala chyba:\n%s"
 
-#: ../lib/lmsensors.cc:63
+#: lib/lmsensors.cc:63
 msgid "LM Sensors"
 msgstr "Senzory LM:"
 
-#: ../lib/lmsensors.cc:291
-#, c-format
+#: lib/lmsensors.cc:291
 msgid "Error: Could not connect to sensors!"
 msgstr "Chyba: Nelze se připojit k senzorům!"
 
-#: ../lib/nvidia.cc:79
+#: lib/nvidia.cc:79
 msgid "NVIDIA GPU core temperature"
 msgstr "Teplota jádra grafického procesoru NVIDIA"
 
-#: ../lib/nvidia.cc:80
+#: lib/nvidia.cc:80
 msgid "nvidia"
 msgstr "nvidia"
 
-#: ../lib/sensors-interface-common.cc:58 ../lib/sensors-interface-common.cc:59
+#: lib/sensors-interface-common.cc:58 lib/sensors-interface-common.cc:59
 msgid "No sensors found!"
 msgstr "Nebyly nalezeny žádné senzory!"
 
-#: ../lib/sensors-interface-common.cc:86
+#: lib/sensors-interface-common.cc:86
 #, c-format
 msgid "%.0f °F"
 msgstr "%.1f °F"
 
-#: ../lib/sensors-interface-common.cc:88
+#: lib/sensors-interface-common.cc:88
 #, c-format
 msgid "%.0f °C"
 msgstr "%.1f °C"
 
-#: ../lib/sensors-interface-common.cc:91
+#: lib/sensors-interface-common.cc:91
 #, c-format
 msgid "%+.3f V"
 msgstr "%+.3f V"
 
-#: ../lib/sensors-interface-common.cc:94
+#: lib/sensors-interface-common.cc:94
 #, c-format
 msgid "%+.3f A"
 msgstr "%+.3f A"
 
-#: ../lib/sensors-interface-common.cc:97
+#: lib/sensors-interface-common.cc:97
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.cc:100
+#: lib/sensors-interface-common.cc:100
 #, c-format
 msgid "%.3f W"
 msgstr "%.3f W"
 
-#: ../lib/sensors-interface-common.cc:103
+#: lib/sensors-interface-common.cc:103
 msgid "off"
 msgstr "vypnuto"
 
-#: ../lib/sensors-interface-common.cc:103
+#: lib/sensors-interface-common.cc:103
 msgid "on"
 msgstr "zapnuto"
 
-#: ../lib/sensors-interface-common.cc:106
+#: lib/sensors-interface-common.cc:106
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f otáček za minutu"
 
-#: ../lib/sensors-interface.cc:97
+#: lib/sensors-interface.cc:97
 msgid "Sensors Plugin Failure"
 msgstr "Selhání zásuvného modulu senzory"
 
-#: ../lib/sensors-interface.cc:98
+#: lib/sensors-interface.cc:98
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr "Při čtení hodnoty senzorů zřejmě došlo k potížím.\nNelze zaručit správné fungování."
 
-#: ../lib/sensors-interface.cc:131
+#: lib/sensors-interface.cc:131
 msgid "Sensors t_ype:"
 msgstr "T_yp senzorů:"
 
-#: ../lib/sensors-interface.cc:149
+#: lib/sensors-interface.cc:149
 msgid "Description:"
 msgstr "Popis:"
 
-#: ../lib/sensors-interface.cc:176
+#: lib/sensors-interface.cc:176
 msgid "U_pdate interval (seconds):"
 msgstr "I_nterval obnovení (sekundy):"
 
-#: ../lib/sensors-interface.cc:210
+#: lib/sensors-interface.cc:210
 msgid "Name"
 msgstr "Název"
 
-#: ../lib/sensors-interface.cc:224
+#: lib/sensors-interface.cc:224
 msgid "Value"
 msgstr "Hodnota"
 
-#: ../lib/sensors-interface.cc:230
+#: lib/sensors-interface.cc:230
 msgid "Show"
 msgstr "Zobrazit"
 
-#: ../lib/sensors-interface.cc:242
+#: lib/sensors-interface.cc:242
 msgid "Color"
 msgstr "Barva"
 
-#: ../lib/sensors-interface.cc:256
+#: lib/sensors-interface.cc:256
 msgid "Min"
 msgstr "Min"
 
-#: ../lib/sensors-interface.cc:270
+#: lib/sensors-interface.cc:270
 msgid "Max"
 msgstr "Max"
 
-#: ../lib/sensors-interface.cc:303
+#: lib/sensors-interface.cc:303
 msgid "Temperature scale:"
 msgstr "Rozsah teplot:"
 
-#: ../lib/sensors-interface.cc:304
+#: lib/sensors-interface.cc:304
 msgid "_Celsius"
 msgstr "Stupně _Celsia"
 
-#: ../lib/sensors-interface.cc:306
+#: lib/sensors-interface.cc:306
 msgid "_Fahrenheit"
 msgstr "Stupně _Fahrenheita"
 
-#: ../lib/sensors-interface.cc:335
+#: lib/sensors-interface.cc:335
 msgid "_Sensors"
 msgstr "_Senzory:"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.cc:262 ../panel-plugin/sensors-plugin.cc:361
-#: ../panel-plugin/sensors-plugin.cc:832
+#: panel-plugin/sensors-plugin.cc:262 panel-plugin/sensors-plugin.cc:361
+#: panel-plugin/sensors-plugin.cc:832
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Senzory</b></span>"
 
 #. output to stdout on command line, not very useful for user, except for
 #. tracing problems
-#: ../panel-plugin/sensors-plugin.cc:739
-#, c-format
+#: panel-plugin/sensors-plugin.cc:739
 msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "Zásuvný modul Senzory:\nDošlo k potížím při čtení hodnoty senzoru. \nNelze zaručit správné fungování.\n"
 
-#: ../panel-plugin/sensors-plugin.cc:756
+#: panel-plugin/sensors-plugin.cc:756
 msgid "No sensors selected!"
 msgstr "Nebyly vybrány žádné senzory!"
 
-#: ../panel-plugin/sensors-plugin.cc:1482
+#: panel-plugin/sensors-plugin.cc:1482
 msgid "UI style:"
 msgstr "Styl uživatelského rozhraní:"
 
-#: ../panel-plugin/sensors-plugin.cc:1483
+#: panel-plugin/sensors-plugin.cc:1483
 msgid "_text"
 msgstr "_text"
 
-#: ../panel-plugin/sensors-plugin.cc:1484
+#: panel-plugin/sensors-plugin.cc:1484
 msgid "_progress bars"
 msgstr "_Ukazatelé průběhu"
 
-#: ../panel-plugin/sensors-plugin.cc:1485
+#: panel-plugin/sensors-plugin.cc:1485
 msgid "_tachos"
 msgstr "_tachos"
 
-#: ../panel-plugin/sensors-plugin.cc:1523
+#: panel-plugin/sensors-plugin.cc:1523
 msgid "Show _labels"
 msgstr "_Zobrazovat titulky"
 
-#: ../panel-plugin/sensors-plugin.cc:1545
+#: panel-plugin/sensors-plugin.cc:1545
 msgid "_Automatic bar colors"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.cc:1547
+#: panel-plugin/sensors-plugin.cc:1547
 msgid ""
 "If enabled, bar colors depend on their values (normal, high, very high).\n"
 "If disabled, bars use the user-defined sensor colors.\n"
@@ -282,127 +280,135 @@ msgid ""
 "the bar color is derived from the current UI style."
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.cc:1574
+#: panel-plugin/sensors-plugin.cc:1574
 msgid "_Show title"
 msgstr "_Zobrazovat titulek"
 
-#: ../panel-plugin/sensors-plugin.cc:1591
+#: panel-plugin/sensors-plugin.cc:1591
 msgid "_Number of text lines:"
 msgstr "_Počet textových řádků:"
 
 #. The Xfce 4 panel can have several rows or columns. With such a mode,
 #. the plugins are allowed to span over all available rows/columns.
 #. When translating, "cover" might be replaced by "use" or "span".
-#: ../panel-plugin/sensors-plugin.cc:1623
+#: panel-plugin/sensors-plugin.cc:1623
 msgid "_Cover all panel rows/columns"
 msgstr "Pře_krýt všechny řádky a sloupce panelu"
 
-#: ../panel-plugin/sensors-plugin.cc:1641
+#: panel-plugin/sensors-plugin.cc:1641
 msgid "F_ont size:"
 msgstr "Velikost _písma:"
 
-#: ../panel-plugin/sensors-plugin.cc:1647
+#: panel-plugin/sensors-plugin.cc:1647
 msgid "x-small"
 msgstr "x-small"
 
-#: ../panel-plugin/sensors-plugin.cc:1648
+#: panel-plugin/sensors-plugin.cc:1648
 msgid "small"
 msgstr "small"
 
-#: ../panel-plugin/sensors-plugin.cc:1649
+#: panel-plugin/sensors-plugin.cc:1649
 msgid "medium"
 msgstr "medium"
 
-#: ../panel-plugin/sensors-plugin.cc:1650
+#: panel-plugin/sensors-plugin.cc:1650
 msgid "large"
 msgstr "large"
 
-#: ../panel-plugin/sensors-plugin.cc:1651
+#: panel-plugin/sensors-plugin.cc:1651
 msgid "x-large"
 msgstr "x-large"
 
-#: ../panel-plugin/sensors-plugin.cc:1673
+#: panel-plugin/sensors-plugin.cc:1673
 msgid "F_ont:"
 msgstr "_Písmo:"
 
-#: ../panel-plugin/sensors-plugin.cc:1699
+#: panel-plugin/sensors-plugin.cc:1699
 msgid "Show _Units"
 msgstr "Zo_brazovat jednotky"
 
-#: ../panel-plugin/sensors-plugin.cc:1719
+#: panel-plugin/sensors-plugin.cc:1719
 msgid "Small horizontal s_pacing"
 msgstr "Malý vodorovný oddělovací prostor"
 
-#: ../panel-plugin/sensors-plugin.cc:1746
+#: panel-plugin/sensors-plugin.cc:1746
 msgid "Tacho color alpha value:"
 msgstr "Hodnota průhlednosti barvy ukazatele:"
 
-#: ../panel-plugin/sensors-plugin.cc:1761
+#: panel-plugin/sensors-plugin.cc:1761
 msgid "Tacho color value:"
 msgstr "Hodnota barvy ukazatele:"
 
-#: ../panel-plugin/sensors-plugin.cc:1789
+#: panel-plugin/sensors-plugin.cc:1789
 msgid "Suppress messages"
 msgstr "Potlačit zprávy"
 
-#: ../panel-plugin/sensors-plugin.cc:1806
+#: panel-plugin/sensors-plugin.cc:1806
 msgid "Suppress tooltip"
 msgstr "Potlačit bublinové popisky"
 
-#: ../panel-plugin/sensors-plugin.cc:1826
+#: panel-plugin/sensors-plugin.cc:1826
 msgid "E_xecute on double click:"
 msgstr "_Spustit při dvojitém kliknutí:"
 
-#: ../panel-plugin/sensors-plugin.cc:1853
+#: panel-plugin/sensors-plugin.cc:1853
 msgid "_View"
 msgstr "_Zobrazit"
 
-#: ../panel-plugin/sensors-plugin.cc:1866
+#: panel-plugin/sensors-plugin.cc:1866
 msgid "UI style options"
 msgstr "Možnosti stylu uživatelského rozhraní"
 
-#: ../panel-plugin/sensors-plugin.cc:1893
+#: panel-plugin/sensors-plugin.cc:1893
 msgid "_Miscellaneous"
 msgstr "_Ostatní"
 
-#: ../panel-plugin/sensors-plugin.cc:1957
+#: panel-plugin/sensors-plugin.cc:1957
 msgid "Properties"
 msgstr "Vlastnosti"
 
-#: ../panel-plugin/sensors-plugin.cc:1983
+#: panel-plugin/sensors-plugin.cc:1983
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "Vlastnosti, jako například název, barvy, nejnižší a nejvyšší hodnota, můžete změnit dvojitým kliknutím na položku, úpravou obsahu a stiskem klávesy \"Return\" nebo výběrem jiného pole."
 
-#: ../panel-plugin/sensors-plugin.cc:2070
+#: panel-plugin/sensors-plugin.cc:2070
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Zobrazit hodnoty ze senzorů získaných z LM sensors, ACPI, pevných disků, NVIDIA"
 
+#: panel-plugin/xfce4-sensors-plugin.desktop.in:5
+msgid "Sensor plugin"
+msgstr "Zásuvný modul pro senzory"
+
+#: panel-plugin/xfce4-sensors-plugin.desktop.in:6
+#: src/xfce4-sensors.desktop.in:5
+msgid "Show sensor values."
+msgstr "Zobrazuje hodnoty senzorů"
+
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
-#: ../src/actions.cc:70
-#, c-format
+#: src/actions.cc:70
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "Prohlížeč senzorů:\nDošlo k potížím při čtení hodnoty senzoru. \nNelze zaručit správné fungování.\n"
 
-#: ../src/interface.cc:75
+#: src/interface.cc:75
 msgid "_Overview"
 msgstr "_Přehled"
 
-#: ../src/interface.cc:97
+#: src/interface.cc:97
 msgid "_Tachometers"
 msgstr "_Tachometry"
 
-#: ../src/interface.cc:111
+#: src/interface.cc:111
 msgid "Sensors Viewer"
 msgstr "Prohlížeč senzorů"
 
-#: ../src/main.cc:47
+#: src/main.cc:47
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -410,7 +416,7 @@ msgid ""
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr "Senzory pro Xfce4, verze %s \nTento program byl vydán pod licencí GPL v2.\nLicenci naleznete v archivu zdrojového kódu tohoto programu nebo v adresáři /usr/share/apps/LICENSES/GPL_V2 nebo na adrese http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
-#: ../src/main.cc:62
+#: src/main.cc:62
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -425,7 +431,15 @@ msgid ""
 "This program is published under the GPL v2.\n"
 msgstr "Senzory pro Xfce4, verze %s\nZobrazuje informace o senzorech hardwaru, stav rozhraní ACPI, teplotu disků a teplotu jádra grafických procesorů NVidia.\nPoužití: \n  xfce4-sensors [volba]\n[volba] je jedna z následujících položek:\n  -h, --help    Zobrazí toto dialogové okno nápovědy\n  -l, --license Zobrazí informace o licenci\n  -v, --version Zobrazí informace o verzi\n\nTento program byl vydán pod licencí GPL v2.\n"
 
-#: ../src/main.cc:83
+#: src/main.cc:83
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Senzory pro Xfce 4, verze %s\n"
+
+#: src/xfce4-sensors.desktop.in:4
+msgid "Sensor Viewer"
+msgstr "Prohlížeč senzorů"
+
+#: src/xfce4-sensors.desktop.in:6
+msgid "Sensor Values Viewer"
+msgstr "Prohlížeč hodnot senzorů"
