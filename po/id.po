@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-sensors-plugin package.
 # 
 # Translators:
 # Andhika Padmawan <andhika.padmawan@gmail.com>, 2008
@@ -13,8 +13,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-06 12:55+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2024-04-07 00:55+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: Triyan W. Nugroho <triyan.wn@gmail.com>, 2021\n"
 "Language-Team: Indonesian (http://app.transifex.com/xfce/xfce-panel-plugins/language/id/)\n"
@@ -39,53 +39,53 @@ msgstr ""
 #. You might want to format this with a hyphen and without spacing, or with a
 #. dash; the result might be BAT1–Voltage or whatever fits your language most.
 #. Spaces allow line breaks over the tachometers.
-#: ../lib/acpi.cc:270 ../lib/acpi.cc:517 ../lib/acpi.cc:570
+#: lib/acpi.cc:270 lib/acpi.cc:517 lib/acpi.cc:570
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
 #. Power with unit Watts, not Energy with Joules or kWh
-#: ../lib/acpi.cc:519
+#: lib/acpi.cc:519
 msgid "Power"
 msgstr "Daya"
 
-#: ../lib/acpi.cc:570
+#: lib/acpi.cc:570
 msgid "Voltage"
 msgstr "Tegangan"
 
-#: ../lib/acpi.cc:611 ../lib/acpi.cc:622
+#: lib/acpi.cc:611 lib/acpi.cc:622
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.cc:614
+#: lib/acpi.cc:614
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "Zona v%s ACPI"
 
-#: ../lib/acpi.cc:735
+#: lib/acpi.cc:735
 msgid "<Unknown>"
 msgstr "<Tak diketahui>"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
-#: ../lib/configuration.cc:120 ../lib/hddtemp.cc:347
+#: lib/configuration.cc:120 lib/hddtemp.cc:347
 msgid "Hard disks"
 msgstr "Harddisk"
 
-#: ../lib/hddtemp.cc:106
+#: lib/hddtemp.cc:106
 msgid "Don't show this message again"
 msgstr "Jangan tampilkan pesan ini lagi"
 
-#: ../lib/hddtemp.cc:148 ../panel-plugin/sensors-plugin.cc:1949
-#: ../panel-plugin/sensors-plugin.h:26
+#: lib/hddtemp.cc:148 panel-plugin/sensors-plugin.cc:1949
+#: panel-plugin/sensors-plugin.h:26
 msgid "Sensors Plugin"
 msgstr "Plugin Sensor"
 
-#: ../lib/hddtemp.cc:346
+#: lib/hddtemp.cc:346
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "Temperatur S.M.A.R.T. harddisk"
 
-#: ../lib/hddtemp.cc:503
+#: lib/hddtemp.cc:503
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
@@ -97,188 +97,186 @@ msgid ""
 "with a return value of %d.\n"
 msgstr "\"hddtemp\" tak tereksekusi dengan benar, meskipun dapat dieksekusi. Ini mungkin karena cakram memerlukan hak akses root untuk membaca temperaturnya, dan \"hddtemp\" tidak diatur menggunakan uid root.\n\nCara yang mudah namun kotor adalah dengan menjalankan \"chmod u+s %s\" sebagai pengguna root kemudian mulai ulang plugin ini atau panelnya.\n\nMemanggil \"%s\" memberikan galat berikut:\n%s\ndengan nilai kembali %d.\n"
 
-#: ../lib/hddtemp.cc:517 ../lib/hddtemp.cc:540
+#: lib/hddtemp.cc:517 lib/hddtemp.cc:540
 msgid "Suppress this message in future"
 msgstr "Kecilkan pesan ini di masa depan"
 
-#: ../lib/hddtemp.cc:535
+#: lib/hddtemp.cc:535
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr "Galat terjadi ketika mengeksekusi \"%s\":\n%s"
 
-#: ../lib/lmsensors.cc:63
+#: lib/lmsensors.cc:63
 msgid "LM Sensors"
 msgstr "Sensor LM"
 
-#: ../lib/lmsensors.cc:291
-#, c-format
+#: lib/lmsensors.cc:291
 msgid "Error: Could not connect to sensors!"
 msgstr "Galat: Tak dapat menghubungi sensor!"
 
-#: ../lib/nvidia.cc:79
+#: lib/nvidia.cc:79
 msgid "NVIDIA GPU core temperature"
 msgstr "Suhu inti GPU NVIDIA"
 
-#: ../lib/nvidia.cc:80
+#: lib/nvidia.cc:80
 msgid "nvidia"
 msgstr "nvidia"
 
-#: ../lib/sensors-interface-common.cc:58 ../lib/sensors-interface-common.cc:59
+#: lib/sensors-interface-common.cc:58 lib/sensors-interface-common.cc:59
 msgid "No sensors found!"
 msgstr "Tak ada sensor yang ditemukan!"
 
-#: ../lib/sensors-interface-common.cc:86
+#: lib/sensors-interface-common.cc:86
 #, c-format
 msgid "%.0f °F"
 msgstr "%.0f °F"
 
-#: ../lib/sensors-interface-common.cc:88
+#: lib/sensors-interface-common.cc:88
 #, c-format
 msgid "%.0f °C"
 msgstr "%.0f °C"
 
-#: ../lib/sensors-interface-common.cc:91
+#: lib/sensors-interface-common.cc:91
 #, c-format
 msgid "%+.3f V"
 msgstr "%+.3f V"
 
-#: ../lib/sensors-interface-common.cc:94
+#: lib/sensors-interface-common.cc:94
 #, c-format
 msgid "%+.3f A"
 msgstr "%+.3f A"
 
-#: ../lib/sensors-interface-common.cc:97
+#: lib/sensors-interface-common.cc:97
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWj"
 
-#: ../lib/sensors-interface-common.cc:100
+#: lib/sensors-interface-common.cc:100
 #, c-format
 msgid "%.3f W"
 msgstr "%.3f W"
 
-#: ../lib/sensors-interface-common.cc:103
+#: lib/sensors-interface-common.cc:103
 msgid "off"
 msgstr "padam"
 
-#: ../lib/sensors-interface-common.cc:103
+#: lib/sensors-interface-common.cc:103
 msgid "on"
 msgstr "hidup"
 
-#: ../lib/sensors-interface-common.cc:106
+#: lib/sensors-interface-common.cc:106
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f rpm"
 
-#: ../lib/sensors-interface.cc:97
+#: lib/sensors-interface.cc:97
 msgid "Sensors Plugin Failure"
 msgstr "Kegagalan Plugin Sensor"
 
-#: ../lib/sensors-interface.cc:98
+#: lib/sensors-interface.cc:98
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr "Kelihatannya terdapat masalah saat membaca nilai fitur sensor.\nEksekusi yang normal tidak dijamin."
 
-#: ../lib/sensors-interface.cc:131
+#: lib/sensors-interface.cc:131
 msgid "Sensors t_ype:"
 msgstr "Tipe s_ensor:"
 
-#: ../lib/sensors-interface.cc:149
+#: lib/sensors-interface.cc:149
 msgid "Description:"
 msgstr "Keterangan:"
 
-#: ../lib/sensors-interface.cc:176
+#: lib/sensors-interface.cc:176
 msgid "U_pdate interval (seconds):"
 msgstr "I_nterval pemutakhiran (detik):"
 
-#: ../lib/sensors-interface.cc:210
+#: lib/sensors-interface.cc:210
 msgid "Name"
 msgstr "Nama"
 
-#: ../lib/sensors-interface.cc:224
+#: lib/sensors-interface.cc:224
 msgid "Value"
 msgstr "Nilai"
 
-#: ../lib/sensors-interface.cc:230
+#: lib/sensors-interface.cc:230
 msgid "Show"
 msgstr "Tampilkan"
 
-#: ../lib/sensors-interface.cc:242
+#: lib/sensors-interface.cc:242
 msgid "Color"
 msgstr "Warna"
 
-#: ../lib/sensors-interface.cc:256
+#: lib/sensors-interface.cc:256
 msgid "Min"
 msgstr "Min"
 
-#: ../lib/sensors-interface.cc:270
+#: lib/sensors-interface.cc:270
 msgid "Max"
 msgstr "Maks"
 
-#: ../lib/sensors-interface.cc:303
+#: lib/sensors-interface.cc:303
 msgid "Temperature scale:"
 msgstr "Skala temperatur:"
 
-#: ../lib/sensors-interface.cc:304
+#: lib/sensors-interface.cc:304
 msgid "_Celsius"
 msgstr "_Celsius"
 
-#: ../lib/sensors-interface.cc:306
+#: lib/sensors-interface.cc:306
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../lib/sensors-interface.cc:335
+#: lib/sensors-interface.cc:335
 msgid "_Sensors"
 msgstr "_Sensor"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.cc:262 ../panel-plugin/sensors-plugin.cc:361
-#: ../panel-plugin/sensors-plugin.cc:832
+#: panel-plugin/sensors-plugin.cc:262 panel-plugin/sensors-plugin.cc:361
+#: panel-plugin/sensors-plugin.cc:832
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Sensor</b></span>"
 
 #. output to stdout on command line, not very useful for user, except for
 #. tracing problems
-#: ../panel-plugin/sensors-plugin.cc:739
-#, c-format
+#: panel-plugin/sensors-plugin.cc:739
 msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "Plugin Sensor:\nKelihatannya terdapat masalah saat membaca nilai fitur sensor.\nEksekusi yang normal tidak dapat dijamin.\n"
 
-#: ../panel-plugin/sensors-plugin.cc:756
+#: panel-plugin/sensors-plugin.cc:756
 msgid "No sensors selected!"
 msgstr "Tak ada sensor yang dipilih!"
 
-#: ../panel-plugin/sensors-plugin.cc:1482
+#: panel-plugin/sensors-plugin.cc:1482
 msgid "UI style:"
 msgstr "Gaya UI:"
 
-#: ../panel-plugin/sensors-plugin.cc:1483
+#: panel-plugin/sensors-plugin.cc:1483
 msgid "_text"
 msgstr "_teks"
 
-#: ../panel-plugin/sensors-plugin.cc:1484
+#: panel-plugin/sensors-plugin.cc:1484
 msgid "_progress bars"
 msgstr "_batang progres"
 
-#: ../panel-plugin/sensors-plugin.cc:1485
+#: panel-plugin/sensors-plugin.cc:1485
 msgid "_tachos"
 msgstr "_tachometer"
 
-#: ../panel-plugin/sensors-plugin.cc:1523
+#: panel-plugin/sensors-plugin.cc:1523
 msgid "Show _labels"
 msgstr "Tampilkan _label"
 
-#: ../panel-plugin/sensors-plugin.cc:1545
+#: panel-plugin/sensors-plugin.cc:1545
 msgid "_Automatic bar colors"
 msgstr "_Warna bilah otomatis"
 
-#: ../panel-plugin/sensors-plugin.cc:1547
+#: panel-plugin/sensors-plugin.cc:1547
 msgid ""
 "If enabled, bar colors depend on their values (normal, high, very high).\n"
 "If disabled, bars use the user-defined sensor colors.\n"
@@ -286,127 +284,135 @@ msgid ""
 "the bar color is derived from the current UI style."
 msgstr "Jika diaktifkan, warna bilah akan bergantung pada nilainya (normal, tinggi, sangat tinggi).\nJika dinonaktifkan, bilah akan menggunakan warna sensor yang ditentukan pengguna.\nJika ada warna sensor yang ditentukan pengguna yang warnanya tidak ditentukan,\nmaka warna bilah akan diturunkan dari gaya UI saat ini."
 
-#: ../panel-plugin/sensors-plugin.cc:1574
+#: panel-plugin/sensors-plugin.cc:1574
 msgid "_Show title"
 msgstr "_Tampilkan judul"
 
-#: ../panel-plugin/sensors-plugin.cc:1591
+#: panel-plugin/sensors-plugin.cc:1591
 msgid "_Number of text lines:"
 msgstr "_Jumlah baris teks:"
 
 #. The Xfce 4 panel can have several rows or columns. With such a mode,
 #. the plugins are allowed to span over all available rows/columns.
 #. When translating, "cover" might be replaced by "use" or "span".
-#: ../panel-plugin/sensors-plugin.cc:1623
+#: panel-plugin/sensors-plugin.cc:1623
 msgid "_Cover all panel rows/columns"
 msgstr "Men_cakup semua panel baris/kolom"
 
-#: ../panel-plugin/sensors-plugin.cc:1641
+#: panel-plugin/sensors-plugin.cc:1641
 msgid "F_ont size:"
 msgstr "U_kuran fonta:"
 
-#: ../panel-plugin/sensors-plugin.cc:1647
+#: panel-plugin/sensors-plugin.cc:1647
 msgid "x-small"
 msgstr "sangat kecil"
 
-#: ../panel-plugin/sensors-plugin.cc:1648
+#: panel-plugin/sensors-plugin.cc:1648
 msgid "small"
 msgstr "kecil"
 
-#: ../panel-plugin/sensors-plugin.cc:1649
+#: panel-plugin/sensors-plugin.cc:1649
 msgid "medium"
 msgstr "sedang"
 
-#: ../panel-plugin/sensors-plugin.cc:1650
+#: panel-plugin/sensors-plugin.cc:1650
 msgid "large"
 msgstr "besar"
 
-#: ../panel-plugin/sensors-plugin.cc:1651
+#: panel-plugin/sensors-plugin.cc:1651
 msgid "x-large"
 msgstr "sangat besar"
 
-#: ../panel-plugin/sensors-plugin.cc:1673
+#: panel-plugin/sensors-plugin.cc:1673
 msgid "F_ont:"
 msgstr "F_onta:"
 
-#: ../panel-plugin/sensors-plugin.cc:1699
+#: panel-plugin/sensors-plugin.cc:1699
 msgid "Show _Units"
 msgstr "Tampilkan _Unit"
 
-#: ../panel-plugin/sensors-plugin.cc:1719
+#: panel-plugin/sensors-plugin.cc:1719
 msgid "Small horizontal s_pacing"
 msgstr "P_emisah horizontal kecil"
 
-#: ../panel-plugin/sensors-plugin.cc:1746
+#: panel-plugin/sensors-plugin.cc:1746
 msgid "Tacho color alpha value:"
 msgstr "Nilai alpha warna tacho:"
 
-#: ../panel-plugin/sensors-plugin.cc:1761
+#: panel-plugin/sensors-plugin.cc:1761
 msgid "Tacho color value:"
 msgstr "Nilai warna tacho:"
 
-#: ../panel-plugin/sensors-plugin.cc:1789
+#: panel-plugin/sensors-plugin.cc:1789
 msgid "Suppress messages"
 msgstr "Kecilkan pesan"
 
-#: ../panel-plugin/sensors-plugin.cc:1806
+#: panel-plugin/sensors-plugin.cc:1806
 msgid "Suppress tooltip"
 msgstr "Tip alat Suppress"
 
-#: ../panel-plugin/sensors-plugin.cc:1826
+#: panel-plugin/sensors-plugin.cc:1826
 msgid "E_xecute on double click:"
 msgstr "E_ksekusi pada klik ganda:"
 
-#: ../panel-plugin/sensors-plugin.cc:1853
+#: panel-plugin/sensors-plugin.cc:1853
 msgid "_View"
 msgstr "_Tampilan"
 
-#: ../panel-plugin/sensors-plugin.cc:1866
+#: panel-plugin/sensors-plugin.cc:1866
 msgid "UI style options"
 msgstr "Opsi gaya UI"
 
-#: ../panel-plugin/sensors-plugin.cc:1893
+#: panel-plugin/sensors-plugin.cc:1893
 msgid "_Miscellaneous"
 msgstr "_Lainnya"
 
-#: ../panel-plugin/sensors-plugin.cc:1957
+#: panel-plugin/sensors-plugin.cc:1957
 msgid "Properties"
 msgstr "Properti"
 
-#: ../panel-plugin/sensors-plugin.cc:1983
+#: panel-plugin/sensors-plugin.cc:1983
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "Anda dapat mengubah properti fitur seperti nama, warna, nilai min/maks dengan klik ganda pada entri, sunting isi, dan menekan \"Kembali\" atau memilih bidang yang lain."
 
-#: ../panel-plugin/sensors-plugin.cc:2070
+#: panel-plugin/sensors-plugin.cc:2070
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Tampilkan nilai sensor dari LM sensors, ACPI, harddisk, NVIDIA"
 
+#: panel-plugin/xfce4-sensors-plugin.desktop.in:5
+msgid "Sensor plugin"
+msgstr "Pengaya sensor"
+
+#: panel-plugin/xfce4-sensors-plugin.desktop.in:6
+#: src/xfce4-sensors.desktop.in:5
+msgid "Show sensor values."
+msgstr "Tampilkan nilai sensor."
+
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
-#: ../src/actions.cc:70
-#, c-format
+#: src/actions.cc:70
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "Plugin Sensor:\nKelihatannya terdapat masalah saat membaca nilai fitur sensor.\nEksekusi yang normal tidak dapat dijamin.\n"
 
-#: ../src/interface.cc:75
+#: src/interface.cc:75
 msgid "_Overview"
 msgstr "_Ringkasan"
 
-#: ../src/interface.cc:97
+#: src/interface.cc:97
 msgid "_Tachometers"
 msgstr "_Tachometer"
 
-#: ../src/interface.cc:111
+#: src/interface.cc:111
 msgid "Sensors Viewer"
 msgstr "Penampil Sensor"
 
-#: ../src/main.cc:47
+#: src/main.cc:47
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -414,7 +420,7 @@ msgid ""
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr "Sensor Xfce4 %s\nProgram ini dipublikasikan di bawah GPL v2.\nTeks lisensi dapat ditemukan di dalam arsip sumber program atau di bawah /usr/share/apps/LICENSES/GPL_V2 atau di http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
-#: ../src/main.cc:62
+#: src/main.cc:62
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -429,7 +435,15 @@ msgid ""
 "This program is published under the GPL v2.\n"
 msgstr "Sensor Xfce4 %s\nTampilkan informasi tentang sensor perangkat keras, status ACPI, temperatur harddisk dan temperatur GPU NVidia Anda.\nSinopsis: \n  xfce4-sensors [option]\n[option] merupakan satu atau beberapa opsi berikut:\n  -h, --help    Cetak dialog bantuan ini.\n  -l, --license Cetak informasi lisensi.\n  -V, --version Cetak informasi versi.\n\nProgram ini dipublikasikan di bawah GPL v2.\n"
 
-#: ../src/main.cc:83
+#: src/main.cc:83
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Sensor Xfce4 %s\n"
+
+#: src/xfce4-sensors.desktop.in:4
+msgid "Sensor Viewer"
+msgstr "Penampil Sensor"
+
+#: src/xfce4-sensors.desktop.in:6
+msgid "Sensor Values Viewer"
+msgstr "Penampil Nilai Sensor"
