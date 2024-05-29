@@ -106,7 +106,7 @@ read_thermal_zone (const Ptr<t_chip> &chip)
                 FILE *file = fopen (filename.c_str(), "r");
                 if (file)
                 {
-                    DBG("parsing temperature file \"%s\"...\n", filename);
+                    DBG("parsing temperature file \"%s\"...\n", filename.c_str());
                     /* if (acpi_ignore_directory_entry (ptr_dirent))
                         continue; */
 
