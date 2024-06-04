@@ -42,7 +42,7 @@ DISTCLEANFILES =                        \
 	xfce4-sensors-plugin.spec           \
 	$(NULL)
 
-DISTCHECK_CONFIGURE_FLAGS =             \
+AM_DISTCHECK_CONFIGURE_FLAGS =             \
 	--disable-hddtemp                   \
 	--disable-xnvctrl                   \
 	--enable-libsensors                 \
