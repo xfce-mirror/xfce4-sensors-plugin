@@ -28,14 +28,16 @@ xfce4_sensors_LDFLAGS = \
 	@PLATFORM_LDFLAGS@
 
 xfce4_sensors_LDADD = \
-	$(top_builddir)/lib/libxfce4sensors.la \
 	$(top_builddir)/xfce4++/util/libxfce4util_pp.la \
+	$(top_builddir)/lib/libxfce4sensors.la \
 	@LIBSENSORS_LDFLAGS@ \
 	@LIBXFCE4UI_LIBS@ \
 	-lm
 
 xfce4_sensors_DEPENDENCIES = \
-	$(top_builddir)/lib/libxfce4sensors.la
+	$(top_builddir)/lib/libxfce4sensors.la \
+	$(top_builddir)/xfce4++/util/libxfce4util_pp.la \
+	$(NULL)
 
 # .desktop file
 desktop_in_files = xfce4-sensors.desktop.in
