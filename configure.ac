@@ -8,18 +8,14 @@ dnl
 m4_define([libxfce4sensors_verinfo], [5:1:0])
 
 dnl Version information
-AC_CONFIG_MACRO_DIRS([m4])
-m4_define([sensors_version_major], [1])
-m4_define([sensors_version_minor], [4])
-m4_define([sensors_version_micro], [4])
-m4_define([sensors_version_build], [@REVISION@])
-m4_define([sensors_version_tag], [git])
-m4_define([sensors_version], [sensors_version_major().sensors_version_minor().sensors_version_micro()ifelse(sensors_version_tag(), [git], [sensors_version_tag()-sensors_version_build()], [sensors_version_tag()])])
+XDT_VERSION_INIT([1.4.4], [git])
 
 dnl Initialize autoconf
 AC_COPYRIGHT([Copyright (c) 2004-2023 The Xfce development team. All rights reserved.])
-AC_INIT([xfce4-sensors-plugin], [sensors_version], [https://gitlab.xfce.org/panel-plugins/xfce4-sensors-plugin/], [xfce4-sensors-plugin])
-AC_PREREQ([2.60])
+AC_INIT([xfce4-sensors-plugin], [xdt_version], [https://gitlab.xfce.org/panel-plugins/xfce4-sensors-plugin/], [xfce4-sensors-plugin])
+AC_REVISION([xdt_version_build])
+AC_PREREQ([2.69])
+AC_CONFIG_MACRO_DIRS([m4])
 
 dnl Initialize automake
 AM_INIT_AUTOMAKE([1.11 dist-bzip2 tar-ustar no-dist-gzip])
@@ -312,7 +308,7 @@ AM_GNU_GETTEXT([external])
 AM_GNU_GETTEXT_VERSION([0.19.8])
 
 dnl Check for debugging support
-XDT_FEATURE_DEBUG()
+XDT_FEATURE_DEBUG([xdt_debug_default])
 
 dnl *********************************
 dnl *** Substitute platform flags ***
@@ -380,4 +376,3 @@ echo "Full debug is disabled"
 fi
 echo
 echo "==============================================================="
-
