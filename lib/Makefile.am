@@ -51,8 +51,6 @@ endif
 libxfce4sensors_la_CXXFLAGS = $(libxfce4sensors_la_CFLAGS)
 
 libxfce4sensors_la_LDFLAGS = \
-	-export-dynamic \
-	-export-symbols-regex "^[^_].*" \
 	-version-info $(LIBXFCE4SENSORS_VERINFO)
 
 # @PLATFORM_LDFLAGS@

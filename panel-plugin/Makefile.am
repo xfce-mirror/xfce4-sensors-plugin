@@ -34,8 +34,7 @@ libxfce4_sensors_plugin_la_LDFLAGS = \
 	-avoid-version \
 	-module \
 	-no-undefined \
-	-export-dynamic \
-	-export-symbols-regex "^[^_].*" \
+	-export-symbols-regex '^xfce_panel_module_(preinit|init|construct)' \
 	$(PLATFORM_LDFLAGS)
 
 # .desktop file
