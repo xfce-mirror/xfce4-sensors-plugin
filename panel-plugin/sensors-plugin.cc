@@ -1955,7 +1955,6 @@ sensors_create_options (XfcePanelPlugin *plugin, const Ptr<t_sensors> &sensors)
                 NULL
             );
 
-    xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (dlg), _("Properties"));
     gtk_window_set_icon_name(GTK_WINDOW(dlg),"xfce-sensors");
 
     gtk_container_set_border_width (GTK_CONTAINER (dlg), 2);
