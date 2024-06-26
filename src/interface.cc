@@ -107,11 +107,12 @@ GtkWidget *
 create_main_window (const Ptr<t_sensors_dialog> &dialog)
 {
     /* start and populate */
-    GtkWidget *xfce_dialog = xfce_titled_dialog_new_with_buttons(
+    GtkWidget *xfce_dialog = xfce_titled_dialog_new_with_mixed_buttons (
                 _("Sensors Viewer"), // title
                 NULL, // parent window
                 (GtkDialogFlags) 0,
-                "gtk-close", // button text
+                "window-close-symbolic", // button icon name
+                _("_Close"), // button text
                 GTK_RESPONSE_OK, // response id for previous button
                 NULL
             );

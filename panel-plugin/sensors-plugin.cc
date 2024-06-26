@@ -899,8 +899,8 @@ static xfce4::Propagation
 execute_command (GdkEventButton *event, const Ptr<t_sensors> &sensors)
 {
     if (event->type == GDK_2BUTTON_PRESS && sensors->exec_command) {
-        // screen NULL, command, terminal=no, startup=yes, error=NULL
-        xfce_spawn_command_line_on_screen (NULL, sensors->command_name.c_str(), FALSE, TRUE, NULL);
+        // screen NULL, command, terminal=no, startup=yes, child_process=yes, error=NULL
+        xfce_spawn_command_line (NULL, sensors->command_name.c_str(), FALSE, TRUE, TRUE, NULL);
         return xfce4::STOP;
     }
     else {
@@ -1945,16 +1945,16 @@ sensors_create_options (XfcePanelPlugin *plugin, const Ptr<t_sensors> &sensors)
 
     xfce_panel_plugin_block_menu (plugin);
 
-    dlg = xfce_titled_dialog_new_with_buttons(
+    dlg = xfce_titled_dialog_new_with_mixed_buttons (
                 _("Sensors Plugin"),
                 GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
                 (GtkDialogFlags) 0,
-                "gtk-close",
+                "window-close-symbolic",
+                _("_Close"),
                 GTK_RESPONSE_OK,
                 NULL
             );
 
-    xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (dlg), _("Properties"));
     gtk_window_set_icon_name(GTK_WINDOW(dlg),"xfce-sensors");
 
     gtk_container_set_border_width (GTK_CONTAINER (dlg), 2);
