@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-04-07 00:55+0200\n"
+"POT-Creation-Date: 2024-06-27 00:53+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: Pjotr <pjotrvertaalt@gmail.com>, 2014,2017-2018,2021\n"
 "Language-Team: Dutch (http://app.transifex.com/xfce/xfce-panel-plugins/language/nl/)\n"
@@ -361,9 +361,10 @@ msgstr "Stijlopties voor de grafische schil"
 msgid "_Miscellaneous"
 msgstr "_Gemengd"
 
-#: panel-plugin/sensors-plugin.cc:1957
-msgid "Properties"
-msgstr "Eigenschappen"
+#. button icon name
+#: panel-plugin/sensors-plugin.cc:1953 src/interface.cc:115
+msgid "_Close"
+msgstr "_Sluiten"
 
 #: panel-plugin/sensors-plugin.cc:1983
 msgid ""
