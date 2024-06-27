@@ -5,16 +5,16 @@
 # Translators:
 # Allan Nordhøy <epost@anotheragency.no>, 2014
 # Allan Nordhøy <epost@anotheragency.no>, 2017
-# Kaci Heskjestad, 2021
+# heskjestad, 2021
 # Harald H. <haarektrans@gmail.com>, 2014
-# Kaci Heskjestad, 2019,2021
+# heskjestad, 2019,2021
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-04-07 00:55+0200\n"
+"POT-Creation-Date: 2024-06-27 00:53+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
-"Last-Translator: Kaci Heskjestad, 2021\n"
+"Last-Translator: heskjestad, 2021\n"
 "Language-Team: Norwegian Bokmål (http://app.transifex.com/xfce/xfce-panel-plugins/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -365,9 +365,10 @@ msgstr "Innstillinger for brukergrensesnittets stil"
 msgid "_Miscellaneous"
 msgstr "_Ymse"
 
-#: panel-plugin/sensors-plugin.cc:1957
-msgid "Properties"
-msgstr "Egenskaper"
+#. button icon name
+#: panel-plugin/sensors-plugin.cc:1953 src/interface.cc:115
+msgid "_Close"
+msgstr "Lukk"
 
 #: panel-plugin/sensors-plugin.cc:1983
 msgid ""
