@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-04-07 00:55+0200\n"
+"POT-Creation-Date: 2024-06-27 00:53+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: Wallon Wallon, 2023\n"
 "Language-Team: French (http://app.transifex.com/xfce/xfce-panel-plugins/language/fr/)\n"
@@ -372,9 +372,10 @@ msgstr "Options du style UI"
 msgid "_Miscellaneous"
 msgstr "_Divers"
 
-#: panel-plugin/sensors-plugin.cc:1957
-msgid "Properties"
-msgstr "Propriétés"
+#. button icon name
+#: panel-plugin/sensors-plugin.cc:1953 src/interface.cc:115
+msgid "_Close"
+msgstr "_Fermer"
 
 #: panel-plugin/sensors-plugin.cc:1983
 msgid ""
