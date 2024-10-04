@@ -41,7 +41,7 @@ msgstr ""
 #: lib/acpi.cc:270 lib/acpi.cc:517 lib/acpi.cc:570
 #, c-format
 msgid "%s - %s"
-msgstr "%s - %s"
+msgstr "%s – %s"
 
 #. Power with unit Watts, not Energy with Joules or kWh
 #: lib/acpi.cc:519
@@ -376,7 +376,7 @@ msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr "Umożliwia zmianę cech wskazań, takich jak nazwa, kolor, wartość minimalna i maksymalna. Aby zmodyfikować cechę, proszę dwukrotnie kliknąć na wybrany element. Po zakończeniu modyfikowania należy przycisnąć klawisz Enter lub wybrać inne wskazanie."
+msgstr "Umożliwia zmianę cech wskazań, takich jak nazwa, kolor, wartość minimalna i maksymalna. Aby zmodyfikować cechę, proszę dwukrotnie kliknąć wybrany element. Po zakończeniu modyfikowania należy przycisnąć klawisz Enter lub wybrać inne wskazanie."
 
 #: panel-plugin/sensors-plugin.cc:2070
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
