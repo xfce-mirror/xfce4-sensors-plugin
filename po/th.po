@@ -270,7 +270,7 @@ msgstr "แสดงฉ_ลาก"
 
 #: panel-plugin/sensors-plugin.cc:1545
 msgid "_Automatic bar colors"
-msgstr ""
+msgstr "ใช้สีแถบแบบ_อัตโนมัติ"
 
 #: panel-plugin/sensors-plugin.cc:1547
 msgid ""
@@ -278,7 +278,7 @@ msgid ""
 "If disabled, bars use the user-defined sensor colors.\n"
 "If a particular user-defined sensor color is unspecified,\n"
 "the bar color is derived from the current UI style."
-msgstr ""
+msgstr "ถ้าเลือก สีของแถบจะขึ้นอยู่กับค่า (ปกติ, สูง, สูงมาก)\nถ้าปิด ก็จะใช้สีแถบตามที่ผู้ใช้กำหนด\nถ้ามีเซนเซอร์ใดที่ผู้ใช้ไม่ได้ระบุสี\nก็จะพิจารณาสีจากสไตล์ปัจจุบันของ UI"
 
 #: panel-plugin/sensors-plugin.cc:1574
 msgid "_Show title"
