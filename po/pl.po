@@ -59,7 +59,7 @@ msgstr "ACPI"
 #: lib/acpi.cc:614
 #, c-format
 msgid "ACPI v%s zones"
-msgstr "ACPI v%s– strefy"
+msgstr "ACPI v%s – strefy"
 
 #: lib/acpi.cc:735
 msgid "<Unknown>"
@@ -94,7 +94,7 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "Program „hddtemp” nie został poprawnie uruchomiony. Najczęstszą tego przyczyną jest brak atrubutu „setuid” programu, nadającego specjalne uprawnienia tworzonym procesom.\n\nProstym rozwiązaniem tego problemu jest uruchomienie polecenia „chmod u+s %s” jako użytkownik root i ponowne uruchomienie wtyczki lub panelu.\n\nWykonanie „%s” zwraca błąd: %s\noraz wartość %d.\n"
+msgstr "Program „hddtemp” nie został poprawnie uruchomiony. Najczęstszą tego przyczyną jest brak atrubutu „setuid” programu, nadającego specjalne uprawnienia tworzonym procesom.\n\nProstym rozwiązaniem tego problemu jest uruchomienie polecenia „chmod u+s %s” jako użytkownik root i ponowne uruchomienie wtyczki lub panelu.\n\nWykonanie „%s” zwraca błąd: %s\noraz wartość %d.\n"
 
 #: lib/hddtemp.cc:517 lib/hddtemp.cc:540
 msgid "Suppress this message in future"
@@ -113,7 +113,7 @@ msgstr "Czujniki LM"
 
 #: lib/lmsensors.cc:291
 msgid "Error: Could not connect to sensors!"
-msgstr "Błąd: nie można połączyć z czujnikami"
+msgstr "Błąd: nie można połączyć z czujnikami"
 
 #: lib/nvidia.cc:79
 msgid "NVIDIA GPU core temperature"
@@ -178,7 +178,7 @@ msgstr "Błąd wtyczki czujników"
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr "Prawdobodobnie wystąpił problem podczas odczytywania wartości czujnika.\nWskazania mogą być niezgodne z prawdą."
+msgstr "Prawdobodobnie wystąpił problem podczas odczytywania wartości czujnika.\nWskazania mogą być niezgodne z prawdą."
 
 #: lib/sensors-interface.cc:131
 msgid "Sensors t_ype:"
@@ -245,7 +245,7 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr " \nAplet panelu czujniki:\nPrawdopodobnie wystąpił problem podczas odczytywania wartości czujnika.\nWskazania mogą być niezgodne z prawdą.\n"
+msgstr " \nAplet panelu czujniki:\nPrawdopodobnie wystąpił problem podczas odczytywania wartości czujnika.\nWskazania mogą być niezgodne z prawdą.\n"
 
 #: panel-plugin/sensors-plugin.cc:756
 msgid "No sensors selected!"
@@ -281,7 +281,7 @@ msgid ""
 "If disabled, bars use the user-defined sensor colors.\n"
 "If a particular user-defined sensor color is unspecified,\n"
 "the bar color is derived from the current UI style."
-msgstr "Jeśli włączone, kolory słupków zależą od ich wartości (normalna, wysoka, bardzo wysoka).\nJeśli wyłączone, paski używają kolorów czujników zdefiniowanych przez użytkownika.\nJeśli określony kolor czujnika zdefiniowany przez użytkownika nie jest określony,\nkolor paska pochodzi z bieżącego stylu interfejsu użytkownika."
+msgstr "Jeśli włączone, kolory słupków zależą od ich wartości (normalna, wysoka, bardzo wysoka).\nJeśli wyłączone, paski używają kolorów czujników zdefiniowanych przez użytkownika.\nJeśli określony kolor czujnika zdefiniowany przez użytkownika nie jest określony,\nkolor paska pochodzi z bieżącego stylu interfejsu użytkownika."
 
 #: panel-plugin/sensors-plugin.cc:1574
 msgid "_Show title"
@@ -376,11 +376,11 @@ msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr "Umożliwia zmianę cech wskazań, takich jak nazwa, kolor, wartość minimalna i maksymalna. Aby zmodyfikować cechę, proszę dwukrotnie kliknąć wybrany element. Po zakończeniu modyfikowania należy przycisnąć klawisz Enter lub wybrać inne wskazanie."
+msgstr "Umożliwia zmianę cech wskazań, takich jak nazwa, kolor, wartość minimalna i maksymalna. Aby zmodyfikować cechę, dwukrotnie kliknij wybrany element. Po zakończeniu modyfikowania należy przycisnąć klawisz Enter lub wybrać inne wskazanie."
 
 #: panel-plugin/sensors-plugin.cc:2070
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
-msgstr "Wyświetla wskazania czujników sprzętowych z LM, ACPI, twardych dysków, NVIDIA"
+msgstr "Wyświetla wskazania czujników sprzętowych z LM, ACPI, twardych dysków, NVIDIA"
 
 #: panel-plugin/xfce4-sensors-plugin.desktop.in:5
 msgid "Sensor plugin"
@@ -398,7 +398,7 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr " \nAplet panelu czujniki:\nPrawdobodobnie wystąpił problem podczas odczytywania wartości czujnika.\nWskazania mogą być niezgodne z prawdą.\n"
+msgstr " \nAplet panelu czujniki:\nPrawdobodobnie wystąpił problem podczas odczytywania wartości czujnika.\nWskazania mogą być niezgodne z prawdą.\n"
 
 #: src/interface.cc:75
 msgid "_Overview"
@@ -418,7 +418,7 @@ msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-msgstr "Xfce4 Sensors %s\nNiniejszy program został wydany na zasadach Powszechej Licencji Publiczej GPL v2.\nTreść licencji można znaleźć w archiwum zawierającym kod zródłowy programu, w pliku /usr/share/apps/LICENSES/GPL_V2 lub na stronie http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Xfce4 Sensors %s\nNiniejszy program został wydany na zasadach Powszechej Licencji Publiczej GPL v2.\nTreść licencji można znaleźć w archiwum zawierającym kod zródłowy programu, w pliku /usr/share/apps/LICENSES/GPL_V2 lub na stronie http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: src/main.cc:62
 #, c-format
