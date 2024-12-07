@@ -1,0 +1,444 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-sensors-plugin package.
+# 
+# Translators:
+# Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2024
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2024-06-27 00:53+0200\n"
+"PO-Revision-Date: 2013-07-03 19:16+0000\n"
+"Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2024\n"
+"Language-Team: Romanian (http://app.transifex.com/xfce/xfce-panel-plugins/language/ro/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
+
+#. Note for translators: As some laptops have several batteries such as the
+#. T440s,
+#. there might be some perturbation with the battery name here and BAT0/BAT1
+#. for
+#. power/voltage. So we prepend BAT0/1 to the battery name as well, with the
+#. result
+#. being something like "BAT1 - 45N1127". Users can then rename the batteries
+#. to
+#. their own will while keeping consistency to their power/voltage features.
+#. You might want to format this with a hyphen and without spacing, or with a
+#. dash; the result might be BAT1–Power or whatever fits your language most.
+#. Spaces allow line breaks over the tachometers.
+#. You might want to format this with a hyphen and without spacing, or with a
+#. dash; the result might be BAT1–Voltage or whatever fits your language most.
+#. Spaces allow line breaks over the tachometers.
+#: lib/acpi.cc:270 lib/acpi.cc:517 lib/acpi.cc:570
+#, c-format
+msgid "%s - %s"
+msgstr "%s - %s"
+
+#. Power with unit Watts, not Energy with Joules or kWh
+#: lib/acpi.cc:519
+msgid "Power"
+msgstr "Alimentare"
+
+#: lib/acpi.cc:570
+msgid "Voltage"
+msgstr "Tensiune"
+
+#: lib/acpi.cc:611 lib/acpi.cc:622
+msgid "ACPI"
+msgstr "ACPI"
+
+#: lib/acpi.cc:614
+#, c-format
+msgid "ACPI v%s zones"
+msgstr "Zone ACPI v%s"
+
+#: lib/acpi.cc:735
+msgid "<Unknown>"
+msgstr "<Necunoscută>"
+
+#. only use this if no hddtemp sensor
+#. or do only use this , if it is an lmsensors device. whatever.
+#: lib/configuration.cc:120 lib/hddtemp.cc:347
+msgid "Hard disks"
+msgstr "Discuri dure"
+
+#: lib/hddtemp.cc:106
+msgid "Don't show this message again"
+msgstr "Nu mai afișa acest mesaj"
+
+#: lib/hddtemp.cc:148 panel-plugin/sensors-plugin.cc:1949
+#: panel-plugin/sensors-plugin.h:26
+msgid "Sensors Plugin"
+msgstr "Modulul senzori"
+
+#: lib/hddtemp.cc:346
+msgid "S.M.A.R.T. harddisk temperatures"
+msgstr "Temperaturile discurilor dure cu S.M.A.R.T."
+
+#: lib/hddtemp.cc:503
+#, c-format
+msgid ""
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"\n"
+"Calling \"%s\" gave the following error:\n"
+"%s\n"
+"with a return value of %d.\n"
+msgstr "«hddtemp» nu a fost executat corect, deși este executabil. Acest lucru se datorează cel mai probabil faptului că discurile necesită privilegii de root pentru a le citi temperaturile, iar «hddtemp» nu are bitul setuid-root activat.\n\nO soluție ușoară, dar murdară, este să executați «chmod u+s %s» ca utilizator root și să reporniți acest modul sau panoul acestuia.\n\nApelarea „%s” a dat următoarea eroare:\n%s\ncu o valoare de retur de %d.\n"
+
+#: lib/hddtemp.cc:517 lib/hddtemp.cc:540
+msgid "Suppress this message in future"
+msgstr "Suprimă acest mesaj în viitor"
+
+#: lib/hddtemp.cc:535
+#, c-format
+msgid ""
+"An error occurred when executing \"%s\":\n"
+"%s"
+msgstr "A apărut o eroare în timpul executării „%s”:\n%s"
+
+#: lib/lmsensors.cc:63
+msgid "LM Sensors"
+msgstr "LM Sensors"
+
+#: lib/lmsensors.cc:291
+msgid "Error: Could not connect to sensors!"
+msgstr "Eroare: Nu s-a putut conecta la senzori!"
+
+#: lib/nvidia.cc:79
+msgid "NVIDIA GPU core temperature"
+msgstr "Temperatura nucleului GPU NVIDIA"
+
+#: lib/nvidia.cc:80
+msgid "nvidia"
+msgstr "nvidia"
+
+#: lib/sensors-interface-common.cc:58 lib/sensors-interface-common.cc:59
+msgid "No sensors found!"
+msgstr "Nu s-au găsit senzori!"
+
+#: lib/sensors-interface-common.cc:86
+#, c-format
+msgid "%.0f °F"
+msgstr "%.0f °F"
+
+#: lib/sensors-interface-common.cc:88
+#, c-format
+msgid "%.0f °C"
+msgstr "%.0f °C"
+
+#: lib/sensors-interface-common.cc:91
+#, c-format
+msgid "%+.3f V"
+msgstr "%+.3f V"
+
+#: lib/sensors-interface-common.cc:94
+#, c-format
+msgid "%+.3f A"
+msgstr "%+.3f A"
+
+#: lib/sensors-interface-common.cc:97
+#, c-format
+msgid "%.0f mWh"
+msgstr "%.0f mWh"
+
+#: lib/sensors-interface-common.cc:100
+#, c-format
+msgid "%.3f W"
+msgstr "%.3f W"
+
+#: lib/sensors-interface-common.cc:103
+msgid "off"
+msgstr "dezactivat"
+
+#: lib/sensors-interface-common.cc:103
+msgid "on"
+msgstr "activat"
+
+#: lib/sensors-interface-common.cc:106
+#, c-format
+msgid "%.0f rpm"
+msgstr "%.0f rpm"
+
+#: lib/sensors-interface.cc:97
+msgid "Sensors Plugin Failure"
+msgstr "Eșec al modulului de senzori"
+
+#: lib/sensors-interface.cc:98
+msgid ""
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed."
+msgstr "Se pare că a existat o problemă la citirea valorii unei caracteristici a senzorului.\nEfectuarea corectă a operației nu poate fi garantată."
+
+#: lib/sensors-interface.cc:131
+msgid "Sensors t_ype:"
+msgstr "T_ipul de senzori:"
+
+#: lib/sensors-interface.cc:149
+msgid "Description:"
+msgstr "Descriere:"
+
+#: lib/sensors-interface.cc:176
+msgid "U_pdate interval (seconds):"
+msgstr "Interval_ul de actualizare (secunde):"
+
+#: lib/sensors-interface.cc:210
+msgid "Name"
+msgstr "Nume"
+
+#: lib/sensors-interface.cc:224
+msgid "Value"
+msgstr "Valoare"
+
+#: lib/sensors-interface.cc:230
+msgid "Show"
+msgstr "Afișează"
+
+#: lib/sensors-interface.cc:242
+msgid "Color"
+msgstr "Culoare"
+
+#: lib/sensors-interface.cc:256
+msgid "Min"
+msgstr "Min"
+
+#: lib/sensors-interface.cc:270
+msgid "Max"
+msgstr "Max"
+
+#: lib/sensors-interface.cc:303
+msgid "Temperature scale:"
+msgstr "Scala de temperatură:"
+
+#: lib/sensors-interface.cc:304
+msgid "_Celsius"
+msgstr "_Celsius"
+
+#: lib/sensors-interface.cc:306
+msgid "_Fahrenheit"
+msgstr "_Fahrenheit"
+
+#: lib/sensors-interface.cc:335
+msgid "_Sensors"
+msgstr "_Senzori"
+
+#. initialize value label widget
+#: panel-plugin/sensors-plugin.cc:262 panel-plugin/sensors-plugin.cc:361
+#: panel-plugin/sensors-plugin.cc:832
+msgid "<span><b>Sensors</b></span>"
+msgstr "<span><b>Senzori</b></span>"
+
+#. output to stdout on command line, not very useful for user, except for
+#. tracing problems
+#: panel-plugin/sensors-plugin.cc:739
+msgid ""
+"Sensors Plugin:\n"
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr "Modulul senzori:\nSe pare că a existat o problemă la citirea unei valori caracteristice a senzorului.\nProcedura corectă nu poate fi garantată.\n"
+
+#: panel-plugin/sensors-plugin.cc:756
+msgid "No sensors selected!"
+msgstr "Nu a fost selectat niciun senzor!"
+
+#: panel-plugin/sensors-plugin.cc:1482
+msgid "UI style:"
+msgstr "Stil interfață utilizator:"
+
+#: panel-plugin/sensors-plugin.cc:1483
+msgid "_text"
+msgstr "_Âtext"
+
+#: panel-plugin/sensors-plugin.cc:1484
+msgid "_progress bars"
+msgstr "bare de _progres"
+
+#: panel-plugin/sensors-plugin.cc:1485
+msgid "_tachos"
+msgstr "_tahometre"
+
+#: panel-plugin/sensors-plugin.cc:1523
+msgid "Show _labels"
+msgstr "Afișează _etichetele"
+
+#: panel-plugin/sensors-plugin.cc:1545
+msgid "_Automatic bar colors"
+msgstr "Culori _automate pentru bare"
+
+#: panel-plugin/sensors-plugin.cc:1547
+msgid ""
+"If enabled, bar colors depend on their values (normal, high, very high).\n"
+"If disabled, bars use the user-defined sensor colors.\n"
+"If a particular user-defined sensor color is unspecified,\n"
+"the bar color is derived from the current UI style."
+msgstr "Dacă este activată, culorile barelor depind de valorile acestora (normal, ridicat, foarte ridicat).\nDacă este dezactivată, barele utilizează culorile senzorului definite de utilizator.\nDacă o anumită culoare a senzorului definită de utilizator este nespecificată,\nculoarea barei este derivată din stilul curent al interfeței."
+
+#: panel-plugin/sensors-plugin.cc:1574
+msgid "_Show title"
+msgstr "Afi_șează titlul"
+
+#: panel-plugin/sensors-plugin.cc:1591
+msgid "_Number of text lines:"
+msgstr "_Numărul de linii de text:"
+
+#. The Xfce 4 panel can have several rows or columns. With such a mode,
+#. the plugins are allowed to span over all available rows/columns.
+#. When translating, "cover" might be replaced by "use" or "span".
+#: panel-plugin/sensors-plugin.cc:1623
+msgid "_Cover all panel rows/columns"
+msgstr "Acoperă toate rândurile/coloanele panoului"
+
+#: panel-plugin/sensors-plugin.cc:1641
+msgid "F_ont size:"
+msgstr "Dimensiunea f_ontului:"
+
+#: panel-plugin/sensors-plugin.cc:1647
+msgid "x-small"
+msgstr "foarte mică"
+
+#: panel-plugin/sensors-plugin.cc:1648
+msgid "small"
+msgstr "mică"
+
+#: panel-plugin/sensors-plugin.cc:1649
+msgid "medium"
+msgstr "medie"
+
+#: panel-plugin/sensors-plugin.cc:1650
+msgid "large"
+msgstr "mare"
+
+#: panel-plugin/sensors-plugin.cc:1651
+msgid "x-large"
+msgstr "foarte mare"
+
+#: panel-plugin/sensors-plugin.cc:1673
+msgid "F_ont:"
+msgstr "F_ont:"
+
+#: panel-plugin/sensors-plugin.cc:1699
+msgid "Show _Units"
+msgstr "Afișează _unitățile de măsură"
+
+#: panel-plugin/sensors-plugin.cc:1719
+msgid "Small horizontal s_pacing"
+msgstr "Spațiere orizontală mică"
+
+#: panel-plugin/sensors-plugin.cc:1746
+msgid "Tacho color alpha value:"
+msgstr "Valoarea alfa a culorii tahometrului:"
+
+#: panel-plugin/sensors-plugin.cc:1761
+msgid "Tacho color value:"
+msgstr "Valoarea culorii tahometrului:"
+
+#: panel-plugin/sensors-plugin.cc:1789
+msgid "Suppress messages"
+msgstr "Suprimare mesaje"
+
+#: panel-plugin/sensors-plugin.cc:1806
+msgid "Suppress tooltip"
+msgstr "Suprimare balon-info"
+
+#: panel-plugin/sensors-plugin.cc:1826
+msgid "E_xecute on double click:"
+msgstr "Se e_xecută la dublu clic:"
+
+#: panel-plugin/sensors-plugin.cc:1853
+msgid "_View"
+msgstr "_Vizualizare"
+
+#: panel-plugin/sensors-plugin.cc:1866
+msgid "UI style options"
+msgstr "Opțiuni de stil al interfeței de utilizator"
+
+#: panel-plugin/sensors-plugin.cc:1893
+msgid "_Miscellaneous"
+msgstr "_Diverse"
+
+#. button icon name
+#: panel-plugin/sensors-plugin.cc:1953 src/interface.cc:115
+msgid "_Close"
+msgstr "În_chide"
+
+#: panel-plugin/sensors-plugin.cc:1983
+msgid ""
+"You can change a feature's properties such as name, colours, min/max value "
+"by double-clicking the entry, editing the content, and pressing \"Return\" "
+"or selecting a different field."
+msgstr "Puteți modifica proprietățile unei caracteristici, cum ar fi numele, culorile, valoarea min/max, făcând dublu clic pe intrare, editând conținutul și apăsând «Enter» sau selectând un alt câmp."
+
+#: panel-plugin/sensors-plugin.cc:2070
+msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
+msgstr "Afișează valorile de la LM sensors, ACPI, discuri dure, NVIDIA"
+
+#: panel-plugin/xfce4-sensors-plugin.desktop.in:5
+msgid "Sensor plugin"
+msgstr "Modulul pentru senzori"
+
+#: panel-plugin/xfce4-sensors-plugin.desktop.in:6
+#: src/xfce4-sensors.desktop.in:5
+msgid "Show sensor values."
+msgstr "Afișează valorile senzorilor."
+
+#. FIXME: either print nothing, or undertake appropriate action, or pop up a
+#. message box.
+#: src/actions.cc:70
+msgid ""
+"Sensors Viewer:\n"
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr "Vizor senzori:\nSe pare că a existat o problemă la citirea valorii unei caracteristici a senzorului.\nEfectuarea corectă a operației nu poate fi garantată.\n"
+
+#: src/interface.cc:75
+msgid "_Overview"
+msgstr "_Prezentare generală"
+
+#: src/interface.cc:97
+msgid "_Tachometers"
+msgstr "_Tahometre"
+
+#: src/interface.cc:111
+msgid "Sensors Viewer"
+msgstr "Vizor senzori"
+
+#: src/main.cc:47
+#, c-format
+msgid ""
+"Xfce4 Sensors %s\n"
+"This program is published under the GPL v2.\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Xfce4 Sensors %s\nAcest program este publicat sub licența GPL v2.\nTextul licenței poate fi găsit în arhiva sursă a programului sau sub /usr/share/apps/LICENSES/GPL_V2 sau la http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+
+#: src/main.cc:62
+#, c-format
+msgid ""
+"Xfce4 Sensors %s\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
+"Synopsis: \n"
+"  xfce4-sensors [option]\n"
+"where [option] is one of the following:\n"
+"  -h, --help    Print this help dialog.\n"
+"  -l, --license Print license information.\n"
+"  -V, --version Print version information.\n"
+"\n"
+"This program is published under the GPL v2.\n"
+msgstr "Xfce4 Sensors %s\nAfișează informații despre senzorii hardware, starea ACPI, temperatura discurilor dure și temperatura GPU-ului Nvidia.\nSinopsis: \n  xfce4-sensors [opțiune]\nunde [opțiunea] este una dintre următoarele:\n  -h, --help Imprimă acest dialog de ajutor.\n  -l, --license Imprimă informațiile despre licență.\n  -V, --version Imprimă informațiile despre versiune.\n\nAcest program este publicat sub licența GPL v2.\n"
+
+#: src/main.cc:83
+#, c-format
+msgid "Xfce4 Sensors %s\n"
+msgstr "Xfce4 Sensors %s\n"
+
+#: src/xfce4-sensors.desktop.in:4
+msgid "Sensor Viewer"
+msgstr "Vizor senzor"
+
+#: src/xfce4-sensors.desktop.in:6
+msgid "Sensor Values Viewer"
+msgstr "Vizor valori senzor"
