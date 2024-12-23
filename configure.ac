@@ -284,7 +284,7 @@ dnl ***********************************
 dnl *** Check for Glib/Gtk packages ***
 dnl ***********************************
 XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.50.0])
-XDT_CHECK_PACKAGE([GTK], [gtk+-3.0], [3.20.0])
+XDT_CHECK_PACKAGE([GTK], [gtk+-3.0], [3.22.0])
 
 
 dnl **************************************
