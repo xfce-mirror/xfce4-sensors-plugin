@@ -1,3 +1,34 @@
+1.4.5 (2024-12-25)
+=====
+- Update copyright year
+- build: Bump dependency versions and fix deprecation warnings
+- I18n: Update po/LINGUAS list
+- I18n: Update po/LINGUAS list
+- sensors-plugin: Drop subtitle from properties dialog
+- build: Fix -Werror=deprecated-declarations
+- build: Fix LDFLAGS
+- scan-build: Fix false positive file
+- build: Use XDT_VERSION_INIT and get rid of configure.ac.in
+- scan-build: Add false positive file
+- scan-build: Fix unix.Malloc
+- build: Use AM_DISTCHECK_CONFIGURE_FLAGS
+- build: Fix -Werror=format=
+- I18n: Update po/LINGUAS list
+- build: Get rid of intltool
+- Update copyright year
+- build: Add missing includes of config.h
+- build: Fix autotools warnings
+- Translation Updates:
+  Albanian, Amharic, Arabic, Armenian (Armenia), Basque, Belarusian,
+  Bulgarian, Catalan, Chinese (China), Chinese (Taiwan), Croatian,
+  Czech, Danish, Dutch, Eastern Armenian, English (Australia), English
+  (United Kingdom), Finnish, French, Galician, German, Greek, Hebrew,
+  Hungarian, Icelandic, Indonesian, Interlingue, Italian, Japanese,
+  Korean, Latvian, Lithuanian, Malay, Norwegian Bokmål, Occitan (post
+  1500), Polish, Portuguese, Portuguese (Brazil), Romanian, Russian,
+  Serbian, Slovak, Slovenian, Spanish, Swedish, Thai, Turkish,
+  Ukrainian, Urdu, Urdu (Pakistan), Uyghur
+
 1.4.4 (2022-11-03)
 =====
 - Remove code obsoleted by libxfce4util-4.17.2

@@ -8,7 +8,7 @@ dnl
 m4_define([libxfce4sensors_verinfo], [5:1:0])
 
 dnl Version information
-XDT_VERSION_INIT([1.4.4], [git])
+XDT_VERSION_INIT([1.4.5])
 
 dnl Initialize autoconf
 AC_COPYRIGHT([Copyright (c) 2004-2024 The Xfce development team. All rights reserved.])
