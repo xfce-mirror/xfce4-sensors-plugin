@@ -11,7 +11,7 @@ dnl Version information
 XDT_VERSION_INIT([1.4.4], [git])
 
 dnl Initialize autoconf
-AC_COPYRIGHT([Copyright (c) 2004-2023 The Xfce development team. All rights reserved.])
+AC_COPYRIGHT([Copyright (c) 2004-2024 The Xfce development team. All rights reserved.])
 AC_INIT([xfce4-sensors-plugin], [xdt_version], [https://gitlab.xfce.org/panel-plugins/xfce4-sensors-plugin/], [xfce4-sensors-plugin])
 AC_REVISION([xdt_version_build])
 AC_PREREQ([2.69])
