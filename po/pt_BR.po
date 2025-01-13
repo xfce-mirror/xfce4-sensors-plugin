@@ -9,8 +9,8 @@
 # Bruno Jesus <myxfce@gmail.com>, 2007
 # Fábio Nogueira <deb-user-ba@ubuntu.com>, 2008
 # Lucas Wilm <lucaswilm@gmail.com>, 2021
-# Michael Martins <michaelfm21@gmail.com>, 2014
-# Michael Martins <michaelfm21@gmail.com>, 2018
+# Michael Martins, 2014
+# Michael Martins, 2018
 # The Cat, 2021
 msgid ""
 msgstr ""
