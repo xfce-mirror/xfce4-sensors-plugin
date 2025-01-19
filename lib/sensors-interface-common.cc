@@ -24,7 +24,7 @@
 #endif
 
 #include <gtk/gtk.h>
-#include <libxfce4panel/xfce-panel-plugin.h>
+#include <libxfce4panel/libxfce4panel.h>
 #include "xfce4++/util.h"
 
 /* Local/package includes */
