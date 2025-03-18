@@ -26,7 +26,7 @@
 #include <glib.h>
 #include <string.h>
 
-#ifdef HAVE_LINUX
+#ifdef __linux__
 #include <sys/utsname.h>
 #endif
 
