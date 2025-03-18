@@ -49,7 +49,9 @@ cssfile_DATA = xfce4-sensors-plugin.css
 
 EXTRA_DIST = \
 	$(desktop_in_files) \
-	$(cssfile_DATA)
+	$(cssfile_DATA) \
+	meson.build \
+	$(NULL)
 
 DISTCLEANFILES = \
 	$(desktop_DATA)

@@ -31,6 +31,10 @@ EXTRA_DIST =                            \
 	README                              \
 	TODO                                \
 	NOTES                               \
+	meson.build                         \
+	meson_options.txt                   \
+	po/meson.build                      \
+	xfce-revision.h.in                  \
 	$(NULL)
 
 AM_DISTCHECK_CONFIGURE_FLAGS =             \

@@ -1,0 +1,63 @@
+option(
+  'libnotify',
+  type: 'feature',
+  value: 'auto',
+  description: 'Notification support',
+)
+
+option(
+  'libsensors',
+  type: 'feature',
+  value: 'auto',
+  description: 'Use LM-sensors to read a vast amount of sensors on your mainboards',
+)
+
+option(
+  'hddtemp',
+  type: 'feature',
+  value: 'disabled',
+  description: 'Use hddtemp to read your harddisk temperature',
+)
+
+option(
+  'hddtemp-path',
+  type: 'string',
+  value: '',
+  description: 'Complete path to hddtemp (default: autodetect)',
+)
+
+option(
+  'netcat',
+  type: 'feature',
+  value: 'disabled',
+  description: 'Use netcat to read your hddtemp temperature',
+)
+
+option(
+  'netcat-path',
+  type: 'string',
+  value: '',
+  description: 'Complete path to netcat (default: autodetect)',
+)
+
+option(
+  'procacpi',
+  type: 'feature',
+  value: 'auto',
+  description: 'Use /proc/acpi to read your CPU temperature',
+)
+
+option(
+  'sysfsacpi',
+  type: 'feature',
+  value: 'auto',
+  description: 'Use /sys/class/power_supply to read your CPU temperature',
+)
+
+option(
+  'xnvctrl',
+  type: 'feature',
+  value: 'auto',
+  description: 'Use nvctrl to obtain Nvidia GPU temperature value',
+)
+

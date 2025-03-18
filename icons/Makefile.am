@@ -21,5 +21,11 @@ hicolor64_DATA = \
 hicolorscalable_DATA = \
 	scalable/xfce-sensors.svg
 
-EXTRA_DIST = $(hicolor24_DATA) $(hicolor32_DATA) $(hicolor48_DATA) $(hicolor64_DATA) $(hicolorscalable_DATA)
-
+EXTRA_DIST = \
+	$(hicolor24_DATA) \
+	$(hicolor32_DATA) \
+	$(hicolor48_DATA) \
+	$(hicolor64_DATA) \
+	$(hicolorscalable_DATA) \
+	meson.build \
+	$(NULL)
