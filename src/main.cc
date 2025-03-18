@@ -22,6 +22,9 @@
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
+#ifdef HAVE_XFCE_REVISION_H
+#include "xfce-revision.h"
+#endif
 
 #include <gtk/gtk.h>
 #include <libxfce4util/libxfce4util.h>
@@ -48,7 +51,7 @@ print_license ()
                       "This program is published under the GPL v2.\n"
                       "The license text can be found inside the program's source archive "
                       "or under /usr/share/apps/LICENSES/GPL_V2 or at "
-                      "http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n" ), PACKAGE_VERSION
+                      "http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n" ), VERSION_FULL
                 );
 }
 
@@ -69,7 +72,7 @@ print_usage ()
                       "  -l, --license Print license information.\n"
                       "  -V, --version Print version information.\n"
                       "\n"
-                      "This program is published under the GPL v2.\n"), PACKAGE_VERSION
+                      "This program is published under the GPL v2.\n"), VERSION_FULL
                 );
 }
 
@@ -80,7 +83,7 @@ print_usage ()
 static void
 print_version ()
 {
-    printf (_("Xfce4 Sensors %s\n"), PACKAGE_VERSION);
+    printf (_("Xfce4 Sensors %s\n"), VERSION_FULL);
 }
 
 

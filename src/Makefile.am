@@ -48,7 +48,9 @@ $(desktop_DATA): $(desktop_in_files) Makefile
 
 EXTRA_DIST = \
 	$(desktop_in_files) \
-	xfce4-sensors.1
+	xfce4-sensors.1 \
+	meson.build \
+	$(NULL)
 
 DISTCLEANFILES = \
 	$(desktop_DATA)

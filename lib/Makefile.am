@@ -65,4 +65,8 @@ if HAVE_LIBNOTIFY
 libxfce4sensors_la_LIBADD += @LIBNOTIFY_LIBS@
 endif
 
+EXTRA_DIST = \
+	meson.build \
+	$(NULL)
+
 DISTCLEANFILES =
