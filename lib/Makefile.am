@@ -2,9 +2,7 @@ AM_CPPFLAGS = \
 	-I${top_srcdir} \
 	-I$(top_srcdir)/include
 
-plugindir = $(libdir)/xfce4/modules
-
-plugin_LTLIBRARIES = libxfce4sensors.la
+noinst_LTLIBRARIES = libxfce4sensors.la
 
 if HAVE_LIBSENSORS
 SENSORS_SOURCES = lmsensors.cc
@@ -50,9 +48,6 @@ endif
 
 libxfce4sensors_la_CXXFLAGS = $(libxfce4sensors_la_CFLAGS)
 
-libxfce4sensors_la_LDFLAGS = \
-	-version-info $(LIBXFCE4SENSORS_VERINFO)
-
 # @PLATFORM_LDFLAGS@
 
 libxfce4sensors_la_LIBADD = \
@@ -71,9 +66,3 @@ libxfce4sensors_la_LIBADD += @LIBNOTIFY_LIBS@
 endif
 
 DISTCLEANFILES =
-
-##
-## Pkg-config information
-##
-pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = libxfce4sensors-1.0.pc
