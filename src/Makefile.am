@@ -48,8 +48,7 @@ $(desktop_DATA): $(desktop_in_files) Makefile
 
 EXTRA_DIST = \
 	$(desktop_in_files) \
-	xfce4-sensors.1.in
+	xfce4-sensors.1
 
 DISTCLEANFILES = \
-	$(desktop_DATA) \
-	xfce4-sensors.1
+	$(desktop_DATA)

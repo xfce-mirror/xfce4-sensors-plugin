@@ -319,7 +319,6 @@ lib/Makefile
 panel-plugin/Makefile
 po/Makefile.in
 src/Makefile
-src/xfce4-sensors.1
 xfce4++/Makefile
 xfce4++/util/Makefile
 ])
