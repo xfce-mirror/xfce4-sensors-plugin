@@ -1,8 +1,6 @@
 TODO
 ======
 
-- adjust RPM spec file to check for libxfce4ui etc.? or does checking for the panel suffice?
-
 - Use notfication messages when alert is on; when maximum is reached.
 
 - fix error: doesn't find all sensors when newly adding plugin to panel - sensors library problem?

@@ -322,7 +322,6 @@ src/Makefile
 src/xfce4-sensors.1
 xfce4++/Makefile
 xfce4++/util/Makefile
-xfce4-sensors-plugin.spec
 ])
 AC_OUTPUT
 

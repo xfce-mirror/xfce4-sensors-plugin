@@ -22,10 +22,6 @@ distcheck-bz2: distcheck
 	zcat $(PACKAGE)-$(VERSION).tar.gz | \
 	  bzip2 --best -c > $(PACKAGE)-$(VERSION).tar.bz2
 
-rpm: dist
-	rpmbuild -ta $(PACKAGE)-$(VERSION).tar.gz
-	@rm -f $(PACKAGE)-$(VERSION).tar.gz
-
 EXTRA_DIST =                            \
 	AUTHORS                             \
 	COPYING                             \
@@ -35,11 +31,6 @@ EXTRA_DIST =                            \
 	README                              \
 	TODO                                \
 	NOTES                               \
-	xfce4-sensors-plugin.spec.in        \
-	$(NULL)
-
-DISTCLEANFILES =                        \
-	xfce4-sensors-plugin.spec           \
 	$(NULL)
 
 AM_DISTCHECK_CONFIGURE_FLAGS =             \
