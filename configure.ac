@@ -5,8 +5,6 @@ dnl 2003,2004,2007 Benedikt Meurer <benny@xfce.org>
 dnl 2007-2011,2014-2020 Fabian Nowak <timystery@arcor.de>
 dnl
 
-m4_define([libxfce4sensors_verinfo], [5:1:0])
-
 dnl Version information
 XDT_VERSION_INIT([1.4.5], [git])
 
@@ -274,12 +272,6 @@ AC_CHECK_LIB([kstat], [kstat_open], SOLLIBS="-lkstat -lsocket", SOLLIBS="")
 AC_CHECK_LIB([nsl], [kstat_open], SOLLIBS="$SOLLIBS -linet_ntop", SOLLIBS="$SOLLIBS")
 AC_SUBST(SOLLIBS)
 
-dnl **************************************
-dnl *** Substitute version information ***
-dnl **************************************
-LIBXFCE4SENSORS_VERINFO=libxfce4sensors_verinfo()
-AC_SUBST([LIBXFCE4SENSORS_VERINFO])
-
 dnl ***********************************
 dnl *** Check for Glib/Gtk packages ***
 dnl ***********************************
@@ -324,7 +316,6 @@ Makefile
 icons/Makefile
 include/Makefile
 lib/Makefile
-lib/libxfce4sensors-1.0.pc
 panel-plugin/Makefile
 po/Makefile.in
 src/Makefile

@@ -29,7 +29,6 @@ xfce4_sensors_LDFLAGS = \
 
 xfce4_sensors_LDADD = \
 	$(top_builddir)/lib/libxfce4sensors.la \
-	$(top_builddir)/xfce4++/util/libxfce4util_pp.la \
 	@LIBSENSORS_LDFLAGS@ \
 	@LIBXFCE4UI_LIBS@ \
 	-lm
