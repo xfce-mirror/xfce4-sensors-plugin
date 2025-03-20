@@ -57,7 +57,7 @@ option(
 option(
   'xnvctrl',
   type: 'feature',
-  value: 'auto',
+  value: 'disabled',
   description: 'Use nvctrl to obtain Nvidia GPU temperature value',
 )
 
