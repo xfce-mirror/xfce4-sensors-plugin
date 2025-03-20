@@ -26,10 +26,8 @@ missing
 po/*.gmo
 po/POTFILES
 po/stamp-it
-src/xfce4-sensors.1
 stamp-h1
 xfce4-sensors-plugin.desktop
-xfce4-sensors-plugin.spec
 ABOUT-NLS
 po/Makevars.template
 po/Rules-quot

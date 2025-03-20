@@ -5,17 +5,20 @@ dnl 2003,2004,2007 Benedikt Meurer <benny@xfce.org>
 dnl 2007-2011,2014-2020 Fabian Nowak <timystery@arcor.de>
 dnl
 
-m4_define([libxfce4sensors_verinfo], [5:1:0])
-
 dnl Version information
+m4_define([copyright_year], [2025])
 XDT_VERSION_INIT([1.4.5], [git])
 
 dnl Initialize autoconf
-AC_COPYRIGHT([Copyright (c) 2004-2024 The Xfce development team. All rights reserved.])
+AC_COPYRIGHT([Copyright (c) 2004-copyright_year() The Xfce development team. All rights reserved.])
 AC_INIT([xfce4-sensors-plugin], [xdt_version], [https://gitlab.xfce.org/panel-plugins/xfce4-sensors-plugin/], [xfce4-sensors-plugin])
 AC_REVISION([xdt_version_build])
 AC_PREREQ([2.69])
 AC_CONFIG_MACRO_DIRS([m4])
+AC_DEFINE([VERSION_FULL], [PACKAGE_VERSION], [Alias for VERSION and PACKAGE_VERSION for meson compatibility])
+COPYRIGHT_YEAR=copyright_year()
+AC_DEFINE_UNQUOTED([COPYRIGHT_YEAR], ["$COPYRIGHT_YEAR"], [Copyright year])
+AC_SUBST([COPYRIGHT_YEAR])
 
 dnl Initialize automake
 AM_INIT_AUTOMAKE([1.11 dist-bzip2 tar-ustar no-dist-gzip])
@@ -274,12 +277,6 @@ AC_CHECK_LIB([kstat], [kstat_open], SOLLIBS="-lkstat -lsocket", SOLLIBS="")
 AC_CHECK_LIB([nsl], [kstat_open], SOLLIBS="$SOLLIBS -linet_ntop", SOLLIBS="$SOLLIBS")
 AC_SUBST(SOLLIBS)
 
-dnl **************************************
-dnl *** Substitute version information ***
-dnl **************************************
-LIBXFCE4SENSORS_VERINFO=libxfce4sensors_verinfo()
-AC_SUBST([LIBXFCE4SENSORS_VERINFO])
-
 dnl ***********************************
 dnl *** Check for Glib/Gtk packages ***
 dnl ***********************************
@@ -324,14 +321,11 @@ Makefile
 icons/Makefile
 include/Makefile
 lib/Makefile
-lib/libxfce4sensors-1.0.pc
 panel-plugin/Makefile
 po/Makefile.in
 src/Makefile
-src/xfce4-sensors.1
 xfce4++/Makefile
 xfce4++/util/Makefile
-xfce4-sensors-plugin.spec
 ])
 AC_OUTPUT
 

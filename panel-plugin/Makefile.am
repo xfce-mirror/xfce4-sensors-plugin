@@ -24,7 +24,6 @@ libxfce4_sensors_plugin_la_CXXFLAGS = $(libxfce4_sensors_plugin_la_CFLAGS)
 
 libxfce4_sensors_plugin_la_LIBADD = \
 	$(top_builddir)/lib/libxfce4sensors.la \
-	$(top_builddir)/xfce4++/util/libxfce4util_pp.la \
 	@LIBXFCE4PANEL_LIBS@ \
 	@LIBXFCE4UI_LIBS@ \
 	@SOLLIBS@ \
@@ -50,7 +49,9 @@ cssfile_DATA = xfce4-sensors-plugin.css
 
 EXTRA_DIST = \
 	$(desktop_in_files) \
-	$(cssfile_DATA)
+	$(cssfile_DATA) \
+	meson.build \
+	$(NULL)
 
 DISTCLEANFILES = \
 	$(desktop_DATA)
