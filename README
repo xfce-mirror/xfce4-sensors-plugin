@@ -23,7 +23,7 @@ Preparation: Install libsensors, lmsensors, hddtemp, xnvctrl
              sensors-detect as root somehow, have modules be added to config files, let them be loaded or load them manually or do some sudo service moduleinit-tools restart or the like
              and then install.
 
-Installation: ./configure && make && [sudo] make install
+Installation: meson setup build && meson compile -C build && [sudo] meson install -C build
 
 Theming: You can put a customized style file globally under 
          /usr/local/share/xfce4/panel/plugins/xfce4-sensors-plugin.css 
