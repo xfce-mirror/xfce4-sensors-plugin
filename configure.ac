@@ -7,7 +7,7 @@ dnl
 
 dnl Version information
 m4_define([copyright_year], [2025])
-XDT_VERSION_INIT([1.4.5], [git])
+XDT_VERSION_INIT([1.5.0])
 
 dnl Initialize autoconf
 AC_COPYRIGHT([Copyright (c) 2004-copyright_year() The Xfce development team. All rights reserved.])
