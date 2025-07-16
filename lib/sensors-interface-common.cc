@@ -19,10 +19,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-
 #include <gtk/gtk.h>
 #include <libxfce4panel/libxfce4panel.h>
 #include "xfce4++/util.h"
@@ -39,6 +35,7 @@ Ptr0<t_sensors>
 sensors_new (XfcePanelPlugin *plugin, const char *rc_file_orNull)
 {
     auto sensors = xfce4::make<t_sensors>(plugin);
+    sensors->settings_dialog = nullptr;
 
     if (rc_file_orNull)
         sensors->plugin_config_file = rc_file_orNull;

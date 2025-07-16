@@ -20,10 +20,6 @@
 #ifndef XFCE4_SENSORS_NVIDIA_H
 #define XFCE4_SENSORS_NVIDIA_H
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
-
 #include <glib.h>
 #include "xfce4++/util.h"
 
