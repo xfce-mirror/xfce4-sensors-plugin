@@ -35,6 +35,7 @@ Ptr0<t_sensors>
 sensors_new (XfcePanelPlugin *plugin, const char *rc_file_orNull)
 {
     auto sensors = xfce4::make<t_sensors>(plugin);
+    sensors->settings_dialog = nullptr;
 
     if (rc_file_orNull)
         sensors->plugin_config_file = rc_file_orNull;

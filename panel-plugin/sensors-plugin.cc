@@ -1931,8 +1931,6 @@ on_optionsDialog_response (GtkDialog *dlg, gint response, const Ptr<t_sensors_di
     gtk_widget_destroy (sd->dialog);
     g_object_unref (sd->dialog);
     sd->dialog = NULL;
-
-    xfce_panel_plugin_unblock_menu (sd->sensors->plugin);
 }
 
 
@@ -1943,9 +1941,13 @@ sensors_create_options (XfcePanelPlugin *plugin, const Ptr<t_sensors> &sensors)
 {
     GtkWidget *dlg;
 
-    xfce_panel_plugin_block_menu (plugin);
+    if (sensors->settings_dialog != NULL)
+    {
+        gtk_window_present (GTK_WINDOW (sensors->settings_dialog));
+        return;
+    }
 
-    dlg = xfce_titled_dialog_new_with_mixed_buttons (
+    sensors->settings_dialog = dlg = xfce_titled_dialog_new_with_mixed_buttons (
                 _("Sensors Plugin"),
                 GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
                 (GtkDialogFlags) 0,
@@ -1954,6 +1956,7 @@ sensors_create_options (XfcePanelPlugin *plugin, const Ptr<t_sensors> &sensors)
                 GTK_RESPONSE_OK,
                 NULL
             );
+    g_object_add_weak_pointer (G_OBJECT (sensors->settings_dialog), (gpointer *) &sensors->settings_dialog);
 
     gtk_window_set_icon_name(GTK_WINDOW(dlg),"xfce-sensors");
 

@@ -38,6 +38,8 @@ struct t_sensors {
     /** pointer for Xfce Panel */
     XfcePanelPlugin *const plugin;
 
+    GtkWidget *settings_dialog;
+
     /** eventbox to catch events */
     GtkWidget *eventbox;
 
