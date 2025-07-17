@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Xfce
-# This file is distributed under the same license as the xfce-panel-plugins.xfce4-sensors-plugin package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
 # Theppitak Karoonboonyanan <thep@linux.thai.net>, 2013
@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-06-27 00:53+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-17 00:54+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: Theppitak Karoonboonyanan <theppitak@gmail.com>, 2013,2017,2019,2021\n"
 "Language-Team: Thai (http://app.transifex.com/xfce/xfce-panel-plugins/language/th/)\n"
@@ -35,53 +35,53 @@ msgstr ""
 #. You might want to format this with a hyphen and without spacing, or with a
 #. dash; the result might be BAT1–Voltage or whatever fits your language most.
 #. Spaces allow line breaks over the tachometers.
-#: lib/acpi.cc:270 lib/acpi.cc:517 lib/acpi.cc:570
+#: ../lib/acpi.cc:266 ../lib/acpi.cc:513 ../lib/acpi.cc:566
 #, c-format
 msgid "%s - %s"
 msgstr "%s-%s"
 
 #. Power with unit Watts, not Energy with Joules or kWh
-#: lib/acpi.cc:519
+#: ../lib/acpi.cc:515
 msgid "Power"
 msgstr "ประจุ"
 
-#: lib/acpi.cc:570
+#: ../lib/acpi.cc:566
 msgid "Voltage"
 msgstr "โวลต์"
 
-#: lib/acpi.cc:611 lib/acpi.cc:622
+#: ../lib/acpi.cc:607 ../lib/acpi.cc:618
 msgid "ACPI"
 msgstr "ACPI"
 
-#: lib/acpi.cc:614
+#: ../lib/acpi.cc:610
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "โซนต่างๆ ของ ACPI v%s"
 
-#: lib/acpi.cc:735
+#: ../lib/acpi.cc:731
 msgid "<Unknown>"
 msgstr "<ไม่ทราบ>"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
-#: lib/configuration.cc:120 lib/hddtemp.cc:347
+#: ../lib/configuration.cc:116 ../lib/hddtemp.cc:343
 msgid "Hard disks"
 msgstr "ฮาร์ดดิสก์"
 
-#: lib/hddtemp.cc:106
+#: ../lib/hddtemp.cc:102
 msgid "Don't show this message again"
 msgstr "ไม่ต้องแสดงข้อความนี้อีก"
 
-#: lib/hddtemp.cc:148 panel-plugin/sensors-plugin.cc:1949
-#: panel-plugin/sensors-plugin.h:26
+#: ../lib/hddtemp.cc:144 ../panel-plugin/sensors-plugin.cc:1951
+#: ../panel-plugin/sensors-plugin.h:26
 msgid "Sensors Plugin"
 msgstr "ปลั๊กอินเซนเซอร์"
 
-#: lib/hddtemp.cc:346
+#: ../lib/hddtemp.cc:342
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "อุณหภูมิฮาร์ดดิสก์จาก S.M.A.R.T."
 
-#: lib/hddtemp.cc:503
+#: ../lib/hddtemp.cc:499
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
@@ -93,186 +93,188 @@ msgid ""
 "with a return value of %d.\n"
 msgstr "\"hddtemp\" ไม่ได้ทำงานอย่างถูกต้อง ถึงแม้จะสามารถเรียกขึ้นมาทำงานได้ เป็นไปได้อย่างมากว่าเกิดจากการที่ดิสก์ต้องใช้สิทธิ์ root ในการอ่านอุณหภูมิ และ \"hddtemp\" ไม่ได้ setuid เป็น root ไว้\n\nวิธีแก้ที่ง่ายแต่อาจไม่รอบคอบนักคือเรียกคำสั่ง \"chmod u+s %s\" ในฐานะผู้ใช้ root และเริ่มทำงานปลั๊กอินนี้ใหม่ หรือเริ่มทำงานพาเนลใหม่\n\nคำสั่ง \"%s\" ให้ข้อผิดพลาดต่อไปนี้:\n%s\nโดยค่าที่กลับคืนมาคือ %d\n"
 
-#: lib/hddtemp.cc:517 lib/hddtemp.cc:540
+#: ../lib/hddtemp.cc:513 ../lib/hddtemp.cc:536
 msgid "Suppress this message in future"
 msgstr "ไม่ต้องแสดงข้อความนี้ในอนาคต"
 
-#: lib/hddtemp.cc:535
+#: ../lib/hddtemp.cc:531
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr "เกิดข้อผิดพลาดขณะเรียกทำงาน \"%s\":\n%s"
 
-#: lib/lmsensors.cc:63
+#: ../lib/lmsensors.cc:59
 msgid "LM Sensors"
 msgstr "เซนเซอร์ LM"
 
-#: lib/lmsensors.cc:291
+#: ../lib/lmsensors.cc:287
+#, c-format
 msgid "Error: Could not connect to sensors!"
 msgstr "ผิดพลาด: ไม่สามารถติดต่อกับเซนเซอร์ได้!"
 
-#: lib/nvidia.cc:79
+#: ../lib/nvidia.cc:75
 msgid "NVIDIA GPU core temperature"
 msgstr "อุณหภูมิ GPU core ของ NVIDIA"
 
-#: lib/nvidia.cc:80
+#: ../lib/nvidia.cc:76
 msgid "nvidia"
 msgstr "nvidia"
 
-#: lib/sensors-interface-common.cc:58 lib/sensors-interface-common.cc:59
+#: ../lib/sensors-interface-common.cc:55 ../lib/sensors-interface-common.cc:56
 msgid "No sensors found!"
 msgstr "ไม่พบเซนเซอร์ใดๆ!"
 
-#: lib/sensors-interface-common.cc:86
+#: ../lib/sensors-interface-common.cc:83
 #, c-format
 msgid "%.0f °F"
 msgstr "%.0f °F"
 
-#: lib/sensors-interface-common.cc:88
+#: ../lib/sensors-interface-common.cc:85
 #, c-format
 msgid "%.0f °C"
 msgstr "%.0f °C"
 
-#: lib/sensors-interface-common.cc:91
+#: ../lib/sensors-interface-common.cc:88
 #, c-format
 msgid "%+.3f V"
 msgstr "%+.3f V"
 
-#: lib/sensors-interface-common.cc:94
+#: ../lib/sensors-interface-common.cc:91
 #, c-format
 msgid "%+.3f A"
 msgstr "%+.3f A"
 
-#: lib/sensors-interface-common.cc:97
+#: ../lib/sensors-interface-common.cc:94
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: lib/sensors-interface-common.cc:100
+#: ../lib/sensors-interface-common.cc:97
 #, c-format
 msgid "%.3f W"
 msgstr "%.3f W"
 
-#: lib/sensors-interface-common.cc:103
+#: ../lib/sensors-interface-common.cc:100
 msgid "off"
 msgstr "ปิด"
 
-#: lib/sensors-interface-common.cc:103
+#: ../lib/sensors-interface-common.cc:100
 msgid "on"
 msgstr "เปิด"
 
-#: lib/sensors-interface-common.cc:106
+#: ../lib/sensors-interface-common.cc:103
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f rpm"
 
-#: lib/sensors-interface.cc:97
+#: ../lib/sensors-interface.cc:93
 msgid "Sensors Plugin Failure"
 msgstr "ปลั๊กอินเซนเซอร์ทำงานล้มเหลว"
 
-#: lib/sensors-interface.cc:98
+#: ../lib/sensors-interface.cc:94
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr "ดูเหมือนจะมีปัญหาในการอ่านค่าบางค่าจากเซนเซอร์\nจึงไม่สามารถแน่ใจได้ว่าปลั๊กอินจะทำงานถูกต้อง"
 
-#: lib/sensors-interface.cc:131
+#: ../lib/sensors-interface.cc:127
 msgid "Sensors t_ype:"
 msgstr "_ชนิดของเซนเซอร์:"
 
-#: lib/sensors-interface.cc:149
+#: ../lib/sensors-interface.cc:145
 msgid "Description:"
 msgstr "คำบรรยาย:"
 
-#: lib/sensors-interface.cc:176
+#: ../lib/sensors-interface.cc:172
 msgid "U_pdate interval (seconds):"
 msgstr "_คาบการปรับข้อมูล (วินาที):"
 
-#: lib/sensors-interface.cc:210
+#: ../lib/sensors-interface.cc:206
 msgid "Name"
 msgstr "ชื่อ"
 
-#: lib/sensors-interface.cc:224
+#: ../lib/sensors-interface.cc:220
 msgid "Value"
 msgstr "ค่า"
 
-#: lib/sensors-interface.cc:230
+#: ../lib/sensors-interface.cc:226
 msgid "Show"
 msgstr "แสดง"
 
-#: lib/sensors-interface.cc:242
+#: ../lib/sensors-interface.cc:238
 msgid "Color"
 msgstr "สี"
 
-#: lib/sensors-interface.cc:256
+#: ../lib/sensors-interface.cc:252
 msgid "Min"
 msgstr "ต่ำสุด"
 
-#: lib/sensors-interface.cc:270
+#: ../lib/sensors-interface.cc:266
 msgid "Max"
 msgstr "สูงสุด"
 
-#: lib/sensors-interface.cc:303
+#: ../lib/sensors-interface.cc:299
 msgid "Temperature scale:"
 msgstr "หน่วยอุณหภูมิ:"
 
-#: lib/sensors-interface.cc:304
+#: ../lib/sensors-interface.cc:300
 msgid "_Celsius"
 msgstr "เซ_ลเซียส"
 
-#: lib/sensors-interface.cc:306
+#: ../lib/sensors-interface.cc:302
 msgid "_Fahrenheit"
 msgstr "_ฟาห์เรนไฮต์"
 
-#: lib/sensors-interface.cc:335
+#: ../lib/sensors-interface.cc:331
 msgid "_Sensors"
 msgstr "_เซนเซอร์"
 
 #. initialize value label widget
-#: panel-plugin/sensors-plugin.cc:262 panel-plugin/sensors-plugin.cc:361
-#: panel-plugin/sensors-plugin.cc:832
+#: ../panel-plugin/sensors-plugin.cc:262 ../panel-plugin/sensors-plugin.cc:361
+#: ../panel-plugin/sensors-plugin.cc:832
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>เซนเซอร์</b></span>"
 
 #. output to stdout on command line, not very useful for user, except for
 #. tracing problems
-#: panel-plugin/sensors-plugin.cc:739
+#: ../panel-plugin/sensors-plugin.cc:739
+#, c-format
 msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "ปลั๊กอินเซนเซอร์:\nดูเหมือนจะมีปัญหาในการอ่านค่าบางค่าจากเซนเซอร์\nจึงไม่สามารถแน่ใจได้ว่าปลั๊กอินจะทำงานถูกต้อง\n"
 
-#: panel-plugin/sensors-plugin.cc:756
+#: ../panel-plugin/sensors-plugin.cc:756
 msgid "No sensors selected!"
 msgstr "ไม่ได้เลือกเซนเซอร์ใดไว้!"
 
-#: panel-plugin/sensors-plugin.cc:1482
+#: ../panel-plugin/sensors-plugin.cc:1482
 msgid "UI style:"
 msgstr "รูปแบบ UI:"
 
-#: panel-plugin/sensors-plugin.cc:1483
+#: ../panel-plugin/sensors-plugin.cc:1483
 msgid "_text"
 msgstr "_ข้อความ"
 
-#: panel-plugin/sensors-plugin.cc:1484
+#: ../panel-plugin/sensors-plugin.cc:1484
 msgid "_progress bars"
 msgstr "แถบ_ปรอท"
 
-#: panel-plugin/sensors-plugin.cc:1485
+#: ../panel-plugin/sensors-plugin.cc:1485
 msgid "_tachos"
 msgstr "หน้าปัด_กลม"
 
-#: panel-plugin/sensors-plugin.cc:1523
+#: ../panel-plugin/sensors-plugin.cc:1523
 msgid "Show _labels"
 msgstr "แสดงฉ_ลาก"
 
-#: panel-plugin/sensors-plugin.cc:1545
+#: ../panel-plugin/sensors-plugin.cc:1545
 msgid "_Automatic bar colors"
 msgstr "ใช้สีแถบแบบ_อัตโนมัติ"
 
-#: panel-plugin/sensors-plugin.cc:1547
+#: ../panel-plugin/sensors-plugin.cc:1547
 msgid ""
 "If enabled, bar colors depend on their values (normal, high, very high).\n"
 "If disabled, bars use the user-defined sensor colors.\n"
@@ -280,136 +282,128 @@ msgid ""
 "the bar color is derived from the current UI style."
 msgstr "ถ้าเลือก สีของแถบจะขึ้นอยู่กับค่า (ปกติ, สูง, สูงมาก)\nถ้าปิด ก็จะใช้สีแถบตามที่ผู้ใช้กำหนด\nถ้ามีเซนเซอร์ใดที่ผู้ใช้ไม่ได้ระบุสี\nก็จะพิจารณาสีจากสไตล์ปัจจุบันของ UI"
 
-#: panel-plugin/sensors-plugin.cc:1574
+#: ../panel-plugin/sensors-plugin.cc:1574
 msgid "_Show title"
 msgstr "แสดง_หัวเรื่อง"
 
-#: panel-plugin/sensors-plugin.cc:1591
+#: ../panel-plugin/sensors-plugin.cc:1591
 msgid "_Number of text lines:"
 msgstr "_จำนวนบรรทัดของข้อความ:"
 
 #. The Xfce 4 panel can have several rows or columns. With such a mode,
 #. the plugins are allowed to span over all available rows/columns.
 #. When translating, "cover" might be replaced by "use" or "span".
-#: panel-plugin/sensors-plugin.cc:1623
+#: ../panel-plugin/sensors-plugin.cc:1623
 msgid "_Cover all panel rows/columns"
 msgstr "แผ่_คลุมทุกแถว/คอลัมน์ของพาเนล"
 
-#: panel-plugin/sensors-plugin.cc:1641
+#: ../panel-plugin/sensors-plugin.cc:1641
 msgid "F_ont size:"
 msgstr "ข_นาดตัวอักษร:"
 
-#: panel-plugin/sensors-plugin.cc:1647
+#: ../panel-plugin/sensors-plugin.cc:1647
 msgid "x-small"
 msgstr "เล็กมาก"
 
-#: panel-plugin/sensors-plugin.cc:1648
+#: ../panel-plugin/sensors-plugin.cc:1648
 msgid "small"
 msgstr "เล็ก"
 
-#: panel-plugin/sensors-plugin.cc:1649
+#: ../panel-plugin/sensors-plugin.cc:1649
 msgid "medium"
 msgstr "กลาง"
 
-#: panel-plugin/sensors-plugin.cc:1650
+#: ../panel-plugin/sensors-plugin.cc:1650
 msgid "large"
 msgstr "ใหญ่"
 
-#: panel-plugin/sensors-plugin.cc:1651
+#: ../panel-plugin/sensors-plugin.cc:1651
 msgid "x-large"
 msgstr "ใหญ่มาก"
 
-#: panel-plugin/sensors-plugin.cc:1673
+#: ../panel-plugin/sensors-plugin.cc:1673
 msgid "F_ont:"
 msgstr "แ_บบอักษร:"
 
-#: panel-plugin/sensors-plugin.cc:1699
+#: ../panel-plugin/sensors-plugin.cc:1699
 msgid "Show _Units"
 msgstr "แสดง_หน่วย"
 
-#: panel-plugin/sensors-plugin.cc:1719
+#: ../panel-plugin/sensors-plugin.cc:1719
 msgid "Small horizontal s_pacing"
 msgstr "_ช่องว่างแนวนอนขนาดเล็ก"
 
-#: panel-plugin/sensors-plugin.cc:1746
+#: ../panel-plugin/sensors-plugin.cc:1746
 msgid "Tacho color alpha value:"
 msgstr "ค่าแอลฟาของสีแผนภูมิแป้นกลม:"
 
-#: panel-plugin/sensors-plugin.cc:1761
+#: ../panel-plugin/sensors-plugin.cc:1761
 msgid "Tacho color value:"
 msgstr "ค่าสีแผนภูมิแป้นกลม:"
 
-#: panel-plugin/sensors-plugin.cc:1789
+#: ../panel-plugin/sensors-plugin.cc:1789
 msgid "Suppress messages"
 msgstr "ไม่ต้องแสดงข้อความ"
 
-#: panel-plugin/sensors-plugin.cc:1806
+#: ../panel-plugin/sensors-plugin.cc:1806
 msgid "Suppress tooltip"
 msgstr "ไม่แสดงคำแนะนำเครื่องมือ"
 
-#: panel-plugin/sensors-plugin.cc:1826
+#: ../panel-plugin/sensors-plugin.cc:1826
 msgid "E_xecute on double click:"
 msgstr "เ_รียกทำงานเมื่อดับเบิลคลิก:"
 
-#: panel-plugin/sensors-plugin.cc:1853
+#: ../panel-plugin/sensors-plugin.cc:1853
 msgid "_View"
 msgstr "การแสดง_ผล"
 
-#: panel-plugin/sensors-plugin.cc:1866
+#: ../panel-plugin/sensors-plugin.cc:1866
 msgid "UI style options"
 msgstr "ตัวเลือกของรูปแบบ UI"
 
-#: panel-plugin/sensors-plugin.cc:1893
+#: ../panel-plugin/sensors-plugin.cc:1893
 msgid "_Miscellaneous"
 msgstr "เ_บ็ดเตล็ด"
 
 #. button icon name
-#: panel-plugin/sensors-plugin.cc:1953 src/interface.cc:115
+#: ../panel-plugin/sensors-plugin.cc:1955 ../src/interface.cc:111
 msgid "_Close"
 msgstr "ปิ_ด"
 
-#: panel-plugin/sensors-plugin.cc:1983
+#: ../panel-plugin/sensors-plugin.cc:1986
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "คุณสามารถเปลี่ยนค่าต่างๆ ของเซนเซอร์แต่ละตัว เช่น ชื่อ สี ค่าต่ำสุด/สูงสุด โดยดับเบิลคลิกที่รายการที่จะเปลี่ยน แล้วแก้ไขเนื้อหา และกด \"Enter\" หรือเลือกช่องข้อมูลอื่น"
 
-#: panel-plugin/sensors-plugin.cc:2070
+#: ../panel-plugin/sensors-plugin.cc:2073
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "แสดงค่าเซนเซอร์จากเซนเซอร์ LM, ACPI, ฮาร์ดดิสก์, NVIDIA"
 
-#: panel-plugin/xfce4-sensors-plugin.desktop.in:5
-msgid "Sensor plugin"
-msgstr "ปลั๊กอินเซนเซอร์"
-
-#: panel-plugin/xfce4-sensors-plugin.desktop.in:6
-#: src/xfce4-sensors.desktop.in:5
-msgid "Show sensor values."
-msgstr "แสดงค่าต่างๆ ของเซนเซอร์"
-
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
-#: src/actions.cc:70
+#: ../src/actions.cc:66
+#, c-format
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "เครื่องมือแสดงเซนเซอร์\nดูเหมือนจะมีปัญหาในการอ่านค่าบางค่าจากเซนเซอร์\nจึงไม่สามารถแน่ใจได้ว่าปลั๊กอินจะทำงานถูกต้อง\n"
 
-#: src/interface.cc:75
+#: ../src/interface.cc:71
 msgid "_Overview"
 msgstr "_ภาพรวม"
 
-#: src/interface.cc:97
+#: ../src/interface.cc:93
 msgid "_Tachometers"
 msgstr "แ_ผนภูมิแป้นกลม"
 
-#: src/interface.cc:111
+#: ../src/interface.cc:107
 msgid "Sensors Viewer"
 msgstr "เครื่องมือแสดงเซนเซอร์"
 
-#: src/main.cc:47
+#: ../src/main.cc:47
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -417,7 +411,7 @@ msgid ""
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr "เซนเซอร์ของ Xfce4 %s\nโปรแกรมนี้เผยแพร่ภายใต้เงื่อนไขของ GPL v2\nอ่านเนื้อหาของสัญญาอนุญาตได้ในซอร์สของโปรแกรม หรือที่ /usr/share/apps/LICENSES/GPL_V2 หรือที่ http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
-#: src/main.cc:62
+#: ../src/main.cc:62
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -432,15 +426,7 @@ msgid ""
 "This program is published under the GPL v2.\n"
 msgstr "เซนเซอร์ของ Xfce4 %s\nแสดงข้อมูลเกี่ยวกับเซนเซอร์ฮาร์ดแวร์ต่างๆ ของเครื่อง, สถานะ ACPI, อุณหภูมิฮาร์ดดิสก์ และอุณหภูมิของ GPU ของ Nvidia\nรูปแบบการเรียก: \n  xfce4-sensors [ตัวเลือก]\nเมื่อ [ตัวเลือก] คือค่าใดค่าหนึ่งต่อไปนี้:\n  -h, --help    แสดงข้อความวิธีใช้นี้\n  -l, --license แสดงข้อมูลสัญญาอนุญาต\n  -V, --version แสดงข้อมูลรุ่น\n\nโปรแกรมนี้เผยแพร่ภายใต้เงื่อนไขของ GPL v2\n"
 
-#: src/main.cc:83
+#: ../src/main.cc:83
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "เซนเซอร์ของ Xfce4 %s\n"
-
-#: src/xfce4-sensors.desktop.in:4
-msgid "Sensor Viewer"
-msgstr "เครื่องมือแสดงเซนเซอร์"
-
-#: src/xfce4-sensors.desktop.in:6
-msgid "Sensor Values Viewer"
-msgstr "เครื่องมือแสดงค่าเซนเซอร์"
