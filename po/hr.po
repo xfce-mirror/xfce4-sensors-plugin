@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-sensors-plugin package.
 # 
 # Translators:
 # Edin Veskovic <edin.lockedin@gmail.com>, 2018
@@ -11,8 +11,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-17 00:54+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:08+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: Edin Veskovic <edin.lockedin@gmail.com>, 2018\n"
 "Language-Team: Croatian (http://app.transifex.com/xfce/xfce-panel-plugins/language/hr/)\n"
@@ -37,53 +37,53 @@ msgstr ""
 #. You might want to format this with a hyphen and without spacing, or with a
 #. dash; the result might be BAT1–Voltage or whatever fits your language most.
 #. Spaces allow line breaks over the tachometers.
-#: ../lib/acpi.cc:266 ../lib/acpi.cc:513 ../lib/acpi.cc:566
+#: lib/acpi.cc:266 lib/acpi.cc:513 lib/acpi.cc:566
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
 #. Power with unit Watts, not Energy with Joules or kWh
-#: ../lib/acpi.cc:515
+#: lib/acpi.cc:515
 msgid "Power"
 msgstr "Snaga"
 
-#: ../lib/acpi.cc:566
+#: lib/acpi.cc:566
 msgid "Voltage"
 msgstr "Naponi"
 
-#: ../lib/acpi.cc:607 ../lib/acpi.cc:618
+#: lib/acpi.cc:607 lib/acpi.cc:618
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.cc:610
+#: lib/acpi.cc:610
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ACPI v%s zone"
 
-#: ../lib/acpi.cc:731
+#: lib/acpi.cc:731
 msgid "<Unknown>"
 msgstr "<Nepoznato>"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
-#: ../lib/configuration.cc:116 ../lib/hddtemp.cc:343
+#: lib/configuration.cc:116 lib/hddtemp.cc:343
 msgid "Hard disks"
 msgstr "Tvrdi diskovi"
 
-#: ../lib/hddtemp.cc:102
+#: lib/hddtemp.cc:102
 msgid "Don't show this message again"
 msgstr ""
 
-#: ../lib/hddtemp.cc:144 ../panel-plugin/sensors-plugin.cc:1951
-#: ../panel-plugin/sensors-plugin.h:26
+#: lib/hddtemp.cc:144 panel-plugin/sensors-plugin.cc:1951
+#: panel-plugin/sensors-plugin.h:26
 msgid "Sensors Plugin"
 msgstr "Priključak senzora"
 
-#: ../lib/hddtemp.cc:342
+#: lib/hddtemp.cc:342
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "S.M.A.R.T. temperature tvrdih diskova"
 
-#: ../lib/hddtemp.cc:499
+#: lib/hddtemp.cc:499
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
@@ -95,188 +95,186 @@ msgid ""
 "with a return value of %d.\n"
 msgstr "\"hddtemp\" nije pravilno izvršen iako je izvršan. Ovo se vjerojatno događa zato što su diskovima potrebne root privilegije za čitanje temperature, a \"hddtemp\" nema te privilegije.\n\nLakši i prljaviji način je da izvršite \"chmod u+s %s\" naredbu kao root korisnik i ponovno pokrenete dodatak.\n\nPozivanje \"%s\" dalo je slijedeću grešku:\n%s\ns povratnom vrijednosti %d.\n"
 
-#: ../lib/hddtemp.cc:513 ../lib/hddtemp.cc:536
+#: lib/hddtemp.cc:513 lib/hddtemp.cc:536
 msgid "Suppress this message in future"
 msgstr "Potisni ovu poruku u budućnosti"
 
-#: ../lib/hddtemp.cc:531
+#: lib/hddtemp.cc:531
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr "Došlo oje do greške pri izvršavanju \"%s\":\n%s"
 
-#: ../lib/lmsensors.cc:59
+#: lib/lmsensors.cc:59
 msgid "LM Sensors"
 msgstr "LM senzori"
 
-#: ../lib/lmsensors.cc:287
-#, c-format
+#: lib/lmsensors.cc:287
 msgid "Error: Could not connect to sensors!"
 msgstr "Greška: Neuspjelo povezivanje sa senzorima!"
 
-#: ../lib/nvidia.cc:75
+#: lib/nvidia.cc:75
 msgid "NVIDIA GPU core temperature"
 msgstr ""
 
-#: ../lib/nvidia.cc:76
+#: lib/nvidia.cc:76
 msgid "nvidia"
 msgstr "nvidia"
 
-#: ../lib/sensors-interface-common.cc:55 ../lib/sensors-interface-common.cc:56
+#: lib/sensors-interface-common.cc:55 lib/sensors-interface-common.cc:56
 msgid "No sensors found!"
 msgstr "NIsu nađeni senzori!"
 
-#: ../lib/sensors-interface-common.cc:83
+#: lib/sensors-interface-common.cc:83
 #, c-format
 msgid "%.0f °F"
 msgstr "%.0f °F"
 
-#: ../lib/sensors-interface-common.cc:85
+#: lib/sensors-interface-common.cc:85
 #, c-format
 msgid "%.0f °C"
 msgstr "%.0f °C"
 
-#: ../lib/sensors-interface-common.cc:88
+#: lib/sensors-interface-common.cc:88
 #, c-format
 msgid "%+.3f V"
 msgstr "%+.3f V"
 
-#: ../lib/sensors-interface-common.cc:91
+#: lib/sensors-interface-common.cc:91
 #, c-format
 msgid "%+.3f A"
 msgstr "%+.3f A"
 
-#: ../lib/sensors-interface-common.cc:94
+#: lib/sensors-interface-common.cc:94
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.cc:97
+#: lib/sensors-interface-common.cc:97
 #, c-format
 msgid "%.3f W"
 msgstr "%.3f W"
 
-#: ../lib/sensors-interface-common.cc:100
+#: lib/sensors-interface-common.cc:100
 msgid "off"
 msgstr "isključeno"
 
-#: ../lib/sensors-interface-common.cc:100
+#: lib/sensors-interface-common.cc:100
 msgid "on"
 msgstr "uključeno"
 
-#: ../lib/sensors-interface-common.cc:103
+#: lib/sensors-interface-common.cc:103
 #, c-format
 msgid "%.0f rpm"
 msgstr "%.0f rpm"
 
-#: ../lib/sensors-interface.cc:93
+#: lib/sensors-interface.cc:93
 msgid "Sensors Plugin Failure"
 msgstr "Dodatak za senzore neuspješan"
 
-#: ../lib/sensors-interface.cc:94
+#: lib/sensors-interface.cc:94
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr "Postoji problem pri čitanju vrijednosti senzora.\nPravilan nastavak nije garantiran. "
 
-#: ../lib/sensors-interface.cc:127
+#: lib/sensors-interface.cc:127
 msgid "Sensors t_ype:"
 msgstr "T_ip senzora:"
 
-#: ../lib/sensors-interface.cc:145
+#: lib/sensors-interface.cc:145
 msgid "Description:"
 msgstr "Opis:"
 
-#: ../lib/sensors-interface.cc:172
+#: lib/sensors-interface.cc:172
 msgid "U_pdate interval (seconds):"
 msgstr "I_nterval ažuriranja (sekunde):"
 
-#: ../lib/sensors-interface.cc:206
+#: lib/sensors-interface.cc:206
 msgid "Name"
 msgstr "Ime"
 
-#: ../lib/sensors-interface.cc:220
+#: lib/sensors-interface.cc:220
 msgid "Value"
 msgstr "Vrijednost"
 
-#: ../lib/sensors-interface.cc:226
+#: lib/sensors-interface.cc:226
 msgid "Show"
 msgstr "Pokaži"
 
-#: ../lib/sensors-interface.cc:238
+#: lib/sensors-interface.cc:238
 msgid "Color"
 msgstr "Boja"
 
-#: ../lib/sensors-interface.cc:252
+#: lib/sensors-interface.cc:252
 msgid "Min"
 msgstr "Min"
 
-#: ../lib/sensors-interface.cc:266
+#: lib/sensors-interface.cc:266
 msgid "Max"
 msgstr "Maks"
 
-#: ../lib/sensors-interface.cc:299
+#: lib/sensors-interface.cc:299
 msgid "Temperature scale:"
 msgstr "Temperaturna skala:"
 
-#: ../lib/sensors-interface.cc:300
+#: lib/sensors-interface.cc:300
 msgid "_Celsius"
 msgstr "_Celzijus"
 
-#: ../lib/sensors-interface.cc:302
+#: lib/sensors-interface.cc:302
 msgid "_Fahrenheit"
 msgstr "_Fahrenheit"
 
-#: ../lib/sensors-interface.cc:331
+#: lib/sensors-interface.cc:331
 msgid "_Sensors"
 msgstr "_Senzori"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.cc:262 ../panel-plugin/sensors-plugin.cc:361
-#: ../panel-plugin/sensors-plugin.cc:832
+#: panel-plugin/sensors-plugin.cc:262 panel-plugin/sensors-plugin.cc:361
+#: panel-plugin/sensors-plugin.cc:832
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Senzori</b></span>"
 
 #. output to stdout on command line, not very useful for user, except for
 #. tracing problems
-#: ../panel-plugin/sensors-plugin.cc:739
-#, c-format
+#: panel-plugin/sensors-plugin.cc:739
 msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "Priključak za senzore:\nPostoji problem pri čitanju vrijednosti senzora.\nPravilan nastavak nije garantiran.\n"
 
-#: ../panel-plugin/sensors-plugin.cc:756
+#: panel-plugin/sensors-plugin.cc:756
 msgid "No sensors selected!"
 msgstr "NIjedan senzor nije odabran!"
 
-#: ../panel-plugin/sensors-plugin.cc:1482
+#: panel-plugin/sensors-plugin.cc:1482
 msgid "UI style:"
 msgstr "UI stil:"
 
-#: ../panel-plugin/sensors-plugin.cc:1483
+#: panel-plugin/sensors-plugin.cc:1483
 msgid "_text"
 msgstr "_tekst"
 
-#: ../panel-plugin/sensors-plugin.cc:1484
+#: panel-plugin/sensors-plugin.cc:1484
 msgid "_progress bars"
 msgstr "_trake napretka"
 
-#: ../panel-plugin/sensors-plugin.cc:1485
+#: panel-plugin/sensors-plugin.cc:1485
 msgid "_tachos"
 msgstr "_tahometri"
 
-#: ../panel-plugin/sensors-plugin.cc:1523
+#: panel-plugin/sensors-plugin.cc:1523
 msgid "Show _labels"
 msgstr "Pokazuj _natpise"
 
-#: ../panel-plugin/sensors-plugin.cc:1545
+#: panel-plugin/sensors-plugin.cc:1545
 msgid "_Automatic bar colors"
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.cc:1547
+#: panel-plugin/sensors-plugin.cc:1547
 msgid ""
 "If enabled, bar colors depend on their values (normal, high, very high).\n"
 "If disabled, bars use the user-defined sensor colors.\n"
@@ -284,128 +282,136 @@ msgid ""
 "the bar color is derived from the current UI style."
 msgstr ""
 
-#: ../panel-plugin/sensors-plugin.cc:1574
+#: panel-plugin/sensors-plugin.cc:1574
 msgid "_Show title"
 msgstr "_Pokaži naslov"
 
-#: ../panel-plugin/sensors-plugin.cc:1591
+#: panel-plugin/sensors-plugin.cc:1591
 msgid "_Number of text lines:"
 msgstr "_Broj redaka teksta:"
 
 #. The Xfce 4 panel can have several rows or columns. With such a mode,
 #. the plugins are allowed to span over all available rows/columns.
 #. When translating, "cover" might be replaced by "use" or "span".
-#: ../panel-plugin/sensors-plugin.cc:1623
+#: panel-plugin/sensors-plugin.cc:1623
 msgid "_Cover all panel rows/columns"
 msgstr "_Prekrij sve retke/stupce ploče"
 
-#: ../panel-plugin/sensors-plugin.cc:1641
+#: panel-plugin/sensors-plugin.cc:1641
 msgid "F_ont size:"
 msgstr "V_eličina fonta:"
 
-#: ../panel-plugin/sensors-plugin.cc:1647
+#: panel-plugin/sensors-plugin.cc:1647
 msgid "x-small"
 msgstr "x-mali"
 
-#: ../panel-plugin/sensors-plugin.cc:1648
+#: panel-plugin/sensors-plugin.cc:1648
 msgid "small"
 msgstr "mali"
 
-#: ../panel-plugin/sensors-plugin.cc:1649
+#: panel-plugin/sensors-plugin.cc:1649
 msgid "medium"
 msgstr "srednji"
 
-#: ../panel-plugin/sensors-plugin.cc:1650
+#: panel-plugin/sensors-plugin.cc:1650
 msgid "large"
 msgstr "veliki"
 
-#: ../panel-plugin/sensors-plugin.cc:1651
+#: panel-plugin/sensors-plugin.cc:1651
 msgid "x-large"
 msgstr "x-veliki"
 
-#: ../panel-plugin/sensors-plugin.cc:1673
+#: panel-plugin/sensors-plugin.cc:1673
 msgid "F_ont:"
 msgstr "F_ont:"
 
-#: ../panel-plugin/sensors-plugin.cc:1699
+#: panel-plugin/sensors-plugin.cc:1699
 msgid "Show _Units"
 msgstr "Pokaži _jedinice"
 
-#: ../panel-plugin/sensors-plugin.cc:1719
+#: panel-plugin/sensors-plugin.cc:1719
 msgid "Small horizontal s_pacing"
 msgstr "Mali vodoravni r_azmak"
 
-#: ../panel-plugin/sensors-plugin.cc:1746
+#: panel-plugin/sensors-plugin.cc:1746
 msgid "Tacho color alpha value:"
 msgstr "Alfa vrijednost boje pokazivača:"
 
-#: ../panel-plugin/sensors-plugin.cc:1761
+#: panel-plugin/sensors-plugin.cc:1761
 msgid "Tacho color value:"
 msgstr "Vrijednost boje pokazivača:"
 
-#: ../panel-plugin/sensors-plugin.cc:1789
+#: panel-plugin/sensors-plugin.cc:1789
 msgid "Suppress messages"
 msgstr "Potisni poruke"
 
-#: ../panel-plugin/sensors-plugin.cc:1806
+#: panel-plugin/sensors-plugin.cc:1806
 msgid "Suppress tooltip"
 msgstr "Potisni oblačić"
 
-#: ../panel-plugin/sensors-plugin.cc:1826
+#: panel-plugin/sensors-plugin.cc:1826
 msgid "E_xecute on double click:"
 msgstr "I_zvrši nakon dvostrukog klika:"
 
-#: ../panel-plugin/sensors-plugin.cc:1853
+#: panel-plugin/sensors-plugin.cc:1853
 msgid "_View"
 msgstr "_Pogled"
 
-#: ../panel-plugin/sensors-plugin.cc:1866
+#: panel-plugin/sensors-plugin.cc:1866
 msgid "UI style options"
 msgstr "Opcije UI stila"
 
-#: ../panel-plugin/sensors-plugin.cc:1893
+#: panel-plugin/sensors-plugin.cc:1893
 msgid "_Miscellaneous"
 msgstr "_Razno"
 
 #. button icon name
-#: ../panel-plugin/sensors-plugin.cc:1955 ../src/interface.cc:111
+#: panel-plugin/sensors-plugin.cc:1955 src/interface.cc:111
 msgid "_Close"
 msgstr "_Zatvori"
 
-#: ../panel-plugin/sensors-plugin.cc:1986
+#: panel-plugin/sensors-plugin.cc:1986
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "Svojstva značajki mjenjajte tako da dva puta kliknete na liniju, zatim uredite sadržaj i pritisnite Enter ili izaberite drugo polje."
 
-#: ../panel-plugin/sensors-plugin.cc:2073
+#: panel-plugin/sensors-plugin.cc:2073
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Pokazuje vrijednosti senzora LM senzora, ACPI senzora, tvrdih diskova, NVIDIA uređaja"
 
+#: panel-plugin/xfce4-sensors-plugin.desktop.in:5
+msgid "Sensor plugin"
+msgstr "Priključak senzora"
+
+#: panel-plugin/xfce4-sensors-plugin.desktop.in:6
+#: src/xfce4-sensors.desktop.in:5
+msgid "Show sensor values."
+msgstr "Pokaži vrijednosti senzora."
+
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
-#: ../src/actions.cc:66
-#, c-format
+#: src/actions.cc:66
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "Preglednik senzora:\nPostoji problem pri čitanju vrijednosti senzora.\nPravilan nastavak nije garantiran.\n"
 
-#: ../src/interface.cc:71
+#: src/interface.cc:71
 msgid "_Overview"
 msgstr "_Pregled"
 
-#: ../src/interface.cc:93
+#: src/interface.cc:93
 msgid "_Tachometers"
 msgstr "_Tahometri"
 
-#: ../src/interface.cc:107
+#: src/interface.cc:107
 msgid "Sensors Viewer"
 msgstr "Preglednik senzora"
 
-#: ../src/main.cc:47
+#: src/main.cc:47
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -413,7 +419,7 @@ msgid ""
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr "Xfce4 Snzori %s\nOvaj program je izdan pod GPL v2 licencom.\nSadržaj licence možete pronaći unutar izvornog koda programa ili u /usr/share/apps/LICENSES/GPL_V2 ili na http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
-#: ../src/main.cc:62
+#: src/main.cc:62
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -428,7 +434,15 @@ msgid ""
 "This program is published under the GPL v2.\n"
 msgstr "Xfce4 Sensors %s\nPrikazuje informacije senzora hardvera, ACPI status, harddisk temperature I Nvidia GPU temperature.\nSinopsis: \n  xfce4-sensors [opcija]\ngdje je [opcija] nešto od sljedećeg:\n  -h, --help    Prikaži okvir s pomoći.\n  -l, --license Prikaži informacije o licenci.\n  -V, --version Prikaži informacije o verziji.\n\nOvaj program je objavljen pod GPL v2 licencom.\n"
 
-#: ../src/main.cc:83
+#: src/main.cc:83
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Xfce4 senzori %s\n"
+
+#: src/xfce4-sensors.desktop.in:4
+msgid "Sensor Viewer"
+msgstr "Preglednik senzora"
+
+#: src/xfce4-sensors.desktop.in:6
+msgid "Sensor Values Viewer"
+msgstr "Preglednik vrijednosti senzora"
