@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-sensors-plugin package.
 # 
 # Translators:
 # Christos Arvanitis <arvchristos@gmail.com>, 2019
@@ -13,8 +13,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-17 00:54+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:08+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
 "Last-Translator: Πέτρος Σαμαράς <psamaras1@gmail.com>, 2018,2023\n"
 "Language-Team: Greek (http://app.transifex.com/xfce/xfce-panel-plugins/language/el/)\n"
@@ -39,53 +39,53 @@ msgstr ""
 #. You might want to format this with a hyphen and without spacing, or with a
 #. dash; the result might be BAT1–Voltage or whatever fits your language most.
 #. Spaces allow line breaks over the tachometers.
-#: ../lib/acpi.cc:266 ../lib/acpi.cc:513 ../lib/acpi.cc:566
+#: lib/acpi.cc:266 lib/acpi.cc:513 lib/acpi.cc:566
 #, c-format
 msgid "%s - %s"
 msgstr "%s - %s"
 
 #. Power with unit Watts, not Energy with Joules or kWh
-#: ../lib/acpi.cc:515
+#: lib/acpi.cc:515
 msgid "Power"
 msgstr "Ενέργεια"
 
-#: ../lib/acpi.cc:566
+#: lib/acpi.cc:566
 msgid "Voltage"
 msgstr "Τάση"
 
-#: ../lib/acpi.cc:607 ../lib/acpi.cc:618
+#: lib/acpi.cc:607 lib/acpi.cc:618
 msgid "ACPI"
 msgstr "ACPI"
 
-#: ../lib/acpi.cc:610
+#: lib/acpi.cc:610
 #, c-format
 msgid "ACPI v%s zones"
 msgstr "ζώνες ACPI v%s"
 
-#: ../lib/acpi.cc:731
+#: lib/acpi.cc:731
 msgid "<Unknown>"
 msgstr "<Unknown>"
 
 #. only use this if no hddtemp sensor
 #. or do only use this , if it is an lmsensors device. whatever.
-#: ../lib/configuration.cc:116 ../lib/hddtemp.cc:343
+#: lib/configuration.cc:116 lib/hddtemp.cc:343
 msgid "Hard disks"
 msgstr "Σκληροί δίσκοι"
 
-#: ../lib/hddtemp.cc:102
+#: lib/hddtemp.cc:102
 msgid "Don't show this message again"
 msgstr "Να μην εμφανιστεί ξανά αυτό το μήνυμα"
 
-#: ../lib/hddtemp.cc:144 ../panel-plugin/sensors-plugin.cc:1951
-#: ../panel-plugin/sensors-plugin.h:26
+#: lib/hddtemp.cc:144 panel-plugin/sensors-plugin.cc:1951
+#: panel-plugin/sensors-plugin.h:26
 msgid "Sensors Plugin"
 msgstr "Πρόσθετο αισθητήρων"
 
-#: ../lib/hddtemp.cc:342
+#: lib/hddtemp.cc:342
 msgid "S.M.A.R.T. harddisk temperatures"
 msgstr "Θερμοκρασίες S.M.A.R.T. σκληρών δίσκων"
 
-#: ../lib/hddtemp.cc:499
+#: lib/hddtemp.cc:499
 #, c-format
 msgid ""
 "\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
@@ -97,188 +97,186 @@ msgid ""
 "with a return value of %d.\n"
 msgstr "Το \"hddtemp\" δεν εκτελέστηκε σωστά, παρόλο που είναι εκτελέσιμο. Πιθανότατα επειδή χρειάζονται δικαιώματα διαχειριστή για να διαβαστούν οι θερμοκρασίες των σκληρών δίσκων, και το \"hddtemp\" δεν τα έχει.\n\nΜια εύκολη αλλά 'βρώμικη' λύση είναι να εκτελέσετε \"chmod u+s %s\" σαν διαχειριστής και να επανεκκινήσετε το πρόσθετο ή το ταμπλό του.\n\nΚαλώντας \"%s\" εμφανίστηκε το ακόλουθο σφάλμα:\n%s\nεπιστρέφοντας την τιμή %d.\n"
 
-#: ../lib/hddtemp.cc:513 ../lib/hddtemp.cc:536
+#: lib/hddtemp.cc:513 lib/hddtemp.cc:536
 msgid "Suppress this message in future"
 msgstr "Να μην εμφανιστεί ξανά αυτό το μήνυμα"
 
-#: ../lib/hddtemp.cc:531
+#: lib/hddtemp.cc:531
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
 msgstr "Προέκυψε σφάλμα κατά την εκτέλεση \"%s\":\n%s"
 
-#: ../lib/lmsensors.cc:59
+#: lib/lmsensors.cc:59
 msgid "LM Sensors"
 msgstr "LM Sensors"
 
-#: ../lib/lmsensors.cc:287
-#, c-format
+#: lib/lmsensors.cc:287
 msgid "Error: Could not connect to sensors!"
 msgstr "Σφάλμα: Δεν ήταν δυνατή η σύνδεση με τους αισθητήρες!"
 
-#: ../lib/nvidia.cc:75
+#: lib/nvidia.cc:75
 msgid "NVIDIA GPU core temperature"
 msgstr "Θερμοκρασία κάρτας γραφικών NVIDIA"
 
-#: ../lib/nvidia.cc:76
+#: lib/nvidia.cc:76
 msgid "nvidia"
 msgstr "nvidia"
 
-#: ../lib/sensors-interface-common.cc:55 ../lib/sensors-interface-common.cc:56
+#: lib/sensors-interface-common.cc:55 lib/sensors-interface-common.cc:56
 msgid "No sensors found!"
 msgstr "Δε βρέθηκαν αισθητήρες!"
 
-#: ../lib/sensors-interface-common.cc:83
+#: lib/sensors-interface-common.cc:83
 #, c-format
 msgid "%.0f °F"
 msgstr "%.0f °F"
 
-#: ../lib/sensors-interface-common.cc:85
+#: lib/sensors-interface-common.cc:85
 #, c-format
 msgid "%.0f °C"
 msgstr "%.0f °C"
 
-#: ../lib/sensors-interface-common.cc:88
+#: lib/sensors-interface-common.cc:88
 #, c-format
 msgid "%+.3f V"
 msgstr "%+.3f V"
 
-#: ../lib/sensors-interface-common.cc:91
+#: lib/sensors-interface-common.cc:91
 #, c-format
 msgid "%+.3f A"
 msgstr "%+.3f A"
 
-#: ../lib/sensors-interface-common.cc:94
+#: lib/sensors-interface-common.cc:94
 #, c-format
 msgid "%.0f mWh"
 msgstr "%.0f mWh"
 
-#: ../lib/sensors-interface-common.cc:97
+#: lib/sensors-interface-common.cc:97
 #, c-format
 msgid "%.3f W"
 msgstr "%.3f W"
 
-#: ../lib/sensors-interface-common.cc:100
+#: lib/sensors-interface-common.cc:100
 msgid "off"
 msgstr "ανενεργό"
 
-#: ../lib/sensors-interface-common.cc:100
+#: lib/sensors-interface-common.cc:100
 msgid "on"
 msgstr "ενεργό"
 
-#: ../lib/sensors-interface-common.cc:103
+#: lib/sensors-interface-common.cc:103
 #, c-format
 msgid "%.0f rpm"
 msgstr "%5.0f rpm"
 
-#: ../lib/sensors-interface.cc:93
+#: lib/sensors-interface.cc:93
 msgid "Sensors Plugin Failure"
 msgstr "Αποτυχία πρόσθετου αισθητήρων"
 
-#: ../lib/sensors-interface.cc:94
+#: lib/sensors-interface.cc:94
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
 msgstr "Φαίνεται ότι υπήρξε πρόβλημα στην ανάγνωση μιας τιμής αισθητήρα.\nΔεν είναι εγγυημένη η σωστή εκτέλεση."
 
-#: ../lib/sensors-interface.cc:127
+#: lib/sensors-interface.cc:127
 msgid "Sensors t_ype:"
 msgstr "_Τύπος αισθητήρα:"
 
-#: ../lib/sensors-interface.cc:145
+#: lib/sensors-interface.cc:145
 msgid "Description:"
 msgstr "Περιγραφή:"
 
-#: ../lib/sensors-interface.cc:172
+#: lib/sensors-interface.cc:172
 msgid "U_pdate interval (seconds):"
 msgstr "_Χρόνος ανανέωσης (δευτερόλεπτα):"
 
-#: ../lib/sensors-interface.cc:206
+#: lib/sensors-interface.cc:206
 msgid "Name"
 msgstr "Όνομα"
 
-#: ../lib/sensors-interface.cc:220
+#: lib/sensors-interface.cc:220
 msgid "Value"
 msgstr "Τιμή"
 
-#: ../lib/sensors-interface.cc:226
+#: lib/sensors-interface.cc:226
 msgid "Show"
 msgstr "Εμφάνιση"
 
-#: ../lib/sensors-interface.cc:238
+#: lib/sensors-interface.cc:238
 msgid "Color"
 msgstr "Χρώμα"
 
-#: ../lib/sensors-interface.cc:252
+#: lib/sensors-interface.cc:252
 msgid "Min"
 msgstr "Ελαχ"
 
-#: ../lib/sensors-interface.cc:266
+#: lib/sensors-interface.cc:266
 msgid "Max"
 msgstr "Μεγ"
 
-#: ../lib/sensors-interface.cc:299
+#: lib/sensors-interface.cc:299
 msgid "Temperature scale:"
 msgstr "Κλίμακα θερμοκρασίας:"
 
-#: ../lib/sensors-interface.cc:300
+#: lib/sensors-interface.cc:300
 msgid "_Celsius"
 msgstr "_Κελσίου"
 
-#: ../lib/sensors-interface.cc:302
+#: lib/sensors-interface.cc:302
 msgid "_Fahrenheit"
 msgstr "_Φαρενάιτ"
 
-#: ../lib/sensors-interface.cc:331
+#: lib/sensors-interface.cc:331
 msgid "_Sensors"
 msgstr "_Αισθητήρες:"
 
 #. initialize value label widget
-#: ../panel-plugin/sensors-plugin.cc:262 ../panel-plugin/sensors-plugin.cc:361
-#: ../panel-plugin/sensors-plugin.cc:832
+#: panel-plugin/sensors-plugin.cc:262 panel-plugin/sensors-plugin.cc:361
+#: panel-plugin/sensors-plugin.cc:832
 msgid "<span><b>Sensors</b></span>"
 msgstr "<span><b>Αισθητήρες</b></span>"
 
 #. output to stdout on command line, not very useful for user, except for
 #. tracing problems
-#: ../panel-plugin/sensors-plugin.cc:739
-#, c-format
+#: panel-plugin/sensors-plugin.cc:739
 msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr " \nΠρόσθετο αισθητήρων: \nΦαίνεται ότι υπήρξε πρόβλημα στην ανάγνωση μιας τιμής αισθητήρα.\nΔεν είναι εγγυημένη η σωστή εκτέλεση.\n"
 
-#: ../panel-plugin/sensors-plugin.cc:756
+#: panel-plugin/sensors-plugin.cc:756
 msgid "No sensors selected!"
 msgstr "Δεν επιλέχθηκαν αισθητήρες!"
 
-#: ../panel-plugin/sensors-plugin.cc:1482
+#: panel-plugin/sensors-plugin.cc:1482
 msgid "UI style:"
 msgstr "Στυλ:"
 
-#: ../panel-plugin/sensors-plugin.cc:1483
+#: panel-plugin/sensors-plugin.cc:1483
 msgid "_text"
 msgstr "_κείμενο"
 
-#: ../panel-plugin/sensors-plugin.cc:1484
+#: panel-plugin/sensors-plugin.cc:1484
 msgid "_progress bars"
 msgstr "_μπάρες"
 
-#: ../panel-plugin/sensors-plugin.cc:1485
+#: panel-plugin/sensors-plugin.cc:1485
 msgid "_tachos"
 msgstr "ταχύμετρ_ο"
 
-#: ../panel-plugin/sensors-plugin.cc:1523
+#: panel-plugin/sensors-plugin.cc:1523
 msgid "Show _labels"
 msgstr "Εμφάνιση ο_νόματος"
 
-#: ../panel-plugin/sensors-plugin.cc:1545
+#: panel-plugin/sensors-plugin.cc:1545
 msgid "_Automatic bar colors"
 msgstr "Α_υτόματος χρωματισμός"
 
-#: ../panel-plugin/sensors-plugin.cc:1547
+#: panel-plugin/sensors-plugin.cc:1547
 msgid ""
 "If enabled, bar colors depend on their values (normal, high, very high).\n"
 "If disabled, bars use the user-defined sensor colors.\n"
@@ -286,128 +284,136 @@ msgid ""
 "the bar color is derived from the current UI style."
 msgstr "Εάν ενεργοποιηθεί, τα χρώματα στις μπάρες εξαρτώνται από τις τιμές τους (κανονική, υψηλή, πολύ υψηλή).\nΑν απενεργοποιηθεί, οι μπάρες χρησιμοποιούν τα χρώματα αισθητήρων που ορίζει ο χρήστης.\nΕάν δεν έχει καθοριστεί συγκεκριμένο χρώμα αισθητήρα από τον χρήστη,\nτο χρώμα στις μπάρες προκύπτει από το τρέχον στυλ."
 
-#: ../panel-plugin/sensors-plugin.cc:1574
+#: panel-plugin/sensors-plugin.cc:1574
 msgid "_Show title"
 msgstr "Εμφάνιση _τίτλου"
 
-#: ../panel-plugin/sensors-plugin.cc:1591
+#: panel-plugin/sensors-plugin.cc:1591
 msgid "_Number of text lines:"
 msgstr "Αρι_θμός γραμμών κειμένου:"
 
 #. The Xfce 4 panel can have several rows or columns. With such a mode,
 #. the plugins are allowed to span over all available rows/columns.
 #. When translating, "cover" might be replaced by "use" or "span".
-#: ../panel-plugin/sensors-plugin.cc:1623
+#: panel-plugin/sensors-plugin.cc:1623
 msgid "_Cover all panel rows/columns"
 msgstr "_Χρήση όλων των γραμμών/στηλών του ταμπλό"
 
-#: ../panel-plugin/sensors-plugin.cc:1641
+#: panel-plugin/sensors-plugin.cc:1641
 msgid "F_ont size:"
 msgstr "Μέ_γεθος γραμματοσειράς:"
 
-#: ../panel-plugin/sensors-plugin.cc:1647
+#: panel-plugin/sensors-plugin.cc:1647
 msgid "x-small"
 msgstr "πολύ μικρό"
 
-#: ../panel-plugin/sensors-plugin.cc:1648
+#: panel-plugin/sensors-plugin.cc:1648
 msgid "small"
 msgstr "μικρό"
 
-#: ../panel-plugin/sensors-plugin.cc:1649
+#: panel-plugin/sensors-plugin.cc:1649
 msgid "medium"
 msgstr "μεσαίο"
 
-#: ../panel-plugin/sensors-plugin.cc:1650
+#: panel-plugin/sensors-plugin.cc:1650
 msgid "large"
 msgstr "μεγάλο"
 
-#: ../panel-plugin/sensors-plugin.cc:1651
+#: panel-plugin/sensors-plugin.cc:1651
 msgid "x-large"
 msgstr "πολύ μεγάλο"
 
-#: ../panel-plugin/sensors-plugin.cc:1673
+#: panel-plugin/sensors-plugin.cc:1673
 msgid "F_ont:"
 msgstr "_Γραμματοσειρά:"
 
-#: ../panel-plugin/sensors-plugin.cc:1699
+#: panel-plugin/sensors-plugin.cc:1699
 msgid "Show _Units"
 msgstr "Εμ_φάνιση μονάδων"
 
-#: ../panel-plugin/sensors-plugin.cc:1719
+#: panel-plugin/sensors-plugin.cc:1719
 msgid "Small horizontal s_pacing"
 msgstr "Μικρό ορι_ζόντιο διάστημα"
 
-#: ../panel-plugin/sensors-plugin.cc:1746
+#: panel-plugin/sensors-plugin.cc:1746
 msgid "Tacho color alpha value:"
 msgstr "Τιμή διαφάνειας χρώματος:"
 
-#: ../panel-plugin/sensors-plugin.cc:1761
+#: panel-plugin/sensors-plugin.cc:1761
 msgid "Tacho color value:"
 msgstr "Τιμή χρώματος:"
 
-#: ../panel-plugin/sensors-plugin.cc:1789
+#: panel-plugin/sensors-plugin.cc:1789
 msgid "Suppress messages"
 msgstr "Κατάργηση μηνυμάτων"
 
-#: ../panel-plugin/sensors-plugin.cc:1806
+#: panel-plugin/sensors-plugin.cc:1806
 msgid "Suppress tooltip"
 msgstr "Κατάργηση αναδυόμενου κειμένου"
 
-#: ../panel-plugin/sensors-plugin.cc:1826
+#: panel-plugin/sensors-plugin.cc:1826
 msgid "E_xecute on double click:"
 msgstr "Ε_κτέλεση με διπλό κλικ:"
 
-#: ../panel-plugin/sensors-plugin.cc:1853
+#: panel-plugin/sensors-plugin.cc:1853
 msgid "_View"
 msgstr "_Προβολή"
 
-#: ../panel-plugin/sensors-plugin.cc:1866
+#: panel-plugin/sensors-plugin.cc:1866
 msgid "UI style options"
 msgstr "Επιλογές εμφάνισης"
 
-#: ../panel-plugin/sensors-plugin.cc:1893
+#: panel-plugin/sensors-plugin.cc:1893
 msgid "_Miscellaneous"
 msgstr "_Διάφορα"
 
 #. button icon name
-#: ../panel-plugin/sensors-plugin.cc:1955 ../src/interface.cc:111
+#: panel-plugin/sensors-plugin.cc:1955 src/interface.cc:111
 msgid "_Close"
 msgstr "_Κλείσιμο"
 
-#: ../panel-plugin/sensors-plugin.cc:1986
+#: panel-plugin/sensors-plugin.cc:1986
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
 msgstr "Μπορείτε κάνοντας διπλό κλικ την εγγραφή να αλλάξετε το όνομα, το χρώμα και την ελάχιστη / μέγιστη τιμή σε κάθε πεδίο πατώντας στο τέλος \"Enter\"."
 
-#: ../panel-plugin/sensors-plugin.cc:2073
+#: panel-plugin/sensors-plugin.cc:2073
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
 msgstr "Προβολή τιμών αισθητήρα για LM, ACPI, σκληρούς δίσκους, NVIDIA"
 
+#: panel-plugin/xfce4-sensors-plugin.desktop.in:5
+msgid "Sensor plugin"
+msgstr "Πρόσθετο αισθητήρων"
+
+#: panel-plugin/xfce4-sensors-plugin.desktop.in:6
+#: src/xfce4-sensors.desktop.in:5
+msgid "Show sensor values."
+msgstr "Εμφάνιση τιμών αισθητήρα."
+
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
-#: ../src/actions.cc:66
-#, c-format
+#: src/actions.cc:66
 msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
 msgstr "Προβολέας αισθητήρων: \nΦαίνεται ότι υπήρξε πρόβλημα στην ανάγνωση μιας τιμής αισθητήρα.\nΔεν είναι εγγυημένη η σωστή εκτέλεση.\n"
 
-#: ../src/interface.cc:71
+#: src/interface.cc:71
 msgid "_Overview"
 msgstr "_Επισκόπηση"
 
-#: ../src/interface.cc:93
+#: src/interface.cc:93
 msgid "_Tachometers"
 msgstr "_Ταχύμετρα"
 
-#: ../src/interface.cc:107
+#: src/interface.cc:107
 msgid "Sensors Viewer"
 msgstr "Προβολέας αισθητήρων"
 
-#: ../src/main.cc:47
+#: src/main.cc:47
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -415,7 +421,7 @@ msgid ""
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 msgstr "Αισθητήρες Xfce4 %s\nΤο παρόν πρόγραμμα δημοσιεύεται κάτω από την άδεια χρήσης GPL v2.\nΤο κείμενο της άδειας χρήσης μπορεί να βρεθεί στο πακέτο πηγαίου κώδικα του προγράμματος ή στο /usr/share/apps/LICENSES/GPL_V2 ή στο http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
-#: ../src/main.cc:62
+#: src/main.cc:62
 #, c-format
 msgid ""
 "Xfce4 Sensors %s\n"
@@ -430,7 +436,15 @@ msgid ""
 "This program is published under the GPL v2.\n"
 msgstr "Αισθητήρες Xfce4 %s\nΕμφανίζει πληροφορίες για τους αισθητήρες του υλικού σας, τη κατάσταση ACPI, τις θερμοκρασίες σκληρών δίσκων και γραφικών καρτών της Nvidia.\nΣύνοψη: \n  xfce4-sensors [παράμετρος]\nόπου [παράμετρος] είναι ένα από τα παρακάτω:\n  -h, --help    Εμφάνιση βοήθειας.\n  -l, --license Εμφάνιση πληροφοριών άδειας.\n  -V, --version Εμφάνιση πληροφοριών έκδοσης.\n\nΤο παρόν πρόγραμμα δημοσιεύεται υπό τους όρους της άδειας GPL v2.\n"
 
-#: ../src/main.cc:83
+#: src/main.cc:83
 #, c-format
 msgid "Xfce4 Sensors %s\n"
 msgstr "Αισθητήρες Xfce4 %s\n"
+
+#: src/xfce4-sensors.desktop.in:4
+msgid "Sensor Viewer"
+msgstr "Προβολέας αισθητήρων"
+
+#: src/xfce4-sensors.desktop.in:6
+msgid "Sensor Values Viewer"
+msgstr "Προβολέας τιμών αισθητήρων"
