@@ -380,7 +380,7 @@ msgstr "Umożliwia zmianę cech wskazań, takich jak nazwa, kolor, wartość min
 
 #: panel-plugin/sensors-plugin.cc:2073
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
-msgstr "Wyświetla wskazania czujników sprzętowych z LM, ACPI, twardych dysków, NVIDIA"
+msgstr "Wyświetlanie wskazań z czujników sprzętowych LM, ACPI, HDD, NVIDIA."
 
 #: panel-plugin/xfce4-sensors-plugin.desktop.in:5
 msgid "Sensor plugin"
@@ -418,7 +418,7 @@ msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-msgstr "Czujniki Xfce4 %s\nNiniejszy program został wydany na zasadach GNU GPL v2.\nTreść licencji można znaleźć w archiwum zawierającym kod zródłowy programu, w pliku /usr/share/apps/LICENSES/GPL_V2 lub na stronie http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Czujniki Xfce %s\nNiniejszy program został wydany na zasadach GNU GPL v2.\nTreść licencji można znaleźć w archiwum zawierającym kod zródłowy programu, w pliku /usr/share/apps/LICENSES/GPL_V2 lub na stronie http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: src/main.cc:62
 #, c-format
@@ -433,12 +433,12 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Czujniki Xfce4 %s\nWyświetla wskazania czujników sprzętowych, stan ACPI, temperatury dysków twardych i układów GPU Nvidia.\nUżycie:  xfce4-sensors [opcja]\n\n[opcja] oznacza jedno z następujących:\n  -h, --help                    Wypisuje wszystkie opcje wiersza poleceń\n  -l, --license                 Wypisuje informacje o licencji\n  -V, --version                 Wypisuje informacje o wersji\n\nTen program opublikowano na licencji GNU GPL v2.\n"
+msgstr "Czujniki Xfce %s\nWyświetla wskazania czujników sprzętowych, stan ACPI, temperatury dysków twardych i układów GPU Nvidia.\nUżycie:  xfce4-sensors [opcja]\n\n[opcja] oznacza jedno z następujących:\n  -h, --help                    Wypisuje wszystkie opcje wiersza poleceń\n  -l, --license                 Wypisuje informacje o licencji\n  -V, --version                 Wypisuje informacje o wersji\n\nTen program opublikowano na licencji GNU GPL v2.\n"
 
 #: src/main.cc:83
 #, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr "Czujniki Xfce4 %s\n"
+msgstr "Czujniki Xfce %s\n"
 
 #: src/xfce4-sensors.desktop.in:4
 msgid "Sensor Viewer"
