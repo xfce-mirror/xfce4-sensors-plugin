@@ -25,6 +25,8 @@ Preparation: Install libsensors, lmsensors, hddtemp, xnvctrl
 
 Installation: meson setup build && meson compile -C build && [sudo] meson install -C build
 
+Uninstallation: [sudo] ninja uninstall -C build
+
 Theming: You can put a customized style file globally under 
          /usr/local/share/xfce4/panel/plugins/xfce4-sensors-plugin.css 
          or locally under $HOME/.config/xfce4/panel/xfce4-sensors-plugin.css.
