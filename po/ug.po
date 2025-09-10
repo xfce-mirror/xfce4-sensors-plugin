@@ -364,7 +364,7 @@ msgstr "باشقىلار(_M)"
 #. button icon name
 #: panel-plugin/sensors-plugin.cc:1955 src/interface.cc:111
 msgid "_Close"
-msgstr ""
+msgstr "ياپ(_C)"
 
 #: panel-plugin/sensors-plugin.cc:1986
 msgid ""
