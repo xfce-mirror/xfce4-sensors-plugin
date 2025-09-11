@@ -74,6 +74,7 @@ gint
 read_thermal_zone (const Ptr<t_chip> &chip)
 {
     gint res_value = -2;
+    gchar *cwd = g_get_current_dir ();
 
 #ifdef HAVE_SYSFS_ACPI
     if ((chdir (SYS_PATH) == 0) && (chdir (SYS_DIR_THERMAL) == 0))
@@ -143,6 +144,9 @@ read_thermal_zone (const Ptr<t_chip> &chip)
             res_value = 0;
         }
     }
+
+    chdir (cwd);
+    g_free (cwd);
 
     return res_value;
 }
@@ -226,6 +230,7 @@ gint
 read_battery_zone (const Ptr<t_chip> &chip)
 {
     gint res_value = -1;
+    gchar *cwd = g_get_current_dir ();
 
 #ifdef HAVE_SYSFS_ACPI
     if ((chdir (SYS_PATH) == 0) && (chdir (SYS_DIR_POWER) == 0)) {
@@ -345,6 +350,9 @@ read_battery_zone (const Ptr<t_chip> &chip)
         res_value = -2;
     }
 
+    chdir (cwd);
+    g_free (cwd);
+
     return res_value;
 }
 
@@ -394,6 +402,7 @@ gint
 read_fan_zone (const Ptr<t_chip> &chip)
 {
     gint res_value = -1;
+    gchar *cwd = g_get_current_dir ();
 
     if ((chdir (ACPI_PATH) == 0) && (chdir (ACPI_DIR_FAN) == 0))
     {
@@ -438,6 +447,10 @@ read_fan_zone (const Ptr<t_chip> &chip)
     else {
         res_value = -2;
     }
+
+    chdir (cwd);
+    g_free (cwd);
+
     return res_value;
 }
 
@@ -493,6 +506,7 @@ gint
 read_power_zone (const Ptr<t_chip> &chip)
 {
     gint res_value = -1;
+    gchar *cwd = g_get_current_dir ();
 
     if ((chdir (SYS_PATH) == 0) && (chdir (SYS_DIR_POWER) == 0)) {
         DIR *dir = opendir (".");
@@ -537,6 +551,9 @@ read_power_zone (const Ptr<t_chip> &chip)
         res_value = -2;
     }
 
+    chdir (cwd);
+    g_free (cwd);
+
     return res_value;
 }
 
@@ -546,6 +563,7 @@ gint
 read_voltage_zone (const Ptr<t_chip> &chip)
 {
     gint res_value = -1;
+    gchar *cwd = g_get_current_dir ();
 
     if ((chdir (SYS_PATH) == 0) && (chdir (SYS_DIR_POWER) == 0)) {
         DIR *dir = opendir (".");
@@ -593,6 +611,9 @@ read_voltage_zone (const Ptr<t_chip> &chip)
     {
         res_value = -2;
     }
+
+    chdir (cwd);
+    g_free (cwd);
 
     return res_value;
 }
