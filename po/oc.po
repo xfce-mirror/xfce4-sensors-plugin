@@ -3,8 +3,9 @@
 # This file is distributed under the same license as the xfce-panel-plugins.xfce4-sensors-plugin package.
 # 
 # Translators:
-# Cédric Valmary <cvalmary@yahoo.fr>, 2016
+# Cédric Valmary <cvalmary@yahoo.fr>, 2013,2016
 # Cédric Valmary <cvalmary@yahoo.fr>, 2013
+# Quentin PAGÈS, 2022
 # Quentin PAGÈS, 2022
 msgid ""
 msgstr ""
@@ -47,7 +48,7 @@ msgstr "Energia"
 
 #: lib/acpi.cc:566
 msgid "Voltage"
-msgstr ""
+msgstr "Voltatge"
 
 #: lib/acpi.cc:607 lib/acpi.cc:618
 msgid "ACPI"
@@ -70,7 +71,7 @@ msgstr "Disques durs"
 
 #: lib/hddtemp.cc:102
 msgid "Don't show this message again"
-msgstr ""
+msgstr "Afichar pas mai aqueste messatge"
 
 #: lib/hddtemp.cc:144 panel-plugin/sensors-plugin.cc:1951
 #: panel-plugin/sensors-plugin.h:26
@@ -91,7 +92,7 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "« hddtemp » es pas estat executat corrèctament mentre qu'es executable. Se poiriá mentre que siá degut a de privilègis restrenches per la lectura de las temperaturas e que « hddtemp » siá pas fixé amb un setuid root.\n\nUna solucion simpla mas radicala consistís a aviar la comanda « chmod u+s %s » en tant que root e de daissar l'empeuton o son tablèu de bòrd.\n\nL'apèl a « %s » a donat l'error seguenta :\n%s\namb lo còde retorn %d.\n"
+msgstr "« hddtemp » es pas estat executat corrèctament mentre qu'es executable. Se poiriá mentre que siá degut a de privilègis restrenches per la lectura de las temperaturas e que « hddtemp » siá pas fixé amb un setuid root.\n\nUna solucion simpla mas radicala consistís a aviar la comanda « chmod u+s %s » en tant que root e de daissar l'empeuton o son tablèu de bòrd.\n\nL'apèl a « %s » a donat l'error seguenta :\n%s\namb lo còdi retorn %d.\n"
 
 #: lib/hddtemp.cc:513 lib/hddtemp.cc:536
 msgid "Suppress this message in future"
@@ -102,7 +103,7 @@ msgstr "Afichar pas mai aqueste messatge"
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr "Una error s'es produsida al moment de l'execucion de « %s » :\n%s"
+msgstr "Una error s'es produita al moment de l'execucion de « %s » :\n%s"
 
 #: lib/lmsensors.cc:59
 msgid "LM Sensors"
