@@ -115,7 +115,7 @@ msgstr "Error : se pòt pas connectar als captadors !"
 
 #: lib/nvidia.cc:75
 msgid "NVIDIA GPU core temperature"
-msgstr ""
+msgstr "Temperatura del còr del GPU NVIDIA"
 
 #: lib/nvidia.cc:76
 msgid "nvidia"
@@ -298,7 +298,7 @@ msgstr ""
 
 #: panel-plugin/sensors-plugin.cc:1641
 msgid "F_ont size:"
-msgstr "Talha de la _poliça :"
+msgstr "Talha de la _polissa :"
 
 #: panel-plugin/sensors-plugin.cc:1647
 msgid "x-small"
@@ -322,7 +322,7 @@ msgstr "fòrça granda"
 
 #: panel-plugin/sensors-plugin.cc:1673
 msgid "F_ont:"
-msgstr "Talha de la _poliça :"
+msgstr "Talha de la _polissa :"
 
 #: panel-plugin/sensors-plugin.cc:1699
 msgid "Show _Units"
@@ -358,7 +358,7 @@ msgstr "_Afichar"
 
 #: panel-plugin/sensors-plugin.cc:1866
 msgid "UI style options"
-msgstr ""
+msgstr "Opcions d’estil d’interfàcia"
 
 #: panel-plugin/sensors-plugin.cc:1893
 msgid "_Miscellaneous"
@@ -382,7 +382,7 @@ msgstr ""
 
 #: panel-plugin/xfce4-sensors-plugin.desktop.in:5
 msgid "Sensor plugin"
-msgstr ""
+msgstr "Empeuton de captador"
 
 #: panel-plugin/xfce4-sensors-plugin.desktop.in:6
 #: src/xfce4-sensors.desktop.in:5
