@@ -1,0 +1,443 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-sensors-plugin package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:08+0200\n"
+"PO-Revision-Date: 2013-07-03 19:16+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Georgian (http://app.transifex.com/xfce/xfce-panel-plugins/language/ka/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ka\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#. Note for translators: As some laptops have several batteries such as the
+#. T440s,
+#. there might be some perturbation with the battery name here and BAT0/BAT1
+#. for
+#. power/voltage. So we prepend BAT0/1 to the battery name as well, with the
+#. result
+#. being something like "BAT1 - 45N1127". Users can then rename the batteries
+#. to
+#. their own will while keeping consistency to their power/voltage features.
+#. You might want to format this with a hyphen and without spacing, or with a
+#. dash; the result might be BAT1–Power or whatever fits your language most.
+#. Spaces allow line breaks over the tachometers.
+#. You might want to format this with a hyphen and without spacing, or with a
+#. dash; the result might be BAT1–Voltage or whatever fits your language most.
+#. Spaces allow line breaks over the tachometers.
+#: lib/acpi.cc:266 lib/acpi.cc:513 lib/acpi.cc:566
+#, c-format
+msgid "%s - %s"
+msgstr "%s - %s"
+
+#. Power with unit Watts, not Energy with Joules or kWh
+#: lib/acpi.cc:515
+msgid "Power"
+msgstr "კვება"
+
+#: lib/acpi.cc:566
+msgid "Voltage"
+msgstr "ვოლტაჟი"
+
+#: lib/acpi.cc:607 lib/acpi.cc:618
+msgid "ACPI"
+msgstr "ACPI"
+
+#: lib/acpi.cc:610
+#, c-format
+msgid "ACPI v%s zones"
+msgstr ""
+
+#: lib/acpi.cc:731
+msgid "<Unknown>"
+msgstr "<უცნობი>"
+
+#. only use this if no hddtemp sensor
+#. or do only use this , if it is an lmsensors device. whatever.
+#: lib/configuration.cc:116 lib/hddtemp.cc:343
+msgid "Hard disks"
+msgstr "მყარი დისკები"
+
+#: lib/hddtemp.cc:102
+msgid "Don't show this message again"
+msgstr "ეს შეტყობინება აღარ მაჩვენო"
+
+#: lib/hddtemp.cc:144 panel-plugin/sensors-plugin.cc:1951
+#: panel-plugin/sensors-plugin.h:26
+msgid "Sensors Plugin"
+msgstr ""
+
+#: lib/hddtemp.cc:342
+msgid "S.M.A.R.T. harddisk temperatures"
+msgstr ""
+
+#: lib/hddtemp.cc:499
+#, c-format
+msgid ""
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"\n"
+"Calling \"%s\" gave the following error:\n"
+"%s\n"
+"with a return value of %d.\n"
+msgstr ""
+
+#: lib/hddtemp.cc:513 lib/hddtemp.cc:536
+msgid "Suppress this message in future"
+msgstr ""
+
+#: lib/hddtemp.cc:531
+#, c-format
+msgid ""
+"An error occurred when executing \"%s\":\n"
+"%s"
+msgstr ""
+
+#: lib/lmsensors.cc:59
+msgid "LM Sensors"
+msgstr "LM სენსორები"
+
+#: lib/lmsensors.cc:287
+msgid "Error: Could not connect to sensors!"
+msgstr ""
+
+#: lib/nvidia.cc:75
+msgid "NVIDIA GPU core temperature"
+msgstr "NVIDIA GPU ბირთვის ტემპერატურა"
+
+#: lib/nvidia.cc:76
+msgid "nvidia"
+msgstr "nvidia"
+
+#: lib/sensors-interface-common.cc:55 lib/sensors-interface-common.cc:56
+msgid "No sensors found!"
+msgstr ""
+
+#: lib/sensors-interface-common.cc:83
+#, c-format
+msgid "%.0f °F"
+msgstr "%.0f °F"
+
+#: lib/sensors-interface-common.cc:85
+#, c-format
+msgid "%.0f °C"
+msgstr "%.0f °C"
+
+#: lib/sensors-interface-common.cc:88
+#, c-format
+msgid "%+.3f V"
+msgstr "%+.3f V"
+
+#: lib/sensors-interface-common.cc:91
+#, c-format
+msgid "%+.3f A"
+msgstr "%+.3f A"
+
+#: lib/sensors-interface-common.cc:94
+#, c-format
+msgid "%.0f mWh"
+msgstr "%.0f მვტ/სთ"
+
+#: lib/sensors-interface-common.cc:97
+#, c-format
+msgid "%.3f W"
+msgstr "%.3f ვტ"
+
+#: lib/sensors-interface-common.cc:100
+msgid "off"
+msgstr "გამორთვა"
+
+#: lib/sensors-interface-common.cc:100
+msgid "on"
+msgstr "ჩართ"
+
+#: lib/sensors-interface-common.cc:103
+#, c-format
+msgid "%.0f rpm"
+msgstr "%.0f ბრ/წთ"
+
+#: lib/sensors-interface.cc:93
+msgid "Sensors Plugin Failure"
+msgstr ""
+
+#: lib/sensors-interface.cc:94
+msgid ""
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed."
+msgstr ""
+
+#: lib/sensors-interface.cc:127
+msgid "Sensors t_ype:"
+msgstr ""
+
+#: lib/sensors-interface.cc:145
+msgid "Description:"
+msgstr "აღწერა:"
+
+#: lib/sensors-interface.cc:172
+msgid "U_pdate interval (seconds):"
+msgstr ""
+
+#: lib/sensors-interface.cc:206
+msgid "Name"
+msgstr "სახელი"
+
+#: lib/sensors-interface.cc:220
+msgid "Value"
+msgstr "მნიშვნელობა"
+
+#: lib/sensors-interface.cc:226
+msgid "Show"
+msgstr "ჩვენება"
+
+#: lib/sensors-interface.cc:238
+msgid "Color"
+msgstr "ფერი"
+
+#: lib/sensors-interface.cc:252
+msgid "Min"
+msgstr "მინ"
+
+#: lib/sensors-interface.cc:266
+msgid "Max"
+msgstr "მაქს"
+
+#: lib/sensors-interface.cc:299
+msgid "Temperature scale:"
+msgstr ""
+
+#: lib/sensors-interface.cc:300
+msgid "_Celsius"
+msgstr "_ცელსიუსი"
+
+#: lib/sensors-interface.cc:302
+msgid "_Fahrenheit"
+msgstr "_ფარენჰეიტი"
+
+#: lib/sensors-interface.cc:331
+msgid "_Sensors"
+msgstr "_სენსორები"
+
+#. initialize value label widget
+#: panel-plugin/sensors-plugin.cc:262 panel-plugin/sensors-plugin.cc:361
+#: panel-plugin/sensors-plugin.cc:832
+msgid "<span><b>Sensors</b></span>"
+msgstr ""
+
+#. output to stdout on command line, not very useful for user, except for
+#. tracing problems
+#: panel-plugin/sensors-plugin.cc:739
+msgid ""
+"Sensors Plugin:\n"
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr ""
+
+#: panel-plugin/sensors-plugin.cc:756
+msgid "No sensors selected!"
+msgstr ""
+
+#: panel-plugin/sensors-plugin.cc:1482
+msgid "UI style:"
+msgstr ""
+
+#: panel-plugin/sensors-plugin.cc:1483
+msgid "_text"
+msgstr "_ტექსტი"
+
+#: panel-plugin/sensors-plugin.cc:1484
+msgid "_progress bars"
+msgstr "_მიმდინარეობის ზოლები"
+
+#: panel-plugin/sensors-plugin.cc:1485
+msgid "_tachos"
+msgstr "_ტაქომეტრები"
+
+#: panel-plugin/sensors-plugin.cc:1523
+msgid "Show _labels"
+msgstr "ჭდეების ჩვე_ნება"
+
+#: panel-plugin/sensors-plugin.cc:1545
+msgid "_Automatic bar colors"
+msgstr ""
+
+#: panel-plugin/sensors-plugin.cc:1547
+msgid ""
+"If enabled, bar colors depend on their values (normal, high, very high).\n"
+"If disabled, bars use the user-defined sensor colors.\n"
+"If a particular user-defined sensor color is unspecified,\n"
+"the bar color is derived from the current UI style."
+msgstr ""
+
+#: panel-plugin/sensors-plugin.cc:1574
+msgid "_Show title"
+msgstr ""
+
+#: panel-plugin/sensors-plugin.cc:1591
+msgid "_Number of text lines:"
+msgstr ""
+
+#. The Xfce 4 panel can have several rows or columns. With such a mode,
+#. the plugins are allowed to span over all available rows/columns.
+#. When translating, "cover" might be replaced by "use" or "span".
+#: panel-plugin/sensors-plugin.cc:1623
+msgid "_Cover all panel rows/columns"
+msgstr ""
+
+#: panel-plugin/sensors-plugin.cc:1641
+msgid "F_ont size:"
+msgstr "ფო_ნტის ზომა:"
+
+#: panel-plugin/sensors-plugin.cc:1647
+msgid "x-small"
+msgstr "x-პატარა"
+
+#: panel-plugin/sensors-plugin.cc:1648
+msgid "small"
+msgstr "პატარა"
+
+#: panel-plugin/sensors-plugin.cc:1649
+msgid "medium"
+msgstr "საშუალო"
+
+#: panel-plugin/sensors-plugin.cc:1650
+msgid "large"
+msgstr "დიდი"
+
+#: panel-plugin/sensors-plugin.cc:1651
+msgid "x-large"
+msgstr "x-დიდი"
+
+#: panel-plugin/sensors-plugin.cc:1673
+msgid "F_ont:"
+msgstr "ფ_ონტი:"
+
+#: panel-plugin/sensors-plugin.cc:1699
+msgid "Show _Units"
+msgstr "ერთე_ულების ჩვენება"
+
+#: panel-plugin/sensors-plugin.cc:1719
+msgid "Small horizontal s_pacing"
+msgstr ""
+
+#: panel-plugin/sensors-plugin.cc:1746
+msgid "Tacho color alpha value:"
+msgstr ""
+
+#: panel-plugin/sensors-plugin.cc:1761
+msgid "Tacho color value:"
+msgstr ""
+
+#: panel-plugin/sensors-plugin.cc:1789
+msgid "Suppress messages"
+msgstr ""
+
+#: panel-plugin/sensors-plugin.cc:1806
+msgid "Suppress tooltip"
+msgstr ""
+
+#: panel-plugin/sensors-plugin.cc:1826
+msgid "E_xecute on double click:"
+msgstr ""
+
+#: panel-plugin/sensors-plugin.cc:1853
+msgid "_View"
+msgstr "_ხედი"
+
+#: panel-plugin/sensors-plugin.cc:1866
+msgid "UI style options"
+msgstr ""
+
+#: panel-plugin/sensors-plugin.cc:1893
+msgid "_Miscellaneous"
+msgstr "_სხვადასხვა"
+
+#. button icon name
+#: panel-plugin/sensors-plugin.cc:1955 src/interface.cc:111
+msgid "_Close"
+msgstr "და_ხურვა"
+
+#: panel-plugin/sensors-plugin.cc:1986
+msgid ""
+"You can change a feature's properties such as name, colours, min/max value "
+"by double-clicking the entry, editing the content, and pressing \"Return\" "
+"or selecting a different field."
+msgstr ""
+
+#: panel-plugin/sensors-plugin.cc:2073
+msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
+msgstr ""
+
+#: panel-plugin/xfce4-sensors-plugin.desktop.in:5
+msgid "Sensor plugin"
+msgstr ""
+
+#: panel-plugin/xfce4-sensors-plugin.desktop.in:6
+#: src/xfce4-sensors.desktop.in:5
+msgid "Show sensor values."
+msgstr ""
+
+#. FIXME: either print nothing, or undertake appropriate action, or pop up a
+#. message box.
+#: src/actions.cc:66
+msgid ""
+"Sensors Viewer:\n"
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr ""
+
+#: src/interface.cc:71
+msgid "_Overview"
+msgstr "_გადახედვა"
+
+#: src/interface.cc:93
+msgid "_Tachometers"
+msgstr ""
+
+#: src/interface.cc:107
+msgid "Sensors Viewer"
+msgstr ""
+
+#: src/main.cc:47
+#, c-format
+msgid ""
+"Xfce4 Sensors %s\n"
+"This program is published under the GPL v2.\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr ""
+
+#: src/main.cc:62
+#, c-format
+msgid ""
+"Xfce4 Sensors %s\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
+"Synopsis: \n"
+"  xfce4-sensors [option]\n"
+"where [option] is one of the following:\n"
+"  -h, --help    Print this help dialog.\n"
+"  -l, --license Print license information.\n"
+"  -V, --version Print version information.\n"
+"\n"
+"This program is published under the GPL v2.\n"
+msgstr ""
+
+#: src/main.cc:83
+#, c-format
+msgid "Xfce4 Sensors %s\n"
+msgstr ""
+
+#: src/xfce4-sensors.desktop.in:4
+msgid "Sensor Viewer"
+msgstr ""
+
+#: src/xfce4-sensors.desktop.in:6
+msgid "Sensor Values Viewer"
+msgstr ""
