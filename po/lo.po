@@ -1,0 +1,443 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-sensors-plugin package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:08+0200\n"
+"PO-Revision-Date: 2013-07-03 19:16+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Lao (http://app.transifex.com/xfce/xfce-panel-plugins/language/lo/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lo\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. Note for translators: As some laptops have several batteries such as the
+#. T440s,
+#. there might be some perturbation with the battery name here and BAT0/BAT1
+#. for
+#. power/voltage. So we prepend BAT0/1 to the battery name as well, with the
+#. result
+#. being something like "BAT1 - 45N1127". Users can then rename the batteries
+#. to
+#. their own will while keeping consistency to their power/voltage features.
+#. You might want to format this with a hyphen and without spacing, or with a
+#. dash; the result might be BAT1–Power or whatever fits your language most.
+#. Spaces allow line breaks over the tachometers.
+#. You might want to format this with a hyphen and without spacing, or with a
+#. dash; the result might be BAT1–Voltage or whatever fits your language most.
+#. Spaces allow line breaks over the tachometers.
+#: lib/acpi.cc:266 lib/acpi.cc:513 lib/acpi.cc:566
+#, c-format
+msgid "%s - %s"
+msgstr "%s - %s"
+
+#. Power with unit Watts, not Energy with Joules or kWh
+#: lib/acpi.cc:515
+msgid "Power"
+msgstr "ກຳລັງໄຟ"
+
+#: lib/acpi.cc:566
+msgid "Voltage"
+msgstr "ແຮງດັນໄຟຟ້າ"
+
+#: lib/acpi.cc:607 lib/acpi.cc:618
+msgid "ACPI"
+msgstr "ACPI"
+
+#: lib/acpi.cc:610
+#, c-format
+msgid "ACPI v%s zones"
+msgstr "ເຂດ ACPI v%s"
+
+#: lib/acpi.cc:731
+msgid "<Unknown>"
+msgstr "<ບໍ່ຮູ້ຈັກ>"
+
+#. only use this if no hddtemp sensor
+#. or do only use this , if it is an lmsensors device. whatever.
+#: lib/configuration.cc:116 lib/hddtemp.cc:343
+msgid "Hard disks"
+msgstr "ຮາດດິດ"
+
+#: lib/hddtemp.cc:102
+msgid "Don't show this message again"
+msgstr "ບໍ່ຕ້ອງສະແດງຂໍ້ຄວາມນີ້ອີກ"
+
+#: lib/hddtemp.cc:144 panel-plugin/sensors-plugin.cc:1951
+#: panel-plugin/sensors-plugin.h:26
+msgid "Sensors Plugin"
+msgstr "ປລັກອິນເຊັນເຊີ"
+
+#: lib/hddtemp.cc:342
+msgid "S.M.A.R.T. harddisk temperatures"
+msgstr "ອຸນຫະພູມຮາດດິດ S.M.A.R.T."
+
+#: lib/hddtemp.cc:499
+#, c-format
+msgid ""
+"\"hddtemp\" was not executed correctly, although it is executable. This is most probably due to the disks requiring root privileges to read their temperatures, and \"hddtemp\" not being setuid root.\n"
+"\n"
+"An easy but dirty solution is to run \"chmod u+s %s\" as root user and restart this plugin or its panel.\n"
+"\n"
+"Calling \"%s\" gave the following error:\n"
+"%s\n"
+"with a return value of %d.\n"
+msgstr "\"hddtemp\" ບໍ່ສາມາດເຮັດວຽກໄດ້ຢ່າງຖືກຕ້ອງ, ເຖິງແມ່ນວ່າມັນເປັນໄຟລ໌ທີ່ສາມາດສັ່ງລັນໄດ້. ນີ້ອາດຈະເປັນຍ້ອນວ່າຮາດດິດຈຳເປັນຕ້ອງໃຊ້ສິດ root ເພື່ອອ່ານອຸນຫະພູມ, ແລະ \"hddtemp\" ບໍ່ໄດ້ຖືກຕັ້ງຄ່າ setuid root.\n\nວິທີແກ້ໄຂແບບງ່າຍໆແຕ່ບໍ່ຄ່ອຍດີປານໃດແມ່ນໃຫ້ລັນຄຳສັ່ງ \"chmod u+s %s\" ໃນຖານະຜູ້ໃຊ້ root ແລ້ວເລີ່ມປລັກອິນນີ້ ຫຼື ແຜງໜ້າປັດໃໝ່.\n\nການຮຽກໃຊ້ \"%s\" ພົບຂໍ້ຜິດພາດດັ່ງນີ້:\n%s\nເຊິ່ງມີຄ່າການສົ່ງຄືນແມ່ນ %d.\n"
+
+#: lib/hddtemp.cc:513 lib/hddtemp.cc:536
+msgid "Suppress this message in future"
+msgstr "ບໍ່ຕ້ອງສະແດງຂໍ້ຄວາມນີ້ໃນອະນາຄົດ"
+
+#: lib/hddtemp.cc:531
+#, c-format
+msgid ""
+"An error occurred when executing \"%s\":\n"
+"%s"
+msgstr "ເກີດຂໍ້ຜິດພາດຂຶ້ນໃນຂະນະທີ່ກຳລັງປະຕິບັດການ \"%s\":\n%s"
+
+#: lib/lmsensors.cc:59
+msgid "LM Sensors"
+msgstr "LM Sensors"
+
+#: lib/lmsensors.cc:287
+msgid "Error: Could not connect to sensors!"
+msgstr "ຂໍ້ຜິດພາດ: ບໍ່ສາມາດເຊື່ອມຕໍ່ກັບເຊັນເຊີໄດ້!"
+
+#: lib/nvidia.cc:75
+msgid "NVIDIA GPU core temperature"
+msgstr "ອຸນຫະພູມແກນກາງ NVIDIA GPU"
+
+#: lib/nvidia.cc:76
+msgid "nvidia"
+msgstr "nvidia"
+
+#: lib/sensors-interface-common.cc:55 lib/sensors-interface-common.cc:56
+msgid "No sensors found!"
+msgstr "ບໍ່ພົບເຊັນເຊີ!"
+
+#: lib/sensors-interface-common.cc:83
+#, c-format
+msgid "%.0f °F"
+msgstr "%.0f °F"
+
+#: lib/sensors-interface-common.cc:85
+#, c-format
+msgid "%.0f °C"
+msgstr "%.0f °C"
+
+#: lib/sensors-interface-common.cc:88
+#, c-format
+msgid "%+.3f V"
+msgstr "%+.3f V"
+
+#: lib/sensors-interface-common.cc:91
+#, c-format
+msgid "%+.3f A"
+msgstr "%+.3f A"
+
+#: lib/sensors-interface-common.cc:94
+#, c-format
+msgid "%.0f mWh"
+msgstr "%.0f mWh"
+
+#: lib/sensors-interface-common.cc:97
+#, c-format
+msgid "%.3f W"
+msgstr "%.3f W"
+
+#: lib/sensors-interface-common.cc:100
+msgid "off"
+msgstr "ປິດ"
+
+#: lib/sensors-interface-common.cc:100
+msgid "on"
+msgstr "ເປີດ"
+
+#: lib/sensors-interface-common.cc:103
+#, c-format
+msgid "%.0f rpm"
+msgstr "%.0f rpm"
+
+#: lib/sensors-interface.cc:93
+msgid "Sensors Plugin Failure"
+msgstr "ປລັກອິນເຊັນເຊີເຮັດວຽກຜິດພາດ"
+
+#: lib/sensors-interface.cc:94
+msgid ""
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed."
+msgstr "ເບິ່ງຄືວ່າມີບັນຫາໃນການອ່ານຄ່າຄຸນສົມບັດຂອງເຊັນເຊີ.\nບໍ່ສາມາດຮັບປະກັນການເຮັດວຽກທີ່ຖືກຕ້ອງໄດ້."
+
+#: lib/sensors-interface.cc:127
+msgid "Sensors t_ype:"
+msgstr "ປະ_ເພດເຊັນເຊີ:"
+
+#: lib/sensors-interface.cc:145
+msgid "Description:"
+msgstr "ຄຳອະທິບາຍ:"
+
+#: lib/sensors-interface.cc:172
+msgid "U_pdate interval (seconds):"
+msgstr "ໄລຍະຫ່າງການອັບ_ເດດ (ວິນາທີ):"
+
+#: lib/sensors-interface.cc:206
+msgid "Name"
+msgstr "ຊື່"
+
+#: lib/sensors-interface.cc:220
+msgid "Value"
+msgstr "ຄ່າ"
+
+#: lib/sensors-interface.cc:226
+msgid "Show"
+msgstr "ສະແດງ"
+
+#: lib/sensors-interface.cc:238
+msgid "Color"
+msgstr "ສີ"
+
+#: lib/sensors-interface.cc:252
+msgid "Min"
+msgstr "ຕ່ຳສຸດ"
+
+#: lib/sensors-interface.cc:266
+msgid "Max"
+msgstr "ສູງສຸດ"
+
+#: lib/sensors-interface.cc:299
+msgid "Temperature scale:"
+msgstr "ຫົວໜ່ວຍວັດແທກອຸນຫະພູມ:"
+
+#: lib/sensors-interface.cc:300
+msgid "_Celsius"
+msgstr "_ເຊວຊຽດ"
+
+#: lib/sensors-interface.cc:302
+msgid "_Fahrenheit"
+msgstr "_ຟາເຣນໄຮ"
+
+#: lib/sensors-interface.cc:331
+msgid "_Sensors"
+msgstr "_ເຊັນເຊີ"
+
+#. initialize value label widget
+#: panel-plugin/sensors-plugin.cc:262 panel-plugin/sensors-plugin.cc:361
+#: panel-plugin/sensors-plugin.cc:832
+msgid "<span><b>Sensors</b></span>"
+msgstr "<span><b>ເຊັນເຊີ</b></span>"
+
+#. output to stdout on command line, not very useful for user, except for
+#. tracing problems
+#: panel-plugin/sensors-plugin.cc:739
+msgid ""
+"Sensors Plugin:\n"
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr "ປລັກອິນເຊັນເຊີ:\nເບິ່ງຄືວ່າມີບັນຫາໃນການອ່ານຄ່າຄຸນສົມບັດຂອງເຊັນເຊີ.\nບໍ່ສາມາດຮັບປະກັນການເຮັດວຽກທີ່ຖືກຕ້ອງໄດ້.\n"
+
+#: panel-plugin/sensors-plugin.cc:756
+msgid "No sensors selected!"
+msgstr "ບໍ່ມີເຊັນເຊີທີ່ຖືກເລືອກ!"
+
+#: panel-plugin/sensors-plugin.cc:1482
+msgid "UI style:"
+msgstr "ຮູບແບບ UI:"
+
+#: panel-plugin/sensors-plugin.cc:1483
+msgid "_text"
+msgstr "_ຂໍ້ຄວາມ"
+
+#: panel-plugin/sensors-plugin.cc:1484
+msgid "_progress bars"
+msgstr "ແຖບ_ສະແດງຄວາມຄືບໜ້າ"
+
+#: panel-plugin/sensors-plugin.cc:1485
+msgid "_tachos"
+msgstr "ມິເຕີ_ເຂັມ"
+
+#: panel-plugin/sensors-plugin.cc:1523
+msgid "Show _labels"
+msgstr "ສະແດງ_ປ້າຍຊື່"
+
+#: panel-plugin/sensors-plugin.cc:1545
+msgid "_Automatic bar colors"
+msgstr "ສີແຖບ_ອັດຕະໂນມັດ"
+
+#: panel-plugin/sensors-plugin.cc:1547
+msgid ""
+"If enabled, bar colors depend on their values (normal, high, very high).\n"
+"If disabled, bars use the user-defined sensor colors.\n"
+"If a particular user-defined sensor color is unspecified,\n"
+"the bar color is derived from the current UI style."
+msgstr "ຫາກເປີດໃຊ້, ສີຂອງແຖບຈະປ່ຽນໄປຕາມຄ່າ (ປົກກະຕິ, ສູງ, ສູງຫຼາຍ).\nຫາກປິດໃຊ້, ແຖບຈະໃຊ້ສີທີ່ຜູ້ໃຊ້ກຳນົດເອງ.\nຫາກບໍ່ໄດ້ກຳນົດສີໃດໜຶ່ງໄວ້,\nສີຂອງແຖບຈະຖືກຖອດແບບມາຈາກຮູບແບບ UI ປັດຈຸບັນ."
+
+#: panel-plugin/sensors-plugin.cc:1574
+msgid "_Show title"
+msgstr "ສະ_ແດງຫົວຂໍ້"
+
+#: panel-plugin/sensors-plugin.cc:1591
+msgid "_Number of text lines:"
+msgstr "ຈຳ_ນວນແຖວຂໍ້ຄວາມ:"
+
+#. The Xfce 4 panel can have several rows or columns. With such a mode,
+#. the plugins are allowed to span over all available rows/columns.
+#. When translating, "cover" might be replaced by "use" or "span".
+#: panel-plugin/sensors-plugin.cc:1623
+msgid "_Cover all panel rows/columns"
+msgstr "_ໃຊ້ທຸກແຖວ/ຖັນຂອງແຜງໜ້າປັດ"
+
+#: panel-plugin/sensors-plugin.cc:1641
+msgid "F_ont size:"
+msgstr "ຂະ_ໜາດຕົວອັກສອນ:"
+
+#: panel-plugin/sensors-plugin.cc:1647
+msgid "x-small"
+msgstr "ນ້ອຍທີ່ສຸດ"
+
+#: panel-plugin/sensors-plugin.cc:1648
+msgid "small"
+msgstr "ນ້ອຍ"
+
+#: panel-plugin/sensors-plugin.cc:1649
+msgid "medium"
+msgstr "ປານກາງ"
+
+#: panel-plugin/sensors-plugin.cc:1650
+msgid "large"
+msgstr "ໃຫຍ່"
+
+#: panel-plugin/sensors-plugin.cc:1651
+msgid "x-large"
+msgstr "ໃຫຍ່ທີ່ສຸດ"
+
+#: panel-plugin/sensors-plugin.cc:1673
+msgid "F_ont:"
+msgstr "ຕົວ_ອັກສອນ:"
+
+#: panel-plugin/sensors-plugin.cc:1699
+msgid "Show _Units"
+msgstr "ສະແດງ_ຫົວໜ່ວຍ"
+
+#: panel-plugin/sensors-plugin.cc:1719
+msgid "Small horizontal s_pacing"
+msgstr "ໄລຍະ_ຫ່າງທາງນອນຂະໜາດນ້ອຍ"
+
+#: panel-plugin/sensors-plugin.cc:1746
+msgid "Tacho color alpha value:"
+msgstr "ຄ່າຄວາມໂປ່ງໃສ (Alpha) ຂອງມິເຕີເຂັມ:"
+
+#: panel-plugin/sensors-plugin.cc:1761
+msgid "Tacho color value:"
+msgstr "ຄ່າສີຂອງມິເຕີເຂັມ:"
+
+#: panel-plugin/sensors-plugin.cc:1789
+msgid "Suppress messages"
+msgstr "ບໍ່ສະແດງຂໍ້ຄວາມ"
+
+#: panel-plugin/sensors-plugin.cc:1806
+msgid "Suppress tooltip"
+msgstr "ບໍ່ສະແດງຄຳແນະນຳ (Tooltip)"
+
+#: panel-plugin/sensors-plugin.cc:1826
+msgid "E_xecute on double click:"
+msgstr "ເ_ຮັດວຽກເມື່ອຄລິກສອງຄັ້ງ:"
+
+#: panel-plugin/sensors-plugin.cc:1853
+msgid "_View"
+msgstr "ມຸມ_ເບິ່ງ"
+
+#: panel-plugin/sensors-plugin.cc:1866
+msgid "UI style options"
+msgstr "ຕົວເລືອກຮູບແບບ UI"
+
+#: panel-plugin/sensors-plugin.cc:1893
+msgid "_Miscellaneous"
+msgstr "ອື່ນ_ໆ"
+
+#. button icon name
+#: panel-plugin/sensors-plugin.cc:1955 src/interface.cc:111
+msgid "_Close"
+msgstr "_ປິດ"
+
+#: panel-plugin/sensors-plugin.cc:1986
+msgid ""
+"You can change a feature's properties such as name, colours, min/max value "
+"by double-clicking the entry, editing the content, and pressing \"Return\" "
+"or selecting a different field."
+msgstr "ທ່ານສາມາດປ່ຽນແປງຄຸນສົມບັດຕ່າງໆ ເຊັ່ນ: ຊື່, ສີ, ຄ່າຕ່ຳສຸດ/ສູງສຸດ ໂດຍການຄລິກສອງຄັ້ງໃສ່ລາຍການ, ແກ້ໄຂເນື້ອໃນ, ແລ້ວກົດ \"Return\" ຫຼື ເລືອກໄປຫ້ອງອື່ນ."
+
+#: panel-plugin/sensors-plugin.cc:2073
+msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
+msgstr "ສະແດງຄ່າເຊັນເຊີຈາກ LM sensors, ACPI, ຮາດດິດ, NVIDIA"
+
+#: panel-plugin/xfce4-sensors-plugin.desktop.in:5
+msgid "Sensor plugin"
+msgstr "ປລັກອິນເຊັນເຊີ"
+
+#: panel-plugin/xfce4-sensors-plugin.desktop.in:6
+#: src/xfce4-sensors.desktop.in:5
+msgid "Show sensor values."
+msgstr "ສະແດງຄ່າຂອງເຊັນເຊີ."
+
+#. FIXME: either print nothing, or undertake appropriate action, or pop up a
+#. message box.
+#: src/actions.cc:66
+msgid ""
+"Sensors Viewer:\n"
+"Seems like there was a problem reading a sensor feature value.\n"
+"Proper proceeding cannot be guaranteed.\n"
+msgstr "ເຄື່ອງມືເບິ່ງເຊັນເຊີ:\nເບິ່ງຄືວ່າມີບັນຫາໃນການອ່ານຄ່າຄຸນສົມບັດຂອງເຊັນເຊີ.\nບໍ່ສາມາດຮັບປະກັນການເຮັດວຽກທີ່ຖືກຕ້ອງໄດ້.\n"
+
+#: src/interface.cc:71
+msgid "_Overview"
+msgstr "ພາບ_ລວມ"
+
+#: src/interface.cc:93
+msgid "_Tachometers"
+msgstr "ມິເຕີ_ເຂັມ"
+
+#: src/interface.cc:107
+msgid "Sensors Viewer"
+msgstr "ເຄື່ອງມືເບິ່ງເຊັນເຊີ"
+
+#: src/main.cc:47
+#, c-format
+msgid ""
+"Xfce4 Sensors %s\n"
+"This program is published under the GPL v2.\n"
+"The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Xfce4 Sensors %s\nໂປຣແກຣມນີ້ຖືກເຜີຍແຜ່ພາຍໃຕ້ສັນຍາ GPL v2.\nທ່ານສາມາດອ່ານຂໍ້ຄວາມສັນຍາໄດ້ໃນໄຟລ໌ຊອດໂຄ້ດຂອງໂປຣແກຣມ ຫຼື ຢູ່ທີ່ /usr/share/apps/LICENSES/GPL_V2 ຫຼື ທີ່ http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+
+#: src/main.cc:62
+#, c-format
+msgid ""
+"Xfce4 Sensors %s\n"
+"Displays information about your hardware sensors, ACPI status, harddisk temperatures and Nvidia GPU's temperature.\n"
+"Synopsis: \n"
+"  xfce4-sensors [option]\n"
+"where [option] is one of the following:\n"
+"  -h, --help    Print this help dialog.\n"
+"  -l, --license Print license information.\n"
+"  -V, --version Print version information.\n"
+"\n"
+"This program is published under the GPL v2.\n"
+msgstr "Xfce4 Sensors %s\nສະແດງຂໍ້ມູນກ່ຽວກັບເຊັນເຊີຮາດແວຂອງທ່ານ, ສະຖານະ ACPI, ອຸນຫະພູມຮາດດິດ ແລະ ອຸນຫະພູມຂອງ Nvidia GPU.\nຮູບແບບຄຳສັ່ງ: \n  xfce4-sensors [ຕົວເລືອກ]\nໂດຍທີ່ [ຕົວເລືອກ] ແມ່ນອັນໃດອັນໜຶ່ງລຸ່ມນີ້:\n  -h, --help    ສະແດງຂໍ້ຄວາມຊ່ວຍເຫຼືອນີ້.\n  -l, --license ສະແດງຂໍ້ມູນສັນຍາອະນຸຍາດ.\n  -V, --version ສະແດງຂໍ້ມູນເວີຊັນ.\n\nໂປຣແກຣມນີ້ຖືກເຜີຍແຜ່ພາຍໃຕ້ສັນຍາ GPL v2.\n"
+
+#: src/main.cc:83
+#, c-format
+msgid "Xfce4 Sensors %s\n"
+msgstr "Xfce4 Sensors %s\n"
+
+#: src/xfce4-sensors.desktop.in:4
+msgid "Sensor Viewer"
+msgstr "ເຄື່ອງມືເບິ່ງເຊັນເຊີ"
+
+#: src/xfce4-sensors.desktop.in:6
+msgid "Sensor Values Viewer"
+msgstr "ເຄື່ອງມືເບິ່ງຄ່າເຊັນເຊີ"
