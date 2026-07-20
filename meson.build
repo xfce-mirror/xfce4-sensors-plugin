@@ -20,10 +20,9 @@ i18n = import('i18n')
 fs = import('fs')
 
 dependency_versions = {
-  'glib': '>= 2.50.0',
-  'gtk': '>= 3.22.0',
-  'xfce4': '>= 4.16.0',
-  'libxfce4util': '>= 4.17.2',
+  'glib': '>= 2.66.0',
+  'gtk': '>= 3.24.0',
+  'xfce4': '>= 4.18.0',
   'libnotify': '>= 0.7',
 }
 
@@ -31,7 +30,7 @@ glib = dependency('glib-2.0', version: dependency_versions['glib'])
 gtk = dependency('gtk+-3.0', version: dependency_versions['gtk'])
 libxfce4panel = dependency('libxfce4panel-2.0', version: dependency_versions['xfce4'])
 libxfce4ui = dependency('libxfce4ui-2', version: dependency_versions['xfce4'])
-libxfce4util = dependency('libxfce4util-1.0', version: dependency_versions['libxfce4util'])
+libxfce4util = dependency('libxfce4util-1.0', version: dependency_versions['xfce4'])
 libnotify = dependency('libnotify', version: dependency_versions['libnotify'], required: get_option('libnotify'))
 libsensors = cc.find_library('sensors', required: get_option('libsensors'))
 libm = cc.find_library('m')
