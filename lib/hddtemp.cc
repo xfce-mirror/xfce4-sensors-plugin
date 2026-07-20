@@ -554,7 +554,7 @@ get_hddtemp_value (const std::string &disk, bool *suppress_message)
         if ( 0 == strcmp (str_stdout, "drive is sleeping")
           || 0 == strcmp (str_stdout, "SLP") )
             temperature = HDDTEMP_DISK_SLEEPING;
-        else if (g_ascii_isalpha (str_stdout[0]) == TRUE) // UNK or NA etc.
+        else if (g_ascii_isalpha (str_stdout[0])) // UNK or NA etc.
             temperature = NO_VALID_TEMPERATURE_VALUE;
         else
             temperature = (double) (atoi ( (const char*) str_stdout) );
