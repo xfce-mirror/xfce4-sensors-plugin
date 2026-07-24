@@ -53,7 +53,7 @@ msgstr "ACPI"
 #: lib/acpi.cc:610
 #, c-format
 msgid "ACPI v%s zones"
-msgstr ""
+msgstr "ACPI v%s ზონები"
 
 #: lib/acpi.cc:731
 msgid "<Unknown>"
@@ -72,11 +72,11 @@ msgstr "ეს შეტყობინება აღარ მაჩვენ
 #: lib/hddtemp.cc:144 panel-plugin/sensors-plugin.cc:1951
 #: panel-plugin/sensors-plugin.h:26
 msgid "Sensors Plugin"
-msgstr ""
+msgstr "სენსორების დამატება"
 
 #: lib/hddtemp.cc:342
 msgid "S.M.A.R.T. harddisk temperatures"
-msgstr ""
+msgstr "S.M.A.R.T. მყარი დისკის ტემპერატურები"
 
 #: lib/hddtemp.cc:499
 #, c-format
@@ -92,14 +92,14 @@ msgstr ""
 
 #: lib/hddtemp.cc:513 lib/hddtemp.cc:536
 msgid "Suppress this message in future"
-msgstr ""
+msgstr "ამ შეტყობინების დადუმება მომავალში"
 
 #: lib/hddtemp.cc:531
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr ""
+msgstr "აღმოჩენილია შეცდომა \"%s\"-ის გაშვებისას:\n%s"
 
 #: lib/lmsensors.cc:59
 msgid "LM Sensors"
@@ -107,7 +107,7 @@ msgstr "LM სენსორები"
 
 #: lib/lmsensors.cc:287
 msgid "Error: Could not connect to sensors!"
-msgstr ""
+msgstr "შეცდომა: სენსორებთან დაკავშირება შეუძლებელია!"
 
 #: lib/nvidia.cc:75
 msgid "NVIDIA GPU core temperature"
@@ -119,7 +119,7 @@ msgstr "nvidia"
 
 #: lib/sensors-interface-common.cc:55 lib/sensors-interface-common.cc:56
 msgid "No sensors found!"
-msgstr ""
+msgstr "სენსორები აღმოჩენილი არაა!"
 
 #: lib/sensors-interface-common.cc:83
 #, c-format
@@ -166,17 +166,17 @@ msgstr "%.0f ბრ/წთ"
 
 #: lib/sensors-interface.cc:93
 msgid "Sensors Plugin Failure"
-msgstr ""
+msgstr "სენსორების დამატების ჩავარდნა"
 
 #: lib/sensors-interface.cc:94
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr ""
+msgstr "როგორც ჩანს, სენსორიდან მნიშვნელობის წაკითხვის მცდელობა შეცდომით დასრულდა.\nსწორი მუშაობა გარანტირებული არაა."
 
 #: lib/sensors-interface.cc:127
 msgid "Sensors t_ype:"
-msgstr ""
+msgstr "სენსორის _ტიპი:"
 
 #: lib/sensors-interface.cc:145
 msgid "Description:"
@@ -184,7 +184,7 @@ msgstr "აღწერა:"
 
 #: lib/sensors-interface.cc:172
 msgid "U_pdate interval (seconds):"
-msgstr ""
+msgstr "განახლების ინტერვალი (_წმ):"
 
 #: lib/sensors-interface.cc:206
 msgid "Name"
@@ -212,7 +212,7 @@ msgstr "მაქს"
 
 #: lib/sensors-interface.cc:299
 msgid "Temperature scale:"
-msgstr ""
+msgstr "ტემპერატურის შკალა:"
 
 #: lib/sensors-interface.cc:300
 msgid "_Celsius"
@@ -230,7 +230,7 @@ msgstr "_სენსორები"
 #: panel-plugin/sensors-plugin.cc:262 panel-plugin/sensors-plugin.cc:361
 #: panel-plugin/sensors-plugin.cc:832
 msgid "<span><b>Sensors</b></span>"
-msgstr ""
+msgstr "<span><b>სენსორები</b></span>"
 
 #. output to stdout on command line, not very useful for user, except for
 #. tracing problems
@@ -239,15 +239,15 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
+msgstr "სენსორების დამატება:\nროგორც ჩანს, სენსორიდან მნიშვნელობის წაკითხვის მცდელობა შეცდომით დასრულდა.\nსწორი მუშაობა გარანტირებული არაა.\n"
 
 #: panel-plugin/sensors-plugin.cc:756
 msgid "No sensors selected!"
-msgstr ""
+msgstr "სენსორები არჩეული არაა!"
 
 #: panel-plugin/sensors-plugin.cc:1482
 msgid "UI style:"
-msgstr ""
+msgstr "ინტერფეისის სტილი:"
 
 #: panel-plugin/sensors-plugin.cc:1483
 msgid "_text"
@@ -267,7 +267,7 @@ msgstr "ჭდეების ჩვე_ნება"
 
 #: panel-plugin/sensors-plugin.cc:1545
 msgid "_Automatic bar colors"
-msgstr ""
+msgstr "ზოლის _ავტომატური ფერები"
 
 #: panel-plugin/sensors-plugin.cc:1547
 msgid ""
@@ -279,18 +279,18 @@ msgstr ""
 
 #: panel-plugin/sensors-plugin.cc:1574
 msgid "_Show title"
-msgstr ""
+msgstr "_სათაურის ჩვენება"
 
 #: panel-plugin/sensors-plugin.cc:1591
 msgid "_Number of text lines:"
-msgstr ""
+msgstr "ტექსტის ხაზების რაოდე_ნობა:"
 
 #. The Xfce 4 panel can have several rows or columns. With such a mode,
 #. the plugins are allowed to span over all available rows/columns.
 #. When translating, "cover" might be replaced by "use" or "span".
 #: panel-plugin/sensors-plugin.cc:1623
 msgid "_Cover all panel rows/columns"
-msgstr ""
+msgstr "ყველა _პანელის მწკრივის/სვეტის დაფარვა"
 
 #: panel-plugin/sensors-plugin.cc:1641
 msgid "F_ont size:"
@@ -326,27 +326,27 @@ msgstr "ერთე_ულების ჩვენება"
 
 #: panel-plugin/sensors-plugin.cc:1719
 msgid "Small horizontal s_pacing"
-msgstr ""
+msgstr "მ_ცირე ჰორიზონტალური დაშორება"
 
 #: panel-plugin/sensors-plugin.cc:1746
 msgid "Tacho color alpha value:"
-msgstr ""
+msgstr "ტაქომეტრის ფერის ალფას მნიშვნელობა:"
 
 #: panel-plugin/sensors-plugin.cc:1761
 msgid "Tacho color value:"
-msgstr ""
+msgstr "ტაქომეტრის ფერის მნიშვნელობა:"
 
 #: panel-plugin/sensors-plugin.cc:1789
 msgid "Suppress messages"
-msgstr ""
+msgstr "შეტყობინებების მოცილება"
 
 #: panel-plugin/sensors-plugin.cc:1806
 msgid "Suppress tooltip"
-msgstr ""
+msgstr "მინიშნებების მოცილება"
 
 #: panel-plugin/sensors-plugin.cc:1826
 msgid "E_xecute on double click:"
-msgstr ""
+msgstr "შესრულება ორმაგ _წკაპზე:"
 
 #: panel-plugin/sensors-plugin.cc:1853
 msgid "_View"
@@ -354,7 +354,7 @@ msgstr "_ხედი"
 
 #: panel-plugin/sensors-plugin.cc:1866
 msgid "UI style options"
-msgstr ""
+msgstr "ინტერფეისის სტილის მორგება"
 
 #: panel-plugin/sensors-plugin.cc:1893
 msgid "_Miscellaneous"
@@ -374,16 +374,16 @@ msgstr ""
 
 #: panel-plugin/sensors-plugin.cc:2073
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
-msgstr ""
+msgstr "აჩვენებს სენსორის მნიშვნელობებს LM სენსორებიდან, ACPI-დან, მყარი დისკებიდან, NVIDIA-დან"
 
 #: panel-plugin/xfce4-sensors-plugin.desktop.in:5
 msgid "Sensor plugin"
-msgstr ""
+msgstr "სენსორის დამატება"
 
 #: panel-plugin/xfce4-sensors-plugin.desktop.in:6
 #: src/xfce4-sensors.desktop.in:5
 msgid "Show sensor values."
-msgstr ""
+msgstr "სენსორის მნიშვნელობების ჩვენება."
 
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
@@ -392,7 +392,7 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
+msgstr "სენსორების დამატება:\nროგორც ჩანს, სენსორიდან მნიშვნელობის წაკითხვის მცდელობა შეცდომით დასრულდა.\nსწორი მუშაობა გარანტირებული არაა.\n"
 
 #: src/interface.cc:71
 msgid "_Overview"
@@ -400,11 +400,11 @@ msgstr "_გადახედვა"
 
 #: src/interface.cc:93
 msgid "_Tachometers"
-msgstr ""
+msgstr "_ტაქომეტრები"
 
 #: src/interface.cc:107
 msgid "Sensors Viewer"
-msgstr ""
+msgstr "სენსორების დათვალიერება"
 
 #: src/main.cc:47
 #, c-format
@@ -432,12 +432,12 @@ msgstr ""
 #: src/main.cc:83
 #, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr ""
+msgstr "Xfce4 Sensors %s\n"
 
 #: src/xfce4-sensors.desktop.in:4
 msgid "Sensor Viewer"
-msgstr ""
+msgstr "სენსორების დათვალიერება"
 
 #: src/xfce4-sensors.desktop.in:6
 msgid "Sensor Values Viewer"
-msgstr ""
+msgstr "სენსორის მნიშვნელობების დათვალიერება"
