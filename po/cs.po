@@ -430,7 +430,7 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr "Senzory pro Xfce4, verze %s\nZobrazuje informace o senzorech hardwaru, stav rozhraní ACPI, teplotu disků a teplotu jádra grafických procesorů NVidia.\nPoužití: \n  xfce4-sensors [volba]\n[volba] je jedna z následujících položek:\n  -h, --help    Zobrazí toto dialogové okno nápovědy\n  -l, --license Zobrazí informace o licenci\n  -v, --version Zobrazí informace o verzi\n\nTento program byl vydán pod licencí GPL v2.\n"
+msgstr "Senzory pro Xfce4, verze %s\nZobrazuje informace o senzorech hardwaru, stav rozhraní ACPI, teplotu disků a teplotu jádra grafických procesorů NVidia.\nPoužití: \n  xfce4-sensors [volba]\n[volba] je jedna z následujících položek:\n  -h, --help    Zobrazí toto dialogové okno nápovědy\n  -l, --license Zobrazí informace o licenci\n  -V, --version Zobrazí informace o verzi\n\nTento program byl vydán pod licencí GPL v2.\n"
 
 #: src/main.cc:83
 #, c-format
