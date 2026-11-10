@@ -2063,14 +2063,12 @@ sensors_show_about (XfcePanelPlugin *plugin)
       "Stefan Ott",
       NULL };
 
-   GdkPixbuf *icon = xfce_panel_pixbuf_from_source ("xfce-sensors", NULL, 48);
-
 #if LIBXFCE4PANEL_CHECK_VERSION(4, 21, 4)
    xfce_panel_gtk_show_about_dialog (
 #else
    gtk_show_about_dialog (NULL,
 #endif
-      "logo", icon,
+      "logo-icon-name", "xfce-sensors",
       "license", xfce_get_license_text (XFCE_LICENSE_TEXT_GPL),
       "version", VERSION_FULL,
       "program-name", PACKAGE_NAME,
@@ -2079,9 +2077,6 @@ sensors_show_about (XfcePanelPlugin *plugin)
       "copyright", "Copyright \302\251 2004-" COPYRIGHT_YEAR " The Xfce development team",
       "authors", auth,
       NULL);
-
-   if(icon)
-      g_object_unref (G_OBJECT(icon));
 }
 
 
