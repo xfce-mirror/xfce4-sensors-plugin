@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Rihards Priedītis <rprieditis@gmail.com>, 2009
+# Rihards Priedītis <rprieditis@gmail.com>, 2007,2009,2026
 # Rihards Prieditis <rprieditis@inbox.lv>, 2007
 msgid ""
 msgstr ""
@@ -11,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2025-07-18 11:08+0200\n"
 "PO-Revision-Date: 2013-07-03 19:16+0000\n"
-"Last-Translator: Rihards Priedītis <rprieditis@gmail.com>, 2009\n"
+"Last-Translator: Rihards Priedītis <rprieditis@gmail.com>, 2007,2009,2026\n"
 "Language-Team: Latvian (http://app.transifex.com/xfce/xfce-panel-plugins/language/lv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,16 +38,16 @@ msgstr ""
 #: lib/acpi.cc:266 lib/acpi.cc:513 lib/acpi.cc:566
 #, c-format
 msgid "%s - %s"
-msgstr ""
+msgstr "%s - %s"
 
 #. Power with unit Watts, not Energy with Joules or kWh
 #: lib/acpi.cc:515
 msgid "Power"
-msgstr ""
+msgstr "Jauda"
 
 #: lib/acpi.cc:566
 msgid "Voltage"
-msgstr ""
+msgstr "Spriegums"
 
 #: lib/acpi.cc:607 lib/acpi.cc:618
 msgid "ACPI"
@@ -69,7 +70,7 @@ msgstr "Cietie diski"
 
 #: lib/hddtemp.cc:102
 msgid "Don't show this message again"
-msgstr ""
+msgstr "Vairs nerādīt šo ziņojumu"
 
 #: lib/hddtemp.cc:144 panel-plugin/sensors-plugin.cc:1951
 #: panel-plugin/sensors-plugin.h:26
@@ -90,34 +91,34 @@ msgid ""
 "Calling \"%s\" gave the following error:\n"
 "%s\n"
 "with a return value of %d.\n"
-msgstr "\"hddtemp\" netika izpildīts korekti, lai arī tas ir izpildāms. Iemesls tam var būt, ka diskam ir nepieciešamas root tiesības, lai nolasītu temperatūru un \"hddtemp\" netiek izpildīts ar setuid root.\n\nViegls, bet nejauks, risinājums ir palaist \"chmod u+s %s\", kā root lietotājam vai pārstartēt spraudni, vai paneli.\n\nIzsaucot \"%s\" izdeva sekojošu kļūdu:\n%s\nun atgrieza vērtību %d\n"
+msgstr "„hddtemp” netika izpildīts pareizi, lai gan tas ir izpildāms. Visticamāk, diskiem temperatūras nolasīšanai vajadzīgas root tiesības, bet „hddtemp” nav setuid root.\n\nVienkāršs, bet netīrs risinājums ir kā root lietotājam palaist „chmod u+s %s” un pārstartēt šo spraudni vai paneli.\n\nIzsaucot „%s”, radās šāda kļūda:\n%s\nar atgriezto vērtību %d.\n"
 
 #: lib/hddtemp.cc:513 lib/hddtemp.cc:536
 msgid "Suppress this message in future"
-msgstr "Apspiest šo ziņu turpmāk"
+msgstr "Turpmāk nerādīt šo ziņojumu"
 
 #: lib/hddtemp.cc:531
 #, c-format
 msgid ""
 "An error occurred when executing \"%s\":\n"
 "%s"
-msgstr "Notika kļūda izpildot \"%s\":\n%s"
+msgstr "Izpildot „%s”, radās kļūda:\n%s"
 
 #: lib/lmsensors.cc:59
 msgid "LM Sensors"
-msgstr "LM sensors"
+msgstr "LM Sensors"
 
 #: lib/lmsensors.cc:287
 msgid "Error: Could not connect to sensors!"
-msgstr "Kļūda: Nevarēju savienoties ar sensoru!"
+msgstr "Kļūda: neizdevās savienoties ar sensoriem!"
 
 #: lib/nvidia.cc:75
 msgid "NVIDIA GPU core temperature"
-msgstr ""
+msgstr "NVIDIA GPU kodola temperatūra"
 
 #: lib/nvidia.cc:76
 msgid "nvidia"
-msgstr ""
+msgstr "nvidia"
 
 #: lib/sensors-interface-common.cc:55 lib/sensors-interface-common.cc:56
 msgid "No sensors found!"
@@ -126,22 +127,22 @@ msgstr "Netika atrasts neviens sensors!"
 #: lib/sensors-interface-common.cc:83
 #, c-format
 msgid "%.0f °F"
-msgstr ""
+msgstr "%.0f °F"
 
 #: lib/sensors-interface-common.cc:85
 #, c-format
 msgid "%.0f °C"
-msgstr ""
+msgstr "%.0f °C"
 
 #: lib/sensors-interface-common.cc:88
 #, c-format
 msgid "%+.3f V"
-msgstr ""
+msgstr "%+.3f V"
 
 #: lib/sensors-interface-common.cc:91
 #, c-format
 msgid "%+.3f A"
-msgstr ""
+msgstr "%+.3f A"
 
 #: lib/sensors-interface-common.cc:94
 #, c-format
@@ -151,7 +152,7 @@ msgstr "%.0f mWh"
 #: lib/sensors-interface-common.cc:97
 #, c-format
 msgid "%.3f W"
-msgstr ""
+msgstr "%.3f W"
 
 #: lib/sensors-interface-common.cc:100
 msgid "off"
@@ -164,17 +165,17 @@ msgstr "ieslēgts"
 #: lib/sensors-interface-common.cc:103
 #, c-format
 msgid "%.0f rpm"
-msgstr "%.0f apgriezieni min"
+msgstr "%.0f apgr./min"
 
 #: lib/sensors-interface.cc:93
 msgid "Sensors Plugin Failure"
-msgstr "Sensora spraudņa kļūda"
+msgstr "Sensoru spraudņa kļūme"
 
 #: lib/sensors-interface.cc:94
 msgid ""
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed."
-msgstr "Liekas bija problēma ar sensora iespēju nolasīšanu.\nNormāla darbība nevar tikt garantēta."
+msgstr "Šķiet, ka radās problēma, nolasot sensora parametra vērtību.\nPareizu darbību nevar garantēt."
 
 #: lib/sensors-interface.cc:127
 msgid "Sensors t_ype:"
@@ -186,7 +187,7 @@ msgstr "Apraksts:"
 
 #: lib/sensors-interface.cc:172
 msgid "U_pdate interval (seconds):"
-msgstr "At_jaunināšanas intervāls (sekundes):"
+msgstr "_Atjaunināšanas intervāls (sekundes):"
 
 #: lib/sensors-interface.cc:206
 msgid "Name"
@@ -210,7 +211,7 @@ msgstr "Min"
 
 #: lib/sensors-interface.cc:266
 msgid "Max"
-msgstr "Maks"
+msgstr "Maks."
 
 #: lib/sensors-interface.cc:299
 msgid "Temperature scale:"
@@ -232,7 +233,7 @@ msgstr "S_ensori"
 #: panel-plugin/sensors-plugin.cc:262 panel-plugin/sensors-plugin.cc:361
 #: panel-plugin/sensors-plugin.cc:832
 msgid "<span><b>Sensors</b></span>"
-msgstr ""
+msgstr "<span><b>Sensori</b></span>"
 
 #. output to stdout on command line, not very useful for user, except for
 #. tracing problems
@@ -241,7 +242,7 @@ msgid ""
 "Sensors Plugin:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr "Xfce dzelžu sensora spraudnis:\nLiekas, ka radās problēma lasot sensora iespēju vērtību.\nDarba spējīga turpināšana netiek garantēta.\n"
+msgstr "Sensoru spraudnis:\nŠķiet, ka radās problēma, nolasot sensora parametra vērtību.\nPareizu darbību nevar garantēt.\n"
 
 #: panel-plugin/sensors-plugin.cc:756
 msgid "No sensors selected!"
@@ -249,7 +250,7 @@ msgstr "Neviens sensors nav izvēlēts!"
 
 #: panel-plugin/sensors-plugin.cc:1482
 msgid "UI style:"
-msgstr "UI stils:"
+msgstr "Saskarnes stils:"
 
 #: panel-plugin/sensors-plugin.cc:1483
 msgid "_text"
@@ -257,19 +258,19 @@ msgstr "_teksts"
 
 #: panel-plugin/sensors-plugin.cc:1484
 msgid "_progress bars"
-msgstr ""
+msgstr "_progresa joslas"
 
 #: panel-plugin/sensors-plugin.cc:1485
 msgid "_tachos"
-msgstr ""
+msgstr "_tahometri"
 
 #: panel-plugin/sensors-plugin.cc:1523
 msgid "Show _labels"
-msgstr "_Rādīt etiķetes"
+msgstr "Rādīt _etiķetes"
 
 #: panel-plugin/sensors-plugin.cc:1545
 msgid "_Automatic bar colors"
-msgstr ""
+msgstr "_Automātiskas joslu krāsas"
 
 #: panel-plugin/sensors-plugin.cc:1547
 msgid ""
@@ -277,7 +278,7 @@ msgid ""
 "If disabled, bars use the user-defined sensor colors.\n"
 "If a particular user-defined sensor color is unspecified,\n"
 "the bar color is derived from the current UI style."
-msgstr ""
+msgstr "Ja iespējots, joslu krāsas ir atkarīgas no to vērtībām (normāla, augsta, ļoti augsta).\nJa atspējots, joslas izmanto lietotāja definētās sensoru krāsas.\nJa kāda lietotāja definētā sensora krāsa nav norādīta,\njoslas krāsu nosaka pašreizējais saskarnes stils."
 
 #: panel-plugin/sensors-plugin.cc:1574
 msgid "_Show title"
@@ -285,14 +286,14 @@ msgstr "_Rādīt virsrakstu"
 
 #: panel-plugin/sensors-plugin.cc:1591
 msgid "_Number of text lines:"
-msgstr "_Teksta rindiņu skaits"
+msgstr "_Teksta rindu skaits:"
 
 #. The Xfce 4 panel can have several rows or columns. With such a mode,
 #. the plugins are allowed to span over all available rows/columns.
 #. When translating, "cover" might be replaced by "use" or "span".
 #: panel-plugin/sensors-plugin.cc:1623
 msgid "_Cover all panel rows/columns"
-msgstr ""
+msgstr "_Aizņemt visas paneļa rindas/kolonnas"
 
 #: panel-plugin/sensors-plugin.cc:1641
 msgid "F_ont size:"
@@ -300,7 +301,7 @@ msgstr "F_onta izmērs:"
 
 #: panel-plugin/sensors-plugin.cc:1647
 msgid "x-small"
-msgstr "viss mazākais"
+msgstr "ļoti mazs"
 
 #: panel-plugin/sensors-plugin.cc:1648
 msgid "small"
@@ -316,15 +317,15 @@ msgstr "liels"
 
 #: panel-plugin/sensors-plugin.cc:1651
 msgid "x-large"
-msgstr "viss lielākais"
+msgstr "ļoti liels"
 
 #: panel-plugin/sensors-plugin.cc:1673
 msgid "F_ont:"
-msgstr ""
+msgstr "F_onts:"
 
 #: panel-plugin/sensors-plugin.cc:1699
 msgid "Show _Units"
-msgstr "_Rādīt vienību"
+msgstr "Rādīt _mērvienības"
 
 #: panel-plugin/sensors-plugin.cc:1719
 msgid "Small horizontal s_pacing"
@@ -332,23 +333,23 @@ msgstr "Mazas horizontālās atstar_ptes"
 
 #: panel-plugin/sensors-plugin.cc:1746
 msgid "Tacho color alpha value:"
-msgstr ""
+msgstr "Tahometra krāsas alfa vērtība:"
 
 #: panel-plugin/sensors-plugin.cc:1761
 msgid "Tacho color value:"
-msgstr ""
+msgstr "Tahometra krāsas vērtība:"
 
 #: panel-plugin/sensors-plugin.cc:1789
 msgid "Suppress messages"
-msgstr "Apspiest ziņas"
+msgstr "Nerādīt ziņojumus"
 
 #: panel-plugin/sensors-plugin.cc:1806
 msgid "Suppress tooltip"
-msgstr ""
+msgstr "Nerādīt paskaidri"
 
 #: panel-plugin/sensors-plugin.cc:1826
 msgid "E_xecute on double click:"
-msgstr "I_zpildīt uz dubultklikšķi:"
+msgstr "I_zpildīt, veicot dubultklikšķi:"
 
 #: panel-plugin/sensors-plugin.cc:1853
 msgid "_View"
@@ -356,7 +357,7 @@ msgstr "_Skats"
 
 #: panel-plugin/sensors-plugin.cc:1866
 msgid "UI style options"
-msgstr ""
+msgstr "Saskarnes stila opcijas"
 
 #: panel-plugin/sensors-plugin.cc:1893
 msgid "_Miscellaneous"
@@ -365,27 +366,27 @@ msgstr "_Dažādi"
 #. button icon name
 #: panel-plugin/sensors-plugin.cc:1955 src/interface.cc:111
 msgid "_Close"
-msgstr ""
+msgstr "_Aizvērt"
 
 #: panel-plugin/sensors-plugin.cc:1986
 msgid ""
 "You can change a feature's properties such as name, colours, min/max value "
 "by double-clicking the entry, editing the content, and pressing \"Return\" "
 "or selecting a different field."
-msgstr "Jūs varat mainīt iespējas rekvizītus, tādus kā nosaukums, krāsas, mini/maks vērtības, dubultklikšķinot uz ieraksta, rediģējot saturu un spiežot enter, vai atlasot citu lauku."
+msgstr "Parametra īpašības, piemēram, nosaukumu, krāsas, min./maks. vērtību, var mainīt, veicot dubultklikšķi uz ieraksta, rediģējot saturu un nospiežot „Return” vai atlasot citu lauku."
 
 #: panel-plugin/sensors-plugin.cc:2073
 msgid "Show sensor values from LM sensors, ACPI, hard disks, NVIDIA"
-msgstr ""
+msgstr "Rādīt LM sensors, ACPI, cieto disku un NVIDIA sensoru vērtības"
 
 #: panel-plugin/xfce4-sensors-plugin.desktop.in:5
 msgid "Sensor plugin"
-msgstr ""
+msgstr "Sensoru spraudnis"
 
 #: panel-plugin/xfce4-sensors-plugin.desktop.in:6
 #: src/xfce4-sensors.desktop.in:5
 msgid "Show sensor values."
-msgstr "Rādīt sensora vērtības."
+msgstr "Rādīt sensoru vērtības."
 
 #. FIXME: either print nothing, or undertake appropriate action, or pop up a
 #. message box.
@@ -394,15 +395,15 @@ msgid ""
 "Sensors Viewer:\n"
 "Seems like there was a problem reading a sensor feature value.\n"
 "Proper proceeding cannot be guaranteed.\n"
-msgstr ""
+msgstr "Sensoru skatītājs:\nŠķiet, ka radās problēma, nolasot sensora parametra vērtību.\nPareizu darbību nevar garantēt.\n"
 
 #: src/interface.cc:71
 msgid "_Overview"
-msgstr ""
+msgstr "_Pārskats"
 
 #: src/interface.cc:93
 msgid "_Tachometers"
-msgstr ""
+msgstr "_Tahometri"
 
 #: src/interface.cc:107
 msgid "Sensors Viewer"
@@ -414,7 +415,7 @@ msgid ""
 "Xfce4 Sensors %s\n"
 "This program is published under the GPL v2.\n"
 "The license text can be found inside the program's source archive or under /usr/share/apps/LICENSES/GPL_V2 or at http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
-msgstr "Xfce 4 sensori %s\nProgramma publicēta zem GPL v2.\nLicences teksts var tikt atrast iekš programmas pirmkoda vai zem /usr/share/apps/LICENSES/GPL_V2 vai http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
+msgstr "Xfce4 sensori %s\nŠī programma publicēta saskaņā ar GPL v2.\nLicences tekstu var atrast programmas pirmkoda arhīvā, mapē /usr/share/apps/LICENSES/GPL_V2 vai http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt\n"
 
 #: src/main.cc:62
 #, c-format
@@ -429,12 +430,12 @@ msgid ""
 "  -V, --version Print version information.\n"
 "\n"
 "This program is published under the GPL v2.\n"
-msgstr ""
+msgstr "Xfce4 sensori %s\nRāda informāciju par aparatūras sensoriem, ACPI statusu, cieto disku temperatūrām un Nvidia GPU temperatūru.\nSinopse: \n  xfce4-sensors [opcija]\nkur [opcija] ir viena no šīm:\n  -h, --help    Izdrukāt šo palīdzību.\n  -l, --license Izdrukāt licences informāciju.\n  -V, --version Izdrukāt versijas informāciju.\n\nŠī programma publicēta saskaņā ar GPL v2.\n"
 
 #: src/main.cc:83
 #, c-format
 msgid "Xfce4 Sensors %s\n"
-msgstr "Xfce 4 sensori %s\n"
+msgstr "Xfce4 sensori %s\n"
 
 #: src/xfce4-sensors.desktop.in:4
 msgid "Sensor Viewer"
@@ -442,4 +443,4 @@ msgstr "Sensoru skatītājs"
 
 #: src/xfce4-sensors.desktop.in:6
 msgid "Sensor Values Viewer"
-msgstr ""
+msgstr "Sensoru vērtību skatītājs"
